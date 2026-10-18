@@ -1,0 +1,302 @@
+[
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.99: Wheelchair Seating",
+    "policy_version": "Revision 01/24",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.99.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.99.pdf",
+    "rule_id": "RULE-DME-099-001",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 49"
+    },
+    "source_section": "Policy/Criteria - Section I.A General Use Cushions",
+    "source_quote": "A general use seat cushion (E2601, E2602) and a general use wheelchair back cushion (E2611, E2612) for an approved manual wheelchair or power wheelchair with a sling or solid seat or back.",
+    "clinical_service_or_procedure": "General use wheelchair seat and back cushions (HCPCS E2601, E2602, E2611, E2612)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-099-001-A",
+          "description": "Approved manual or power wheelchair with sling or solid seat/back",
+          "parameter": "approved_wheelchair_with_sling_solid_seat",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "General use cushions covered with an approved manual or power chair."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.99: Wheelchair Seating",
+    "policy_version": "Revision 01/24",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.99.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.99.pdf",
+    "rule_id": "RULE-DME-099-002",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 49"
+    },
+    "source_section": "Policy/Criteria - Section I.B Skin Protection Cushions",
+    "source_quote": "A skin-protection seat cushion (E2603, E2604, E2622, E2623) with an approved manual wheelchair or power wheelchair, with a sling/solid seat/back; and either of the following: 1. Current pressure ulcer or past history of a pressure ulcer",
+    "clinical_service_or_procedure": "Skin-protection wheelchair seat cushion (HCPCS E2603, E2604, E2622, E2623)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-099-002-A",
+          "description": "Approved manual or power wheelchair with sling/solid seat/back",
+          "parameter": "approved_wheelchair_present",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-099-002-B",
+          "description": "Current pressure ulcer or history of pressure ulcer at seating contact area OR absent/impaired sensation / inability to weight shift from qualifying neuro disease",
+          "parameter": "skin_protection_qualifying_condition",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Wound care or clinical notes documenting pressure ulcer history",
+      "Neurologic assessment documenting sensory loss or inability to perform weight shift"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Indicated for pressure ulcer history or qualifying neurological sensory loss."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.99: Wheelchair Seating",
+    "policy_version": "Revision 01/24",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.99.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.99.pdf",
+    "rule_id": "RULE-DME-099-003",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 49"
+    },
+    "source_section": "Policy/Criteria - Section I.C Positioning Cushions",
+    "source_quote": "A positioning seat cushion (E2605, E2606), positioning back cushion (E2613, E2614, E2615, E2616, E2620, E2621), and positioning accessory (E0953, E0955, E0956, E0957, E0960) with both of the following: 1. An approved manual wheelchair or power wheelchair with a sling/solid seat/back; and 2. Significant postural asymmetries",
+    "clinical_service_or_procedure": "Positioning seat and back cushions and accessories (HCPCS E2605, E2606, E2613-E2616, E2620, E2621, E0953, E0955, E0956, E0957, E0960)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-099-003-A",
+          "description": "Approved wheelchair with sling/solid seat/back",
+          "parameter": "approved_wheelchair_present",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-099-003-B",
+          "description": "Significant postural asymmetries due to qualifying neurological or musculoskeletal diagnosis",
+          "parameter": "significant_postural_asymmetries",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "PT/OT seating evaluation detailing postural asymmetries"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Requires documentation of significant postural asymmetries from qualifying conditions."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.99: Wheelchair Seating",
+    "policy_version": "Revision 01/24",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.99.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.99.pdf",
+    "rule_id": "RULE-DME-099-004",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 49"
+    },
+    "source_section": "Policy/Criteria - Section I.D Wheelchair Headrest",
+    "source_quote": "A headrest (E0955) when the member/enrollee has an approved manual tilt-in-space, manual semi or fully reclining back on a manual wheelchair, a manual fully reclining back on a power wheelchair, or power tilt and/or recline power seating system.",
+    "clinical_service_or_procedure": "Wheelchair headrest (HCPCS E0955)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-099-004-A",
+          "description": "Approved manual tilt-in-space, reclining back, or power tilt/recline seating system",
+          "parameter": "tilt_or_recline_seating_system_present",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Headrest indicated when wheelchair has tilt-in-space or recline feature."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.99: Wheelchair Seating",
+    "policy_version": "Revision 01/24",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.99.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.99.pdf",
+    "rule_id": "RULE-DME-099-005",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 49"
+    },
+    "source_section": "Policy/Criteria - Section I.E Combination Cushions",
+    "source_quote": "A combination skin-protection and positioning seat cushion (E2607, E2608, E2624, E2625) if the criteria for both a skin-protection seat cushion and a positioning seat cushion are met.",
+    "clinical_service_or_procedure": "Combination skin-protection and positioning wheelchair seat cushion (HCPCS E2607, E2608, E2624, E2625)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-099-005-A",
+          "description": "Criteria for skin-protection cushion met",
+          "parameter": "skin_protection_criteria_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-099-005-B",
+          "description": "Criteria for positioning cushion met",
+          "parameter": "positioning_cushion_criteria_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Clinical records documenting both pressure ulcer/sensory deficit AND postural asymmetry"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Dual qualification: must meet skin-protection and positioning criteria simultaneously."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.99: Wheelchair Seating",
+    "policy_version": "Revision 01/24",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.99.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.99.pdf",
+    "rule_id": "RULE-DME-099-006",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 49"
+    },
+    "source_section": "Policy/Criteria - Section I.F Custom Fabricated Cushions",
+    "source_quote": "A custom fabricated seat cushion (E2609) if criteria (1) and (3) below are met. A custom fabricated back cushion (E2617) if criteria (2) and (3) below are met: 1. The member/enrollee meets all of the criteria for a prefabricated skin-protection seat cushion or positioning seat cushion; 2. The member/enrollee meets all of the criteria for a prefabricated positioning back cushion; 3. There is a comprehensive, written evaluation by a licensed/certified medical professional, such as a physical therapist (PT) or occupational therapist (OT), which clearly explains why a prefabricated seating system is not sufficient to meet seating and positioning needs. The PT or OT must have no financial relationship with the supplier.",
+    "clinical_service_or_procedure": "Custom fabricated wheelchair seat or back cushion (HCPCS E2609, E2617)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-099-006-A",
+          "description": "Prefabricated cushion criteria met (skin protection or positioning)",
+          "parameter": "prefab_cushion_criteria_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-099-006-B",
+          "description": "Comprehensive evaluation by independent PT/OT explaining why prefab system is insufficient",
+          "parameter": "independent_therapist_eval_prefab_insufficient",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Independent PT/OT written evaluation",
+      "Supplier conflict-of-interest attestation confirming no financial relationship"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Requires independent PT/OT evaluation explaining why prefab system fails."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.99: Wheelchair Seating",
+    "policy_version": "Revision 01/24",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.99.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.99.pdf",
+    "rule_id": "RULE-DME-099-007",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 49"
+    },
+    "source_section": "Policy/Criteria - Section II Seating Non-Covered",
+    "source_quote": "special wheelchair cushions and accessories are not medically necessary for the following indications: A. A general use seat cushion (E2601, E2602) if the member/enrollee has a power-operated vehicle (POV) or a power wheelchair with a captain's chair seat.",
+    "clinical_service_or_procedure": "Wheelchair cushions and accessories on POV or Captain's Chair",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-099-007-A",
+          "description": "Cushion requested for POV or power wheelchair with captain's chair seat",
+          "parameter": "captain_chair_or_pov_seating",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-099-007-B",
+          "description": "Cushion provided for use with transport chair (E1037, E1038)",
+          "parameter": "transport_chair_seating",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-099-007-C",
+          "description": "Powered seat cushion (E2610) for any indication",
+          "parameter": "powered_seat_cushion_requested",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Excluded on captain's chair, transport chair, or powered seat cushion (E2610)."
+  }
+]

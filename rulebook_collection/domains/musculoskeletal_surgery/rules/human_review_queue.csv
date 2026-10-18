@@ -1,0 +1,3 @@
+rule_id,guideline_id,policy_title,physical_page,review_reason,source_quote
+RULE-MSK-PREAMBLEMSK-001,PREAMBLE-MSK,2026 Evolent Clinical Guidelines for Medical Necessity Review: Musculoskeletal Surgery Guidelines,2,Clinical discretion / surgical exception criteria,treatment for patients. The medical necessity criteria that follow are
+RULE-MSK-CGSIJOINTFUSION-001,CG-SI-JOINT-FUSION,2026 Evolent Clinical Guidelines for Medical Necessity Review: Musculoskeletal Surgery Guidelines,217,Clinical discretion / surgical exception criteria,Operative treatment is indicated when the natural history of surgically treated lesions is better

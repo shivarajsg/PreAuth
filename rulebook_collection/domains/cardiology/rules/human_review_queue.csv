@@ -1,0 +1,4 @@
+rule_id,guideline_id,policy_title,physical_page,review_reason,source_quote
+RULE-CARD-PREAMBLEDIAG-001,PREAMBLE-DIAG,2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology,2,Governance / claim edit clinical discretion requirement,treatment for patients. The medical necessity criteria that follow are
+RULE-CARD-PREAMBLEINTERV-001,PREAMBLE-INTERV,2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2),2,Governance / claim edit clinical discretion requirement,treatment for patients. The medical necessity criteria that follow are
+RULE-CARD-OP38801-001,OP-388-01,Cardiac Claim Edit: Stress Echocardiography and Doppler Add-On (OP38801),2,Governance / claim edit clinical discretion requirement,"Appropriate Use Criteria for Echocardiography, color flow Doppler is only medically necessary for Stress"

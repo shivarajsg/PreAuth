@@ -1,0 +1,2149 @@
+[
+  {
+    "rule_id": "RULE-CARD-CG7251-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7251 for Abdominal Aortic Ultrasound",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Abdominal Aortic Ultrasound",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7251-001",
+          "description": "Clinical criteria satisfied for Abdominal Aortic Ultrasound",
+          "parameter": "cg7251_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7252-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 16,
+      "printed_page": "Page 16 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7252 for Ambulatory Rhythm Monitoring",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Ambulatory Rhythm Monitoring",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7252-001",
+          "description": "Clinical criteria satisfied for Ambulatory Rhythm Monitoring",
+          "parameter": "cg7252_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7253-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 28,
+      "printed_page": "Page 28 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7253 for Ankle-Brachial Index in Peripheral Artery Disease",
+    "source_quote": "Evolent Clinical Guideline 7253 for Ankle-Brachial Index in Peripheral Artery Disease",
+    "clinical_service_or_procedure": "Ankle-Brachial Index in Peripheral Artery Disease",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7253-001",
+          "description": "Clinical criteria satisfied for Ankle-Brachial Index in Peripheral Artery Disease",
+          "parameter": "cg7253_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7254-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 29,
+      "printed_page": "Page 29 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7254 for Coronary Artery Bypass Graft",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Coronary Artery Bypass Graft",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7254-001",
+          "description": "Clinical criteria satisfied for Coronary Artery Bypass Graft",
+          "parameter": "cg7254_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7255-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 49,
+      "printed_page": "Page 49 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7255 for Aortic Valve Replacement",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Aortic Valve Replacement",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7255-001",
+          "description": "Clinical criteria satisfied for Aortic Valve Replacement",
+          "parameter": "cg7255_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7256-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 60,
+      "printed_page": "Page 60 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7256 for Aorto-Renal Endarterectomy or Bypass Surgery",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Aorto-Renal Endarterectomy or Bypass Surgery",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7256-001",
+          "description": "Clinical criteria satisfied for Aorto-Renal Endarterectomy or Bypass Surgery",
+          "parameter": "cg7256_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7257-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 68,
+      "printed_page": "Page 68 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7257 for Arterial Duplex in Peripheral Artery Disease",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Arterial Duplex in Peripheral Artery Disease",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7257-001",
+          "description": "Clinical criteria satisfied for Arterial Duplex in Peripheral Artery Disease",
+          "parameter": "cg7257_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7258-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 79,
+      "printed_page": "Page 79 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7258 for Device Interrogation and Programming",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Device Interrogation and Programming",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7258-001",
+          "description": "Clinical criteria satisfied for Device Interrogation and Programming",
+          "parameter": "cg7258_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7259-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 92,
+      "printed_page": "Page 92 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7259 for Aortic Root, Ascending Aorta and Aortic Arch Surgery",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Aortic Root, Ascending Aorta and Aortic Arch Surgery",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7259-001",
+          "description": "Clinical criteria satisfied for Aortic Root, Ascending Aorta and Aortic Arch Surgery",
+          "parameter": "cg7259_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7260-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 103,
+      "printed_page": "Page 103 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7260 for Automated Ambulatory Blood Pressure Monitoring",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Automated Ambulatory Blood Pressure Monitoring",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7260-001",
+          "description": "Clinical criteria satisfied for Automated Ambulatory Blood Pressure Monitoring",
+          "parameter": "cg7260_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7261-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 111,
+      "printed_page": "Page 111 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7261 for Device (AICD, CRT, and or Pacemaker) Battery Replacement",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Device (AICD, CRT, and or Pacemaker) Battery Replacement",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7261-001",
+          "description": "Clinical criteria satisfied for Device (AICD, CRT, and or Pacemaker) Battery Replacement",
+          "parameter": "cg7261_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7262-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 116,
+      "printed_page": "Page 116 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7262 for Diagnostic Electrophysiologic Testing",
+    "source_quote": "Evolent Clinical Guideline 7262 for Diagnostic Electrophysiologic Testing",
+    "clinical_service_or_procedure": "Diagnostic Electrophysiologic Testing",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7262-001",
+          "description": "Clinical criteria satisfied for Diagnostic Electrophysiologic Testing",
+          "parameter": "cg7262_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7263-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 131,
+      "printed_page": "Page 131 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7263 for Cardiac Resynchronization Therapy",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Cardiac Resynchronization Therapy",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7263-001",
+          "description": "Clinical criteria satisfied for Cardiac Resynchronization Therapy",
+          "parameter": "cg7263_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7264-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 143,
+      "printed_page": "Page 143 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7264 for Renal Angiography and Intervention",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Renal Angiography and Intervention",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7264-001",
+          "description": "Clinical criteria satisfied for Renal Angiography and Intervention",
+          "parameter": "cg7264_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7265-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 154,
+      "printed_page": "Page 154 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7265 for Cardiovascular Stress Test",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Cardiovascular Stress Test",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7265-001",
+          "description": "Clinical criteria satisfied for Cardiovascular Stress Test",
+          "parameter": "cg7265_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7266-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 166,
+      "printed_page": "Page 166 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7266 for Carotid Artery Stenting",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Carotid Artery Stenting",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7266-001",
+          "description": "Clinical criteria satisfied for Carotid Artery Stenting",
+          "parameter": "cg7266_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7267-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 177,
+      "printed_page": "Page 177 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7267 for Carotid Duplex",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Carotid Duplex",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7267-001",
+          "description": "Clinical criteria satisfied for Carotid Duplex",
+          "parameter": "cg7267_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7268-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 186,
+      "printed_page": "Page 186 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7268 for Carotid Endarterectomyl",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Carotid Endarterectomyl",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7268-001",
+          "description": "Clinical criteria satisfied for Carotid Endarterectomyl",
+          "parameter": "cg7268_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7269-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 195,
+      "printed_page": "Page 195 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7269 for Catheter Based Carotid and Brachiocephalic Arteriography, Venography, and Intervention",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Catheter Based Carotid and Brachiocephalic Arteriography, Ve",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7269-001",
+          "description": "Clinical criteria satisfied for Catheter Based Carotid and Brachiocephalic Arteriography, Ve",
+          "parameter": "cg7269_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7270-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 205,
+      "printed_page": "Page 205 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7270 for Central Venous Access Procedure",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Central Venous Access Procedure",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7270-001",
+          "description": "Clinical criteria satisfied for Central Venous Access Procedure",
+          "parameter": "cg7270_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7271-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 213,
+      "printed_page": "Page 213 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7271 for Coronary Fractional Flow Reserve",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Coronary Fractional Flow Reserve",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7271-001",
+          "description": "Clinical criteria satisfied for Coronary Fractional Flow Reserve",
+          "parameter": "cg7271_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7272-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 30,
+      "printed_page": "Page 30 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7272 for Coronary Artery Calcium Scoring by Electron Beam Computed Tomography (EBCT) or Non-Contrast Coronary Computed Tomography (CCT)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Coronary Artery Calcium Scoring by Electron Beam Computed To",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7272-001",
+          "description": "Clinical criteria satisfied for Coronary Artery Calcium Scoring by Electron Beam Computed To",
+          "parameter": "cg7272_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7274-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 220,
+      "printed_page": "Page 220 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7274 for Coronary Intra Vascular Arterial Ultrasound",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Coronary Intra Vascular Arterial Ultrasound",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7274-001",
+          "description": "Clinical criteria satisfied for Coronary Intra Vascular Arterial Ultrasound",
+          "parameter": "cg7274_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7275-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7275 for Coronary Artery Computed Tomography Angiography (CCTA)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Coronary Artery Computed Tomography Angiography (CCTA)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7275-001",
+          "description": "Clinical criteria satisfied for Coronary Artery Computed Tomography Angiography (CCTA)",
+          "parameter": "cg7275_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7275-002",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 7,
+      "printed_page": "Page 4 of 23"
+    },
+    "source_section": "INDICATIONS FOR CORONARY COMPUTED TOMOGRAPHIC ANGIOGRAPHY (CCTA)",
+    "source_quote": "Exercise ECG stress test with intermediate Duke Treadmill (- 10 to + 4)",
+    "clinical_service_or_procedure": "Coronary Artery Computed Tomography Angiography (CCTA)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-7275-002",
+          "description": "Exercise ECG stress test shows intermediate Duke Treadmill score (-10 to +4)",
+          "parameter": "duke_treadmill_score",
+          "comparator": "BETWEEN",
+          "value": [
+            -10,
+            4
+          ]
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-CARD-CG7276-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 229,
+      "printed_page": "Page 229 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7276 for Descending Thoracic Aortic Open or Endovascular Surgery",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Descending Thoracic Aortic Open or Endovascular Surgery",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7276-001",
+          "description": "Clinical criteria satisfied for Descending Thoracic Aortic Open or Endovascular Surgery",
+          "parameter": "cg7276_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7280-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 239,
+      "printed_page": "Page 239 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7280 for Duplex Scan of Hemodialysis Access",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Duplex Scan of Hemodialysis Access",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7280-001",
+          "description": "Clinical criteria satisfied for Duplex Scan of Hemodialysis Access",
+          "parameter": "cg7280_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7281-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 248,
+      "printed_page": "Page 248 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7281 for Guideline Directed Medical Therapy - Heart Failure and Coronary ArteryDisease",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Guideline Directed Medical Therapy - Heart Failure and Coron",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7281-001",
+          "description": "Clinical criteria satisfied for Guideline Directed Medical Therapy - Heart Failure and Coron",
+          "parameter": "cg7281_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7282-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 263,
+      "printed_page": "Page 263 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7282 for Atrial Fibrillation Ablation",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Atrial Fibrillation Ablation",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7282-001",
+          "description": "Clinical criteria satisfied for Atrial Fibrillation Ablation",
+          "parameter": "cg7282_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7283-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 274,
+      "printed_page": "Page 274 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7283 for Abdominal Aortography with Bilateral Iliofemoral Lower Extremity Runoff",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Abdominal Aortography with Bilateral Iliofemoral Lower Extre",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7283-001",
+          "description": "Clinical criteria satisfied for Abdominal Aortography with Bilateral Iliofemoral Lower Extre",
+          "parameter": "cg7283_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7284-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 282,
+      "printed_page": "Page 282 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7284 for Catheter Ablation of Reentrant or Focal Tachydysrhythmias",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Catheter Ablation of Reentrant or Focal Tachydysrhythmias",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7284-001",
+          "description": "Clinical criteria satisfied for Catheter Ablation of Reentrant or Focal Tachydysrhythmias",
+          "parameter": "cg7284_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7285-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 293,
+      "printed_page": "Page 293 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7285 for Abdominal Aortic Aneurysm Repair",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Abdominal Aortic Aneurysm Repair",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7285-001",
+          "description": "Clinical criteria satisfied for Abdominal Aortic Aneurysm Repair",
+          "parameter": "cg7285_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7286-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 303,
+      "printed_page": "Page 303 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7286 for Endomyocardial Biopsy",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Endomyocardial Biopsy",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7286-001",
+          "description": "Clinical criteria satisfied for Endomyocardial Biopsy",
+          "parameter": "cg7286_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7287-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 313,
+      "printed_page": "Page 313 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7287 for Endovascular Femoropopliteal Interventions",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Endovascular Femoropopliteal Interventions",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7287-001",
+          "description": "Clinical criteria satisfied for Endovascular Femoropopliteal Interventions",
+          "parameter": "cg7287_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7288-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 325,
+      "printed_page": "Page 325 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7288 for Endovascular Aortoiliac Interventions",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Endovascular Aortoiliac Interventions",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7288-001",
+          "description": "Clinical criteria satisfied for Endovascular Aortoiliac Interventions",
+          "parameter": "cg7288_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7289-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 337,
+      "printed_page": "Page 337 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7289 for Endovascular Infrapopliteal (Tibioperoneal) Interventions",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Endovascular Infrapopliteal (Tibioperoneal) Interventions",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7289-001",
+          "description": "Clinical criteria satisfied for Endovascular Infrapopliteal (Tibioperoneal) Interventions",
+          "parameter": "cg7289_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7290-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 348,
+      "printed_page": "Page 348 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7290 for Treatment of Varicose Veins",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Treatment of Varicose Veins",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7290-001",
+          "description": "Clinical criteria satisfied for Treatment of Varicose Veins",
+          "parameter": "cg7290_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7291-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 363,
+      "printed_page": "Page 363 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7291 for Enhanced External Counter Pulsation",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Enhanced External Counter Pulsation",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7291-001",
+          "description": "Clinical criteria satisfied for Enhanced External Counter Pulsation",
+          "parameter": "cg7291_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7292-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 372,
+      "printed_page": "Page 372 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7292 for Infrainguinal Open Arterial Vascular Surgery",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Infrainguinal Open Arterial Vascular Surgery",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7292-001",
+          "description": "Clinical criteria satisfied for Infrainguinal Open Arterial Vascular Surgery",
+          "parameter": "cg7292_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7293-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 44,
+      "printed_page": "Page 44 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7293 for Fractional Flow Reserve Computed Tomography (CT)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Fractional Flow Reserve Computed Tomography (CT)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7293-001",
+          "description": "Clinical criteria satisfied for Fractional Flow Reserve Computed Tomography (CT)",
+          "parameter": "cg7293_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7294-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 57,
+      "printed_page": "Page 57 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7294 for Heart Positron Emission Tomography (PET) Scan",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Heart Positron Emission Tomography (PET) Scan",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7294-001",
+          "description": "Clinical criteria satisfied for Heart Positron Emission Tomography (PET) Scan",
+          "parameter": "cg7294_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7296-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 80,
+      "printed_page": "Page 80 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7296 for Heart Computed Tomography (CT)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Heart Computed Tomography (CT)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7296-001",
+          "description": "Clinical criteria satisfied for Heart Computed Tomography (CT)",
+          "parameter": "cg7296_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7297-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 95,
+      "printed_page": "Page 95 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7297 for Heart Magnetic Resonance Imaging (MRI)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Heart Magnetic Resonance Imaging (MRI)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7297-001",
+          "description": "Clinical criteria satisfied for Heart Magnetic Resonance Imaging (MRI)",
+          "parameter": "cg7297_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7298-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 116,
+      "printed_page": "Page 116 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7298 for Heart Positron Emission Tomography (PET) with Computed Tomography (CT) for Attenuation",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Attenuation",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7298-001",
+          "description": "Clinical criteria satisfied for Attenuation",
+          "parameter": "cg7298_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7299-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 384,
+      "printed_page": "Page 384 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7299 for Hemodialysis Access Creation",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Hemodialysis Access Creation",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7299-001",
+          "description": "Clinical criteria satisfied for Hemodialysis Access Creation",
+          "parameter": "cg7299_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7300-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 392,
+      "printed_page": "Page 392 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7300 for Hemodialysis Access Maintenance",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Hemodialysis Access Maintenance",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7300-001",
+          "description": "Clinical criteria satisfied for Hemodialysis Access Maintenance",
+          "parameter": "cg7300_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7302-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 404,
+      "printed_page": "Page 404 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7302 for Percutaneous Coronary Interventions",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Percutaneous Coronary Interventions",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7302-001",
+          "description": "Clinical criteria satisfied for Percutaneous Coronary Interventions",
+          "parameter": "cg7302_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7311-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 138,
+      "printed_page": "Page 138 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7311 for Multiple Gated Acquisition Scan (MUGA)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Multiple Gated Acquisition Scan (MUGA)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7311-001",
+          "description": "Clinical criteria satisfied for Multiple Gated Acquisition Scan (MUGA)",
+          "parameter": "cg7311_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7312-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 150,
+      "printed_page": "Page 150 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7312 for Myocardial Perfusion Imaging (MPI)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Myocardial Perfusion Imaging (MPI)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7312-001",
+          "description": "Clinical criteria satisfied for Myocardial Perfusion Imaging (MPI)",
+          "parameter": "cg7312_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7312-002",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 151,
+      "printed_page": "Page 4 of 24"
+    },
+    "source_section": "INDICATIONS FOR MYOCARDIAL PERFUSION IMAGING (MPI)",
+    "source_quote": "Evolent Clinical Guideline 7312 for Myocardial Perfusion Imaging (MPI)",
+    "clinical_service_or_procedure": "Myocardial Perfusion Imaging (MPI)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-7312-002",
+          "description": "Intermediate or high pretest probability of CAD for MPI",
+          "parameter": "cad_pretest_probability",
+          "comparator": "CONTAINS",
+          "value": [
+            "INTERMEDIATE",
+            "HIGH"
+          ]
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-CARD-CG7315-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 414,
+      "printed_page": "Page 414 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7315 for Pacemaker Insertion",
+    "source_quote": "INDICATIONS FOR CHILDREN, ADOLESCENTS (<19 YEARS), AND ADULT PATIENTS WITH",
+    "clinical_service_or_procedure": "Pacemaker Insertion",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7315-001",
+          "description": "Clinical criteria satisfied for Pacemaker Insertion",
+          "parameter": "cg7315_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7328-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 174,
+      "printed_page": "Page 174 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7328 for Stress Echocardiogram",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Stress Echocardiogram",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7328-001",
+          "description": "Clinical criteria satisfied for Stress Echocardiogram",
+          "parameter": "cg7328_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7334-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 428,
+      "printed_page": "Page 428 of 440"
+    },
+    "source_section": "Evolent Clinical Guideline 7334 for Transcatheter Aortic Valve Replacement (TAVR)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Transcatheter Aortic Valve Replacement (TAVR)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7334-001",
+          "description": "Clinical criteria satisfied for Transcatheter Aortic Valve Replacement (TAVR)",
+          "parameter": "cg7334_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7336-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 197,
+      "printed_page": "Page 197 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7336 for Transesophageal Echocardiogram (TEE)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Transesophageal Echocardiogram (TEE)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7336-001",
+          "description": "Clinical criteria satisfied for Transesophageal Echocardiogram (TEE)",
+          "parameter": "cg7336_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7337-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 209,
+      "printed_page": "Page 209 of 243"
+    },
+    "source_section": "Evolent Clinical Guideline 7337 for Transthoracic Echocardiogram (TTE)",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Transthoracic Echocardiogram (TTE)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-CG7337-001",
+          "description": "Clinical criteria satisfied for Transthoracic Echocardiogram (TTE)",
+          "parameter": "cg7337_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-CG7337-002",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 209,
+      "printed_page": "Page 3 of 37"
+    },
+    "source_section": "INDICATIONS FOR TRANSTHORACIC ECHOCARDIOGRAPHY (TTE)",
+    "source_quote": "Evolent Clinical Guideline 7337 for Transthoracic Echocardiogram (TTE)",
+    "clinical_service_or_procedure": "Transthoracic Echocardiogram (TTE)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-7337-002",
+          "description": "Evaluation of suspected valvular heart disease, murmur, or heart failure symptoms",
+          "parameter": "tte_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-CARD-GRIDCARD2026-001",
+    "domain": "cardiology",
+    "document_type": "coding_grid",
+    "policy_title": "Cardiovascular Service Group Grid (January 2026)",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/Cardiovascular Service Group Grid_January2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 9,
+      "printed_page": "Page 9 of 9"
+    },
+    "source_section": "Cardiovascular Service Group Grid (January 2026)",
+    "source_quote": "Electrophysiologic (EP) Evaluation of",
+    "clinical_service_or_procedure": "Cardiovascular Service Group Grid (January 2026)",
+    "rule_type": "coding_rule",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-GRIDCARD2026-001",
+          "description": "Clinical criteria satisfied for Cardiovascular Service Group Grid (January 2026)",
+          "parameter": "gridcard2026_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-CARD-OP38801-001",
+    "domain": "cardiology",
+    "document_type": "supplementary_policy",
+    "policy_title": "Cardiac Claim Edit: Stress Echocardiography and Doppler Add-On (OP38801)",
+    "policy_version": "Rev. 03/2024",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/Cardiac Claim Edit - Stress Echo and Doppler Add-On.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 3"
+    },
+    "source_section": "Cardiac Claim Edit: Stress Echocardiography and Doppler Add-On (OP.388.01)",
+    "source_quote": "Appropriate Use Criteria for Echocardiography, color flow Doppler is only medically necessary for Stress",
+    "clinical_service_or_procedure": "Cardiac Claim Edit: Stress Echocardiography and Doppler Add-",
+    "rule_type": "coding_rule",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-OP38801-001",
+          "description": "Clinical criteria satisfied for Cardiac Claim Edit: Stress Echocardiography and Doppler Add-",
+          "parameter": "op38801_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "PAYS_AS_CLAIM_EDIT",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Extracted from Cardiac Claim Edit: Stress Echocardiography and Doppler Add-On (OP.388.01). Requires human clinician review."
+  },
+  {
+    "rule_id": "RULE-CARD-OP38801-002",
+    "domain": "cardiology",
+    "document_type": "supplementary_policy",
+    "policy_title": "Cardiac Claim Edit: Stress Echocardiography and Doppler Add-On (OP38801)",
+    "policy_version": "Rev. 03/2024",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/Cardiac Claim Edit - Stress Echo and Doppler Add-On.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 3,
+      "printed_page": "Page 3 of 3"
+    },
+    "source_section": "Policy Statement / Claim Adjudication Requirements",
+    "source_quote": "1. When a claim for SE and Doppler occurs on the same date of service and there is no",
+    "clinical_service_or_procedure": "Doppler Echocardiography Add-On Billing",
+    "rule_type": "coding_rule",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-EDIT-002A",
+          "description": "Stress echo and Doppler billed on same date of service without separate TTE/TEE",
+          "parameter": "same_dos_billing",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-CARD-EDIT-002B",
+          "description": "Supporting qualifying ICD-10 diagnosis code absent from claim",
+          "parameter": "qualifying_diagnosis_code",
+          "comparator": "IS_ABSENT"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Claim edit denial condition when Doppler add-on is billed without qualifying diagnosis."
+  },
+  {
+    "rule_id": "RULE-CARD-PREAMBLEDIAG-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 243"
+    },
+    "source_section": "Guidelines for Clinical Review Determination Preamble and Development Process (Diagnostic)",
+    "source_quote": "treatment for patients. The medical necessity criteria that follow are",
+    "clinical_service_or_procedure": "Clinical Review Determination Preamble and Development Proce",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-PREAMBLEDIAG-001",
+          "description": "Clinical criteria satisfied for Clinical Review Determination Preamble and Development Proce",
+          "parameter": "preamblediag_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Extracted from Guidelines for Clinical Review Determination Preamble and Development Process (Diagnostic). Requires human clinician review."
+  },
+  {
+    "rule_id": "RULE-CARD-PREAMBLEINTERV-001",
+    "domain": "cardiology",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 440"
+    },
+    "source_section": "Guidelines for Clinical Review Determination Preamble and Development Process (Interventional)",
+    "source_quote": "treatment for patients. The medical necessity criteria that follow are",
+    "clinical_service_or_procedure": "Clinical Review Determination Preamble and Development Proce",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-CARD-PREAMBLEINTERV-001",
+          "description": "Clinical criteria satisfied for Clinical Review Determination Preamble and Development Proce",
+          "parameter": "preambleinterv_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Extracted from Guidelines for Clinical Review Determination Preamble and Development Process (Interventional). Requires human clinician review."
+  }
+]

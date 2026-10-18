@@ -1,0 +1,3 @@
+rule_id,guideline_id,policy_title,physical_page,review_reason,source_quote
+RULE-IPM-PREAMBLEIPM-001,PREAMBLE-IPM,2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines,2,Clinical discretion / infusion pump exception handling,treatment for patients. The medical necessity criteria that follow are
+RULE-IPM-CGINFUSIONPUMPS-001,CG-INFUSION-PUMPS,2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines,68,Clinical discretion / infusion pump exception handling,"appropriate supporting documentation, including recent pertinent office visit notes,"

@@ -1,0 +1,2 @@
+document_id,domain,document_title,document_type,version_status,disposition_status,unmapped_reason,evidentiary_limitation,human_review_required
+DOC-GEN-MISSING-001,genetic_testing,Payer-Specific Non-Covered Genetic Panel Exclusion Lists,other_supporting_document,current_2026_verified,PLAN_SPECIFIC_ACCESS_REQUIRED,Proprietary commercial insurer fee schedules exclude specific expanded carrier panels (>500 genes) or direct-to-consumer tests.,Restricted commercial payer schedule requiring individual plan contract verification.,True

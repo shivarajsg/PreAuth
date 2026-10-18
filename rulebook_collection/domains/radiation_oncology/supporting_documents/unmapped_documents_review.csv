@@ -1,0 +1,2 @@
+document_id,domain,document_title,document_type,version_status,disposition_status,unmapped_reason,evidentiary_limitation,human_review_required
+DOC-RAD-MISSING-001,radiation_oncology,Payer-Specific Proton Beam Coverage Threshold Agreements,other_supporting_document,current_2026_verified,PLAN_SPECIFIC_ACCESS_REQUIRED,Specific commercial HMO and Medicare Advantage contracts maintain proprietary proton beam coverage restrictions.,Available only to participating oncology networks via secure payer portals.,True

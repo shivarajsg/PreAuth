@@ -1,0 +1,647 @@
+[
+  {
+    "rule_id": "RULE-ADV-CG2012-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 224,
+      "printed_page": "Page 5 of 50"
+    },
+    "source_section": "INDICATIONS / Headache (1,2) / Evaluation of Headache",
+    "source_quote": "Acute, sudden onset headache (< 4 weeks), with any ONE of the following: \u25cb A personal or family history (brother, sister, parent, or child) of brain aneurysm or AVM (arteriovenous malformation) \u25cb < 48 hours of \u201cworst headache in my life\u201d or \u201cthunderclap\u201d headache (Sudden onset new headache reaching maximum intensity within 2-3 minutes, lasting more than 5 minutes) \u25cb Prior history of stroke or intracranial bleed \u25cb Known coagulopathy or on anticoagulation",
+    "clinical_service_or_procedure": "Brain MRI (With or Without Contrast)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Acute sudden onset headache with duration less than 4 weeks",
+          "parameter": "headache_duration_weeks",
+          "comparator": "LESS_THAN",
+          "value": 4,
+          "unit": "weeks"
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "At least one high-risk vascular or intracranial red flag feature present",
+          "parameter": "acute_headache_risk_factor",
+          "comparator": "IS_PRESENT",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "RED-001",
+                "description": "Personal or first-degree family history of brain aneurysm or AVM",
+                "parameter": "aneurysm_or_avm_history",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "RED-002",
+                "description": "Thunderclap onset or worst headache of life within 48 hours",
+                "parameter": "thunderclap_onset_48h",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "RED-003",
+                "description": "Prior history of stroke or intracranial bleed",
+                "parameter": "prior_stroke_or_intracranial_bleed",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "RED-004",
+                "description": "Known coagulopathy or currently on active anticoagulation therapy",
+                "parameter": "active_anticoagulation_or_coagulopathy",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "required_documentation": [
+      "Neurology or ED consultation notes detailing headache onset and duration",
+      "Medication list or family history notes documenting specific high risk feature"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 70551",
+      "CPT 70553"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Emergency and acute high-risk headache indication for Brain MRI."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2012-002",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 225,
+      "printed_page": "Page 6 of 50"
+    },
+    "source_section": "Additional Indications in the Pediatric Population (<18) When None of the Above Apply",
+    "source_quote": "Persistent headache and any ONE of the following (8\u201310): \u25cb Immune deficiency \u25cb History of neoplasm \u25cb History of congenital heart disease \u25cb See Imaging in Known Genetic Conditions for additional indications \u25cb Coagulopathy \u25cb Occipital location \u25cb Age < 6 years",
+    "clinical_service_or_procedure": "Brain MRI (With or Without Contrast)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient age strictly less than 18 years",
+          "parameter": "patient_age_years",
+          "comparator": "LESS_THAN",
+          "value": 18,
+          "unit": "years"
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Persistent headache documented",
+          "parameter": "headache_persistence",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "At least one pediatric red flag condition present",
+          "parameter": "pediatric_headache_red_flag",
+          "comparator": "IS_PRESENT",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "PED-001",
+                "description": "Documented immune deficiency",
+                "parameter": "immune_deficiency",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "PED-002",
+                "description": "Personal history of neoplasm",
+                "parameter": "history_of_neoplasm",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "PED-003",
+                "description": "History of congenital heart disease",
+                "parameter": "congenital_heart_disease",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "PED-004",
+                "description": "Coagulopathy present",
+                "parameter": "coagulopathy_present",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "PED-005",
+                "description": "Headache localized to occipital region",
+                "parameter": "headache_location",
+                "comparator": "EQUALS",
+                "value": "OCCIPITAL"
+              },
+              {
+                "condition_id": "PED-006",
+                "description": "Patient age younger than 6 years",
+                "parameter": "patient_age_years",
+                "comparator": "LESS_THAN",
+                "value": 6,
+                "unit": "years"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "required_documentation": [
+      "Pediatrician or pediatric neurologist clinical consultation note",
+      "Medical history validating presence of red flag feature"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 70551",
+      "CPT 70553"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Pediatric red flag headache criteria."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2007-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 141,
+      "printed_page": "Page 3 of 7"
+    },
+    "source_section": "INDICATIONS FOR BONE MARROW MRI / Multiple Myeloma",
+    "source_quote": "Initial Staging of Known Disease \u25cb Restaging on Active Treatment \u25cb Surveillance \u25a0 Annually if asymptomatic",
+    "clinical_service_or_procedure": "Bone Marrow MRI",
+    "rule_type": "temporal_threshold",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Confirmed diagnosis of multiple myeloma",
+          "parameter": "multiple_myeloma_diagnosed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Requested for initial staging, restaging on active therapy, or annual asymptomatic surveillance",
+          "parameter": "myeloma_mri_interval_met",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Hematology/oncology consultation note documenting multiple myeloma staging, active chemotherapy/immunotherapy, or annual surveillance date"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 77084"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Surveillance interval and staging indication for multiple myeloma bone marrow MRI."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 150,
+      "printed_page": "Page 5 of 26"
+    },
+    "source_section": "Stroke and Vascular Disease / Evaluation of Known or Suspected Stroke (11,12)",
+    "source_quote": "Evaluation of Known or Suspected Stroke (11,12)",
+    "clinical_service_or_procedure": "Brain CT",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known or clinically suspected acute ischemic stroke or intracranial hemorrhage",
+          "parameter": "suspected_acute_stroke",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Emergency medical records documenting focal neurologic deficit, NIH Stroke Scale, or last known normal time"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 70450",
+      "CPT 70460"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Emergency stroke evaluation pathway for non-contrast brain CT."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-002",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 151,
+      "printed_page": "Page 6 of 26"
+    },
+    "source_section": "Evaluation of Known or Suspected Vascular Disease (13)",
+    "source_quote": "Evaluation of suspected acute subarachnoid hemorrhage (SAH)",
+    "clinical_service_or_procedure": "Brain CT",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of acute subarachnoid hemorrhage",
+          "parameter": "suspected_acute_sah",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Clinical notes documenting sudden onset severe thunderclap headache or signs of meningismus"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 70450"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Urgent non-contrast CT for acute subarachnoid hemorrhage."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2009-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 175,
+      "printed_page": "Page 4 of 20"
+    },
+    "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Aneurysm Screening",
+    "source_quote": "For one first degree relative with aneurysm, asymptomatic screening is not indicated and would require a neurological sign or symptom supporting clinical concern for aneurysm",
+    "clinical_service_or_procedure": "CTA Brain",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient has only one first-degree relative with intracranial aneurysm",
+          "parameter": "first_degree_aneurysm_relatives_count",
+          "comparator": "EQUALS",
+          "value": 1
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Patient is entirely asymptomatic without focal neurological signs or symptoms",
+          "parameter": "patient_is_asymptomatic",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Neurological evaluation notes documenting active symptoms if CTA is requested with single affected relative"
+    ],
+    "exclusion_conditions": [
+      "Routine asymptomatic intracranial aneurysm screening in patients with only one affected first-degree relative"
+    ],
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 70496"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Explicit policy exclusion requiring at least two first-degree relatives or neurological symptoms for aneurysm screening."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2010-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 194,
+      "printed_page": "Page 3 of 8"
+    },
+    "source_section": "INDICATIONS FOR BRAIN MRS (2) / Tumor Recurrence vs. Radiation Necrosis (3)",
+    "source_quote": "Tumor Recurrence vs. Radiation Necrosis (3)",
+    "clinical_service_or_procedure": "Magnetic Resonance Spectroscopy (MRS) Brain",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known history of treated primary brain tumor or brain metastasis following radiation therapy",
+          "parameter": "prior_brain_radiation_therapy",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Equivocal enlarging or enhancing lesion on conventional MRI where tumor recurrence cannot be distinguished from radiation necrosis",
+          "parameter": "recurrence_vs_necrosis_indeterminate",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Prior brain MRI report demonstrating indeterminate enhancing lesion and neuro-oncology / radiation oncology consultation notes"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 76390"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Specialized MRS indication for differentiating recurrent glioma/metastasis from post-treatment radiation necrosis."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2011-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 203,
+      "printed_page": "Page 4 of 20"
+    },
+    "source_section": "INDICATIONS FOR BRAIN MR ANGIOGRAPHY / Aneurysm Screening",
+    "source_quote": "Repeat study is recommended every 5-7 years",
+    "clinical_service_or_procedure": "MRA Brain",
+    "rule_type": "temporal_threshold",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "High-risk individual undergoing periodic surveillance for intracranial aneurysm (e.g. 2+ first-degree relatives)",
+          "parameter": "high_risk_aneurysm_screening_qualified",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Interval of at least 5 to 7 years elapsed since prior negative intracranial vascular screening",
+          "parameter": "years_since_prior_aneurysm_screening",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 5,
+          "unit": "years"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Family history verifying two or more first-degree relatives with intracranial aneurysm and prior negative MRA report"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 70544",
+      "CPT 70546"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "5-7 year periodic interval threshold for high-risk familial aneurysm surveillance."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2013-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 271,
+      "printed_page": "Page 2 of 10"
+    },
+    "source_section": "INDICATIONS FOR BRAIN PET SCAN / Known Brain Tumor or Cancer (1,2)",
+    "source_quote": "Evaluation of primary brain lymphoma",
+    "clinical_service_or_procedure": "Brain PET Scan",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Confirmed or clinically suspected primary central nervous system lymphoma (PCNSL)",
+          "parameter": "primary_brain_lymphoma",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Neurology / oncology consultation notes and MRI findings consistent with suspected primary CNS lymphoma"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 78811",
+      "CPT 78815"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Oncology metabolic imaging indication for primary central nervous system lymphoma."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2014-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 282,
+      "printed_page": "Page 3 of 15"
+    },
+    "source_section": "INDICATIONS / High-Risk Breast Cancer Screening (1,2)",
+    "source_quote": "Annual screening with Breast MRI for any ONE of the following:",
+    "clinical_service_or_procedure": "Breast MRI",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient qualifies for annual high-risk breast cancer screening (e.g., BRCA mutation, lifetime risk > 20%, prior mantle radiation)",
+          "parameter": "high_risk_breast_cancer_screening",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Genetic testing report documenting deleterious BRCA1/BRCA2 mutation or formal risk model calculation showing >= 20% lifetime risk"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 77048",
+      "CPT 77049"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "High risk screening indication for breast MRI."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2014-002",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 285,
+      "printed_page": "Page 6 of 15"
+    },
+    "source_section": "INDICATIONS / Breast Implants",
+    "source_quote": "MRI is not indicated for evaluation of saline implant complications",
+    "clinical_service_or_procedure": "Breast MRI",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Imaging requested for evaluation of suspected saline breast implant complication or rupture",
+          "parameter": "saline_implant_complication_requested",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Documentation verifying implant composition (saline vs silicone)"
+    ],
+    "exclusion_conditions": [
+      "Breast MRI requested to evaluate suspected rupture or complications of saline implants"
+    ],
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 77047"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Explicit non-covered policy exclusion barring MRI for saline implant deflation/rupture."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2015-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 297,
+      "printed_page": "Page 3 of 9"
+    },
+    "source_section": "INDICATIONS / Acute Ischemic Stroke",
+    "source_quote": "within 24 hours of known ischemic infarct",
+    "clinical_service_or_procedure": "Cerebral Perfusion CT",
+    "rule_type": "temporal_threshold",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Acute ischemic stroke being evaluated for endovascular thrombectomy or reperfusion therapy",
+          "parameter": "acute_ischemic_stroke_reperfusion",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Evaluation performed within 24 hours of symptom onset or last known normal",
+          "parameter": "hours_since_stroke_onset",
+          "comparator": "LESS_THAN_OR_EQUAL",
+          "value": 24,
+          "unit": "hours"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Emergency stroke code progress note detailing time of onset/last known normal within 24-hour window"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 0042T"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "24-hour therapeutic window for cerebral CT perfusion penumbra evaluation."
+  }
+]

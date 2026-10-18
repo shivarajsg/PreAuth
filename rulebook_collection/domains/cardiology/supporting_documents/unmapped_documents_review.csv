@@ -1,0 +1,2 @@
+document_id,domain,document_title,document_type,version_status,disposition_status,unmapped_reason,evidentiary_limitation,human_review_required
+DOC-CARD-MISSING-001,cardiology,Plan-Specific Cardiac Stress Testing Tiering Crosswalk Grids,other_supporting_document,current_2026_verified,PLAN_SPECIFIC_ACCESS_REQUIRED,Health-plan specific benefit schedules establish whether treadmill exercise ECG is required before stress echo or MPI.,Restricted commercial payer schedule requiring contracted plan administrator verification.,True

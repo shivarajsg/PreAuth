@@ -1,0 +1,482 @@
+[
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-001",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 31"
+    },
+    "source_section": "Policy/Criteria - Section I Initial 4 Applications",
+    "source_quote": "up to four initial applications of skin and soft tissue substitutes/cellular and tissue-based products (CTPs) are medically necessary for diabetic foot ulcers (DFU) or venous leg ulcers (VLU) when all the following criteria are met, specific to the wound for which the skin substitute/CTP is being requested:",
+    "clinical_service_or_procedure": "Skin and Soft Tissue Substitutes / CTPs - Initial 4 Applications for DFU or VLU",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-001-A",
+          "description": "Wound is > 1 square centimeter",
+          "parameter": "wound_surface_area_sq_cm",
+          "comparator": "GREATER_THAN",
+          "value": 1,
+          "unit": "cm2"
+        },
+        {
+          "condition_id": "COND-DME-185-001-B",
+          "description": "Failed \u2265 50% ulcer area reduction after \u2265 4 weeks of standard of care (SOC) wound treatment",
+          "parameter": "failed_soc_wound_care_duration_weeks",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 4,
+          "unit": "weeks"
+        },
+        {
+          "condition_id": "COND-DME-185-001-C",
+          "description": "Requested product is one of the preferred products (Apligraf, Dermagraft, Epifix, Grafix, Integra, Kerecis, Oasis, etc.)",
+          "parameter": "preferred_product_selected",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-001-D",
+          "description": "Only one CTP in place per wound episode",
+          "parameter": "single_ctp_per_episode",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Photographic documentation with visible ruler at baseline and follow-up",
+      "Complete description of product, size, and NDC",
+      "Wound treatment notes verifying 4 weeks failed SOC"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Initial authorization strictly limited to up to 4 applications."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-002",
+    "source_page": {
+      "physical_page": 3,
+      "printed_page": "Page 3 of 31"
+    },
+    "source_section": "Policy/Criteria - Section II Continued Treatment",
+    "source_quote": "continued treatment beyond the initial four applications and up to a total of eight applications with skin and soft tissue substitutes/cellular and tissue-based products (CTPs) is medically necessary for diabetic foot ulcers (DFU) or venous leg ulcers (VLU) when all of the following criteria are met, specific to the wound for which the skin substitute/CTP is being requested:",
+    "clinical_service_or_procedure": "Skin and Soft Tissue Substitutes / CTPs - Continued Treatment (Applications 5 to 8)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-002-A",
+          "description": "Initial 4 applications resulted in wound healing and expectation of continued healing",
+          "parameter": "initial_applications_demonstrated_healing",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-002-B",
+          "description": "Total cumulative applications will not exceed 8 per wound per 12-week episode",
+          "parameter": "cumulative_applications_limit",
+          "comparator": "LESS_THAN_OR_EQUAL",
+          "value": 8,
+          "unit": "applications"
+        },
+        {
+          "condition_id": "COND-DME-185-002-C",
+          "description": "Modifiable risk factors (diabetes, venous insufficiency) adequately addressed",
+          "parameter": "modifiable_risk_factors_managed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Sequential photos with visible ruler demonstrating wound size reduction",
+      "Treatment notes explaining medical necessity of extended applications"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Strict cap of 8 total applications per 12-week episode."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-003",
+    "source_page": {
+      "physical_page": 5,
+      "printed_page": "Page 5 of 31"
+    },
+    "source_section": "Policy/Criteria - Section III DFU/VLU Non-Covered",
+    "source_quote": "skin and soft tissue substitutes/CTPs for diabetic foot ulcers (DFU) and venous leg ulcers (VLU) are not medically necessary for the following indications or scenarios: A. Any usage not listed in section I. or II. of the policy; B. Greater than eight applications of a skin and soft tissue substitute/CTP within an episode of care",
+    "clinical_service_or_procedure": "Skin and Soft Tissue Substitutes / CTPs - DFU/VLU Exclusions",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-003-A",
+          "description": "Greater than 8 applications within 12-week episode of care",
+          "parameter": "applications_count",
+          "comparator": "GREATER_THAN",
+          "value": 8,
+          "unit": "applications"
+        },
+        {
+          "condition_id": "COND-DME-185-003-B",
+          "description": "Repeat application when previous application was unsuccessful",
+          "parameter": "previous_application_unsuccessful",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-003-C",
+          "description": "Active infection, necrosis, active Charcot arthropathy, or ischemia",
+          "parameter": "wound_infection_or_ischemia_present",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-003-D",
+          "description": "Liquid or gel CTP formulation for ulcer care",
+          "parameter": "liquid_or_gel_ctp_formulation",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Explicit frequency limit of 8 applications and clinical contraindications."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-004",
+    "source_page": {
+      "physical_page": 5,
+      "printed_page": "Page 5 of 31"
+    },
+    "source_section": "Policy/Criteria - Section IV Burn Treatment",
+    "source_quote": "burn treatment with skin and soft tissue substitutes/CTPs (including the procedure, product, service) is considered medically necessary when meeting all the following, specific to the wound for which the skin substitute/CTP is being requested: A. Request indicates the specific wound to which the skin and soft tissue substitute/CTP will be applied; B. Request is for four weeks of treatment at a time; C. The wound is > 1 square centimeter; D. Sufficient autograft is not available",
+    "clinical_service_or_procedure": "Skin and Soft Tissue Substitutes / CTPs - Burn Treatment",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-004-A",
+          "description": "Burn is deep partial-thickness or full-thickness",
+          "parameter": "burn_thickness_depth",
+          "comparator": "IS_PRESENT"
+        },
+        {
+          "condition_id": "COND-DME-185-004-B",
+          "description": "Sufficient autograft is not available or feasible",
+          "parameter": "autograft_unavailable_or_infeasible",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-004-C",
+          "description": "No evidence of burn wound infection",
+          "parameter": "burn_infection_absent",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-004-D",
+          "description": "Treatment with approved allograft, xenograft, or tissue-engineered CTP (Biobrane, Epicel, etc.)",
+          "parameter": "approved_burn_substitute",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Burn center clinical notes documenting depth and TBSA",
+      "Documentation explaining autograft unavailability"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Approved for 4 weeks of treatment at a time for deep partial or full thickness burns."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-005",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 31"
+    },
+    "source_section": "Policy/Criteria - Section V Breast Reconstruction",
+    "source_quote": "treatment with skin and soft tissue substitutes/CTPs for breast reconstruction are considered medically necessary when meeting all of the following, specific to the wound for which the skin substitute/CTP is being requested: A. Request indicates the specific wound to which the skin and soft tissue substitute/CTP will be applied; B. Request is for up to four weeks of treatment at a time; C. The wound is > 1 square centimeter; D. Post-mastectomy breast reconstruction;",
+    "clinical_service_or_procedure": "Skin and Soft Tissue Substitutes - Post-Mastectomy Breast Reconstruction",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-005-A",
+          "description": "Post-mastectomy breast reconstruction",
+          "parameter": "post_mastectomy_reconstruction",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-005-B",
+          "description": "No evidence of wound infection",
+          "parameter": "wound_infection_absent",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-005-C",
+          "description": "Approved product: AlloDerm, Cortiva, DermaCell, or FlexHD/AllopatchHD",
+          "parameter": "approved_breast_reconstruction_product",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Surgical operative report detailing reconstruction",
+      "Product label and package size documentation"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "WHCRA Post-Mastectomy Coverage"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Specifically covers acellular dermal matrices for post-mastectomy reconstruction."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-006",
+    "source_page": {
+      "physical_page": 7,
+      "printed_page": "Page 7 of 31"
+    },
+    "source_section": "Policy/Criteria - Section VI Mitten Hand OrCel",
+    "source_quote": "OrCel\u2122 is medically necessary for up to four weeks of treatment for mitten hand deformities due to dystrophic epidermolysis bullosa when meeting all the following, specific to the wound for which the skin substitute/CTP is being requested:",
+    "clinical_service_or_procedure": "OrCel\u2122 for Mitten Hand Deformities in Dystrophic Epidermolysis Bullosa",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-006-A",
+          "description": "Mitten hand deformities due to dystrophic epidermolysis bullosa",
+          "parameter": "dystrophic_epidermolysis_bullosa",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-006-B",
+          "description": "Used according to FDA HDE specifications",
+          "parameter": "fda_hde_compliant",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-006-C",
+          "description": "No evidence of wound infection",
+          "parameter": "wound_infection_absent",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Genetic/dermatology confirmation of dystrophic EB",
+      "Surgical notes for mitten hand release"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "FDA Humanitarian Device Exemption (HDE) protocol compliance required."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-007",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 31"
+    },
+    "source_section": "Policy/Criteria - Section VII Abdominal Wall",
+    "source_quote": "skin and soft tissue substitutes/CTPs for post-reconstruction surgery of abdominal wall wounds are considered medically necessary when meeting all the following, specific to the wound for which the skin substitute/CTP is being requested: A. Request indicates the specific wound to which the skin and soft tissue substitute/CTP will be applied; B. Request is for up to four weeks of treatment at a time; C. The wound is > 1 square centimeter; D. Repair of hernias or for surgical repair of complex abdominal wall wounds;",
+    "clinical_service_or_procedure": "Skin and Soft Tissue Substitutes - Complex Abdominal Wall Reconstruction",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-007-A",
+          "description": "Repair of hernias or complex abdominal wall wounds",
+          "parameter": "complex_abdominal_wall_repair",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-007-B",
+          "description": "Approved product: Alloderm, Phasix ST, or Strattice",
+          "parameter": "approved_abdominal_wall_product",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-007-C",
+          "description": "No evidence of wound infection",
+          "parameter": "wound_infection_absent",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Surgical operative report detailing complex hernia/wall defect",
+      "Product label and size used with minimal wastage"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Indicated for complex abdominal wall hernia repair with Alloderm, Phasix ST, Strattice."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-008",
+    "source_page": {
+      "physical_page": 9,
+      "printed_page": "Page 9 of 31"
+    },
+    "source_section": "Policy/Criteria - Section VIII General Limitations",
+    "source_quote": "skin and soft tissue substitutes/CTPs for any indication listed in sections IV to VII above are considered not medically necessary for any of the following: A. Treatment longer than twelve weeks; B. Repeat applications when initial treatment was unsuccessful for a period of four weeks past the start of therapy",
+    "clinical_service_or_procedure": "Skin and Soft Tissue Substitutes - General Limitations and Duration Exclusions",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-008-A",
+          "description": "Treatment duration longer than 12 weeks",
+          "parameter": "treatment_duration_weeks",
+          "comparator": "GREATER_THAN",
+          "value": 12,
+          "unit": "weeks"
+        },
+        {
+          "condition_id": "COND-DME-185-008-B",
+          "description": "Repeat application after 4 weeks of unsuccessful therapy",
+          "parameter": "unsuccessful_at_4_weeks",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-185-008-C",
+          "description": "Retreatment of healed wounds (>75% reduction and <0.5 sq cm)",
+          "parameter": "healed_wound_retreatment",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Hard cap of 12 weeks maximum and prohibition against re-treating healed wounds."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.185: Skin and Soft Tissue Substitutes",
+    "policy_version": "Revision 09/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.185.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.185.pdf",
+    "rule_id": "RULE-DME-185-009",
+    "source_page": {
+      "physical_page": 9,
+      "printed_page": "Page 9 of 31"
+    },
+    "source_section": "Policy/Criteria - Section IX Outpatient Exclusions",
+    "source_quote": "current evidence does not support the use of skin and soft tissue substitutes/cellular and tissue-based products (CTPs) in the outpatient setting for either of the following: A. Indications other than those listed as medically necessary above, including but not limited to, pressure ulcers;",
+    "clinical_service_or_procedure": "Skin and Soft Tissue Substitutes - Outpatient Unproven Indications (e.g. Pressure Ulcers)",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-185-009-A",
+          "description": "Requested in outpatient setting for pressure ulcers or unlisted indication",
+          "parameter": "pressure_ulcer_or_unlisted_ctp_indication",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Unproven in outpatient setting for pressure ulcers or other non-listed indications."
+  }
+]

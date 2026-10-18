@@ -1,0 +1,300 @@
+[
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.173: Implantable Intrathecal or Epidural Pain Pump",
+    "policy_version": "Revision 11/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.173.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.173.pdf",
+    "rule_id": "RULE-DME-173-001",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 10"
+    },
+    "source_section": "Policy/Criteria - Section I.A.1 Malignant Pain Trial",
+    "source_quote": "Chronic intractable pain of malignant origin when all of the following criteria is met: a. Inadequate response to, or intolerable side effects from, noninvasive methods of pain control such as systemic opioids; b. Life expectancy > three months; c. No evidence of epidural metastatic lesion(s) or tumor encroachment of the thecal sac by imaging;",
+    "clinical_service_or_procedure": "Preliminary trial of epidural or intrathecal opioid - Malignant Pain",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-173-001-A",
+          "description": "Inadequate response or intolerable side effects from systemic opioids",
+          "parameter": "systemic_opioids_inadequate",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-173-001-B",
+          "description": "Life expectancy > 3 months",
+          "parameter": "life_expectancy_months",
+          "comparator": "GREATER_THAN",
+          "value": 3,
+          "unit": "months"
+        },
+        {
+          "condition_id": "COND-DME-173-001-C",
+          "description": "No evidence of epidural metastasis or thecal sac encroachment on imaging",
+          "parameter": "thecal_sac_encroachment_absent",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Oncology records documenting life expectancy > 3 months",
+      "Spine MRI/CT ruling out epidural metastases or cord compression"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Preliminary trial prerequisite for cancer-related intractable pain."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.173: Implantable Intrathecal or Epidural Pain Pump",
+    "policy_version": "Revision 11/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.173.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.173.pdf",
+    "rule_id": "RULE-DME-173-002",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 10"
+    },
+    "source_section": "Policy/Criteria - Section I.A.2 Non-Malignant Pain Trial",
+    "source_quote": "Chronic intractable pain of nonmalignant origin (e.g. failed back surgery syndrome, complex regional pain syndrome) when all the following criteria are met: a. Pathology for the pain has been identified; b. Life expectancy is > three months; c. Failure or inability to tolerate other conservative treatment methods",
+    "clinical_service_or_procedure": "Preliminary trial of epidural or intrathecal opioid - Non-Malignant Pain",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-173-002-A",
+          "description": "Identified pain pathology (e.g. FBSS, CRPS)",
+          "parameter": "identifiable_pain_pathology",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-173-002-B",
+          "description": "Life expectancy > 3 months",
+          "parameter": "life_expectancy_months",
+          "comparator": "GREATER_THAN",
+          "value": 3,
+          "unit": "months"
+        },
+        {
+          "condition_id": "COND-DME-173-002-C",
+          "description": "Failure of conservative methods, psychological clearance, weaned opioids by \u226550%",
+          "parameter": "conservative_care_and_weaning_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Psychological evaluation ruling out major mental health cause",
+      "Opioid weaning records confirming \u226550% reduction prior to trial"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Requires 50% systemic opioid weaning and psychological evaluation."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.173: Implantable Intrathecal or Epidural Pain Pump",
+    "policy_version": "Revision 11/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.173.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.173.pdf",
+    "rule_id": "RULE-DME-173-003",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 10"
+    },
+    "source_section": "Policy/Criteria - Section I.B Trial Contraindications",
+    "source_quote": "None of the following contraindications: 1. Known allergies to materials in the implant; 2. Active alcohol or drug abuse, including but not limited to opioid addiction and intravenous drug abuse;",
+    "clinical_service_or_procedure": "Pain pump preliminary trial - Contraindications",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-173-003-A",
+          "description": "Active alcohol or drug abuse / untreated addiction",
+          "parameter": "active_substance_abuse",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-173-003-B",
+          "description": "Diagnosis of dementia, psychosis, or active infection",
+          "parameter": "dementia_psychosis_or_infection",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Contraindicated in active addiction, psychosis, or infection."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.173: Implantable Intrathecal or Epidural Pain Pump",
+    "policy_version": "Revision 11/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.173.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.173.pdf",
+    "rule_id": "RULE-DME-173-004",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 10"
+    },
+    "source_section": "Policy/Criteria - Section II.A.1 Permanent Malignant",
+    "source_quote": "Chronic intractable pain of malignant origin when the above criteria for the preliminary trial are met, and all of the following: a. The trial provided \u2265 50% reduction in pain with minimal side effects;* b. Body size is sufficient to support the weight and bulk of the device;",
+    "clinical_service_or_procedure": "Permanent implantable intrathecal pain pump - Malignant Pain (HCPCS E0782, E0783)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-173-004-A",
+          "description": "Preliminary trial criteria met",
+          "parameter": "trial_criteria_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-173-004-B",
+          "description": "Trial provided \u2265 50% reduction in pain with minimal side effects",
+          "parameter": "pain_reduction_percentage",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": "50%"
+        },
+        {
+          "condition_id": "COND-DME-173-004-C",
+          "description": "Body size sufficient to support weight and bulk of device",
+          "parameter": "body_size_sufficient",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Trial log documenting \u226550% pain reduction",
+      "Surgical notes regarding device pocket feasibility"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Trial requirement may be reviewed by medical director for advanced terminal disease."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.173: Implantable Intrathecal or Epidural Pain Pump",
+    "policy_version": "Revision 11/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.173.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.173.pdf",
+    "rule_id": "RULE-DME-173-005",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 10"
+    },
+    "source_section": "Policy/Criteria - Section II.A.2 Permanent Non-Malignant",
+    "source_quote": "Severe chronic pain of non-malignant origin when the above criteria for the preliminary trial is met and all of the following: a. Preliminary trial provided \u2265 50% reduction in pain and increase in function with minimal side effects; b. There is a plan in place to continue to wean systemic opioids;",
+    "clinical_service_or_procedure": "Permanent implantable intrathecal pain pump - Non-Malignant Pain (HCPCS E0782, E0783)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-173-005-A",
+          "description": "Trial provided \u2265 50% reduction in pain AND increase in function",
+          "parameter": "pain_reduction_and_functional_gain",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": "50%"
+        },
+        {
+          "condition_id": "COND-DME-173-005-B",
+          "description": "Plan in place to continue to wean systemic opioids",
+          "parameter": "ongoing_opioid_weaning_plan",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-173-005-C",
+          "description": "No active coagulopathy, normal ICP, no anatomical spine barrier",
+          "parameter": "surgical_safety_cleared",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Trial log confirming \u226550% pain relief and functional improvement",
+      "Systemic opioid weaning taper schedule"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Requires documented functional gain and ongoing opioid weaning protocol."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.173: Implantable Intrathecal or Epidural Pain Pump",
+    "policy_version": "Revision 11/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.173.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.173.pdf",
+    "rule_id": "RULE-DME-173-006",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 10"
+    },
+    "source_section": "Policy/Criteria - Section II.B Permanent Contraindications",
+    "source_quote": "B. None of the following contraindications: 1. Known allergies to materials in the implant; 2. Active alcohol or drug abuse, including but not limited to opioid addiction and intravenous drug abuse; 3. Diagnosis of dementia or psychosis; 4. Active systemic infection; 5. Active infection at the site of implantation.",
+    "clinical_service_or_procedure": "Permanent pain pump implantation - Contraindications",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-173-006-A",
+          "description": "Active infection (systemic or at implant site)",
+          "parameter": "active_infection_present",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-173-006-B",
+          "description": "Active substance abuse or addiction",
+          "parameter": "active_substance_abuse",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Absolute exclusion for infection, active abuse, dementia, or implant allergy."
+  }
+]

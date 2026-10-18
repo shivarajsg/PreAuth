@@ -1,0 +1,625 @@
+[
+  {
+    "rule_id": "RULE-PHY-ECG1501CHIROINFANT-001",
+    "domain": "physical_medicine",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/2026 Evolent Physical Medicine Guidelines_0.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 35,
+      "printed_page": "Page 35 of 143"
+    },
+    "source_section": "ECG 1501 for Chiropractic Infant Care Policy",
+    "source_quote": "Evolent Clinical Guideline 1501 for Chiropractic Infant Care Policy",
+    "clinical_service_or_procedure": "ECG 1501 for Chiropractic Infant Care Policy",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-ECG1501CHIROINFANT-001",
+          "description": "Physical medicine criteria satisfied for ECG 1501 for Chiropractic Infant Care Policy",
+          "parameter": "ecg1501chiroinfant_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Flagged for physical medicine clinical reviewer evaluation"
+  },
+  {
+    "rule_id": "RULE-PHY-ECG1504PROGRESSIVEIMPROV-001",
+    "domain": "physical_medicine",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/2026 Evolent Physical Medicine Guidelines_0.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 97,
+      "printed_page": "Page 97 of 143"
+    },
+    "source_section": "ECG 1504 for Measurable Progressive Improvement",
+    "source_quote": "Evolent Clinical Guideline 1504 for Measurable Progressive Improvement",
+    "clinical_service_or_procedure": "ECG 1504 for Measurable Progressive Improvement",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-ECG1504PROGRESSIVEIMPROV-001",
+          "description": "Physical medicine criteria satisfied for ECG 1504 for Measurable Progressive Improvement",
+          "parameter": "ecg1504progressiveimprov_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-ECG1509CHIRODOCS-001",
+    "domain": "physical_medicine",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/2026 Evolent Physical Medicine Guidelines_0.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 43,
+      "printed_page": "Page 43 of 143"
+    },
+    "source_section": "ECG 1509 for Record Keeping and Documentation Standards Chiropractic Care",
+    "source_quote": "Evolent Clinical Guideline 1509 for Record Keeping and Documentation Standards: Chiropractic Care",
+    "clinical_service_or_procedure": "ECG 1509 for Record Keeping and Documentation Standards Chir",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-ECG1509CHIRODOCS-001",
+          "description": "Physical medicine criteria satisfied for ECG 1509 for Record Keeping and Documentation Standards Chiropractic Care",
+          "parameter": "ecg1509chirodocs_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-ECG1510DOCSTANDARDS-001",
+    "domain": "physical_medicine",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/2026 Evolent Physical Medicine Guidelines_0.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 21,
+      "printed_page": "Page 21 of 143"
+    },
+    "source_section": "ECG 1510 for Record Keeping and Documentation Standards Physical Medicine",
+    "source_quote": "Evolent Clinical Guideline 1510 for Record Keeping and Documentation Standards: Physical Medicine",
+    "clinical_service_or_procedure": "ECG 1510 for Record Keeping and Documentation Standards Phys",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-ECG1510DOCSTANDARDS-001",
+          "description": "Physical medicine criteria satisfied for ECG 1510 for Record Keeping and Documentation Standards Physical Medicine",
+          "parameter": "ecg1510docstandards_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-ECG1511ACTIVEPASSIVEEXP-001",
+    "domain": "physical_medicine",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/2026 Evolent Physical Medicine Guidelines_0.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 63,
+      "printed_page": "Page 63 of 143"
+    },
+    "source_section": "ECG 1511 for Active Procedures, Passive Treatment, and Experimental Services",
+    "source_quote": "Evolent Clinical Guideline 1511 for Active Procedures, Passive Treatment, and Experimental, Unproven,",
+    "clinical_service_or_procedure": "ECG 1511 for Active Procedures, Passive Treatment, and Exper",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-ECG1511ACTIVEPASSIVEEXP-001",
+          "description": "Physical medicine criteria satisfied for ECG 1511 for Active Procedures, Passive Treatment, and Experimental Services",
+          "parameter": "ecg1511activepassiveexp_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-ECG1512HABTHERAPY-001",
+    "domain": "physical_medicine",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/2026 Evolent Physical Medicine Guidelines_0.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 4,
+      "printed_page": "Page 4 of 143"
+    },
+    "source_section": "ECG 1512 for Outpatient Habilitative Physical, Occupational, and Speech Therapy",
+    "source_quote": "Evolent Clinical Guideline 1512 for Outpatient Habilitative Physical, Occupational, Speech, and",
+    "clinical_service_or_procedure": "ECG 1512 for Outpatient Habilitative Physical, Occupational,",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-ECG1512HABTHERAPY-001",
+          "description": "Physical medicine criteria satisfied for ECG 1512 for Outpatient Habilitative Physical, Occupational, and Speech Therapy",
+          "parameter": "ecg1512habtherapy_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYACTIVEPROCEDURES-001",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Active Procedures in Physical Medicine Policy",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Active Procedures in Physical Medicine 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 21"
+    },
+    "source_section": "Active Procedures in Physical Medicine Policy",
+    "source_quote": "Active Procedures in Physical Medicine",
+    "clinical_service_or_procedure": "Active Procedures in Physical Medicine Policy",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-POLICYACTIVEPROCEDURES-001",
+          "description": "Physical medicine criteria satisfied for Active Procedures in Physical Medicine Policy",
+          "parameter": "policyactiveprocedures_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYDMEPHYSMED-001",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Durable Medical Equipment in Physical Medicine Policy",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Durable Medical Equipment 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 6"
+    },
+    "source_section": "Durable Medical Equipment in Physical Medicine Policy",
+    "source_quote": "The medical necessity or support for prior authorization of Durable Medical Equipment (DME).",
+    "clinical_service_or_procedure": "Durable Medical Equipment in Physical Medicine Policy",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-POLICYDMEPHYSMED-001",
+          "description": "Physical medicine criteria satisfied for Durable Medical Equipment in Physical Medicine Policy",
+          "parameter": "policydmephysmed_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYEXPERIMENTALPHYSMED-001",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Experimental, Unproven, or Investigational Services in Physical Medicine",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Experimental Unproven or Investigational Services 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 9"
+    },
+    "source_section": "Experimental, Unproven, or Investigational Services in Physical Medicine",
+    "source_quote": "Experimental, Unproven, or Investigational Services",
+    "clinical_service_or_procedure": "Experimental, Unproven, or Investigational Services in Physi",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-POLICYEXPERIMENTALPHYSMED-001",
+          "description": "Physical medicine criteria satisfied for Experimental, Unproven, or Investigational Services in Physical Medicine",
+          "parameter": "policyexperimentalphysmed_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Flagged for physical medicine clinical reviewer evaluation"
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYHABILITATIVEPTOT-001",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Outpatient Habilitative Physical and Occupational Therapy Policy",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Outpatient Habilitative PT and OT Therapy 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 13"
+    },
+    "source_section": "Outpatient Habilitative Physical and Occupational Therapy Policy",
+    "source_quote": "Outpatient Habilitative Physical and Occupational Therapy",
+    "clinical_service_or_procedure": "Outpatient Habilitative Physical and Occupational Therapy Po",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-POLICYHABILITATIVEPTOT-001",
+          "description": "Physical medicine criteria satisfied for Outpatient Habilitative Physical and Occupational Therapy Policy",
+          "parameter": "policyhabilitativeptot_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYHABREHABSPEECH-001",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Outpatient Habilitative and Rehabilitative Speech Therapy Policy",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Outpatient Habilitative and Rehabilitative Speech Therapy 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 10"
+    },
+    "source_section": "Outpatient Habilitative and Rehabilitative Speech Therapy Policy",
+    "source_quote": "Outpatient Habilitative and Rehabilitative Speech Therapy",
+    "clinical_service_or_procedure": "Outpatient Habilitative and Rehabilitative Speech Therapy Po",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-POLICYHABREHABSPEECH-001",
+          "description": "Physical medicine criteria satisfied for Outpatient Habilitative and Rehabilitative Speech Therapy Policy",
+          "parameter": "policyhabrehabspeech_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYMEASURABLEIMPROV-001",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Measurable Progressive Improvement Standards in Physical Medicine",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Measurable Progressive Improvement 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 40"
+    },
+    "source_section": "Measurable Progressive Improvement Standards in Physical Medicine",
+    "source_quote": "Measurable Progressive Improvement",
+    "clinical_service_or_procedure": "Measurable Progressive Improvement Standards in Physical Med",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-POLICYMEASURABLEIMPROV-001",
+          "description": "Physical medicine criteria satisfied for Measurable Progressive Improvement Standards in Physical Medicine",
+          "parameter": "policymeasurableimprov_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYMEASURABLEIMPROV-002",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Measurable Progressive Improvement Standards in Physical Medicine",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Measurable Progressive Improvement 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 40"
+    },
+    "source_section": "Measurable Progressive Improvement / Treatment Plateau Determination",
+    "source_quote": "Measurable Progressive Improvement",
+    "clinical_service_or_procedure": "Therapy Continuation Beyond Plateau",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-PLATEAU-NONCOVERED",
+          "description": "Patient has reached a functional plateau with no objective measurable progress over consecutive treatment intervals",
+          "parameter": "functional_plateau_reached",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYPASSIVETREATMENT-001",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Passive Treatment Modalities in Physical Medicine Policy",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Passive Treatment 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 10"
+    },
+    "source_section": "Passive Treatment Modalities in Physical Medicine Policy",
+    "source_quote": "This organization does not recognize the use of multiple passive treatments for the care of",
+    "clinical_service_or_procedure": "Passive Treatment Modalities in Physical Medicine Policy",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-POLICYPASSIVETREATMENT-001",
+          "description": "Physical medicine criteria satisfied for Passive Treatment Modalities in Physical Medicine Policy",
+          "parameter": "policypassivetreatment_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYPASSIVETREATMENT-002",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Passive Treatment Modalities in Physical Medicine Policy",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Passive Treatment 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 10"
+    },
+    "source_section": "Passive Treatment Modalities / Transition to Active Care",
+    "source_quote": "\u2022 Used to support an active care approach (i.e., therapeutic exercise)",
+    "clinical_service_or_procedure": "Passive Modalities Utilization Limitation",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-PASSIVE-ACTIVE-TRANS",
+          "description": "Passive modalities must be used concurrently with or transitioning to an active rehabilitation program",
+          "parameter": "active_therapy_program_participation",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-PHY-POLICYRECORDKEEPINGPHYSMED-001",
+    "domain": "physical_medicine",
+    "document_type": "supplementary_policy",
+    "policy_title": "Record Keeping and Documentation Standards in Physical Medicine",
+    "policy_version": "2024-2026 Active",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Record Keeping Doc Standards Phys Medicine 2024_1.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 11"
+    },
+    "source_section": "Record Keeping and Documentation Standards in Physical Medicine",
+    "source_quote": "Record Keeping and Documentation Standards Physical Medicine",
+    "clinical_service_or_procedure": "Record Keeping and Documentation Standards in Physical Medic",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-POLICYRECORDKEEPINGPHYSMED-001",
+          "description": "Physical medicine criteria satisfied for Record Keeping and Documentation Standards in Physical Medicine",
+          "parameter": "policyrecordkeepingphysmed_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-PHY-PREAMBLEPHY-001",
+    "domain": "physical_medicine",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/2026 Evolent Physical Medicine Guidelines_0.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 143"
+    },
+    "source_section": "Preamble and Clinical Review Determination",
+    "source_quote": "Evolent is committed to the philosophy of supporting safe and effective",
+    "clinical_service_or_procedure": "Preamble and Clinical Review Determination",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-PHY-PREAMBLEPHY-001",
+          "description": "Physical medicine criteria satisfied for Preamble and Clinical Review Determination",
+          "parameter": "preamblephy_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "POLICY-RECORD-KEEPING-PHYSMED"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Flagged for physical medicine clinical reviewer evaluation"
+  }
+]
