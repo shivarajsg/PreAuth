@@ -1,0 +1,34 @@
+{
+  "case_id": "CASE-SYNTH-002",
+  "member_id": "MEM-SYNTH-91024",
+  "patient_age_years": 44,
+  "patient_gender": "MALE",
+  "clinical_domain": "advanced_imaging",
+  "procedure_code": "74177",
+  "procedure_name": "CT Abdomen and Pelvis with contrast",
+  "modality": "CT",
+  "place_of_service": "OUTPATIENT_HOSPITAL",
+  "primary_diagnosis_code": "K85.90",
+  "diagnosis_description": "Acute pancreatitis, unspecified",
+  "payer_id": "EVOLENT",
+  "plan_id": "COMMERCIAL_PPO",
+  "line_of_business": "COMMERCIAL",
+  "jurisdiction": "US_NATIONAL",
+  "request_date": "2026-04-05",
+  "requested_date_of_service": "2026-04-06",
+  "clinical_evidence": {
+    "pancreatitis_diagnostic_markers": "ELEVATED",
+    "conservative_treatment_duration_hours": 36,
+    "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+    "ordering_provider_license": true
+  },
+  "supporting_documentation_provided": [
+    "EMERGENCY_DEPT_NOTES"
+  ],
+  "ordering_provider": {
+    "provider_specialty": "Emergency Medicine",
+    "is_licensed": true,
+    "npi_synthetic": "1883746501"
+  },
+  "notes": "Synthetic test case: Patient with mild acute pancreatitis evaluated after only 36 hours (boundary failure: threshold is >= 72 hours)."
+}

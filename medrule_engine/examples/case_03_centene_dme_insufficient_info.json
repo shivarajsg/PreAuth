@@ -1,0 +1,31 @@
+{
+  "case_id": "CASE-SYNTH-003",
+  "member_id": "MEM-SYNTH-12345",
+  "patient_age_years": 68,
+  "patient_gender": "FEMALE",
+  "clinical_domain": "centene_dme_orthotics_prosthetics",
+  "procedure_code": "E0601",
+  "procedure_name": "Continuous positive airway pressure (CPAP) device",
+  "modality": "DME",
+  "place_of_service": "HOME",
+  "primary_diagnosis_code": "G47.33",
+  "diagnosis_description": "Obstructive sleep apnea (adult)",
+  "payer_id": "CENTENE",
+  "plan_id": "WELLCARE_MEDICARE_ADVANTAGE",
+  "line_of_business": "MEDICARE_ADVANTAGE",
+  "jurisdiction": "OHIO",
+  "request_date": "2026-08-15",
+  "requested_date_of_service": "2026-08-20",
+  "clinical_evidence": {
+    "ordering_provider_license": true
+  },
+  "supporting_documentation_provided": [
+    "DME_ORDER_FORM"
+  ],
+  "ordering_provider": {
+    "provider_specialty": "Pulmonology",
+    "is_licensed": true,
+    "npi_synthetic": "1092837461"
+  },
+  "notes": "Synthetic test case: DME CPAP request lacking diagnostic polysomnography and functional medical necessity evaluation."
+}

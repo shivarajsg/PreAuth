@@ -1,0 +1,378 @@
+{
+  "BM-CASE-01": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-006": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "expected_result_rationale": "Scenario 1: Complete clinical evidence meeting all policy criteria yields non-binding CRITERIA_MET."
+  },
+  "BM-CASE-02": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-006": "FALSE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "expected_result_rationale": "Scenario 2: Conservative therapy duration 24h violates mandatory >= 72h policy threshold."
+  },
+  "BM-CASE-05": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-006": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "expected_result_rationale": "Scenario 5: Explicit Boolean false is a verified negative clinical observation, not missing data."
+  },
+  "BM-CASE-07": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2012-001": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-ADV-CG2012-001"
+    ],
+    "expected_result_rationale": "Scenario 7: Nested condition tree resolved successfully via thunderclap onset alternative."
+  },
+  "BM-CASE-08": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-003": "TRUE"
+    },
+    "expected_non_binding_assessment": "MANUAL_REVIEW_REQUIRED",
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Rule RULE-ADV-CG2000-003 is flagged 'NEEDS_HUMAN_REVIEW'"
+    ],
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-003"
+    ],
+    "expected_result_rationale": "Scenario 8 & 19: Rule marked NEEDS_HUMAN_REVIEW triggers mandatory escalation to MANUAL_REVIEW_REQUIRED."
+  },
+  "BM-CASE-09": {
+    "expected_routing_result": "POLICY_VERSION_UNRESOLVED",
+    "expected_condition_results": {},
+    "expected_non_binding_assessment": "POLICY_VERSION_UNRESOLVED",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 9 & 22: Requested DOS precedes 2026-01-01 policy effective boundary without historical mode override."
+  },
+  "BM-CASE-13": {
+    "expected_routing_result": "POLICY_NOT_APPLICABLE",
+    "expected_condition_results": {},
+    "expected_non_binding_assessment": "POLICY_NOT_APPLICABLE",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 13: Router identifies malformed procedure code and rejects routing rather than keyword matching."
+  },
+  "BM-CASE-14": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-001": "TRUE",
+      "RULE-ADV-CG2000-006": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-001",
+      "RULE-ADV-CG2000-006"
+    ],
+    "expected_result_rationale": "Scenario 14: Successfully evaluates multiple concurrent rules."
+  },
+  "BM-CASE-10": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-CARD-CG7251-001": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-CARD-CG7251-001"
+    ],
+    "expected_result_rationale": "Scenario 10: Current 2026 cardiology policy criteria satisfied."
+  },
+  "BM-CASE-11": {
+    "expected_routing_result": "MANUAL_REVIEW_REQUIRED",
+    "expected_condition_results": {},
+    "expected_non_binding_assessment": "MANUAL_REVIEW_REQUIRED",
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Plan-specific dependency unresolved"
+    ],
+    "source_rule_ids": [
+      "RULE-CARD-CG7252-001"
+    ],
+    "expected_result_rationale": "Scenario 11: Unresolved external plan dependency halts automated assessment and escalates."
+  },
+  "BM-CASE-26": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-CARD-OP38801-002": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-CARD-OP38801-002"
+    ],
+    "expected_result_rationale": "Scenario 26: IS_ABSENT evaluated on Boolean false qualifying diagnosis confirms claim edit denial condition."
+  },
+  "BM-CASE-27": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-CARD-OP38801-002": "FALSE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-CARD-OP38801-002"
+    ],
+    "expected_result_rationale": "Scenario 27: Diagnosis is present ('I35.0'), so IS_ABSENT condition is FALSE."
+  },
+  "BM-CASE-06D": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-MSK-CGKNEEARTHROPLASTY-002": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-MSK-CGKNEEARTHROPLASTY-002"
+    ],
+    "expected_result_rationale": "Knee arthroplasty indication satisfied via severe osteoarthritis presence."
+  },
+  "BM-CASE-06A": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGFACETDENERVATION-002": "FALSE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "expected_result_rationale": "Scenario 6A: 49% relief is strictly below the required >= 50% boundary."
+  },
+  "BM-CASE-06B": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGFACETDENERVATION-002": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "expected_result_rationale": "Scenario 6B: 50% relief exactly meets the GREATER_THAN_OR_EQUAL boundary."
+  },
+  "BM-CASE-06C": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGFACETDENERVATION-002": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "expected_result_rationale": "Scenario 6C: 75% relief satisfies >= 50% boundary."
+  },
+  "BM-CASE-23": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGFACETDENERVATION-002": "UNKNOWN"
+    },
+    "expected_non_binding_assessment": "INSUFFICIENT_INFORMATION",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "expected_result_rationale": "Scenario 23: Incompatible type returns UNKNOWN with type error, preventing silent coercion or clinical failure."
+  },
+  "BM-CASE-28": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGEPIDURALINJECTIONS-001": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-IPM-CGEPIDURALINJECTIONS-001"
+    ],
+    "expected_result_rationale": "Scenario 28: Lumbar epidural injection indication confirmed satisfied."
+  },
+  "BM-CASE-21": {
+    "expected_routing_result": "POLICY_NOT_APPLICABLE",
+    "expected_condition_results": {},
+    "expected_non_binding_assessment": "POLICY_NOT_APPLICABLE",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 21: Procedure code 74177 belongs to advanced imaging, not pain management."
+  },
+  "BM-CASE-30": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-RAD-ECG7000BREAST-001": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-RAD-ECG7000BREAST-001"
+    ],
+    "expected_result_rationale": "Scenario 30: Whole breast radiation oncology criteria satisfied."
+  },
+  "BM-CASE-16": {
+    "expected_routing_result": "POLICY_NOT_APPLICABLE",
+    "expected_condition_results": {},
+    "expected_non_binding_assessment": "POLICY_NOT_APPLICABLE",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [],
+    "expected_result_rationale": "Scenario 16: Safe fallback when candidate rule set is empty."
+  },
+  "BM-CASE-04": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-PHY-ECG1504PROGRESSIVEIMPROV-001": "FALSE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-PHY-ECG1504PROGRESSIVEIMPROV-001"
+    ],
+    "expected_result_rationale": "Scenario 4: Negative evaluation of progressive improvement results in CRITERIA_NOT_MET."
+  },
+  "BM-CASE-29": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-SLP-CG2051-001": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-SLP-CG2051-001"
+    ],
+    "expected_result_rationale": "Scenario 29: Home sleep testing criteria and documentation satisfied."
+  },
+  "BM-CASE-15": {
+    "expected_routing_result": "MANUAL_REVIEW_REQUIRED",
+    "expected_condition_results": {},
+    "expected_non_binding_assessment": "MANUAL_REVIEW_REQUIRED",
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Line of business is unrecognized, empty, or unverified"
+    ],
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 15: Unverified Line of Business 'OTHER' requires manual clinical review."
+  },
+  "BM-CASE-18": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-GEN-CGGENCARRIERSCREENING-001": "TRUE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-GEN-CGGENCARRIERSCREENING-001"
+    ],
+    "expected_result_rationale": "Scenario 18: Draft genetic testing rule assessment strictly generates is_binding=False."
+  },
+  "BM-CASE-03": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-DME-107-002": "UNKNOWN"
+    },
+    "expected_non_binding_assessment": "INSUFFICIENT_INFORMATION",
+    "expected_missing_evidence": [
+      "device_trial_successful"
+    ],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-DME-107-002"
+    ],
+    "expected_result_rationale": "Scenario 3: Missing clinical trial parameter yields INSUFFICIENT_INFORMATION under PEND_FOR_DOCUMENTATION."
+  },
+  "BM-CASE-12": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-DME-107-006": "FALSE"
+    },
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": [
+      "RULE-DME-107-006"
+    ],
+    "expected_result_rationale": "Scenario 12: Negative clinical findings confirm failure of clinical criteria."
+  },
+  "BM-CASE-19": {
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-DME-107-005": "TRUE"
+    },
+    "expected_non_binding_assessment": "MANUAL_REVIEW_REQUIRED",
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Rule RULE-DME-107-005 is flagged 'NEEDS_HUMAN_REVIEW'"
+    ],
+    "source_rule_ids": [
+      "RULE-DME-107-005"
+    ],
+    "expected_result_rationale": "Scenario 19: Unapproved Centene rule marked for review escalates safely."
+  },
+  "BM-CASE-20": {
+    "expected_routing_result": "POLICY_VERSION_UNRESOLVED",
+    "expected_condition_results": {},
+    "expected_non_binding_assessment": "POLICY_VERSION_UNRESOLVED",
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Unresolved governing policy section dependency"
+    ],
+    "source_rule_ids": [
+      "RULE-DME-107-002"
+    ],
+    "expected_result_rationale": "Scenario 20: Missing policy section dependency blocks deterministic evaluation."
+  },
+  "BM-CASE-22": {
+    "expected_routing_result": "POLICY_VERSION_UNRESOLVED",
+    "expected_condition_results": {},
+    "expected_non_binding_assessment": "POLICY_VERSION_UNRESOLVED",
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 22: Requested DOS precedes effective date 2026-08-01 of active Centene CP.MP.107."
+  }
+}

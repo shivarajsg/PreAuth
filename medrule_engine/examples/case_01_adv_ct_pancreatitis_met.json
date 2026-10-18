@@ -1,0 +1,36 @@
+{
+  "case_id": "CASE-SYNTH-001",
+  "member_id": "MEM-SYNTH-88219",
+  "patient_age_years": 52,
+  "patient_gender": "FEMALE",
+  "clinical_domain": "advanced_imaging",
+  "procedure_code": "74177",
+  "procedure_name": "CT Abdomen and Pelvis with contrast",
+  "modality": "CT",
+  "place_of_service": "OUTPATIENT_HOSPITAL",
+  "primary_diagnosis_code": "K85.90",
+  "diagnosis_description": "Acute pancreatitis, unspecified",
+  "payer_id": "EVOLENT",
+  "plan_id": "COMMERCIAL_CHOICE_PLUS",
+  "line_of_business": "COMMERCIAL",
+  "jurisdiction": "US_NATIONAL",
+  "request_date": "2026-03-10",
+  "requested_date_of_service": "2026-03-12",
+  "clinical_evidence": {
+    "pancreatitis_diagnostic_markers": "ELEVATED",
+    "conservative_treatment_duration_hours": 96,
+    "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+    "ordering_provider_license": true
+  },
+  "supporting_documentation_provided": [
+    "CLINICAL_PROGRESS_NOTES",
+    "ABDOMINAL_ULTRASOUND_REPORT",
+    "LABORATORY_LIPASE_AMYLASE_PANEL"
+  ],
+  "ordering_provider": {
+    "provider_specialty": "Gastroenterology",
+    "is_licensed": true,
+    "npi_synthetic": "1992837465"
+  },
+  "notes": "Synthetic test case: Patient with confirmed acute pancreatitis without improvement after 96 hours of fluid resuscitation."
+}

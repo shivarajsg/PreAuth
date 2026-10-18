@@ -1,0 +1,1051 @@
+[
+  {
+    "benchmark_case_id": "BM-CASE-01",
+    "synthetic_case_description": "Pancreatitis CT Abdomen with all clinical criteria fully satisfied after 96h conservative care.",
+    "clinical_domain": "advanced_imaging",
+    "requested_service_or_equipment": "CT Abdomen and Pelvis with contrast",
+    "procedure_code": "74177",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-03-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-01",
+      "clinical_domain": "advanced_imaging",
+      "procedure_code": "74177",
+      "procedure_name": "CT Abdomen and Pelvis with contrast",
+      "modality": "CT",
+      "requested_date_of_service": "2026-03-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "jurisdiction": "US-IL",
+      "clinical_evidence": {
+        "pancreatitis_diagnostic_markers": "ELEVATED",
+        "conservative_treatment_duration_hours": 96,
+        "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+        "ordering_provider_license": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-006": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "expected_result_rationale": "Scenario 1: Complete clinical evidence meeting all policy criteria yields non-binding CRITERIA_MET."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-02",
+    "synthetic_case_description": "Pancreatitis CT Abdomen failing the 72-hour conservative treatment threshold (only 24h provided).",
+    "clinical_domain": "advanced_imaging",
+    "requested_service_or_equipment": "CT Abdomen and Pelvis with contrast",
+    "procedure_code": "74177",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-03-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-02",
+      "clinical_domain": "advanced_imaging",
+      "procedure_code": "74177",
+      "procedure_name": "CT Abdomen and Pelvis with contrast",
+      "modality": "CT",
+      "requested_date_of_service": "2026-03-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "jurisdiction": "US-IL",
+      "clinical_evidence": {
+        "pancreatitis_diagnostic_markers": "ELEVATED",
+        "conservative_treatment_duration_hours": 24,
+        "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+        "ordering_provider_license": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-006": "FALSE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "expected_result_rationale": "Scenario 2: Conservative therapy duration 24h violates mandatory >= 72h policy threshold."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-05",
+    "synthetic_case_description": "Pancreatitis CT Abdomen with Boolean false supplied as valid negative finding rather than missing information.",
+    "clinical_domain": "advanced_imaging",
+    "requested_service_or_equipment": "CT Abdomen and Pelvis with contrast",
+    "procedure_code": "74177",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-03-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-05",
+      "clinical_domain": "advanced_imaging",
+      "procedure_code": "74177",
+      "procedure_name": "CT Abdomen and Pelvis with contrast",
+      "modality": "CT",
+      "requested_date_of_service": "2026-03-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "pancreatitis_diagnostic_markers": "ELEVATED",
+        "conservative_treatment_duration_hours": 80,
+        "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+        "peritoneal_signs_present": false,
+        "ordering_provider_license": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-006": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "expected_result_rationale": "Scenario 5: Explicit Boolean false is a verified negative clinical observation, not missing data."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-07",
+    "synthetic_case_description": "Brain MRI for acute severe headache with nested ALL_OF / ANY_OF criteria and documentation satisfied.",
+    "clinical_domain": "advanced_imaging",
+    "requested_service_or_equipment": "MRI Brain without contrast",
+    "procedure_code": "70551",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-OH",
+    "date_of_service": "2026-04-10",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-07",
+      "clinical_domain": "advanced_imaging",
+      "procedure_code": "70551",
+      "procedure_name": "MRI Brain without contrast",
+      "modality": "MRI",
+      "requested_date_of_service": "2026-04-10",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "supporting_documentation_provided": [
+        "Neurology or ED consultation notes detailing headache onset and duration",
+        "Medication list or family history notes documenting specific high risk feature"
+      ],
+      "clinical_evidence": {
+        "headache_duration_weeks": 1.0,
+        "thunderclap_onset_48h": true,
+        "acute_headache_risk_factor": true,
+        "ordering_provider_license": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2012-001": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-ADV-CG2012-001"
+    ],
+    "expected_result_rationale": "Scenario 7: Nested condition tree resolved successfully via thunderclap onset alternative."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-08",
+    "synthetic_case_description": "CT Enterography for Crohn's evaluating rule marked NEEDS_HUMAN_REVIEW.",
+    "clinical_domain": "advanced_imaging",
+    "requested_service_or_equipment": "CT Enterography",
+    "procedure_code": "74177",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-FL",
+    "date_of_service": "2026-04-12",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-08",
+      "clinical_domain": "advanced_imaging",
+      "procedure_code": "74177",
+      "procedure_name": "CT Enterography",
+      "modality": "CT",
+      "requested_date_of_service": "2026-04-12",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "ibd_subtypes": "CROHNS_DISEASE",
+        "prior_imaging_normal_or_equivocal": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-003": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Rule RULE-ADV-CG2000-003 is flagged 'NEEDS_HUMAN_REVIEW'"
+    ],
+    "expected_non_binding_assessment": "MANUAL_REVIEW_REQUIRED",
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-003"
+    ],
+    "expected_result_rationale": "Scenario 8 & 19: Rule marked NEEDS_HUMAN_REVIEW triggers mandatory escalation to MANUAL_REVIEW_REQUIRED."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-09",
+    "synthetic_case_description": "Historical date of service preceding 2026 governing policy boundary.",
+    "clinical_domain": "advanced_imaging",
+    "requested_service_or_equipment": "CT Abdomen and Pelvis",
+    "procedure_code": "74177",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2025-08-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-09",
+      "clinical_domain": "advanced_imaging",
+      "procedure_code": "74177",
+      "procedure_name": "CT Abdomen and Pelvis",
+      "modality": "CT",
+      "requested_date_of_service": "2025-08-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "pancreatitis_diagnostic_markers": "ELEVATED"
+      }
+    },
+    "expected_routing_result": "POLICY_VERSION_UNRESOLVED",
+    "expected_condition_results": {},
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "POLICY_VERSION_UNRESOLVED",
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 9 & 22: Requested DOS precedes 2026-01-01 policy effective boundary without historical mode override."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-13",
+    "synthetic_case_description": "Malformed procedure code provided during case intake.",
+    "clinical_domain": "advanced_imaging",
+    "requested_service_or_equipment": "Malformed Procedure Code",
+    "procedure_code": "INVALID_CODE_99999",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-03-20",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-13",
+      "clinical_domain": "advanced_imaging",
+      "procedure_code": "INVALID_CODE_99999",
+      "procedure_name": "Unknown Imaging Study",
+      "modality": "CT",
+      "requested_date_of_service": "2026-03-20",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {}
+    },
+    "expected_routing_result": "POLICY_NOT_APPLICABLE",
+    "expected_condition_results": {},
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "POLICY_NOT_APPLICABLE",
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 13: Router identifies malformed procedure code and rejects routing rather than keyword matching."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-14",
+    "synthetic_case_description": "Multiple applicable rules evaluated concurrently across general and clinical policy sections.",
+    "clinical_domain": "advanced_imaging",
+    "requested_service_or_equipment": "CT Abdomen and Pelvis",
+    "procedure_code": "74177",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-03-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-14",
+      "clinical_domain": "advanced_imaging",
+      "procedure_code": "74177",
+      "procedure_name": "CT Abdomen and Pelvis",
+      "modality": "CT",
+      "requested_date_of_service": "2026-03-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "ordering_provider_license": true,
+        "clinical_office_notes": true,
+        "laboratory_and_testing_data": true,
+        "pancreatitis_diagnostic_markers": "ELEVATED",
+        "conservative_treatment_duration_hours": 96,
+        "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT"
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-ADV-CG2000-001": "TRUE",
+      "RULE-ADV-CG2000-006": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-ADV-CG2000-001",
+      "RULE-ADV-CG2000-006"
+    ],
+    "expected_result_rationale": "Scenario 14: Successfully evaluates multiple concurrent rules."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-10",
+    "synthetic_case_description": "Cardiology Abdominal Aortic Ultrasound under active 2026 clinical guideline.",
+    "clinical_domain": "cardiology",
+    "requested_service_or_equipment": "Abdominal Aortic Ultrasound",
+    "procedure_code": "76775",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-TX",
+    "date_of_service": "2026-04-10",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-10",
+      "clinical_domain": "cardiology",
+      "procedure_code": "76775",
+      "procedure_name": "Abdominal Aortic Ultrasound",
+      "requested_date_of_service": "2026-04-10",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "cg7251_indication": true,
+        "patient_age_years": 67,
+        "history_of_smoking": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-CARD-CG7251-001": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-CARD-CG7251-001"
+    ],
+    "expected_result_rationale": "Scenario 10: Current 2026 cardiology policy criteria satisfied."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-11",
+    "synthetic_case_description": "Cardiology case with an unresolved plan-specific coverage dependency.",
+    "clinical_domain": "cardiology",
+    "requested_service_or_equipment": "Ambulatory Rhythm Monitoring",
+    "procedure_code": "93224",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-NY",
+    "date_of_service": "2026-04-15",
+    "policy_context": {
+      "unresolved_plan_dependency": "Regional Commercial Plan Schedule B carve-out required"
+    },
+    "case_input": {
+      "case_id": "CASE-BM-11",
+      "clinical_domain": "cardiology",
+      "procedure_code": "93224",
+      "procedure_name": "Ambulatory Rhythm Monitoring",
+      "requested_date_of_service": "2026-04-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "cg7252_indication": true
+      }
+    },
+    "expected_routing_result": "MANUAL_REVIEW_REQUIRED",
+    "expected_condition_results": {},
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Plan-specific dependency unresolved"
+    ],
+    "expected_non_binding_assessment": "MANUAL_REVIEW_REQUIRED",
+    "source_rule_ids": [
+      "RULE-CARD-CG7252-001"
+    ],
+    "expected_result_rationale": "Scenario 11: Unresolved external plan dependency halts automated assessment and escalates."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-26",
+    "synthetic_case_description": "Cardiology Claim Edit OP38801 with qualifying diagnosis absent (IS_ABSENT condition satisfied -> NOT_INDICATED).",
+    "clinical_domain": "cardiology",
+    "requested_service_or_equipment": "Doppler Echocardiography Add-On Billing",
+    "procedure_code": "93320",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-04-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-26",
+      "clinical_domain": "cardiology",
+      "procedure_code": "93320",
+      "procedure_name": "Doppler Echocardiography Add-On",
+      "requested_date_of_service": "2026-04-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "same_dos_billing": true,
+        "qualifying_diagnosis_code": false
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-CARD-OP38801-002": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-CARD-OP38801-002"
+    ],
+    "expected_result_rationale": "Scenario 26: IS_ABSENT evaluated on Boolean false qualifying diagnosis confirms claim edit denial condition."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-27",
+    "synthetic_case_description": "Cardiology Claim Edit OP38801 with qualifying diagnosis present (IS_ABSENT condition fails).",
+    "clinical_domain": "cardiology",
+    "requested_service_or_equipment": "Doppler Echocardiography Add-On Billing",
+    "procedure_code": "93320",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-04-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-27",
+      "clinical_domain": "cardiology",
+      "procedure_code": "93320",
+      "procedure_name": "Doppler Echocardiography Add-On",
+      "requested_date_of_service": "2026-04-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "same_dos_billing": true,
+        "qualifying_diagnosis_code": "I35.0"
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-CARD-OP38801-002": "FALSE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "source_rule_ids": [
+      "RULE-CARD-OP38801-002"
+    ],
+    "expected_result_rationale": "Scenario 27: Diagnosis is present ('I35.0'), so IS_ABSENT condition is FALSE."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-06D",
+    "synthetic_case_description": "Knee Arthroplasty with severe osteoarthritis documented satisfying clinical indication.",
+    "clinical_domain": "musculoskeletal_surgery",
+    "requested_service_or_equipment": "Total Knee Arthroplasty (TKA)",
+    "procedure_code": "27447",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-TX",
+    "date_of_service": "2026-03-25",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-06D",
+      "clinical_domain": "musculoskeletal_surgery",
+      "procedure_code": "27447",
+      "procedure_name": "Total Knee Arthroplasty (TKA)",
+      "requested_date_of_service": "2026-03-25",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "knee_osteoarthritis_severity": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-MSK-CGKNEEARTHROPLASTY-002": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-MSK-CGKNEEARTHROPLASTY-002"
+    ],
+    "expected_result_rationale": "Knee arthroplasty indication satisfied via severe osteoarthritis presence."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-06A",
+    "synthetic_case_description": "Facet Radiofrequency Denervation with diagnostic relief immediately below threshold (49% vs 50%).",
+    "clinical_domain": "interventional_pain_management",
+    "requested_service_or_equipment": "Facet Joint Radiofrequency Neurotomy",
+    "procedure_code": "64635",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-05-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-06A",
+      "clinical_domain": "interventional_pain_management",
+      "procedure_code": "64635",
+      "procedure_name": "Facet Joint Radiofrequency Neurotomy",
+      "requested_date_of_service": "2026-05-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "diagnostic_facet_block_relief": 49
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGFACETDENERVATION-002": "FALSE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "source_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "expected_result_rationale": "Scenario 6A: 49% relief is strictly below the required >= 50% boundary."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-06B",
+    "synthetic_case_description": "Facet Radiofrequency Denervation with diagnostic relief exactly at threshold (50%).",
+    "clinical_domain": "interventional_pain_management",
+    "requested_service_or_equipment": "Facet Joint Radiofrequency Neurotomy",
+    "procedure_code": "64635",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-05-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-06B",
+      "clinical_domain": "interventional_pain_management",
+      "procedure_code": "64635",
+      "procedure_name": "Facet Joint Radiofrequency Neurotomy",
+      "requested_date_of_service": "2026-05-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "diagnostic_facet_block_relief": 50
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGFACETDENERVATION-002": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "expected_result_rationale": "Scenario 6B: 50% relief exactly meets the GREATER_THAN_OR_EQUAL boundary."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-06C",
+    "synthetic_case_description": "Facet Radiofrequency Denervation with diagnostic relief above threshold (75%).",
+    "clinical_domain": "interventional_pain_management",
+    "requested_service_or_equipment": "Facet Joint Radiofrequency Neurotomy",
+    "procedure_code": "64635",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-05-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-06C",
+      "clinical_domain": "interventional_pain_management",
+      "procedure_code": "64635",
+      "procedure_name": "Facet Joint Radiofrequency Neurotomy",
+      "requested_date_of_service": "2026-05-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "diagnostic_facet_block_relief": 75
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGFACETDENERVATION-002": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "expected_result_rationale": "Scenario 6C: 75% relief satisfies >= 50% boundary."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-23",
+    "synthetic_case_description": "Facet Radiofrequency Denervation with incompatible non-numeric string for numeric threshold parameter.",
+    "clinical_domain": "interventional_pain_management",
+    "requested_service_or_equipment": "Facet Joint Radiofrequency Neurotomy",
+    "procedure_code": "64635",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-05-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-23",
+      "clinical_domain": "interventional_pain_management",
+      "procedure_code": "64635",
+      "procedure_name": "Facet Joint Radiofrequency Neurotomy",
+      "requested_date_of_service": "2026-05-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "diagnostic_facet_block_relief": "substantial"
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGFACETDENERVATION-002": "UNKNOWN"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "INSUFFICIENT_INFORMATION",
+    "source_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "expected_result_rationale": "Scenario 23: Incompatible type returns UNKNOWN with type error, preventing silent coercion or clinical failure."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-28",
+    "synthetic_case_description": "Lumbar Epidural Steroid Injection indication criteria satisfied.",
+    "clinical_domain": "interventional_pain_management",
+    "requested_service_or_equipment": "Lumbar Epidural Steroid Injection",
+    "procedure_code": "62322",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-05-10",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-28",
+      "clinical_domain": "interventional_pain_management",
+      "procedure_code": "62322",
+      "procedure_name": "Lumbar Epidural Steroid Injection",
+      "requested_date_of_service": "2026-05-10",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "cgepiduralinjections_indication": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-IPM-CGEPIDURALINJECTIONS-001": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-IPM-CGEPIDURALINJECTIONS-001"
+    ],
+    "expected_result_rationale": "Scenario 28: Lumbar epidural injection indication confirmed satisfied."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-21",
+    "synthetic_case_description": "Fully documented imaging case submitted to Interventional Pain Management domain (non-applicable mismatch).",
+    "clinical_domain": "interventional_pain_management",
+    "requested_service_or_equipment": "CT Abdomen and Pelvis",
+    "procedure_code": "74177",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-05-10",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-21",
+      "clinical_domain": "interventional_pain_management",
+      "procedure_code": "74177",
+      "procedure_name": "CT Abdomen and Pelvis",
+      "requested_date_of_service": "2026-05-10",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "pancreatitis_diagnostic_markers": "ELEVATED"
+      }
+    },
+    "expected_routing_result": "POLICY_NOT_APPLICABLE",
+    "expected_condition_results": {},
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "POLICY_NOT_APPLICABLE",
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 21: Procedure code 74177 belongs to advanced imaging, not pain management."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-30",
+    "synthetic_case_description": "Radiation Oncology Whole Breast Radiation criteria satisfied.",
+    "clinical_domain": "radiation_oncology",
+    "requested_service_or_equipment": "Breast Cancer Radiation Therapy (IMRT)",
+    "procedure_code": "77301",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-PA",
+    "date_of_service": "2026-05-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-30",
+      "clinical_domain": "radiation_oncology",
+      "procedure_code": "77301",
+      "procedure_name": "Intensity Modulated Radiation Therapy (IMRT)",
+      "requested_date_of_service": "2026-05-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "ecg7000breast_indication": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-RAD-ECG7000BREAST-001": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-RAD-ECG7000BREAST-001"
+    ],
+    "expected_result_rationale": "Scenario 30: Whole breast radiation oncology criteria satisfied."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-16",
+    "synthetic_case_description": "Radiation Oncology evaluation called with empty candidate rule set.",
+    "clinical_domain": "radiation_oncology",
+    "requested_service_or_equipment": "Radiation Therapy",
+    "procedure_code": "77301",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-PA",
+    "date_of_service": "2026-05-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-16",
+      "clinical_domain": "radiation_oncology",
+      "procedure_code": "77301",
+      "procedure_name": "Intensity Modulated Radiation Therapy",
+      "requested_date_of_service": "2026-05-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {}
+    },
+    "expected_routing_result": "POLICY_NOT_APPLICABLE",
+    "expected_condition_results": {},
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "POLICY_NOT_APPLICABLE",
+    "source_rule_ids": [],
+    "expected_result_rationale": "Scenario 16: Safe fallback when candidate rule set is empty."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-04",
+    "synthetic_case_description": "Physical Therapy case with progress criteria failing (objective progress evaluation is negative).",
+    "clinical_domain": "physical_medicine",
+    "requested_service_or_equipment": "Outpatient Physical Therapy",
+    "procedure_code": "97110",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-04-20",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-04",
+      "clinical_domain": "physical_medicine",
+      "procedure_code": "97110",
+      "procedure_name": "Therapeutic Exercise",
+      "requested_date_of_service": "2026-04-20",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "ecg1504progressiveimprov_evaluation": false
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-PHY-ECG1504PROGRESSIVEIMPROV-001": "FALSE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "source_rule_ids": [
+      "RULE-PHY-ECG1504PROGRESSIVEIMPROV-001"
+    ],
+    "expected_result_rationale": "Scenario 4: Negative evaluation of progressive improvement results in CRITERIA_NOT_MET."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-29",
+    "synthetic_case_description": "Unattended Home Sleep Testing (HST) meeting documentation and clinical notes requirements.",
+    "clinical_domain": "sleep_health",
+    "requested_service_or_equipment": "Home Sleep Testing (HST)",
+    "procedure_code": "95806",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-04-25",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-29",
+      "clinical_domain": "sleep_health",
+      "procedure_code": "95806",
+      "procedure_name": "Home Sleep Testing (HST)",
+      "requested_date_of_service": "2026-04-25",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "supporting_documentation_provided": [
+        "Recent clinical office visit notes",
+        "Documentation of OSA signs/symptoms"
+      ],
+      "clinical_evidence": {
+        "clinical_notes_submitted": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-SLP-CG2051-001": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-SLP-CG2051-001"
+    ],
+    "expected_result_rationale": "Scenario 29: Home sleep testing criteria and documentation satisfied."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-15",
+    "synthetic_case_description": "Sleep Health intake payload with unverified line of business ('OTHER').",
+    "clinical_domain": "sleep_health",
+    "requested_service_or_equipment": "Polysomnography",
+    "procedure_code": "95810",
+    "line_of_business": "OTHER",
+    "jurisdiction": "US-IL",
+    "date_of_service": "2026-04-25",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-15",
+      "clinical_domain": "sleep_health",
+      "procedure_code": "95810",
+      "procedure_name": "Polysomnography",
+      "requested_date_of_service": "2026-04-25",
+      "line_of_business": "OTHER",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "osa_high_pretest_probability": true
+      }
+    },
+    "expected_routing_result": "MANUAL_REVIEW_REQUIRED",
+    "expected_condition_results": {},
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Line of business is unrecognized, empty, or unverified"
+    ],
+    "expected_non_binding_assessment": "MANUAL_REVIEW_REQUIRED",
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 15: Unverified Line of Business 'OTHER' requires manual clinical review."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-18",
+    "synthetic_case_description": "Carrier Screening for Inherited Genetic Conditions verifying non-binding draft execution.",
+    "clinical_domain": "genetic_testing",
+    "requested_service_or_equipment": "Carrier Screening Panel",
+    "procedure_code": "81408",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-CA",
+    "date_of_service": "2026-05-01",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-18",
+      "clinical_domain": "genetic_testing",
+      "procedure_code": "81408",
+      "procedure_name": "Carrier Screening",
+      "requested_date_of_service": "2026-05-01",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "EVOLENT",
+      "clinical_evidence": {
+        "cggencarrierscreening_evaluation": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-GEN-CGGENCARRIERSCREENING-001": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_MET",
+    "source_rule_ids": [
+      "RULE-GEN-CGGENCARRIERSCREENING-001"
+    ],
+    "expected_result_rationale": "Scenario 18: Draft genetic testing rule assessment strictly generates is_binding=False."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-03",
+    "synthetic_case_description": "Centene DME case with missing mandatory clinical trial parameter (device_trial_successful).",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "requested_service_or_equipment": "Durable Medical Equipment",
+    "procedure_code": "E0601",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-MO",
+    "date_of_service": "2026-08-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-03",
+      "clinical_domain": "centene_dme_orthotics_prosthetics",
+      "procedure_code": "E0601",
+      "procedure_name": "Durable Medical Equipment",
+      "requested_date_of_service": "2026-08-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "CENTENE",
+      "clinical_evidence": {
+        "device_education_provided": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-DME-107-002": "UNKNOWN"
+    },
+    "expected_missing_evidence": [
+      "device_trial_successful"
+    ],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "INSUFFICIENT_INFORMATION",
+    "source_rule_ids": [
+      "RULE-DME-107-002"
+    ],
+    "expected_result_rationale": "Scenario 3: Missing clinical trial parameter yields INSUFFICIENT_INFORMATION under PEND_FOR_DOCUMENTATION."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-12",
+    "synthetic_case_description": "Centene Burn Garments failing both clinical indication criteria.",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "requested_service_or_equipment": "Burn Garments",
+    "procedure_code": "A6501",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-MO",
+    "date_of_service": "2026-08-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-12",
+      "clinical_domain": "centene_dme_orthotics_prosthetics",
+      "procedure_code": "A6501",
+      "procedure_name": "Burn Garment",
+      "requested_date_of_service": "2026-08-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "CENTENE",
+      "clinical_evidence": {
+        "post_burn_contracture_risk": false,
+        "prevent_grafting_or_hypertrophic_scarring": false
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-DME-107-006": "FALSE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "CRITERIA_NOT_MET",
+    "source_rule_ids": [
+      "RULE-DME-107-006"
+    ],
+    "expected_result_rationale": "Scenario 12: Negative clinical findings confirm failure of clinical criteria."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-19",
+    "synthetic_case_description": "Centene Speech Generating Device evaluating rule marked NEEDS_HUMAN_REVIEW.",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "requested_service_or_equipment": "Speech Generating Equipment Interface",
+    "procedure_code": "E2510",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-MO",
+    "date_of_service": "2026-08-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-19",
+      "clinical_domain": "centene_dme_orthotics_prosthetics",
+      "procedure_code": "E2510",
+      "procedure_name": "Speech Generating Device",
+      "requested_date_of_service": "2026-08-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "CENTENE",
+      "clinical_evidence": {
+        "severe_expressive_speech_impairment": true,
+        "slp_evaluation_completed": true
+      }
+    },
+    "expected_routing_result": "ROUTED",
+    "expected_condition_results": {
+      "RULE-DME-107-005": "TRUE"
+    },
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Rule RULE-DME-107-005 is flagged 'NEEDS_HUMAN_REVIEW'"
+    ],
+    "expected_non_binding_assessment": "MANUAL_REVIEW_REQUIRED",
+    "source_rule_ids": [
+      "RULE-DME-107-005"
+    ],
+    "expected_result_rationale": "Scenario 19: Unapproved Centene rule marked for review escalates safely."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-20",
+    "synthetic_case_description": "Centene DME case with an unresolved governing policy section dependency.",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "requested_service_or_equipment": "Standard Wheelchair",
+    "procedure_code": "K0001",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-MO",
+    "date_of_service": "2026-08-15",
+    "policy_context": {
+      "unresolved_policy_section_dependency": "CP.MP.107 Section C.4 Custom Seating Matrix is unavailable"
+    },
+    "case_input": {
+      "case_id": "CASE-BM-20",
+      "clinical_domain": "centene_dme_orthotics_prosthetics",
+      "procedure_code": "K0001",
+      "procedure_name": "Standard Wheelchair",
+      "requested_date_of_service": "2026-08-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "CENTENE",
+      "clinical_evidence": {
+        "mobility_limitation_documented": true
+      }
+    },
+    "expected_routing_result": "POLICY_VERSION_UNRESOLVED",
+    "expected_condition_results": {},
+    "expected_missing_evidence": [],
+    "expected_escalations": [
+      "Unresolved governing policy section dependency"
+    ],
+    "expected_non_binding_assessment": "POLICY_VERSION_UNRESOLVED",
+    "source_rule_ids": [
+      "RULE-DME-107-002"
+    ],
+    "expected_result_rationale": "Scenario 20: Missing policy section dependency blocks deterministic evaluation."
+  },
+  {
+    "benchmark_case_id": "BM-CASE-22",
+    "synthetic_case_description": "Centene DME DOS preceding Revision 08/26 effective boundary (2026-05-15 vs 2026-08-01).",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "requested_service_or_equipment": "Standard Wheelchair",
+    "procedure_code": "K0001",
+    "line_of_business": "COMMERCIAL",
+    "jurisdiction": "US-MO",
+    "date_of_service": "2026-05-15",
+    "policy_context": {},
+    "case_input": {
+      "case_id": "CASE-BM-22",
+      "clinical_domain": "centene_dme_orthotics_prosthetics",
+      "procedure_code": "K0001",
+      "procedure_name": "Standard Wheelchair",
+      "requested_date_of_service": "2026-05-15",
+      "line_of_business": "COMMERCIAL",
+      "payer_id": "CENTENE",
+      "clinical_evidence": {
+        "mobility_limitation_documented": true
+      }
+    },
+    "expected_routing_result": "POLICY_VERSION_UNRESOLVED",
+    "expected_condition_results": {},
+    "expected_missing_evidence": [],
+    "expected_escalations": [],
+    "expected_non_binding_assessment": "POLICY_VERSION_UNRESOLVED",
+    "source_rule_ids": null,
+    "expected_result_rationale": "Scenario 22: Requested DOS precedes effective date 2026-08-01 of active Centene CP.MP.107."
+  }
+]
