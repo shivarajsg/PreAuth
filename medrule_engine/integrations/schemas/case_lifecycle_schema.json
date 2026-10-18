@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://medrule.org/schemas/case_lifecycle_schema_v1.json",
+  "title": "MedRule Case Intake Lifecycle Schema",
+  "version": "1.0.0",
+  "description": "Standardized schema for tracking synthetic prior authorization case lifecycle transitions and integration stages.",
+  "type": "object",
+  "required": [
+    "case_id",
+    "lifecycle_state",
+    "received_at",
+    "last_updated_at",
+    "is_binding",
+    "state_history"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^CASE-[A-Z0-9_-]+$"
+    },
+    "lifecycle_state": {
+      "type": "string",
+      "enum": [
+        "RECEIVED",
+        "VALIDATION_FAILED",
+        "PAYER_CONTEXT_PENDING",
+        "POLICY_CONTEXT_UNRESOLVED",
+        "AWAITING_DOCUMENTATION",
+        "READY_FOR_NON_BINDING_EVALUATION",
+        "EVALUATED_NON_BINDING",
+        "MANUAL_REVIEW_REQUIRED",
+        "INTEGRATION_ERROR"
+      ]
+    },
+    "received_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_binding": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Unconditionally false for current prototype evaluations."
+    },
+    "payer_id": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "line_of_business": {
+      "type": "string",
+      "enum": ["COMMERCIAL", "MEDICARE_ADVANTAGE", "MEDICAID", "OTHER"]
+    },
+    "clinical_domain": {
+      "type": "string"
+    },
+    "procedure_code": {
+      "type": "string"
+    },
+    "state_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from_state", "to_state", "timestamp", "reason"],
+        "properties": {
+          "from_state": {
+            "type": ["string", "null"]
+          },
+          "to_state": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "actor_or_component": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "unresolved_dependencies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "missing_documentation": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "connector_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["connector_type", "status", "timestamp"],
+        "properties": {
+          "connector_type": { "type": "string" },
+          "execution_mode": { "type": "string", "enum": ["DISABLED", "MOCK", "LIVE_AUTHORIZED"] },
+          "status": { "type": "string" },
+          "timestamp": { "type": "string" },
+          "latency_ms": { "type": "number" },
+          "reference_id": { "type": "string" }
+        }
+      }
+    },
+    "evaluation_result": {
+      "type": "object"
+    }
+  }
+}

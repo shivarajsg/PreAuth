@@ -1,0 +1,257 @@
+{
+  "eligibility_fixtures": {
+    "MEM-SYNTH-88219": {
+      "member_id": "MEM-SYNTH-88219",
+      "payer_id": "EVOLENT",
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "line_of_business": "COMMERCIAL",
+      "is_eligible": true,
+      "eligibility_status": "ACTIVE_COVERAGE",
+      "coverage_start": "2026-01-01",
+      "coverage_end": "2026-12-31",
+      "verification_reference": "ELG-MOCK-20260310-001"
+    },
+    "MEM-PILOT-001": {
+      "member_id": "MEM-PILOT-001",
+      "payer_id": "EVOLENT",
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "line_of_business": "COMMERCIAL",
+      "is_eligible": true,
+      "eligibility_status": "ACTIVE_COVERAGE",
+      "coverage_start": "2026-01-01",
+      "coverage_end": "2026-12-31",
+      "verification_reference": "ELG-MOCK-20260315-001"
+    },
+    "MEM-SYNTH-INELIGIBLE": {
+      "member_id": "MEM-SYNTH-INELIGIBLE",
+      "payer_id": "EVOLENT",
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "line_of_business": "COMMERCIAL",
+      "is_eligible": false,
+      "eligibility_status": "INELIGIBLE_MEMBER_NOT_FOUND",
+      "coverage_start": null,
+      "coverage_end": null,
+      "ineligibility_reason": "Synthetic member record not found in plan enrollment roster."
+    },
+    "MEM-INVALID-999": {
+      "member_id": "MEM-INVALID-999",
+      "payer_id": "EVOLENT",
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "line_of_business": "COMMERCIAL",
+      "is_eligible": false,
+      "eligibility_status": "INELIGIBLE_MEMBER_NOT_FOUND",
+      "coverage_start": null,
+      "coverage_end": null,
+      "ineligibility_reason": "Synthetic member record not found in plan enrollment roster."
+    },
+    "MEM-SYNTH-TERMINATED": {
+      "member_id": "MEM-SYNTH-TERMINATED",
+      "payer_id": "EVOLENT",
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "line_of_business": "COMMERCIAL",
+      "is_eligible": false,
+      "eligibility_status": "COVERAGE_TERMINATED",
+      "coverage_start": "2025-01-01",
+      "coverage_end": "2025-12-31",
+      "ineligibility_reason": "Coverage terminated prior to requested date of service."
+    },
+    "MEM-TERMINATED-001": {
+      "member_id": "MEM-TERMINATED-001",
+      "payer_id": "EVOLENT",
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "line_of_business": "COMMERCIAL",
+      "is_eligible": false,
+      "eligibility_status": "COVERAGE_TERMINATED",
+      "coverage_start": "2025-01-01",
+      "coverage_end": "2025-12-31",
+      "ineligibility_reason": "Coverage terminated prior to requested date of service."
+    },
+    "MEM-SYNTH-PERIOD-MISMATCH": {
+      "member_id": "MEM-SYNTH-PERIOD-MISMATCH",
+      "payer_id": "EVOLENT",
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "line_of_business": "COMMERCIAL",
+      "is_eligible": false,
+      "eligibility_status": "DATE_OUTSIDE_COVERAGE_PERIOD",
+      "coverage_start": "2026-06-01",
+      "coverage_end": "2026-12-31",
+      "ineligibility_reason": "Date of service precedes coverage effective date (effective 2026-06-01)."
+    },
+    "MEM-PERIOD-MISMATCH-001": {
+      "member_id": "MEM-PERIOD-MISMATCH-001",
+      "payer_id": "EVOLENT",
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "line_of_business": "COMMERCIAL",
+      "is_eligible": false,
+      "eligibility_status": "DATE_OUTSIDE_COVERAGE_PERIOD",
+      "coverage_start": "2026-06-01",
+      "coverage_end": "2026-12-31",
+      "ineligibility_reason": "Date of service precedes coverage effective date (effective 2026-06-01)."
+    },
+    "MEM-SYNTH-UNAVAILABLE-PAYER": {
+      "member_id": "MEM-SYNTH-UNAVAILABLE-PAYER",
+      "payer_id": "PAYER_OUTAGE_SIMULATED",
+      "simulate_outage": true
+    },
+    "MEM-SIM-OUTAGE": {
+      "member_id": "MEM-SIM-OUTAGE",
+      "payer_id": "PAYER_OUTAGE_SIMULATED",
+      "simulate_outage": true
+    },
+    "MEM-SYNTH-TIMEOUT": {
+      "member_id": "MEM-SYNTH-TIMEOUT",
+      "payer_id": "EVOLENT",
+      "simulate_timeout": true
+    },
+    "MEM-SIM-TIMEOUT": {
+      "member_id": "MEM-SIM-TIMEOUT",
+      "payer_id": "EVOLENT",
+      "simulate_timeout": true
+    },
+    "MEM-SYNTH-MALFORMED": {
+      "member_id": "MEM-SYNTH-MALFORMED",
+      "payer_id": "EVOLENT",
+      "simulate_malformed": true
+    },
+    "MEM-SIM-MALFORMED": {
+      "member_id": "MEM-SIM-MALFORMED",
+      "payer_id": "EVOLENT",
+      "simulate_malformed": true
+    }
+  },
+  "benefit_fixtures": {
+    "COMMERCIAL_CHOICE_PLUS:74177": {
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "procedure_code": "74177",
+      "clinical_domain": "advanced_imaging",
+      "is_covered_benefit": true,
+      "benefit_status": "COVERED_BENEFIT",
+      "preauth_mandatory": true,
+      "annual_visit_cap": null,
+      "visits_used_to_date": null,
+      "remaining_visits": null,
+      "place_of_service_allowed": true,
+      "benefit_notes": "Diagnostic abdominal CT is a covered benefit subject to medical necessity."
+    },
+    "Commercial Comprehensive:74177": {
+      "plan_id": "Commercial Comprehensive",
+      "procedure_code": "74177",
+      "clinical_domain": "advanced_imaging",
+      "is_covered_benefit": true,
+      "benefit_status": "COVERED_BENEFIT",
+      "preauth_mandatory": true,
+      "annual_visit_cap": null,
+      "visits_used_to_date": null,
+      "remaining_visits": null,
+      "place_of_service_allowed": true,
+      "benefit_notes": "Diagnostic abdominal CT is a covered benefit subject to medical necessity."
+    },
+    "COMMERCIAL_CHOICE_PLUS:97110:CAPPED": {
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "procedure_code": "97110",
+      "clinical_domain": "physical_medicine",
+      "is_covered_benefit": false,
+      "benefit_status": "BENEFIT_MAXIMUM_EXHAUSTED",
+      "preauth_mandatory": true,
+      "annual_visit_cap": 30,
+      "visits_used_to_date": 32,
+      "remaining_visits": 0,
+      "place_of_service_allowed": true,
+      "non_coverage_reason": "Member has exhausted annual physical medicine benefit maximum (32 of 30 visits utilized).",
+      "benefit_notes": "Contractual benefit limit reached. Benefit rider or clinical exception required."
+    },
+    "COMMERCIAL_CHOICE_PLUS:97110:AVAILABLE": {
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "procedure_code": "97110",
+      "clinical_domain": "physical_medicine",
+      "is_covered_benefit": true,
+      "benefit_status": "COVERED_BENEFIT",
+      "preauth_mandatory": true,
+      "annual_visit_cap": 30,
+      "visits_used_to_date": 14,
+      "remaining_visits": 16,
+      "place_of_service_allowed": true,
+      "benefit_notes": "16 benefit visits remaining for current plan year."
+    },
+    "COMMERCIAL_CUSTOM_HMO:78452": {
+      "plan_id": "COMMERCIAL_CUSTOM_HMO",
+      "procedure_code": "78452",
+      "clinical_domain": "cardiology",
+      "is_covered_benefit": true,
+      "benefit_status": "TIERING_STEP_THERAPY_REQUIRED",
+      "preauth_mandatory": true,
+      "step_therapy_protocol_id": "DEP-010",
+      "place_of_service_allowed": true,
+      "benefit_notes": "Nuclear MPI subject to plan tiering protocol: treadmill exercise ECG required in low-risk individuals."
+    },
+    "COMMERCIAL_CHOICE_PLUS:81432": {
+      "plan_id": "COMMERCIAL_CHOICE_PLUS",
+      "procedure_code": "81432",
+      "clinical_domain": "genetic_testing",
+      "is_covered_benefit": false,
+      "benefit_status": "NON_COVERED_EXCLUSION",
+      "preauth_mandatory": true,
+      "non_coverage_reason": "Broad multigene cancer screening panels are excluded under standard commercial certificate schedule (DEP-015).",
+      "benefit_notes": "Non-covered broad panel exclusion schedule applies."
+    },
+    "COMMERCIAL_CUSTOM_HMO:81432": {
+      "plan_id": "COMMERCIAL_CUSTOM_HMO",
+      "procedure_code": "81432",
+      "clinical_domain": "genetic_testing",
+      "is_covered_benefit": false,
+      "benefit_status": "NON_COVERED_EXCLUSION",
+      "preauth_mandatory": true,
+      "non_coverage_reason": "Broad multigene cancer screening panels are excluded under standard commercial certificate schedule (DEP-015).",
+      "benefit_notes": "Non-covered broad panel exclusion schedule applies."
+    }
+  },
+  "auth_requirement_fixtures": {
+    "EVOLENT:74177": {
+      "auth_required": true,
+      "requirement_status": "PRIOR_AUTH_MANDATORY",
+      "documentation_checklist": [
+        "CLINICAL_OFFICE_NOTES",
+        "ABDOMINAL_ULTRASOUND_REPORT",
+        "LABORATORY_LIPASE_AMYLASE_PANEL"
+      ],
+      "standard_turnaround_calendar_days": 14,
+      "urgent_turnaround_hours": 72,
+      "submission_portal_id": "EVOLENT_PROVIDER_PORTAL"
+    },
+    "EVOLENT:76775": {
+      "auth_required": false,
+      "requirement_status": "PRIOR_NOTIFICATION_ONLY",
+      "documentation_checklist": [
+        "PRIMARY_CARE_SCREENING_ORDER"
+      ],
+      "standard_turnaround_calendar_days": 1,
+      "urgent_turnaround_hours": 24,
+      "submission_portal_id": "EVOLENT_PROVIDER_PORTAL"
+    },
+    "EVOLENT:97110": {
+      "auth_required": true,
+      "requirement_status": "PRIOR_AUTH_MANDATORY",
+      "documentation_checklist": [
+        "INITIAL_PT_EVALUATION",
+        "PROGRESS_NOTES_WITH_OBJECTIVE_MEASUREMENTS",
+        "HOME_EXERCISE_PROGRAM_DOCUMENTATION"
+      ],
+      "standard_turnaround_calendar_days": 14,
+      "urgent_turnaround_hours": 72,
+      "submission_portal_id": "EVOLENT_PHYS_MED_PORTAL"
+    },
+    "CENTENE:E0601": {
+      "auth_required": true,
+      "requirement_status": "PRIOR_AUTH_MANDATORY",
+      "documentation_checklist": [
+        "DIAGNOSTIC_POLYSOMNOGRAPHY_OR_HST",
+        "FACE_TO_FACE_CLINICAL_EVALUATION",
+        "PHYSICIAN_SIGNED_ORDER",
+        "PATIENT_DEVICE_EDUCATION_RECORD"
+      ],
+      "standard_turnaround_calendar_days": 14,
+      "urgent_turnaround_hours": 72,
+      "submission_portal_id": "CENTENE_SECURE_PORTAL"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://medrule.org/schemas/auth_requirements_schema_v1.json",
+  "title": "MedRule Prior Authorization Requirements Connector Schema",
+  "version": "1.0.0",
+  "description": "Standardized schema for prior authorization requirement discovery and documentation checklists.",
+  "definitions": {
+    "AuthRequirementRequest": {
+      "type": "object",
+      "required": ["payer_id", "procedure_code", "clinical_domain"],
+      "properties": {
+        "payer_id": { "type": "string" },
+        "plan_id": { "type": "string" },
+        "line_of_business": { "type": "string" },
+        "procedure_code": { "type": "string" },
+        "clinical_domain": { "type": "string" },
+        "primary_diagnosis_code": { "type": "string" },
+        "place_of_service": { "type": "string" }
+      }
+    },
+    "AuthRequirementResponse": {
+      "type": "object",
+      "required": [
+        "auth_required",
+        "requirement_status",
+        "documentation_checklist",
+        "provenance_metadata"
+      ],
+      "properties": {
+        "auth_required": { "type": "boolean" },
+        "requirement_status": {
+          "type": "string",
+          "enum": [
+            "PRIOR_AUTH_MANDATORY",
+            "PRIOR_NOTIFICATION_ONLY",
+            "NO_AUTH_REQUIRED",
+            "STATUTORY_EXEMPTION_APPLIES",
+            "REQUIREMENT_UNRESOLVED"
+          ]
+        },
+        "documentation_checklist": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "standard_turnaround_calendar_days": { "type": "integer" },
+        "urgent_turnaround_hours": { "type": "integer" },
+        "submission_portal_id": { "type": ["string", "null"] },
+        "regulatory_reference": { "type": ["string", "null"] },
+        "provenance_metadata": {
+          "type": "object",
+          "required": ["source", "execution_mode", "timestamp"],
+          "properties": {
+            "source": { "type": "string" },
+            "execution_mode": { "type": "string", "enum": ["DISABLED", "MOCK", "LIVE_AUTHORIZED"] },
+            "timestamp": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

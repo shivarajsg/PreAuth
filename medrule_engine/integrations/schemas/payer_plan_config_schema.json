@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://medrule.org/schemas/payer_plan_config_schema_v1.json",
+  "title": "MedRule Payer and Plan Configuration Schema",
+  "version": "1.0.0",
+  "description": "Standardized schema for explicit, versioned payer and health plan coverage rules, policy mappings, and benefit limitations.",
+  "type": "object",
+  "required": [
+    "config_id",
+    "payer_id",
+    "plan_id",
+    "line_of_business",
+    "jurisdiction",
+    "clinical_domain",
+    "procedure_code",
+    "effective_date_start",
+    "effective_date_end",
+    "governing_policy_id",
+    "governing_policy_version",
+    "provenance_source",
+    "verification_status",
+    "config_version"
+  ],
+  "properties": {
+    "config_id": {
+      "type": "string",
+      "pattern": "^CFG-[A-Z0-9_-]+$"
+    },
+    "payer_id": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "product_id": {
+      "type": ["string", "null"]
+    },
+    "line_of_business": {
+      "type": "string",
+      "enum": ["COMMERCIAL", "MEDICARE_ADVANTAGE", "MEDICAID", "OTHER"]
+    },
+    "jurisdiction": {
+      "type": "string"
+    },
+    "clinical_domain": {
+      "type": "string"
+    },
+    "procedure_code": {
+      "type": "string"
+    },
+    "procedure_name": {
+      "type": ["string", "null"]
+    },
+    "effective_date_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "effective_date_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "governing_policy_id": {
+      "type": "string"
+    },
+    "governing_policy_title": {
+      "type": ["string", "null"]
+    },
+    "governing_policy_version": {
+      "type": "string"
+    },
+    "place_of_service_rules": {
+      "type": "object",
+      "properties": {
+        "preferred_places": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "restricted_places": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "requires_clinical_exception": {
+          "type": "boolean"
+        },
+        "exception_policy_ref": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "benefit_limitations": {
+      "type": "object",
+      "properties": {
+        "annual_visit_cap": {
+          "type": ["integer", "null"]
+        },
+        "hard_frequency_cap_months": {
+          "type": ["integer", "null"]
+        },
+        "hard_frequency_cap_count": {
+          "type": ["integer", "null"]
+        },
+        "requires_tiering_step_therapy": {
+          "type": "boolean"
+        },
+        "tiering_protocol_id": {
+          "type": ["string", "null"]
+        },
+        "is_excluded_benefit": {
+          "type": "boolean"
+        },
+        "exclusion_schedule_ref": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "required_dependencies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "provenance_source": {
+      "type": "string",
+      "description": "Traceable citation to policy matrix row, clinical guideline page, or contract schedule."
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "VERIFIED_ACTIVE",
+        "VERIFIED_APPLICABLE",
+        "PLAN_SPECIFIC_ACCESS_REQUIRED",
+        "STATUTORY_OVERRIDE",
+        "PENDING_VERIFICATION",
+        "UNRESOLVED"
+      ]
+    },
+    "config_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$"
+    },
+    "reviewed_by": {
+      "type": ["string", "null"]
+    },
+    "review_date": {
+      "type": ["string", "null"]
+    }
+  }
+}

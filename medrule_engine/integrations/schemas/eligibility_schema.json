@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://medrule.org/schemas/eligibility_schema_v1.json",
+  "title": "MedRule Member Eligibility Connector Schema",
+  "version": "1.0.0",
+  "description": "Standardized schema for member eligibility request and response payloads across payer adapters.",
+  "definitions": {
+    "EligibilityRequest": {
+      "type": "object",
+      "required": ["member_id", "date_of_service", "payer_id"],
+      "properties": {
+        "member_id": { "type": "string" },
+        "date_of_service": { "type": "string", "format": "date" },
+        "payer_id": { "type": "string" },
+        "plan_id": { "type": "string" },
+        "line_of_business": { "type": "string" },
+        "patient_dob": { "type": "string", "format": "date" },
+        "subscriber_id": { "type": "string" }
+      }
+    },
+    "EligibilityResponse": {
+      "type": "object",
+      "required": [
+        "is_eligible",
+        "member_id",
+        "payer_id",
+        "eligibility_status",
+        "coverage_start",
+        "coverage_end",
+        "provenance_metadata"
+      ],
+      "properties": {
+        "is_eligible": { "type": "boolean" },
+        "member_id": { "type": "string" },
+        "payer_id": { "type": "string" },
+        "plan_id": { "type": ["string", "null"] },
+        "line_of_business": { "type": ["string", "null"] },
+        "eligibility_status": {
+          "type": "string",
+          "enum": [
+            "ACTIVE_COVERAGE",
+            "INELIGIBLE_MEMBER_NOT_FOUND",
+            "COVERAGE_TERMINATED",
+            "DATE_OUTSIDE_COVERAGE_PERIOD",
+            "PLAN_ID_MISMATCH",
+            "PAYER_SERVICE_UNAVAILABLE"
+          ]
+        },
+        "coverage_start": { "type": ["string", "null"] },
+        "coverage_end": { "type": ["string", "null"] },
+        "ineligibility_reason": { "type": ["string", "null"] },
+        "verification_reference": { "type": "string" },
+        "provenance_metadata": {
+          "type": "object",
+          "required": ["source", "execution_mode", "timestamp"],
+          "properties": {
+            "source": { "type": "string" },
+            "execution_mode": { "type": "string", "enum": ["DISABLED", "MOCK", "LIVE_AUTHORIZED"] },
+            "timestamp": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

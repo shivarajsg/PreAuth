@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://medrule.org/schemas/benefit_config_schema_v1.json",
+  "title": "MedRule Benefit Configuration and Limitation Connector Schema",
+  "version": "1.0.0",
+  "description": "Standardized schema for benefit limitations, annual accumulators, and coverage terms.",
+  "definitions": {
+    "BenefitRequest": {
+      "type": "object",
+      "required": ["member_id", "plan_id", "procedure_code", "clinical_domain", "date_of_service"],
+      "properties": {
+        "member_id": { "type": "string" },
+        "plan_id": { "type": "string" },
+        "payer_id": { "type": "string" },
+        "line_of_business": { "type": "string" },
+        "procedure_code": { "type": "string" },
+        "clinical_domain": { "type": "string" },
+        "date_of_service": { "type": "string", "format": "date" },
+        "place_of_service": { "type": "string" }
+      }
+    },
+    "BenefitResponse": {
+      "type": "object",
+      "required": [
+        "is_covered_benefit",
+        "benefit_status",
+        "preauth_mandatory",
+        "provenance_metadata"
+      ],
+      "properties": {
+        "is_covered_benefit": { "type": "boolean" },
+        "benefit_status": {
+          "type": "string",
+          "enum": [
+            "COVERED_BENEFIT",
+            "NON_COVERED_EXCLUSION",
+            "BENEFIT_MAXIMUM_EXHAUSTED",
+            "TIERING_STEP_THERAPY_REQUIRED",
+            "BENEFIT_CONFIG_UNAVAILABLE"
+          ]
+        },
+        "preauth_mandatory": { "type": "boolean" },
+        "annual_visit_cap": { "type": ["integer", "null"] },
+        "visits_used_to_date": { "type": ["integer", "null"] },
+        "remaining_visits": { "type": ["integer", "null"] },
+        "place_of_service_allowed": { "type": "boolean" },
+        "step_therapy_protocol_id": { "type": ["string", "null"] },
+        "non_coverage_reason": { "type": ["string", "null"] },
+        "benefit_notes": { "type": "string" },
+        "provenance_metadata": {
+          "type": "object",
+          "required": ["source", "execution_mode", "timestamp"],
+          "properties": {
+            "source": { "type": "string" },
+            "execution_mode": { "type": "string", "enum": ["DISABLED", "MOCK", "LIVE_AUTHORIZED"] },
+            "timestamp": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
