@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Rule Catalog{% endblock %}
+
+{% block content %}
+<div class="catalog-container">
+    <div class="page-header">
+        <h1>Clinical Policy Rule Catalog</h1>
+        <p class="subtitle">Search, filter, and inspect audited clinical criteria across all nine medical domains.</p>
+    </div>
+
+    <!-- Filters Bar -->
+    <div class="filter-card">
+        <form method="GET" action="{{ url_for('rule_list') }}" class="filter-form">
+            <input type="hidden" name="as_user" value="{{ current_user.user_id }}">
+
+            <div class="filter-group">
+                <label for="search">Search Keywords:</label>
+                <input type="text" id="search" name="search" placeholder="Rule ID, procedure, quotation..." value="{{ search_query }}">
+            </div>
+
+            <div class="filter-group">
+                <label for="domain">Clinical Domain:</label>
+                <select id="domain" name="domain">
+                    <option value="">All Domains (9)</option>
+                    {% for d in domains %}
+                    <option value="{{ d }}" {% if selected_domain == d %}selected{% endif %}>
+                        {{ d.replace('_', ' ')|title }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="status">Workflow Status:</label>
+                <select id="status" name="status">
+                    <option value="">All Workflow Statuses</option>
+                    {% for s in workflow_statuses %}
+                    <option value="{{ s }}" {% if selected_status == s %}selected{% endif %}>{{ s }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="extraction_status">Extraction Status:</label>
+                <select id="extraction_status" name="extraction_status">
+                    <option value="">All Extraction Statuses</option>
+                    <option value="DRAFT" {% if selected_extraction_status == 'DRAFT' %}selected{% endif %}>DRAFT</option>
+                    <option value="NEEDS_HUMAN_REVIEW" {% if selected_extraction_status == 'NEEDS_HUMAN_REVIEW' %}selected{% endif %}>NEEDS_HUMAN_REVIEW</option>
+                    <option value="APPROVED" {% if selected_extraction_status == 'APPROVED' %}selected{% endif %}>APPROVED</option>
+                </select>
+            </div>
+
+            <div class="filter-group-checkbox">
+                <label>
+                    <input type="checkbox" name="human_review_only" value="1" {% if human_review_only %}checked{% endif %}>
+                    Flagged for Human Review
+                </label>
+            </div>
+
+            <div class="filter-actions">
+                <button type="submit" class="btn btn-primary">Apply Filters</button>
+                <a href="{{ url_for('rule_list', as_user=current_user.user_id) }}" class="btn btn-secondary">Reset</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Results Table -->
+    <div class="section-card">
+        <div class="table-header-meta">
+            <h3>Matching Rules: <span class="badge badge-info">{{ total_matches }}</span></h3>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Rule ID</th>
+                    <th>Clinical Domain</th>
+                    <th>Governed Procedure / Service</th>
+                    <th>Rule Type</th>
+                    <th>Decision Effect</th>
+                    <th>Extraction Status</th>
+                    <th>Workflow Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in rules %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('rule_workbench', rule_id=r.rule_id, as_user=current_user.user_id) }}" class="rule-link">
+                            <code>{{ r.rule_id }}</code>
+                        </a>
+                        {% if r.human_review_required %}
+                        <span class="badge badge-warning" title="Flagged for mandatory human review">REVIEW</span>
+                        {% endif %}
+                    </td>
+                    <td><strong>{{ r.domain.replace('_', ' ')|title }}</strong></td>
+                    <td>{{ r.clinical_service_or_procedure }}</td>
+                    <td><span class="type-badge">{{ r.rule_type }}</span></td>
+                    <td><span class="effect-badge effect-{{ r.decision_effect|lower }}">{{ r.decision_effect }}</span></td>
+                    <td><span class="status-badge status-{{ r.extraction_status|lower }}">{{ r.extraction_status }}</span></td>
+                    <td><span class="wf-badge wf-{{ r.workflow_status|lower }}">{{ r.workflow_status }}</span></td>
+                    <td>
+                        <a href="{{ url_for('rule_workbench', rule_id=r.rule_id, as_user=current_user.user_id) }}" class="btn btn-sm btn-outline">
+                            Workbench &rarr;
+                        </a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="8" class="text-muted">No rules match the selected filter criteria.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

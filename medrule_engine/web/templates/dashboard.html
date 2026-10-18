@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="page-header">
+        <h1>Clinical Policy Knowledge Base &amp; Governance Dashboard</h1>
+        <p class="subtitle">Live status across all 372 extracted rules, 9 clinical domains, and human-review workflows.</p>
+    </div>
+
+    <!-- Summary Metrics -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-label">Total Knowledge Base Rules</div>
+            <div class="metric-value">{{ metrics.total_rules }}</div>
+            <div class="metric-detail">9 Clinical Domains Loaded</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Extraction Status</div>
+            <div class="metric-value status-split">
+                <span class="status-draft">{{ metrics.extraction_status_counts.get('DRAFT', 0) }} Draft</span>
+                <span class="status-review">{{ metrics.extraction_status_counts.get('NEEDS_HUMAN_REVIEW', 0) }} Flagged</span>
+                <span class="status-approved">{{ metrics.extraction_status_counts.get('APPROVED', 0) }} Approved</span>
+            </div>
+            <div class="metric-detail">100% Zero-Approved Governance Enforced</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Awaiting Human Review</div>
+            <div class="metric-value">{{ metrics.awaiting_human_review }}</div>
+            <div class="metric-detail">
+                <a href="{{ url_for('human_review_queue', as_user=current_user.user_id) }}">View Review Queue &rarr;</a>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Pending Proposed Corrections</div>
+            <div class="metric-value">{{ metrics.pending_corrections }}</div>
+            <div class="metric-detail">
+                <a href="{{ url_for('proposed_corrections', as_user=current_user.user_id) }}">View Corrections &rarr;</a>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Case Intake Total</div>
+            <div class="metric-value">{{ metrics.total_intake_cases or 0 }}</div>
+            <div class="metric-detail">
+                <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}">View Case History &rarr;</a>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Pilot Adjudication</div>
+            <div class="metric-value">{{ metrics.total_pilot_cases or 0 }}</div>
+            <div class="metric-detail">
+                <a href="{{ url_for('pilot_dashboard', as_user=current_user.user_id) }}">Match Rate: {{ metrics.pilot_match_rate or 0 }}% &rarr;</a>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-label">Append-Only Audit Events</div>
+            <div class="metric-value">{{ metrics.total_audit_events }}</div>
+            <div class="metric-detail">Cryptographically SHA-256 Hashed</div>
+        </div>
+    </div>
+
+    <!-- Payer & Connector Infrastructure Status -->
+    <div class="section-card">
+        <h2>Integration Infrastructure &amp; Safety Invariants</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.75rem;">
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Eligibility Connector</strong>
+                    <span class="badge badge-mock">MOCK (SIMULATED)</span>
+                </div>
+                <span class="form-hint">Synthetic member roster verification. Zero live network calls.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Benefit Connector</strong>
+                    <span class="badge badge-mock">MOCK (SIMULATED)</span>
+                </div>
+                <span class="form-hint">Plan limit, copay and authorization requirement checks.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Auth Requirement Connector</strong>
+                    <span class="badge badge-mock">MOCK (SIMULATED)</span>
+                </div>
+                <span class="form-hint">Documentation checklists and necessity rules.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Submission Adapter</strong>
+                    <span class="badge badge-disabled">DISABLED (INVARIANT)</span>
+                </div>
+                <span class="form-hint">Direct outbound transmissions permanently disabled. Prototype CDS only.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Domain Distribution -->
+    <div class="section-card">
+        <h2>Clinical Domain Distribution</h2>
+        <div class="domain-grid">
+            {% for domain, count in metrics.domain_counts.items() %}
+            <div class="domain-card">
+                <div class="domain-name">{{ domain.replace('_', ' ')|title }}</div>
+                <div class="domain-count">{{ count }} rules</div>
+                <a class="filter-link" href="{{ url_for('rule_list', domain=domain, as_user=current_user.user_id) }}">Inspect Rules &rarr;</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Active Policy Versions -->
+    <div class="section-card">
+        <h2>Governing Policy Versions &amp; Transition Inventory</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Policy Document Name</th>
+                    <th>Current 2026 Edition</th>
+                    <th>Transition Status</th>
+                    <th>Effective Transition</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in policy_versions %}
+                <tr>
+                    <td><strong>{{ p.domain.replace('_', ' ')|title }}</strong></td>
+                    <td>{{ p.policy_name }}</td>
+                    <td><code>{{ p.current_2026_edition }}</code></td>
+                    <td><span class="badge badge-success">{{ p.version_status }}</span></td>
+                    <td>{{ p.effective_date_transition }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Recent Append-Only Audit Trail -->
+    <div class="section-card">
+        <h2>Recent Immutable Audit Events (Append-Only Log)</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Event ID</th>
+                    <th>Type</th>
+                    <th>Target Rule</th>
+                    <th>Actor / Reviewer</th>
+                    <th>Role</th>
+                    <th>Timestamp (UTC)</th>
+                    <th>SHA-256 Signature</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in recent_audits %}
+                <tr>
+                    <td><code>{{ a.event_id }}</code></td>
+                    <td><span class="badge">{{ a.event_type }}</span></td>
+                    <td><a href="{{ url_for('rule_workbench', rule_id=a.rule_id, as_user=current_user.user_id) }}"><code>{{ a.rule_id }}</code></a></td>
+                    <td>{{ a.display_name or a.actor_id }}</td>
+                    <td><span class="role-badge role-{{ a.actor_role|lower }}">{{ a.actor_role }}</span></td>
+                    <td>{{ a.timestamp[:19] }}</td>
+                    <td><code class="hash-preview" title="{{ a.event_signature_sha256 }}">{{ a.event_signature_sha256[:16] }}...</code></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7" class="text-muted">No audit events recorded yet. Perform review actions in the Rule Workbench to initiate the audit trail.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

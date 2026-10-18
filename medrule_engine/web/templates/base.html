@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MedRule Governance{% endblock %} — Clinical SME Review Workbench</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-title">MedRule</span>
+                <span class="brand-subtitle">Clinical SME Review &amp; Governance</span>
+            </div>
+            <nav class="nav-links">
+                <a href="{{ url_for('dashboard', as_user=current_user.user_id) }}">Dashboard</a>
+                <a href="{{ url_for('rule_list', as_user=current_user.user_id) }}">Rule Catalog</a>
+                <a href="{{ url_for('human_review_queue', as_user=current_user.user_id) }}">Review Queue</a>
+                <a href="{{ url_for('proposed_corrections', as_user=current_user.user_id) }}">Corrections</a>
+                <a href="{{ url_for('pilot_dashboard', as_user=current_user.user_id) }}">Pilot</a>
+                <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}">Case Intake</a>
+                <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}">Case History</a>
+            </nav>
+            <div class="user-switcher">
+                <form method="GET" action="" id="user-switch-form">
+                    <label for="as_user"><span class="dev-badge">DEV ONLY</span> Reviewer Persona:</label>
+                    <select name="as_user" id="as_user" onchange="this.form.submit()">
+                        {% for u in all_users %}
+                        <option value="{{ u.user_id }}" {% if u.user_id == current_user.user_id %}selected{% endif %}>
+                            {{ u.display_name }} ({{ u.role.value }})
+                        </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="prototype-banner">
+        <span class="alert-badge">NON-BINDING PROTOTYPE</span>
+        <strong>Strict Governance Mode:</strong> Exactly 0 rules approved. Prototype evaluations unconditionally enforce <code>is_binding: false</code>. All approvals require explicit authorized Medical Director sign-off satisfying all 8 governance prerequisites.
+    </div>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>MedRule Deterministic Decision Engine &bull; Phase 3C Human-in-the-Loop Clinical Governance Workflow</p>
+        <p>Current Active Reviewer: <strong>{{ current_user.display_name }}</strong> &bull; Role: <span class="role-badge role-{{ current_user.role.value|lower }}">{{ current_user.role.value }}</span> &bull; Credentials: <em>{{ current_user.credentials }}</em></p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

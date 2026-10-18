@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Human Review Queue{% endblock %}
+
+{% block content %}
+<div class="catalog-container">
+    <div class="page-header">
+        <h1>Human Review Priority Queue</h1>
+        <p class="subtitle">Clinical rules requiring mandatory physician / SME review, nuance resolution, or exception clarification.</p>
+    </div>
+
+    <div class="section-card">
+        <div class="table-header-meta">
+            <h3>Active Queue Items: <span class="badge badge-warning">{{ total_queue_count }}</span></h3>
+            <p class="text-muted">These rules cannot be approved or marked ready for medical director until an authorized Clinical SME completes the review.</p>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Rule ID</th>
+                    <th>Clinical Domain</th>
+                    <th>Procedure / Service</th>
+                    <th>Current Workflow Status</th>
+                    <th>Last Reviewed By</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in rules %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('rule_workbench', rule_id=r.rule_id, as_user=current_user.user_id) }}">
+                            <code>{{ r.rule_id }}</code>
+                        </a>
+                    </td>
+                    <td><strong>{{ r.domain.replace('_', ' ')|title }}</strong></td>
+                    <td>{{ r.clinical_service_or_procedure }}</td>
+                    <td><span class="wf-badge wf-{{ r.workflow_status|lower }}">{{ r.workflow_status }}</span></td>
+                    <td>{{ r.last_reviewed_by or '<span class="text-muted">Unassigned</span>'|safe }}</td>
+                    <td>
+                        <a href="{{ url_for('rule_workbench', rule_id=r.rule_id, as_user=current_user.user_id) }}" class="btn btn-sm btn-primary">
+                            Review in Workbench &rarr;
+                        </a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="text-muted">No rules currently in the human review queue.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Proposed Corrections{% endblock %}
+
+{% block content %}
+<div class="catalog-container">
+    <div class="page-header">
+        <h1>Proposed Rule Corrections Queue</h1>
+        <p class="subtitle">Review proposed rule adjustments, side-by-side diffs, and clinical rationale without mutating original audited policy records.</p>
+    </div>
+
+    <div class="section-card">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Correction ID</th>
+                    <th>Rule ID</th>
+                    <th>Status</th>
+                    <th>Proposed By</th>
+                    <th>Submitted At (UTC)</th>
+                    <th>Clinical Rationale</th>
+                    <th>Resolution</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in corrections %}
+                <tr>
+                    <td><code>{{ c.correction_id }}</code></td>
+                    <td>
+                        <a href="{{ url_for('rule_workbench', rule_id=c.rule_id, as_user=current_user.user_id) }}">
+                            <code>{{ c.rule_id }}</code>
+                        </a>
+                    </td>
+                    <td><span class="badge badge-{{ c.status|lower }}">{{ c.status }}</span></td>
+                    <td>{{ c.display_name }} ({{ c.proposer_role }})</td>
+                    <td>{{ c.created_at[:19] }}</td>
+                    <td>{{ c.rationale }}</td>
+                    <td>
+                        {% if c.resolved_at %}
+                        <small>Resolved by {{ c.resolved_by }} on {{ c.resolved_at[:10] }}<br><em>{{ c.resolution_notes }}</em></small>
+                        {% else %}
+                        <span class="text-muted">Pending Review</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('rule_workbench', rule_id=c.rule_id, as_user=current_user.user_id) }}" class="btn btn-sm btn-outline">
+                            Inspect Diff &rarr;
+                        </a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="8" class="text-muted">No proposed corrections recorded yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

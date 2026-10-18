@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}Workbench — {{ rule.rule_id }}{% endblock %}
+
+{% block content %}
+<div class="workbench-container">
+    <!-- Breadcrumbs & Status Bar -->
+    <div class="workbench-header">
+        <div class="header-left">
+            <a href="{{ url_for('rule_list', as_user=current_user.user_id) }}" class="back-link">&larr; Back to Rule Catalog</a>
+            <h1 class="rule-title">
+                <code>{{ rule.rule_id }}</code>
+                {% if rule.human_review_required %}
+                <span class="badge badge-warning">NEEDS HUMAN REVIEW</span>
+                {% endif %}
+            </h1>
+            <p class="service-subtitle">{{ rule.clinical_service_or_procedure }}</p>
+        </div>
+        <div class="header-right">
+            <div class="status-pill-group">
+                <span class="status-badge status-{{ rule.extraction_status|lower }}">Extraction: {{ rule.extraction_status }}</span>
+                <span class="wf-badge wf-{{ rule.workflow_status|lower }}">Workflow: {{ rule.workflow_status }}</span>
+                <span class="badge {% if rule.schema_valid %}badge-success{% else %}badge-danger{% endif %}">
+                    Schema: {% if rule.schema_valid %}VALID{% else %}INVALID{% endif %}
+                </span>
+                <span class="badge badge-nonbinding">is_binding: false</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Grid: Left Side (Evidence & Conditions), Right Side (Governance Actions & History) -->
+    <div class="workbench-grid">
+        <div class="workbench-col-main">
+            <!-- 1. Source Evidence Card -->
+            <div class="section-card evidence-card">
+                <div class="card-title-bar">
+                    <h2>1. Official Source Evidence &amp; Provenance</h2>
+                    {% if pdf_exists %}
+                    <a href="{{ url_for('serve_policy_pdf', pdf_path=pdf_rel_path) }}#page={{ rule.physical_page }}" target="_blank" class="btn btn-sm btn-primary">
+                        Open Source PDF (Page {{ rule.physical_page }}) &nearr;
+                    </a>
+                    {% endif %}
+                </div>
+
+                <div class="evidence-meta-grid">
+                    <div><strong>Policy Document:</strong> {{ rule.policy_title }}</div>
+                    <div><strong>Edition / Version:</strong> {{ rule.policy_version }} (<code>{{ rule.version_status }}</code>)</div>
+                    <div><strong>Source Section:</strong> {{ rule.source_section }}</div>
+                    <div><strong>Source Page Citation:</strong> Physical Page {{ rule.physical_page }}{% if rule.traceability.get('printed_page') %} ({{ rule.traceability.printed_page }}){% endif %}</div>
+                    <div><strong>Source File:</strong> <code>{{ rule.source_file }}</code></div>
+                    <div><strong>Domain:</strong> {{ rule.domain.replace('_', ' ')|title }}</div>
+                </div>
+
+                <div class="verbatim-quote-box">
+                    <div class="quote-header">
+                        <span class="quote-tag">OFFICIAL VERBATIM SOURCE QUOTATION (EXACT POLICY TEXT)</span>
+                    </div>
+                    <blockquote class="policy-quote">
+                        "{{ rule.source_quote }}"
+                    </blockquote>
+                    <p class="quote-disclaimer">
+                        <strong>Governance Notice:</strong> This text is a faithful verbatim extract from the primary source document. Never confuse this source quotation with the machine-readable structured interpretation below.
+                    </p>
+                </div>
+
+                {% if rule.queue_entry %}
+                <div class="alert-box alert-warning">
+                    <h4>Human Review Queue Trigger Context:</h4>
+                    <p><strong>Trigger Reason:</strong> {{ rule.queue_entry.get('review_trigger_reason') }}</p>
+                    <p><strong>Extraction Caveats / Reviewer Notes:</strong> {{ rule.queue_entry.get('reviewer_notes') }}</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- 2. Structured Interpretation & Rule Criteria -->
+            <div class="section-card">
+                <h2>2. Machine-Readable Structured Criteria (Deterministic Logic)</h2>
+                <div class="meta-row">
+                    <span><strong>Rule Type:</strong> <span class="type-badge">{{ rule.rule_type }}</span></span>
+                    <span><strong>Decision Effect:</strong> <span class="effect-badge effect-{{ rule.decision_effect|lower }}">{{ rule.decision_effect }}</span></span>
+                    <span><strong>Missing Info Behavior:</strong> <code>{{ rule.missing_information_behavior }}</code></span>
+                </div>
+
+                <div class="conditions-container">
+                    <h3>Boolean Condition Tree (Composition: <code>{{ rule.conditions.operator }}</code>)</h3>
+                    <ul class="criteria-list">
+                        {% for c in rule.conditions.get('criteria', []) %}
+                        <li class="criterion-item">
+                            <div class="crit-header">
+                                <span class="crit-id"><code>{{ c.condition_id }}</code></span>
+                                <span class="crit-desc">{{ c.description }}</span>
+                            </div>
+                            {% if c.parameter %}
+                            <div class="crit-details">
+                                <span class="crit-param">Parameter: <code>{{ c.parameter }}</code></span>
+                                <span class="crit-comp">Comparator: <code>{{ c.comparator }}</code></span>
+                                {% if c.value is not none %}
+                                <span class="crit-val">Target Value: <code>{{ c.value }}</code></span>
+                                {% endif %}
+                                {% if c.unit %}
+                                <span class="crit-unit">Unit: <em>{{ c.unit }}</em></span>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                {% if rule.raw_data.get('required_documentation') %}
+                <div class="sub-block">
+                    <h4>Required Clinical Documentation:</h4>
+                    <ul>
+                        {% for doc in rule.raw_data.required_documentation %}
+                        <li>{{ doc }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if rule.raw_data.get('exclusion_conditions') %}
+                <div class="sub-block">
+                    <h4>Exclusions &amp; Disqualifiers:</h4>
+                    <ul>
+                        {% for exc in rule.raw_data.exclusion_conditions %}
+                        <li>{{ exc }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- 3. Policy Dependencies -->
+            <div class="section-card">
+                <h2>3. Policy Dependencies &amp; Plan Interconnections</h2>
+                {% if rule.domain_dependencies %}
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Dependency ID</th>
+                            <th>Target Document / Authority</th>
+                            <th>Relationship Nature</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dep in rule.domain_dependencies %}
+                        <tr>
+                            <td><code>{{ dep.dependency_id }}</code></td>
+                            <td>{{ dep.target_document_id or dep.dependent_entity_or_domain }}</td>
+                            <td><small>{{ dep.relationship_nature }}</small></td>
+                            <td>
+                                {% if dep.status == 'CROSS_DOMAIN_RESOLVED' or dep.status == 'VERIFIED_EXTERNAL_DEPENDENCY' %}
+                                <span class="badge badge-success">{{ dep.status }}</span>
+                                {% else %}
+                                <span class="badge badge-warning">{{ dep.status }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p class="text-muted">No external plan or cross-domain dependencies recorded for this clinical unit.</p>
+                {% endif %}
+            </div>
+
+            <!-- 4. Proposed Corrections Side-by-Side Diff -->
+            {% if rule.proposed_corrections %}
+            <div class="section-card">
+                <h2>4. Proposed Rule Corrections &amp; Diff View</h2>
+                {% for corr in rule.proposed_corrections %}
+                <div class="correction-card">
+                    <div class="corr-header">
+                        <strong>Correction ID: <code>{{ corr.correction_id }}</code></strong>
+                        <span class="badge badge-{{ corr.status|lower }}">{{ corr.status }}</span>
+                        <span>Proposed by: <strong>{{ corr.display_name }}</strong> on {{ corr.created_at[:19] }}</span>
+                    </div>
+                    <p><strong>Clinical Rationale:</strong> {{ corr.rationale }}</p>
+
+                    <!-- Side by side diff table -->
+                    <div class="diff-container">
+                        <h4>Field-Level Side-by-Side Comparison:</h4>
+                        <table class="diff-table">
+                            <thead>
+                                <tr>
+                                    <th>Field Name</th>
+                                    <th>Original Audited Record</th>
+                                    <th>Proposed Correction</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% set diff = corr.diff_summary_json|from_json if corr.diff_summary_json else {} %}
+                                {% for field_name, delta in diff.items() %}
+                                <tr>
+                                    <td><code>{{ field_name }}</code></td>
+                                    <td class="diff-orig"><pre>{{ delta.original|tojson(indent=2) }}</pre></td>
+                                    <td class="diff-prop"><pre>{{ delta.proposed|tojson(indent=2) }}</pre></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% if corr.status == 'PENDING' and current_user.role.value in ['CLINICAL_SME_REVIEWER', 'MEDICAL_DIRECTOR'] %}
+                    <div class="corr-actions">
+                        <form method="POST" action="{{ url_for('api_resolve_correction', correction_id=corr.correction_id) }}" style="display:inline;">
+                            <input type="hidden" name="accepted" value="1">
+                            <input type="hidden" name="notes" value="Approved by {{ current_user.display_name }}">
+                            <button type="submit" class="btn btn-sm btn-success">Accept Correction</button>
+                        </form>
+                        <form method="POST" action="{{ url_for('api_resolve_correction', correction_id=corr.correction_id) }}" style="display:inline;">
+                            <input type="hidden" name="accepted" value="0">
+                            <input type="hidden" name="notes" value="Rejected by {{ current_user.display_name }}">
+                            <button type="submit" class="btn btn-sm btn-danger">Reject Correction</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Right Column: Governance Controls & Audit Timeline -->
+        <div class="workbench-col-side">
+            <!-- 5. Approval Prerequisites Check Card -->
+            <div class="section-card prereq-card">
+                <h3>Approval Prerequisites Audit</h3>
+                <p class="subtitle-sm">A rule cannot become <code>APPROVED</code> until all 8 prerequisites are satisfied.</p>
+
+                <ul class="prereq-list">
+                    {% for name, met in rule.approval_prerequisites.prerequisites.items() %}
+                    <li class="prereq-item {% if met %}prereq-pass{% else %}prereq-fail{% endif %}">
+                        <span class="prereq-icon">{% if met %}&check;{% else %}&cross;{% endif %}</span>
+                        <span class="prereq-name">{{ name.replace('_', ' ')|title }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                {% if rule.approval_prerequisites.blockers %}
+                <div class="blockers-alert">
+                    <strong>Approval Blockers:</strong>
+                    <ul>
+                        {% for b in rule.approval_prerequisites.blockers %}
+                        <li>{{ b }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- 6. Review Action Submission Form -->
+            <div class="section-card action-card">
+                <h3>Record Human Review Action</h3>
+                <p class="subtitle-sm">Submitting as: <strong>{{ current_user.display_name }}</strong> ({{ current_user.role.value }})</p>
+
+                {% if current_user.role.value == 'VIEWER' %}
+                <div class="alert-box alert-info">
+                    <strong>Read-Only Mode:</strong> Reviewer persona <em>Viewer</em> can inspect rule data and audit history, but cannot record review decisions. Switch persona in the top navigation bar to perform review actions.
+                </div>
+                {% else %}
+                <form method="POST" action="{{ url_for('api_submit_review', rule_id=rule.rule_id) }}" class="review-form">
+                    <input type="hidden" name="as_user" value="{{ current_user.user_id }}">
+
+                    <div class="form-group">
+                        <label for="action">Controlled Review Action:</label>
+                        <select name="action" id="action" required>
+                            <option value="">-- Select Review Action --</option>
+                            <option value="START_REVIEW">START_REVIEW (Begin Formal Review)</option>
+                            <option value="CONFIRM_INTERPRETATION">CONFIRM_INTERPRETATION (Mark Ready for Director)</option>
+                            <option value="REQUEST_CORRECTION">REQUEST_CORRECTION (Needs Correction)</option>
+                            <option value="NEEDS_ADDITIONAL_EVIDENCE">NEEDS_ADDITIONAL_EVIDENCE (Request Details)</option>
+                            <option value="ESCALATE_TO_MEDICAL_DIRECTOR">ESCALATE_TO_MEDICAL_DIRECTOR (Escalate)</option>
+                            <option value="FLAG_POLICY_CONFLICT">FLAG_POLICY_CONFLICT (Flag Ambiguity/Conflict)</option>
+                            <option value="MARK_NOT_APPLICABLE_WITH_RATIONALE">MARK_NOT_APPLICABLE_WITH_RATIONALE</option>
+                            {% if current_user.role.value == 'MEDICAL_DIRECTOR' %}
+                            <option value="APPROVE_RULE" {% if not rule.approval_prerequisites.is_eligible %}disabled{% endif %}>
+                                APPROVE_RULE (Medical Director Final Sign-off)
+                            </option>
+                            {% endif %}
+                            <option value="RETURN_TO_DRAFT">RETURN_TO_DRAFT (Reset to Draft)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Clinical Rationale / Review Comments (Required):</label>
+                        <textarea name="comments" id="comments" rows="3" required placeholder="Document clinical rationale, interpretation analysis, or required changes..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="source_evidence_considered">Source Evidence Considered:</label>
+                        <input type="text" name="source_evidence_considered" id="source_evidence_considered" placeholder="Page citation, clinical guideline section, or study...">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Submit Review Action</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <!-- 7. Review History & Append-Only Audit Trail for this Rule -->
+            <div class="section-card history-card">
+                <h3>Rule Review &amp; Audit History</h3>
+                <div class="timeline">
+                    {% for h in rule.review_history %}
+                    <div class="timeline-item">
+                        <div class="timeline-badge badge-{{ h.action|lower }}"></div>
+                        <div class="timeline-content">
+                            <div class="tl-header">
+                                <strong>{{ h.action }}</strong>
+                                <span class="tl-date">{{ h.timestamp[:19] }}</span>
+                            </div>
+                            <div class="tl-actor">{{ h.display_name }} ({{ h.reviewer_role }})</div>
+                            <div class="tl-transition">Status: <code>{{ h.previous_status }}</code> &rarr; <code>{{ h.resulting_status }}</code></div>
+                            <p class="tl-comments">"{{ h.comments }}"</p>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p class="text-muted">No review actions recorded yet for this rule.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
