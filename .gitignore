@@ -11,9 +11,6 @@ htmlcov/
 # Archives & temporary backups
 rulebook_collection.zip
 
-# Operating System Files
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-.DS_Store
+# Local export folder for sharing
+PreAuth_Local_Share/
+
