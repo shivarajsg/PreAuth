@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://medrule.org/schemas/case_intake_schema_v1.json",
+  "title": "MedRule Case Intake Schema",
+  "version": "1.0.0",
+  "description": "Standardized schema for structured clinical prior authorization case intake. Strictly non-identifying for synthetic evaluation.",
+  "type": "object",
+  "required": [
+    "case_id",
+    "clinical_domain",
+    "procedure_code",
+    "procedure_name",
+    "requested_date_of_service",
+    "line_of_business",
+    "payer_id",
+    "clinical_evidence"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Unique synthetic case tracking identifier.",
+      "pattern": "^CASE-[A-Z0-9_-]+$"
+    },
+    "member_id": {
+      "type": "string",
+      "description": "De-identified synthetic member identifier."
+    },
+    "patient_age_years": {
+      "type": "number",
+      "description": "Patient age in years at date of service.",
+      "minimum": 0,
+      "maximum": 130
+    },
+    "patient_gender": {
+      "type": "string",
+      "description": "Reported patient gender.",
+      "enum": ["MALE", "FEMALE", "OTHER", "UNKNOWN"]
+    },
+    "clinical_domain": {
+      "type": "string",
+      "description": "Controlled MedRule clinical domain.",
+      "enum": [
+        "advanced_imaging",
+        "cardiology",
+        "musculoskeletal_surgery",
+        "interventional_pain_management",
+        "radiation_oncology",
+        "physical_medicine",
+        "sleep_health",
+        "genetic_testing",
+        "centene_dme_orthotics_prosthetics"
+      ]
+    },
+    "procedure_code": {
+      "type": "string",
+      "description": "Standard CPT or HCPCS billing code for requested procedure/service.",
+      "minLength": 3
+    },
+    "procedure_name": {
+      "type": "string",
+      "description": "Human-readable label for requested procedure/equipment.",
+      "minLength": 3
+    },
+    "modality": {
+      "type": "string",
+      "description": "Clinical modality or category (e.g. MRI, CT, PET, TTE, DME, PT, ST)."
+    },
+    "place_of_service": {
+      "type": "string",
+      "description": "Anticipated delivery site/facility.",
+      "enum": [
+        "OFFICE",
+        "AMBULATORY_SURGICAL_CENTER",
+        "OUTPATIENT_HOSPITAL",
+        "INPATIENT_HOSPITAL",
+        "HOME",
+        "INDEPENDENT_LABORATORY",
+        "OTHER"
+      ]
+    },
+    "primary_diagnosis_code": {
+      "type": "string",
+      "description": "Primary ICD-10-CM diagnosis code.",
+      "pattern": "^[A-TV-Z][0-9][0-9A-TV-Z](\\.[0-9A-TV-Z]{1,4})?$"
+    },
+    "secondary_diagnosis_codes": {
+      "type": "array",
+      "description": "Secondary ICD-10-CM diagnosis codes.",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-TV-Z][0-9][0-9A-TV-Z](\\.[0-9A-TV-Z]{1,4})?$"
+      }
+    },
+    "diagnosis_description": {
+      "type": "string",
+      "description": "Clinical narrative description of diagnosis."
+    },
+    "payer_id": {
+      "type": "string",
+      "description": "Health plan or utilization management organization identifier.",
+      "minLength": 2
+    },
+    "plan_id": {
+      "type": "string",
+      "description": "Specific health plan product or benefit package identifier."
+    },
+    "line_of_business": {
+      "type": "string",
+      "description": "Regulatory benefit line of business.",
+      "enum": [
+        "COMMERCIAL",
+        "MEDICARE_ADVANTAGE",
+        "MEDICAID",
+        "EXCHANGE",
+        "OTHER"
+      ]
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "State or regulatory jurisdiction (e.g. 'US_NATIONAL', 'OHIO', 'FLORIDA')."
+    },
+    "request_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date prior authorization request was submitted (YYYY-MM-DD)."
+    },
+    "requested_date_of_service": {
+      "type": "string",
+      "format": "date",
+      "description": "Target date on which service/procedure will be performed (YYYY-MM-DD)."
+    },
+    "clinical_evidence": {
+      "type": "object",
+      "description": "Key-value dictionary of clinical parameters, physical exam findings, duration of conservative care, laboratory results, etc.",
+      "additionalProperties": true
+    },
+    "supporting_documentation_provided": {
+      "type": "array",
+      "description": "Types of supporting clinical records attached to the intake.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ordering_provider": {
+      "type": "object",
+      "description": "Non-identifying metadata regarding ordering clinician.",
+      "properties": {
+        "provider_specialty": { "type": "string" },
+        "is_licensed": { "type": "boolean" },
+        "npi_synthetic": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional administrative or intake notes."
+    }
+  },
+  "additionalProperties": false
+}
