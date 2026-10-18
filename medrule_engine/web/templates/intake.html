@@ -1,0 +1,405 @@
+{% extends "base.html" %}
+
+{% block title %}Case Intake{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="page-header">
+        <h1>Deterministic Prior-Authorization Case Intake</h1>
+        <p class="subtitle">Submit structured clinical cases for deterministic eligibility, benefit limit, evidence minimization, and policy evaluation.</p>
+    </div>
+
+    <!-- Payer & Connector Safety Banner -->
+    <div class="section-card" style="margin-bottom: 1.5rem; background: #f8fafc; border-left: 4px solid #1a56db;">
+        <h3 style="margin-bottom: 0.5rem; font-size: 1rem; color: #1e293b;">Connector Infrastructure &amp; Safety Invariants</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.75rem;">
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Eligibility Connector</strong>
+                    <span class="badge badge-mock">MOCK (SIMULATED)</span>
+                </div>
+                <span class="form-hint">Synthetic member roster verification. Zero live network calls.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Benefit Connector</strong>
+                    <span class="badge badge-mock">MOCK (SIMULATED)</span>
+                </div>
+                <span class="form-hint">Plan limit, copay and authorization requirement checks.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Auth Requirement Connector</strong>
+                    <span class="badge badge-mock">MOCK (SIMULATED)</span>
+                </div>
+                <span class="form-hint">Documentation checklists and necessity rules.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Submission Adapter</strong>
+                    <span class="badge badge-disabled">DISABLED (INVARIANT)</span>
+                </div>
+                <span class="form-hint">Direct outbound transmissions permanently disabled. Prototype CDS only.</span>
+            </div>
+        </div>
+    </div>
+
+    {% if error %}
+    <div class="alert-box" style="background: #fee2e2; border: 1px solid #f87171; color: #991b1b; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
+        <strong>Intake Validation Failure:</strong> {{ error }}
+    </div>
+    {% endif %}
+
+    <!-- Synthetic Presets Pre-fill -->
+    <div class="section-card" style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h3 style="margin-bottom: 0.25rem;">Synthetic Case Presets</h3>
+                <p class="form-hint">Load pre-configured synthetic cases covering all 9 clinical domains and edge conditions.</p>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <select id="preset-selector" style="padding: 0.5rem; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 0.9rem;">
+                    <option value="">-- Select a Synthetic Preset Case --</option>
+                    <option value="ADV_MEETS">1. Advanced Imaging: CT Abdomen/Pelvis (Indication Met)</option>
+                    <option value="ADV_NOT_MET">2. Advanced Imaging: CT Abdomen/Pelvis (Incomplete Conservative Care)</option>
+                    <option value="CARD_MEETS">3. Cardiology: Diagnostic Coronary Angio (High Risk Met)</option>
+                    <option value="MSK_MEETS">4. MSK Surgery: Total Knee Arthroplasty (Severe OA Met)</option>
+                    <option value="PAIN_MEETS">5. Interventional Pain: Lumbar ESI (Radiculopathy Met)</option>
+                    <option value="RAD_MEETS">6. Radiation Oncology: IMRT Prostate (Intermediate Risk Met)</option>
+                    <option value="PHYS_MEETS">7. Physical Medicine: Outpatient PT (Post-Op Met)</option>
+                    <option value="SLEEP_MEETS">8. Sleep Health: Home Sleep Apnea Test (OSA High Met)</option>
+                    <option value="GEN_MEETS">9. Genetic Testing: BRCA1/2 Comprehensive (Family Hx Met)</option>
+                    <option value="DME_MEETS">10. Centene DME: Continuous Glucose Monitor (T1DM Met)</option>
+                    <option value="INELIGIBLE_MEMBER">11. Eligibility Failure: Member Not Found</option>
+                    <option value="TERMINATED_COVERAGE">12. Coverage Terminated: Date After Termination</option>
+                </select>
+                <button type="button" class="btn btn-primary" onclick="loadPreset()">Load Preset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Intake Submission Form -->
+    <div class="intake-form-container">
+        <form method="POST" action="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" id="intake-form">
+            <h2 style="margin-bottom: 1rem; font-size: 1.15rem;">Intake Administrative &amp; Clinical Information</h2>
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="case_id">Case ID *</label>
+                    <input type="text" id="case_id" name="case_id" value="CASE-SYNTH-{{ timestamp_now }}" required>
+                    <span class="form-hint">Unique synthetic case tracking identifier.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="patient_id">Synthetic Patient / Member ID *</label>
+                    <input type="text" id="patient_id" name="patient_id" value="MEM-SYNTH-88219" required>
+                    <span class="form-hint">Must match synthetic eligibility roster (e.g. MEM-SYNTH-88219, MEM-PILOT-001).</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="clinical_domain">Clinical Domain *</label>
+                    <select id="clinical_domain" name="clinical_domain" required>
+                        <option value="advanced_imaging">Advanced Imaging</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="musculoskeletal">Musculoskeletal Surgery</option>
+                        <option value="interventional_pain">Interventional Pain Management</option>
+                        <option value="radiation_oncology">Radiation Oncology</option>
+                        <option value="physical_medicine">Physical Medicine</option>
+                        <option value="sleep_health">Sleep Health</option>
+                        <option value="genetic_testing">Genetic Testing</option>
+                        <option value="centene_dme">Centene DME / Orthotics / Prosthetics</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="procedure_code">Procedure Code (CPT / HCPCS) *</label>
+                    <input type="text" id="procedure_code" name="procedure_code" value="74177" required>
+                    <span class="form-hint">e.g. 74177, 93458, 27447, 62323, 77301, 97110, 95806, 81162, A9276</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="procedure_name">Procedure Name</label>
+                    <input type="text" id="procedure_name" name="procedure_name" value="CT Abdomen and Pelvis with contrast">
+                </div>
+
+                <div class="form-group">
+                    <label for="line_of_business">Line of Business *</label>
+                    <select id="line_of_business" name="line_of_business" required>
+                        <option value="COMMERCIAL">Commercial</option>
+                        <option value="MEDICARE_ADVANTAGE">Medicare Advantage</option>
+                        <option value="MEDICAID">Medicaid</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="requested_date_of_service">Requested Date of Service *</label>
+                    <input type="date" id="requested_date_of_service" name="requested_date_of_service" value="2026-03-15" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="payer_id">Payer ID</label>
+                    <input type="text" id="payer_id" name="payer_id" value="EVOLENT">
+                </div>
+
+                <div class="form-group">
+                    <label for="plan_id">Plan ID</label>
+                    <input type="text" id="plan_id" name="plan_id" value="COMMERCIAL_CHOICE_PLUS">
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label for="submitted_documents">Submitted Clinical Documentation (comma-separated)</label>
+                <input type="text" id="submitted_documents" name="submitted_documents" value="Comprehensive clinical notes and diagnostic findings, Ultrasound findings and lab results">
+                <span class="form-hint">E.g., "Office clinical notes", "Prior conservative therapy log", "Diagnostic imaging report"</span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label for="clinical_evidence_json">Structured Clinical Evidence (JSON Object) *</label>
+                <textarea id="clinical_evidence_json" name="clinical_evidence_json" rows="6" required>{
+  "pancreatitis_diagnostic_markers": "ELEVATED",
+  "conservative_treatment_duration_hours": 96,
+  "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+  "ordering_provider_license": true
+}</textarea>
+                <span class="form-hint">JSON key-value pairs matching criteria conditions for the selected procedure.</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #475569; cursor: pointer;">
+                    <input type="checkbox" name="bypass_documentation_check" value="true">
+                    Bypass strict documentation checklist (Evaluate clinical conditions directly)
+                </label>
+                <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
+                    Execute Deterministic Intake &amp; Evaluation &rarr;
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const PRESETS = {
+    "ADV_MEETS": {
+        case_id: "CASE-SYNTH-ADV-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "advanced_imaging",
+        procedure_code: "74177",
+        procedure_name: "CT Abdomen and Pelvis with contrast",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Ultrasound findings",
+        evidence: {
+            "pancreatitis_diagnostic_markers": "ELEVATED",
+            "conservative_treatment_duration_hours": 96,
+            "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+            "ordering_provider_license": true
+        }
+    },
+    "ADV_NOT_MET": {
+        case_id: "CASE-SYNTH-ADV-002",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "advanced_imaging",
+        procedure_code: "74177",
+        procedure_name: "CT Abdomen and Pelvis with contrast",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings",
+        evidence: {
+            "pancreatitis_diagnostic_markers": "ELEVATED",
+            "conservative_treatment_duration_hours": 24,
+            "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+            "ordering_provider_license": true
+        }
+    },
+    "CARD_MEETS": {
+        case_id: "CASE-SYNTH-CARD-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "cardiology",
+        procedure_code: "93458",
+        procedure_name: "Left Heart Catheterization with Coronary Angiogram",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Cardiology consult",
+        evidence: {
+            "stress_test_findings": "HIGH_RISK_ISCHEMIA",
+            "angina_symptoms": "CANADIAN_CLASS_III_IV",
+            "ordering_physician_specialty": "CARDIOLOGY"
+        }
+    },
+    "MSK_MEETS": {
+        case_id: "CASE-SYNTH-MSK-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "musculoskeletal",
+        procedure_code: "27447",
+        procedure_name: "Total Knee Arthroplasty (TKA)",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Weight-bearing x-rays",
+        evidence: {
+            "osteoarthritis_severity": "GRADE_IV_ADVANCED",
+            "conservative_therapy_duration_months": 6,
+            "functional_impairment_daily_living": true
+        }
+    },
+    "PAIN_MEETS": {
+        case_id: "CASE-SYNTH-PAIN-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "interventional_pain",
+        procedure_code: "62323",
+        procedure_name: "Lumbar Epidural Steroid Injection",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings",
+        evidence: {
+            "radicular_pain_confirmed": true,
+            "conservative_care_weeks": 6,
+            "lumbar_mri_nerve_root_compression": true
+        }
+    },
+    "RAD_MEETS": {
+        case_id: "CASE-SYNTH-RAD-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "radiation_oncology",
+        procedure_code: "77301",
+        procedure_name: "Intensity Modulated Radiation Therapy (IMRT) Plan",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Pathology report",
+        evidence: {
+            "histologically_confirmed_prostate_cancer": true,
+            "nccn_risk_category": "INTERMEDIATE_RISK",
+            "critical_structure_sparing_indicated": true
+        }
+    },
+    "PHYS_MEETS": {
+        case_id: "CASE-SYNTH-PHYS-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "physical_medicine",
+        procedure_code: "97110",
+        procedure_name: "Therapeutic Exercises, Outpatient Physical Therapy",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings, PT evaluation",
+        evidence: {
+            "post_operative_condition": true,
+            "measurable_functional_deficit": true,
+            "established_rehabilitation_goals": true
+        }
+    },
+    "SLEEP_MEETS": {
+        case_id: "CASE-SYNTH-SLEEP-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "sleep_health",
+        procedure_code: "95806",
+        procedure_name: "Unattended Sleep Study / Home Sleep Apnea Test",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Epworth scale",
+        evidence: {
+            "epworth_sleepiness_scale_score": 14,
+            "habitual_snoring_observed_apneas": true,
+            "absence_of_severe_comorbidities": true
+        }
+    },
+    "GEN_MEETS": {
+        case_id: "CASE-SYNTH-GEN-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "genetic_testing",
+        procedure_code: "81162",
+        procedure_name: "BRCA1, BRCA2 Gene Analysis Full Sequence & Duplication/Deletion",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Pedigree chart",
+        evidence: {
+            "personal_history_breast_cancer_under_50": true,
+            "genetic_counseling_pre_test_completed": true,
+            "first_degree_relative_ovarian_cancer": true
+        }
+    },
+    "DME_MEETS": {
+        case_id: "CASE-SYNTH-DME-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "centene_dme",
+        procedure_code: "A9276",
+        procedure_name: "Sensor; invasive, disposable, for use with CGM system",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "CENTENE",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Glucose log",
+        evidence: {
+            "type_1_diabetes_mellitus": true,
+            "multiple_daily_insulin_injections": true,
+            "documented_frequent_hypoglycemia": true
+        }
+    },
+    "INELIGIBLE_MEMBER": {
+        case_id: "CASE-SYNTH-INELG-001",
+        patient_id: "MEM-SYNTH-INELIGIBLE",
+        clinical_domain: "advanced_imaging",
+        procedure_code: "74177",
+        procedure_name: "CT Abdomen and Pelvis with contrast",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings",
+        evidence: {
+            "pancreatitis_diagnostic_markers": "ELEVATED"
+        }
+    },
+    "TERMINATED_COVERAGE": {
+        case_id: "CASE-SYNTH-TERM-001",
+        patient_id: "MEM-SYNTH-TERMINATED",
+        clinical_domain: "advanced_imaging",
+        procedure_code: "74177",
+        procedure_name: "CT Abdomen and Pelvis with contrast",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings",
+        evidence: {
+            "pancreatitis_diagnostic_markers": "ELEVATED"
+        }
+    }
+};
+
+function loadPreset() {
+    const key = document.getElementById("preset-selector").value;
+    if (!key || !PRESETS[key]) return;
+    const p = PRESETS[key];
+    document.getElementById("case_id").value = p.case_id;
+    document.getElementById("patient_id").value = p.patient_id;
+    document.getElementById("clinical_domain").value = p.clinical_domain;
+    document.getElementById("procedure_code").value = p.procedure_code;
+    document.getElementById("procedure_name").value = p.procedure_name;
+    document.getElementById("line_of_business").value = p.line_of_business;
+    document.getElementById("requested_date_of_service").value = p.requested_date_of_service;
+    document.getElementById("payer_id").value = p.payer_id;
+    document.getElementById("plan_id").value = p.plan_id;
+    document.getElementById("submitted_documents").value = p.submitted_documents;
+    document.getElementById("clinical_evidence_json").value = JSON.stringify(p.evidence, null, 2);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block title %}Case {{ case.case_id }} Evaluation{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="breadcrumb" style="margin-bottom: 1rem; font-size: 0.85rem; color: #64748b;">
+        <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}">&larr; Back to Case History</a>
+    </div>
+
+    <!-- Mandatory Non-Binding Legal / Governance Banner -->
+    <div class="alert-box" style="background: #fdf4ff; border: 2px solid #c084fc; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="badge badge-nonbinding" style="font-size: 0.9rem; padding: 0.35rem 0.75rem;">NON-BINDING EVALUATION</span>
+                <span style="font-size: 0.85rem; color: #7e22ce; font-weight: 600;">
+                    CLINICAL DECISION SUPPORT PROTOTYPE ONLY &bull; NOT AN AUTHORIZED DETERMINATION
+                </span>
+            </div>
+            <div>
+                <span class="badge" style="background: #ede9fe; color: #6b21a8; font-family: monospace;">is_binding: false</span>
+            </div>
+        </div>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #581c87; line-height: 1.4;">
+            This evaluation was executed deterministically by MedRule's rules engine. The governing knowledge base currently reports 0 approved rules. All prior authorization decisions require licensed Medical Director adjudication. Outbound submission adapters are permanently disabled.
+        </p>
+    </div>
+
+    <!-- Case Header & Summary -->
+    <div class="section-card" style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1rem;">
+            <div>
+                <h1 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Case {{ case.case_id }}</h1>
+                <p class="subtitle" style="margin-bottom: 0;">
+                    Procedure: <strong>{{ case.procedure_code }}</strong> — {{ case.metadata.get('procedure_name', 'N/A') }}
+                </p>
+            </div>
+            <div style="text-align: right;">
+                <span style="font-size: 0.8rem; color: #64748b; display: block; margin-bottom: 0.25rem;">Lifecycle State:</span>
+                <span class="badge badge-success" style="font-size: 0.9rem; padding: 0.35rem 0.75rem;">
+                    {{ case.lifecycle_state }}
+                </span>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.9rem;">
+            <div>
+                <span style="color: #64748b; font-size: 0.8rem; display: block;">Member / Patient ID</span>
+                <code>{{ case.metadata.get('patient_id', 'UNKNOWN') }}</code>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.8rem; display: block;">Clinical Domain</span>
+                <strong>{{ (case.clinical_domain or 'UNKNOWN').replace('_', ' ')|title }}</strong>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.8rem; display: block;">Line of Business</span>
+                <strong>{{ case.line_of_business or 'OTHER' }}</strong>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.8rem; display: block;">Requested Date of Service</span>
+                <strong>{{ case.metadata.get('requested_date_of_service', 'N/A') }}</strong>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.8rem; display: block;">Payer &amp; Plan</span>
+                <span>{{ case.payer_id or 'EVOLENT' }} ({{ case.plan_id or 'DEFAULT' }})</span>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.8rem; display: block;">Received Timestamp</span>
+                <span style="font-size: 0.85rem;">{{ case.received_at[:19].replace('T', ' ') if case.received_at else 'N/A' }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payer & Connector Status Cards -->
+    <div class="section-card" style="margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.15rem; margin-bottom: 1rem;">Integration &amp; Connector Verification</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Eligibility Verification</strong>
+                    <span class="badge badge-mock">MOCK (SIMULATED)</span>
+                </div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">
+                    Member: <code>{{ case.metadata.get('patient_id', 'UNKNOWN') }}</code><br>
+                    Status: <span style="color: #059669; font-weight: 600;">ACTIVE_COVERAGE</span>
+                </div>
+            </div>
+
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Benefits &amp; Limits</strong>
+                    <span class="badge badge-mock">MOCK (SIMULATED)</span>
+                </div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">
+                    Prior Auth Required: <strong>{{ 'YES' if case.metadata.get('auth_required', True) else 'NO' }}</strong><br>
+                    Documentation Checklist: <em>Verified</em>
+                </div>
+            </div>
+
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Payer Policy Context</strong>
+                    <span class="badge badge-success">RESOLVED</span>
+                </div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">
+                    Policy: <strong>{{ case.metadata.get('governing_policy_id', 'EVOLENT-POL-ADV-001') }}</strong><br>
+                    Version: <code>{{ case.metadata.get('governing_policy_version', '2026.1') }}</code>
+                </div>
+            </div>
+
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Prior Auth Submission</strong>
+                    <span class="badge badge-disabled">DISABLED (INVARIANT)</span>
+                </div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">
+                    Adapter: <strong>AuthorizationSubmissionAdapter</strong><br>
+                    Mode: <em>PERMANENTLY DISABLED</em> (No live transmission)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Missing Documentation / Unresolved Dependencies Alert -->
+    {% if case.missing_documentation %}
+    <div class="alert-box" style="background: #fffbeb; border: 1px solid #f59e0b; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;">
+        <h3 style="color: #b45309; font-size: 1rem; margin-bottom: 0.5rem;">Missing Documentation / Information</h3>
+        <ul style="padding-left: 1.5rem; font-size: 0.9rem; color: #92400e;">
+            {% for doc in case.missing_documentation %}
+            <li>{{ doc }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Deterministic Evaluation Result -->
+    {% set eval_res = case.evaluation_result %}
+    {% if eval_res %}
+    <div class="section-card" style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+            <h2>Deterministic Rule Evaluation Result</h2>
+            <div>
+                {% set st = eval_res.get('assessment_status') %}
+                {% if 'MEETS' in st and 'NOT' not in st %}
+                    <span class="badge badge-success" style="font-size: 1rem; padding: 0.4rem 0.8rem;">{{ st }}</span>
+                {% elif 'NOT_MEET' in st %}
+                    <span class="badge badge-danger" style="font-size: 1rem; padding: 0.4rem 0.8rem;">{{ st }}</span>
+                {% else %}
+                    <span class="badge badge-warning" style="font-size: 1rem; padding: 0.4rem 0.8rem;">{{ st }}</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Evaluated Criteria List -->
+        <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: #334155;">Evaluated Rules &amp; Criterion-Level Findings</h3>
+
+        {% set evaluated_rules = eval_res.get('rule_evaluations') or eval_res.get('rule_results') or [] %}
+        {% if evaluated_rules %}
+            {% for r_eval in evaluated_rules %}
+            {% set r_rec = r_eval.get('rule', {}) %}
+            {% set c_res = r_eval.get('condition_result', {}) %}
+            <div class="criterion-card {% if 'MET' in c_res.get('status')|string or 'TRUE' in c_res.get('status')|string %}status-met{% elif 'NOT_MET' in c_res.get('status')|string or 'FALSE' in c_res.get('status')|string %}status-not-met{% else %}status-unknown{% endif %}">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <div>
+                        <a href="{{ url_for('rule_workbench', rule_id=r_rec.get('rule_id'), as_user=current_user.user_id) }}" style="font-weight: 700; color: #1a56db; font-size: 1rem;">
+                            Rule {{ r_rec.get('rule_id') }}
+                        </a>
+                        <span style="font-size: 0.85rem; color: #64748b; margin-left: 0.5rem;">
+                            ({{ r_rec.get('rule_type', 'clinical_indication')|replace('_', ' ')|title }})
+                        </span>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span class="badge" style="background: #e2e8f0; color: #334155;">Effect: {{ r_rec.get('decision_effect', 'INDICATED') }}</span>
+                        {% if 'MET' in c_res.get('status')|string or 'TRUE' in c_res.get('status')|string %}
+                            <span class="badge badge-success">CONDITION MET</span>
+                        {% elif 'NOT_MET' in c_res.get('status')|string or 'FALSE' in c_res.get('status')|string %}
+                            <span class="badge badge-danger">CONDITION NOT MET</span>
+                        {% else %}
+                            <span class="badge badge-warning">CONDITION UNKNOWN</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+                    <strong>Clinical Indication / Summary:</strong> {{ r_rec.get('notes') or r_rec.get('source_evidence_quotation', 'No description provided') }}
+                </div>
+
+                <!-- Source Quotation Citation -->
+                {% if r_rec.get('source_evidence_quotation') or r_rec.get('source_file') %}
+                <div class="source-citation-box">
+                    <div>
+                        <strong>Governing Policy Citation:</strong>
+                        "{{ r_rec.get('source_evidence_quotation') or 'Evidence requirement extracted from clinical guidelines.' }}"
+                    </div>
+                    <div style="margin-top: 0.35rem; font-size: 0.8rem; color: #64748b;">
+                        Source File: <code>{{ r_rec.get('source_file', 'N/A') }}</code>
+                        {% if r_rec.get('source_section') %} &bull; Section: {{ r_rec.get('source_section') }}{% endif %}
+                        {% if r_rec.get('source_page_number') %} &bull; Page: {{ r_rec.get('source_page_number') }}{% endif %}
+                        {% if r_rec.get('source_file') %}
+                        &bull; <a href="{{ url_for('serve_policy_pdf', pdf_path=r_rec.get('source_file')) }}" target="_blank" style="color: #1a56db; font-weight: 600;">View Policy PDF &rarr;</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Condition Tree Nodes -->
+                {% if c_res.get('node_results') %}
+                <div style="margin-top: 0.75rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 0.5rem 0.75rem; font-size: 0.85rem;">
+                    <strong>Evaluated Conditions:</strong>
+                    <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">
+                        {% for n in c_res.get('node_results') %}
+                        <li>
+                            <code>{{ n.get('field', 'logic') }}</code> {{ n.get('operator') }} {{ n.get('target_value') }}
+                            &rarr; <strong>{{ n.get('status') }}</strong> (Observed: <em>{{ n.get('actual_value') }}</em>)
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                <div style="margin-top: 0.75rem; display: flex; justify-content: flex-end;">
+                    <a href="{{ url_for('rule_workbench', rule_id=r_rec.get('rule_id'), as_user=current_user.user_id) }}" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+                        Inspect Rule in Governance Workbench &rarr;
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div style="background: #f8fafc; border: 1px dashed #cbd5e1; padding: 1rem; border-radius: 6px; font-size: 0.9rem; color: #64748b;">
+                No individual rule evaluation breakdown records attached. Raw outcome: {{ eval_res.get('assessment_status') }}
+            </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Connector Audit Events Log -->
+    <div class="section-card" style="margin-bottom: 1.5rem;">
+        <h2>Connector Execution Audit Trail</h2>
+        <p class="subtitle">Complete chronological trace of connector interactions for this case.</p>
+        {% if connector_events %}
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Connector Type</th>
+                    <th>Execution Mode</th>
+                    <th>Status</th>
+                    <th>Latency</th>
+                    <th>Reference / Hash</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evt in connector_events %}
+                <tr>
+                    <td style="font-size: 0.75rem; color: #64748b;">{{ evt.timestamp[:19].replace('T', ' ') if evt.timestamp else 'N/A' }}</td>
+                    <td><strong>{{ evt.connector_type }}</strong></td>
+                    <td>
+                        {% if evt.execution_mode == 'MOCK' %}
+                            <span class="badge badge-mock">MOCK</span>
+                        {% elif evt.execution_mode == 'DISABLED' %}
+                            <span class="badge badge-disabled">DISABLED</span>
+                        {% else %}
+                            <span class="badge">{{ evt.execution_mode }}</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if evt.status == 'SUCCESS' %}
+                            <span class="badge badge-success">SUCCESS</span>
+                        {% else %}
+                            <span class="badge badge-danger">{{ evt.status }}</span>
+                        {% endif %}
+                    </td>
+                    <td style="font-size: 0.8rem;">{{ '%.1f'|format(evt.latency_ms) }} ms</td>
+                    <td style="font-size: 0.75rem; font-family: monospace;">
+                        {{ evt.reference_id or evt.request_hash_sha256[:12] if evt.request_hash_sha256 else 'N/A' }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="font-size: 0.85rem; color: #94a3b8;">No connector audit events recorded for this case.</p>
+        {% endif %}
+    </div>
+
+    <!-- Case Lifecycle Transition History -->
+    <div class="section-card">
+        <h2>Case Lifecycle Transitions</h2>
+        <div class="audit-timeline">
+            {% for h in case.state_history %}
+            <div class="timeline-item">
+                <div class="tl-header">
+                    <span class="badge badge-info">{{ h.to_state }}</span>
+                    <span class="tl-date">{{ h.timestamp[:19].replace('T', ' ') if h.timestamp else 'N/A' }}</span>
+                </div>
+                <div class="tl-actor">Actor: <strong>{{ h.actor_or_component }}</strong></div>
+                <div class="tl-comments">{{ h.reason }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{
+  "case_id": "CASE-EXAMPLE-INTAKE-001",
+  "patient_id": "MEM-SYNTH-88219",
+  "clinical_domain": "advanced_imaging",
+  "procedure_code": "74177",
+  "procedure_name": "CT Abdomen and Pelvis with contrast",
+  "line_of_business": "COMMERCIAL",
+  "requested_date_of_service": "2026-03-15",
+  "payer_id": "EVOLENT",
+  "plan_id": "COMMERCIAL_CHOICE_PLUS",
+  "submitted_documents": ["Comprehensive clinical notes and diagnostic ultrasound reports"],
+  "bypass_documentation_check": true,
+  "clinical_evidence": {
+    "pancreatitis_diagnostic_markers": "ELEVATED",
+    "conservative_treatment_duration_hours": 96,
+    "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+    "ordering_provider_license": true
+  }
+}
