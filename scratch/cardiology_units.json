@@ -1,0 +1,401 @@
+[
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "PREAMBLE-DIAG",
+    "title": "Guidelines for Clinical Review Determination Preamble and Development Process (Diagnostic)",
+    "physical_start": 2,
+    "physical_end": 3
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7275",
+    "title": "Evolent Clinical Guideline 7275 for Coronary Artery Computed Tomography Angiography (CCTA)",
+    "physical_start": 4,
+    "physical_end": 27
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7272",
+    "title": "Evolent Clinical Guideline 7272 for Coronary Artery Calcium Scoring by Electron Beam Computed Tomography (EBCT) or Non-Contrast Coronary Computed Tomography (CCT)",
+    "physical_start": 28,
+    "physical_end": 42
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7293",
+    "title": "Evolent Clinical Guideline 7293 for Fractional Flow Reserve Computed Tomography (CT)",
+    "physical_start": 43,
+    "physical_end": 54
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7294",
+    "title": "Evolent Clinical Guideline 7294 for Heart Positron Emission Tomography (PET) Scan",
+    "physical_start": 55,
+    "physical_end": 77
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7296",
+    "title": "Evolent Clinical Guideline 7296 for Heart Computed Tomography (CT)",
+    "physical_start": 78,
+    "physical_end": 92
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7297",
+    "title": "Evolent Clinical Guideline 7297 for Heart Magnetic Resonance Imaging (MRI)",
+    "physical_start": 93,
+    "physical_end": 113
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7298",
+    "title": "Evolent Clinical Guideline 7298 for Heart Positron Emission Tomography (PET) with Computed Tomography (CT) for Attenuation",
+    "physical_start": 114,
+    "physical_end": 136
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7311",
+    "title": "Evolent Clinical Guideline 7311 for Multiple Gated Acquisition Scan (MUGA)",
+    "physical_start": 137,
+    "physical_end": 147
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7312",
+    "title": "Evolent Clinical Guideline 7312 for Myocardial Perfusion Imaging (MPI)",
+    "physical_start": 148,
+    "physical_end": 171
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7328",
+    "title": "Evolent Clinical Guideline 7328 for Stress Echocardiogram",
+    "physical_start": 172,
+    "physical_end": 194
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7336",
+    "title": "Evolent Clinical Guideline 7336 for Transesophageal Echocardiogram (TEE)",
+    "physical_start": 195,
+    "physical_end": 206
+  },
+  {
+    "doc_id": "DOC-CARD-001",
+    "guideline_id": "CG-7337",
+    "title": "Evolent Clinical Guideline 7337 for Transthoracic Echocardiogram (TTE)",
+    "physical_start": 207,
+    "physical_end": 243
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "PREAMBLE-INTERV",
+    "title": "Guidelines for Clinical Review Determination Preamble and Development Process (Interventional)",
+    "physical_start": 2,
+    "physical_end": 4
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7251",
+    "title": "Evolent Clinical Guideline 7251 for Abdominal Aortic Ultrasound",
+    "physical_start": 5,
+    "physical_end": 13
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7252",
+    "title": "Evolent Clinical Guideline 7252 for Ambulatory Rhythm Monitoring",
+    "physical_start": 14,
+    "physical_end": 27
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7253",
+    "title": "Evolent Clinical Guideline 7253 for Ankle-Brachial Index in Peripheral Artery Disease",
+    "physical_start": 28,
+    "physical_end": 27
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7254",
+    "title": "Evolent Clinical Guideline 7254 for Coronary Artery Bypass Graft",
+    "physical_start": 28,
+    "physical_end": 47
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7255",
+    "title": "Evolent Clinical Guideline 7255 for Aortic Valve Replacement",
+    "physical_start": 48,
+    "physical_end": 58
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7256",
+    "title": "Evolent Clinical Guideline 7256 for Aorto-Renal Endarterectomy or Bypass Surgery",
+    "physical_start": 59,
+    "physical_end": 66
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7257",
+    "title": "Evolent Clinical Guideline 7257 for Arterial Duplex in Peripheral Artery Disease",
+    "physical_start": 67,
+    "physical_end": 76
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7258",
+    "title": "Evolent Clinical Guideline 7258 for Device Interrogation and Programming",
+    "physical_start": 77,
+    "physical_end": 90
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7259",
+    "title": "Evolent Clinical Guideline 7259 for Aortic Root, Ascending Aorta and Aortic Arch Surgery",
+    "physical_start": 91,
+    "physical_end": 101
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7260",
+    "title": "Evolent Clinical Guideline 7260 for Automated Ambulatory Blood Pressure Monitoring",
+    "physical_start": 102,
+    "physical_end": 109
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7261",
+    "title": "Evolent Clinical Guideline 7261 for Device (AICD, CRT, and or Pacemaker) Battery Replacement",
+    "physical_start": 110,
+    "physical_end": 115
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7262",
+    "title": "Evolent Clinical Guideline 7262 for Diagnostic Electrophysiologic Testing",
+    "physical_start": 116,
+    "physical_end": 128
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7263",
+    "title": "Evolent Clinical Guideline 7263 for Cardiac Resynchronization Therapy",
+    "physical_start": 129,
+    "physical_end": 141
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7264",
+    "title": "Evolent Clinical Guideline 7264 for Renal Angiography and Intervention",
+    "physical_start": 142,
+    "physical_end": 152
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7265",
+    "title": "Evolent Clinical Guideline 7265 for Cardiovascular Stress Test",
+    "physical_start": 153,
+    "physical_end": 164
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7266",
+    "title": "Evolent Clinical Guideline 7266 for Carotid Artery Stenting",
+    "physical_start": 165,
+    "physical_end": 175
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7267",
+    "title": "Evolent Clinical Guideline 7267 for Carotid Duplex",
+    "physical_start": 176,
+    "physical_end": 184
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7268",
+    "title": "Evolent Clinical Guideline 7268 for Carotid Endarterectomyl",
+    "physical_start": 185,
+    "physical_end": 193
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7269",
+    "title": "Evolent Clinical Guideline 7269 for Catheter Based Carotid and Brachiocephalic Arteriography, Venography, and Intervention",
+    "physical_start": 194,
+    "physical_end": 203
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7270",
+    "title": "Evolent Clinical Guideline 7270 for Central Venous Access Procedure",
+    "physical_start": 204,
+    "physical_end": 211
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7271",
+    "title": "Evolent Clinical Guideline 7271 for Coronary Fractional Flow Reserve",
+    "physical_start": 212,
+    "physical_end": 218
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7274",
+    "title": "Evolent Clinical Guideline 7274 for Coronary Intra Vascular Arterial Ultrasound",
+    "physical_start": 219,
+    "physical_end": 227
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7276",
+    "title": "Evolent Clinical Guideline 7276 for Descending Thoracic Aortic Open or Endovascular Surgery",
+    "physical_start": 228,
+    "physical_end": 237
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7280",
+    "title": "Evolent Clinical Guideline 7280 for Duplex Scan of Hemodialysis Access",
+    "physical_start": 238,
+    "physical_end": 246
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7281",
+    "title": "Evolent Clinical Guideline 7281 for Guideline Directed Medical Therapy - Heart Failure and Coronary ArteryDisease",
+    "physical_start": 247,
+    "physical_end": 260
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7282",
+    "title": "Evolent Clinical Guideline 7282 for Atrial Fibrillation Ablation",
+    "physical_start": 261,
+    "physical_end": 272
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7283",
+    "title": "Evolent Clinical Guideline 7283 for Abdominal Aortography with Bilateral Iliofemoral Lower Extremity Runoff",
+    "physical_start": 273,
+    "physical_end": 280
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7284",
+    "title": "Evolent Clinical Guideline 7284 for Catheter Ablation of Reentrant or Focal Tachydysrhythmias",
+    "physical_start": 281,
+    "physical_end": 291
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7285",
+    "title": "Evolent Clinical Guideline 7285 for Abdominal Aortic Aneurysm Repair",
+    "physical_start": 292,
+    "physical_end": 301
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7286",
+    "title": "Evolent Clinical Guideline 7286 for Endomyocardial Biopsy",
+    "physical_start": 302,
+    "physical_end": 310
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7287",
+    "title": "Evolent Clinical Guideline 7287 for Endovascular Femoropopliteal Interventions",
+    "physical_start": 311,
+    "physical_end": 322
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7288",
+    "title": "Evolent Clinical Guideline 7288 for Endovascular Aortoiliac Interventions",
+    "physical_start": 323,
+    "physical_end": 334
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7289",
+    "title": "Evolent Clinical Guideline 7289 for Endovascular Infrapopliteal (Tibioperoneal) Interventions",
+    "physical_start": 335,
+    "physical_end": 346
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7290",
+    "title": "Evolent Clinical Guideline 7290 for Treatment of Varicose Veins",
+    "physical_start": 347,
+    "physical_end": 361
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7291",
+    "title": "Evolent Clinical Guideline 7291 for Enhanced External Counter Pulsation",
+    "physical_start": 362,
+    "physical_end": 370
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7292",
+    "title": "Evolent Clinical Guideline 7292 for Infrainguinal Open Arterial Vascular Surgery",
+    "physical_start": 371,
+    "physical_end": 382
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7299",
+    "title": "Evolent Clinical Guideline 7299 for Hemodialysis Access Creation",
+    "physical_start": 383,
+    "physical_end": 390
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7300",
+    "title": "Evolent Clinical Guideline 7300 for Hemodialysis Access Maintenance",
+    "physical_start": 391,
+    "physical_end": 401
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7302",
+    "title": "Evolent Clinical Guideline 7302 for Percutaneous Coronary Interventions",
+    "physical_start": 402,
+    "physical_end": 413
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7315",
+    "title": "Evolent Clinical Guideline 7315 for Pacemaker Insertion",
+    "physical_start": 414,
+    "physical_end": 426
+  },
+  {
+    "doc_id": "DOC-CARD-002",
+    "guideline_id": "CG-7334",
+    "title": "Evolent Clinical Guideline 7334 for Transcatheter Aortic Valve Replacement (TAVR)",
+    "physical_start": 427,
+    "physical_end": 440
+  },
+  {
+    "doc_id": "DOC-CARD-004",
+    "guideline_id": "OP-388-01",
+    "title": "Cardiac Claim Edit: Stress Echocardiography and Doppler Add-On (OP.388.01)",
+    "physical_start": 1,
+    "physical_end": 3
+  },
+  {
+    "doc_id": "DOC-CARD-003",
+    "guideline_id": "GRID-CARD-2026",
+    "title": "Cardiovascular Service Group Grid (January 2026)",
+    "physical_start": 1,
+    "physical_end": 9
+  }
+]

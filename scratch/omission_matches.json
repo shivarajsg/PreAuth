@@ -1,0 +1,256 @@
+[
+  {
+    "guideline_id": "CG-2008",
+    "description": "Head Trauma",
+    "match": {
+      "physical_page": 146,
+      "printed_page": "Page 1 of 26",
+      "matched_line": "Evaluation of Known or Suspected Trauma ...................................................................................... 6",
+      "exact_line": "Evaluation of Known or Suspected Trauma ...................................................................................... 6",
+      "context": [
+        "HEAD TRAUMA ....................................................................................................................................... 6",
+        "Evaluation of Known or Suspected Trauma ...................................................................................... 6",
+        "SUSPECTED MALIGNANCY ....................................................................................................................... 7",
+        "KNOWN MALIGNANCY ............................................................................................................................. 7",
+        "SEIZURE DISORDERS.............................................................................................................................. 7"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2008",
+    "description": "Thunderclap Headache / Subarachnoid Hemorrhage",
+    "match": {
+      "physical_page": 148,
+      "printed_page": "Page 3 of 26",
+      "matched_line": "of subarachnoid hemorrhage, acute trauma, or bone abnormalities of the calvarium (fracture,",
+      "exact_line": "of subarachnoid hemorrhage, acute trauma, or bone abnormalities of the calvarium (fracture,",
+      "context": [
+        "can tolerate MRI and sufficient time is available to schedule the MRI examination. Assessment",
+        "of subarachnoid hemorrhage, acute trauma, or bone abnormalities of the calvarium (fracture,",
+        "etc.) may be better imaged with CT. CT is also appropriate in an urgent situation where MRI is",
+        "not readily available (stroke, increased ICP, CNS infection)."
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2009",
+    "description": "Brain CTA - Stroke / Large Vessel Occlusion",
+    "match": {
+      "physical_page": 176,
+      "printed_page": "Page 5 of 20",
+      "matched_line": "? Large vessel vasculitis",
+      "exact_line": "\u25cf Large vessel vasculitis",
+      "context": [
+        "completed infectious/inflammatory lab work-up (1,23)",
+        "\u25cf Large vessel vasculitis",
+        "\u25cb",
+        "Giant cell arteritis with suspected intracranial involvement (24)",
+        "\u25cb"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2012",
+    "description": "Brain MRI - Multiple Sclerosis",
+    "match": {
+      "physical_page": 220,
+      "printed_page": "Page 1 of 50",
+      "matched_line": "MULTIPLE SCLEROSIS ................................................................................................................................ 13",
+      "exact_line": "MULTIPLE SCLEROSIS ................................................................................................................................ 13",
+      "context": [
+        "Evaluation of Known or Suspected Seizure Disorder ......................................................................... 13",
+        "MULTIPLE SCLEROSIS ................................................................................................................................ 13",
+        "Evaluation of Suspected Multiple Sclerosis ........................................................................................ 13",
+        "Evaluation of Known Multiple Sclerosis .............................................................................................. 14",
+        "INFECTION AND INFLAMMATION ................................................................................................................... 14"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2012",
+    "description": "Brain MRI - Seizures",
+    "match": {
+      "physical_page": 220,
+      "printed_page": "Page 1 of 50",
+      "matched_line": "SEIZURE DISORDERS ................................................................................................................................. 13",
+      "exact_line": "SEIZURE DISORDERS ................................................................................................................................. 13",
+      "context": [
+        "Surveillance ......................................................................................................................................... 12",
+        "SEIZURE DISORDERS ................................................................................................................................. 13",
+        "Evaluation of Known or Suspected Seizure Disorder ......................................................................... 13",
+        "MULTIPLE SCLEROSIS ................................................................................................................................ 13",
+        "Evaluation of Suspected Multiple Sclerosis ........................................................................................ 13"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2018",
+    "description": "Chest CT - Hemoptysis / Bronchogenic Carcinoma",
+    "match": {
+      "physical_page": 361,
+      "printed_page": "Page 9 of 30",
+      "matched_line": "? Hemoptysis after x-ray completed (25)",
+      "exact_line": "\u25cf Hemoptysis after x-ray completed (25)",
+      "context": [
+        "\u25cf Pneumothorax on chest x-ray when imaging findings will change management",
+        "\u25cf Hemoptysis after x-ray completed (25)",
+        "\u25cf Vocal cord paralysis on endoscopic exam",
+        "\u25cf Phrenic nerve paralysis on diaphragm fluoroscopy (fluoroscopic) sniff test",
+        "\u25cf Evaluation of possible airway pathology with any ONE of the following:"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2020",
+    "description": "Chest CTA - Thoracic Aortic Dissection / Aneurysm",
+    "match": {
+      "physical_page": 397,
+      "printed_page": "Page 1 of 19",
+      "matched_line": "THORACIC AORTIC DISEASE  ........................................................................................................................ 4",
+      "exact_line": "THORACIC AORTIC DISEASE  ........................................................................................................................ 4",
+      "context": [
+        "KNOWN OR SUSPECTED PULMONARY EMBOLISM (PE)  .................................................................................. 3",
+        "THORACIC AORTIC DISEASE  ........................................................................................................................ 4",
+        "Screening for Possible Thoracic Aortic Aneurysm (TAA) ..................................................................... 4",
+        "Suspected Thoracic Aortic Aneurysm (TAA) ........................................................................................ 4",
+        "Thoracic Aortic Syndromes  .................................................................................................................. 5"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2032",
+    "description": "Lower Extremity CT - Fracture / Dislocation",
+    "match": {
+      "physical_page": 501,
+      "printed_page": "Page 1 of 23",
+      "matched_line": "Suspected Bone Fracture ..................................................................................................................... 8",
+      "exact_line": "Suspected Bone Fracture ..................................................................................................................... 8",
+      "context": [
+        "LOWER EXTREMITY TRAUMA ........................................................................................................................ 8",
+        "Suspected Bone Fracture ..................................................................................................................... 8",
+        "Known Bone Fracture ........................................................................................................................... 9",
+        "OSTEOCHONDRAL LESIONS  ......................................................................................................................... 9",
+        "Defects, Fractures, Osteochondritis Dissecans .................................................................................... 9"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2035",
+    "description": "Lower Extremity MRI - Meniscal / Ligamentous Tear (Orthopedic Signs)",
+    "match": {
+      "physical_page": 553,
+      "printed_page": "Page 4 of 22",
+      "matched_line": "therapy) without a positive orthopedic sign, then Pelvis MRI (Evolent_CG_2045) is the preferred",
+      "exact_line": "therapy) without a positive orthopedic sign, then Pelvis MRI (Evolent_CG_2045) is the preferred",
+      "context": [
+        "right and left hip pain (X-ray completed AND persistent pain unresponsive to active conservative",
+        "therapy) without a positive orthopedic sign, then Pelvis MRI (Evolent_CG_2045) is the preferred",
+        "study.",
+        "Joint Specific Orthopedic Signs",
+        "NOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred;"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2035",
+    "description": "Lower Extremity MRI - Avascular Necrosis (AVN) Hip",
+    "match": {
+      "physical_page": 550,
+      "printed_page": "Page 1 of 22",
+      "matched_line": "OSTEONECROSIS  ........................................................................................................................................ 9",
+      "exact_line": "OSTEONECROSIS  ........................................................................................................................................ 9",
+      "context": [
+        "LOWER EXTREMITY VASCULAR MALFORMATION (VM) ................................................................................... 9",
+        "OSTEONECROSIS  ........................................................................................................................................ 9",
+        "LOOSE BODIES OR SYNOVIAL CHONDROMATOSIS ........................................................................................ 10",
+        "INFECTION / INFLAMMATION ........................................................................................................................ 10",
+        "Infection of Bone, Joint, or Soft Tissue Abscess  ............................................................................... 10"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2037",
+    "description": "Lumbar Spine MRI - Spinal Infection / Malignancy",
+    "match": {
+      "physical_page": 592,
+      "printed_page": "Page 1 of 22",
+      "matched_line": "EVALUATION OF KNOWN OR SUSPECTED INFECTION ...................................................................................... 6",
+      "exact_line": "EVALUATION OF KNOWN OR SUSPECTED INFECTION ...................................................................................... 6",
+      "context": [
+        "EVALUATION OF TUMOR, CANCER, OR METASTASIS ...................................................................................... 5",
+        "EVALUATION OF KNOWN OR SUSPECTED INFECTION ...................................................................................... 6",
+        "EVALUATION OF KNOWN OR SUSPECTED INFLAMMATORY DISEASE ................................................................ 6",
+        "EVALUATION OF SPINE ABNORMALITIES RELATED TO IMMUNE SYSTEM SUPPRESSION .................................... 6",
+        "OTHER INDICATIONS .................................................................................................................................... 7"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2046",
+    "description": "Whole Body PET/CT - Lymphoma Staging",
+    "match": {
+      "physical_page": 737,
+      "printed_page": "Page 1 of 71",
+      "matched_line": "Primary CNS Lymphoma ............................................................................................................... 11",
+      "exact_line": "Primary CNS Lymphoma ............................................................................................................... 11",
+      "context": [
+        "Meningioma ................................................................................................................................... 11",
+        "Primary CNS Lymphoma ............................................................................................................... 11",
+        "GASTROINTESTINAL TRACT CANCERS .................................................................................................... 12",
+        "Anal Carcinoma ............................................................................................................................. 12",
+        "Colon Cancer and Appendiceal Adenocarcinoma ........................................................................... 12"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2046",
+    "description": "Whole Body PET/CT - Non-Small Cell Lung Cancer Staging",
+    "match": {
+      "physical_page": 738,
+      "printed_page": "Page 2 of 71",
+      "matched_line": "Non-Small Cell Lung Cancer .......................................................................................................... 35",
+      "exact_line": "Non-Small Cell Lung Cancer .......................................................................................................... 35",
+      "context": [
+        "LUNG CANCERS ................................................................................................................................... 35",
+        "Non-Small Cell Lung Cancer .......................................................................................................... 35",
+        "Small Cell Lung Cancer ................................................................................................................. 36",
+        "LUNG NODULES ................................................................................................................................... 36",
+        "NEUROENDOCRINE & ADRENAL TUMORS ................................................................................................ 37"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2047",
+    "description": "Sinus Maxillofacial CT - Chronic Rhinosinusitis",
+    "match": {
+      "physical_page": 811,
+      "printed_page": "Page 4 of 18",
+      "matched_line": "? Chronic rhinosinusitis (> 12 weeks duration) with ALL of the following (3)",
+      "exact_line": "\u25cf Chronic rhinosinusitis (> 12 weeks duration) with ALL of the following (3)",
+      "context": [
+        "Not responding to medical management including 2 or more courses of antibiotics",
+        "\u25cf Chronic rhinosinusitis (> 12 weeks duration) with ALL of the following (3)",
+        "\u25cb",
+        "Not responding to medical management including 2 or more courses of antibiotics",
+        "\u25cb"
+      ]
+    }
+  },
+  {
+    "guideline_id": "CG-2065",
+    "description": "Upper Extremity MRI - Rotator Cuff Tear (Orthopedic Signs)",
+    "match": {
+      "physical_page": 1015,
+      "printed_page": "Page 4 of 23",
+      "matched_line": "Bear hug test",
+      "exact_line": "Bear hug test",
+      "context": [
+        "tendon (4)",
+        "Bear hug test",
+        "Patient cannot place hand on",
+        "opposite shoulder or weakness",
+        "in resisted internal rotation"
+      ]
+    }
+  }
+]

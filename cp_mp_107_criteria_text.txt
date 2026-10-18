@@ -1,0 +1,2250 @@
+=== Page 1 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ ........................................................................  
+ ......................................................................................  
+Clinical Policy: Durable Medical Equipment and Orthotics and Prosthetics Guidelines 
+Reference Number: CP.MP.107  
+Coding Implications 
+Date of Last Revision: 08/26 
+Revision Log 
+See Important Reminder at the end of this policy for important regulatory and legal 
+information. 
+Description 
+Durable medical equipment (DME) is defined as equipment that can withstand repeated use, is 
+primarily and customarily used to serve a medical purpose, is appropriate for use in the home, 
+and is generally not useful to a person in the absence of an illness or injury.1 Orthotic devices are 
+rigid and semi-rigid devices used for the purpose of supporting a weak or deformed body part or 
+restricting or eliminating motion in a disease or injured body part.2 Prosthetic devices are 
+custom-made artificial limbs or other assistive devices that replace a body part or function as a 
+result of traumatic injuries, vascular disease, diabetes, cancer or congenital disorders. 
+Policy/Criteria 
+I. It is the policy of health plans affiliated with Centene Corporation® that durable medical 
+equipment, orthotics, and prosthetics are medically necessary when the general and 
+applicable equipment-specific criteria in A and B are met: 
+A. General criteria: All of the following: 
+1. Equipment is necessary and reasonable for the treatment of an illness or injury or to 
+improve the functioning of a physical deficit;* 
+2. Both of the following have been provided to the member/enrollee and/or caregiver, as 
+applicable: 
+a. Education regarding use of the device, with demonstrated understanding; 
+b. A trial of the requested device, with demonstrated ability to use it safely and 
+effectively.  
+*Note:3,4 
+• Equipment is necessary when it can be expected to make a meaningful contribution to the 
+treatment of the patient’s illness or injury or to the improvement of his or her malformed 
+body member. 
+• Although an item of DME may serve a useful medical purpose, additional considerations 
+should be made to whether the item is reasonable, such as, whether the expense of the 
+item is disproportionate to the therapeutic benefits, whether it is substantially more costly 
+than a medically appropriate and realistically feasible alternative plan of care, and/or 
+whether the item will serve essentially the same purpose as equipment already available. 
+• Additional "deluxe" features or items that are rented or purchased for aesthetic reasons or 
+added convenience, do not meet the reasonableness test. 
+• If a medically necessary, lesser cost item exists and will suit the member/enrollee's 
+medical needs, a higher cost item will be denied. 
+B. EQUIPMENT-SPECIFIC CRITERIA 
+BURN GARMENTS ........................................................................................................ 2 
+CARDIAC EQUIPMENT ................................................................................................. 2 
+COMPRESSION THERAPY EQUIPMENT
+ 3 
+DIABETES CARE EQUIPMENT
+ 3 
+Page 1 of 24 
+
+
+=== Page 2 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ ...........................................................  
+  
+ .....................................................................................................  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+  
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+HEAT, COLD & LIGHT THERAPY EQUIPMENT
+3 
+NEWBORN CARE EQUIPMENT ..................................................................................... 4 
+OTHER EQUIPMENT
+4 
+PROSTHETICS AND ORTHOTICS EQUIPMENT............................................................ 6 
+PUMPS .......................................................................................................................... 9 
+RESPIRATORY EQUIPMENT ....................................................................................... 10 
+SURGICAL SUPPLIES ...................................................... Error! Bookmark not defined. 
+WALKERS .................................................................................................................. 11 
+WHEELCHAIRS .......................................................................................................... 11 
+WOUND CARE................................................................ Error! Bookmark not defined. 
+BURN GARMENTS 
+CRITERIA 
+HCPCS 
+Burn garments 5 
+ 
+Medically necessary with associated physical and/or occupational 
+therapy when both of the following are met: 
+A. At risk of a post-burn contracture;  
+B. The garment and physical and/or occupational therapies are being 
+used with the intent of preventing the need for skin grafting or 
+contractures as a result of hypertrophic scarring. 
+A6501 
+A6502  
+A6503  
+A6504  
+A6505  
+A6506 
+A6507 
+A6508  
+A6509  
+A6510  
+A6511 
+A6512 
+A6513  
+CARDIAC 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Non-wearable 
+external defibrillator 
+with integrated ECG 
+analysis 6 
+Not medically necessary, as it is primarily considered a safety device. 
+E0617 
+Wearable 
+Cardioverter-
+Defibrillator 
+(WCD)7,8 
+Initial requests for wearable cardioverter-defibrillators (WCD) are 
+considered medically necessary for 30 days when meeting all of the 
+following: 
+A. Member/enrollee is ≥ 18 years of age with increased risk of 
+sudden cardiac death; 
+B. One of the following: 
+1. Awaiting cardiac transplant; 
+2. Previously implanted cardioverter-defibrillator (ICD) must 
+be removed due to infection and awaiting re-implantation; 
+3. Newly indicated ICD delayed due to one of the following; 
+a. Systemic infection; 
+b. Left ventricular ejection fraction (LVEF) ≤ 35% and 
+any of the following: 
+i. Myocardial infarction (MI) within the past 40 days; 
+K0606 
+Page 2 of 24 
+
+
+=== Page 3 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+CARDIAC 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+ii. Coronary artery bypass graft (CABG) or 
+percutaneous coronary intervention (PCI) within the 
+past 90 days; 
+iii. Newly diagnosed nonischemic cardiomyopathy that 
+is potentially reversible and undergoing a trial of 
+optimal medical therapy; 
+C. Device is FDA approved and used according to FDA 
+indications. 
+Ongoing requests for WCDs are considered medically necessary and will 
+be approved in 30-day increments (up to a total of 90 days) when 
+meeting all of the following: 
+A. Initial request criteria continue to be met; 
+B. Adherence is confirmed by device reports and attestation from 
+the ordering provider; 
+C. Plan of care has been updated with progression towards a 
+definitive treatment pathway. 
+COMPRESSION 
+THERAPY 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Non-pneumatic 
+compression 
+devices9,10 
+Not medically necessary, as there is insufficient clinical evidence to 
+support the safety and effectiveness of non-pneumatic compression 
+devices over the use of standard pneumatic compression devices. 
+E0678 
+E0679 
+E0680 
+E0681 
+DIABETES CARE 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Blood glucose monitor 
+with integrated voice 
+synthesizer11,12 
+Medically necessary for member/enrollees with diabetes who have a 
+severe visual impairment (best corrected visual acuity of 20/200 or 
+worse in both eyes). 
+E2100 
+HEAT, COLD & 
+LIGHT THERAPY 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Ultraviolet panel 
+lights 13,14 
+Medically necessary when meeting both of the following: 
+A. Refractory psoriasis; 
+B. Documentation supports treatment at home versus alternate sites (e.g. 
+outpatient department at hospital). 
+Note: 
+• 
+Panel lights should be considered if several discrete body areas 
+can be treated individually. 
+• 
+Cabinet-style lights should be reserved for extensive involvement 
+of body surface area. 
+E0691 
+E0692 
+E0693 
+E0694 
+Page 3 of 24 
+
+
+=== Page 4 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+  
+  
+  
+ 
+ 
+  
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+HEAT, COLD & 
+LIGHT THERAPY 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Cold pad pump 15 
+Not medically necessary for post-operative management, as research does 
+not indicate improved outcomes in pain or edema management with the 
+use of cold compression therapy over the use of other treatments to 
+include conservative treatment, cold therapy alone, compression therapy 
+alone, etc.  
+E0236 
+NEWBORN CARE 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Breast pumps 
+Medically necessary when breast pumps are a covered benefit for the 
+member/enrollee. 
+E0604 
+OTHER EQUIPMENT 
+CRITERIA 
+HCPCS 
+Enclosed Beds 16, 
+17,18,19 
+Medically necessary when meeting all of the following: 
+A. Standard bed or standard hospital bed is unable to meet positioning 
+needs due to disability; 
+B. Less intensive alternatives to improve the member/enrollee’s 
+safety have been tried and ruled out (to include documentation of 
+why medical needs could not be met). Considerations include, but 
+are not limited to: 
+1. Bed rails; 
+2. Mattress placed on the floor; 
+3. Removal of all safety hazards; 
+4. Bed alarms; 
+5. Video/audio monitors; 
+6. Child protection devices such as locks on doors, windows, 
+cabinets, furniture anchors, gates at steps and doors; 
+7. Physician-directed medication to address seizures, behaviors 
+and sleep; 
+8. Environmental modification to encourage calming behaviors 
+and sleep; 
+9. Established routines addressing sensory needs and/or behavior 
+modification to assist with improved naptime or night time 
+behaviors and sleep; 
+C. Diagnosis including but not limited to any of the following: 
+1. Cerebral palsy; 
+2. Developmental delay; 
+3. Genetic or neurological disorder that would cause vertigo, 
+disorientation, or uncontrolled movement of the body or 
+extremities; 
+4. Uncontrolled seizure disorder; 
+5. Severe behavior disorder; 
+D. Healthcare provider evaluation (typically from an occupational or 
+physical therapist) includes all of the following: 
+1. Specific information on functional status; 
+2. Documentation of home evaluation; 
+E0316 
+E1399 
+E0328 or 
+E0329 
+(when 
+combined 
+with 
+E0316 or 
+E1399) 
+Page 4 of 24 
+
+
+=== Page 5 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+OTHER EQUIPMENT 
+CRITERIA 
+HCPCS 
+3. Documentation of education provided to caregivers on proper 
+use of a bed enclosure, noting that they are to be used for 
+medical support, improved safety transitioning in and out of 
+the bed, and improved safety while sleeping; 
+E. Name of and invoice for the bed or enclosure being requested. 
+All requests for enclosed beds require mandatory secondary review by 
+a medical director and/or therapy advisor. 
+Note: 
+• 
+Enclosed beds should not be used as a discipline measure or as a 
+restraint during times of high agitation or aggression. To limit 
+sensory deprivation, enclosed beds should be used at night for 
+sleeping and only for short rests or naps during the day. 
+• 
+When the above criteria are met, only basic beds will be 
+considered medically necessary. Upgrades for aesthetic purposes 
+or upgrades that do not meet the rules for DME will not be 
+covered as part of an enclosed bed purchase. This includes but is 
+not limited to any of the following: 
+• 
+Special lights, sounds, fans, cameras, two-way talk monitors, 
+vibration pads weighted blankets; 
+• 
+Custom wood types, finishes or engravings, special coverings 
+on the outside of the bed; 
+• 
+Custom upgrades where lower cost alternatives are readily 
+available. 
+Positioning seat 
+Medically necessary when all of the following are met: 
+A. Documentation of therapist evaluation and ongoing treatment plan; 
+B. Commercial device must be unable to meet the positioning needs 
+due to height, weight, or disability; 
+C. Other positioning devices in the home must be reviewed to ensure 
+duplication of devices are not already in place. 
+All requests for positioning seats require mandatory secondary review 
+by a medical director and/or therapy advisor. 
+T5001 
+E1399 
+Specialized supply or 
+equipment 
+ 
+Note: For requests 
+related to wheelchair 
+seating refer to 
+CP.MP.99. 
+Requests for not otherwise specified supplies or miscellaneous 
+equipment codes require mandatory secondary review by a medical 
+director and/or therapy advisor to determine medical necessity. 
+ 
+E0240 
+T2028 
+T2029 
+K0108 
+K0739 
+E1399 
+ROMTech® 
+PortableConnect® 
+Device20 
+Not medically necessary, as there is insufficient evidence in published 
+peer-reviewed literature to support the use of this technology over 
+currently available alternatives. 
+E1399 
+A9900 
+Page 5 of 24 
+
+
+=== Page 6 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PROSTHETICS 
+AND 
+ORTHOTICS 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Cervical traction 
+21
+equipment 
+Medically necessary when all of the following are met: 
+A. Musculoskeletal or neurologic impairment requiring traction 
+equipment; 
+B. One of the following: 
+1. Diagnosis of temporomandibular joint (TMJ) dysfunction 
+and has received treatment for TMJ condition; 
+2. Distortion of the lower jaw and neck anatomy (e.g. radical 
+neck dissection) such that a chin halter is unable to be 
+utilized; 
+3. The treating physician orders and/or documents the medical 
+necessity for greater than 20 pounds of cervical traction in 
+the home setting. 
+E0849 
+Cervical collar, 
+custom molded 
+Requests for custom molded cervical collars require mandatory 
+secondary review by a medical director and/or therapy advisor to 
+determine medical necessity.  
+ 
+Documentation accompanying the request must state the reason 
+why a prefabricated collar is not adequate. 
+L0170  
+L0190  
+L0200 
+Spinal Orthotics 
+Requests for spinal orthotics will be reviewed using relevant 
+nationally recognized decision support tool criteria for similar 
+codes. 
+L0700, L0710, 
+L0720, L0999, 
+L1000, L1001, 
+L1005, L1006 
+22
+Hip orthotics 
+Medically necessary when ordered by an orthopedic surgeon for 
+treatment of, or postoperatively for any of the following: 
+A. Total hip arthroplasty; 
+B. Hip labral tear; 
+C. Hip disorders in children when used to stabilize the hip 
+and/or to correct and maintain hip abduction.  
+Lateral replacements due to growth are considered medically 
+necessary in pediatrics for diagnoses such as hip dysplasia with 
+Charcot-Marie-Tooth disease. 
+ 
+Requests for hip orthotics for hip osteoarthritis in patients who are 
+not surgical candidates will be reviewed on a case-by-case basis by 
+a medical director and/or therapy advisor.  
+L1640  
+L1680  
+L1685  
+L1686 
+L1690 
+Legg Perthes 
+orthotics 
+Medically necessary when ordered by an orthopedic surgeon for 
+use in the treatment for Legg-Calvé-Perthes disease in children. 
+L1700 
+L1710 
+L1720 
+L1730 
+L1755 
+Hip-knee-ankle-
+foot orthotics 
+(HKAFO)  
+Requests for HKAFOs require mandatory secondary review by a 
+medical director and/or therapy advisor to determine medical 
+necessity. 
+L2050 
+L2060 
+L2090 
+Orthotic 
+components 
+Requests for orthotic components will be reviewed using relevant 
+nationally recognized decision support tool criteria for similar 
+codes. 
+L2570 
+L2580 
+L2627 
+Page 6 of 24 
+
+
+=== Page 7 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+PROSTHETICS 
+AND 
+ORTHOTICS 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+L2628 
+Foot orthotics, 
+custom  
+Medically necessary for arch, heel, or other foot pain when meeting 
+both of the following: 
+A. Foot condition, as indicated by one of the following:  
+1. Juvenile idiopathic arthritis;  
+2. Pes cavus (high arch);  
+3. Rheumatoid arthritis;  
+4. Plantar fasciitis when symptoms have been present for at 
+least one month;  
+5. Posterior tibial tendon dysfunction in adult, as indicated by 
+one or more of the following:  
+a. Stage I disease (tenosynovitis without deformity);   
+b. Stage II disease (flexible and passively correctable 
+deformity); 
+B. Documentation that adjustment of activities, anti-inflammatory 
+medications, prefabricated orthotics, stretching of calf muscles and 
+plantar surface have failed to improve symptoms. 
+L3000 
+L3001 
+L3002 
+L3003 
+L3010 
+L3020 
+L3030 
+L3031 
+L3070 
+L3080 
+Shoulder, elbow, 
+wrist, hand, finger 
+orthotics  
+Medically necessary when ordered immediately post-operative for 
+orthopedic surgeries such as rotator cuff repair, tendon repair, or 
+ORIF.   
+ 
+Replacement with the same or similar item due to normal wear and 
+tear is considered medically necessary when the orthotic is still 
+needed.  
+Medically necessary when the request specific criteria in A. or B. 
+are met: 
+A. Initial request meets all of the following: 
+1. Functional needs cannot be met with activity modification 
+and compensatory techniques; 
+2. Requested prosthesis is anticipated to meet functional needs; 
+3. Clinical examination findings include all of the following:  
+a. Appropriate residual limb length;  
+b. Limb volume stable;  
+c. Ability to tolerate weight of prosthetic device; 
+d. Environmental exposures appropriate for requested 
+prosthesis;  
+e. Ability to access specialized service and care as 
+necessary;   
+f. Stable condition of extremity to include skin integrity, 
+strength, and ROM sufficient to use requested device;  
+g. Cognitive function necessary to master prosthetic use;  
+4. Comprehensive prosthetic rehabilitation plan includes all of 
+the following:  
+a. Successful participation in pre-prosthetic training and 
+therapy;   
+ 
+L3904 
+L4000  
+L4010  
+L4020  
+L4030 
+L4205 
+Prosthetics and 
+additions: Upper 
+Extremity and 
+Myoelectric 
+ 
+L6000, L6010, 
+L6020, L6026, 
+L6028, L6029, 
+L6031, L6032, 
+L6033, L6037, 
+L6050, L6055, 
+L6100, L6110, 
+L6120, L6130, 
+L6200, L6205, 
+L6250, L6300, 
+L6310, L6320, 
+L6350, L6360, 
+L6370, L6380, 
+L6382, L6384, 
+L6386, L6388, 
+L6400, L6450, 
+L6500,  L6550,
+L6570, L6580, 
+L6582, L6584, 
+L6586, L6588, 
+L6590, L6623, 
+ 
+Page 7 of 24 
+
+
+=== Page 8 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+PROSTHETICS 
+AND 
+ORTHOTICS 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+b. Method of prosthetic control discussed; 
+c. Functional task training with occupational or physical 
+therapy; 
+d. Concurrent home exercise program; 
+e. Follow-up care schedule planned. 
+B. Replacement request, all of the following: 
+1. Replacement is requested due to one of the following: 
+a. Current prosthesis no longer functions properly or 
+physiological or surgical changes to residual limb no 
+longer accommodate current prosthesis; 
+b. Irreparable wear to prosthesis or prosthetic components; 
+c. Significant change in member/enrollee condition 
+resulting in poor fit or function of prosthesis or prosthetic 
+components; 
+2. Irreparable damage to prosthesis or prosthetic components 
+or repair cost > 60% of replacement cost; 
+3. Prosthesis has been properly cared for following 
+manufacturer's recommendations; 
+4. Medical documentation includes all of the following: 
+a. Supports continued use and medical need; 
+b. Continued motivation to use the device for functional 
+benefit; 
+c. Functional level continues to be appropriate for 
+prosthesis and components in use; 
+d. Replacement with same or similar prosthesis and/or 
+components. 
+All requests for upper extremity and myoelectric prosthetics and 
+additions require mandatory secondary review by a medical director 
+and/or therapy advisor. 
+L6624, L6625, 
+L6628, L6638, 
+L6646, L6647, 
+L6648, L6689, 
+L6690, L6692, 
+L6693, L6700, 
+L6704, L6707, 
+L6708, L6709, 
+L6711, L6712, 
+L6713, L6714, 
+L6715, L6721, 
+L6722, L6885, 
+L6895, L6900, 
+L6905, L6910, 
+L6915, L6920, 
+L6930, L6940, 
+L6950, L6960, 
+L6965, L6970, 
+L6975, L7040, 
+L7170, L7185, 
+L7186, L7405, 
+L7406, L7499 
+Breast 
+Prosthetics23,24,25 
+Medically necessary post-mastectomy. If the request is for a 
+custom prosthetic, accompanying documentation must state the 
+reason why a prefabricated device is not adequate. 
+L8030 
+L8035 
+External Lower 
+Extremity Sensory 
+Prosthetic Device 
+(Walkasins®) 
+Not medically necessary, as there is insufficient evidence in 
+published peer-reviewed literature to support the effectiveness of 
+this device. 
+L8720 
+L8721 
+Myoelectric 
+Rehabilitation 
+Systems26,27 
+Not medically necessary, as there is insufficient evidence in 
+published peer-reviewed literature to support the effectiveness of 
+these devices. 
+E0738 
+E0739 
+Facial Prosthetics28 
+Requests for facial prosthetics are medically necessary when there 
+is loss or absence of facial tissue due to disease, trauma, surgery, or 
+a congenital defect. 
+ 
+L8040, L8041, 
+L8042, L8043, 
+L8044, L8045, 
+L8046, L8047, 
+L8499  
+Page 8 of 24 
+
+
+=== Page 9 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PUMPS 
+CRITERIA 
+HCPCS 
+Ambulatory infusion 
+29,30 
+pump 
+Medically necessary when used for one of the following indications: 
+A. Iron poisoning when used in the administration of deferoxamine 
+for the treatment of acute iron poisoning and iron overload; 
+B. Chemotherapy for liver cancer when used in the treatment of 
+primary hepatocellular carcinoma or colorectal cancer where the 
+disease is unresectable or where the patient refuses surgical 
+excision of the tumor; 
+C. With opioid drugs when used for intractable pain caused by 
+cancer; 
+D. To administer a drug considered reasonable and necessary by 
+either: 
+1. Prolonged infusion of at least eight hours because of proven 
+improved clinical efficacy (i.e., proven or generally accepted 
+to have significant advantages over intermittent bolus 
+administration regimens or infusions lasting less than eight 
+hours); 
+2. Intermittent infusion, each episode of infusion lasting less than 
+eight hours, and both of the following criteria: 
+a. Does not require the return to the physician's office prior 
+to the beginning of each infusion. 
+b. Strictly controlled rate of infusion is necessary because 
+systemic toxicity or adverse effects of the drug are 
+unavoidable without infusing it at a controlled rate as 
+indicated in the Physician’s Desk Reference, or the U.S. 
+Pharmacopeia Drug Information 
+E0780 
+E0781 
+Gastric suction pump, 
+home model 31 
+Medically necessary for home use for gastric suction due to inability 
+to empty gastric secretions through normal gastrointestinal functions. 
+E2000 
+Implantable infusion 
+pumps  30 
+*Note: For treatment 
+of chronic intractable 
+pain using opioid 
+drugs see CP.MP.173 
+Implantable 
+Intrathecal Pain 
+Pumps.  
+Medically necessary when meeting both of the following: 
+A. One of the following indications: 
+1. Chemotherapy for liver cancer: primary hepatocellular 
+carcinoma or Duke’s Class D colorectal cancer, in which the 
+metastases are limited to the liver and where either the 
+disease is unresectable, or the patient refuses excision of the 
+tumor; 
+2. Anti-spasmodic drugs for severe spasticity: administered 
+intrathecally to treat chronic intractable spasticity in 
+member/enrollee unresponsive to less invasive medical 
+therapy including both of the following: 
+a. A 6-week trial of noninvasive methods, such as oral anti-
+spasmodic drugs, that failed to adequately control the 
+spasticity or produced intolerable side effects;  
+b. Prior to pump implantation, there has been a favorable 
+response to a trial of intrathecal dose of the anti-spasmodic 
+drug; 
+3. Other uses when all of the following are met: 
+a. The drug is reasonable and necessary for the treatment of 
+the individual; 
+b. It is medically necessary that the drug be administered by 
+an implanted infusion pump. The infusion pump has been 
+E0782 
+E0783 
+E0785 
+E0786 
+Page 9 of 24 
+
+
+=== Page 10 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+PUMPS 
+CRITERIA 
+HCPCS 
+FDA-approved for the drug being administered and the 
+purpose for which it is being administered; 
+B. None of the following contraindications to implantation of an 
+infusion pump: 
+1. Known allergy or hypersensitivity to the drug being used 
+(e.g., oral baclofen, morphine, etc.); 
+2. Active infection; 
+3. Body size insufficient to support the weight and bulk of the 
+device; 
+4. Presence of another implanted programmable device; 
+5. Heparin or insulin is the drug intended for administration. 
+Parenteral pump for 
+medication 
+administration 31 
+Medically necessary for uninterrupted parenteral administration of 
+medication via pump. 
+K0455 
+Vacuum erection 
+device 32,33 
+Medically necessary for the treatment of erectile dysfunction. 
+L7900 
+L7902 
+RESPIRATORY 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Nebulizer, 
+ultrasonic 34 
+Not medically necessary, as it provides no clinical advantage over use of a 
+small-volume nebulizer (E0574) and compressor. 
+E0575 
+IPPB & 
+supplies 
+Medically necessary for member/enrollee with respiratory disease when an 
+incentive spirometer is ineffective.  
+E0500 
+E0550 
+35
+Oximeter 
+Medically necessary when used as a monitoring and alarm device for any of 
+the following: 
+A. To monitor individuals on a home ventilator or with a tracheostomy 
+B. To determine appropriate home oxygen requirements 
+C. To wean an individual from home oxygen 
+D. To monitor an unstable respiratory condition 
+Not medically necessary when used for any of the following: 
+A. Oximetry when used as a diagnostic procedure 
+B. Monitoring of a stable respiratory condition 
+C. Asthma management 
+D. Other conditions not listed above 
+E0445 
+Intrapulmonary 
+percussive 
+ventilation 
+devices 
+(Percussionaire-
+TRUE­
+IPV®)36,37,38,39 
+Not medically necessary, as current evidence does not support the 
+effectiveness of intrapulmonary percussive ventilation (IPV) devices. 
+E1399 
+Page 10 of 24 
+
+
+=== Page 11 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+RESPIRATORY 
+EQUIPMENT 
+CRITERIA 
+HCPCS 
+Oscillation and 
+Lung 
+Expansion 
+(OLE) Therapy 
+Devices 
+(Volara™, 
+BiWaze Clear) 
+Not medically necessary, as there is insufficient evidence to support the 
+effectiveness of oscillation and lung expansion (OLE) therapy devices 
+compared with conventional therapies. 
+E0469 
+WALKERS 
+CRITERIA 
+HCPCS 
+Walker, 
+standard 40 
+Requests for standard walkers are considered medically necessary when 
+meeting all of the following: 
+A. Mobility-related activities of daily living (MRADLs) in the home cannot 
+be met due to mobility limitation; 
+B. Walker can be safely used by member/enrollee; 
+C. Functional mobility deficit will be sufficiently resolved with the use of a 
+walker. 
+E0130 
+E0135 
+E0141 
+E0143 
+Walker, heavy
+duty 40 
+ 
+Requests for heavy duty walkers (E0148, E0149) are considered medically 
+necessary when meeting the above standard walker criteria and the 
+member/enrollee weighs more than 300 pounds.  
+ 
+Requests for heavy duty, multiple braking system, variable wheel resistance 
+walkers (E0147) are considered medically necessary when meeting the 
+above standard walker criteria and the member/enrollee is unable to use a 
+standard walker due to a severe neurologic disorder or other condition 
+causing the restricted use of one hand.  
+E0148 
+E0149 
+ 
+ 
+E0147 
+ 
+WHEELCHAIRS CRITERIA 
+HCPCS 
+Manual 
+wheelchair  41 
+Initial requests for manual wheelchairs are medically necessary 
+when meeting all of the following: 
+A. Mobility limitation interferes with ability to participate in 
+mobility-related activities of daily living, all of the following: 
+1. Mobility limitation cannot be met with a cane or walker; 
+2. Manual wheelchair will significantly improve 
+member/enrollee’s ability to participate in mobility-related 
+activities of daily living; 
+3. Home provides adequate access and maneuvering space for 
+requested manual wheelchair; 
+4. Willingness by member/enrollee or caregiver to use a 
+manual wheelchair in the home; 
+B. One of the following: 
+1. Caregiver is able to assist with wheelchair use; 
+2. Member/enrollee is able to safely and efficiently self-propel 
+manual wheelchair.  
+ 
+Replacement requests for manual wheelchairs are medically 
+necessary when documentation supports one of the following: 
+E1050, E1060, 
+E1070, E1083, 
+E1084, E1085, 
+E1086, E1087, 
+E1088, E1089, 
+E1090, E1092, 
+E1093, E1100, 
+E1110, E1130, 
+E1140, E1150, 
+E1160, E1170, 
+E1171, E1172, 
+E1180, E1190, 
+E1195, E1200, 
+E1221, E1222, 
+E1223, E1224, 
+E1240, E1250, 
+E1260, E1270, 
+E1280, E1285, 
+E1290, E1295 
+Page 11 of 24 
+
+
+=== Page 12 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+WHEELCHAIRS CRITERIA 
+HCPCS 
+A. Replacement necessary due to loss, theft, or irreparable damage 
+and both of the following: 
+1. Documentation supports continued medical necessity; 
+2. Replacement is with the same or similar equipment; 
+B. All of the following: 
+1. Replacement is due to one of the following reasons: 
+a. Replacement necessary after reasonable useful lifetime 
+of five years or more; 
+b. Change in member/enrollee status requiring different 
+equipment than currently in use and growth features of 
+current equipment have been maximized; 
+2. Mobility limitation interferes with ability to participate in 
+mobility-related activities of daily living, all of the 
+following: 
+a. Mobility limitation cannot be met with a cane or 
+walker; 
+b. Manual wheelchair will significantly improve the 
+member/enrollee’s ability to participate in mobility-
+related activities of daily living; 
+c. Home provides adequate access and maneuvering space 
+for requested manual wheelchair; 
+d. Willingness by member/enrollee or caregiver to use a 
+manual wheelchair in the home; 
+3. One of the following: 
+a. Caregiver is able to assist with wheelchair use; 
+b. Member/enrollee is able to safely and efficiently self-
+propel manual wheelchair. 
+Power seat 
+elevator on 
+power 
+wheelchair 42 
+Medically necessary as a component on a power wheelchair when 
+all of the following are met: 
+A. A licensed, certified medical professional (i.e. physical or 
+occupational therapist) is involved with the assessment, 
+prescription, trials and training of equipment; 
+B. Adequate cognitive function to safely use the seat elevating 
+feature; 
+C. A clear functional need for the feature is indicated; 
+D. Provision of the feature will improve functional independence 
+with an activity, such as but not limited to facilitating reach for 
+the completion of ADLs or IADLs or improving transfer 
+biomechanics and safety.  
+E2298 
+Robotic Arm, 
+Wheelchair-
+mounted 
+(JACO)43 
+Not medically necessary, as there is insufficient clinical evidence to 
+support safety and improved health outcomes of the JACO Assistive 
+Robotic Arm (Kinova, Inc.) over other technologies. 
+E1399 
+Rollabout chair 
+Medically necessary when used in lieu of a wheelchair for those 
+who would qualify for a wheelchair (except for the ability to self-
+propel a manual wheelchair). 
+E1031 
+Wheelchair and 
+other DME 
+repairs 
+Medically necessary when meeting all of the following: 
+A. Less than 5 years old (as evident by the age/date of purchase 
+information provided); 
+K0108 
+K0739 
+E1399 
+Page 12 of 24 
+
+
+=== Page 13 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+CLINICAL POLICY 
+DME and O&P Criteria 
+WHEELCHAIRS CRITERIA 
+HCPCS 
+B. Cost of repairs is less than the cost of replacement; 
+C. Information is provided to support the need for repairs due to 
+normal wear and tear, as opposed to abuse/misuse or 
+overutilization (as based on review of previous repair history, 
+age and overall condition). 
+One month’s rental for a standard manual wheelchair is considered 
+medically necessary if a member/enrollee owned wheelchair is 
+41
+being repaired. 
+Requests for wheelchair or other DME repairs specifically using 
+codes K0108, K0739, or E1399 require mandatory secondary 
+review by a medical director or therapy advisor. 
+Coding Implications 
+Codes referenced in this clinical policy are for informational purposes only. Inclusion or 
+exclusion of any codes does not guarantee coverage. Providers should reference the most up-to­
+date sources of professional coding guidance prior to the submission of claims for 
+reimbursement of covered services. 
+Background 
+DME items have the following characteristics: 
+• Can withstand repeated use with an expected life of at least three years; 
+• The equipment meets the definition of DME; 
+• The equipment is primarily and customarily used to serve a medical purpose; 
+• The equipment is manufactured primarily for use in the home environment, but is not 
+limited to use in the home.  
+Member/Enrollee’s Home 
+For purposes of rental and purchase of DME, a member/enrollee’s home may be their own 
+dwelling, an apartment, a relative’s home, a home for the aged or some other type of institution. 
+However, an institution may not be considered a member/enrollee’s home if the following are 
+met: 
+• Meets at least the basic requirement in the definition of a hospital, i.e., it is primarily 
+engaged in providing by or under the supervision of physicians, inpatient, diagnostic and 
+therapeutic services for medical diagnosis, treatment, and care of injured, disabled, and 
+sick persons, or rehabilitation services for the rehabilitation of injured, disabled, or sick 
+persons; or 
+• Meets at least the basic requirement in the definition of a skilled nursing facility, i.e., it is 
+primarily engaged in providing to inpatients skilled nursing care and related services for 
+members/enrollees who require medical or nursing care, or rehabilitation services for the 
+rehabilitation of injured, disabled, or sick persons. 
+Members/enrollees who have been permanently admitted to an inpatient skilled nursing facility 
+or inpatient hospice and who have changed their home address to that of the SNF or hospice will 
+have the SNF or hospice defined as their home. 
+Products 
+Page 13 of 24 
+
+
+=== Page 14 ===
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CLINICAL POLICY 
+DME and O&P Criteria 
+Products is defined as a listing of the most common items, or group of items, that are or may be 
+perceived as home medical equipment. This listing, while reasonably complete, is not intended to 
+quantify the entire spectrum of products that may be considered DME either now or in the future.  
+Durability 
+An item is considered durable if it can withstand repeated use, i.e., the type of item that could 
+normally be rented. Medical supplies of an expendable nature, such as incontinence pads, lamb’s 
+wool pads, catheters, ace bandages, elastic stockings, surgical facemasks, sheets and bags are not 
+considered “durable” within the meaning of the definition. There are other items that although 
+durable in nature, may fall into other coverage categories such as supplies and orthotics and 
+prosthetics. Orthotics and Prosthetics items include, but are not limited to, braces, artificial limbs 
+and eyes. 
+Medical Equipment 
+Medical equipment is defined as equipment primarily and customarily used for medical purposes 
+and is not generally useful in the absence of illness or injury. In most instances, no 
+documentation will be needed to support whether a specific item of equipment is medical in 
+nature. However, some cases will require documentation to determine whether the item 
+constitutes medical equipment. This documentation would include the advice of local medical 
+organizations and facilities and specialists in the field of physical medicine and rehabilitation. If 
+the equipment is new on the market, it may be necessary, prior to seeking professional advice, to 
+obtain information from the supplier or manufacturer explaining the design, purpose, 
+effectiveness and method of using the equipment in the home as well as the results of any tests or 
+clinical studies that have been conducted. 
+Personal computers or mobile technology such as iPads, smart phones, iPods, personal digital 
+assistants, etc., may be considered as medical equipment when used for the purpose of speech 
+generating equipment when other non-medical functions are limited or disabled and that device 
+is used as the primary source of communication for those qualifying for a speech generating 
+device. 
+Reviews, Revisions, and Approvals 
+Revision 
+Date 
+Approval 
+Date 
+Policy created 
+06/09 
+06/09 
+Under Wound Care, removed HCPCS code Q4111, GammaGraft, as code 
+is included in CP.MP.185 Skin Substitutes for Chronic Wounds. Removed 
+“member” from criteria and reworded, without impact on criteria. When 
+not possible to remove, replaced “member” with “member/enrollee.” 
+Replaced “members” with “members/enrollees” in the disclaimer of the 
+policy. 
+09/20 
+09/20 
+Added note to the description stating that if a lower cost, medically 
+necessary item exists and will meet the member’s needs, the lower cost 
+item will be approved. Updated policy to remove diaphragmatic nerve 
+stimulation criteria, which was transferred to CP.MP.203 Diaphragmatic 
+Phrenic Nerve Stimulation. Nebulizer, ultrasonic: changed to not medically 
+necessary with supporting statement. Blood glucose monitor with 
+11/20 
+12/20 
+Page 14 of 24 
+
+

@@ -1,0 +1,352 @@
+"""Batch 06 Extraction: CG 2039 through CG 2045 (Neck & Pelvis CT/CTA/MRA/MRI)."""
+import json
+from pathlib import Path
+import jsonschema
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+RULES_DIR = BASE_DIR / "rulebook_collection" / "domains" / "advanced_imaging" / "rules"
+CHECKPOINTS_DIR = RULES_DIR / "checkpoints"
+GOV_PDF = "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf"
+GOV_URL = "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf"
+
+batch_06_rules = [
+    # CG 2039 - Neck CT
+    {
+        "rule_id": "RULE-ADV-CG2039-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 625,
+            "printed_page": "Page 4 of 16"
+        },
+        "source_section": "INDICATIONS / Neck Mass or Lymphadenopathy",
+        "source_quote": "Failed 2 weeks (or more) treatment for suspected infectious etiology",
+        "clinical_service_or_procedure": "Neck CT",
+        "rule_type": "clinical_prerequisite",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Evaluation of persistent neck mass or cervical lymphadenopathy",
+                    "parameter": "persistent_neck_mass",
+                    "comparator": "EQUALS",
+                    "value": True
+                },
+                {
+                    "condition_id": "COND-002",
+                    "description": "Failure of at least 2 consecutive weeks of antibiotic or anti-inflammatory treatment for suspected infection",
+                    "parameter": "treatment_duration_weeks",
+                    "comparator": "GREATER_THAN_OR_EQUAL",
+                    "value": 2,
+                    "unit": "weeks"
+                }
+            ]
+        },
+        "required_documentation": [
+            "Clinical notes detailing antibiotic course and persistence of mass/lymphadenopathy post-treatment"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 70490",
+            "CPT 70491"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Diagnostic prerequisite conservative antibiotic trial for inflammatory cervical adenopathy."
+    },
+
+    # CG 2040 - Neck CTA
+    {
+        "rule_id": "RULE-ADV-CG2040-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 641,
+            "printed_page": "Page 4 of 16"
+        },
+        "source_section": "INDICATIONS FOR NECK CT ANGIOGRAPHY / Evaluation of Suspected Extracranial Vascular Disease",
+        "source_quote": "Suspected carotid or vertebral artery dissection (secondary to trauma or",
+        "clinical_service_or_procedure": "Neck CTA",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Clinical suspicion of acute carotid or vertebral artery dissection following trauma or spontaneous neck pain with Horner syndrome / TIA",
+                    "parameter": "suspected_cervical_artery_dissection",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Emergency or neurology consultation notes detailing sudden unilateral neck pain, Horner's syndrome, or recent blunt trauma"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 70498"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Urgent vascular dissection protocol for extracranial neck vasculature."
+    },
+
+    # CG 2041 - Neck MRA
+    {
+        "rule_id": "RULE-ADV-CG2041-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 657,
+            "printed_page": "Page 4 of 16"
+        },
+        "source_section": "INDICATIONS FOR NECK MR ANGIOGRAPHY / Evaluation of Suspected Extracranial Vascular Disease",
+        "source_quote": "Giant cell with suspected extracranial involvement (9)",
+        "clinical_service_or_procedure": "Neck MRA",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Suspected or biopsy-proven Giant Cell Arteritis (temporal arteritis) with suspected large-vessel extracranial involvement",
+                    "parameter": "giant_cell_arteritis_extracranial",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Rheumatology consultation notes, temporal artery biopsy report, or elevated ESR/CRP consistent with large-vessel GCA"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 70547",
+            "CPT 70549"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Extracranial large vessel vasculitis evaluation by MRA."
+    },
+
+    # CG 2042 - Pelvis CT
+    {
+        "rule_id": "RULE-ADV-CG2042-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 673,
+            "printed_page": "Page 4 of 16"
+        },
+        "source_section": "INDICATIONS FOR PELVIS CT / Pelvic Pain for Unknown Etiology",
+        "source_quote": "For acute pelvic pain in a patient over the age of 65 (2)",
+        "clinical_service_or_procedure": "Pelvis CT",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Evaluation of acute severe pelvic pain of unknown etiology",
+                    "parameter": "acute_pelvic_pain",
+                    "comparator": "EQUALS",
+                    "value": True
+                },
+                {
+                    "condition_id": "COND-002",
+                    "description": "Patient age is strictly greater than 65 years",
+                    "parameter": "patient_age_years",
+                    "comparator": "GREATER_THAN",
+                    "value": 65,
+                    "unit": "years"
+                }
+            ]
+        },
+        "required_documentation": [
+            "Clinical notes documenting acute pelvic pain presentation and physical examination in geriatric patient"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 72192",
+            "CPT 72193"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Age-stratified acute pelvic pain pathway in geriatric patients."
+    },
+
+    # CG 2043 - Pelvis CTA
+    {
+        "rule_id": "RULE-ADV-CG2043-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 689,
+            "printed_page": "Page 4 of 12"
+        },
+        "source_section": "INDICATIONS FOR PELVIS CTA / Evaluation of Tumor",
+        "source_quote": "Prior to uterine artery embolization for fibroids (MRA preferred) (11)",
+        "clinical_service_or_procedure": "Pelvis CTA",
+        "rule_type": "conditional_modality_selection",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Pre-procedural vascular mapping planned prior to uterine artery embolization (UAE) for symptomatic fibroids",
+                    "parameter": "planned_uterine_artery_embolization",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Gynecology or interventional radiology notes documenting symptomatic uterine fibroids and planned UAE"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 72191"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Pre-interventional pelvic vascular mapping for uterine fibroid embolization (noting MRA is clinically preferred)."
+    },
+
+    # CG 2044 - Pelvis MRA
+    {
+        "rule_id": "RULE-ADV-CG2044-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 700,
+            "printed_page": "Page 3 of 17"
+        },
+        "source_section": "INDICATIONS FOR PELVIS MRA",
+        "source_quote": "INDICATIONS FOR PELVIS MRA",
+        "clinical_service_or_procedure": "Pelvis MRA",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Evaluation of pelvic vascular malformation, iliac aneurysm, or pelvic venous compression when CTA is contraindicated",
+                    "parameter": "pelvic_vascular_disease_indicated",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Vascular surgery notes documenting pelvic vascular pathology and contraindication to iodinated contrast/CTA"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 72198"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Pelvis MRA for radiation-free or contrast-sparing pelvic vascular assessment."
+    },
+
+    # CG 2045 - Pelvis MRI
+    {
+        "rule_id": "RULE-ADV-CG2045-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 718,
+            "printed_page": "Page 4 of 22"
+        },
+        "source_section": "INDICATIONS FOR PELVIC MRI / Infection and Inflammation",
+        "source_quote": "Suspected perianal fistula or occult anorectal abscess (6)",
+        "clinical_service_or_procedure": "Pelvis MRI",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Clinical suspicion of perianal fistula, perirectal abscess, or complex fistulizing Crohn's disease",
+                    "parameter": "suspected_perianal_fistula_or_abscess",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Colorectal surgery or gastroenterology clinical examination documenting perianal pain, drainage, or induration"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 72195",
+            "CPT 72197"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "High-resolution pelvic MRI for sphincter mapping in perianal fistulizing disease."
+    }
+]
+
+def main():
+    schema_path = RULES_DIR / "schema.json"
+    checkpoint_path = CHECKPOINTS_DIR / "batch_06_rules.json"
+
+    with open(schema_path, "r", encoding="utf-8") as f:
+        schema = json.load(f)
+
+    for i, r in enumerate(batch_06_rules, 1):
+        jsonschema.validate(instance=r, schema=schema)
+        print(f"Batch 6 Rule {i} ({r['rule_id']}): Schema VALID")
+
+    with open(checkpoint_path, "w", encoding="utf-8") as f:
+        json.dump(batch_06_rules, f, indent=2)
+
+    print(f"\nSuccessfully validated and saved {len(batch_06_rules)} rules to {checkpoint_path}")
+
+if __name__ == "__main__":
+    main()

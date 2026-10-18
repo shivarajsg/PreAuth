@@ -1,0 +1,120 @@
+{
+  "audit_header": {
+    "disclaimer": "THIS EVALUATION IS A DETERMINISTIC RESEARCH PROTOTYPE FOR TESTING PURPOSES ONLY. NO REAL-WORLD AUTHORIZATION APPROVAL OR DENIAL IS EXECUTED. RULES ARE IN DRAFT/TESTING STATUS AWAITING CLINICAL SME REVIEW.",
+    "evaluation_timestamp": "2026-10-18T10:32:06.626466+00:00",
+    "evaluator_name": "MedRule Deterministic Decision Engine",
+    "evaluator_version": "3A.1.0",
+    "input_schema_version": "1.0.0",
+    "is_binding_adjudication": false,
+    "ruleset_version": "2026.1-AUDITED"
+  },
+  "case_assessment": {
+    "assessment_status": "INSUFFICIENT_INFORMATION",
+    "conflicts_or_unresolved_dependencies": [],
+    "human_review_escalations": [],
+    "is_binding": false,
+    "missing_evidence_summary": [
+      "Rule RULE-DME-107-002: Parameter 'device_education_provided' is missing",
+      "Rule RULE-DME-107-002: Parameter 'device_trial_successful' is missing",
+      "Rule RULE-DME-107-002: Documentation 'Caregiver or member education attestation' is missing",
+      "Rule RULE-DME-107-002: Documentation 'Device trial documentation demonstrating safe and effective use' is missing"
+    ],
+    "summary_explanation": "Insufficient clinical information to determine criteria fulfillment: 4 evidence/documentation item(s) missing. (Rule RULE-DME-107-002 (Durable Medical Equipment, Orthotics, and Prosthetics - Patient Education and Device Trial Requirement) inconclusive: ALL_OF evaluated to UNKNOWN: one or more mandatory criteria have insufficient evidence.)"
+  },
+  "case_metadata": {
+    "case_id": "CASE-SYNTH-003",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "jurisdiction": "OHIO",
+    "line_of_business": "MEDICARE_ADVANTAGE",
+    "modality": "DME",
+    "payer_id": "CENTENE",
+    "place_of_service": "HOME",
+    "plan_id": "WELLCARE_MEDICARE_ADVANTAGE",
+    "primary_diagnosis_code": "G47.33",
+    "procedure_code": "E0601",
+    "procedure_name": "Continuous positive airway pressure (CPAP) device",
+    "requested_date_of_service": "2026-08-20"
+  },
+  "reproducibility_hash_sha256": "d5e15f911904837a77073ff2e5f735a2b72db4c9398b3cde209d121a6e875d4a",
+  "routing_summary": {
+    "applicable_rule_ids": [
+      "RULE-DME-107-002"
+    ],
+    "excluded_rules": [],
+    "routing_notes": [
+      "Routed to 1 explicitly requested rules."
+    ],
+    "routing_status": "ROUTED",
+    "selected_policies": []
+  },
+  "rule_evaluations": [
+    {
+      "condition_evaluation": {
+        "criteria": [
+          {
+            "actual_value": null,
+            "comparator": "EQUALS",
+            "condition_id": "COND-DME-107-002-A",
+            "description": "Education regarding use of device provided with demonstrated understanding",
+            "evidence_missing": true,
+            "expected_value": "TRUE",
+            "is_optional": false,
+            "parameter": "device_education_provided",
+            "reason": "Evidence parameter 'device_education_provided' is missing from case record.",
+            "status": "UNKNOWN",
+            "type_error": null
+          },
+          {
+            "actual_value": null,
+            "comparator": "EQUALS",
+            "condition_id": "COND-DME-107-002-B",
+            "description": "Trial of requested device completed with demonstrated ability to use safely and effectively",
+            "evidence_missing": true,
+            "expected_value": "TRUE",
+            "is_optional": false,
+            "parameter": "device_trial_successful",
+            "reason": "Evidence parameter 'device_trial_successful' is missing from case record.",
+            "status": "UNKNOWN",
+            "type_error": null
+          }
+        ],
+        "explanation": "ALL_OF evaluated to UNKNOWN: one or more mandatory criteria have insufficient evidence.",
+        "operator": "ALL_OF",
+        "short_circuited": false,
+        "status": "UNKNOWN"
+      },
+      "decision_effect": "INDICATED",
+      "domain": "centene_dme_orthotics_prosthetics",
+      "evidence_verification": {
+        "is_sufficient": false,
+        "missing_documentation": [
+          "Caregiver or member education attestation",
+          "Device trial documentation demonstrating safe and effective use"
+        ],
+        "missing_parameters": [
+          "device_education_provided",
+          "device_trial_successful"
+        ],
+        "provided_parameters": {},
+        "required_parameters": [
+          "device_education_provided",
+          "device_trial_successful"
+        ],
+        "type_errors": []
+      },
+      "extraction_status": "DRAFT",
+      "is_binding": false,
+      "policy_provenance": {
+        "physical_page": 1,
+        "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+        "policy_version": "Revision 08/26",
+        "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+        "source_quote": "Both of the following have been provided to the member/enrollee and/or caregiver, as applicable: a. Education regarding use of the device, with demonstrated understanding; b. A trial of the requested device, with demonstrated ability to use it safely and effectively.",
+        "source_section": "Policy/Criteria - Section I.A.2 General Criteria",
+        "version_status": "current_2026_verified"
+      },
+      "requires_human_review": false,
+      "rule_id": "RULE-DME-107-002"
+    }
+  ]
+}

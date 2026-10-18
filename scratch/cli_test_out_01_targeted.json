@@ -1,0 +1,138 @@
+{
+  "audit_header": {
+    "disclaimer": "THIS EVALUATION IS A DETERMINISTIC RESEARCH PROTOTYPE FOR TESTING PURPOSES ONLY. NO REAL-WORLD AUTHORIZATION APPROVAL OR DENIAL IS EXECUTED. RULES ARE IN DRAFT/TESTING STATUS AWAITING CLINICAL SME REVIEW.",
+    "evaluation_timestamp": "2026-10-18T10:31:20.442695+00:00",
+    "evaluator_name": "MedRule Deterministic Decision Engine",
+    "evaluator_version": "3A.1.0",
+    "input_schema_version": "1.0.0",
+    "is_binding_adjudication": false,
+    "ruleset_version": "2026.1-AUDITED"
+  },
+  "case_assessment": {
+    "assessment_status": "CRITERIA_MET",
+    "conflicts_or_unresolved_dependencies": [],
+    "human_review_escalations": [],
+    "is_binding": false,
+    "missing_evidence_summary": [
+      "Rule RULE-ADV-CG2000-006: Documentation 'Serum amylase and lipase laboratory reports' is missing",
+      "Rule RULE-ADV-CG2000-006: Documentation 'Clinical notes demonstrating persistent symptoms at or beyond 72 hours' is missing",
+      "Rule RULE-ADV-CG2000-006: Documentation 'Abdominal ultrasound report' is missing"
+    ],
+    "summary_explanation": "All 1 applicable deterministic rule condition(s) satisfied by provided evidence. (Note: Testing evaluation only; non-binding authorization assessment)."
+  },
+  "case_metadata": {
+    "case_id": "CASE-SYNTH-001",
+    "clinical_domain": "advanced_imaging",
+    "jurisdiction": "US_NATIONAL",
+    "line_of_business": "COMMERCIAL",
+    "modality": "CT",
+    "payer_id": "EVOLENT",
+    "place_of_service": "OUTPATIENT_HOSPITAL",
+    "plan_id": "COMMERCIAL_CHOICE_PLUS",
+    "primary_diagnosis_code": "K85.90",
+    "procedure_code": "74177",
+    "procedure_name": "CT Abdomen and Pelvis with contrast",
+    "requested_date_of_service": "2026-03-12"
+  },
+  "reproducibility_hash_sha256": "5a1ef502b1853c77febfc79235eb5a0770797440fd0cb8e7afff8a7b47170550",
+  "routing_summary": {
+    "applicable_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "excluded_rules": [],
+    "routing_notes": [
+      "Routed to 1 explicitly requested rules."
+    ],
+    "routing_status": "ROUTED",
+    "selected_policies": []
+  },
+  "rule_evaluations": [
+    {
+      "condition_evaluation": {
+        "criteria": [
+          {
+            "actual_value": "ELEVATED",
+            "comparator": "EQUALS",
+            "condition_id": "COND-001",
+            "description": "Suspected acute pancreatitis with epigastric pain and elevated amylase and/or lipase",
+            "evidence_missing": false,
+            "expected_value": "ELEVATED",
+            "is_optional": false,
+            "parameter": "pancreatitis_diagnostic_markers",
+            "reason": "'ELEVATED' == 'ELEVATED'",
+            "status": "TRUE",
+            "type_error": null
+          },
+          {
+            "actual_value": 96,
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "condition_id": "COND-002",
+            "description": "Mild presentation without symptom improvement after at least 72 hours of treatment",
+            "evidence_missing": false,
+            "expected_value": 72,
+            "is_optional": false,
+            "parameter": "conservative_treatment_duration_hours",
+            "reason": "96.0 hours >= 72.0 hours is True",
+            "status": "TRUE",
+            "type_error": null
+          },
+          {
+            "actual_value": "NO_GALLSTONES_OR_DILATED_DUCT",
+            "comparator": "CONTAINS",
+            "condition_id": "COND-003",
+            "description": "Prior ultrasound completed showing no gallstones/ductal dilation OR suggesting complications",
+            "evidence_missing": false,
+            "expected_value": [
+              "NO_GALLSTONES_OR_DILATED_DUCT",
+              "SUGGESTS_COMPLICATIONS"
+            ],
+            "is_optional": false,
+            "parameter": "ultrasound_findings",
+            "reason": "Comparison 'CONTAINS' between 'NO_GALLSTONES_OR_DILATED_DUCT' and '['NO_GALLSTONES_OR_DILATED_DUCT', 'SUGGESTS_COMPLICATIONS']' is True",
+            "status": "TRUE",
+            "type_error": null
+          }
+        ],
+        "explanation": "ALL_OF evaluated to TRUE: all mandatory criteria fully satisfied.",
+        "operator": "ALL_OF",
+        "short_circuited": false,
+        "status": "TRUE"
+      },
+      "decision_effect": "INDICATED",
+      "domain": "advanced_imaging",
+      "evidence_verification": {
+        "is_sufficient": true,
+        "missing_documentation": [
+          "Serum amylase and lipase laboratory reports",
+          "Clinical notes demonstrating persistent symptoms at or beyond 72 hours",
+          "Abdominal ultrasound report"
+        ],
+        "missing_parameters": [],
+        "provided_parameters": {
+          "conservative_treatment_duration_hours": 96,
+          "pancreatitis_diagnostic_markers": "ELEVATED",
+          "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT"
+        },
+        "required_parameters": [
+          "pancreatitis_diagnostic_markers",
+          "conservative_treatment_duration_hours",
+          "ultrasound_findings"
+        ],
+        "type_errors": []
+      },
+      "extraction_status": "DRAFT",
+      "is_binding": false,
+      "policy_provenance": {
+        "physical_page": 10,
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+        "source_quote": "Initial imaging for suspected acute pancreatitis due to epigastric pain with elevated amylase and/or lipase: \u25cb Mild presentation when symptom improvement is not seen after 72 hours of treatment and either: \u25a0 Ultrasound has been performed and did not show an abnormality such as gallstones, dilated bile duct \u25a0 Ultrasound suggests complications (such as fluid collection)",
+        "source_section": "Pancreatitis (14)",
+        "version_status": "current_2026_verified"
+      },
+      "requires_human_review": false,
+      "rule_id": "RULE-ADV-CG2000-006"
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+﻿
+=======================================================
+DOMAIN: CARDIOLOGY
+=======================================================
+Total documents in master inventory: 11
+[DOC-CARD-001] Type: governing_policy | Ver: 2026 | Pages: 243 (manifest: 243)
+  Title: 2026 Evolent Clinical Guidelines for Medical Necessity Review: Diagnostic Cardiology
+  Path: rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Diagnostic Cardiology.pdf (exists=True)
+  Effective: 2026-01-01 | Status: current_2026_verified
+[DOC-CARD-002] Type: governing_policy | Ver: 2026 v2 | Pages: 440 (manifest: 440)
+  Title: 2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Cardiology (v2)
+  Path: rulebook_collection/domains/cardiology/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Interventional Cardiology v2.pdf (exists=True)
+  Effective: 2026-01-01 | Status: current_2026_verified
+[DOC-CARD-004] Type: supplementary_policy | Ver: Rev. 03/2024 | Pages: 3 (manifest: 3)
+  Title: Cardiac Claim Edit: Stress Echocardiography and Doppler Add-On (OP38801)
+  Path: rulebook_collection/domains/cardiology/policy_pdfs/current_2026/Cardiac Claim Edit - Stress Echo and Doppler Add-On.pdf (exists=True)
+  Effective: 2024-03-01 | Status: current_2026_verified
+[DOC-CARD-003] Type: coding_grid | Ver: January 2026 | Pages: 9 (manifest: 9)
+  Title: Cardiovascular Service Group Grid (January 2026)
+  Path: rulebook_collection/domains/cardiology/policy_pdfs/current_2026/Cardiovascular Service Group Grid_January2026.pdf (exists=True)
+  Effective: 2026-01-01 | Status: current_2026_verified
+[DOC-CARD-005] Type: checklist | Ver: Rev. 01/11/2024 | Pages: 2 (manifest: 2)
+  Title: Evolent Generic Cardiac Prior Authorization Checklist
+  Path: rulebook_collection/domains/cardiology/supporting_pdfs/checklists/Evolent Generic Cardiac Checklist 01112024_0.pdf (exists=True)
+  Effective: 2024-01-11 | Status: current_2026_verified
+[DOC-CARD-008] Type: tip_sheet | Ver: Rev. 02/16/2024 | Pages: 4 (manifest: 4)
+  Title: Evolent Cardiac Decision Tip Sheet: MPI vs Stress Echocardiography
+  Path: rulebook_collection/domains/cardiology/supporting_pdfs/tip_sheets/Evolent Cardiac MPI v SE 02.16.24.pdf (exists=True)
+  Effective: 2024-02-16 | Status: current_2026_verified
+[DOC-CARD-006] Type: tip_sheet | Ver: Rev. 02/16/2024 | Pages: 2 (manifest: 2)
+  Title: Evolent Cardiac Solution Clinical Tip Sheet Overview
+  Path: rulebook_collection/domains/cardiology/supporting_pdfs/tip_sheets/Evolent Generic Cardiac Solution Tip Sheet 2.16.24.pdf (exists=True)
+  Effective: 2024-02-16 | Status: current_2026_verified
+[DOC-CARD-007] Type: tip_sheet | Ver: Rev. 02/16/2024 | Pages: 3 (manifest: 3)
+  Title: Evolent Cardiac Guideline Tip Sheet: Heart Catheterization
+  Path: rulebook_collection/domains/cardiology/supporting_pdfs/tip_sheets/Evolent Heart Catheterization 2.16.24.pdf (exists=True)
+  Effective: 2024-02-16 | Status: current_2026_verified
+[DOC-CARD-009] Type: tip_sheet | Ver: Rev. 02/16/2024 | Pages: 2 (manifest: 2)
+  Title: Evolent Cardiac Guideline Tip Sheet: Myocardial Perfusion Imaging (MPI)
+  Path: rulebook_collection/domains/cardiology/supporting_pdfs/tip_sheets/Evolent Myocardial Perfusion Imaging 02.16.24.pdf (exists=True)
+  Effective: 2024-02-16 | Status: current_2026_verified
+[DOC-CARD-010] Type: tip_sheet | Ver: Rev. 02/16/2024 | Pages: 2 (manifest: 2)
+  Title: Evolent Cardiac Guideline Tip Sheet: Stress Echocardiography
+  Path: rulebook_collection/domains/cardiology/supporting_pdfs/tip_sheets/Evolent Stress Echocardiography 02.16.24.pdf (exists=True)
+  Effective: 2024-02-16 | Status: current_2026_verified
+[DOC-CARD-011] Type: tip_sheet | Ver: Rev. 02/16/2024 | Pages: 4 (manifest: 4)
+  Title: Evolent Cardiac Guideline Tip Sheet: Transthoracic Echocardiography (TTE)
+  Path: rulebook_collection/domains/cardiology/supporting_pdfs/tip_sheets/Evolent Transthoracic Echocardiography 02.16.24.pdf (exists=True)
+  Effective: 2024-02-16 | Status: current_2026_verified
+
+=======================================================
+DOMAIN: MUSCULOSKELETAL_SURGERY
+=======================================================
+Total documents in master inventory: 11
+[DOC-MSK-001] Type: governing_policy | Ver: 2026 | Pages: 225 (manifest: 225)
+  Title: 2026 Evolent Clinical Guidelines for Medical Necessity Review: Musculoskeletal Surgery Guidelines
+  Path: rulebook_collection/domains/musculoskeletal_surgery/policy_pdfs/current_2026/2026 Evolent Musculoskeletal Surgery Guidelines.pdf (exists=True)
+  Effective: 2026-07-01 | Status: current_2026_verified
+[DOC-MSK-002] Type: supplementary_policy | Ver: 2026 Final | Pages: 14 (manifest: 14)
+  Title: Evolent Place of Service Policy 1773 for Musculoskeletal Surgery (2026 Final)
+  Path: rulebook_collection/domains/musculoskeletal_surgery/policy_pdfs/current_2026/EPOS 1773 for Place of Service - Musculoskeletal Surgery 2026_final_0.pdf (exists=True)
+  Effective: 2026-08-01 | Status: current_2026_verified
+[DOC-MSK-003] Type: checklist | Ver: Rev. 04/26/2024 | Pages: 3 (manifest: 3)
+  Title: Musculoskeletal Surgery Checklist: Hip, Knee, and Shoulder Surgery
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/checklists/Hip Knee Shoulder Surgery Checklist Evolent 04262024.pdf (exists=True)
+  Effective: 2024-04-26 | Status: current_2026_verified
+[DOC-MSK-004] Type: checklist | Ver: Rev. 04/26/2024 | Pages: 2 (manifest: 2)
+  Title: Musculoskeletal Surgery Checklist: Spine Surgery
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/checklists/Spine Surgery Checklist Evolent 04262024.pdf (exists=True)
+  Effective: 2024-04-26 | Status: current_2026_verified
+[DOC-MSK-005] Type: form | Ver: Rev. 07/21/2025 | Pages: 2 (manifest: 2)
+  Title: Conservative Treatment History Form: Back / Neck (Rev. July 2025)
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/forms/Conservative Treatment Form - Back_Neck 07212025.pdf (exists=True)
+  Effective: 2025-07-21 | Status: current_2026_verified
+[DOC-MSK-006] Type: form | Ver: Rev. 07/21/2025 | Pages: 2 (manifest: 2)
+  Title: Conservative Treatment History Form: Major Joints (Rev. July 2025)
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/forms/Conservative Treatment Form - Joint 07212025.pdf (exists=True)
+  Effective: 2025-07-21 | Status: current_2026_verified
+[DOC-MSK-008] Type: tip_sheet | Ver: Rev. 02/28/2024 | Pages: 3 (manifest: 3)
+  Title: Hip and Knee Arthroplasty (Medicare) Clinical Tip Sheet
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/tip_sheets/2023 HipKnee Arthroplasty(Medicare)Clin Tip Sheet Evolent 02282024.pdf (exists=True)
+  Effective: 2024-02-28 | Status: current_2026_verified
+[DOC-MSK-007] Type: tip_sheet | Ver: Rev. 02/28/2024 | Pages: 3 (manifest: 3)
+  Title: Hip and Knee Arthroplasty (Commercial) Clinical Tip Sheet
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/tip_sheets/2023 Hipknee Arthroplasty Clin Tip Sheet Evolent 02282024.pdf (exists=True)
+  Effective: 2024-02-28 | Status: current_2026_verified
+[DOC-MSK-009] Type: tip_sheet | Ver: Rev. 02/28/2024 | Pages: 6 (manifest: 6)
+  Title: Knee Arthroscopy Clinical Tip Sheet
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/tip_sheets/2023 Knee Arthroscopy Clin Tip Sheet Evolent 02282024.pdf (exists=True)
+  Effective: 2024-02-28 | Status: current_2026_verified
+[DOC-MSK-010] Type: tip_sheet | Ver: Rev. 02/28/2024 | Pages: 3 (manifest: 3)
+  Title: Shoulder Arthroplasty Clinical Tip Sheet
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/tip_sheets/2023 Shldr Arthroplasty Clin Tip Sheet Evolent 02282024.pdf (exists=True)
+  Effective: 2024-02-28 | Status: current_2026_verified
+[DOC-MSK-011] Type: tip_sheet | Ver: Rev. 02/28/2024 | Pages: 5 (manifest: 5)
+  Title: Shoulder Arthroscopy Clinical Tip Sheet
+  Path: rulebook_collection/domains/musculoskeletal_surgery/supporting_pdfs/tip_sheets/2023 Shldr Arthroscopy Clin Tip Sheet Evolent 02282024.pdf (exists=True)
+  Effective: 2024-02-28 | Status: current_2026_verified
+
+=======================================================
+DOMAIN: INTERVENTIONAL_PAIN_MANAGEMENT
+=======================================================
+Total documents in master inventory: 7
+[DOC-IPM-001] Type: governing_policy | Ver: 2026 | Pages: 102 (manifest: 102)
+  Title: 2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines
+  Path: rulebook_collection/domains/interventional_pain_management/policy_pdfs/current_2026/2026 Evolent Interventional Pain Management Guidelines.pdf (exists=True)
+  Effective: 2026-07-01 | Status: current_2026_verified
+[DOC-IPM-002] Type: supplementary_policy | Ver: 2026 Final | Pages: 8 (manifest: 8)
+  Title: Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)
+  Path: rulebook_collection/domains/interventional_pain_management/policy_pdfs/current_2026/EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf (exists=True)
+  Effective: 2026-08-01 | Status: current_2026_verified
+[DOC-IPM-003] Type: governing_policy | Ver: 2025 | Pages: 75 (manifest: 75)
+  Title: 2025 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines
+  Path: rulebook_collection/domains/interventional_pain_management/policy_pdfs/historical_versions/2025 Evolent Interventional Pain Management Guidelines.pdf (exists=True)
+  Effective: 2025-07-01 | Status: historical
+[DOC-IPM-004] Type: checklist | Ver: Rev. 04/26/2024 | Pages: 3 (manifest: 3)
+  Title: Interventional Pain Management Prior Authorization Checklist
+  Path: rulebook_collection/domains/interventional_pain_management/supporting_pdfs/checklists/IPM Checklist Evolent 04262024.pdf (exists=True)
+  Effective: 2024-04-26 | Status: current_2026_verified
+[DOC-IPM-006] Type: form | Ver: Rev. 01/11/2024 | Pages: 1 (manifest: 1)
+  Title: Conservative Treatment History Form: Interventional Pain Management (Rev. 01/11/2024)
+  Path: rulebook_collection/domains/interventional_pain_management/supporting_pdfs/forms/Conservative Treatment Form - IPM Evolent 01112024.pdf (exists=True)
+  Effective: 2024-01-11 | Status: historical
+[DOC-IPM-005] Type: form | Ver: Rev. 08/07/2025 | Pages: 2 (manifest: 2)
+  Title: Conservative Treatment History Form: Interventional Pain Management (Rev. July 2025)
+  Path: rulebook_collection/domains/interventional_pain_management/supporting_pdfs/forms/Conservative Treatment Form - IPM Evolent 08072025.pdf (exists=True)
+  Effective: 2025-07-01 | Status: current_2026_verified
+[DOC-IPM-007] Type: tip_sheet | Ver: Rev. 04/26/2024 | Pages: 4 (manifest: 4)
+  Title: Interventional Pain Management Prior Authorization Tip Sheet
+  Path: rulebook_collection/domains/interventional_pain_management/supporting_pdfs/tip_sheets/IPM Tip Sheet Evolent 04262024.pdf (exists=True)
+  Effective: 2024-04-26 | Status: current_2026_verified
+
+=======================================================
+DOMAIN: RADIATION_ONCOLOGY
+=======================================================
+Total documents in master inventory: 9
+[DOC-RAD-003] Type: coding_grid | Ver: January 2026 | Pages: 26 (manifest: 26)
+  Title: 2026 Evolent Radiation Oncology Coding Standards (Final)
+  Path: rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/2026 Evolent Coding Standards FINAL 121225  L-NIA.pdf (exists=True)
+  Effective: 2026-01-01 | Status: current_2026_verified
+[DOC-RAD-001] Type: governing_policy | Ver: 2026 Final | Pages: 67 (manifest: 67)
+  Title: Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)
+  Path: rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf (exists=True)
+  Effective: 2026-01-01 | Status: current_2026_verified
+[DOC-RAD-002] Type: governing_policy | Ver: 2026 Final | Pages: 12 (manifest: 12)
+  Title: Evolent Clinical Guideline 7001 for Proton Beam and Neutron Beam Radiation Therapy Services (2026 Final)
+  Path: rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services 2026_final.pdf (exists=True)
+  Effective: 2026-01-01 | Status: current_2026_verified
+[DOC-RAD-004] Type: checklist | Ver: Rev. 03/04/2024 | Pages: 4 (manifest: 4)
+  Title: Radiation Therapy Breast Cancer Prior Authorization Checklist
+  Path: rulebook_collection/domains/radiation_oncology/supporting_pdfs/checklists/RadOnc Breast Cancer Checklist 03042024.pdf (exists=True)
+  Effective: 2024-03-04 | Status: current_2026_verified
+[DOC-RAD-009] Type: checklist | Ver: Rev. 03/04/2024 | Pages: 4 (manifest: 4)
+  Title: Radiation Therapy Head and Neck Cancer Prior Authorization Checklist
+  Path: rulebook_collection/domains/radiation_oncology/supporting_pdfs/checklists/RadOnc Head and Neck Cancer Checklist 03042024.pdf (exists=True)
+  Effective: 2024-03-04 | Status: current_2026_verified
+[DOC-RAD-006] Type: checklist | Ver: Rev. 03/04/2024 | Pages: 3 (manifest: 3)
+  Title: Radiation Therapy Non-Small Cell Lung Cancer Prior Authorization Checklist
+  Path: rulebook_collection/domains/radiation_oncology/supporting_pdfs/checklists/RadOnc Non-Small Cell Lung Cancer Checklist 03042024.pdf (exists=True)
+  Effective: 2024-03-04 | Status: current_2026_verified
+[DOC-RAD-005] Type: checklist | Ver: Rev. 03/04/2024 | Pages: 3 (manifest: 3)
+  Title: Radiation Therapy Prostate Cancer Prior Authorization Checklist
+  Path: rulebook_collection/domains/radiation_oncology/supporting_pdfs/checklists/RadOnc Prostate Cancer Checklist 03042024.pdf (exists=True)
+  Effective: 2024-03-04 | Status: current_2026_verified
+[DOC-RAD-008] Type: checklist | Ver: Rev. 03/04/2024 | Pages: 3 (manifest: 3)
+  Title: Radiation Therapy Rectal and Colon Cancer Prior Authorization Checklist
+  Path: rulebook_collection/domains/radiation_oncology/supporting_pdfs/checklists/RadOnc Rectal and Colon Cancer Checklist 03042024.pdf (exists=True)
+  Effective: 2024-03-04 | Status: current_2026_verified
+[DOC-RAD-007] Type: checklist | Ver: Rev. 03/04/2024 | Pages: 3 (manifest: 3)
+  Title: Radiation Therapy Central Nervous System (CNS) Primary Cancer Checklist
+  Path: rulebook_collection/domains/radiation_oncology/supporting_pdfs/checklists/RadOncCNS Primary Cancer Checklist 03042024.pdf (exists=True)
+  Effective: 2024-03-04 | Status: current_2026_verified
+
+=======================================================
+DOMAIN: PHYSICAL_MEDICINE
+=======================================================
+Total documents in master inventory: 12
+[DOC-PHY-001] Type: governing_policy | Ver: 2026 | Pages: 143 (manifest: 143)
+  Title: 2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/2026 Evolent Physical Medicine Guidelines_0.pdf (exists=True)
+  Effective: 2026-07-01 | Status: current_2026_verified
+[DOC-PHY-002] Type: supplementary_policy | Ver: 2024-2026 Active | Pages: 21 (manifest: 21)
+  Title: Active Procedures in Physical Medicine Policy
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Active Procedures in Physical Medicine 2024_1.pdf (exists=True)
+  Effective: 2024-06-01 | Status: current_2026_verified
+[DOC-PHY-007] Type: supplementary_policy | Ver: 2024-2026 Active | Pages: 6 (manifest: 6)
+  Title: Durable Medical Equipment in Physical Medicine Policy
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Durable Medical Equipment 2024_1.pdf (exists=True)
+  Effective: 2024-06-01 | Status: current_2026_verified
+[DOC-PHY-008] Type: supplementary_policy | Ver: 2024-2026 Active | Pages: 9 (manifest: 9)
+  Title: Experimental, Unproven, or Investigational Services in Physical Medicine
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Experimental Unproven or Investigational Services 2024_1.pdf (exists=True)
+  Effective: 2024-06-01 | Status: current_2026_verified
+[DOC-PHY-004] Type: supplementary_policy | Ver: 2024-2026 Active | Pages: 40 (manifest: 40)
+  Title: Measurable Progressive Improvement Standards in Physical Medicine
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Measurable Progressive Improvement 2024_1.pdf (exists=True)
+  Effective: 2024-06-01 | Status: current_2026_verified
+[DOC-PHY-005] Type: supplementary_policy | Ver: 2024-2026 Active | Pages: 13 (manifest: 13)
+  Title: Outpatient Habilitative Physical and Occupational Therapy Policy
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Outpatient Habilitative PT and OT Therapy 2024_1.pdf (exists=True)
+  Effective: 2024-06-01 | Status: current_2026_verified
+[DOC-PHY-006] Type: supplementary_policy | Ver: 2024-2026 Active | Pages: 10 (manifest: 10)
+  Title: Outpatient Habilitative and Rehabilitative Speech Therapy Policy
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Outpatient Habilitative and Rehabilitative Speech Therapy 2024_1.pdf (exists=True)
+  Effective: 2024-06-01 | Status: current_2026_verified
+[DOC-PHY-003] Type: supplementary_policy | Ver: 2024-2026 Active | Pages: 10 (manifest: 10)
+  Title: Passive Treatment Modalities in Physical Medicine Policy
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Passive Treatment 2024_1.pdf (exists=True)
+  Effective: 2024-06-01 | Status: current_2026_verified
+[DOC-PHY-009] Type: supplementary_policy | Ver: 2024-2026 Active | Pages: 11 (manifest: 11)
+  Title: Record Keeping and Documentation Standards in Physical Medicine
+  Path: rulebook_collection/domains/physical_medicine/policy_pdfs/current_2026/Record Keeping Doc Standards Phys Medicine 2024_1.pdf (exists=True)
+  Effective: 2024-06-01 | Status: current_2026_verified
+[DOC-PHY-012] Type: form | Ver: Rev. 02/2026 | Pages: 1 (manifest: 1)
+  Title: Overlapping Authorization Member Attestation Letter
+  Path: rulebook_collection/domains/physical_medicine/supporting_pdfs/forms/Overlapping Authorization Member Attestation Letter.pdf (exists=True)
+  Effective: 2026-02-01 | Status: current_2026_verified
+[DOC-PHY-011] Type: tip_sheet | Ver: Rev. 10/10/2023 | Pages: 2 (manifest: 2)
+  Title: Physical Medicine Maintenance Therapy and Episodic Care Clinical Tip Sheet
+  Path: rulebook_collection/domains/physical_medicine/supporting_pdfs/tip_sheets/PhysMed MaintEpisodic Care Evolent 10.10.2023.pdf (exists=True)
+  Effective: 2023-10-10 | Status: current_2026_verified
+[DOC-PHY-010] Type: tip_sheet | Ver: Rev. 04/2026 | Pages: 4 (manifest: 4)
+  Title: Physical Medicine Clinical Tip Sheet and Document Checklist (Rev. 4/2026)
+  Path: rulebook_collection/domains/physical_medicine/supporting_pdfs/tip_sheets/Updated Physical Medicine Tip Sheet 4.2026__0.pdf (exists=True)
+  Effective: 2026-04-01 | Status: current_2026_verified
+
+=======================================================
+DOMAIN: SLEEP_HEALTH
+=======================================================
+Total documents in master inventory: 3
+[DOC-SLP-001] Type: governing_policy | Ver: 2026 | Pages: 36 (manifest: 36)
+  Title: 2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines
+  Path: rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf (exists=True)
+  Effective: 2026-01-01 | Status: current_2026_verified
+[DOC-SLP-002] Type: checklist | Ver: Rev. 02/28/2024 | Pages: 1 (manifest: 1)
+  Title: Sleep Assessment Record Checklist: Attended or Unattended Sleep Studies
+  Path: rulebook_collection/domains/sleep_health/supporting_pdfs/checklists/Sleep Assessment Record Checklist-Attended or Unattended Evolent 02282024_0.pdf (exists=True)
+  Effective: 2024-02-28 | Status: current_2026_verified
+[DOC-SLP-003] Type: checklist | Ver: Rev. 02/28/2024 | Pages: 1 (manifest: 1)
+  Title: Sleep Assessment Record Checklist: Attended Studies for Plans Without Home Sleep Testing Benefit
+  Path: rulebook_collection/domains/sleep_health/supporting_pdfs/checklists/Sleep Assessment Record Checklist-Attended without HST Evolent benefit 02282024_0.pdf (exists=True)
+  Effective: 2024-02-28 | Status: current_2026_verified
+
+=======================================================
+DOMAIN: GENETIC_TESTING
+=======================================================
+Total documents in master inventory: 4
+[DOC-GEN-002] Type: coding_grid | Ver: October 1, 2026 | Pages: 60 (manifest: 60)
+  Title: Generic Genetic Tests and Laboratory Matrix (October 2026)
+  Path: rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Generic GT and Laboratory Matrix 10.01.2026.pdf (exists=True)
+  Effective: 2026-10-01 | Status: current_2026_verified
+[DOC-GEN-001] Type: governing_policy | Ver: July 2026 | Pages: 174 (manifest: 174)
+  Title: 2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines
+  Path: rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf (exists=True)
+  Effective: 2026-07-01 | Status: current_2026_verified
+[DOC-GEN-003] Type: checklist | Ver: Rev. 02/28/2024 | Pages: 1 (manifest: 1)
+  Title: Generic Genetic and Molecular Testing Program Checklist
+  Path: rulebook_collection/domains/genetic_testing/supporting_pdfs/checklists/Generic - Genetic Testing Checklist Evolent 02282024.pdf (exists=True)
+  Effective: 2024-02-28 | Status: current_2026_verified
+[DOC-GEN-004] Type: checklist | Ver: v2.2023 | Pages: 55 (manifest: 55)
+  Title: Oncology: Molecular Analysis of Solid Tumors and Hematologic Malignancies Checklist (v2.2023)
+  Path: rulebook_collection/domains/genetic_testing/supporting_pdfs/checklists/oncology_-molecular-analysis-of-solid-tumors-and-hematologic-malignancies-v22023_final.pdf (exists=True)
+  Effective: 2023-07-01 | Status: current_2026_verified

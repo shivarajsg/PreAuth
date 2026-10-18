@@ -1,0 +1,118 @@
+{
+  "audit_header": {
+    "disclaimer": "THIS EVALUATION IS A DETERMINISTIC RESEARCH PROTOTYPE FOR TESTING PURPOSES ONLY. NO REAL-WORLD AUTHORIZATION APPROVAL OR DENIAL IS EXECUTED. RULES ARE IN DRAFT/TESTING STATUS AWAITING CLINICAL SME REVIEW.",
+    "evaluation_timestamp": "2026-10-18T10:32:14.571683+00:00",
+    "evaluator_name": "MedRule Deterministic Decision Engine",
+    "evaluator_version": "3A.1.0",
+    "input_schema_version": "1.0.0",
+    "is_binding_adjudication": false,
+    "ruleset_version": "2026.1-AUDITED"
+  },
+  "case_assessment": {
+    "assessment_status": "MANUAL_REVIEW_REQUIRED",
+    "conflicts_or_unresolved_dependencies": [],
+    "human_review_escalations": [
+      "Rule RULE-ADV-CG2000-003 is flagged 'NEEDS_HUMAN_REVIEW': Advisory wording ('MRI should be considered'). Flagged for medical director determination regarding whether this constitutes a mandatory denial of CT or peer-to-peer advisory suggestion."
+    ],
+    "is_binding": false,
+    "missing_evidence_summary": [
+      "Rule RULE-ADV-CG2000-003: Documentation 'Documentation of contraindication to MRI (if CT requested for age < 35)' is missing"
+    ],
+    "summary_explanation": "Case escalated to clinical manual review: 1 applicable rule(s) require clinical discretion, interpretation of ambiguous criteria, or plan carve-out review."
+  },
+  "case_metadata": {
+    "case_id": "CASE-SYNTH-004",
+    "clinical_domain": "advanced_imaging",
+    "jurisdiction": "US_NATIONAL",
+    "line_of_business": "COMMERCIAL",
+    "modality": "CT",
+    "payer_id": "EVOLENT",
+    "place_of_service": "OUTPATIENT_HOSPITAL",
+    "plan_id": "COMMERCIAL_HMO",
+    "primary_diagnosis_code": "K50.90",
+    "procedure_code": "74177",
+    "procedure_name": "CT Abdomen and Pelvis / CT Enterography",
+    "requested_date_of_service": "2026-05-15"
+  },
+  "reproducibility_hash_sha256": "b49798b01516456a1f7ce9b84673cd03011a186be60f801437f355da4c1a7210",
+  "routing_summary": {
+    "applicable_rule_ids": [
+      "RULE-ADV-CG2000-003"
+    ],
+    "excluded_rules": [],
+    "routing_notes": [
+      "Routed to 1 explicitly requested rules."
+    ],
+    "routing_status": "ROUTED",
+    "selected_policies": []
+  },
+  "rule_evaluations": [
+    {
+      "condition_evaluation": {
+        "criteria": [
+          {
+            "actual_value": "CT",
+            "comparator": "EQUALS",
+            "condition_id": "COND-001",
+            "description": "Requested procedure is CT enterography or CT abdomen/pelvis for IBD",
+            "evidence_missing": false,
+            "expected_value": "CT",
+            "is_optional": false,
+            "parameter": "requested_modality",
+            "reason": "'CT' == 'CT'",
+            "status": "TRUE",
+            "type_error": null
+          },
+          {
+            "actual_value": 28,
+            "comparator": "LESS_THAN",
+            "condition_id": "COND-002",
+            "description": "Patient age is strictly less than 35 years",
+            "evidence_missing": false,
+            "expected_value": 35,
+            "is_optional": false,
+            "parameter": "patient_age_years",
+            "reason": "28.0 years < 35.0 years is True",
+            "status": "TRUE",
+            "type_error": null
+          }
+        ],
+        "explanation": "ALL_OF evaluated to TRUE: all mandatory criteria fully satisfied.",
+        "operator": "ALL_OF",
+        "short_circuited": false,
+        "status": "TRUE"
+      },
+      "decision_effect": "ALTERNATIVE_MODALITY_RECOMMENDED",
+      "domain": "advanced_imaging",
+      "evidence_verification": {
+        "is_sufficient": true,
+        "missing_documentation": [
+          "Documentation of contraindication to MRI (if CT requested for age < 35)"
+        ],
+        "missing_parameters": [],
+        "provided_parameters": {
+          "patient_age_years": 28,
+          "requested_modality": "CT"
+        },
+        "required_parameters": [
+          "requested_modality",
+          "patient_age_years"
+        ],
+        "type_errors": []
+      },
+      "extraction_status": "NEEDS_HUMAN_REVIEW",
+      "is_binding": false,
+      "policy_provenance": {
+        "physical_page": 9,
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+        "source_quote": "For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative Colitis (includes CT enterography, however, MRI should be considered for age < 35 to reduce radiation exposure)",
+        "source_section": "Inflammatory Bowel Disease (3\u20135)",
+        "version_status": "current_2026_verified"
+      },
+      "requires_human_review": true,
+      "rule_id": "RULE-ADV-CG2000-003"
+    }
+  ]
+}

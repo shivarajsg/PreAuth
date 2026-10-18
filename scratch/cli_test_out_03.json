@@ -1,0 +1,122 @@
+{
+  "audit_header": {
+    "disclaimer": "THIS EVALUATION IS A DETERMINISTIC RESEARCH PROTOTYPE FOR TESTING PURPOSES ONLY. NO REAL-WORLD AUTHORIZATION APPROVAL OR DENIAL IS EXECUTED. RULES ARE IN DRAFT/TESTING STATUS AWAITING CLINICAL SME REVIEW.",
+    "evaluation_timestamp": "2026-10-18T10:31:40.324284+00:00",
+    "evaluator_name": "MedRule Deterministic Decision Engine",
+    "evaluator_version": "3A.1.0",
+    "input_schema_version": "1.0.0",
+    "is_binding_adjudication": false,
+    "ruleset_version": "2026.1-AUDITED"
+  },
+  "case_assessment": {
+    "assessment_status": "MANUAL_REVIEW_REQUIRED",
+    "conflicts_or_unresolved_dependencies": [],
+    "human_review_escalations": [
+      "Rule RULE-DME-107-001 is flagged 'NEEDS_HUMAN_REVIEW': Preamble standard: if a lesser cost medically necessary item exists, higher cost item will be denied."
+    ],
+    "is_binding": false,
+    "missing_evidence_summary": [
+      "Rule RULE-DME-107-001: Parameter 'medical_necessity_contribution' is missing",
+      "Rule RULE-DME-107-001: Parameter 'cost_reasonableness_evaluation' is missing",
+      "Rule RULE-DME-107-001: Documentation 'Clinical documentation establishing medical necessity and reasonable contribution to care' is missing",
+      "Rule RULE-DME-107-001: Documentation 'Comparative cost analysis if higher cost alternative is requested over standard item' is missing"
+    ],
+    "summary_explanation": "Case escalated to clinical manual review: 1 applicable rule(s) require clinical discretion, interpretation of ambiguous criteria, or plan carve-out review."
+  },
+  "case_metadata": {
+    "case_id": "CASE-SYNTH-003",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "jurisdiction": "OHIO",
+    "line_of_business": "MEDICARE_ADVANTAGE",
+    "modality": "DME",
+    "payer_id": "CENTENE",
+    "place_of_service": "HOME",
+    "plan_id": "WELLCARE_MEDICARE_ADVANTAGE",
+    "primary_diagnosis_code": "G47.33",
+    "procedure_code": "E0601",
+    "procedure_name": "Continuous positive airway pressure (CPAP) device",
+    "requested_date_of_service": "2026-08-20"
+  },
+  "reproducibility_hash_sha256": "320c58b12be290e45c4160c0f12539ebfb1739180d183d7877d67ff84aacbff1",
+  "routing_summary": {
+    "applicable_rule_ids": [
+      "RULE-DME-107-001"
+    ],
+    "excluded_rules": [],
+    "routing_notes": [
+      "Routed to 1 explicitly requested rules."
+    ],
+    "routing_status": "ROUTED",
+    "selected_policies": []
+  },
+  "rule_evaluations": [
+    {
+      "condition_evaluation": {
+        "criteria": [
+          {
+            "actual_value": null,
+            "comparator": "IS_PRESENT",
+            "condition_id": "COND-DME-107-001-A",
+            "description": "Equipment makes a meaningful contribution to treatment of illness/injury or improvement of malformed body member",
+            "evidence_missing": true,
+            "expected_value": null,
+            "is_optional": false,
+            "parameter": "medical_necessity_contribution",
+            "reason": "Evidence parameter 'medical_necessity_contribution' is missing from case record.",
+            "status": "UNKNOWN",
+            "type_error": null
+          },
+          {
+            "actual_value": null,
+            "comparator": "IS_PRESENT",
+            "condition_id": "COND-DME-107-001-B",
+            "description": "Expense of item is not disproportionate to therapeutic benefits and not substantially more costly than feasible alternative",
+            "evidence_missing": true,
+            "expected_value": null,
+            "is_optional": false,
+            "parameter": "cost_reasonableness_evaluation",
+            "reason": "Evidence parameter 'cost_reasonableness_evaluation' is missing from case record.",
+            "status": "UNKNOWN",
+            "type_error": null
+          }
+        ],
+        "explanation": "ALL_OF evaluated to UNKNOWN: one or more mandatory criteria have insufficient evidence.",
+        "operator": "ALL_OF",
+        "short_circuited": false,
+        "status": "UNKNOWN"
+      },
+      "decision_effect": "INDICATED",
+      "domain": "centene_dme_orthotics_prosthetics",
+      "evidence_verification": {
+        "is_sufficient": false,
+        "missing_documentation": [
+          "Clinical documentation establishing medical necessity and reasonable contribution to care",
+          "Comparative cost analysis if higher cost alternative is requested over standard item"
+        ],
+        "missing_parameters": [
+          "medical_necessity_contribution",
+          "cost_reasonableness_evaluation"
+        ],
+        "provided_parameters": {},
+        "required_parameters": [
+          "medical_necessity_contribution",
+          "cost_reasonableness_evaluation"
+        ],
+        "type_errors": []
+      },
+      "extraction_status": "NEEDS_HUMAN_REVIEW",
+      "is_binding": false,
+      "policy_provenance": {
+        "physical_page": 1,
+        "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+        "policy_version": "Revision 08/26",
+        "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+        "source_quote": "Equipment is necessary and reasonable for the treatment of an illness or injury or to improve the functioning of a physical deficit;*",
+        "source_section": "Policy/Criteria - Section I.A.1 General Criteria",
+        "version_status": "current_2026_verified"
+      },
+      "requires_human_review": true,
+      "rule_id": "RULE-DME-107-001"
+    }
+  ]
+}

@@ -1,0 +1,1472 @@
+[
+  {
+    "rule_id": "RULE-ADV-CG2000-001",
+    "guideline": "CG2000",
+    "page": 8,
+    "quote_found": true,
+    "rule_type": "documentation_requirement",
+    "decision_effect": "DOCUMENTATION_DEFICIENT",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "ordering_provider_license",
+      "clinical_office_notes",
+      "laboratory_and_testing_data"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-002",
+    "guideline": "CG2000",
+    "page": 9,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "physical_exam_completed",
+      "lab_workup_completed",
+      "recent_colonoscopy_completed"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-003",
+    "guideline": "CG2000",
+    "page": 9,
+    "quote_found": true,
+    "rule_type": "conditional_modality_selection",
+    "decision_effect": "ALTERNATIVE_MODALITY_RECOMMENDED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "requested_modality",
+      "patient_age_years"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-004",
+    "guideline": "CG2000",
+    "page": 9,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "provisional_diagnosis",
+      "clinical_signs_group"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-005",
+    "guideline": "CG2000",
+    "page": 9,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "patient_age_years",
+      "provisional_diagnosis",
+      "ultrasound_or_peritoneal_signs"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-006",
+    "guideline": "CG2000",
+    "page": 10,
+    "quote_found": true,
+    "rule_type": "temporal_threshold",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "pancreatitis_diagnostic_markers",
+      "conservative_treatment_duration_hours",
+      "ultrasound_findings"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-007",
+    "guideline": "CG2000",
+    "page": 10,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ANY_OF",
+    "criteria_count": 2,
+    "params": [
+      "severe_pancreatitis_signs",
+      "clinical_status_decline"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-008",
+    "guideline": "CG2000",
+    "page": 11,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "suspected_nephrolithiasis",
+      "urinary_infection_ruled_out",
+      "high_grade_hematuria"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-009",
+    "guideline": "CG2000",
+    "page": 11,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "urine_rbc_count",
+      "urologic_risk_factors"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-010",
+    "guideline": "CG2000",
+    "page": 13,
+    "quote_found": true,
+    "rule_type": "temporal_threshold",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "aaa_diameter_cm",
+      "months_since_last_aortic_imaging"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-011",
+    "guideline": "CG2000",
+    "page": 13,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "symptomatic_aaa_suspected",
+      "acute_aortic_symptoms"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-012",
+    "guideline": "CG2000",
+    "page": 19,
+    "quote_found": true,
+    "rule_type": "exclusion_criterion",
+    "decision_effect": "NOT_INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "cancer_in_surveillance_table",
+      "patient_is_asymptomatic"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-013",
+    "guideline": "CG2000",
+    "page": 19,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "postoperative_complications_suspected",
+      "months_since_surgery",
+      "management_change_documented"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2001-001",
+    "guideline": "CG2001",
+    "page": 37,
+    "quote_found": true,
+    "rule_type": "coding_rule",
+    "decision_effect": "ALTERNATIVE_MODALITY_RECOMMENDED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "separate_abdomen_and_pelvis_requested",
+      "pathology_involves_both_cavities"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2001-002",
+    "guideline": "CG2001",
+    "page": 39,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "fecal_elastase_ug_g",
+      "prior_epi_ct_performed"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2001-003",
+    "guideline": "CG2001",
+    "page": 39,
+    "quote_found": true,
+    "rule_type": "temporal_threshold",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "solid_renal_mass_present",
+      "months_since_prior_renal_ct"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2001-004",
+    "guideline": "CG2001",
+    "page": 41,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "patient_age_years",
+      "pancreatitis_diagnosed",
+      "pancreatitis_etiology_identified"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2001-005",
+    "guideline": "CG2001",
+    "page": 41,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "suspected_hernia",
+      "hernia_subtypes"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2002-001",
+    "guideline": "CG2002",
+    "page": 61,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "hypertension_with_prior_ultrasound",
+      "renovascular_hypertension_features"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2002-002",
+    "guideline": "CG2002",
+    "page": 61,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "prior_vascular_imaging_inconclusive"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2003-001",
+    "guideline": "CG2003",
+    "page": 75,
+    "quote_found": true,
+    "rule_type": "temporal_threshold",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "takayasu_arteritis_diagnosed",
+      "takayasu_surveillance_interval_met"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2003-002",
+    "guideline": "CG2003",
+    "page": 73,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "symptomatic_aaa_suspected",
+      "acute_aortic_symptoms"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2004-001",
+    "guideline": "CG2004",
+    "page": 92,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "suspected_choledochal_cyst",
+      "prior_ultrasound_completed"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2004-002",
+    "guideline": "CG2004",
+    "page": 92,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "suspected_acute_pancreatitis",
+      "epigastric_pain_present"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2005-001",
+    "guideline": "CG2005",
+    "page": 118,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_mesenteric_ischemia"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2005-002",
+    "guideline": "CG2005",
+    "page": 119,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "suspected_pelvic_venous_syndrome",
+      "prior_ultrasound_indeterminate"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2006-001",
+    "guideline": "CG2006",
+    "page": 132,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "critical_limb_ischemia_present",
+      "cli_objective_signs"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2007-001",
+    "guideline": "CG2007",
+    "page": 141,
+    "quote_found": true,
+    "rule_type": "temporal_threshold",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "multiple_myeloma_diagnosed",
+      "myeloma_mri_interval_met"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-001",
+    "guideline": "CG2008",
+    "page": 150,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_acute_stroke"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-002",
+    "guideline": "CG2008",
+    "page": 151,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_acute_sah"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2009-001",
+    "guideline": "CG2009",
+    "page": 175,
+    "quote_found": true,
+    "rule_type": "exclusion_criterion",
+    "decision_effect": "NOT_INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "first_degree_aneurysm_relatives_count",
+      "patient_is_asymptomatic"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2010-001",
+    "guideline": "CG2010",
+    "page": 194,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "prior_brain_radiation_therapy",
+      "recurrence_vs_necrosis_indeterminate"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2011-001",
+    "guideline": "CG2011",
+    "page": 203,
+    "quote_found": true,
+    "rule_type": "temporal_threshold",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "high_risk_aneurysm_screening_qualified",
+      "years_since_prior_aneurysm_screening"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2012-001",
+    "guideline": "CG2012",
+    "page": 224,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "headache_duration_weeks",
+      "acute_headache_risk_factor"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2012-002",
+    "guideline": "CG2012",
+    "page": 225,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "patient_age_years",
+      "headache_persistence",
+      "pediatric_headache_red_flag"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2013-001",
+    "guideline": "CG2013",
+    "page": 271,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "primary_brain_lymphoma"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2014-001",
+    "guideline": "CG2014",
+    "page": 282,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "high_risk_breast_cancer_screening"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2014-002",
+    "guideline": "CG2014",
+    "page": 285,
+    "quote_found": true,
+    "rule_type": "exclusion_criterion",
+    "decision_effect": "NOT_INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "saline_implant_complication_requested"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2015-001",
+    "guideline": "CG2015",
+    "page": 297,
+    "quote_found": true,
+    "rule_type": "temporal_threshold",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "acute_ischemic_stroke_reperfusion",
+      "hours_since_stroke_onset"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2016-001",
+    "guideline": "CG2016",
+    "page": 308,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "acute_cervical_trauma"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2017-001",
+    "guideline": "CG2017",
+    "page": 330,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 4,
+    "params": [
+      "clinical_indication",
+      "conservative_care_duration_weeks",
+      "conservative_care_recency_months",
+      "conservative_therapy_outcome"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2017-002",
+    "guideline": "CG2017",
+    "page": 331,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "suspected_cervical_myelopathy",
+      "myelopathic_neurologic_deficits"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2017-003",
+    "guideline": "CG2017",
+    "page": 330,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_cervical_cord_compression"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2018-001",
+    "guideline": "CG2018",
+    "page": 355,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "incidental_nodule_on_xray"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2018-002",
+    "guideline": "CG2018",
+    "page": 357,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "suspected_sarcoidosis",
+      "chest_xray_completed"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2019-001",
+    "guideline": "CG2019",
+    "page": 387,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "myasthenia_gravis_diagnosed",
+      "anterior_mediastinal_mass_suspected"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2020-001",
+    "guideline": "CG2020",
+    "page": 399,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_pulmonary_embolism"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2021-001",
+    "guideline": "CG2021",
+    "page": 418,
+    "quote_found": true,
+    "rule_type": "conditional_modality_selection",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "suspected_pulmonary_embolism",
+      "cta_contraindicated"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2022-001",
+    "guideline": "CG2022",
+    "page": 436,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "diagnostic_colonic_evaluation_needed",
+      "failed_or_incomplete_colonoscopy"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2023-001",
+    "guideline": "CG2023",
+    "page": 444,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "increased_crc_risk",
+      "optical_colonoscopy_contraindicated"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2024-001",
+    "guideline": "CG2024",
+    "page": 451,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_low_bone_mineral_density"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2026-001",
+    "guideline": "CG2026",
+    "page": 462,
+    "quote_found": true,
+    "rule_type": "administrative_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "imaging_guidance_component"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2027-001",
+    "guideline": "CG2027",
+    "page": 466,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "planned_fetal_surgery"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2028-001",
+    "guideline": "CG2028",
+    "page": 474,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "presurgical_eloquent_mapping_needed"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2029-001",
+    "guideline": "CG2029",
+    "page": 484,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "nephrolithiasis_reevaluation"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2030-001",
+    "guideline": "CG2030",
+    "page": 490,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "patient_age_years",
+      "smoking_history_pack_years",
+      "current_or_recent_smoker_15yr"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2031-001",
+    "guideline": "CG2031",
+    "page": 498,
+    "quote_found": true,
+    "rule_type": "exclusion_criterion",
+    "decision_effect": "NOT_INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "requested_low_field_mri"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2032-001",
+    "guideline": "CG2032",
+    "page": 504,
+    "quote_found": true,
+    "rule_type": "conditional_modality_selection",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "non_specific_lower_extremity_pain",
+      "prior_xray_completed",
+      "mri_contraindicated"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2033-001",
+    "guideline": "CG2033",
+    "page": 527,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "lower_extremity_pad_surgical_planning"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2034-001",
+    "guideline": "CG2034",
+    "page": 540,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "suspected_lower_extremity_pad",
+      "prior_noninvasive_vascular_study_abnormal"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2035-001",
+    "guideline": "CG2035",
+    "page": 553,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "joint_specific_injury_or_pain"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2036-001",
+    "guideline": "CG2036",
+    "page": 574,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "lumbar_ct_indication_met"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2037-001",
+    "guideline": "CG2037",
+    "page": 594,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "lumbar_radiculopathy_present",
+      "conservative_therapy_duration_weeks"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2037-002",
+    "guideline": "CG2037",
+    "page": 595,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_cauda_equina_syndrome"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2038-001",
+    "guideline": "CG2038",
+    "page": 615,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "chronic_liver_disease",
+      "fib4_score"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2039-001",
+    "guideline": "CG2039",
+    "page": 625,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "persistent_neck_mass",
+      "treatment_duration_weeks"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2040-001",
+    "guideline": "CG2040",
+    "page": 641,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_cervical_artery_dissection"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2041-001",
+    "guideline": "CG2041",
+    "page": 657,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "giant_cell_arteritis_extracranial"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2042-001",
+    "guideline": "CG2042",
+    "page": 673,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "acute_pelvic_pain",
+      "patient_age_years"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2043-001",
+    "guideline": "CG2043",
+    "page": 689,
+    "quote_found": true,
+    "rule_type": "conditional_modality_selection",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "planned_uterine_artery_embolization"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2044-001",
+    "guideline": "CG2044",
+    "page": 700,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "pelvic_vascular_disease_indicated"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2045-001",
+    "guideline": "CG2045",
+    "page": 718,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_perianal_fistula_or_abscess"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2046-001",
+    "guideline": "CG2046",
+    "page": 741,
+    "quote_found": true,
+    "rule_type": "exclusion_criterion",
+    "decision_effect": "NOT_INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "chondrosarcoma_diagnosed"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2046-002",
+    "guideline": "CG2046",
+    "page": 741,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "chordoma_diagnosed",
+      "prior_conventional_imaging_inconclusive"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2047-001",
+    "guideline": "CG2047",
+    "page": 811,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_fungal_sinusitis"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2048-001",
+    "guideline": "CG2048",
+    "page": 829,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_optic_neuritis"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2052-001",
+    "guideline": "CG2052",
+    "page": 854,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "tumor_localization_needed",
+      "planar_scintigraphy_insufficient"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2053-001",
+    "guideline": "CG2053",
+    "page": 871,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_spinal_avm"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2054-001",
+    "guideline": "CG2054",
+    "page": 881,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "sellar_or_parasellar_mass"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2055-001",
+    "guideline": "CG2055",
+    "page": 896,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "suspected_tmj_internal_derangement"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2056-001",
+    "guideline": "CG2056",
+    "page": 905,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "thoracic_neurologic_deficit_present",
+      "thoracic_mri_contraindicated_or_unavailable"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2056-002",
+    "guideline": "CG2056",
+    "page": 906,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 3,
+    "params": [
+      "thoracic_pain_duration_weeks",
+      "conservative_therapy_completed",
+      "thoracic_mri_contraindicated"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2057-001",
+    "guideline": "CG2057",
+    "page": 925,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "thoracic_myelopathy_or_deficit_present"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2057-002",
+    "guideline": "CG2057",
+    "page": 926,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "thoracic_pain_duration_weeks",
+      "conservative_therapy_completed"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2058-001",
+    "guideline": "CG2058",
+    "page": 947,
+    "quote_found": true,
+    "rule_type": "exclusion_criterion",
+    "decision_effect": "NOT_INDICATED",
+    "operator": "ANY_OF",
+    "criteria_count": 2,
+    "params": [
+      "pet_unlisted_nos_requested",
+      "pet_breast_initial_staging"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2061-001",
+    "guideline": "CG2061",
+    "page": 954,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "radiation_treatment_planning_simulation"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2061-002",
+    "guideline": "CG2061",
+    "page": 956,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ANY_OF",
+    "criteria_count": 2,
+    "params": [
+      "multiple_myeloma_evaluation",
+      "plasma_cell_dyscrasia_evaluation"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2062-001",
+    "guideline": "CG2062",
+    "page": 965,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "prior_xray_negative_or_inconclusive",
+      "conservative_therapy_or_bony_injury"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2063-001",
+    "guideline": "CG2063",
+    "page": 989,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "upper_extremity_vascular_disease_or_ischemia"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2064-001",
+    "guideline": "CG2064",
+    "page": 1001,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "vascular_disease_with_cta_contraindication"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2065-001",
+    "guideline": "CG2065",
+    "page": 1014,
+    "quote_found": true,
+    "rule_type": "clinical_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "prior_plain_xray_negative",
+      "active_conservative_therapy_or_positive_sign"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2066-001",
+    "guideline": "CG2066",
+    "page": 1036,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "emergent_life_or_limb_threat_present"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-CG2066-002",
+    "guideline": "CG2066",
+    "page": 1036,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "urgent_intervention_needed_within_24h"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-EPOS2067-001",
+    "guideline": "EPOS2067",
+    "page": 3,
+    "quote_found": true,
+    "rule_type": "administrative_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ANY_OF",
+    "criteria_count": 2,
+    "params": [
+      "place_of_service_code",
+      "place_of_service_code"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-EPOS2067-002",
+    "guideline": "EPOS2067",
+    "page": 3,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ANY_OF",
+    "criteria_count": 6,
+    "params": [
+      "active_cancer_treatment",
+      "transplant_planned_or_prior",
+      "recent_hospitalization_within_3_months",
+      "continuity_of_care_clinical_reason",
+      "planned_procedure_at_same_facility",
+      "pregnancy_status"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-EPOS2067-003",
+    "guideline": "EPOS2067",
+    "page": 3,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ANY_OF",
+    "criteria_count": 8,
+    "params": [
+      "urgent_or_emergent_clinical_condition",
+      "facility_resident_or_bedbound",
+      "distance_from_freestanding_miles",
+      "ventilator_or_severe_iv_access_problems",
+      "moderate_deep_sedation_required",
+      "severe_contrast_allergy_systemic",
+      "implantable_device_cied_or_vp_shunt",
+      "pediatric_patient_at_pediatric_center"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-EPOS2067-004",
+    "guideline": "EPOS2067",
+    "page": 4,
+    "quote_found": true,
+    "rule_type": "clinical_indication",
+    "decision_effect": "INDICATED",
+    "operator": "ANY_OF",
+    "criteria_count": 3,
+    "params": [
+      "severe_claustrophobia_open_mri_needed",
+      "bariatric_weight_exceeds_freestanding_scanner",
+      "complex_specialized_protocol_needed"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-EPOS2067-005",
+    "guideline": "EPOS2067",
+    "page": 4,
+    "quote_found": true,
+    "rule_type": "exclusion_criterion",
+    "decision_effect": "NOT_INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 2,
+    "params": [
+      "hospital_based_setting_requested",
+      "hospital_setting_clinical_criteria_met"
+    ],
+    "notes": []
+  },
+  {
+    "rule_id": "RULE-ADV-PREAMBLE-001",
+    "guideline": "PREAMBLE",
+    "page": 2,
+    "quote_found": true,
+    "rule_type": "administrative_prerequisite",
+    "decision_effect": "INDICATED",
+    "operator": "ALL_OF",
+    "criteria_count": 1,
+    "params": [
+      "clinical_information_submitted"
+    ],
+    "notes": []
+  }
+]

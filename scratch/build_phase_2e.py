@@ -1,0 +1,492 @@
+"""
+Comprehensive Generator for MedRule Phase 2E:
+Supporting Documents, Evidence Mapping and Policy Dependencies.
+"""
+
+import os
+import csv
+import json
+import hashlib
+import fitz
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DOMAINS_DIR = os.path.join(BASE_DIR, "rulebook_collection", "domains")
+MANIFESTS_DIR = os.path.join(BASE_DIR, "rulebook_collection", "manifests")
+
+# Load master inventory
+with open(os.path.join(MANIFESTS_DIR, "master_pdf_inventory.csv"), encoding="utf-8") as f:
+    master_records = {r["document_id"]: r for r in csv.DictReader(f)}
+
+print(f"Loaded {len(master_records)} master inventory records.")
+
+# Helper to look up doc details
+def get_doc(doc_id):
+    if doc_id in master_records:
+        return master_records[doc_id]
+    raise ValueError(f"Unknown document_id: {doc_id}")
+
+# -------------------------------------------------------------
+# DOMAIN DATA DEFINITIONS
+# -------------------------------------------------------------
+
+# Advanced Imaging
+ADV_DOCS = [
+    ("DOC-ADV-002", "SUPPLEMENTARY_PROCEDURAL_GUIDANCE", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-003", "HISTORICAL_DOCUMENT_COMPARISON", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-004", "INTAKE_OR_DOCUMENTATION_AID", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-005", "INTAKE_OR_DOCUMENTATION_AID", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-006", "INTAKE_OR_DOCUMENTATION_AID", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-007", "HISTORICAL_DOCUMENT_COMPARISON", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-008", "SUPPLEMENTARY_PROCEDURAL_GUIDANCE", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-009", "SUPPLEMENTARY_PROCEDURAL_GUIDANCE", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-010", "HISTORICAL_DOCUMENT_COMPARISON", "PUBLIC_ACCESSIBLE"),
+    ("DOC-ADV-011", "HISTORICAL_DOCUMENT_COMPARISON", "PUBLIC_ACCESSIBLE"),
+]
+
+ADV_MAPPINGS = [
+    {
+        "mapping_id": "MAP-ADV-001",
+        "document_id": "DOC-ADV-002",
+        "policy_id": "EPOS 2067",
+        "rule_id": "RULE-ADV-POS-001",
+        "physical_page_or_section": "pp. 1-11 / Section I-IV",
+        "relationship_type": "SUPPLEMENTS_PROCEDURAL_GUIDANCE",
+        "evidence_description": "Directs high-tech imaging to freestanding ambulatory or non-hospital settings; clinical exception criteria for hospital outpatient radiology.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "None"
+    },
+    {
+        "mapping_id": "MAP-ADV-002",
+        "document_id": "DOC-ADV-002",
+        "policy_id": "EPOS 2067",
+        "rule_id": "RULE-ADV-CG2066-001",
+        "physical_page_or_section": "pp. 2-5 / Section II Clinical Exceptions",
+        "relationship_type": "SUPPLEMENTS_PROCEDURAL_GUIDANCE",
+        "evidence_description": "Documents acute clinical instability, contrast allergy resuscitation requirements, or pediatric anesthesia needs justifying hospital outpatient POS.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "None"
+    },
+    {
+        "mapping_id": "MAP-ADV-003",
+        "document_id": "DOC-ADV-003",
+        "policy_id": "2025 Evolent Advanced Imaging Guidelines",
+        "rule_id": "",
+        "physical_page_or_section": "pp. 1-1074 / Entire Guideline",
+        "relationship_type": "HISTORICAL_COMPARISON_ONLY",
+        "evidence_description": "Historical 2025 guideline retained for longitudinal baseline comparison; quarantined from active rule execution.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "Historical version; cannot be used for 2026 prior authorization"
+    },
+    {
+        "mapping_id": "MAP-ADV-004",
+        "document_id": "DOC-ADV-004",
+        "policy_id": "2026 Evolent Advanced Imaging Guidelines",
+        "rule_id": "RULE-ADV-PREAMBLE-001",
+        "physical_page_or_section": "Page 1 / Required Information Section",
+        "relationship_type": "SUPPORTS_DOCUMENTATION_COLLECTION",
+        "evidence_description": "Comprehensive prior authorization intake checklist capturing member demographics, ordering physician NPI, facility setting, and objective clinical visit notes.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "None"
+    },
+    {
+        "mapping_id": "MAP-ADV-005",
+        "document_id": "DOC-ADV-005",
+        "policy_id": "2026 Evolent Advanced Imaging Guidelines",
+        "rule_id": "RULE-ADV-CG2000-001",
+        "physical_page_or_section": "Page 1 / Clinical Questions",
+        "relationship_type": "SUPPORTS_DOCUMENTATION_COLLECTION",
+        "evidence_description": "Low-dose chest CT screening intake questionnaire capturing 20+ pack-year smoking history, age 50-80, asymptomatic status, and shared decision-making.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "None"
+    },
+    {
+        "mapping_id": "MAP-ADV-006",
+        "document_id": "DOC-ADV-006",
+        "policy_id": "2026 Evolent Advanced Imaging Guidelines",
+        "rule_id": "RULE-ADV-CG2000-001",
+        "physical_page_or_section": "pp. 1-2 / Conservative Treatment History",
+        "relationship_type": "SUPPORTS_DOCUMENTATION_COLLECTION",
+        "evidence_description": "Intake form detailing prior conservative therapy (physical therapy, prescription NSAIDs, muscle relaxants, injections) for spinal and musculoskeletal MRI requests.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "None"
+    },
+    {
+        "mapping_id": "MAP-ADV-007",
+        "document_id": "DOC-ADV-007",
+        "policy_id": "2024 Evolent Imaging Forms",
+        "rule_id": "",
+        "physical_page_or_section": "pp. 1-2 / Historical Form",
+        "relationship_type": "HISTORICAL_COMPARISON_ONLY",
+        "evidence_description": "Superseded 2024 conservative treatment form; superseded by DOC-ADV-006 (Rev. July 2025).",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "Historical document"
+    },
+    {
+        "mapping_id": "MAP-ADV-008",
+        "document_id": "DOC-ADV-008",
+        "policy_id": "2026 Evolent Advanced Imaging Guidelines",
+        "rule_id": "RULE-ADV-CG2000-001",
+        "physical_page_or_section": "pp. 1-2 / Imaging Modality Reference",
+        "relationship_type": "SUPPLEMENTS_PROCEDURAL_GUIDANCE",
+        "evidence_description": "Clinical tip sheet detailing appropriate imaging modality selection between CT, MRI, and Ultrasound for abdominopelvic, vascular, and musculoskeletal complaints.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "None"
+    },
+    {
+        "mapping_id": "MAP-ADV-009",
+        "document_id": "DOC-ADV-009",
+        "policy_id": "2026 Evolent Advanced Imaging Guidelines",
+        "rule_id": "RULE-ADV-CG2000-001",
+        "physical_page_or_section": "pp. 1-2 / Brain CT vs MRI Matrix",
+        "relationship_type": "SUPPLEMENTS_PROCEDURAL_GUIDANCE",
+        "evidence_description": "Neuroimaging decision support matrix comparing diagnostic sensitivity of non-contrast CT vs MRI in headache, seizure, trauma, and acute neurological deficits.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "None"
+    },
+    {
+        "mapping_id": "MAP-ADV-010",
+        "document_id": "DOC-ADV-010",
+        "policy_id": "2024 Evolent Imaging Tip Sheets",
+        "rule_id": "",
+        "physical_page_or_section": "pp. 1-6 / Historical Tip Sheet",
+        "relationship_type": "HISTORICAL_COMPARISON_ONLY",
+        "evidence_description": "Historical 2024 imaging tip sheet superseded by 2025-2026 editions.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "Historical document"
+    },
+    {
+        "mapping_id": "MAP-ADV-011",
+        "document_id": "DOC-ADV-011",
+        "policy_id": "2024 Evolent Pediatric Tip Sheets",
+        "rule_id": "",
+        "physical_page_or_section": "pp. 1-6 / Historical Tip Sheet",
+        "relationship_type": "HISTORICAL_COMPARISON_ONLY",
+        "evidence_description": "Historical 2024 pediatric imaging tip sheet retained for clinical reference.",
+        "verification_status": "VERIFIED_MAPPING",
+        "unresolved_dependencies": "Historical document"
+    }
+]
+
+ADV_FIELDS = [
+    {
+        "field_id": "FIELD-ADV-004-01",
+        "document_id": "DOC-ADV-004",
+        "source_page_or_section": "Page 1 / Member Information",
+        "field_label": "Member Full Name",
+        "field_meaning": "Legal patient identifier for health plan membership verification",
+        "data_type": "string",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "All Advanced Imaging Intake",
+        "linked_policy_or_rule": "RULE-ADV-PREAMBLE-001",
+        "clinical_vs_administrative": "ADMINISTRATIVE_INTAKE",
+        "review_notes": "Required for member matching and benefit verification"
+    },
+    {
+        "field_id": "FIELD-ADV-004-02",
+        "document_id": "DOC-ADV-004",
+        "source_page_or_section": "Page 1 / Member Information",
+        "field_label": "Health Plan ID & Member Number",
+        "field_meaning": "Unique insurance policy number for subscriber and dependent",
+        "data_type": "string",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "All Advanced Imaging Intake",
+        "linked_policy_or_rule": "RULE-ADV-PREAMBLE-001",
+        "clinical_vs_administrative": "ADMINISTRATIVE_INTAKE",
+        "review_notes": "Identifies applicable commercial, Medicaid, or Medicare benefit package"
+    },
+    {
+        "field_id": "FIELD-ADV-004-03",
+        "document_id": "DOC-ADV-004",
+        "source_page_or_section": "Page 1 / Member Information",
+        "field_label": "Date of Birth",
+        "field_meaning": "Patient date of birth to evaluate pediatric vs adult clinical criteria",
+        "data_type": "date",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "All Advanced Imaging Intake",
+        "linked_policy_or_rule": "RULE-ADV-PREAMBLE-001",
+        "clinical_vs_administrative": "ADMINISTRATIVE_INTAKE",
+        "review_notes": "Determines pediatric vs adult imaging pathway"
+    },
+    {
+        "field_id": "FIELD-ADV-004-04",
+        "document_id": "DOC-ADV-004",
+        "source_page_or_section": "Page 1 / Ordering Physician",
+        "field_label": "Ordering Clinician Name & NPI",
+        "field_meaning": "National Provider Identifier and full name of referring practitioner",
+        "data_type": "string",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "All Advanced Imaging Intake",
+        "linked_policy_or_rule": "RULE-ADV-PREAMBLE-001",
+        "clinical_vs_administrative": "ADMINISTRATIVE_INTAKE",
+        "review_notes": "Physician prescription standard requirement"
+    },
+    {
+        "field_id": "FIELD-ADV-004-05",
+        "document_id": "DOC-ADV-004",
+        "source_page_or_section": "Page 1 / Requested Examination",
+        "field_label": "Requested CPT Code(s)",
+        "field_meaning": "Target imaging procedure code (e.g., 70553 Brain MRI, 71271 Chest CT)",
+        "data_type": "string",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "All Advanced Imaging Intake",
+        "linked_policy_or_rule": "RULE-ADV-PREAMBLE-001",
+        "clinical_vs_administrative": "ADMINISTRATIVE_INTAKE",
+        "review_notes": "Primary procedural trigger for policy selection"
+    },
+    {
+        "field_id": "FIELD-ADV-004-06",
+        "document_id": "DOC-ADV-004",
+        "source_page_or_section": "Page 1 / Clinical Information",
+        "field_label": "Primary ICD-10 Diagnosis Code",
+        "field_meaning": "Underlying medical condition, symptom, or diagnostic indication",
+        "data_type": "string",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "All Advanced Imaging Intake",
+        "linked_policy_or_rule": "RULE-ADV-PREAMBLE-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Required clinical diagnostic anchor"
+    },
+    {
+        "field_id": "FIELD-ADV-004-07",
+        "document_id": "DOC-ADV-004",
+        "source_page_or_section": "Page 1 / Facility Information",
+        "field_label": "Servicing Place of Service Setting",
+        "field_meaning": "Requested facility setting (freestanding radiology center vs outpatient hospital)",
+        "data_type": "enum",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "All Advanced Imaging Intake",
+        "linked_policy_or_rule": "RULE-ADV-POS-001",
+        "clinical_vs_administrative": "ADMINISTRATIVE_INTAKE",
+        "review_notes": "Triggers Place of Service Policy EPOS 2067 evaluation"
+    },
+    {
+        "field_id": "FIELD-ADV-004-08",
+        "document_id": "DOC-ADV-004",
+        "source_page_or_section": "Page 1 / Clinical Documentation",
+        "field_label": "Office Visit Clinical Progress Notes",
+        "field_meaning": "Recent face-to-face clinical notes documenting physical exam and history",
+        "data_type": "file_attachment",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "All Advanced Imaging Intake",
+        "linked_policy_or_rule": "RULE-ADV-PREAMBLE-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Mandatory objective clinical evidence; handwritten cover sheets prohibited"
+    },
+    {
+        "field_id": "FIELD-ADV-005-01",
+        "document_id": "DOC-ADV-005",
+        "source_page_or_section": "Page 1 / Procedure Scope",
+        "field_label": "Requested Procedure Code 71271 (LDCT Chest)",
+        "field_meaning": "Affirmation that request is for screening low-dose chest computed tomography",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Low-Dose Chest CT Screening",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Specific screening CPT code confirmation"
+    },
+    {
+        "field_id": "FIELD-ADV-005-02",
+        "document_id": "DOC-ADV-005",
+        "source_page_or_section": "Page 1 / Screening Interval",
+        "field_label": "Prior Chest CT Within Last 12 Months",
+        "field_meaning": "Verification that patient has not had a diagnostic or screening chest CT in past year",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Low-Dose Chest CT Screening",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Annual frequency limit check; prior exam must be absent unless interval expired"
+    },
+    {
+        "field_id": "FIELD-ADV-005-03",
+        "document_id": "DOC-ADV-005",
+        "source_page_or_section": "Page 1 / Age Eligibility",
+        "field_label": "Patient Age Between 50 and 80 Years (50-77 for Medicare)",
+        "field_meaning": "Patient falls within USPSTF / CMS eligible lung cancer screening age brackets",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Low-Dose Chest CT Screening",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Numerical age qualification threshold"
+    },
+    {
+        "field_id": "FIELD-ADV-005-04",
+        "document_id": "DOC-ADV-005",
+        "source_page_or_section": "Page 1 / Symptom Status",
+        "field_label": "Patient Asymptomatic of Lung Cancer",
+        "field_meaning": "Patient has no hemoptysis, unexplained weight loss, or suspicious acute chest signs",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Low-Dose Chest CT Screening",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Distinguishes asymptomatic screening from diagnostic CT chest"
+    },
+    {
+        "field_id": "FIELD-ADV-005-05",
+        "document_id": "DOC-ADV-005",
+        "source_page_or_section": "Page 1 / Smoking Exposure",
+        "field_label": "20+ Pack-Year Smoking History",
+        "field_meaning": "Cumulative cigarette smoking exposure equals or exceeds 20 pack-years",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Low-Dose Chest CT Screening",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Objective cumulative exposure threshold"
+    },
+    {
+        "field_id": "FIELD-ADV-005-06",
+        "document_id": "DOC-ADV-005",
+        "source_page_or_section": "Page 1 / Smoking Cessation Interval",
+        "field_label": "Current Smoker or Quit Within Past 15 Years",
+        "field_meaning": "Active smoking or cessation interval less than 15 years prior to exam date",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Low-Dose Chest CT Screening",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "15-year cessation cutoff standard"
+    },
+    {
+        "field_id": "FIELD-ADV-005-07",
+        "document_id": "DOC-ADV-005",
+        "source_page_or_section": "Page 1 / Shared Decision Making",
+        "field_label": "Shared Decision-Making Counseling Documented",
+        "field_meaning": "Documentation of face-to-face counseling regarding screening benefits and harms",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Low-Dose Chest CT Screening",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Mandatory counseling prerequisite"
+    },
+    {
+        "field_id": "FIELD-ADV-006-01",
+        "document_id": "DOC-ADV-006",
+        "source_page_or_section": "Page 1 / Symptom Chronicity",
+        "field_label": "Symptom Duration >= 6 Months",
+        "field_meaning": "Duration of chronic pain or functional impairment equals or exceeds 6 months",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Spine & Extremity MRI/CT",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Evaluates acute vs chronic conservative trial requirements"
+    },
+    {
+        "field_id": "FIELD-ADV-006-02",
+        "document_id": "DOC-ADV-006",
+        "source_page_or_section": "Page 1 / Physical Therapy",
+        "field_label": "Physical Therapy Trial in Past 6 Months",
+        "field_meaning": "Completion of formal physical therapy program within preceding 6 months",
+        "data_type": "boolean",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Spine & Extremity MRI/CT",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Active conservative trial verification"
+    },
+    {
+        "field_id": "FIELD-ADV-006-03",
+        "document_id": "DOC-ADV-006",
+        "source_page_or_section": "Page 1 / Physical Therapy Dates",
+        "field_label": "Physical Therapy Start and End Dates",
+        "field_meaning": "Calendar dates establishing duration of physical therapy rehabilitation",
+        "data_type": "date",
+        "requirement_level": "CONDITIONAL",
+        "clinical_scope": "Spine & Extremity MRI/CT",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Verifies 6-week conservative trial duration requirement"
+    },
+    {
+        "field_id": "FIELD-ADV-006-04",
+        "document_id": "DOC-ADV-006",
+        "source_page_or_section": "Page 1 / Medication Trial",
+        "field_label": "Prescription NSAID Trial Details",
+        "field_meaning": "Name, dosage, and duration of prescription anti-inflammatory medication trial",
+        "data_type": "string",
+        "requirement_level": "CONDITIONAL",
+        "clinical_scope": "Spine & Extremity MRI/CT",
+        "linked_policy_or_rule": "RULE-ADV-CG2000-001",
+        "clinical_vs_administrative": "CLINICAL_EVIDENCE",
+        "review_notes": "Pharmacologic conservative trial evidence"
+    },
+    {
+        "field_id": "FIELD-ADV-006-05",
+        "document_id": "DOC-ADV-006",
+        "source_page_or_section": "Page 2 / Attestation",
+        "field_label": "Ordering Clinician Attestation Signature",
+        "field_meaning": "Signature of licensed physician confirming truthfulness of treatment history",
+        "data_type": "string",
+        "requirement_level": "REQUIRED",
+        "clinical_scope": "Spine & Extremity MRI/CT",
+        "linked_policy_or_rule": "RULE-ADV-PREAMBLE-001",
+        "clinical_vs_administrative": "ADMINISTRATIVE_INTAKE",
+        "review_notes": "Legal clinical attestation"
+    }
+]
+
+ADV_UNMAPPED = [
+    {
+        "document_id": "DOC-ADV-003",
+        "domain": "advanced_imaging",
+        "document_title": "2025 Evolent Advanced Imaging Guidelines",
+        "document_type": "governing_policy",
+        "version_status": "historical",
+        "disposition_status": "HISTORICAL_QUARANTINE",
+        "unmapped_reason": "Historical 2025 guideline retained for longitudinal audit comparison only. Active authorizations governed by 2026 v2 guideline.",
+        "evidentiary_limitation": "Superseded by 2026 v2 edition; cannot be linked to active decision rules.",
+        "human_review_required": False
+    },
+    {
+        "document_id": "DOC-ADV-007",
+        "domain": "advanced_imaging",
+        "document_title": "Conservative Treatment History Form: Imaging Evolent 01112024",
+        "document_type": "form",
+        "version_status": "historical",
+        "disposition_status": "HISTORICAL_QUARANTINE",
+        "unmapped_reason": "Historical 2024 intake form superseded by Rev. July 2025 form (DOC-ADV-006).",
+        "evidentiary_limitation": "Superseded intake format; preserved for historical audit only.",
+        "human_review_required": False
+    },
+    {
+        "document_id": "DOC-ADV-010",
+        "domain": "advanced_imaging",
+        "document_title": "Evolent Tip Sheet Advanced Imaging 2.16.24",
+        "document_type": "tip_sheet",
+        "version_status": "historical",
+        "disposition_status": "HISTORICAL_QUARANTINE",
+        "unmapped_reason": "Historical tip sheet from February 2024 superseded by July 2025 tip sheet (DOC-ADV-008).",
+        "evidentiary_limitation": "Superseded clinical reference.",
+        "human_review_required": False
+    },
+    {
+        "document_id": "DOC-ADV-011",
+        "domain": "advanced_imaging",
+        "document_title": "Evolent Tip Sheet Pediatric Imaging 2.16.24",
+        "document_type": "tip_sheet",
+        "version_status": "historical",
+        "disposition_status": "HISTORICAL_QUARANTINE",
+        "unmapped_reason": "Historical pediatric tip sheet retained for clinical reference; not an autonomous governing rule.",
+        "evidentiary_limitation": "Advisory reference only; pediatric criteria governed by 2026 guidelines.",
+        "human_review_required": False
+    },
+    {
+        "document_id": "DOC-ADV-MISSING-001",
+        "domain": "advanced_imaging",
+        "document_title": "State-Specific Medicaid Prior Authorization CPT Crosswalks",
+        "document_category": "State regulatory policy",
+        "document_type": "other_supporting_document",
+        "version_status": "current_2026_verified",
+        "disposition_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
+        "unmapped_reason": "Proprietary fee schedule and crosswalk grid available only via secure state Medicaid plan portals.",
+        "evidentiary_limitation": "Requires state-specific provider credentials to determine prior authorization threshold exceptions.",
+        "human_review_required": True
+    }
+]
+
+print("Advanced imaging data structures compiled successfully.")

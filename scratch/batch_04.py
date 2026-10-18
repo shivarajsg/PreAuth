@@ -1,0 +1,453 @@
+"""Batch 04 Extraction: CG 2022 through CG 2031 (Specialized, Virtual Colonoscopy, Lung Screening, Fetal, fMRI, Low Field)."""
+import json
+from pathlib import Path
+import jsonschema
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+RULES_DIR = BASE_DIR / "rulebook_collection" / "domains" / "advanced_imaging" / "rules"
+CHECKPOINTS_DIR = RULES_DIR / "checkpoints"
+GOV_PDF = "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf"
+GOV_URL = "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf"
+
+batch_04_rules = [
+    # CG 2022 - CT Colonoscopy - Diagnostic
+    {
+        "rule_id": "RULE-ADV-CG2022-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 436,
+            "printed_page": "Page 2 of 7"
+        },
+        "source_section": "INDICATIONS (1,2)",
+        "source_quote": "Patient had failed or incomplete colonoscopy",
+        "clinical_service_or_procedure": "CT Colonography (Virtual Colonoscopy) - Diagnostic",
+        "rule_type": "clinical_prerequisite",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Diagnostic evaluation of the colon required",
+                    "parameter": "diagnostic_colonic_evaluation_needed",
+                    "comparator": "EQUALS",
+                    "value": True
+                },
+                {
+                    "condition_id": "COND-002",
+                    "description": "Patient had a prior failed or technically incomplete conventional optical colonoscopy",
+                    "parameter": "failed_or_incomplete_colonoscopy",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Endoscopy report documenting failure or technical inability to reach the cecum during optical colonoscopy"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 74261",
+            "CPT 74262"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Diagnostic virtual colonoscopy indicated following failed conventional optical endoscopy."
+    },
+
+    # CG 2023 - CT Colonoscopy - Screening
+    {
+        "rule_id": "RULE-ADV-CG2023-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 444,
+            "printed_page": "Page 3 of 8"
+        },
+        "source_section": "INDICATIONS (1–4) / Patients at Increased Risk",
+        "source_quote": "As an alternative to colonoscopy in individuals at increased risk for colorectal cancer AND a contraindication to colonoscopy has been provided:",
+        "clinical_service_or_procedure": "CT Colonography (Virtual Colonoscopy) - Screening",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Colorectal cancer screening requested in patient at increased risk",
+                    "parameter": "increased_crc_risk",
+                    "comparator": "EQUALS",
+                    "value": True
+                },
+                {
+                    "condition_id": "COND-002",
+                    "description": "Clinical documentation of medical contraindication to optical colonoscopy (e.g. bleeding disorder, severe cardiopulmonary disease, obstructing lesion)",
+                    "parameter": "optical_colonoscopy_contraindicated",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Gastroenterology or surgical documentation specifying the medical contraindication to optical colonoscopy"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 74263"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Screening virtual colonoscopy in high risk patients requiring explicit contraindication to standard optical colonoscopy."
+    },
+
+    # CG 2024 - CT Bone Density Study
+    {
+        "rule_id": "RULE-ADV-CG2024-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 451,
+            "printed_page": "Page 2 of 11"
+        },
+        "source_section": "INDICATIONS FOR CT BONE DENSITY STUDY / Screening for Asymptomatic Low Bone Mineral Density",
+        "source_quote": "Screening for Asymptomatic Low Bone Mineral Density",
+        "clinical_service_or_procedure": "Quantitative Computed Tomography (QCT) Bone Density Study",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Screening or diagnostic assessment of low bone mineral density (osteopenia or osteoporosis)",
+                    "parameter": "suspected_low_bone_mineral_density",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Clinical notes detailing fracture risk factors, postmenopausal status, or reason QCT is requested over standard DXA"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 77078"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "QCT bone density indication for spinal or peripheral bone mineral evaluation."
+    },
+
+    # CG 2026 - Needle Guidance
+    {
+        "rule_id": "RULE-ADV-CG2026-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 462,
+            "printed_page": "Page 2 of 4"
+        },
+        "source_section": "STATEMENT / Purpose",
+        "source_quote": "Requests for these services should always be approved. This organization does not review these for medical necessity.",
+        "clinical_service_or_procedure": "CT or MRI Guidance for Needle Placement",
+        "rule_type": "administrative_prerequisite",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Requested procedure code represents CT or MRI guidance component of an interventional needle placement",
+                    "parameter": "imaging_guidance_component",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Procedural order specifying primary interventional procedure (biopsy, drainage, localization)"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "CANNOT_DETERMINE",
+        "dependencies": [
+            "CPT 77012",
+            "CPT 77021"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Administrative policy rule: imaging guidance codes are exempt from medical necessity utilization review and are always approvable."
+    },
+
+    # CG 2027 - Fetal MRI
+    {
+        "rule_id": "RULE-ADV-CG2027-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 466,
+            "printed_page": "Page 2 of 7"
+        },
+        "source_section": "INDICATIONS FOR FETAL MRI",
+        "source_quote": "Fetal surgery is planned",
+        "clinical_service_or_procedure": "Fetal MRI",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "In-utero fetal surgery or fetal intervention is actively planned",
+                    "parameter": "planned_fetal_surgery",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Maternal-fetal medicine (MFM) or pediatric surgery consultation notes outlining planned in-utero surgical procedure"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 74712",
+            "CPT 74713"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Preoperative planning indication for in-utero fetal surgical intervention."
+    },
+
+    # CG 2028 - Functional MRI Brain
+    {
+        "rule_id": "RULE-ADV-CG2028-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 474,
+            "printed_page": "Page 3 of 11"
+        },
+        "source_section": "INDICATIONS FOR FUNCTIONAL BRAIN MRI (1,2)",
+        "source_quote": "INDICATIONS FOR FUNCTIONAL BRAIN MRI (1,2)",
+        "clinical_service_or_procedure": "Functional Brain MRI (fMRI)",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Pre-surgical planning for resective brain surgery (brain tumor, vascular malformation, or refractory epilepsy focus)",
+                    "parameter": "presurgical_eloquent_mapping_needed",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Neurosurgical evaluation confirming planned brain resection adjacent to eloquent motor, sensory, or language cortex"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 70554",
+            "CPT 70555"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Pre-operative functional brain mapping of eloquent cortex prior to craniotomy."
+    },
+
+    # CG 2029 - Follow Up Limited or Localized CT
+    {
+        "rule_id": "RULE-ADV-CG2029-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 484,
+            "printed_page": "Page 2 of 6"
+        },
+        "source_section": "INDICATIONS",
+        "source_quote": "Re-evaluation of nephrolithiasis",
+        "clinical_service_or_procedure": "Follow-Up Limited / Localized CT",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Follow-up re-evaluation of known urinary tract calculi or nephrolithiasis",
+                    "parameter": "nephrolithiasis_reevaluation",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Prior imaging report demonstrating renal/ureteral calculus and clinical rationale for low-dose limited follow-up scan"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 76380"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Limited scan field radiation-reduction protocol for stone tracking."
+    },
+
+    # CG 2030 - Low Dose CT Lung Cancer Screening
+    {
+        "rule_id": "RULE-ADV-CG2030-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 490,
+            "printed_page": "Page 2 of 8"
+        },
+        "source_section": "INDICATIONS / For Annual Screening / Group 1 - High Risk for Lung Cancer (3,4)",
+        "source_quote": "Group 1 - High Risk for Lung Cancer (3,4)",
+        "clinical_service_or_procedure": "Low Dose CT (LDCT) for Lung Cancer Screening",
+        "rule_type": "clinical_indication",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Patient age is between 50 and 80 years old",
+                    "parameter": "patient_age_years",
+                    "comparator": "BETWEEN",
+                    "value": [50, 80],
+                    "unit": "years"
+                },
+                {
+                    "condition_id": "COND-002",
+                    "description": "Documented smoking history of at least 20 pack-years",
+                    "parameter": "smoking_history_pack_years",
+                    "comparator": "GREATER_THAN_OR_EQUAL",
+                    "value": 20,
+                    "unit": "pack_years"
+                },
+                {
+                    "condition_id": "COND-003",
+                    "description": "Patient is currently smoking or has quit smoking within the past 15 years",
+                    "parameter": "current_or_recent_smoker_15yr",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Shared decision-making visit notes documenting pack-years, smoking cessation counseling, and absence of lung cancer signs"
+        ],
+        "decision_effect": "INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [
+            "CPT 71271"
+        ],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "USPSTF and CMS aligned annual LDCT lung cancer screening criteria."
+    },
+
+    # CG 2031 - Low Field MRI
+    {
+        "rule_id": "RULE-ADV-CG2031-001",
+        "domain": "advanced_imaging",
+        "document_type": "governing_policy",
+        "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+        "policy_version": "2026 v2",
+        "version_status": "current_2026_verified",
+        "source_file": GOV_PDF,
+        "source_url": GOV_URL,
+        "source_page": {
+            "physical_page": 498,
+            "printed_page": "Page 2 of 4"
+        },
+        "source_section": "STATEMENT",
+        "source_quote": "Low Field MRI services are not considered to be medically necessary.",
+        "clinical_service_or_procedure": "Low Field MRI",
+        "rule_type": "exclusion_criterion",
+        "conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+                {
+                    "condition_id": "COND-001",
+                    "description": "Imaging requested utilizes low-field strength magnetic resonance scanner",
+                    "parameter": "requested_low_field_mri",
+                    "comparator": "EQUALS",
+                    "value": True
+                }
+            ]
+        },
+        "required_documentation": [
+            "Ordering documentation verifying field strength of requested scanner"
+        ],
+        "exclusion_conditions": [
+            "Low-field MRI (< 1.0 Tesla) services are non-covered as not medically necessary"
+        ],
+        "decision_effect": "NOT_INDICATED",
+        "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+        "dependencies": [],
+        "human_review_required": False,
+        "extraction_status": "DRAFT",
+        "review_notes": "Universal categorical non-coverage exclusion for low field strength MRI."
+    }
+]
+
+def main():
+    schema_path = RULES_DIR / "schema.json"
+    checkpoint_path = CHECKPOINTS_DIR / "batch_04_rules.json"
+
+    with open(schema_path, "r", encoding="utf-8") as f:
+        schema = json.load(f)
+
+    for i, r in enumerate(batch_04_rules, 1):
+        jsonschema.validate(instance=r, schema=schema)
+        print(f"Batch 4 Rule {i} ({r['rule_id']}): Schema VALID")
+
+    with open(checkpoint_path, "w", encoding="utf-8") as f:
+        json.dump(batch_04_rules, f, indent=2)
+
+    print(f"\nSuccessfully validated and saved {len(batch_04_rules)} rules to {checkpoint_path}")
+
+if __name__ == "__main__":
+    main()

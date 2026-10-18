@@ -1,0 +1,605 @@
+[
+  {
+    "guideline_id": "PREAMBLE",
+    "title": "Guidelines for Clinical Review Determination Preamble and Development Process",
+    "pages": "pp. 2-3",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-PREAMBLE-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2000",
+    "title": "Evolent Clinical Guideline 2000",
+    "pages": "pp. 6-34 (29 pgs)",
+    "rules_count": 13,
+    "rule_ids": [
+      "RULE-ADV-CG2000-001",
+      "RULE-ADV-CG2000-002",
+      "RULE-ADV-CG2000-003",
+      "RULE-ADV-CG2000-004",
+      "RULE-ADV-CG2000-005",
+      "RULE-ADV-CG2000-006",
+      "RULE-ADV-CG2000-007",
+      "RULE-ADV-CG2000-008",
+      "RULE-ADV-CG2000-009",
+      "RULE-ADV-CG2000-010",
+      "RULE-ADV-CG2000-011",
+      "RULE-ADV-CG2000-012",
+      "RULE-ADV-CG2000-013"
+    ]
+  },
+  {
+    "guideline_id": "CG-2001",
+    "title": "Evolent Clinical Guideline 2001",
+    "pages": "pp. 35-57 (23 pgs)",
+    "rules_count": 5,
+    "rule_ids": [
+      "RULE-ADV-CG2001-001",
+      "RULE-ADV-CG2001-002",
+      "RULE-ADV-CG2001-003",
+      "RULE-ADV-CG2001-004",
+      "RULE-ADV-CG2001-005"
+    ]
+  },
+  {
+    "guideline_id": "CG-2002",
+    "title": "Evolent Clinical Guideline 2002",
+    "pages": "pp. 58-69 (12 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2002-001",
+      "RULE-ADV-CG2002-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2003",
+    "title": "Evolent Clinical Guideline 2003",
+    "pages": "pp. 70-87 (18 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2003-001",
+      "RULE-ADV-CG2003-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2004",
+    "title": "Evolent Clinical Guideline 2004",
+    "pages": "pp. 88-113 (26 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2004-001",
+      "RULE-ADV-CG2004-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2005",
+    "title": "Evolent Clinical Guideline 2005",
+    "pages": "pp. 114-128 (15 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2005-001",
+      "RULE-ADV-CG2005-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2006",
+    "title": "Evolent Clinical Guideline 2006",
+    "pages": "pp. 129-138 (10 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2006-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2007",
+    "title": "Evolent Clinical Guideline 2007",
+    "pages": "pp. 139-145 (7 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2007-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2008",
+    "title": "Evolent Clinical Guideline 2008",
+    "pages": "pp. 146-171 (26 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2008-001",
+      "RULE-ADV-CG2008-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2009",
+    "title": "Evolent Clinical Guideline 2009",
+    "pages": "pp. 172-191 (20 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2009-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2010",
+    "title": "Evolent Clinical Guideline 2010",
+    "pages": "pp. 192-199 (8 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2010-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2011",
+    "title": "Evolent Clinical Guideline 2011",
+    "pages": "pp. 200-219 (20 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2011-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2012",
+    "title": "Evolent Clinical Guideline 2012",
+    "pages": "pp. 220-269 (50 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2012-001",
+      "RULE-ADV-CG2012-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2013",
+    "title": "Evolent Clinical Guideline 2013",
+    "pages": "pp. 270-279 (10 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2013-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2014",
+    "title": "Evolent Clinical Guideline 2014",
+    "pages": "pp. 280-294 (15 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2014-001",
+      "RULE-ADV-CG2014-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2015",
+    "title": "Evolent Clinical Guideline 2015",
+    "pages": "pp. 295-303 (9 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2015-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2016",
+    "title": "Evolent Clinical Guideline 2016",
+    "pages": "pp. 304-326 (23 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2016-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2017",
+    "title": "Evolent Clinical Guideline 2017",
+    "pages": "pp. 327-352 (26 pgs)",
+    "rules_count": 3,
+    "rule_ids": [
+      "RULE-ADV-CG2017-001",
+      "RULE-ADV-CG2017-002",
+      "RULE-ADV-CG2017-003"
+    ]
+  },
+  {
+    "guideline_id": "CG-2018",
+    "title": "Evolent Clinical Guideline 2018",
+    "pages": "pp. 353-382 (30 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2018-001",
+      "RULE-ADV-CG2018-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2019",
+    "title": "Evolent Clinical Guideline 2019",
+    "pages": "pp. 383-396 (14 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2019-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2020",
+    "title": "Evolent Clinical Guideline 2020",
+    "pages": "pp. 397-415 (19 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2020-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2021",
+    "title": "Evolent Clinical Guideline 2021",
+    "pages": "pp. 416-434 (19 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2021-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2022",
+    "title": "Evolent Clinical Guideline 2022",
+    "pages": "pp. 435-441 (7 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2022-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2023",
+    "title": "Evolent Clinical Guideline 2023",
+    "pages": "pp. 442-449 (8 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2023-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2024",
+    "title": "Evolent Clinical Guideline 2024",
+    "pages": "pp. 450-460 (11 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2024-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2026",
+    "title": "Evolent Clinical Guideline 2026",
+    "pages": "pp. 461-464 (4 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2026-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2027",
+    "title": "Evolent Clinical Guideline 2027",
+    "pages": "pp. 465-471 (7 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2027-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2028",
+    "title": "Evolent Clinical Guideline 2028",
+    "pages": "pp. 472-482 (11 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2028-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2029",
+    "title": "Evolent Clinical Guideline 2029",
+    "pages": "pp. 483-488 (6 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2029-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2030",
+    "title": "Evolent Clinical Guideline 2030",
+    "pages": "pp. 489-496 (8 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2030-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2031",
+    "title": "Evolent Clinical Guideline 2031",
+    "pages": "pp. 497-500 (4 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2031-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2032",
+    "title": "Evolent Clinical Guideline 2032",
+    "pages": "pp. 501-523 (23 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2032-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2033",
+    "title": "Evolent Clinical Guideline 2033",
+    "pages": "pp. 524-536 (13 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2033-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2034",
+    "title": "Evolent Clinical Guideline 2034",
+    "pages": "pp. 537-549 (13 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2034-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2035",
+    "title": "Evolent Clinical Guideline 2035",
+    "pages": "pp. 550-571 (22 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2035-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2036",
+    "title": "Evolent Clinical Guideline 2036",
+    "pages": "pp. 572-591 (20 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2036-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2037",
+    "title": "Evolent Clinical Guideline 2037",
+    "pages": "pp. 592-613 (22 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2037-001",
+      "RULE-ADV-CG2037-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2038",
+    "title": "Evolent Clinical Guideline 2038",
+    "pages": "pp. 614-621 (8 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2038-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2039",
+    "title": "Evolent Clinical Guideline 2039",
+    "pages": "pp. 622-637 (16 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2039-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2040",
+    "title": "Evolent Clinical Guideline 2040",
+    "pages": "pp. 638-653 (16 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2040-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2041",
+    "title": "Evolent Clinical Guideline 2041",
+    "pages": "pp. 654-669 (16 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2041-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2042",
+    "title": "Evolent Clinical Guideline 2042",
+    "pages": "pp. 670-685 (16 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2042-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2043",
+    "title": "Evolent Clinical Guideline 2043",
+    "pages": "pp. 686-697 (12 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2043-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2044",
+    "title": "Evolent Clinical Guideline 2044",
+    "pages": "pp. 698-714 (17 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2044-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2045",
+    "title": "Evolent Clinical Guideline 2045",
+    "pages": "pp. 715-736 (22 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2045-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2046",
+    "title": "Evolent Clinical Guideline 2046",
+    "pages": "pp. 737-807 (71 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2046-001",
+      "RULE-ADV-CG2046-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2047",
+    "title": "Evolent Clinical Guideline 2047",
+    "pages": "pp. 808-825 (18 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2047-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2048",
+    "title": "Evolent Clinical Guideline 2048",
+    "pages": "pp. 826-851 (26 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2048-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2052",
+    "title": "Evolent Clinical Guideline 2052",
+    "pages": "pp. 852-869 (18 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2052-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2053",
+    "title": "Evolent Clinical Guideline 2053",
+    "pages": "pp. 870-877 (8 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2053-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2054",
+    "title": "Evolent Clinical Guideline 2054",
+    "pages": "pp. 878-894 (17 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2054-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2055",
+    "title": "Evolent Clinical Guideline 2055",
+    "pages": "pp. 895-902 (8 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2055-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2056",
+    "title": "Evolent Clinical Guideline 2056",
+    "pages": "pp. 903-922 (20 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2056-001",
+      "RULE-ADV-CG2056-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2057",
+    "title": "Evolent Clinical Guideline 2057",
+    "pages": "pp. 923-945 (23 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2057-001",
+      "RULE-ADV-CG2057-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2058",
+    "title": "Evolent Clinical Guideline 2058",
+    "pages": "pp. 946-952 (7 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2058-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2061",
+    "title": "Evolent Clinical Guideline 2061",
+    "pages": "pp. 953-962 (10 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2061-001",
+      "RULE-ADV-CG2061-002"
+    ]
+  },
+  {
+    "guideline_id": "CG-2062",
+    "title": "Evolent Clinical Guideline 2062",
+    "pages": "pp. 963-986 (24 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2062-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2063",
+    "title": "Evolent Clinical Guideline 2063",
+    "pages": "pp. 987-998 (12 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2063-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2064",
+    "title": "Evolent Clinical Guideline 2064",
+    "pages": "pp. 999-1011 (13 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2064-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2065",
+    "title": "Evolent Clinical Guideline 2065",
+    "pages": "pp. 1012-1034 (23 pgs)",
+    "rules_count": 1,
+    "rule_ids": [
+      "RULE-ADV-CG2065-001"
+    ]
+  },
+  {
+    "guideline_id": "CG-2066",
+    "title": "Evolent Clinical Guideline 2066",
+    "pages": "pp. 1035-1041 (7 pgs)",
+    "rules_count": 2,
+    "rule_ids": [
+      "RULE-ADV-CG2066-001",
+      "RULE-ADV-CG2066-002"
+    ]
+  },
+  {
+    "guideline_id": "EPOS-2067",
+    "title": "Evolent Place of Service Policy 2067 for Radiology",
+    "pages": "pp. 1-11 (11 pgs)",
+    "rules_count": 5,
+    "rule_ids": [
+      "RULE-ADV-EPOS2067-001",
+      "RULE-ADV-EPOS2067-002",
+      "RULE-ADV-EPOS2067-003",
+      "RULE-ADV-EPOS2067-004",
+      "RULE-ADV-EPOS2067-005"
+    ]
+  }
+]
