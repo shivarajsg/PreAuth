@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+
+{% block title %}Phase 3D Pilot Adjudication Dashboard{% endblock %}
+
+{% block content %}
+<div class="pilot-dashboard">
+    <div class="page-header">
+        <div class="header-titles">
+            <h1>Clinical Pilot Case Adjudication &amp; Policy Reconciliation</h1>
+            <p class="subtitle">Phase 3D Controlled Evaluation: Comparing Deterministic Decision Engine Assessments with Documented Human SME Adjudications</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-primary" onclick="runPilotEvaluation(this)">
+                <span class="btn-icon">&#x21bb;</span> Re-Run Pilot Suite
+            </button>
+        </div>
+    </div>
+
+    <!-- Summary Metrics Cards -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <span class="metric-label">Cases Evaluated</span>
+            <span class="metric-value">{{ total_cases }}</span>
+            <span class="metric-subtext">Across 9 Clinical Domains</span>
+        </div>
+        <div class="metric-card metric-success">
+            <span class="metric-label">Engine Pass Rate</span>
+            <span class="metric-value">{{ pass_rate }}%</span>
+            <span class="metric-subtext">{{ passed_cases }} of {{ total_cases }} matched expected</span>
+        </div>
+        <div class="metric-card metric-info">
+            <span class="metric-label">Human SME Agreement</span>
+            <span class="metric-value">{{ agreement_rate }}%</span>
+            <span class="metric-subtext">{{ agree_cases }} concordant decisions</span>
+        </div>
+        <div class="metric-card metric-warning">
+            <span class="metric-label">Tracked Discrepancies</span>
+            <span class="metric-value">{{ discrepancy_count }}</span>
+            <span class="metric-subtext">Controlled policy boundaries</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">SHA-256 Repeatability</span>
+            <span class="metric-value status-badge badge-active" style="font-size: 1rem; padding: 4px 8px;">VERIFIED</span>
+            <span class="metric-subtext">Cryptographic audit proof</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Governance Mode</span>
+            <span class="metric-value status-badge badge-draft" style="font-size: 1rem; padding: 4px 8px;">NON-BINDING</span>
+            <span class="metric-subtext">0 approved rules enforced</span>
+        </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-card">
+        <form method="GET" action="{{ url_for('pilot_dashboard') }}" class="filter-form">
+            <input type="hidden" name="as_user" value="{{ current_user.user_id }}">
+            <div class="form-group">
+                <label for="domain">Clinical Domain:</label>
+                <select name="domain" id="domain" onchange="this.form.submit()">
+                    <option value="">All 9 Domains</option>
+                    {% for d in domains %}
+                    <option value="{{ d }}" {% if selected_domain == d %}selected{% endif %}>
+                        {{ d.replace('_', ' ').title() }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comparison">Comparison Status:</label>
+                <select name="comparison" id="comparison" onchange="this.form.submit()">
+                    <option value="">All Comparison Outcomes</option>
+                    <option value="AGREEMENT" {% if comparison_filter == 'AGREEMENT' %}selected{% endif %}>Concordant Agreement</option>
+                    <option value="SOURCE_INTERPRETATION_DISAGREEMENT" {% if comparison_filter == 'SOURCE_INTERPRETATION_DISAGREEMENT' %}selected{% endif %}>Source Interpretation Disagreement</option>
+                    <option value="POLICY_SELECTION_DISAGREEMENT" {% if comparison_filter == 'POLICY_SELECTION_DISAGREEMENT' %}selected{% endif %}>Policy Selection Disagreement</option>
+                    <option value="REQUIRES_PAYER_CONFIGURATION_REVIEW" {% if comparison_filter == 'REQUIRES_PAYER_CONFIGURATION_REVIEW' %}selected{% endif %}>Requires Payer Config Review</option>
+                </select>
+            </div>
+            {% if selected_domain or comparison_filter %}
+            <div class="form-group align-end">
+                <a href="{{ url_for('pilot_dashboard', as_user=current_user.user_id) }}" class="btn btn-secondary">Clear Filters</a>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+
+    <!-- Pilot Evaluations Table -->
+    <div class="table-card">
+        <div class="card-header">
+            <h2>Pilot Cases: Deterministic Engine vs Human SME Adjudication ({{ evaluations|length }})</h2>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Case ID</th>
+                        <th>Domain</th>
+                        <th>Procedure</th>
+                        <th>LOB</th>
+                        <th>DOS</th>
+                        <th>Engine Assessment</th>
+                        <th>Human Adjudication</th>
+                        <th>Comparison</th>
+                        <th>Discrepancy</th>
+                        <th>SHA-256 Audit Hash</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ev in evaluations %}
+                    <tr>
+                        <td>
+                            <a href="{{ url_for('pilot_case_detail', case_id=ev.case_id, as_user=current_user.user_id) }}" class="rule-link">
+                                <strong>{{ ev.case_id }}</strong>
+                            </a>
+                        </td>
+                        <td>
+                            <span class="badge badge-domain">{{ ev.clinical_domain.replace('_', ' ') }}</span>
+                        </td>
+                        <td>
+                            <code>{{ ev.procedure_code }}</code>
+                            <div class="small-text">{{ ev.procedure_name[:35] }}{% if ev.procedure_name|length > 35 %}...{% endif %}</div>
+                        </td>
+                        <td><span class="badge badge-lob">{{ ev.line_of_business }}</span></td>
+                        <td>{{ ev.requested_date_of_service }}</td>
+                        <td>
+                            <span class="status-badge badge-{{ ev.engine_status.lower() }}">
+                                {{ ev.engine_status }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="status-badge badge-{{ (ev.human_adjudication_decision or 'unrecorded').lower() }}">
+                                {{ ev.human_adjudication_decision or 'UNRECORDED' }}
+                            </span>
+                        </td>
+                        <td>
+                            {% if ev.human_comparison_status == 'AGREEMENT' %}
+                            <span class="status-badge badge-active">&#x2713; Agreement</span>
+                            {% elif ev.human_comparison_status == 'SOURCE_INTERPRETATION_DISAGREEMENT' %}
+                            <span class="status-badge badge-conflict">&#x26A0; Interpretation</span>
+                            {% elif ev.human_comparison_status == 'POLICY_SELECTION_DISAGREEMENT' %}
+                            <span class="status-badge badge-conflict">&#x26A0; Selection</span>
+                            {% else %}
+                            <span class="status-badge badge-in-review">&#x2139; Payer Review</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if ev.discrepancy_id and ev.discrepancy_id != 'None' %}
+                            <span class="badge badge-discrepancy">{{ ev.discrepancy_id }}</span>
+                            {% else %}
+                            <span class="text-muted">—</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <code class="hash-snippet" title="{{ ev.reproducibility_hash_sha256 }}">{{ ev.reproducibility_hash_sha256[:10] }}...</code>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('pilot_case_detail', case_id=ev.case_id, as_user=current_user.user_id) }}" class="btn btn-sm btn-outline">
+                                Inspect
+                            </a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="11" class="text-center empty-state">
+                            No pilot cases match the current filter selection.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tracked Discrepancies Section -->
+    <div class="table-card" style="margin-top: 2rem;">
+        <div class="card-header">
+            <h2>Tracked Discrepancies &amp; Proposed Remediations ({{ discrepancies|length }})</h2>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Case ID</th>
+                        <th>Domain</th>
+                        <th>Category</th>
+                        <th>Root Cause Analysis</th>
+                        <th>Remediation Proposal</th>
+                        <th>Reviewer</th>
+                        <th>Remediation Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in discrepancies %}
+                    <tr>
+                        <td><strong>{{ d.discrepancy_id }}</strong></td>
+                        <td>
+                            <a href="{{ url_for('pilot_case_detail', case_id=d.case_id, as_user=current_user.user_id) }}" class="rule-link">
+                                {{ d.case_id }}
+                            </a>
+                        </td>
+                        <td><span class="badge badge-domain">{{ d.clinical_domain.replace('_', ' ') }}</span></td>
+                        <td><span class="badge badge-category">{{ d.discrepancy_category.replace('_', ' ') }}</span></td>
+                        <td class="small-text">{{ d.root_cause_analysis }}</td>
+                        <td class="small-text">{{ d.remediation_proposal }}</td>
+                        <td><em>{{ d.assigned_reviewer }}</em></td>
+                        <td>
+                            <span class="status-badge badge-{{ d.remediation_status.lower() }}">
+                                {{ d.remediation_status.replace('_', ' ') }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function runPilotEvaluation(btn) {
+    const origText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="btn-icon">&#x21bb;</span> Running Evaluation...';
+    
+    fetch('/api/pilot/run', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                window.location.reload();
+            } else {
+                alert('Pilot execution failed: ' + (data.message || 'Unknown error'));
+                btn.disabled = false;
+                btn.innerHTML = origText;
+            }
+        })
+        .catch(err => {
+            alert('Request error: ' + err);
+            btn.disabled = false;
+            btn.innerHTML = origText;
+        });
+}
+</script>
+{% endblock %}

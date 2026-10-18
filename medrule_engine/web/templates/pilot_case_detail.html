@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}Case {{ case_id }} Adjudication Detail{% endblock %}
+
+{% block content %}
+<div class="pilot-case-detail">
+    <div class="page-header">
+        <div class="header-titles">
+            <div class="breadcrumb">
+                <a href="{{ url_for('pilot_dashboard', as_user=current_user.user_id) }}">&larr; Back to Pilot Dashboard</a>
+            </div>
+            <h1>Pilot Case Adjudication: <code>{{ case_id }}</code></h1>
+            <p class="subtitle">{{ evaluation.clinical_domain.replace('_', ' ').title() }} &bull; Procedure <code>{{ evaluation.procedure_code }}</code>: {{ evaluation.procedure_name }}</p>
+        </div>
+        <div class="header-actions">
+            <span class="status-badge badge-{{ evaluation.engine_status.lower() }}">
+                Machine: {{ evaluation.engine_status }}
+            </span>
+            <span class="status-badge badge-{{ (evaluation.human_adjudication_decision or 'unrecorded').lower() }}">
+                Human: {{ evaluation.human_adjudication_decision or 'UNRECORDED' }}
+            </span>
+        </div>
+    </div>
+
+    <!-- Side-by-Side Adjudication Grid -->
+    <div class="workbench-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+        <!-- Left Panel: Machine Decision Engine Output -->
+        <div class="card workbench-panel">
+            <div class="card-header">
+                <h2>Deterministic Engine Evaluation</h2>
+                <span class="badge badge-info">Three-Valued Logic Engine</span>
+            </div>
+            <div class="panel-body">
+                <div class="meta-field">
+                    <span class="meta-label">Assessment Outcome:</span>
+                    <span class="status-badge badge-{{ evaluation.engine_status.lower() }}">
+                        {{ evaluation.engine_status }}
+                    </span>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Expected Test Status:</span>
+                    <code>{{ evaluation.expected_status }}</code>
+                    {% if evaluation.status_match %}
+                    <span class="badge badge-active">&#x2713; Matched Expected</span>
+                    {% else %}
+                    <span class="badge badge-conflict">&#x2717; Mismatch</span>
+                    {% endif %}
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Binding Decision Gate:</span>
+                    <span class="badge badge-draft">is_binding: false (NON-BINDING)</span>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Human Review Required:</span>
+                    <span>{{ 'Yes (Escalated)' if evaluation.requires_human_review else 'No' }}</span>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">SHA-256 Reproducibility Hash:</span>
+                    <code style="word-break: break-all; font-size: 0.85rem;">{{ evaluation.reproducibility_hash_sha256 }}</code>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Evaluated At:</span>
+                    <span>{{ evaluation.evaluated_at }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Human Clinical SME Adjudication -->
+        <div class="card workbench-panel">
+            <div class="card-header">
+                <h2>Human Clinical SME Adjudication</h2>
+                <span class="badge badge-domain">Clinical Governance Log</span>
+            </div>
+            <div class="panel-body">
+                <div class="meta-field">
+                    <span class="meta-label">Clinical Decision:</span>
+                    <span class="status-badge badge-{{ (evaluation.human_adjudication_decision or 'unrecorded').lower() }}">
+                        {{ evaluation.human_adjudication_decision or 'UNRECORDED' }}
+                    </span>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Comparison Status with Engine:</span>
+                    {% if evaluation.human_comparison_status == 'AGREEMENT' %}
+                    <span class="status-badge badge-active">&#x2713; Full Agreement</span>
+                    {% elif evaluation.human_comparison_status == 'SOURCE_INTERPRETATION_DISAGREEMENT' %}
+                    <span class="status-badge badge-conflict">&#x26A0; Source Interpretation Disagreement</span>
+                    {% elif evaluation.human_comparison_status == 'POLICY_SELECTION_DISAGREEMENT' %}
+                    <span class="status-badge badge-conflict">&#x26A0; Policy Selection Disagreement</span>
+                    {% else %}
+                    <span class="status-badge badge-in-review">&#x2139; Requires Payer Configuration Review</span>
+                    {% endif %}
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Discrepancy Reference:</span>
+                    {% if evaluation.discrepancy_id and evaluation.discrepancy_id != 'None' %}
+                    <span class="badge badge-discrepancy">{{ evaluation.discrepancy_id }}</span>
+                    {% else %}
+                    <span class="text-muted">None (Concordant)</span>
+                    {% endif %}
+                </div>
+                {% if discrepancy %}
+                <div class="meta-field">
+                    <span class="meta-label">Assigned SME Reviewer:</span>
+                    <strong>{{ discrepancy.assigned_reviewer }}</strong>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Discrepancy Category:</span>
+                    <code>{{ discrepancy.discrepancy_category }}</code>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Root Cause Analysis:</span>
+                    <p class="source-quote" style="margin-top: 4px;">{{ discrepancy.root_cause_analysis }}</p>
+                </div>
+                <div class="meta-field">
+                    <span class="meta-label">Remediation Proposal:</span>
+                    <p class="explanation-box" style="margin-top: 4px;">{{ discrepancy.remediation_proposal }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Intake Parameters & Evidence Payload -->
+    <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+            <h2>Synthetic Case Intake Data &amp; Clinical Evidence</h2>
+        </div>
+        <div class="card-body">
+            <div class="rule-meta-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                <div class="meta-item">
+                    <span class="meta-label">Member ID:</span>
+                    <strong>{{ raw_case.member_id or 'SYNTH-MEMBER' }}</strong>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Age / Gender:</span>
+                    <strong>{{ raw_case.patient_age_years or 'N/A' }} y.o. / {{ raw_case.patient_gender or 'N/A' }}</strong>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Line of Business:</span>
+                    <span class="badge badge-lob">{{ raw_case.line_of_business or evaluation.line_of_business }}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Payer / Plan:</span>
+                    <strong>{{ raw_case.payer_id or 'EVOLENT' }} ({{ raw_case.plan_id or 'STANDARD' }})</strong>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Date of Service:</span>
+                    <strong>{{ raw_case.requested_date_of_service or evaluation.requested_date_of_service }}</strong>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Place of Service:</span>
+                    <strong>{{ raw_case.place_of_service or 'N/A' }}</strong>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Primary Diagnosis:</span>
+                    <code>{{ raw_case.primary_diagnosis_code or 'N/A' }}</code> ({{ raw_case.diagnosis_description or 'N/A' }})
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Jurisdiction:</span>
+                    <strong>{{ raw_case.jurisdiction or 'US_NATIONAL' }}</strong>
+                </div>
+            </div>
+
+            <h3>Structured Clinical Evidence Parameters:</h3>
+            <div class="condition-tree" style="background: #f8fafc; padding: 1rem; border-radius: 6px; border: 1px solid #e2e8f0;">
+                <pre style="margin: 0; font-family: monospace; font-size: 0.9rem;">{{ raw_case.clinical_evidence | tojson(indent=2) if raw_case.clinical_evidence else '{}' }}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

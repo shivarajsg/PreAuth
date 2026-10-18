@@ -1,0 +1,623 @@
+[
+  {
+    "case_id": "CASE-PILOT-ADV-001",
+    "clinical_domain": "advanced_imaging",
+    "procedure_code": "74177",
+    "procedure_name": "CT Abdomen and Pelvis with contrast",
+    "requested_date_of_service": "2026-03-15",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-COMM-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "K85.90",
+    "clinical_evidence": {
+      "pancreatitis_diagnostic_markers": "ELEVATED",
+      "conservative_treatment_duration_hours": 96,
+      "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+      "ordering_provider_license": true
+    },
+    "notes": "Clear clinical indication met: Pancreatitis symptom improvement not seen after 72 hours with abnormal ultrasound."
+  },
+  {
+    "case_id": "CASE-PILOT-ADV-002",
+    "clinical_domain": "advanced_imaging",
+    "procedure_code": "74177",
+    "procedure_name": "CT Abdomen and Pelvis with contrast",
+    "requested_date_of_service": "2026-03-16",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-COMM-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "K85.90",
+    "clinical_evidence": {
+      "pancreatitis_diagnostic_markers": "ELEVATED",
+      "conservative_treatment_duration_hours": 24,
+      "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
+      "ordering_provider_license": true
+    },
+    "notes": "Temporal threshold failed: Only 24 hours of conservative therapy documented (< 72 hour requirement)."
+  },
+  {
+    "case_id": "CASE-PILOT-ADV-003",
+    "clinical_domain": "advanced_imaging",
+    "procedure_code": "74177",
+    "procedure_name": "CT Abdomen and Pelvis with contrast",
+    "requested_date_of_service": "2026-03-17",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-COMM-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "K85.90",
+    "clinical_evidence": {
+      "pancreatitis_diagnostic_markers": "ELEVATED"
+    },
+    "notes": "Missing mandatory documentation: Amylase/lipase laboratory results and ultrasound findings omitted."
+  },
+  {
+    "case_id": "CASE-PILOT-ADV-004",
+    "clinical_domain": "advanced_imaging",
+    "procedure_code": "74177",
+    "procedure_name": "CT Abdomen and Pelvis with contrast",
+    "requested_date_of_service": "2026-03-18",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-COMM-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "K50.90",
+    "clinical_evidence": {
+      "ibd_subtypes": "CROHNS_DISEASE",
+      "prior_imaging_normal_or_equivocal": true
+    },
+    "notes": "Triggers RULE-ADV-CG2000-003 flagged NEEDS_HUMAN_REVIEW (advisory radiation reduction recommendation for age < 35)."
+  },
+  {
+    "case_id": "CASE-PILOT-CARD-001",
+    "clinical_domain": "cardiology",
+    "procedure_code": "76775",
+    "procedure_name": "Abdominal Aortic Ultrasound Screening",
+    "requested_date_of_service": "2026-04-10",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-CARD-01",
+    "jurisdiction": "National",
+    "place_of_service": "OFFICE",
+    "primary_diagnosis_code": "I71.4",
+    "clinical_evidence": {
+      "cg7251_indication": true
+    },
+    "notes": "Cardiology screening indication fully documented and confirmed."
+  },
+  {
+    "case_id": "CASE-PILOT-CARD-002",
+    "clinical_domain": "cardiology",
+    "procedure_code": "76775",
+    "procedure_name": "Abdominal Aortic Ultrasound Screening",
+    "requested_date_of_service": "2026-04-11",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-CARD-01",
+    "jurisdiction": "National",
+    "place_of_service": "OFFICE",
+    "primary_diagnosis_code": "I71.4",
+    "clinical_evidence": {
+      "cg7251_indication": false
+    },
+    "notes": "Indication clearly not met: Normal aortic diameter and absence of smoking risk criteria."
+  },
+  {
+    "case_id": "CASE-PILOT-CARD-003",
+    "clinical_domain": "cardiology",
+    "procedure_code": "78452",
+    "procedure_name": "Myocardial Perfusion Imaging (SPECT)",
+    "requested_date_of_service": "2026-04-12",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-CARD-HMO",
+    "jurisdiction": "Regional",
+    "place_of_service": "OFFICE",
+    "primary_diagnosis_code": "I25.10",
+    "clinical_evidence": {
+      "cad_symptoms_present": true,
+      "resting_ecg_interpretable": true
+    },
+    "notes": "Triggers DEP-010: Plan-specific cardiac stress test tiering crosswalk requires prior exercise ECG."
+  },
+  {
+    "case_id": "CASE-PILOT-CARD-004",
+    "clinical_domain": "cardiology",
+    "procedure_code": "76775",
+    "procedure_name": "Abdominal Aortic Ultrasound Screening",
+    "requested_date_of_service": "2024-05-01",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-CARD-01",
+    "jurisdiction": "National",
+    "place_of_service": "OFFICE",
+    "primary_diagnosis_code": "I71.4",
+    "clinical_evidence": {
+      "cg7251_indication": true
+    },
+    "notes": "Historical date of service (2024 precedes governing 2026 guidelines) -> POLICY_VERSION_UNRESOLVED."
+  },
+  {
+    "case_id": "CASE-PILOT-MSK-001",
+    "clinical_domain": "musculoskeletal_surgery",
+    "procedure_code": "27447",
+    "procedure_name": "Total Knee Arthroplasty (TKA)",
+    "requested_date_of_service": "2026-05-15",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-MSK-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "M17.11",
+    "clinical_evidence": {
+      "knee_osteoarthritis_severity": true
+    },
+    "notes": "Total Knee Arthroplasty criteria satisfied: KL Grade 4, severe joint space loss, 14 weeks supervised PT."
+  },
+  {
+    "case_id": "CASE-PILOT-MSK-002",
+    "clinical_domain": "musculoskeletal_surgery",
+    "procedure_code": "27447",
+    "procedure_name": "Total Knee Arthroplasty (TKA)",
+    "requested_date_of_service": "2026-05-16",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-MSK-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "M17.11",
+    "clinical_evidence": {
+      "knee_osteoarthritis_severity": false
+    },
+    "notes": "Conservative trial threshold failed: Only 4 weeks PT completed (< 12 weeks mandated by policy)."
+  },
+  {
+    "case_id": "CASE-PILOT-MSK-003",
+    "clinical_domain": "musculoskeletal_surgery",
+    "procedure_code": "22612",
+    "procedure_name": "Arthrodesis, posterior lumbar",
+    "requested_date_of_service": "2026-05-17",
+    "line_of_business": "MEDICARE_ADVANTAGE",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-MA-01",
+    "jurisdiction": "National",
+    "place_of_service": "INPATIENT_HOSPITAL",
+    "primary_diagnosis_code": "M43.16",
+    "clinical_evidence": {
+      "conservative_treatment_failure": true
+    },
+    "notes": "Lumbar fusion indicated: Grade 2 spondylolisthesis with flexion/extension instability and failed conservative care."
+  },
+  {
+    "case_id": "CASE-PILOT-MSK-004",
+    "clinical_domain": "musculoskeletal_surgery",
+    "procedure_code": "27447",
+    "procedure_name": "Total Knee Arthroplasty (TKA)",
+    "requested_date_of_service": "2026-05-18",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-MSK-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "M17.11",
+    "clinical_evidence": {},
+    "notes": "Missing mandatory diagnostic imaging: Kellgren-Lawrence radiographic grade omitted -> INSUFFICIENT_INFORMATION."
+  },
+  {
+    "case_id": "CASE-PILOT-PAIN-001",
+    "clinical_domain": "interventional_pain_management",
+    "procedure_code": "64483",
+    "procedure_name": "Transforaminal Epidural Steroid Injection (TFESI), Lumbar",
+    "requested_date_of_service": "2026-07-15",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-PAIN-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "M54.16",
+    "clinical_evidence": {
+      "cgepiduralinjections_indication": true
+    },
+    "notes": "TFESI criteria met: Severe radicular pain (7/10), MRI-confirmed nerve root compression, 8 weeks conservative care."
+  },
+  {
+    "case_id": "CASE-PILOT-PAIN-002",
+    "clinical_domain": "interventional_pain_management",
+    "procedure_code": "64483",
+    "procedure_name": "Transforaminal Epidural Steroid Injection (TFESI), Lumbar",
+    "requested_date_of_service": "2026-07-16",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-PAIN-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "M54.16",
+    "clinical_evidence": {
+      "cgepiduralinjections_indication": false
+    },
+    "notes": "Numerical zero pain score (0.0 < 4.0 threshold) and absent radicular findings -> CRITERIA_NOT_MET."
+  },
+  {
+    "case_id": "CASE-PILOT-PAIN-003",
+    "clinical_domain": "interventional_pain_management",
+    "procedure_code": "64483",
+    "procedure_name": "Transforaminal Epidural Steroid Injection (TFESI), Lumbar",
+    "requested_date_of_service": "2026-07-17",
+    "line_of_business": "MEDICAID",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-MEDICAID-STATE",
+    "jurisdiction": "State-Specific",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "M54.16",
+    "clinical_evidence": {
+      "radicular_pain_present": true,
+      "pain_score": 8.0,
+      "nerve_root_compression_mri_confirmed": true,
+      "prior_injections_in_12_months": 4
+    },
+    "notes": "Triggers DEP-008: State Medicaid contract imposes annual frequency cap -> MANUAL_REVIEW_REQUIRED."
+  },
+  {
+    "case_id": "CASE-PILOT-PAIN-004",
+    "clinical_domain": "interventional_pain_management",
+    "procedure_code": "64483",
+    "procedure_name": "Transforaminal Epidural Steroid Injection (TFESI), Lumbar",
+    "requested_date_of_service": "2026-07-18",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-PAIN-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "M54.16",
+    "clinical_evidence": {
+      "diagnostic_facet_block_relief": 25
+    },
+    "notes": "Absolute contraindication present: Active systemic infection disqualifies injection -> CRITERIA_NOT_MET."
+  },
+  {
+    "case_id": "CASE-PILOT-RAD-001",
+    "clinical_domain": "radiation_oncology",
+    "procedure_code": "77301",
+    "procedure_name": "Intensity Modulated Radiation Therapy (IMRT) Plan",
+    "requested_date_of_service": "2026-06-01",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-RAD-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "C10.9",
+    "clinical_evidence": {
+      "ecg7000breast_indication": true
+    },
+    "notes": "IMRT indication satisfied: Oropharyngeal carcinoma requiring concave dose distribution adjacent to spinal cord."
+  },
+  {
+    "case_id": "CASE-PILOT-RAD-002",
+    "clinical_domain": "radiation_oncology",
+    "procedure_code": "77520",
+    "procedure_name": "Proton Beam Delivery",
+    "requested_date_of_service": "2026-06-02",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-RAD-CUSTOM",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "C61",
+    "clinical_evidence": {
+      "prostate_adenocarcinoma": true,
+      "pediatric_patient": false
+    },
+    "notes": "Triggers DEP-011: Payer custom proton coverage threshold agreement limits adult indications -> MANUAL_REVIEW_REQUIRED."
+  },
+  {
+    "case_id": "CASE-PILOT-RAD-003",
+    "clinical_domain": "radiation_oncology",
+    "procedure_code": "77301",
+    "procedure_name": "Intensity Modulated Radiation Therapy (IMRT) Plan",
+    "requested_date_of_service": "2026-06-03",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-RAD-01",
+    "jurisdiction": "National",
+    "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+    "primary_diagnosis_code": "C10.9",
+    "clinical_evidence": {},
+    "notes": "Missing mandatory pathology and clinical staging records -> INSUFFICIENT_INFORMATION."
+  },
+  {
+    "case_id": "CASE-PILOT-RAD-004",
+    "clinical_domain": "radiation_oncology",
+    "procedure_code": "77301",
+    "procedure_name": "Intensity Modulated Radiation Therapy (IMRT) Plan",
+    "requested_date_of_service": "2026-06-04",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-RAD-01",
+    "jurisdiction": "National",
+    "place_of_service": "OUTPATIENT_HOSPITAL",
+    "primary_diagnosis_code": "C10.9",
+    "clinical_evidence": {
+      "ecg7000prostate_indication": true
+    },
+    "notes": "Harmonized with DEP-006: Hospital outpatient POS authorized per EPOS 2067 clinical exception."
+  },
+  {
+    "case_id": "CASE-PILOT-PHYS-001",
+    "clinical_domain": "physical_medicine",
+    "procedure_code": "97110",
+    "procedure_name": "Therapeutic Exercise (15 minutes)",
+    "requested_date_of_service": "2026-03-20",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-PHYS-01",
+    "jurisdiction": "National",
+    "place_of_service": "OFFICE",
+    "primary_diagnosis_code": "M25.561",
+    "clinical_evidence": {
+      "policyactiveprocedures_evaluation": true
+    },
+    "notes": "Physical therapy medical necessity criteria satisfied: Measurable objective goals with documented progress."
+  },
+  {
+    "case_id": "CASE-PILOT-PHYS-002",
+    "clinical_domain": "physical_medicine",
+    "procedure_code": "97110",
+    "procedure_name": "Therapeutic Exercise (15 minutes)",
+    "requested_date_of_service": "2026-03-21",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-PHYS-01",
+    "jurisdiction": "National",
+    "place_of_service": "OFFICE",
+    "primary_diagnosis_code": "M25.561",
+    "clinical_evidence": {
+      "ecg1504progressiveimprov_evaluation": false
+    },
+    "notes": "Criteria not met: Functional plateau reached and patient independent in home exercise program."
+  },
+  {
+    "case_id": "CASE-PILOT-PHYS-003",
+    "clinical_domain": "physical_medicine",
+    "procedure_code": "97110",
+    "procedure_name": "Therapeutic Exercise (15 minutes)",
+    "requested_date_of_service": "2026-03-22",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-PHYS-01",
+    "jurisdiction": "National",
+    "place_of_service": "OFFICE",
+    "primary_diagnosis_code": "M25.561",
+    "clinical_evidence": {},
+    "notes": "Missing initial evaluation and objective standardized baseline measurements -> INSUFFICIENT_INFORMATION."
+  },
+  {
+    "case_id": "CASE-PILOT-PHYS-004",
+    "clinical_domain": "physical_medicine",
+    "procedure_code": "97110",
+    "procedure_name": "Therapeutic Exercise (15 minutes)",
+    "requested_date_of_service": "2026-03-23",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-PHYS-01",
+    "jurisdiction": "National",
+    "place_of_service": "OFFICE",
+    "primary_diagnosis_code": "M25.561",
+    "clinical_evidence": {
+      "initial_eval_completed": true,
+      "annual_visit_cap_exceeded": true,
+      "plan_annual_cap_visits": 30,
+      "visits_used_to_date": 32
+    },
+    "notes": "Triggers DEP-013: Contractual annual visit cap exceeded -> CRITERIA_NOT_MET / MANUAL_REVIEW_REQUIRED."
+  },
+  {
+    "case_id": "CASE-PILOT-SLEEP-001",
+    "clinical_domain": "sleep_health",
+    "procedure_code": "95810",
+    "procedure_name": "Polysomnography (PSG), Attended in Sleep Lab",
+    "requested_date_of_service": "2026-04-20",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-SLEEP-01",
+    "jurisdiction": "National",
+    "place_of_service": "OUTPATIENT_HOSPITAL",
+    "primary_diagnosis_code": "G47.33",
+    "clinical_evidence": {
+      "clinical_notes_submitted": true
+    },
+    "notes": "Attended PSG criteria met: Severe cardiopulmonary comorbidity contraindicates home sleep testing."
+  },
+  {
+    "case_id": "CASE-PILOT-SLEEP-002",
+    "clinical_domain": "sleep_health",
+    "procedure_code": "95810",
+    "procedure_name": "Polysomnography (PSG), Attended in Sleep Lab",
+    "requested_date_of_service": "2026-04-21",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-SLEEP-01",
+    "jurisdiction": "National",
+    "place_of_service": "OUTPATIENT_HOSPITAL",
+    "primary_diagnosis_code": "G47.33",
+    "clinical_evidence": {
+      "hst_contraindication_comorbidity": false
+    },
+    "notes": "Criteria not met: Adult uncomplicated OSA requires initial home sleep test (HSAT) prior to in-lab PSG."
+  },
+  {
+    "case_id": "CASE-PILOT-SLEEP-003",
+    "clinical_domain": "sleep_health",
+    "procedure_code": "95810",
+    "procedure_name": "Polysomnography (PSG), Attended in Sleep Lab",
+    "requested_date_of_service": "2026-04-22",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-SLEEP-ASO",
+    "jurisdiction": "Client-Specific",
+    "place_of_service": "OUTPATIENT_HOSPITAL",
+    "primary_diagnosis_code": "G47.33",
+    "clinical_evidence": {
+      "suspected_osa": true,
+      "employer_group_hsat_exemption": true
+    },
+    "notes": "Triggers DEP-014: Employer group exemption list bypasses HSAT requirement -> MANUAL_REVIEW_REQUIRED."
+  },
+  {
+    "case_id": "CASE-PILOT-SLEEP-004",
+    "clinical_domain": "sleep_health",
+    "procedure_code": "95810",
+    "procedure_name": "Polysomnography (PSG), Attended in Sleep Lab",
+    "requested_date_of_service": "2026-04-23",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-SLEEP-01",
+    "jurisdiction": "National",
+    "place_of_service": "OUTPATIENT_HOSPITAL",
+    "primary_diagnosis_code": "G47.33",
+    "clinical_evidence": {},
+    "notes": "Missing Epworth Sleepiness Scale and comorbidity assessment -> INSUFFICIENT_INFORMATION."
+  },
+  {
+    "case_id": "CASE-PILOT-GEN-001",
+    "clinical_domain": "genetic_testing",
+    "procedure_code": "81162",
+    "procedure_name": "BRCA1 and BRCA2 Full Gene Sequencing",
+    "requested_date_of_service": "2026-05-10",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-GEN-01",
+    "jurisdiction": "National",
+    "place_of_service": "INDEPENDENT_LABORATORY",
+    "primary_diagnosis_code": "Z80.3",
+    "clinical_evidence": {
+      "cggenhbocbrca_evaluation": true
+    },
+    "notes": "BRCA testing criteria met: Personal breast cancer diagnosis < age 45 with affected first-degree relative."
+  },
+  {
+    "case_id": "CASE-PILOT-GEN-002",
+    "clinical_domain": "genetic_testing",
+    "procedure_code": "81432",
+    "procedure_name": "Hereditary Breast Cancer Panel (Multigene NGS)",
+    "requested_date_of_service": "2026-05-11",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-GEN-HMO",
+    "jurisdiction": "Regional",
+    "place_of_service": "INDEPENDENT_LABORATORY",
+    "primary_diagnosis_code": "Z80.3",
+    "clinical_evidence": {
+      "family_history_positive": true
+    },
+    "notes": "Triggers DEP-015: Payer non-covered panel exclusion schedule applies -> MANUAL_REVIEW_REQUIRED."
+  },
+  {
+    "case_id": "CASE-PILOT-GEN-003",
+    "clinical_domain": "genetic_testing",
+    "procedure_code": "81162",
+    "procedure_name": "BRCA1 and BRCA2 Full Gene Sequencing",
+    "requested_date_of_service": "2026-05-12",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-GEN-01",
+    "jurisdiction": "National",
+    "place_of_service": "INDEPENDENT_LABORATORY",
+    "primary_diagnosis_code": "Z80.3",
+    "clinical_evidence": {},
+    "notes": "Missing pre-test formal genetic counseling documentation -> INSUFFICIENT_INFORMATION."
+  },
+  {
+    "case_id": "CASE-PILOT-GEN-004",
+    "clinical_domain": "genetic_testing",
+    "procedure_code": "81162",
+    "procedure_name": "BRCA1 and BRCA2 Full Gene Sequencing",
+    "requested_date_of_service": "2026-05-13",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "EVOLENT",
+    "plan_id": "EVOLENT-GEN-01",
+    "jurisdiction": "National",
+    "place_of_service": "INDEPENDENT_LABORATORY",
+    "primary_diagnosis_code": "Z80.3",
+    "clinical_evidence": {
+      "cggenhbocbrca_evaluation": false
+    },
+    "notes": "Negative clinical history: Asymptomatic patient with zero family history of cancer -> CRITERIA_NOT_MET."
+  },
+  {
+    "case_id": "CASE-PILOT-DME-001",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "procedure_code": "E0601",
+    "procedure_name": "Continuous Positive Airway Pressure (CPAP) Device",
+    "requested_date_of_service": "2026-08-15",
+    "line_of_business": "MEDICAID",
+    "payer_id": "CENTENE",
+    "plan_id": "CENTENE-MCD-01",
+    "jurisdiction": "Multi-State",
+    "place_of_service": "HOME",
+    "primary_diagnosis_code": "G47.33",
+    "clinical_evidence": {
+      "device_education_provided": "TRUE",
+      "device_trial_successful": "TRUE"
+    },
+    "notes": "Centene CP.MP.107 criteria met: AHI > 15 with documented daytime hypersomnolence."
+  },
+  {
+    "case_id": "CASE-PILOT-DME-002",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "procedure_code": "E0601",
+    "procedure_name": "Continuous Positive Airway Pressure (CPAP) Device",
+    "requested_date_of_service": "2026-08-16",
+    "line_of_business": "MEDICAID",
+    "payer_id": "CENTENE",
+    "plan_id": "CENTENE-MCD-01",
+    "jurisdiction": "Multi-State",
+    "place_of_service": "HOME",
+    "primary_diagnosis_code": "G47.33",
+    "clinical_evidence": {
+      "post_burn_contracture_risk": "FALSE",
+      "prevent_grafting_or_hypertrophic_scarring": "FALSE"
+    },
+    "notes": "Criteria not met: Apnea-hypopnea index 3.0 (< 5.0 diagnostic threshold required by CP.MP.107)."
+  },
+  {
+    "case_id": "CASE-PILOT-DME-003",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "procedure_code": "K0823",
+    "procedure_name": "Power Wheelchair, Group 2 Standard",
+    "requested_date_of_service": "2026-08-17",
+    "line_of_business": "MEDICAID",
+    "payer_id": "CENTENE",
+    "plan_id": "CENTENE-MCD-01",
+    "jurisdiction": "Multi-State",
+    "place_of_service": "INPATIENT_HOSPITAL",
+    "primary_diagnosis_code": "G82.20",
+    "clinical_evidence": {
+      "mobility_limitation_severe": true,
+      "inpatient_hospital_delivery_requested": true
+    },
+    "notes": "Triggers DEP-002: Inpatient facility delivery timing restriction under CMS State Operations Manual."
+  },
+  {
+    "case_id": "CASE-PILOT-DME-004",
+    "clinical_domain": "centene_dme_orthotics_prosthetics",
+    "procedure_code": "E0260",
+    "procedure_name": "Semi-Electric Hospital Bed with Mattress",
+    "requested_date_of_service": "2026-08-18",
+    "line_of_business": "MEDICARE_ADVANTAGE",
+    "payer_id": "CENTENE",
+    "plan_id": "CENTENE-MA-01",
+    "jurisdiction": "National",
+    "place_of_service": "HOME",
+    "primary_diagnosis_code": "R26.89",
+    "clinical_evidence": {
+      "device_education_provided": "TRUE"
+    },
+    "notes": "Missing mandatory physician face-to-face order and functional mobility evaluation -> INSUFFICIENT_INFORMATION."
+  }
+]

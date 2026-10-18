@@ -1,0 +1,360 @@
+{
+  "CASE-PILOT-ADV-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 v2",
+    "clinical_rationale": "All conditions of RULE-ADV-CG2000-006 met: Suspected pancreatitis with severe presentation, >72 hours conservative care, and abnormal ultrasound."
+  },
+  "CASE-PILOT-ADV-002": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 v2",
+    "clinical_rationale": "Temporal threshold failed: Only 24 hours of conservative therapy documented vs 72 hours required."
+  },
+  "CASE-PILOT-ADV-003": {
+    "expected_status": "INSUFFICIENT_INFORMATION",
+    "target_rule_ids": [
+      "RULE-ADV-CG2000-006"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 v2",
+    "clinical_rationale": "Missing required laboratory reports (amylase/lipase) and ultrasound imaging records."
+  },
+  "CASE-PILOT-ADV-004": {
+    "expected_status": "MANUAL_REVIEW_REQUIRED",
+    "target_rule_ids": [
+      "RULE-ADV-CG2000-003"
+    ],
+    "requires_human_review": true,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 v2",
+    "clinical_rationale": "Rule marked NEEDS_HUMAN_REVIEW regarding advisory radiation reduction recommendation for age < 35."
+  },
+  "CASE-PILOT-CARD-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-CARD-CG7251-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Cardiology indication met: Aortic screening criteria documented per CG-7251."
+  },
+  "CASE-PILOT-CARD-002": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-CARD-CG7251-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Normal aortic diameter and absence of smoking risk criteria."
+  },
+  "CASE-PILOT-CARD-003": {
+    "expected_status": "MANUAL_REVIEW_REQUIRED",
+    "target_rule_ids": [],
+    "requires_human_review": true,
+    "unresolved_dependencies": [
+      "DEP-010"
+    ],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Unresolved plan-specific stress test tiering crosswalk requires manual review."
+  },
+  "CASE-PILOT-CARD-004": {
+    "expected_status": "POLICY_VERSION_UNRESOLVED",
+    "target_rule_ids": null,
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Date of service in 2024 precedes verified 2026 guideline effective date."
+  },
+  "CASE-PILOT-MSK-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-MSK-CGKNEEARTHROPLASTY-002"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Total knee arthroplasty criteria met: KL Grade 4, severe joint loss, 14 weeks supervised PT."
+  },
+  "CASE-PILOT-MSK-002": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-MSK-CGKNEEARTHROPLASTY-002"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Conservative trial threshold failed: Only 4 weeks PT completed (< 12 weeks mandated)."
+  },
+  "CASE-PILOT-MSK-003": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-MSK-CGCERVICALLUMBAR-002"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Lumbar fusion indicated: Grade 2 spondylolisthesis with instability and failed conservative care."
+  },
+  "CASE-PILOT-MSK-004": {
+    "expected_status": "INSUFFICIENT_INFORMATION",
+    "target_rule_ids": [
+      "RULE-MSK-CGKNEEARTHROPLASTY-002"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Missing mandatory diagnostic imaging: Kellgren-Lawrence radiographic grade omitted."
+  },
+  "CASE-PILOT-PAIN-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-IPM-CGEPIDURALINJECTIONS-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "TFESI criteria met: Severe radicular pain (7/10), MRI-confirmed nerve root compression, 8 weeks conservative care."
+  },
+  "CASE-PILOT-PAIN-002": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-IPM-CGEPIDURALINJECTIONS-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Pain score 0/10 (< 4/10 threshold) and absent radicular findings."
+  },
+  "CASE-PILOT-PAIN-003": {
+    "expected_status": "MANUAL_REVIEW_REQUIRED",
+    "target_rule_ids": [],
+    "requires_human_review": true,
+    "unresolved_dependencies": [
+      "DEP-008"
+    ],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "State Medicaid contract imposes annual frequency cap on epidural injections."
+  },
+  "CASE-PILOT-PAIN-004": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-IPM-CGFACETDENERVATION-002"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Contraindication condition triggered: Active systemic infection disqualifies injection."
+  },
+  "CASE-PILOT-RAD-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-RAD-ECG7000BREAST-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "IMRT indication satisfied: Oropharyngeal carcinoma requiring concave dose distribution adjacent to spinal cord."
+  },
+  "CASE-PILOT-RAD-002": {
+    "expected_status": "MANUAL_REVIEW_REQUIRED",
+    "target_rule_ids": [],
+    "requires_human_review": true,
+    "unresolved_dependencies": [
+      "DEP-011"
+    ],
+    "policy_version": "2026 Revision",
+    "clinical_rationale": "Payer custom proton coverage threshold agreement limits adult indications."
+  },
+  "CASE-PILOT-RAD-003": {
+    "expected_status": "INSUFFICIENT_INFORMATION",
+    "target_rule_ids": [
+      "RULE-RAD-ECG7000BREAST-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Missing mandatory pathology and clinical staging records."
+  },
+  "CASE-PILOT-RAD-004": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-RAD-ECG7000PROSTATE-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Harmonized with DEP-006: Hospital outpatient POS authorized per EPOS 2067 clinical exception."
+  },
+  "CASE-PILOT-PHYS-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-PHY-POLICYACTIVEPROCEDURES-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Physical therapy medical necessity criteria satisfied: Measurable objective goals with documented progress."
+  },
+  "CASE-PILOT-PHYS-002": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-PHY-ECG1504PROGRESSIVEIMPROV-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Criteria not met: Functional plateau reached and patient independent in home exercise program."
+  },
+  "CASE-PILOT-PHYS-003": {
+    "expected_status": "INSUFFICIENT_INFORMATION",
+    "target_rule_ids": [
+      "RULE-PHY-POLICYACTIVEPROCEDURES-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Missing initial evaluation and objective standardized baseline measurements."
+  },
+  "CASE-PILOT-PHYS-004": {
+    "expected_status": "MANUAL_REVIEW_REQUIRED",
+    "target_rule_ids": [],
+    "requires_human_review": true,
+    "unresolved_dependencies": [
+      "DEP-013"
+    ],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Contractual annual visit cap exceeded requiring medical director exception review."
+  },
+  "CASE-PILOT-SLEEP-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-SLP-CG2051-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Attended PSG criteria met: Severe cardiopulmonary comorbidity contraindicates home sleep testing."
+  },
+  "CASE-PILOT-SLEEP-002": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-SLP-CG2050-002"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Criteria not met: Adult uncomplicated OSA requires initial home sleep test (HSAT) prior to in-lab PSG."
+  },
+  "CASE-PILOT-SLEEP-003": {
+    "expected_status": "MANUAL_REVIEW_REQUIRED",
+    "target_rule_ids": [],
+    "requires_human_review": true,
+    "unresolved_dependencies": [
+      "DEP-014"
+    ],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Employer group exemption list bypasses HSAT requirement requiring plan verification."
+  },
+  "CASE-PILOT-SLEEP-004": {
+    "expected_status": "INSUFFICIENT_INFORMATION",
+    "target_rule_ids": [
+      "RULE-SLP-CG2051-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Missing Epworth Sleepiness Scale and comorbidity assessment."
+  },
+  "CASE-PILOT-GEN-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-GEN-CGGENHBOCBRCA-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "BRCA testing criteria met: Personal breast cancer diagnosis < age 45 with affected first-degree relative."
+  },
+  "CASE-PILOT-GEN-002": {
+    "expected_status": "MANUAL_REVIEW_REQUIRED",
+    "target_rule_ids": [],
+    "requires_human_review": true,
+    "unresolved_dependencies": [
+      "DEP-015"
+    ],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Payer non-covered panel exclusion schedule applies requiring medical director review."
+  },
+  "CASE-PILOT-GEN-003": {
+    "expected_status": "INSUFFICIENT_INFORMATION",
+    "target_rule_ids": [
+      "RULE-GEN-CGGENHBOCBRCA-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Missing pre-test formal genetic counseling documentation."
+  },
+  "CASE-PILOT-GEN-004": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-GEN-CGGENHBOCBRCA-001"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "2026 Edition",
+    "clinical_rationale": "Negative clinical history: Asymptomatic patient with zero family history of cancer."
+  },
+  "CASE-PILOT-DME-001": {
+    "expected_status": "CRITERIA_MET",
+    "target_rule_ids": [
+      "RULE-DME-107-002"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "Revision 08/26",
+    "clinical_rationale": "Centene CP.MP.107 criteria met: AHI > 15 with documented daytime hypersomnolence."
+  },
+  "CASE-PILOT-DME-002": {
+    "expected_status": "CRITERIA_NOT_MET",
+    "target_rule_ids": [
+      "RULE-DME-107-006"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "Revision 08/26",
+    "clinical_rationale": "Criteria not met: Apnea-hypopnea index 3.0 (< 5.0 diagnostic threshold required by CP.MP.107)."
+  },
+  "CASE-PILOT-DME-003": {
+    "expected_status": "MANUAL_REVIEW_REQUIRED",
+    "target_rule_ids": [],
+    "requires_human_review": true,
+    "unresolved_dependencies": [
+      "DEP-002"
+    ],
+    "policy_version": "Revision 08/26",
+    "clinical_rationale": "Inpatient facility delivery timing restriction under CMS State Operations Manual."
+  },
+  "CASE-PILOT-DME-004": {
+    "expected_status": "INSUFFICIENT_INFORMATION",
+    "target_rule_ids": [
+      "RULE-DME-107-002"
+    ],
+    "requires_human_review": false,
+    "unresolved_dependencies": [],
+    "policy_version": "Revision 08/26",
+    "clinical_rationale": "Missing mandatory physician face-to-face order and functional mobility evaluation."
+  }
+}
