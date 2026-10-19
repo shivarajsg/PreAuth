@@ -1,0 +1,111 @@
+================================================================================
+MEDRULE PRIOR-AUTHORIZATION DECISION SUPPORT SYSTEM - REVIEWER GUIDE
+================================================================================
+
+Live Application URL: https://medrule-preauth.onrender.com
+GitHub Repository:    https://github.com/shivarajsg/PreAuth
+API Health Endpoint:  https://medrule-preauth.onrender.com/api/health
+
+[Note on Initial Access]
+The web application is hosted on a cloud container. If the service has been idle, 
+the initial page load may take 15-25 seconds while the container spins up. 
+Subsequent page navigation will be immediate.
+
+================================================================================
+SYSTEM OVERVIEW
+================================================================================
+MedRule is a deterministic clinical decision support (CDS) system for prior 
+authorization. It operates with 0% LLM or probabilistic inference, using 
+three-valued boolean logic (TRUE, FALSE, UNKNOWN) across 372 structured rules 
+in 9 clinical domains. It strictly enforces a zero-approved safety invariant 
+and unconditional non-binding decision status (is_binding: false).
+
+================================================================================
+STEP-BY-STEP WALKTHROUGH FOR THE REVIEWER
+================================================================================
+
+1. System Dashboard & Governance Invariants
+-------------------------------------------
+URL: https://medrule-preauth.onrender.com/dashboard
+
+What to observe:
+* Rule Knowledge Base: Total 372 rules (322 in DRAFT, 50 in NEEDS_HUMAN_REVIEW, 
+  and strictly 0 in APPROVED).
+* Safety Invariant: The system visually enforces that no rule can be auto-approved; 
+  human clinical sign-offs are mandatory.
+* Role Switcher (Top Right): Switch personas to test Role-Based Access Control (RBAC):
+  - Dr. Sarah Chen, MD (Clinical SME Reviewer)
+  - Dr. Eleanor Vance, MD (Medical Director)
+  - Quality Auditor (Read-Only Viewer)
+
+
+2. Rule Explorer & Clinical Policy Workbench
+--------------------------------------------
+URL: https://medrule-preauth.onrender.com/rules
+
+What to test:
+* Use the Domain Filter to filter by clinical domains (e.g., Cardiology, 
+  Radiology, Oncology, Musculoskeletal).
+* Search by code or condition (e.g., type "70450" for CT Head or "93306" for 
+  Echocardiography).
+* Click on any rule to view its Rule Workbench:
+  - Structured Logic: View deterministic boolean logic trees (AND/OR condition groups).
+  - Source Provenance: View the exact verbatim quotation from the clinical guideline 
+    policy along with physical page citations.
+
+
+3. Human Review Queue & Governance Workflow
+-------------------------------------------
+URL: https://medrule-preauth.onrender.com/queue
+
+What to test:
+* View the 50 rules flagged as NEEDS_HUMAN_REVIEW due to ambiguous clinical 
+  criteria or edge cases.
+* Test submitting a review note or proposing a criteria correction.
+* Check the 8 mandatory approval prerequisites (requires dual clinician review, 
+  citation validation, and medical director authorization before a rule can ever 
+  be promoted).
+
+
+4. Case Intake & Live Deterministic Evaluation
+----------------------------------------------
+URL: https://medrule-preauth.onrender.com/intake
+
+What to test:
+* Click the "Load Sample Case" button to populate a realistic synthetic 
+  prior-authorization request (or use one of the Quick Clinical Presets).
+* Click "Run Intake & Evaluate".
+* Observe the 10-Stage Pipeline in Action:
+  1. Member eligibility & benefit verification (simulated connector).
+  2. Prior-authorization requirement check.
+  3. Policy routing to the exact clinical guideline.
+  4. Deterministic condition evaluation (MET, NOT_MET, or UNKNOWN).
+  5. Final assessment summary with full citation trace and non-binding disclaimer.
+
+
+5. Pilot Adjudication & Concordance Tracking
+--------------------------------------------
+URL: https://medrule-preauth.onrender.com/pilot
+
+What to test:
+* Review pilot cohort evaluations comparing deterministic machine assessments 
+  with documented human adjudication.
+* Inspect root-cause discrepancy categories (e.g., documentation ambiguity, 
+  threshold mismatch, or missing clinical notes).
+
+
+6. System Health & Compliance Verification
+------------------------------------------
+URL: https://medrule-preauth.onrender.com/api/health
+
+What to observe:
+* A machine-readable JSON status verifying:
+  - Database connectivity: CONNECTED
+  - Active mock connectors: MOCK (no PHI transmitted)
+  - Outbound submission adapter: DISABLED (permanently locked)
+  - Enforced zero-approved safety invariants: TRUE
+  - Evaluator binding status: is_binding: false
+
+================================================================================
+END OF REVIEWER GUIDE
+================================================================================
