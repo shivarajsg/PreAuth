@@ -1,6 +1,6 @@
 {
   "phase": "MedRule Phase 3D",
-  "timestamp": "2026-10-18T13:49:52.761305+00:00",
+  "timestamp": "2026-10-19T05:53:31.979383+00:00",
   "total_cases_evaluated": 36,
   "domains_evaluated": 9,
   "pass_rate_percentage": 100.0,
@@ -19,9 +19,9 @@
   "strict_non_binding_enforced": true,
   "zero_approved_rules_enforced": true,
   "timings": {
-    "registry_load_ms": 269.62,
-    "total_elapsed_ms": 472.17,
-    "average_ms_per_case": 13.116
+    "registry_load_ms": 496.92,
+    "total_elapsed_ms": 896.02,
+    "average_ms_per_case": 2.742
   },
   "case_evaluations": [
     {
@@ -42,7 +42,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "52b1e4f77ca83cf34084424744127370bc46aaef6d2f782b3296ecdbb04dff89",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 4.085
+      "elapsed_ms": 3.758
     },
     {
       "case_id": "CASE-PILOT-ADV-002",
@@ -62,7 +62,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "4e36b5c0e5234a41b30899deff2dda08e463485f7924b2a5625d7aff116be3c5",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.475
+      "elapsed_ms": 3.575
     },
     {
       "case_id": "CASE-PILOT-ADV-003",
@@ -82,7 +82,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "39a854d3f4cbb0f5b5e8e8960c2ff85d7720d49105301fe6a95f2a6f774f119e",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 3.772
+      "elapsed_ms": 2.98
     },
     {
       "case_id": "CASE-PILOT-ADV-004",
@@ -102,7 +102,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "672453ba6c29bdadb516ef9a76befcfecb902cc1a49cfa5de3d5285e3a43f0b0",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.277
+      "elapsed_ms": 2.667
     },
     {
       "case_id": "CASE-PILOT-CARD-001",
@@ -122,7 +122,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "0f111bc9cd97f373f027df560a422f828de694e187162a875324f0f84fa2047e",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.822
+      "elapsed_ms": 2.811
     },
     {
       "case_id": "CASE-PILOT-CARD-002",
@@ -142,7 +142,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "ab59b8557474bbe08f75b5352ed1d8754d00cfabb3b130e51bdbb40e674f9cdc",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.387
+      "elapsed_ms": 2.779
     },
     {
       "case_id": "CASE-PILOT-CARD-003",
@@ -164,7 +164,7 @@
       ],
       "reproducibility_hash_sha256": "d14cb2c73fde6374756652c1e2e4347bc204efaa93e91c6ad65f54926a14cf77",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.597
+      "elapsed_ms": 0.757
     },
     {
       "case_id": "CASE-PILOT-CARD-004",
@@ -186,7 +186,7 @@
       ],
       "reproducibility_hash_sha256": "1f84070f814be7f4b58045c5002268e1c0b1ae009866099ba55de726a742e972",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 0.387
+      "elapsed_ms": 0.635
     },
     {
       "case_id": "CASE-PILOT-MSK-001",
@@ -206,7 +206,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "ac6cf3f28f6f95211aed529b141eded2b7980823cde5ce614a8834416d0c0e59",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.179
+      "elapsed_ms": 2.784
     },
     {
       "case_id": "CASE-PILOT-MSK-002",
@@ -226,7 +226,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "c65fa593e77732155e5d9cf0fd4e531a37d76268ddc05705fb970f52030ca9b6",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.113
+      "elapsed_ms": 3.795
     },
     {
       "case_id": "CASE-PILOT-MSK-003",
@@ -246,7 +246,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "d87b8beae34c85a713d428fecf340eee888310c6c63f1d3c3647fffd6febee2a",
       "applicability_status": "STATUTORY_OVERRIDE",
-      "elapsed_ms": 2.102
+      "elapsed_ms": 5.005
     },
     {
       "case_id": "CASE-PILOT-MSK-004",
@@ -266,7 +266,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "16ce76659a46baf54eb8f45c9da0c9df82bd7173e7aad57ffeae8123dcbaa2ec",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.868
+      "elapsed_ms": 2.558
     },
     {
       "case_id": "CASE-PILOT-PAIN-001",
@@ -286,7 +286,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "de928b4d9c5a19719280b4610c5921cc9812a42d1f98cf718837b0b606b259bb",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.098
+      "elapsed_ms": 3.103
     },
     {
       "case_id": "CASE-PILOT-PAIN-002",
@@ -306,7 +306,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "f45b630c43d30c97436c50d9fb911efdd961b77b07611336dd315598b9da1d64",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.287
+      "elapsed_ms": 2.766
     },
     {
       "case_id": "CASE-PILOT-PAIN-003",
@@ -328,7 +328,7 @@
       ],
       "reproducibility_hash_sha256": "c5bf2b433056d9bd15229d7121005f809a8722fcc9b1c3221aca93313f391e16",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.484
+      "elapsed_ms": 1.051
     },
     {
       "case_id": "CASE-PILOT-PAIN-004",
@@ -348,7 +348,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "484c039ed83f5f01e992cdb40cf0aa5eb10754620d6d72898a67e7689f04ec1a",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.121
+      "elapsed_ms": 3.298
     },
     {
       "case_id": "CASE-PILOT-RAD-001",
@@ -368,7 +368,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "97960610c1f5f8264775eca02047c0b78338aada9d4d690fe57db0b657b21b0f",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.124
+      "elapsed_ms": 2.548
     },
     {
       "case_id": "CASE-PILOT-RAD-002",
@@ -390,7 +390,7 @@
       ],
       "reproducibility_hash_sha256": "584dd67d9bc47e86c6c537471c3edc217441646113873e496c3d21f722b75aee",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.428
+      "elapsed_ms": 0.878
     },
     {
       "case_id": "CASE-PILOT-RAD-003",
@@ -410,7 +410,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "c58f6e7b67c568d20c5907575d5786a346ea40f18bf9e468ec1de8350b9a6c65",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.146
+      "elapsed_ms": 3.394
     },
     {
       "case_id": "CASE-PILOT-RAD-004",
@@ -430,7 +430,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "cd2119456738e86609bdcf0adea5e6845026abf7e26e5bb7e10f9839a76445ee",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.161
+      "elapsed_ms": 2.58
     },
     {
       "case_id": "CASE-PILOT-PHYS-001",
@@ -450,7 +450,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "fe4a28a94fb844ab7d0acaaf49155681d05d60bb3fc39484f15a3f54a808bcca",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.092
+      "elapsed_ms": 3.92
     },
     {
       "case_id": "CASE-PILOT-PHYS-002",
@@ -470,7 +470,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "e21f00d084495df446277dcd653b33f8913948968686979a69c0bbfecae6a6b1",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.279
+      "elapsed_ms": 2.733
     },
     {
       "case_id": "CASE-PILOT-PHYS-003",
@@ -490,7 +490,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "bcd21ef9deb8ceb93f8ecfb0d5a606f878a541f70a9a30cf5e0ad415fcf7d5b2",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.162
+      "elapsed_ms": 3.91
     },
     {
       "case_id": "CASE-PILOT-PHYS-004",
@@ -512,7 +512,7 @@
       ],
       "reproducibility_hash_sha256": "9a9f9623c32bb58d973e595f82e149545b6eb17b70c8ae1e573afd66f5d3084c",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 0.489
+      "elapsed_ms": 1.046
     },
     {
       "case_id": "CASE-PILOT-SLEEP-001",
@@ -532,7 +532,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "44c0f1c9ddedddcf7e3fb9ecf9d5a512177774b22f00e8d52190c9591f9777d7",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.231
+      "elapsed_ms": 2.728
     },
     {
       "case_id": "CASE-PILOT-SLEEP-002",
@@ -552,7 +552,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "1cb4bbcf9c998503a0172ce447de2754b1c8be168d69b4d1242a3ffaba96ec14",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 1.914
+      "elapsed_ms": 3.96
     },
     {
       "case_id": "CASE-PILOT-SLEEP-003",
@@ -574,7 +574,7 @@
       ],
       "reproducibility_hash_sha256": "c65ad0056f5a59c63f3a3edbfee0e46f3acba2d3bad044b902b7876e55ac2794",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.426
+      "elapsed_ms": 0.781
     },
     {
       "case_id": "CASE-PILOT-SLEEP-004",
@@ -594,7 +594,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "33e1c83bd2d8fbd84ba7460bf8a6dd5ab50852711ddc80a8d55055f16332f0e7",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.08
+      "elapsed_ms": 2.634
     },
     {
       "case_id": "CASE-PILOT-GEN-001",
@@ -614,7 +614,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "d3aad050420e0eda597bb8f6771b3c8a9690f50cc1eb8a15bc112177ff6151a5",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 1.972
+      "elapsed_ms": 4.127
     },
     {
       "case_id": "CASE-PILOT-GEN-002",
@@ -636,7 +636,7 @@
       ],
       "reproducibility_hash_sha256": "356bc614b12bbc6c12f560a580d803daf477c531bf3a7f5cc17e7fef18159c3d",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.36
+      "elapsed_ms": 0.977
     },
     {
       "case_id": "CASE-PILOT-GEN-003",
@@ -656,7 +656,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "0866b752c62bb949afed403da155ea90364b9de13106ba5dc3c3a8a17f0756ea",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.008
+      "elapsed_ms": 3.278
     },
     {
       "case_id": "CASE-PILOT-GEN-004",
@@ -676,7 +676,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "31c9667aa1104aa3e49eb05d2f3471bc4691f8f7c148290a5e6d6e140ffc4518",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.071
+      "elapsed_ms": 3.934
     },
     {
       "case_id": "CASE-PILOT-DME-001",
@@ -696,7 +696,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "7cb729b48c1cc730cc608c9743b7e7d484be199ce292994e968f7c75124653b8",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 1.942
+      "elapsed_ms": 3.355
     },
     {
       "case_id": "CASE-PILOT-DME-002",
@@ -716,7 +716,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "d885c596edcae4172f0a6de9a134ea12c098c20aa2aa6389555f44e2759fbfeb",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 1.688
+      "elapsed_ms": 3.402
     },
     {
       "case_id": "CASE-PILOT-DME-003",
@@ -738,7 +738,7 @@
       ],
       "reproducibility_hash_sha256": "28366f9732a6c37b8c454ca9a44ae823e258d8cd821798776658f3110be41a3f",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 0.457
+      "elapsed_ms": 0.918
     },
     {
       "case_id": "CASE-PILOT-DME-004",
@@ -758,7 +758,7 @@
       "unresolved_dependencies": [],
       "reproducibility_hash_sha256": "b4771e0cdb0ab5e895a3c1d5c8638e6e20ca6ecbd2c0c017b88ccc52cee2c6ba",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 1.866
+      "elapsed_ms": 3.285
     }
   ]
 }

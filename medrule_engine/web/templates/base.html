@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}MedRule Governance{% endblock %} — Clinical SME Review Workbench</title>
+    <title>{% block title %}MedRule Governance{% endblock %} | MedRule</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -14,17 +14,17 @@
                 <span class="brand-subtitle">Clinical SME Review &amp; Governance</span>
             </div>
             <nav class="nav-links">
-                <a href="{{ url_for('dashboard', as_user=current_user.user_id) }}">Dashboard</a>
-                <a href="{{ url_for('rule_list', as_user=current_user.user_id) }}">Rule Catalog</a>
-                <a href="{{ url_for('human_review_queue', as_user=current_user.user_id) }}">Review Queue</a>
-                <a href="{{ url_for('proposed_corrections', as_user=current_user.user_id) }}">Corrections</a>
-                <a href="{{ url_for('pilot_dashboard', as_user=current_user.user_id) }}">Pilot</a>
-                <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}">Case Intake</a>
-                <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}">Case History</a>
+                <a href="{{ url_for('dashboard', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard</a>
+                <a href="{{ url_for('rule_list', as_user=current_user.user_id) }}" class="{% if request.endpoint in ['rule_list', 'rule_workbench'] %}active{% endif %}">Rule Catalog</a>
+                <a href="{{ url_for('human_review_queue', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'human_review_queue' %}active{% endif %}">Review Queue</a>
+                <a href="{{ url_for('proposed_corrections', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'proposed_corrections' %}active{% endif %}">Corrections</a>
+                <a href="{{ url_for('pilot_dashboard', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'pilot_dashboard' %}active{% endif %}">Pilot</a>
+                <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'case_intake_view' %}active{% endif %}">Case Intake</a>
+                <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}" class="{% if request.endpoint in ['case_history_view', 'case_detail_view'] %}active{% endif %}">Case History</a>
             </nav>
             <div class="user-switcher">
                 <form method="GET" action="" id="user-switch-form">
-                    <label for="as_user"><span class="dev-badge">DEV ONLY</span> Reviewer Persona:</label>
+                    <label for="as_user">Reviewer Persona:</label>
                     <select name="as_user" id="as_user" onchange="this.form.submit()">
                         {% for u in all_users %}
                         <option value="{{ u.user_id }}" {% if u.user_id == current_user.user_id %}selected{% endif %}>
@@ -36,11 +36,6 @@
             </div>
         </div>
     </header>
-
-    <div class="prototype-banner">
-        <span class="alert-badge">NON-BINDING PROTOTYPE</span>
-        <strong>Strict Governance Mode:</strong> Exactly 0 rules approved. Prototype evaluations unconditionally enforce <code>is_binding: false</code>. All approvals require explicit authorized Medical Director sign-off satisfying all 8 governance prerequisites.
-    </div>
 
     <main class="main-content">
         {% block content %}{% endblock %}

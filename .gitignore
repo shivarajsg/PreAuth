@@ -14,3 +14,9 @@ rulebook_collection.zip
 # Local export folder for sharing
 PreAuth_Local_Share/
 
+# Virtual Environments
+.venv/
+venv/
+ENV/
+PreAuth_Local_Share.zip
+

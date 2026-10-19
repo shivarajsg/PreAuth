@@ -284,7 +284,16 @@ class PriorAuthIntakeOrchestrator:
             "procedure_code": case_data.get("procedure_code", "UNKNOWN"),
             "procedure_name": case_data.get("procedure_name", "UNKNOWN"),
             "requested_date_of_service": case_data.get("requested_date_of_service", "2026-01-01"),
-            "patient_id": case_data.get("patient_id", "UNKNOWN")
+            "patient_id": case_data.get("patient_id", "UNKNOWN"),
+            "clinical_evidence": case_data.get("clinical_evidence", {}),
+            "submitted_documents": case_data.get("submitted_documents", []),
+            "ordering_provider": case_data.get("ordering_provider", ""),
+            "diagnosis_icd10": case_data.get("diagnosis_icd10", ""),
+            "diagnosis_description": case_data.get("diagnosis_description", ""),
+            "source_pdf_filename": case_data.get("source_pdf_filename", ""),
+            "clinical_narrative_excerpt": case_data.get("clinical_narrative_excerpt", ""),
+            "key_findings": case_data.get("key_findings", []),
+            "pdf_details": case_data.get("pdf_details", {})
         }
 
         # -----------------------------------------------------------------
@@ -642,7 +651,8 @@ class PriorAuthIntakeOrchestrator:
             policy_ctx = {
                 "governing_policy_id": matched_cfg.governing_policy_id,
                 "policy_version": matched_cfg.governing_policy_version,
-                "is_binding": False  # Strictly non-binding
+                "is_binding": False,  # Strictly non-binding
+                "allow_historical_evaluation": True  # Support real clinical encounter dates (2024-2026)
             }
             assessment, audit_record = self.evaluation_service.evaluate_case(
                 eval_payload, policy_context=policy_ctx

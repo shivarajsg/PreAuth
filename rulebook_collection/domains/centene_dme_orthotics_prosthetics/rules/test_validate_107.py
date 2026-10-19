@@ -1,10 +1,16 @@
 import fitz
 import json
 import jsonschema
+import sys
 from pathlib import Path
+
+cur_dir = Path(__file__).resolve().parent
+if str(cur_dir) not in sys.path:
+    sys.path.insert(0, str(cur_dir))
+
 from build_rules_data_107 import get_cp_mp_107_rules
 
-base_dir = Path(r"c:\Users\KumarShiva\Downloads\PreAuth")
+base_dir = cur_dir.parents[3]
 rules = get_cp_mp_107_rules()
 print(f"Total CP.MP.107 rules loaded: {len(rules)}")
 

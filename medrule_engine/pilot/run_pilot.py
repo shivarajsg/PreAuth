@@ -216,7 +216,7 @@ def run_pilot() -> Dict[str, Any]:
         "timings": {
             "registry_load_ms": round(reg_elapsed_ms, 2),
             "total_elapsed_ms": round(total_elapsed_ms, 2),
-            "average_ms_per_case": round(total_elapsed_ms / len(cases), 3)
+            "average_ms_per_case": round(sum(c["elapsed_ms"] for c in case_results) / len(case_results), 3)
         },
         "case_evaluations": case_results
     }

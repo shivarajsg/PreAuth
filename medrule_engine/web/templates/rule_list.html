@@ -71,49 +71,78 @@
             <h3>Matching Rules: <span class="badge badge-info">{{ total_matches }}</span></h3>
         </div>
 
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Rule ID</th>
-                    <th>Clinical Domain</th>
-                    <th>Governed Procedure / Service</th>
-                    <th>Rule Type</th>
-                    <th>Decision Effect</th>
-                    <th>Extraction Status</th>
-                    <th>Workflow Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for r in rules %}
-                <tr>
-                    <td>
-                        <a href="{{ url_for('rule_workbench', rule_id=r.rule_id, as_user=current_user.user_id) }}" class="rule-link">
-                            <code>{{ r.rule_id }}</code>
-                        </a>
-                        {% if r.human_review_required %}
-                        <span class="badge badge-warning" title="Flagged for mandatory human review">REVIEW</span>
-                        {% endif %}
-                    </td>
-                    <td><strong>{{ r.domain.replace('_', ' ')|title }}</strong></td>
-                    <td>{{ r.clinical_service_or_procedure }}</td>
-                    <td><span class="type-badge">{{ r.rule_type }}</span></td>
-                    <td><span class="effect-badge effect-{{ r.decision_effect|lower }}">{{ r.decision_effect }}</span></td>
-                    <td><span class="status-badge status-{{ r.extraction_status|lower }}">{{ r.extraction_status }}</span></td>
-                    <td><span class="wf-badge wf-{{ r.workflow_status|lower }}">{{ r.workflow_status }}</span></td>
-                    <td>
-                        <a href="{{ url_for('rule_workbench', rule_id=r.rule_id, as_user=current_user.user_id) }}" class="btn btn-sm btn-outline">
-                            Workbench &rarr;
-                        </a>
-                    </td>
-                </tr>
-                {% else %}
-                <tr>
-                    <td colspan="8" class="text-muted">No rules match the selected filter criteria.</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Rule ID</th>
+                        <th>Clinical Domain</th>
+                        <th>Governed Procedure / Service</th>
+                        <th>Rule Type</th>
+                        <th>Decision Effect</th>
+                        <th>Extraction Status</th>
+                        <th>Workflow Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in rules %}
+                    <tr class="rule-catalog-row" {% if loop.index > 25 %}style="display: none;"{% endif %}>
+                        <td>
+                            <a href="{{ url_for('rule_workbench', rule_id=r.rule_id, as_user=current_user.user_id) }}" class="rule-link">
+                                <code>{{ r.rule_id }}</code>
+                            </a>
+                            {% if r.human_review_required %}
+                            <span class="badge badge-warning" title="Flagged for mandatory human review">REVIEW</span>
+                            {% endif %}
+                        </td>
+                        <td><strong>{{ r.domain.replace('_', ' ')|title }}</strong></td>
+                        <td>{{ r.clinical_service_or_procedure }}</td>
+                        <td><span class="type-badge">{{ r.rule_type }}</span></td>
+                        <td><span class="effect-badge effect-{{ r.decision_effect|lower }}">{{ r.decision_effect }}</span></td>
+                        <td><span class="status-badge status-{{ r.extraction_status|lower }}">{{ r.extraction_status }}</span></td>
+                        <td><span class="wf-badge wf-{{ r.workflow_status|lower }}">{{ r.workflow_status }}</span></td>
+                        <td>
+                            <a href="{{ url_for('rule_workbench', rule_id=r.rule_id, as_user=current_user.user_id) }}" class="btn btn-sm btn-outline">
+                                Workbench &rarr;
+                            </a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="8" class="text-muted">No rules match the selected filter criteria.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if rules|length > 25 %}
+        <div style="text-align: center; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+            <button type="button" id="btn-toggle-catalog-rules" class="btn btn-primary" style="padding: 0.65rem 1.75rem; font-size: 0.95rem; font-weight: 600;" onclick="toggleCatalogRules()">
+                Show More Rules ({{ rules|length - 25 }} more) &darr;
+            </button>
+        </div>
+        <script>
+        function toggleCatalogRules() {
+            const rows = document.querySelectorAll('.rule-catalog-row');
+            const btn = document.getElementById('btn-toggle-catalog-rules');
+            if (!rows.length || !btn) return;
+            const isExpanded = btn.getAttribute('data-expanded') === 'true';
+            rows.forEach((el, idx) => {
+                if (idx >= 25) {
+                    el.style.display = isExpanded ? 'none' : '';
+                }
+            });
+            if (isExpanded) {
+                btn.setAttribute('data-expanded', 'false');
+                btn.innerHTML = 'Show More Rules (' + (rows.length - 25) + ' more) &darr;';
+            } else {
+                btn.setAttribute('data-expanded', 'true');
+                btn.innerHTML = 'Show Less Rules &uarr;';
+            }
+        }
+        </script>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

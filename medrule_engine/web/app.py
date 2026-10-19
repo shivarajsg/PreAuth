@@ -330,9 +330,21 @@ def create_app(
             docs_raw = form.get("submitted_documents", "")
             submitted_docs = [d.strip() for d in docs_raw.split(",") if d.strip()]
 
+            details_raw = form.get("pdf_details_json", "{}")
+            try:
+                pdf_details = json.loads(details_raw) if details_raw else {}
+            except Exception:
+                pdf_details = {}
+
+            findings_raw = form.get("key_findings_json", "[]")
+            try:
+                key_findings = json.loads(findings_raw) if findings_raw else []
+            except Exception:
+                key_findings = []
+
             data = {
-                "case_id": form.get("case_id") or f"CASE-SYNTH-{int(datetime.now().timestamp())}",
-                "patient_id": form.get("patient_id"),
+                "case_id": form.get("case_id") or f"CASE-{int(datetime.now().timestamp())}",
+                "patient_id": form.get("patient_id") or f"PT-{int(datetime.now().timestamp()) % 100000}",
                 "clinical_domain": form.get("clinical_domain"),
                 "procedure_code": form.get("procedure_code"),
                 "procedure_name": form.get("procedure_name"),
@@ -342,7 +354,14 @@ def create_app(
                 "plan_id": form.get("plan_id") or "COMMERCIAL_CHOICE_PLUS",
                 "submitted_documents": submitted_docs,
                 "clinical_evidence": evidence,
-                "bypass_documentation_check": form.get("bypass_documentation_check") == "true"
+                "bypass_documentation_check": form.get("bypass_documentation_check") == "true",
+                "ordering_provider": form.get("ordering_provider") or pdf_details.get("ordering_provider", ""),
+                "diagnosis_icd10": form.get("diagnosis_icd10") or pdf_details.get("diagnosis_icd10", ""),
+                "diagnosis_description": form.get("diagnosis_description") or pdf_details.get("diagnosis_description", ""),
+                "source_pdf_filename": form.get("source_pdf_filename") or pdf_details.get("filename", ""),
+                "clinical_narrative_excerpt": form.get("clinical_narrative_excerpt") or pdf_details.get("narrative_excerpt", ""),
+                "key_findings": key_findings or pdf_details.get("key_findings", []),
+                "pdf_details": pdf_details
             }
 
         # Validate mandatory intake fields
@@ -429,6 +448,30 @@ def create_app(
             logger.exception("API intake error:")
             return jsonify({"error": str(e), "status": "ERROR"}), 500
 
+    @app.route("/api/cases/extract-pdf", methods=["POST"])
+    def api_extract_pdf():
+        """Extract structured case intake fields from uploaded clinical PDF notes."""
+        file = request.files.get("pdf_file") or request.files.get("file")
+        if not file or file.filename == "":
+            return jsonify({"error": "No PDF file provided.", "status": "INVALID_REQUEST"}), 400
+
+        if not file.filename.lower().endswith(".pdf"):
+            return jsonify({"error": "Only PDF files (.pdf) are supported.", "status": "INVALID_FILE_TYPE"}), 400
+
+        try:
+            from medrule_engine.integrations.pdf_extractor import extract_case_from_pdf
+            pdf_bytes = file.read()
+            if not pdf_bytes:
+                return jsonify({"error": "Uploaded file is empty.", "status": "INVALID_REQUEST"}), 400
+
+            result = extract_case_from_pdf(pdf_bytes, filename=file.filename)
+            return jsonify(result), 200
+        except ValueError as ve:
+            return jsonify({"error": str(ve), "status": "EXTRACTION_WARNING"}), 422
+        except Exception as e:
+            logger.exception("PDF extraction failure:")
+            return jsonify({"error": f"Failed to extract case from PDF: {str(e)}", "status": "ERROR"}), 500
+
     @app.route("/api/cases")
     def api_list_cases():
         """List case intake records as JSON."""
@@ -511,7 +554,10 @@ def create_app(
     @app.route("/api/rules/<rule_id>/review", methods=["POST"])
     def api_submit_review(rule_id: str):
         """Submit a clinical review action."""
-        data = request.get_json() or request.form
+        if request.is_json:
+            data = request.get_json() or {}
+        else:
+            data = request.form
         reviewer = get_current_reviewer()
 
         action = data.get("action")
@@ -577,9 +623,13 @@ def create_app(
     @app.route("/api/corrections/<correction_id>/resolve", methods=["POST"])
     def api_resolve_correction(correction_id: str):
         """Accept or reject a proposed correction."""
-        data = request.get_json() or {}
+        if request.is_json:
+            data = request.get_json() or {}
+        else:
+            data = request.form
         reviewer = get_current_reviewer()
-        accepted = bool(data.get("accepted", False))
+        raw_accepted = data.get("accepted")
+        accepted = raw_accepted in (True, 1, "1", "true", "True")
         notes = data.get("notes", "").strip()
 
         try:
@@ -589,7 +639,9 @@ def create_app(
                 accepted=accepted,
                 notes=notes
             )
-            return jsonify({"status": "success", "result": result})
+            if request.is_json:
+                return jsonify({"status": "success", "result": result})
+            return redirect(request.referrer or url_for("corrections_list", as_user=reviewer.user_id))
         except PermissionError as pe:
             return jsonify({"error": str(pe)}), 403
         except ValueError as ve:
