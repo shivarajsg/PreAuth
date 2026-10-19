@@ -1,8 +1,36 @@
 # MedRule Prior-Authorization Decision Support System
 
-MedRule is a deterministic, policy-based clinical decision support (CDS) system designed to evaluate healthcare prior-authorization requests against machine-readable clinical guideline criteria across nine medical specialties.
+[![Live Deployment](https://img.shields.io/badge/Render-Deployed%20Live-brightgreen?logo=render&logoColor=white&style=for-the-badge)](https://medrule-preauth.onrender.com)
+[![System Status](https://img.shields.io/badge/Status-HEALTHY%20(200%20OK)-success?style=for-the-badge)](https://medrule-preauth.onrender.com/api/health)
+[![Architecture](https://img.shields.io/badge/Architecture-100%25%20Deterministic%20(No%20LLM)-purple?style=for-the-badge)](https://medrule-preauth.onrender.com)
+[![Knowledge Base](https://img.shields.io/badge/Policy%20Rules-372%20Rules%20%7C%209%20Domains-blue?style=for-the-badge)](https://medrule-preauth.onrender.com/rules)
+[![Safety Invariant](https://img.shields.io/badge/Rules%20Approved-0%20(Invariant%20Enforced)-critical?style=for-the-badge)](https://medrule-preauth.onrender.com/dashboard)
 
-The engine executes 100% deterministic, three-valued logic (`TRUE`, `FALSE`, `UNKNOWN`) without large language models (LLMs), generative AI, probabilistic inference, or neural weights.
+---
+
+## 🌐 Live Cloud Deployment & Status
+
+| Resource | Direct Link | Real-Time Status |
+| :--- | :--- | :--- |
+| **Live Web Application** | **[https://medrule-preauth.onrender.com](https://medrule-preauth.onrender.com)** | 🟢 **Live & Operational** |
+| **Clinical Governance Dashboard** | **[medrule-preauth.onrender.com/dashboard](https://medrule-preauth.onrender.com/dashboard)** | 🟢 Active Telemetry |
+| **Prior-Auth Case Intake Portal** | **[medrule-preauth.onrender.com/intake](https://medrule-preauth.onrender.com/intake)** | 🟢 10-Stage Pipeline Active |
+| **Clinical Rule Explorer & Workbench** | **[medrule-preauth.onrender.com/rules](https://medrule-preauth.onrender.com/rules)** | 🟢 372 Rules Indexed |
+| **Clinical SME Review Queue** | **[medrule-preauth.onrender.com/queue](https://medrule-preauth.onrender.com/queue)** | 🟢 50 Human Review Rules |
+| **Pilot Adjudication & Concordance** | **[medrule-preauth.onrender.com/pilot](https://medrule-preauth.onrender.com/pilot)** | 🟢 Benchmark Data Active |
+| **System Health API** | **[medrule-preauth.onrender.com/api/health](https://medrule-preauth.onrender.com/api/health)** | 🟢 `{"status": "HEALTHY"}` |
+
+> ℹ️ *Note: If accessing for the first time after inactivity, please allow 15–20 seconds for the free cloud container to spin up.*
+
+---
+
+## About MedRule
+
+**MedRule** is a deterministic, policy-based clinical decision support (CDS) system designed to evaluate healthcare prior-authorization requests against machine-readable clinical guideline criteria across nine medical specialties.
+
+Unlike probabilistic AI or generative LLMs that are prone to hallucinating clinical thresholds, MedRule executes **100% deterministic, three-valued logic (`TRUE`, `FALSE`, `UNKNOWN`)** directly compiled from authoritative clinical policies (such as Centene and Evolent Health guidelines).
+
+Every determination maintains complete source traceability, audit history, and an enforced non-binding governance lifecycle.
 
 ---
 
