@@ -10,6 +10,8 @@ htmlcov/
 
 # Archives & temporary backups
 rulebook_collection.zip
+PreAuth_Local_Share.zip
+*.zip
 
 # Local export folder for sharing
 PreAuth_Local_Share/
