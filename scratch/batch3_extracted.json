@@ -1,0 +1,279 @@
+[
+  {
+    "rule_id": "RULE-ADV-CG2032-001",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 504,
+    "printed_page": "Page 4 of 23",
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY CT / Non-specific Lower Extremity Pain (1,2)",
+    "source_quote": "Lower extremity pain with no specific joint identified with MRI contraindicated or cannot be performed AND with prior X-ray",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Lower extremity pain without specific localized joint involvement",
+          "parameter": "non_specific_lower_extremity_pain",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Prior plain radiographs (X-ray) completed of the symptomatic region",
+          "parameter": "prior_xray_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "MRI is medically contraindicated or cannot be performed",
+          "parameter": "mri_contraindicated",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 23 \nEvolent Clinical Guideline 2032 for Lower Extremity Computed Tomography (CT) \nNon-specific Lower Extremity Pain (1,2) \nLower extremity pain with no specific joint identified with MRI contraindicated or cannot be \nperformed AND with prior X-ray showing no clear etiology of extremity pain with any ONE of \nthe following: \n● Persistent musculotendinous lower extremity pain unresponsive to ACTIVE \nConservative Therapy (ACT) which includes physical therapy, chiropractic treatments, \nand/or physician supervised Home Exercise Program (HEP) of at least four (4) weeks \nduration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment  \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nJoint Specific Pain or Suspected Joint Specific Injury  \nIn the absence of a positive joint specific orthopedic sign on exam (see list below), advanced \nimaging is indicated with MRI contraindicated or cannot be performed AND prior X-ray \nshowing no clear etiology for the joint pain with any ONE of the following: \n● Persistent joint pain unresponsive to ACTIVE Conservative Therapy (ACT) which \nincludes physical therapy, chiropractic treatments, and/or physician supervised Home \nExercise Program (HEP) of at least four (4) weeks duration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nNOTE: For Bilateral Hip CT requests: When the patient meets hip joint CT criteria for both right \nand left hip pain (X-ray completed AND persistent pain unresponsive to active conservative \ntherapy AND MRI contraindicated or cannot be performed) without a positive orthopedic sign, \nthen Pelvis CT (Evolent_CG_2042) is the preferred study. \nJoint Specific Orthopedic Signs  \nNOTE: CT is indicated if MRI contraindicated or cannot be performed OR if the study requested \nas a CT arthrogram \nNOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred; \nhowever, it is NOT required UNLESS otherwise specified in bold below.   \nNOTE: The joint specific exam testing list below is intended to be thorough but cannot possibly \nbe all inclusive. Advanced imaging is indicated for any orthopedic exam test that clearly \nsuggests joint instability \nJoint specific advanced imaging is indicated for any positive orthopedic sign listed below: \nAnkle (3–7) \nIf MRI contraindicated or cannot be performed; \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2035-001",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 553,
+    "printed_page": "Page 4 of 22",
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Pain or Suspected Joint Specific Injury",
+    "source_quote": "Joint Specific Pain or Suspected Joint Specific Injury",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of joint-specific pain, mechanical locking, instability, or suspected internal derangement (ligament/meniscal tear)",
+          "parameter": "joint_specific_injury_or_pain",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 22 \nEvolent Clinical Guideline 2035 for Lower Extremity Magnetic Resonance Imaging (MRI) \nNon-specific Lower Extremity Pain (1,2) \nLower extremity pain with no specific joint identified with prior X-ray showing no clear etiology of \nextremity pain with any ONE of the following: \n● Persistent musculotendinous lower extremity pain unresponsive to ACTIVE \nConservative Therapy (ACT) which includes physical therapy, chiropractic treatments, \nand/or physician supervised Home Exercise Program (HEP) of at least four (4) weeks \nduration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment  \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nJoint Specific Pain or Suspected Joint Specific Injury  \nIn the absence of a positive joint specific orthopedic sign on exam (see list below), advanced \nimaging is indicated with prior X-ray showing no clear etiology for the joint pain with any ONE of \nthe following: \n● Persistent joint pain unresponsive to ACTIVE Conservative Therapy (ACT) which \nincludes physical therapy, chiropractic treatments, and/or physician supervised Home \nExercise Program (HEP) of at least four (4) weeks duration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nNOTE: For Bilateral Hip MRI requests: When the patient meets hip joint MRI criteria for both \nright and left hip pain (X-ray completed AND persistent pain unresponsive to active conservative \ntherapy) without a positive orthopedic sign, then Pelvis MRI (Evolent_CG_2045) is the preferred \nstudy. \nJoint Specific Orthopedic Signs \nNOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred; \nhowever, it is NOT required UNLESS otherwise specified in bold below.   \nNOTE: The joint specific exam testing list below is intended to be thorough but cannot possibly \nbe all inclusive. Advanced imaging is indicated for any orthopedic exam test that clearly \nsuggests joint instability \nJoint specific advanced imaging is indicated for any positive orthopedic sign listed below: \nAnkle (3–7) \n● Physical exam demonstrating a positive result for any ONE of the following tests: \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2035-002",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 553,
+    "printed_page": "Page 4 of 22",
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Orthopedic Signs",
+    "source_quote": "Joint specific advanced imaging is indicated for any positive orthopedic sign listed below:",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Physical examination demonstrates positive joint-specific sign for meniscal or ligamentous tear (e.g. McMurray test, joint line tenderness, Lachman test, anterior/posterior drawer, pivot shift)",
+          "parameter": "positive_knee_orthopedic_sign",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Prior plain radiograph completed showing no clear explanation for mechanical symptoms or acute fracture",
+          "parameter": "prior_xray_completed",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 22 \nEvolent Clinical Guideline 2035 for Lower Extremity Magnetic Resonance Imaging (MRI) \nNon-specific Lower Extremity Pain (1,2) \nLower extremity pain with no specific joint identified with prior X-ray showing no clear etiology of \nextremity pain with any ONE of the following: \n● Persistent musculotendinous lower extremity pain unresponsive to ACTIVE \nConservative Therapy (ACT) which includes physical therapy, chiropractic treatments, \nand/or physician supervised Home Exercise Program (HEP) of at least four (4) weeks \nduration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment  \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nJoint Specific Pain or Suspected Joint Specific Injury  \nIn the absence of a positive joint specific orthopedic sign on exam (see list below), advanced \nimaging is indicated with prior X-ray showing no clear etiology for the joint pain with any ONE of \nthe following: \n● Persistent joint pain unresponsive to ACTIVE Conservative Therapy (ACT) which \nincludes physical therapy, chiropractic treatments, and/or physician supervised Home \nExercise Program (HEP) of at least four (4) weeks duration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nNOTE: For Bilateral Hip MRI requests: When the patient meets hip joint MRI criteria for both \nright and left hip pain (X-ray completed AND persistent pain unresponsive to active conservative \ntherapy) without a positive orthopedic sign, then Pelvis MRI (Evolent_CG_2045) is the preferred \nstudy. \nJoint Specific Orthopedic Signs \nNOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred; \nhowever, it is NOT required UNLESS otherwise specified in bold below.   \nNOTE: The joint specific exam testing list below is intended to be thorough but cannot possibly \nbe all inclusive. Advanced imaging is indicated for any orthopedic exam test that clearly \nsuggests joint instability \nJoint specific advanced imaging is indicated for any positive orthopedic sign listed below: \nAnkle (3–7) \n● Physical exam demonstrating a positive result for any ONE of the following tests: \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2036-001",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 574,
+    "printed_page": "Page 3 of 20",
+    "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Neurologic Deficits (1)",
+    "source_quote": "INDICATIONS FOR LUMBAR SPINE CT",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of acute lumbar trauma, surgical fusion integrity/pseudoarthrosis, or lumbar pain when MRI is contraindicated",
+          "parameter": "lumbar_ct_indication_met",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 3 of 20 \nEvolent Clinical Guideline 2036 for Lumbar Spine Computed Tomography (CT) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care criteria. \nThese criteria are supported by evidence-based or peer-reviewed sources such as \nmedical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nComputed tomography is used for the evaluation, assessment of severity, and follow-up of \ndiseases of the spine. CT is often used to study the lumbar spine for conditions such as \ndegenerative disc disease when MRI is contraindicated. CT provides excellent depiction of bone \ndetail and is used in the evaluation of known fractures of the lumbar spine and for evaluation of \npostoperative patients.  \nSpecial Note \nIf there is a combination request* for an overlapping body part, either requested at the same \ntime or sequentially (within the past 3 months) one of the following must be demonstrated:   \n● The results of the prior study should be inconclusive or show a need for additional or \nfollow up imaging evaluation  \n● The office notes should clearly document an indication why overlapping imaging is \nneeded and how it will change management for the patient. \n(*Unless approvable in the combination section as noted in the guidelines) \nINDICATIONS FOR LUMBAR SPINE CT \nEvaluation of Neurologic Deficits (1) \nWhen Lumbar Spine MRI is Contraindicated or Cannot be performed \n● With any of the following new neurological deficits documented on physical exam that \nlocalizes to the lumbar spine \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2037-001",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 594,
+    "printed_page": "Page 3 of 22",
+    "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits (1)",
+    "source_quote": "INDICATIONS FOR LUMBAR SPINE MRI",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of low back pain with lumbosacral radiculopathy or radiating leg pain",
+          "parameter": "lumbar_radiculopathy_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Completion of at least 6 weeks of conservative care within the prior 6 months without meaningful improvement",
+          "parameter": "conservative_therapy_duration_weeks",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 6,
+          "unit": "weeks"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 3 of 22 \nEvolent Clinical Guideline 2037 for Lumbar Spine Magnetic Resonance Imaging (MRI) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care criteria. \nThese criteria are supported by evidence-based or peer-reviewed sources such as \nmedical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nMagnetic resonance imaging (MRI) is used in the evaluation, diagnosis, and management of \nspine-related conditions, e.g., degenerative disc disease, cauda equina compression, \nradiculopathy, infections, or cancer in the lumbar spine.  \nSpecial Note \nIf there is a combination request* for an overlapping body part, either requested at the same \ntime or sequentially (within the past 3 months) one of the following must be demonstrated:  \n● The results of the prior study should be inconclusive or show a need for additional or \nfollow-up imaging evaluation \n● The office notes should clearly document an indication why overlapping imaging is \nneeded and how it will change management for the patient. \n(*Unless approvable in the combination section as noted in the guidelines) \nINDICATIONS FOR LUMBAR SPINE MRI \nEvaluation of Neurologic Deficits (1) \n● With any of the following new neurological deficits documented on physical exam that \nlocalizes to the lumbar spine \n○ \nExtremity muscular weakness (not likely caused by plexopathy, peripheral \nneuropathy or neuromuscular disease) \n○ \nPathologic abnormal reflexes (not likely caused by plexopathy, peripheral neuropathy \nor neuromuscular disease) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2037-002",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 595,
+    "printed_page": "Page 4 of 22",
+    "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits / Cauda Equina Syndrome",
+    "source_quote": "defined symptoms (see Cauda Equina Syndrome section)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of acute cauda equina syndrome with saddle anesthesia, progressive bilateral motor weakness, or bowel/bladder sphincter dysfunction",
+          "parameter": "suspected_cauda_equina_syndrome",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 22 \nEvolent Clinical Guideline 2037 for Lumbar Spine Magnetic Resonance Imaging (MRI) \n○ \nAbsent/decreased sensation along a particular lumbar dermatome (nerve \ndistribution): pin prick, touch, vibration, proprioception or temperature (and not likely \ncaused by plexopathy, or peripheral neuropathy) \n○ \nLower extremity decreased muscle tone (not likely caused by plexopathy, peripheral \nneuropathy or neuromuscular disease) \n○ \nNew onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related \nto an inherent bowel or bladder process \n○ \nGait abnormalities (see Table 1 below for more details) \n○ \nNew onset foot drop (not related to a peripheral nerve injury, e.g., peroneal nerve) \n● Cauda Equina Syndrome as evidence by severe back pain/sciatica along with one of the \ndefined symptoms (see Cauda Equina Syndrome section) \nEvaluation of Back Pain (1) \nWith any of the Following: \n● With new or worsening objective neurologic deficits on exam, as above \n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) \nmonths: \nNOTE - Failure of conservative treatment is defined as one of the following: \n○ \nLack of meaningful improvement after a full course of treatment; OR \n○ \nProgression or worsening of symptoms during treatment; OR \n○ \nDocumentation of a medical reason the member is unable to participate in treatment \nClosure of medical or therapy offices, patient inconvenience, or noncompliance without \nexplanation does not constitute “inability to complete” treatment. \n● With progression or worsening of symptoms during the course of conservative \ntreatment* \n● With an abnormal electromyography (EMG) or nerve conduction study (if performed) \nindicating a lumbar radiculopathy. (2,3)  \n● Isolated back pain in pediatric population when at least ONE of the following red flags \nare present (4,5) (Note: conservative care not required if red flags are present).  \n○ \nAge 5 or younger \n○ \nConstant pain \n○ \nPain lasting > 4 weeks \n○ \nAbnormal neurologic examination \n○ \nEarly morning stiffness and/or gelling \n○ \nNight pain that prevents or disrupts sleep \n○ \nRadicular pain \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2042-001",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 673,
+    "printed_page": "Page 4 of 16",
+    "source_section": "INDICATIONS FOR PELVIS CT / Pelvic Pain for Unknown Etiology",
+    "source_quote": "For acute pelvic pain in a patient over the age of 65 (2)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of acute severe pelvic pain of unknown etiology",
+          "parameter": "acute_pelvic_pain",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Patient age is strictly greater than 65 years",
+          "parameter": "patient_age_years",
+          "comparator": "GREATER_THAN",
+          "value": 65,
+          "unit": "years"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 16 \nEvolent Clinical Guideline 2042 for Pelvis Computed Tomography (CT) \n● For acute pelvic pain in a patient over the age of 65 (2) \nInflammation and Infection (3,4)  \n● Fistula  \n○ \nSuspected perianal fistula or occult anorectal abscess (5)  \n○ \nFor patients with recurrent fistula in anal or perianal Crohn’s disease when MRI is \ncontraindicated or cannot be performed (6) \n○ \nAny history of fistula limited to the pelvis that requires re-evaluation or is suspected \nto have recurred \n● Infection \n○ \nSuspected infection in the pelvis (based on elevated WBC, fever, anorexia, or \nnausea and vomiting) \n○ \nComplications of diverticulitis limited to the pelvis (prior imaging study is not required \nfor diverticulitis diagnosis) with severe abdominal pain or severe tenderness or mass, \nnot responding to antibiotic treatment \n○ \nAny known infection to have created an abscess in the pelvis that requires re-\nevaluation \n● Stricture \n○ \nSuspected urethral stricture or periurethral pathology after initial evaluation with \ncystoscopy or urethroscopy and additional imaging is needed (such as for suspected \nmalignancy, diverticula, fistula or extensive fibrosis OR for preoperative planning) \n● Fluid Collection \n○ \nAbnormal fluid collection seen on prior imaging that needs follow-up evaluation and \nlimited to the pelvis \nHernia (7)  \n● Suspected hernia and one of the following: \n○ \nDeep pelvic hernia (obturator, sciatic or perineal) \n○ \nRecurrent groin hernia AND exam and ultrasound are non-diagnostic or equivocal \n● Known or suspected inguinal, obturator, sciatic perineal hernia with suspected \ncomplications based on one or more of the following: \n○ \nSymptoms such as severe pain, vomiting, diarrhea or blood in stool  \n○ \nExam findings such as inability to reduce hernia, severe tenderness, guarding, \nrebound \n○ \nComplication is suggested on prior imaging \n● Known pelvic or groin hernia and imaging is needed for surgical planning \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2045-001",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 718,
+    "printed_page": "Page 4 of 22",
+    "source_section": "INDICATIONS FOR PELVIC MRI / Infection and Inflammation",
+    "source_quote": "Suspected perianal fistula or occult anorectal abscess (6)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of perianal fistula, perirectal abscess, or complex fistulizing Crohn's disease",
+          "parameter": "suspected_perianal_fistula_or_abscess",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 22 \nEvolent Clinical Guideline 2045 for Pelvis Magnetic Resonance Imaging (MRI) \n○ Suspected perianal fistula or occult anorectal abscess (6)  \n○ For patients with recurrent fistula in anal or perianal Crohn’s disease (7)  \n○ Any history of fistula limited to the pelvis that requires re-evaluation or is suspected \nto have recurred \n● Infection \n○ Suspected infection in the pelvis (based on elevated WBC, fever, anorexia, or \nnausea and vomiting) \n○ Complications of diverticulitis limited to the pelvis (prior imaging study is not required \nfor diverticulitis diagnosis) with severe abdominal pain or severe tenderness or mass, \nnot responding to antibiotic treatment \n○ Any known infection to have created an abscess in the pelvis that requires re-\nevaluation \n● Stricture \n○ Suspected urethral stricture or periurethral pathology after initial evaluation with \ncystoscopy or urethroscopy and additional imaging is needed (such as for suspected \nmalignancy, diverticula, fistula or extensive fibrosis OR  for preoperative planning) (8)  \nFor Inflammation and Infection When CT is Contraindicated or Cannot \nBe Performed \n● Any known infection that is clinically suspected to have created an abscess in the pelvis \n● Abnormal fluid collection limited to the abdomen seen on prior imaging that needs follow-\nup evaluation \n● Suspected peritonitis when abdominal pain and tenderness to palpation are present, and \nat LEAST one of the following (5): \n○ Rebound, guarding or rigid abdomen, OR \n○ Severe tenderness to palpation over the entire abdomen \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal pain, severe tenderness, or mass that is not responding to antibiotic \ntreatment) \nHernia (9)  \n● Suspected athletic pubalgia (sports hernia) in a patient with persistent groin pain that \noccurs with exertion, who has not responded to active conservative treatment for four \nweeks, when prior imaging (ultrasound or CT) is inconclusive \n● Suspected hernia and CT is inconclusive, contraindicated or cannot be performed and \none of the following: \n○ Deep pelvic hernia (obturator, sciatic or perineal) \n○ Groin (e.g. inguinal or femoral), occult or incisional hernia AND exam and ultrasound \nare non-diagnostic or equivocal \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2054-001",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 881,
+    "printed_page": "Page 4 of 17",
+    "source_section": "INDICATIONS FOR SELLA CT",
+    "source_quote": "For further evaluation of known sellar and/or parasellar masses",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known sellar, suprasellar, or parasellar mass requiring bony evaluation of sella turcica or surgical planning",
+          "parameter": "sellar_or_parasellar_mass",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 17 \nEvolent Clinical Guideline 2054 for Temporal Bone, Mastoid, Orbits, Sella, Internal Auditory Canal \nComputed Tomography (CT) \nperformed for any ONE of the following: \n○ \nExophthalmos (proptosis) or enophthalmos (sunken eye) \n○ \nOphthalmoplegia with concern for orbital pathology  \n○ \nClinical suspicion of osteomyelitis with any ONE of the following (6): \n■ Direct visualization of bony deformity \n■ Indeterminate or abnormal prior imaging \n○ \nUnilateral optic disk swelling \n○ \nDocumented visual defect(s) with any ONE of the following (7): \n■ Unilateral visual defects \n■ Optic disc(s) abnormalities on exam (such as optic disc blurring, edema, or \npallor); AND not explained by an underlying known diagnosis (such as glaucoma, \nmacular degeneration) \n● Suspected Optic Neuritis with atypical presentation (such as bilateral, absence of pain, \noptic nerve hemorrhages, severe visual impairment, lack of response to steroids, poor \nrecovery or recurrence) (8)  \n● Suspected Orbital Inflammatory Disease (also known as Orbital Inflammatory \nPseudotumor)  \n● Complex strabismus with ophthalmoplegia (ophthalmoparesis) to aid in diagnosis and/or \nmanagement \nINDICATIONS FOR SELLA CT  \nSella CT (9) \nWhen MRI is contraindicated or cannot be performed: \n● For further evaluation of known sellar and/or parasellar masses \n● Suspected pituitary gland disorder based on any ONE of the following: \n○ \nDocumented visual field defect suggesting compression of the optic chiasm \n○ \nLaboratory findings suggesting pituitary dysfunction (such as abnormal levels of \nprolactin, growth hormone, cortisol, testosterone, oxytocin, TSH, ACTH, LH, FSH, \nADH) \n○ \nPituitary apoplexy (sudden loss of pituitary function often due ischemia or \nhemorrhage) with acute onset of neurological and hormonal symptoms \n○ \nPrior imaging suggesting sella (pituitary) mass \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2055-001",
+    "existing_status": "DRAFT",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 896,
+    "printed_page": "Page 2 of 8",
+    "source_section": "INDICATIONS FOR TEMPOROMANDIBULAR JOINT (TMJ) MRI / Suspected Internal TMJ Derangement",
+    "source_quote": "Suspected Internal TMJ Derangement",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected internal derangement of the temporomandibular joint with mechanical locking, persistent pain, or limitation of mouth opening",
+          "parameter": "suspected_tmj_internal_derangement",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 2 of 8 \nEvolent Clinical Guideline 2055 for Temporomandibular Joint (TMJ) Magnetic Resonance Imaging (MRI) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care \ncriteria. These criteria are supported by evidence-based or peer-reviewed sources such \nas medical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nImaging can assist in the diagnosis of TMJ dysfunction (TMD) when history and physical \nexamination findings are equivocal.  \nINDICATIONS FOR TEMPOROMANDIBULAR JOINT \n(TMJ) MRI \nEvaluation of Temporomandibular Disorders (TMD) (1) \nTemporomandibular disorders (TMD) is an umbrella diagnostic term that encompasses the \nentire clinical spectrum of related jaw/facial dysfunction symptomatology. Imaging of the TMJ \ncan be considered when the etiology of TMD is suspected to be an internal anatomic \nderangement within the joint  \nSuspected Internal TMJ Derangement \n● Persistent symptoms of facial or jaw pain, restricted range of motion, pain and/or noise \nwith TMJ function (i.e., chewing) (2–4) AND \n● Conservative therapy with a trial of pharmacotherapy* AND behavioral modification** \nhas been unsuccessful for at least four (4) weeks \n*Pharmacotherapy typically includes analgesics, anti-inflammatories (NSAIDs), and/or \nmuscle relaxants.  In chronic cases, antidepressants and benzodiazepines may be used.  \n**Behavioral modification may include patient education, self-care, cognitive behavior \ntherapy, physical therapy, and/or occlusal devices \n"
+  }
+]

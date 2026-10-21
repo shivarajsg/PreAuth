@@ -1,0 +1,383 @@
+{
+  "RULE-ADV-CG2056-001": {
+    "file_path": "rulebook_collection\\domains\\advanced_imaging\\rules\\ct\\spine\\ct_thoracic_spine_72128_72130.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 905,
+      "printed_page": "Page 3 of 20"
+    },
+    "source_quote": "When Thoracic Spine MRI is Contraindicated or cannot be performed",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient has new progressive neurological deficit localizing to the thoracic spine (e.g., extremity weakness, bowel/bladder dysfunction, gait instability)",
+          "parameter": "thoracic_neurologic_deficit_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Thoracic spine MRI is contraindicated (e.g. non-MRI-compatible device, severe claustrophobia) or cannot be performed",
+          "parameter": "thoracic_mri_contraindicated_or_unavailable",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-ADV-CG2056-002": {
+    "file_path": "rulebook_collection\\domains\\advanced_imaging\\rules\\ct\\spine\\ct_thoracic_spine_72128_72130.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 906,
+      "printed_page": "Page 4 of 20"
+    },
+    "source_quote": "Pain lasting > 4 weeks",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Persistent thoracic back pain lasting greater than 4 weeks",
+          "parameter": "thoracic_pain_duration_weeks",
+          "comparator": "GREATER_THAN",
+          "value": 4
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Failure of at least 4-6 weeks of conservative management including physical therapy or medications",
+          "parameter": "conservative_therapy_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Thoracic spine MRI is contraindicated or cannot be performed",
+          "parameter": "thoracic_mri_contraindicated",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-ADV-CG2057-001": {
+    "file_path": "rulebook_collection\\domains\\advanced_imaging\\rules\\mri\\spine\\mri_thoracic_spine_72146_72157.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 925,
+      "printed_page": "Page 3 of 23"
+    },
+    "source_quote": "INDICATIONS FOR THORACIC SPINE MRI",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient has objective physical exam findings of thoracic myelopathy or sensory/motor level deficit",
+          "parameter": "thoracic_myelopathy_or_deficit_present",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-ADV-CG2057-002": {
+    "file_path": "rulebook_collection\\domains\\advanced_imaging\\rules\\mri\\spine\\mri_thoracic_spine_72146_72157.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 926,
+      "printed_page": "Page 4 of 23"
+    },
+    "source_quote": "Pain lasting > 4 weeks",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Thoracic back pain lasting greater than 4 weeks",
+          "parameter": "thoracic_pain_duration_weeks",
+          "comparator": "GREATER_THAN",
+          "value": 4
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Failure of at least 4-6 weeks of conservative management (e.g. physical therapy, chiropractic treatments, home exercise program)",
+          "parameter": "conservative_therapy_completed",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-ADV-CG2062-001": {
+    "file_path": "rulebook_collection\\domains\\advanced_imaging\\rules\\ct\\extremities\\ct_upper_extremity_73200_73202.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 965,
+      "printed_page": "Page 3 of 24"
+    },
+    "source_quote": "X-rays must precede CT evaluation, unless otherwise indicated",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Upper extremity plain X-ray completed showing no definitive diagnostic etiology for joint/extremity pain",
+          "parameter": "prior_xray_negative_or_inconclusive",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Persistent pain unresponsive to at least 4 weeks of active conservative therapy, OR acute complex fracture/arthrogram planning",
+          "parameter": "conservative_therapy_or_bony_injury",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-IPM-CGEPIDURALINJECTIONS-001": {
+    "file_path": "rulebook_collection\\domains\\interventional_pain_management\\rules\\epidural_injections\\epidural_spine_injections_62321_62323.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 4,
+      "printed_page": "Page 4 of 102"
+    },
+    "source_quote": "Evolent Clinical Guideline 1750 for Epidural Spine Injections",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGEPIDURALINJECTIONS-001",
+          "description": "Clinical criteria satisfied for Epidural Spine Injections 2026 (July)",
+          "parameter": "cgepiduralinjections_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-IPM-CGEPIDURALINJECTIONS-002": {
+    "file_path": "rulebook_collection\\domains\\interventional_pain_management\\rules\\epidural_injections\\epidural_spine_injections_62321_62323.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 11,
+      "printed_page": "Page 11 of 102"
+    },
+    "source_quote": "The following two elements are required to meet conservative therapy guidelines for HEP:",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-ESI-CONS-001",
+          "description": "Failure of conservative therapy (pharmacotherapy, active physical therapy) for radicular pain",
+          "parameter": "conservative_therapy_failure",
+          "comparator": "DOCUMENTED_FAILURE",
+          "value": "CONSERVATIVE_MANAGEMENT"
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-IPM-CGEPIDURALPUMPTRIALS-001": {
+    "file_path": "rulebook_collection\\domains\\interventional_pain_management\\rules\\epidural_injections\\epidural_pump_trials_62321.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 17,
+      "printed_page": "Page 17 of 102"
+    },
+    "source_quote": "Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGEPIDURALPUMPTRIALS-001",
+          "description": "Clinical criteria satisfied for Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
+          "parameter": "cgepiduralpumptrials_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-IPM-CGFACETBLOCKS-001": {
+    "file_path": "rulebook_collection\\domains\\interventional_pain_management\\rules\\facet_interventions\\facet_joint_blocks_64490_64493.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 31,
+      "printed_page": "Page 31 of 102"
+    },
+    "source_quote": "Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGFACETBLOCKS-001",
+          "description": "Clinical criteria satisfied for Paravertebral Facet Joint Injection or Blocks 2026 (July)",
+          "parameter": "cgfacetblocks_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-IPM-CGSIINJECTIONS-001": {
+    "file_path": "rulebook_collection\\domains\\interventional_pain_management\\rules\\sacroiliac_joint\\sacroiliac_joint_injections_27096.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 57,
+      "printed_page": "Page 57 of 102"
+    },
+    "source_quote": "Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGSIINJECTIONS-001",
+          "description": "Clinical criteria satisfied for Sacroiliac Joint Injections 2026 (July)",
+          "parameter": "cgsiinjections_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-IPM-CGSPINALCORDSTIM-001": {
+    "file_path": "rulebook_collection\\domains\\interventional_pain_management\\rules\\neuromodulation_pumps\\spinal_cord_stimulation_63650_63685.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 78,
+      "printed_page": "Page 78 of 102"
+    },
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGSPINALCORDSTIM-001",
+          "description": "Clinical criteria satisfied for Spinal Cord Stimulation 2026 (July)",
+          "parameter": "cgspinalcordstim_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-IPM-CGSPINALCORDSTIM-002": {
+    "file_path": "rulebook_collection\\domains\\interventional_pain_management\\rules\\neuromodulation_pumps\\spinal_cord_stimulation_63650_63685.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 80,
+      "printed_page": "Page 80 of 102"
+    },
+    "source_quote": "\u25cf Documentation of a successful trial of the temporary SCS device providing at least 50%",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-SCS-TRIAL-001",
+          "description": "Documented trial of spinal cord stimulation demonstrating successful pain relief",
+          "parameter": "scs_trial_pain_relief",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 50,
+          "unit": "%"
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  },
+  "RULE-IPM-CGSYMPATHETICBLOCKS-001": {
+    "file_path": "rulebook_collection\\domains\\interventional_pain_management\\rules\\sympathetic_blocks\\sympathetic_nerve_blocks_64510_64530.json",
+    "title": null,
+    "source_citation": null,
+    "source_page": {
+      "physical_page": 89,
+      "printed_page": "Page 89 of 102"
+    },
+    "source_quote": "Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks",
+    "extraction_status": "DRAFT",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGSYMPATHETICBLOCKS-001",
+          "description": "Clinical criteria satisfied for Sympathetic Nerve Blocks 2026 (July)",
+          "parameter": "cgsympatheticblocks_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "indications": null,
+    "prerequisites": null,
+    "exclusions": null,
+    "rule_logic": null
+  }
+}

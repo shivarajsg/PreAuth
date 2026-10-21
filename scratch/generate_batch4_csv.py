@@ -1,0 +1,215 @@
+import csv
+from pathlib import Path
+
+ROOT = Path(".")
+REPORTS_DIR = ROOT / "reports"
+REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+
+csv_file = REPORTS_DIR / "batch_04_policy_audit.csv"
+
+fieldnames = [
+    "rule_id",
+    "domain",
+    "existing_status",
+    "source_pdf",
+    "pdf_physical_page",
+    "printed_page",
+    "policy_section",
+    "exact_quotation",
+    "category_classification",
+    "missing_context_or_exceptions",
+    "audit_status",
+    "explanation_and_recommendation"
+]
+
+rows = [
+    {
+        "rule_id": "RULE-ADV-CG2056-001",
+        "domain": "advanced_imaging",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+        "pdf_physical_page": 905,
+        "printed_page": "Page 3 of 20",
+        "policy_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Neurologic Deficits (1) / When Thoracic Spine MRI is Contraindicated or cannot be performed",
+        "exact_quotation": "When Thoracic Spine MRI is Contraindicated or cannot be performed: With any of the following new neurological deficits documented on physical exam that localizes to the thoracic spine: Extremity muscular weakness... Pathologic reflexes... Absent/decreased sensation along a particular thoracic dermatome... Upper or lower extremity increase muscle tone/spasticity... New onset bowel or bladder dysfunction... Gait abnormalities",
+        "category_classification": "Explicit source requirement omitted (discrete deficit sub-criteria and suspected cord compression indication); Already handled elsewhere (MRI contraindication handled in rule COND-002); Advisory context only (plexopathy/neuropathy exclusionary notes; Table 1 gait criteria)",
+        "missing_context_or_exceptions": "Rule collapses all 6 discrete physical exam deficit types into single generic boolean parameter. Suspected cord compression with deficits omitted as distinct pathway.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "Core indication (deficit + MRI contraindication) verified against source. Recommend Clinical SME review to decompose into discrete exam finding parameters and codify cord compression pathway."
+    },
+    {
+        "rule_id": "RULE-ADV-CG2056-002",
+        "domain": "advanced_imaging",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+        "pdf_physical_page": 906,
+        "printed_page": "Page 4 of 20",
+        "policy_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Back Pain (1)",
+        "exact_quotation": "Evaluation of Back Pain (1) / With any of the following when Thoracic Spine MRI is Contraindicated: ... Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months ... Isolated back pain in pediatric population when at least ONE of the following red flags are present ... Pain lasting > 4 weeks",
+        "category_classification": "Explicit source requirement omitted (CRITICAL: prerequisite 'when Thoracic Spine MRI is Contraindicated' and 6-week conservative care within 6 months); Ambiguous or conflicting source (rule author extracted 'Pain lasting > 4 weeks' from pediatric red flags but applied to adult back pain); Advisory context only (definition of conservative treatment failure)",
+        "missing_context_or_exceptions": "Rule omits mandatory section prerequisite (MRI contraindicated) and alters conservative care threshold from 6 weeks within last 6 months to 4-6 weeks. Rule quotes pediatric red flag for adult back pain.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "CRITICAL FIDELITY GAP. Thoracic CT is secondary to MRI. Recommend Clinical SME review to add mandatory prerequisite 'mri_contraindicated == true', align conservative care to 6 weeks, and separate pediatric criteria."
+    },
+    {
+        "rule_id": "RULE-ADV-CG2057-001",
+        "domain": "advanced_imaging",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+        "pdf_physical_page": 925,
+        "printed_page": "Page 3 of 23",
+        "policy_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Neurologic Deficits (1)",
+        "exact_quotation": "With any of the following new neurological deficits documented on physical exam that localizes to the thoracic spine: Extremity muscular weakness... Pathologic reflexes... Absent/decreased sensation along a particular thoracic dermatome... Upper or lower extremity increase muscle tone/spasticity... New onset bowel or bladder dysfunction... Gait abnormalities... Suspected thoracic cord compression with any neurological deficits as listed above",
+        "category_classification": "Explicit source requirement omitted (specific physical exam deficit multi-select); Advisory context only (plexopathy/peripheral neuropathy differential exclusion, Table 1 gait abnormality reference); Handled elsewhere (MRI is first-line; no contraindication required)",
+        "missing_context_or_exceptions": "Rule uses single generic boolean 'thoracic_myelopathy_or_deficit_present', omitting structured individual physical exam findings and explicit thoracic cord compression indication.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "First-line thoracic MRI indication verified. Recommend Clinical SME review to structure specific physical exam findings as selectable criteria."
+    },
+    {
+        "rule_id": "RULE-ADV-CG2057-002",
+        "domain": "advanced_imaging",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+        "pdf_physical_page": 926,
+        "printed_page": "Page 4 of 23",
+        "policy_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Back Pain (1)",
+        "exact_quotation": "Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months: NOTE - Failure of conservative treatment is defined as one of the following: Lack of meaningful improvement... Progression or worsening... Documentation of a medical reason... Isolated back pain in pediatric population when at least ONE of the following red flags are present ... Pain lasting > 4 weeks",
+        "category_classification": "Explicit source requirement omitted (mandatory 6 weeks conservative care within 6 months); Ambiguous or conflicting source (rule author conflated pediatric red flag quote 'Pain lasting > 4 weeks' with adult back pain); Advisory context only (definition of conservative treatment failure)",
+        "missing_context_or_exceptions": "Policy mandates failure of conservative treatment for minimum 6 weeks within last 6 months (or progression/medical reason). Rule miscodes duration as >4 weeks pain + 4-6 weeks therapy and conflates pediatric quote.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "Indication verified against p. 926. Recommend Clinical SME review to align conservative treatment to minimum 6 weeks within 6 months and separate pediatric red flags."
+    },
+    {
+        "rule_id": "RULE-ADV-CG2062-001",
+        "domain": "advanced_imaging",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+        "pdf_physical_page": 965,
+        "printed_page": "Page 3 of 24",
+        "policy_section": "INDICATIONS FOR UPPER EXTREMITY CT / Upper Extremity Pain (1,2) / Special Notes",
+        "exact_quotation": "X-rays must precede CT evaluation, unless otherwise indicated ... When specifically indicated below, MRI is the preferred study for the evaluation of the extremities and CT is indicated only when MRI is contraindicated or cannot be performed ... Persistent joint or musculotendinous upper extremity pain unresponsive to ACTIVE Conservative Therapy (ACT) ... of at least four (4) weeks duration within the last 6 months",
+        "category_classification": "Explicit source requirement omitted (CRITICAL: prerequisite 'MRI contraindicated or cannot be performed' and 4 weeks ACT within 6 months); Already handled elsewhere (prior X-ray handled in COND-001); Advisory context only (ACT modality definitions)",
+        "missing_context_or_exceptions": "Rule omits mandatory section prerequisite that MRI must be contraindicated or cannot be performed (or CT arthrogram request). Collapses conservative therapy and acute bony injury into single composite boolean.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "CRITICAL FIDELITY GAP. Plain CT is secondary to MRI for soft tissue/extremity pain. Recommend Clinical SME review to add mandatory prerequisite 'mri_contraindicated == true' and decouple bony injury from conservative therapy."
+    },
+    {
+        "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-001",
+        "domain": "interventional_pain_management",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+        "pdf_physical_page": 4,
+        "printed_page": "Page 1 of 13",
+        "policy_section": "Evolent Clinical Guideline 1750 for Epidural Spine Injections / INDICATIONS / General to All Caudal, Interlaminar, and Transforaminal Injections",
+        "exact_quotation": "For all injections, patients must exhibit pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10 ... Acute pain or exacerbation of chronic radicular pain ... Neck or back pain with acute radicular symptoms ... Duration of pain < 3 months ... Failure to respond to non-operative conservative treatment ... for a minimum of 2 weeks ... Spinal stenosis ... minimum of six (6) weeks in the last six (6) months",
+        "category_classification": "Explicit source requirement omitted (CRITICAL: complete clinical criteria omitted: pain >= 6/10, acute radicular 2-week vs chronic 6-week conservative care, imaging guidance, repeat intervals); Ambiguous or conflicting source (cited page 4 is Table of Contents; criteria are on pp. 6-8); Advisory context only (ASIPP guideline background)",
+        "missing_context_or_exceptions": "Rule is an uncompiled stub ('cgepiduralinjections_indication IS_PRESENT'). Omits all clinical indications, pain thresholds, conservative therapy timelines, guidance requirements, and repeat injection rules.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "HIGH-PRIORITY IPM GAP. Stub rule requires full decomposition into structured clinical decision paths (acute radicular vs spinal stenosis vs FBSS). Update citation page to pp. 6-8."
+    },
+    {
+        "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-002",
+        "domain": "interventional_pain_management",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+        "pdf_physical_page": 11,
+        "printed_page": "Page 8 of 13",
+        "policy_section": "Evolent Clinical Guideline 1750 for Epidural Spine Injections / Conservative Treatment* / Home Exercise Program (HEP)**",
+        "exact_quotation": "The following two elements are required to meet conservative therapy guidelines for HEP: Documentation of an exercise prescription/plan provided by a physician, physical therapist, or chiropractor AND Follow-up documentation regarding completion of HEP after the required 6-week timeframe or inability to complete HEP due to a documented medical reason",
+        "category_classification": "Explicit source requirement omitted (multimodality 1 active + 1 inactive component; 2 mandatory HEP elements: clinician prescription AND 6-week completion/medical inability follow-up); Advisory context only (examples of active/inactive modalities)",
+        "missing_context_or_exceptions": "Rule checks generic string 'CONSERVATIVE_MANAGEMENT' without validating the 2 mandatory policy elements for HEP or the multimodality (1 active + 1 inactive) requirement.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "Source text verified on physical page 11. Recommend Clinical SME review to expand rule parameters to validate clinician prescription, 6-week duration, and multimodality components."
+    },
+    {
+        "rule_id": "RULE-IPM-CGEPIDURALPUMPTRIALS-001",
+        "domain": "interventional_pain_management",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+        "pdf_physical_page": 17,
+        "printed_page": "Page 1 of 14",
+        "policy_section": "Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal Pumps / INDICATIONS FOR INTRASPINAL DRUG TRIAL",
+        "exact_quotation": "INDICATIONS FOR INTRASPINAL DRUG TRIAL / Chronic Intractable Pain in Non-Terminal Individuals ... Pain causing functional disability ... OR persistent pain level of ≥ 6 on a scale of 0 to 10 despite treatment ... Failure to respond to non-operative conservative therapy ... for a minimum of 12 weeks ... Spasticity ... minimum of 12 weeks of non-operative conservative therapy",
+        "category_classification": "Explicit source requirement omitted (CRITICAL: pain >= 6/10 or ADL disability, 12 weeks conservative therapy failure, intractable spasticity diagnostic conditions); Ambiguous or conflicting source (cited page 17 is Table of Contents; criteria are on p. 22); Advisory context only (pre-pump evaluation references)",
+        "missing_context_or_exceptions": "Rule is an uncompiled stub ('cgepiduralpumptrials_indication IS_PRESENT'). Omits 12-week conservative therapy prerequisite and diagnostic prerequisites for chronic pain and spasticity.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "HIGH-PRIORITY IPM GAP. Stub rule requires full decomposition into pain and spasticity decision paths. Update citation page to physical page 22."
+    },
+    {
+        "rule_id": "RULE-IPM-CGFACETBLOCKS-001",
+        "domain": "interventional_pain_management",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+        "pdf_physical_page": 31,
+        "printed_page": "Page 1 of 14",
+        "policy_section": "Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks / INDICATIONS FOR FACET JOINT INJECTIONS OR MEDIAL BRANCH NERVE BLOCKS",
+        "exact_quotation": "To confirm non-radicular pain suggestive of facet joint or pars interarticularis origin, ALL the following must be met: Pain that: Is causing functional disability or average pain level of ≥ 6 ... Duration for at least 3 months ... Is either: By history, mainly axial or non-radicular [or] radicular due to stenosis caused by synovial cyst ... Is of primary source that is not sacroiliac joint pain, discogenic pain, disc herniation, or radiculitis ... Failure to respond to non-operative conservative treatment ... for a minimum of six (6) weeks in the last six (6) months",
+        "category_classification": "Explicit source requirement omitted (CRITICAL: pain >= 6/10, duration >= 3 months, non-radicular/axial restriction, non-SI/discogenic exclusions, 6 weeks conservative care failure, image guidance, max 2 diagnostic sessions with >= 50% relief); Ambiguous or conflicting source (cited page 31 is Table of Contents; criteria on pp. 32-34)",
+        "missing_context_or_exceptions": "Rule is an uncompiled stub ('cgfacetblocks_indication IS_PRESENT'). Omits all clinical diagnostic criteria, exclusion of alternative pain generators, 6-week therapy failure, and repeat injection limits.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "HIGH-PRIORITY IPM GAP. Stub rule requires full clinical compilation. Update citation page from TOC (p. 31) to clinical text (pp. 32-34)."
+    },
+    {
+        "rule_id": "RULE-IPM-CGSIINJECTIONS-001",
+        "domain": "interventional_pain_management",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+        "pdf_physical_page": 57,
+        "printed_page": "Page 1 of 10",
+        "policy_section": "Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections / INDICATIONS FOR SACROILIAC JOINT INJECTIONS (INTRAARTICULAR OR LIGAMENTOUS INJECTIONS ONLY)",
+        "exact_quotation": "Sacroiliac Joint Pain ... ALL of the following must be met: Primarily axial low back pain (below level of L5) which may radiate to the groin or lower extremity; Pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10 ... A cluster of any three (3) of the following positive provocation exam findings ... Duration of pain of at least 3 months; Failure to respond to non-operative conservative treatment ... for a minimum of six (6) weeks in the last six (6) months ... ALL procedures must be performed under imaging guidance",
+        "category_classification": "Explicit source requirement omitted (CRITICAL: pain >= 6/10, pain below L5, duration >= 3 months, cluster of >= 3 positive provocative exam tests, 6 weeks conservative care, mandatory image guidance); Ambiguous or conflicting source (cited page 57 is Table of Contents; criteria on pp. 58-60)",
+        "missing_context_or_exceptions": "Rule is an uncompiled stub ('cgsiinjections_indication IS_PRESENT'). Omits cardinal requirement for cluster of >= 3 positive provocative tests (FABER, distraction, compression, thigh thrust, sacral thrust, etc.) and conservative therapy failure.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "HIGH-PRIORITY IPM GAP. Stub rule requires decomposition into clinical decision tree including 3-of-8 provocative test cluster. Update citation page to pp. 58-60."
+    },
+    {
+        "rule_id": "RULE-IPM-CGSPINALCORDSTIM-001",
+        "domain": "interventional_pain_management",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+        "pdf_physical_page": 78,
+        "printed_page": "Page 2 of 12",
+        "policy_section": "Evolent Clinical Guideline 1757 for Spinal Cord Stimulation / INDICATIONS / Spinal Cord Stimulation",
+        "exact_quotation": "A spinal cord stimulation (SCS) trial is appropriate when ALL the following criteria are met: Pain that: Is causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10 ... Is of at least 6 months duration ... Is caused by at least one of the following: Failed spine surgery syndrome (FSSS) ... CRPS type I or II ... Chronic neuropathic pain ... Failure to respond to non-operative conservative treatment ... for a minimum of 6 months ... A completed presurgical psychological assessment ... MRSA/MSSA decolonization plan",
+        "category_classification": "Explicit source requirement omitted (CRITICAL: pain >= 6/10, duration >= 6 months, qualifying neuropathic etiologies, 6 months conservative care failure, formal presurgical psychological evaluation, MRSA/MSSA screening plan); Advisory context only (DRG specific advantages)",
+        "missing_context_or_exceptions": "Rule is an uncompiled stub ('cgspinalcordstim_indication IS_PRESENT'). Omits all mandatory trial criteria including 6-month therapy failure and presurgical psychological evaluation.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "HIGH-PRIORITY IPM GAP. Stub rule requires full decomposition into qualifying etiology, therapy duration, and psychological evaluation gates. Citation page verified."
+    },
+    {
+        "rule_id": "RULE-IPM-CGSPINALCORDSTIM-002",
+        "domain": "interventional_pain_management",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+        "pdf_physical_page": 80,
+        "printed_page": "Page 4 of 12",
+        "policy_section": "Evolent Clinical Guideline 1757 for Spinal Cord Stimulation / Permanent Spinal Cord or Dorsal Root Ganglion Stimulator (2)",
+        "exact_quotation": "Permanent Spinal Cord or Dorsal Root Ganglion Stimulator (2) / Appropriate when ALL the following criteria are met: Documentation of a successful trial of the temporary SCS device providing at least 50% reduction in pain; Significant functional improvement for a minimum duration of 3 days; Following a device-related non-superficial infection IF: A consultation with an infectious disease specialist is documented ... minimum 12-week interval",
+        "category_classification": "Explicit source requirement omitted (mandatory prerequisite of 'significant functional improvement for a minimum duration of 3 days'; infection remediation prerequisites); Handled by rule (pain relief >= 50% correctly encoded in COND-IPM-SCS-TRIAL-001); Advisory context only (device discrepancy note)",
+        "missing_context_or_exceptions": "Rule checks only 'scs_trial_pain_relief >= 50%', omitting the mandatory companion requirement: 'Significant functional improvement for a minimum duration of 3 days'.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "Pain relief threshold (>= 50%) matches source. Recommend Clinical SME review to add mandatory prerequisite 'functional_improvement_trial_duration_days >= 3'."
+    },
+    {
+        "rule_id": "RULE-IPM-CGSYMPATHETICBLOCKS-001",
+        "domain": "interventional_pain_management",
+        "existing_status": "DRAFT",
+        "source_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+        "pdf_physical_page": 89,
+        "printed_page": "Page 1 of 14",
+        "policy_section": "Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks / INDICATIONS / General Indications / Stellate Ganglion Block",
+        "exact_quotation": "General Indications: Acute or chronic noncancer pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10 ... Each block must be performed under image guidance ... Stellate Ganglion Block ... For pain resulting from: Acute Herpes Zoster (shingles) ... Pain duration less than 4 weeks AND Active antiviral therapy ... Cancer pain or phantom limb pain AND Failure to respond to nonoperative conservative treatment ... CRPS types I and II meeting Budapest criteria AND Failure to respond to functional restoration modalities",
+        "category_classification": "Explicit source requirement omitted (CRITICAL: pain >= 6/10, mandatory image guidance, etiology pathways: shingles < 4 wks + antivirals, cancer/phantom limb + conservative therapy failure, CRPS + functional restoration failure, repeat block >= 50% relief); Ambiguous or conflicting source (cited page 89 is Table of Contents; criteria on pp. 91-93)",
+        "missing_context_or_exceptions": "Rule is an uncompiled stub ('cgsympatheticblocks_indication IS_PRESENT'). Omits all specific diagnostic branches, conservative/antiviral requirements, image guidance, and session limits.",
+        "audit_status": "PARTIALLY_VERIFIED",
+        "explanation_and_recommendation": "HIGH-PRIORITY IPM GAP. Stub rule requires decomposition into clinical decision tree. Update citation page from TOC (p. 89) to clinical text (pp. 91-93)."
+    }
+]
+
+with open(csv_file, "w", newline="", encoding="utf-8") as f:
+    writer = csv.DictWriter(f, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerows(rows)
+
+print(f"Generated {len(rows)} audit rows in {csv_file}")
