@@ -1,0 +1,415 @@
+================================================================================
+Rule ID: RULE-ADV-CG2000-003
+Domain: advanced_imaging | Page: 9 | Policy: 2026 Evolent Clinical Guidelines - Advanced Imaging v2
+Section: Inflammatory Bowel Disease (3–5)
+Issue: Governance blocked rule: Advisory wording ('MRI should be considered'). Flagged for medical director determination regarding whether this constitutes a mandatory denial of CT or peer-to-peer advisory suggestion.
+Source Quote: For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative Colitis (includes CT enterography, however, MRI should be considered for age < 35 to reduce radiation exposure)
+Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Requested procedure is CT enterography or CT abdomen/pelvis for IBD",
+      "parameter": "requested_modality",
+      "comparator": "EQUALS",
+      "value": "CT"
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Patient age is strictly less than 35 years",
+      "parameter": "patient_age_years",
+      "comparator": "LESS_THAN",
+      "value": 35,
+      "unit": "years"
+    }
+  ]
+}
+Decision Effect: ALTERNATIVE_MODALITY_RECOMMENDED
+
+--- Relevant PDF Text Excerpt ---
+Page 4 of 29
+Evolent Clinical Guideline 2000 for Abdomen Pelvis Computed Tomography (CT)
+Inflammatory Bowel Disease (3–5)
+● For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative
+Colitis (includes CT enterography, however, MRI should be considered for age < 35 to
+reduce radiation exposure)
+○
+For suspected inflammatory bowel disease after complete work up including physical
+exam, labs, and recent colonoscopy
+○
+Known inflammatory bowel disease with recurrence or worsening signs/symptoms
+requiring re-evaluation or for monitoring therapy
+Evaluation of Inflammation and Infection
+Peritonitis
+Suspected or known recent peritonitis AND at least one of the following (6,7):
+● Rebound, guarding (not voluntary) or rigid abdomen, OR
+● Severe tenderness to palpation present over entire abdomen
+Diverticulitis or Acute Appendicitis (8,9)
+● Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the
+following (10):
+○
+WBC Elevated
+○
+Fever
+○
+Anorexia
+○
+Nausea and vomiting
+NOTE: If CT is requested for a pregnant woman with suspected appendicitis, ultrasound
+needs to be insufficient and a contraindication to MRI provided (11)
+● Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or
+cannot be completed (due to body habitus or inability to cooperate) OR when peritoneal
+signs are present (guarding, rebound) or other red flags
+● Suspected diverticulitis when (13):
+○
+Pain is present in the LLQ (< 3 months duration), medical records note suspicion for
+diverticulitis, the patient has no prior history of diverticulitis AND either:
+■ LLQ tenderness is present on exam; OR
+■ Patient is immunocompromised; OR
+■ Patient has a history of diverticulitis, symptoms are similar to prior episodes,
+AND patient has failed treatment currently (treatment could be liquid diet or
+antibiotic)
+● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe
+abdominal/pelvic pain or severe tenderness or mass not responding to antibiotic
+
+================================================================================
+Rule ID: RULE-ADV-CG2001-001
+Domain: advanced_imaging | Page: 37 | Policy: 2026 Evolent Clinical Guidelines - Advanced Imaging v2
+Section: STATEMENT / Special Note
+Issue: Governance blocked rule: Anti-unbundling coding rule mandating combined CT Abdomen/Pelvis codes (74176-74178) when both regions are indicated.
+Source Quote: When separate requests for CT abdomen and CT Pelvis are encountered for processes involving both the abdomen and pelvis, they need to be resubmitted as Evolent Clinical Guideline 2000 for Abdomen and Pelvis CT (to avoid unbundling; CPT codes 74176, 74177, 74178).
+Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Separate requests submitted for CT Abdomen and CT Pelvis",
+      "parameter": "separate_abdomen_and_pelvis_requested",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Clinical process or pathology involves both abdominal and pelvic anatomy",
+      "parameter": "pathology_involves_both_cavities",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+Decision Effect: ALTERNATIVE_MODALITY_RECOMMENDED
+
+--- Relevant PDF Text Excerpt ---
+Page 3 of 23
+Evolent Clinical Guideline 2001 for Abdomen Computed Tomography (CT)
+STATEMENT
+General Information
+● It is an expectation that all patients receive care/services from a licensed clinician. All
+appropriate supporting documentation, including recent pertinent office visit notes,
+laboratory data, and results of any special testing must be provided. If applicable: All
+prior relevant imaging results and the reason that alternative imaging cannot be
+performed must be included in the documentation submitted.
+● Where a specific clinical indication is not directly addressed in this guideline, medical
+necessity determination will be made based on widely accepted standard of care
+criteria. These criteria are supported by evidence-based or peer-reviewed sources such
+as medical literature, societal guidelines and state/national recommendations.
+● The guideline criteria in the following sections were developed utilizing evidence-based
+and peer-reviewed resources from medical publications and societal organization
+guidelines as well as from widely accepted standard of care, best practice
+recommendations.
+Purpose
+Abdomen Computed Tomography (CT) uses radiation to generate images of the organs and
+structures in the upper abdomen. Abdominal imaging begins at the diaphragm and extends to
+the umbilicus or iliac crests.
+Special Note
+● Abdomen CT is used for diseases suspected to be limited to the abdomen. Abdomen
+and Pelvis CT (CPT Codes: 74176, 74177, 74178) is used when the indication(s) include
+both the abdomen AND pelvis, such as CT Urography, CT Enterography, acute
+abdominal pain or widespread inflammatory disease.
+● When separate requests for CT abdomen and CT Pelvis are encountered for processes
+involving both the abdomen and pelvis, they need to be resubmitted as Evolent Clinical
+Guideline 2000 for Abdomen and Pelvis CT (to avoid unbundling; CPT codes 74176,
+74177, 74178).
+INDICATIONS FOR ABDOMEN CT
+Organ Specific Imaging
+Adrenal (1)
+● Indeterminate adrenal lesion seen on prior imaging
+● For follow up of known adrenal mass when a change in tumor is suspected by either
+imaging, laboratory evaluation and/or symptoms
+● Adrenal mass < 4 cm incidentally discovered with benign characteristics (homogenous,
+
+================================================================================
+Rule ID: RULE-ADV-CG2066-001
+Domain: advanced_imaging | Page: 1036 | Policy: 2026 Evolent Clinical Guidelines - Advanced Imaging v2
+Section: INDICATIONS FOR EMERGENT STUDIES / Emergent Studies
+Issue: Governance blocked rule: Emergent retrospective review requires physician clinical determination of life/limb threat.
+Source Quote: INDICATIONS FOR EMERGENT STUDIES
+Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Requested imaging was required to render immediate medical attention needed to prevent loss of life, limb, or risk of permanent disability (e.g. airway/breathing/circulation compromise, acute compartment syndrome, acute vascular thrombosis/embolus)",
+      "parameter": "emergent_life_or_limb_threat_present",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+Decision Effect: INDICATED
+
+--- Relevant PDF Text Excerpt ---
+Page 2 of 7
+Evolent Clinical Guideline 2066 for Urgent/Emergent Criteria
+STATEMENT
+General Information
+● It is an expectation that all patients receive care/services from a licensed clinician. All
+appropriate supporting documentation, including recent pertinent office visit notes,
+laboratory data, and results of any special testing must be provided. If applicable: All
+prior relevant imaging results and the reason that alternative imaging cannot be
+performed must be included in the documentation submitted.
+● Where a specific clinical indication is not directly addressed in this guideline, medical
+necessity determination will be made based on widely accepted standard of care
+criteria. These criteria are supported by evidence-based or peer-reviewed sources such
+as medical literature, societal guidelines and state/national recommendations.
+● The guideline criteria in the following sections were developed utilizing evidence-based
+and peer-reviewed resources from medical publications and societal organization
+guidelines as well as from widely accepted standard of care, best practice
+recommendations.
+Purpose
+Evolent reviews certain imaging studies for the existence of an urgent/emergent situation. This
+type of medical necessity review is only conducted for those requests where the date of service
+has passed (a retrospective review).
+INDICATIONS FOR EMERGENT STUDIES
+Emergent Studies
+The requested study is required to render immediate medical attention needed to prevent loss
+of life, limb, or risk of significant morbidity/permanent disability such as (1–3):
+● Conditions that impair bodily functions that support life (airway, breathing & circulation)
+● Conditions that are consistent with a disorder that damages tissue in a substantial
+fashion (e.g., compartment syndrome or thrombus/embolus)
+INDICATIONS FOR URGENT STUDIES
+Urgent Studies
+For the evaluation of a condition that requires prompt medical intervention to prevent additional
+consequences to the health/wellbeing of the member. This includes preventing the medical
+condition from precipitating an emergency situation such as (2):
+● Any condition that cannot be postponed for a period of time (24 hours) without risking
+progression to an emergent condition (4,5)
+
+================================================================================
+Rule ID: RULE-ADV-CG2066-002
+Domain: advanced_imaging | Page: 1036 | Policy: 2026 Evolent Clinical Guidelines - Advanced Imaging v2
+Section: INDICATIONS FOR URGENT STUDIES / Urgent Studies
+Issue: Governance blocked rule: Urgent retrospective review requires physician clinical evaluation of 24-hour urgency.
+Source Quote: INDICATIONS FOR URGENT STUDIES
+Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Condition required prompt medical intervention to prevent progression to an emergent condition or could not be postponed for 24 hours without substantial risk of harm",
+      "parameter": "urgent_intervention_needed_within_24h",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+Decision Effect: INDICATED
+
+--- Relevant PDF Text Excerpt ---
+Page 2 of 7
+Evolent Clinical Guideline 2066 for Urgent/Emergent Criteria
+STATEMENT
+General Information
+● It is an expectation that all patients receive care/services from a licensed clinician. All
+appropriate supporting documentation, including recent pertinent office visit notes,
+laboratory data, and results of any special testing must be provided. If applicable: All
+prior relevant imaging results and the reason that alternative imaging cannot be
+performed must be included in the documentation submitted.
+● Where a specific clinical indication is not directly addressed in this guideline, medical
+necessity determination will be made based on widely accepted standard of care
+criteria. These criteria are supported by evidence-based or peer-reviewed sources such
+as medical literature, societal guidelines and state/national recommendations.
+● The guideline criteria in the following sections were developed utilizing evidence-based
+and peer-reviewed resources from medical publications and societal organization
+guidelines as well as from widely accepted standard of care, best practice
+recommendations.
+Purpose
+Evolent reviews certain imaging studies for the existence of an urgent/emergent situation. This
+type of medical necessity review is only conducted for those requests where the date of service
+has passed (a retrospective review).
+INDICATIONS FOR EMERGENT STUDIES
+Emergent Studies
+The requested study is required to render immediate medical attention needed to prevent loss
+of life, limb, or risk of significant morbidity/permanent disability such as (1–3):
+● Conditions that impair bodily functions that support life (airway, breathing & circulation)
+● Conditions that are consistent with a disorder that damages tissue in a substantial
+fashion (e.g., compartment syndrome or thrombus/embolus)
+INDICATIONS FOR URGENT STUDIES
+Urgent Studies
+For the evaluation of a condition that requires prompt medical intervention to prevent additional
+consequences to the health/wellbeing of the member. This includes preventing the medical
+condition from precipitating an emergency situation such as (2):
+● Any condition that cannot be postponed for a period of time (24 hours) without risking
+progression to an emergent condition (4,5)
+
+================================================================================
+Rule ID: RULE-ADV-PREAMBLE-001
+Domain: advanced_imaging | Page: 2 | Policy: 2026 Evolent Clinical Guidelines - Advanced Imaging v2
+Section: Preamble / Guidelines for Clinical Review Determination
+Issue: Governance blocked rule: Clinical preamble establishing that determinations are made based on both guidelines and clinical judgment consistent with standards of good medical practice.
+Source Quote: clinical judgment consistent with the standards of good medical practice will
+Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Clinical information submitted at the time of the request is evaluated against evidence-based medical necessity criteria and individual patient circumstances",
+      "parameter": "clinical_information_submitted",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+Decision Effect: INDICATED
+
+--- Relevant PDF Text Excerpt ---
+Guidelines for Clinical Review Determination
+Preamble
+Evolent is committed to the philosophy of supporting safe and effective
+treatment for patients. The medical necessity criteria that follow are
+guidelines for the provision of diagnostic imaging.  These criteria are
+designed to guide both providers and reviewers to the most appropriate
+diagnostic tests based on a patient’s unique circumstances.  In all cases,
+clinical judgment consistent with the standards of good medical practice will
+be used when applying the guidelines.  Determinations are made based on
+both the guideline and clinical information provided at the time of the
+request.  It is expected that medical necessity decisions may change as new
+evidence-based information is provided or based on unique aspects of the
+patient’s condition.  The treating clinician has final authority and
+responsibility for treatment decisions regarding the care of the patient.
+Guideline Development Process
+These medical necessity criteria were developed by Evolent for the purpose
+of making clinical review determinations for requests for therapies and
+diagnostic procedures.  The developers of the criteria sets included
+representatives from the disciplines of radiology, internal medicine, nursing,
+cardiology, and other specialty groups.  Evolent’s guidelines are reviewed
+yearly and modified when necessary following a literature search of
+pertinent and established clinical guidelines and accepted diagnostic imaging
+practices.
+All inquiries should be directed to:
+Evolent Specialty Services, Inc.
+c/o Privacy
+1812 N. Moore St, Suite 1705, Arlington, VA 22209
+Fax 800-830-1762 / Privacy@Evolent.com
+2026 Evolent Clinical Guidelines - Advanced Imaging
+Page 2
+
+================================================================================
+Rule ID: RULE-IPM-CGINFUSIONPUMPS-001
+Domain: interventional_pain_management | Page: 68 | Policy: 2026 Evolent Interventional Pain Management Guidelines
+Section: Implantable Infusion Pump Insert 2026 (July)
+Issue: Governance blocked rule: Flagged for human clinical review
+Source Quote: appropriate supporting documentation, including recent pertinent office visit notes,
+Conditions: {
+  "operator": "SINGLE_CONDITION",
+  "criteria": [
+    {
+      "condition_id": "COND-IPM-CGINFUSIONPUMPS-001",
+      "description": "Clinical criteria satisfied for Implantable Infusion Pump Insert 2026 (July)",
+      "parameter": "cginfusionpumps_indication",
+      "comparator": "IS_PRESENT"
+    }
+  ]
+}
+Decision Effect: INDICATED
+
+--- Relevant PDF Text Excerpt ---
+Page 2 of 10
+Evolent Clinical Guideline 1752 for Implantable Infusion Pump Insertion
+STATEMENT
+General Information
+● It is an expectation that all patients receive care/services from a licensed clinician. All
+appropriate supporting documentation, including recent pertinent office visit notes,
+laboratory data, and results of any special testing must be provided. If applicable: All
+prior relevant imaging results and the reason that alternative imaging cannot be
+performed must be included in the documentation submitted.
+● The guideline criteria in the following sections were developed utilizing evidence-based
+and peer-reviewed resources from medical publications and societal organization
+guidelines as well as from widely accepted standard of care, best practice
+recommendations.
+Purpose
+The purpose of this guideline is to address criteria for intraspinal drug trials as well as the
+permanent placement of an implantable infusion pump.
+NOTE: There are no medical indications for intrathecal treatments except chronic pain and
+intractable spasticity. For information on multiple procedures performed in the same day of
+service, see Medical Necessity.
+INDICATIONS FOR INTRASPINAL DRUG TRIAL
+All patients colonized with methicillin-sensitive or methicillin-resistant Staphylococcus aureus
+(MRSA or MSSA) must have a decolonization plan to be performed no earlier than 10 days prior
+to the planned procedure. (1)
+Chronic Intractable Pain in Non-Terminal Individuals
+For the treatment of chronic intractable pain in non-terminal individuals (ALL the following
+criteria must be met):
+● Pain causing functional disability that significantly interferes with activities of daily living,
+including ability to work and overall quality of life (2) OR persistent pain level of ≥ 6 on a
+scale of 0 to 10 despite treatment
+● Failure to respond to non-operative conservative therapy targeting the requested spinal
+region for a minimum of 12 weeks unless the medical reason this treatment cannot be
+done is clearly documented
+Spasticity in Non-Terminal Individuals
+For the treatment of spasticity in non-terminal individuals (ALL the following must be met):
+● Intractable spasticity that results in the individual’s inability to maintain an upright
+posture, severely impairs balance in ambulation, or significantly interferes with activities
+of daily living related to ONE of the following conditions (3,4):
+
+================================================================================
+Rule ID: RULE-IPM-PREAMBLEIPM-001
+Domain: interventional_pain_management | Page: 2 | Policy: 2026 Evolent Interventional Pain Management Guidelines
+Section: Preamble and Guideline Development Process
+Issue: Governance blocked rule: Flagged for human clinical review
+Source Quote: treatment for patients. The medical necessity criteria that follow are
+Conditions: {
+  "operator": "SINGLE_CONDITION",
+  "criteria": [
+    {
+      "condition_id": "COND-IPM-PREAMBLEIPM-001",
+      "description": "Clinical criteria satisfied for Preamble and Guideline Development Process",
+      "parameter": "preambleipm_indication",
+      "comparator": "IS_PRESENT"
+    }
+  ]
+}
+Decision Effect: INDICATED
+
+--- Relevant PDF Text Excerpt ---
+Guidelines for Clinical Review Determination
+Preamble
+Evolent is committed to the philosophy of supporting safe and effective
+treatment for patients. The medical necessity criteria that follow are
+guidelines for the provision of diagnostic imaging. These criteria are
+designed to guide both providers and reviewers to the most appropriate
+diagnostic tests based on a patient’s unique circumstances. In all cases,
+clinical judgment consistent with the standards of good medical practice
+will be used when applying the guidelines. Determinations are made based
+on both the guideline and clinical information provided at the time of the
+request. It is expected that medical necessity decisions may change as new
+evidence-based information is provided or based on unique aspects of the
+patient’s condition. The treating clinician has final authority and
+responsibility for treatment decisions regarding the care of the patient.
+Guideline Development Process
+These medical necessity criteria were developed by Evolent for the purpose
+of making clinical review determinations for requests for therapies and
+diagnostic procedures.  The developers of the criteria sets included
+representatives from the disciplines of radiology, internal medicine, nursing,
+cardiology, and other specialty groups.  Evolent’s guidelines are reviewed
+yearly and modified when necessary following a literature search of
+pertinent and established clinical guidelines and accepted diagnostic
+imaging practices.
+All inquiries should be directed to:
+Evolent Specialty Services, Inc.
+c/o Privacy
+1812 N. Moore St, Suite 1705, Arlington, VA 22209
+Fax 800-830-1762 / Privacy@Evolent.com
+2026 Evolent Clinical Guidelines - Interventional Pain Management Guidelines
+Page 2
+
