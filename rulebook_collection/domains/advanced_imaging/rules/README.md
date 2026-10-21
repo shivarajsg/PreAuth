@@ -84,3 +84,16 @@ To preserve safety and auditability, MedRule enforces a strict state machine for
 3. **No Cross-Version Contamination:** Superseded historical editions (e.g., 2025 guidelines) are preserved for version diffing but never contribute active rules to the 2026 rule set.
 4. **Unresolved Dependencies:** When an external dependency (such as a state Medicaid custom fee schedule or private health plan waiver grid) is inaccessible, it is recorded as an unresolved dependency, not assumed.
 5. **Faithful Quotations:** Every rule includes a verbatim `source_quote` matching the exact text on the cited physical page.
+
+---
+
+## 5. Verified Procedure Rule Directories
+
+The 114 deterministic clinical criteria rules are organized directly into the following verified procedure directories without unnecessary wrapper layers:
+
+- [`ct/`](file:///d:/PreAuth/rulebook_collection/domains/advanced_imaging/rules/ct): Computed Tomography rules across `head_brain/`, `chest/`, `spine/`, `abdomen_pelvis/`, `extremities/`, and `specialized/`.
+- [`mri/`](file:///d:/PreAuth/rulebook_collection/domains/advanced_imaging/rules/mri): Magnetic Resonance Imaging rules across `brain/`, `chest/`, `spine/`, `abdomen_pelvis/`, `extremities/`, and `specialized/`.
+- [`cta/`](file:///d:/PreAuth/rulebook_collection/domains/advanced_imaging/rules/cta): Computed Tomography Angiography rules (9 procedure files).
+- [`mra/`](file:///d:/PreAuth/rulebook_collection/domains/advanced_imaging/rules/mra): Magnetic Resonance Angiography rules (8 procedure files).
+- [`pet_spect/`](file:///d:/PreAuth/rulebook_collection/domains/advanced_imaging/rules/pet_spect): Nuclear Medicine, PET, and SPECT rules (3 procedure files).
+- [`cross_cutting/`](file:///d:/PreAuth/rulebook_collection/domains/advanced_imaging/rules/cross_cutting): Preamble governance, Place of Service EPOS-2067, and CG-2066 urgent/emergent exceptions.

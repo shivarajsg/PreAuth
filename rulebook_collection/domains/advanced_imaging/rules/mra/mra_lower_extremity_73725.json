@@ -1,0 +1,59 @@
+{
+  "section_title": "Lower Extremity MRA (CPT 73725)",
+  "folder_classification": "mra",
+  "file_name": "mra_lower_extremity_73725.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "73725"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2034-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 540,
+        "printed_page": "Page 4 of 13"
+      },
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Peripheral Arterial Disease",
+      "source_quote": "For known or suspected atherosclerotic peripheral arterial disease when any ONE of the following non-invasive studies are abnormal or indeterminate",
+      "clinical_service_or_procedure": "Lower Extremity MRA",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Known or suspected atherosclerotic peripheral arterial disease of the lower extremities",
+            "parameter": "suspected_lower_extremity_pad",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Prior non-invasive vascular study (ankle-brachial index, segmental pressures, or pulse volume recording) is abnormal or indeterminate",
+            "parameter": "prior_noninvasive_vascular_study_abnormal",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Vascular lab report showing abnormal ABI (< 0.9) or pulse volume recordings"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 73725"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Diagnostic prerequisite non-invasive vascular testing prior to lower extremity MRA."
+    }
+  ]
+}

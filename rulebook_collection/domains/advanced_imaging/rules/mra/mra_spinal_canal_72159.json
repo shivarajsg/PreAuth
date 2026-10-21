@@ -1,0 +1,52 @@
+{
+  "section_title": "Spinal Canal MRA (CPT 72159)",
+  "folder_classification": "mra",
+  "file_name": "mra_spinal_canal_72159.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "72159"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2053-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 871,
+        "printed_page": "Page 2 of 8"
+      },
+      "source_section": "INDICATIONS FOR SPINAL CANAL MR ANGIOGRAPHY (MRA)",
+      "source_quote": "Evaluation of spinal arteriovenous malformation (AVM) (1,2)",
+      "clinical_service_or_procedure": "Spinal Canal MRA",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical suspicion or evaluation of spinal vascular malformation (spinal AVM or spinal dural arteriovenous fistula)",
+            "parameter": "suspected_spinal_avm",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Spine MRI report demonstrating prominent flow voids or cord edema (Foix-Alajouanine syndrome) and neurosurgical consultation"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72159"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Non-invasive vascular evaluation of spinal vascular malformations."
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "section_title": "PET/CT Tumor Imaging (CPT 78811-78816)",
+  "folder_classification": "pet_spect",
+  "file_name": "pet_ct_tumor_imaging_78811_78816.json",
+  "rule_count": 5,
+  "procedure_codes": [
+    "78815",
+    "78816"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2046-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 741,
+        "printed_page": "Page 5 of 71"
+      },
+      "source_section": "INDICATIONS / Chondrosarcoma (2)",
+      "source_quote": "Initial Staging, Restaging, Pre-surgical evaluation, Recurrence, Surveillance \u25cb NOT Indicated",
+      "clinical_service_or_procedure": "PET/CT (Whole Body)",
+      "rule_type": "exclusion_criterion",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Patient has confirmed diagnosis of primary chondrosarcoma",
+            "parameter": "chondrosarcoma_diagnosed",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Pathology or oncology notes documenting conventional chondrosarcoma"
+      ],
+      "exclusion_conditions": [
+        "PET/CT is non-covered for staging, restaging, pre-surgical planning, recurrence, or surveillance of standard chondrosarcoma"
+      ],
+      "decision_effect": "NOT_INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 78815",
+        "CPT 78816"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Explicit non-coverage policy exclusion: chondrosarcoma is evaluated with conventional CT/MRI rather than PET."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2046-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 741,
+        "printed_page": "Page 5 of 71"
+      },
+      "source_section": "INDICATIONS / Chordoma (2)",
+      "source_quote": "Indicated to clarify inconclusive conventional imaging",
+      "clinical_service_or_procedure": "PET/CT (Whole Body)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Biopsy-proven chordoma undergoing staging or restaging",
+            "parameter": "chordoma_diagnosed",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Conventional CT or MRI studies of the primary site, chest, or abdomen/pelvis are inconclusive or equivocal",
+            "parameter": "prior_conventional_imaging_inconclusive",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Conventional CT/MRI reports documenting indeterminate findings requiring metabolic PET clarification"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 78815"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Diagnostic clarification pathway for chordoma when conventional imaging is inconclusive."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2046-003",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 737,
+        "printed_page": "Page 1 of 71"
+      },
+      "source_section": "INDICATIONS / Lymphoma / Primary CNS Lymphoma and Systemic Lymphoma",
+      "source_quote": "Primary CNS Lymphoma",
+      "clinical_service_or_procedure": "PET/CT (Whole Body)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Biopsy-proven Hodgkin Lymphoma or FDG-avid Non-Hodgkin Lymphoma undergoing initial staging, mid-treatment response evaluation, or end-of-treatment remission assessment",
+            "parameter": "biopsy_proven_lymphoma_staging_or_response",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Pathology report confirming lymphoma subtype and oncology treatment plan"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 78815",
+        "CPT 78816"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Whole-body PET/CT is reference standard for staging and Lugano response assessment in lymphoma."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2046-004",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 738,
+        "printed_page": "Page 2 of 71"
+      },
+      "source_section": "INDICATIONS / Lung Cancer / Non-Small Cell Lung Cancer",
+      "source_quote": "Non-Small Cell Lung Cancer",
+      "clinical_service_or_procedure": "PET/CT (Whole Body)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Proven or suspected Non-Small Cell Lung Cancer (NSCLC) with solid nodule >= 8 mm or indeterminate solitary pulmonary nodule being evaluated for initial staging or distant metastasis",
+            "parameter": "nsclc_or_spn_metabolic_staging",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Diagnostic Chest CT report documenting nodule/mass characteristics and oncology consult notes"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 78815",
+        "CPT 78816"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Whole-body PET/CT indicated for initial staging and nodal assessment of NSCLC."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2058-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 947,
+        "printed_page": "Page 2 of 7"
+      },
+      "source_section": "SPECIAL NOTE / Non-Covered PET Codes and Indications",
+      "source_quote": "Positron Emission Tomography (PET) imaging, any site, not otherwise specified, is a",
+      "clinical_service_or_procedure": "PET Scan (Any Site, NOS / Breast Cancer Initial Diagnosis / Non-covered Melanoma)",
+      "rule_type": "exclusion_criterion",
+      "conditions": {
+        "operator": "ANY_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "PET imaging requested using non-specific tumor imaging code (any site, not otherwise specified)",
+            "parameter": "pet_unlisted_nos_requested",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "PET scan requested for initial diagnosis of breast cancer or axillary staging",
+            "parameter": "pet_breast_initial_staging",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Oncology order and clinical notes identifying tumor type, staging intent, and procedure code"
+      ],
+      "exclusion_conditions": [
+        "PET imaging NOS (G0219, G0235, G0252) and initial breast cancer staging are categorically non-covered"
+      ],
+      "decision_effect": "NOT_INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "HCPCS G0219",
+        "HCPCS G0235",
+        "HCPCS G0252"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Explicit non-coverage exclusion: PET any site NOS and initial staging of axillary lymph nodes in breast cancer."
+    }
+  ]
+}

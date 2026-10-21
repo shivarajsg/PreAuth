@@ -1,0 +1,54 @@
+{
+  "section_title": "MRI Orbit / Face / Neck / IAC (CPT 70540-70543)",
+  "folder_classification": "mri/brain",
+  "file_name": "mri_sinus_face_neck_iac_70540_70543.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "70540",
+    "70543"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2048-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 829,
+        "printed_page": "Page 4 of 26"
+      },
+      "source_section": "INDICATIONS FOR ORBIT MRI",
+      "source_quote": "Suspected optic neuritis with any ONE of the following (8):",
+      "clinical_service_or_procedure": "Orbit, Face, and Neck MRI",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical suspicion of acute optic neuritis (afferent pupillary defect, visual field loss, pain with eye movement)",
+            "parameter": "suspected_optic_neuritis",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Ophthalmology or neurology consultation notes detailing visual acuity, color desaturation, RAPD, or papillitis"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70540",
+        "CPT 70543"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Urgent optic neuritis evaluation for demyelinating disease (MS/MOG/NMO)."
+    }
+  ]
+}

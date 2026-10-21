@@ -1,0 +1,60 @@
+{
+  "section_title": "CT Cerebral Perfusion (CPT 70473)",
+  "folder_classification": "ct/head_brain",
+  "file_name": "ct_cerebral_perfusion_70473.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "0042T"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2015-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 297,
+        "printed_page": "Page 3 of 9"
+      },
+      "source_section": "INDICATIONS / Acute Ischemic Stroke",
+      "source_quote": "within 24 hours of known ischemic infarct",
+      "clinical_service_or_procedure": "Cerebral Perfusion CT",
+      "rule_type": "temporal_threshold",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Acute ischemic stroke being evaluated for endovascular thrombectomy or reperfusion therapy",
+            "parameter": "acute_ischemic_stroke_reperfusion",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Evaluation performed within 24 hours of symptom onset or last known normal",
+            "parameter": "hours_since_stroke_onset",
+            "comparator": "LESS_THAN_OR_EQUAL",
+            "value": 24,
+            "unit": "hours"
+          }
+        ]
+      },
+      "required_documentation": [
+        "Emergency stroke code progress note detailing time of onset/last known normal within 24-hour window"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 0042T"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "24-hour therapeutic window for cerebral CT perfusion penumbra evaluation."
+    }
+  ]
+}

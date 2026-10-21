@@ -1,0 +1,110 @@
+{
+  "section_title": "CT Virtual Colonoscopy (CPT 74261-74263)",
+  "folder_classification": "ct/abdomen_pelvis",
+  "file_name": "ct_colonography_virtual_colonoscopy_74261_74263.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "74261",
+    "74262",
+    "74263"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2022-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 436,
+        "printed_page": "Page 2 of 7"
+      },
+      "source_section": "INDICATIONS (1,2)",
+      "source_quote": "Patient had failed or incomplete colonoscopy",
+      "clinical_service_or_procedure": "CT Colonography (Virtual Colonoscopy) - Diagnostic",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Diagnostic evaluation of the colon required",
+            "parameter": "diagnostic_colonic_evaluation_needed",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Patient had a prior failed or technically incomplete conventional optical colonoscopy",
+            "parameter": "failed_or_incomplete_colonoscopy",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Endoscopy report documenting failure or technical inability to reach the cecum during optical colonoscopy"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74261",
+        "CPT 74262"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Diagnostic virtual colonoscopy indicated following failed conventional optical endoscopy."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2023-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 444,
+        "printed_page": "Page 3 of 8"
+      },
+      "source_section": "INDICATIONS (1\u20134) / Patients at Increased Risk",
+      "source_quote": "As an alternative to colonoscopy in individuals at increased risk for colorectal cancer AND a contraindication to colonoscopy has been provided:",
+      "clinical_service_or_procedure": "CT Colonography (Virtual Colonoscopy) - Screening",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Colorectal cancer screening requested in patient at increased risk",
+            "parameter": "increased_crc_risk",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Clinical documentation of medical contraindication to optical colonoscopy (e.g. bleeding disorder, severe cardiopulmonary disease, obstructing lesion)",
+            "parameter": "optical_colonoscopy_contraindicated",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Gastroenterology or surgical documentation specifying the medical contraindication to optical colonoscopy"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74263"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Screening virtual colonoscopy in high risk patients requiring explicit contraindication to standard optical colonoscopy."
+    }
+  ]
+}

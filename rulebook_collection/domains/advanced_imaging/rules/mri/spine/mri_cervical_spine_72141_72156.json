@@ -1,0 +1,169 @@
+{
+  "section_title": "MRI Cervical Spine (CPT 72141, 72142, 72156)",
+  "folder_classification": "mri/spine",
+  "file_name": "mri_cervical_spine_72141_72156.json",
+  "rule_count": 3,
+  "procedure_codes": [
+    "72141",
+    "72142"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2017-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 330,
+        "printed_page": "Page 4 of 26"
+      },
+      "source_section": "Evaluation of Neck Pain (5,6)",
+      "source_quote": "Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months: NOTE - Failure of conservative treatment is defined as one of the following: \u25cb Lack of meaningful improvement after a full course of treatment; OR \u25cb Progression or worsening of symptoms during treatment; OR \u25cb Documentation of a medical reason the member is unable to participate in treatment",
+      "clinical_service_or_procedure": "Cervical Spine MRI",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Evaluation of non-emergent neck pain without acute progressive cord compression",
+            "parameter": "clinical_indication",
+            "comparator": "EQUALS",
+            "value": "NECK_PAIN"
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Completion of at least six (6) consecutive weeks of conservative therapy within the prior six (6) months",
+            "parameter": "conservative_care_duration_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "weeks"
+          },
+          {
+            "condition_id": "COND-003",
+            "description": "Conservative therapy completed within the preceding 6 months",
+            "parameter": "conservative_care_recency_months",
+            "comparator": "LESS_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "months"
+          },
+          {
+            "condition_id": "COND-004",
+            "description": "Documented failure (lack of improvement, progression, or medically documented contraindication)",
+            "parameter": "conservative_therapy_outcome",
+            "comparator": "DOCUMENTED_FAILURE",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Physical therapy notes with attendance logs showing 6 weeks of active therapy",
+        "Physician clinical follow-up notes documenting persistence of symptoms post-therapy"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72141",
+        "CPT 72142"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Standard conservative care prerequisite with 6-week trial within last 6 months."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2017-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 331,
+        "printed_page": "Page 5 of 26"
+      },
+      "source_section": "Evaluation of Suspected Myelopathy (11,12)",
+      "source_quote": "Evaluation of Suspected Myelopathy (11,12) \u25cf Progressive symptoms including hand clumsiness, worsening handwriting, difficulty with grasping and holding objects, diffuse numbness in the hands, pins and needles sensation, increasing difficulty with balance and ambulation \u25cf Any of the neurological deficits as noted above NOTE: Does NOT require conservative care",
+      "clinical_service_or_procedure": "Cervical Spine MRI",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical suspicion of cervical myelopathy with progressive upper extremity dysfunction or balance difficulty",
+            "parameter": "suspected_cervical_myelopathy",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Objective neurological exam findings (hyperreflexia, clonus, gait instability, Babinski)",
+            "parameter": "myelopathic_neurologic_deficits",
+            "comparator": "IS_PRESENT",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Neurological or orthopedic physical examination documenting myelopathic signs (hyperreflexia, Hoffman, Babinski, gait disturbance)"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72141",
+        "CPT 72142"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Explicit policy exception stating cervical myelopathy does NOT require conservative treatment prior to advanced MRI."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2017-003",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 330,
+        "printed_page": "Page 4 of 26"
+      },
+      "source_section": "INDICATIONS / Evaluation of Neck Pain (5,6)",
+      "source_quote": "Suspected cervical cord compression with any neurological deficits as listed above",
+      "clinical_service_or_procedure": "Cervical Spine MRI",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Suspected acute cervical spinal cord compression with objective neurological deficit",
+            "parameter": "suspected_cervical_cord_compression",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Neurology or spine surgery physical exam documenting motor weakness, sensory level, or hyperreflexia"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72141",
+        "CPT 72142"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Urgent cervical cord compression indication bypassing conservative treatment."
+    }
+  ]
+}

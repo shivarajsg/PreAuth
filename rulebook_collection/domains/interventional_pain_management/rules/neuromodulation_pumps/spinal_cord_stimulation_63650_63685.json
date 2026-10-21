@@ -1,0 +1,87 @@
+{
+  "section_title": "Spinal Cord Stimulation (SCS Trial & Permanent Implant)",
+  "folder_classification": "neuromodulation_pumps",
+  "file_name": "spinal_cord_stimulation_63650_63685.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "63650",
+    "63655",
+    "63685",
+    "63688"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-IPM-CGSPINALCORDSTIM-001",
+      "domain": "interventional_pain_management",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+      "policy_version": "2026",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_url": "https://www.evolent.com/clinical-guidelines",
+      "source_page": {
+        "physical_page": 78,
+        "printed_page": "Page 78 of 102"
+      },
+      "source_section": "Spinal Cord Stimulation 2026 (July)",
+      "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+      "clinical_service_or_procedure": "Spinal Cord Stimulation 2026 (July)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "SINGLE_CONDITION",
+        "criteria": [
+          {
+            "condition_id": "COND-IPM-CGSPINALCORDSTIM-001",
+            "description": "Clinical criteria satisfied for Spinal Cord Stimulation 2026 (July)",
+            "parameter": "cgspinalcordstim_indication",
+            "comparator": "IS_PRESENT"
+          }
+        ]
+      },
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "FAIL_CONDITION",
+      "dependencies": [
+        "EPOS-1755"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": ""
+    },
+    {
+      "rule_id": "RULE-IPM-CGSPINALCORDSTIM-002",
+      "domain": "interventional_pain_management",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+      "policy_version": "2026",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_url": "https://www.evolent.com/clinical-guidelines",
+      "source_page": {
+        "physical_page": 80,
+        "printed_page": "Page 80 of 102"
+      },
+      "source_section": "Spinal Cord Stimulation 2026 / Permanent Implant Trial Prerequisite",
+      "source_quote": "\u25cf Documentation of a successful trial of the temporary SCS device providing at least 50%",
+      "clinical_service_or_procedure": "Permanent Spinal Cord Stimulator Implant",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-IPM-SCS-TRIAL-001",
+            "description": "Documented trial of spinal cord stimulation demonstrating successful pain relief",
+            "parameter": "scs_trial_pain_relief",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 50,
+            "unit": "%"
+          }
+        ]
+      },
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "FAIL_CONDITION",
+      "dependencies": [],
+      "human_review_required": false,
+      "extraction_status": "DRAFT"
+    }
+  ]
+}

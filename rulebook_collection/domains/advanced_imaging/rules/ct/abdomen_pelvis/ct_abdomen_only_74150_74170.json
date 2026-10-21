@@ -1,0 +1,294 @@
+{
+  "section_title": "CT Abdomen Only (CPT 74150-74170)",
+  "folder_classification": "ct/abdomen_pelvis",
+  "file_name": "ct_abdomen_only_74150_74170.json",
+  "rule_count": 5,
+  "procedure_codes": [
+    "74150",
+    "74160",
+    "74170",
+    "74176",
+    "74177",
+    "74178"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2001-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 37,
+        "printed_page": "Page 3 of 23"
+      },
+      "source_section": "STATEMENT / Special Note",
+      "source_quote": "When separate requests for CT abdomen and CT Pelvis are encountered for processes involving both the abdomen and pelvis, they need to be resubmitted as Evolent Clinical Guideline 2000 for Abdomen and Pelvis CT (to avoid unbundling; CPT codes 74176, 74177, 74178).",
+      "clinical_service_or_procedure": "CT Abdomen (Isolated)",
+      "rule_type": "coding_rule",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Separate requests submitted for CT Abdomen and CT Pelvis",
+            "parameter": "separate_abdomen_and_pelvis_requested",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Clinical process or pathology involves both abdominal and pelvic anatomy",
+            "parameter": "pathology_involves_both_cavities",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical indication demonstrating pathology is strictly confined to upper abdomen if isolated CT Abdomen requested"
+      ],
+      "decision_effect": "ALTERNATIVE_MODALITY_RECOMMENDED",
+      "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+      "dependencies": [
+        "CPT 74150",
+        "CPT 74160",
+        "CPT 74170",
+        "CG 2000"
+      ],
+      "human_review_required": true,
+      "extraction_status": "NEEDS_HUMAN_REVIEW",
+      "review_notes": "Anti-unbundling coding rule mandating combined CT Abdomen/Pelvis codes (74176-74178) when both regions are indicated."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 39,
+        "printed_page": "Page 5 of 23"
+      },
+      "source_section": "INDICATIONS FOR ABDOMEN CT / Pancreas",
+      "source_quote": "After confirmed diagnosis of exocrine pancreatic insufficiency (EPI), one-time imaging to exclude a secondary cause for EPI. (Imaging is not indicated for workup of suspected pancreatic insufficiency; fecal elastase level < 100 \u00b5g/g is consistent with EPI)",
+      "clinical_service_or_procedure": "CT Abdomen",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Diagnosis of exocrine pancreatic insufficiency confirmed by fecal elastase",
+            "parameter": "fecal_elastase_ug_g",
+            "comparator": "LESS_THAN",
+            "value": 100,
+            "unit": "ug/g"
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "One-time imaging evaluation to exclude secondary structural etiology",
+            "parameter": "prior_epi_ct_performed",
+            "comparator": "EQUALS",
+            "value": false
+          }
+        ]
+      },
+      "required_documentation": [
+        "Fecal elastase laboratory report demonstrating < 100 ug/g"
+      ],
+      "exclusion_conditions": [
+        "Imaging requested for initial workup of suspected pancreatic insufficiency prior to fecal elastase confirmation"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74160",
+        "CPT 74170"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Diagnostic prerequisite mandating fecal elastase confirmation before one-time diagnostic CT."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-003",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 39,
+        "printed_page": "Page 5 of 23"
+      },
+      "source_section": "INDICATIONS FOR ABDOMEN CT / Renal",
+      "source_quote": "Indeterminate renal mass on other imaging (13) \u25cf Active surveillance for a solid renal mass(es) at 6 and 12 months, then annually",
+      "clinical_service_or_procedure": "CT Abdomen",
+      "rule_type": "temporal_threshold",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Known solid renal mass undergoing active surveillance",
+            "parameter": "solid_renal_mass_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Surveillance interval matches protocol (6 mo, 12 mo, then annually)",
+            "parameter": "months_since_prior_renal_ct",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "months"
+          }
+        ]
+      },
+      "required_documentation": [
+        "Prior ultrasound, CT, or MRI report documenting solid renal mass and date of last scan"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74160",
+        "CPT 74170"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Surveillance interval rule for solid renal mass active surveillance."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-004",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 41,
+        "printed_page": "Page 7 of 23"
+      },
+      "source_section": "Evaluation of Infection and Inflammation / Pancreatitis: Suspected and Known (27)",
+      "source_quote": "In patients > 40 years of age who have pancreatitis with no identifiable cause (to exclude neoplasm)",
+      "clinical_service_or_procedure": "CT Abdomen",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Patient age strictly greater than 40 years",
+            "parameter": "patient_age_years",
+            "comparator": "GREATER_THAN",
+            "value": 40,
+            "unit": "years"
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Documented acute or chronic pancreatitis",
+            "parameter": "pancreatitis_diagnosed",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-003",
+            "description": "No identifiable cause established (idiopathic, no gallstones/alcohol etiology)",
+            "parameter": "pancreatitis_etiology_identified",
+            "comparator": "EQUALS",
+            "value": false
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes demonstrating idiopathic pancreatitis in patient over 40 and negative basic etiology workup"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74160",
+        "CPT 74170"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Age-stratified oncology exclusion rule for idiopathic pancreatitis in patients over 40."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-005",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 41,
+        "printed_page": "Page 7 of 23"
+      },
+      "source_section": "Infection and Inflammation Limited to the Abdomen (27,29) / Hernia (30)",
+      "source_quote": "Suspected hernia and one of the following: \u25cb Deep intraabdominal/pelvic hernia (post-Roux-en-Y) \u25cb Non-midline ventral hernia (including Spigelian hernia)",
+      "clinical_service_or_procedure": "CT Abdomen",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinically suspected abdominal wall hernia",
+            "parameter": "suspected_hernia",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Deep intraabdominal hernia post-gastric bypass OR non-midline ventral/Spigelian hernia",
+            "parameter": "hernia_subtypes",
+            "comparator": "IS_PRESENT",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "HERN-001",
+                  "description": "Post-Roux-en-Y gastric bypass with suspected internal hernia",
+                  "parameter": "post_roux_en_y_status",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "HERN-002",
+                  "description": "Suspected non-midline ventral hernia or Spigelian hernia",
+                  "parameter": "non_midline_ventral_hernia",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "required_documentation": [
+        "Surgical or clinical notes detailing bariatric surgical history or physical examination of non-midline abdominal defect"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74160",
+        "CPT 74170"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Complex abdominal wall and internal hernia indication."
+    }
+  ]
+}

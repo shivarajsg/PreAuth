@@ -1,0 +1,52 @@
+{
+  "section_title": "Pelvis CTA (CPT 72191)",
+  "folder_classification": "cta",
+  "file_name": "cta_pelvis_72191.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "72191"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2043-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 689,
+        "printed_page": "Page 4 of 12"
+      },
+      "source_section": "INDICATIONS FOR PELVIS CTA / Evaluation of Tumor",
+      "source_quote": "Prior to uterine artery embolization for fibroids (MRA preferred) (11)",
+      "clinical_service_or_procedure": "Pelvis CTA",
+      "rule_type": "conditional_modality_selection",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Pre-procedural vascular mapping planned prior to uterine artery embolization (UAE) for symptomatic fibroids",
+            "parameter": "planned_uterine_artery_embolization",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Gynecology or interventional radiology notes documenting symptomatic uterine fibroids and planned UAE"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72191"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Pre-interventional pelvic vascular mapping for uterine fibroid embolization (noting MRA is clinically preferred)."
+    }
+  ]
+}

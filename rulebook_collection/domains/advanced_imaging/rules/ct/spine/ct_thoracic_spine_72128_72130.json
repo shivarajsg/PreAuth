@@ -1,0 +1,120 @@
+{
+  "section_title": "CT Thoracic Spine (CPT 72128-72130)",
+  "folder_classification": "ct/spine",
+  "file_name": "ct_thoracic_spine_72128_72130.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "72128",
+    "72129",
+    "72130"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2056-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 905,
+        "printed_page": "Page 3 of 20"
+      },
+      "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Neurologic Deficits (1) / When Thoracic Spine MRI is Contraindicated or cannot be performed",
+      "source_quote": "When Thoracic Spine MRI is Contraindicated or cannot be performed",
+      "clinical_service_or_procedure": "Thoracic Spine CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Patient has new progressive neurological deficit localizing to the thoracic spine (e.g., extremity weakness, bowel/bladder dysfunction, gait instability)",
+            "parameter": "thoracic_neurologic_deficit_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Thoracic spine MRI is contraindicated (e.g. non-MRI-compatible device, severe claustrophobia) or cannot be performed",
+            "parameter": "thoracic_mri_contraindicated_or_unavailable",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes detailing progressive thoracic neurological deficits and explicit contraindication to MRI"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72128",
+        "CPT 72129",
+        "CPT 72130"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Thoracic CT for neurologic deficits when MRI is contraindicated."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2056-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 906,
+        "printed_page": "Page 4 of 20"
+      },
+      "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Back Pain (1) / Pain lasting > 4 weeks",
+      "source_quote": "Pain lasting > 4 weeks",
+      "clinical_service_or_procedure": "Thoracic Spine CT",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Persistent thoracic back pain lasting greater than 4 weeks",
+            "parameter": "thoracic_pain_duration_weeks",
+            "comparator": "GREATER_THAN",
+            "value": 4
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Failure of at least 4-6 weeks of conservative management including physical therapy or medications",
+            "parameter": "conservative_therapy_completed",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-003",
+            "description": "Thoracic spine MRI is contraindicated or cannot be performed",
+            "parameter": "thoracic_mri_contraindicated",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Progress notes documenting pain duration, conservative treatment dates and modalities, and MRI contraindication"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72128",
+        "CPT 72129",
+        "CPT 72130"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Thoracic CT for chronic thoracic pain after failed conservative therapy when MRI contraindicated."
+    }
+  ]
+}

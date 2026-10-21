@@ -1,0 +1,48 @@
+{
+  "section_title": "Clinical Review Preamble",
+  "folder_classification": "cross_cutting",
+  "file_name": "clinical_review_preamble.json",
+  "rule_count": 1,
+  "procedure_codes": [],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-PREAMBLE-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 2,
+        "printed_page": "Page 2"
+      },
+      "source_section": "Preamble / Guidelines for Clinical Review Determination",
+      "source_quote": "clinical judgment consistent with the standards of good medical practice will",
+      "clinical_service_or_procedure": "Diagnostic Imaging (All Advanced Imaging Modalities)",
+      "rule_type": "administrative_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical information submitted at the time of the request is evaluated against evidence-based medical necessity criteria and individual patient circumstances",
+            "parameter": "clinical_information_submitted",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes, physical exam findings, prior relevant imaging, and treating clinician rationale"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [],
+      "human_review_required": true,
+      "extraction_status": "NEEDS_HUMAN_REVIEW",
+      "review_notes": "Clinical preamble establishing that determinations are made based on both guidelines and clinical judgment consistent with standards of good medical practice."
+    }
+  ]
+}

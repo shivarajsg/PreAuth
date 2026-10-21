@@ -1,0 +1,147 @@
+{
+  "section_title": "MRI Lower Extremity (CPT 73718-73723)",
+  "folder_classification": "mri/extremities",
+  "file_name": "mri_lower_extremity_73718_73723.json",
+  "rule_count": 3,
+  "procedure_codes": [
+    "73721",
+    "73722",
+    "73723"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2035-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 553,
+        "printed_page": "Page 4 of 22"
+      },
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Pain or Suspected Joint Specific Injury",
+      "source_quote": "Joint Specific Pain or Suspected Joint Specific Injury",
+      "clinical_service_or_procedure": "Lower Extremity MRI (Knee, Hip, Ankle, Foot)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Evaluation of joint-specific pain, mechanical locking, instability, or suspected internal derangement (ligament/meniscal tear)",
+            "parameter": "joint_specific_injury_or_pain",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Physical examination documenting joint effusion, mechanical locking, McMurray, Lachman, or joint line tenderness and initial X-ray report"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 73721",
+        "CPT 73722",
+        "CPT 73723"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Standard lower extremity joint MRI for internal derangement."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2035-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 553,
+        "printed_page": "Page 4 of 22"
+      },
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Orthopedic Signs",
+      "source_quote": "Joint specific advanced imaging is indicated for any positive orthopedic sign listed below:",
+      "clinical_service_or_procedure": "Lower Extremity MRI (Knee)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Physical examination demonstrates positive joint-specific sign for meniscal or ligamentous tear (e.g. McMurray test, joint line tenderness, Lachman test, anterior/posterior drawer, pivot shift)",
+            "parameter": "positive_knee_orthopedic_sign",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Prior plain radiograph completed showing no clear explanation for mechanical symptoms or acute fracture",
+            "parameter": "prior_xray_completed",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Orthopedic physical examination documenting specific positive knee exam signs and plain radiograph report"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 73721",
+        "CPT 73722",
+        "CPT 73723"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "With positive orthopedic knee exam signs, active conservative therapy is waived."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2035-003",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 550,
+        "printed_page": "Page 1 of 22"
+      },
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / OSTEONECROSIS",
+      "source_quote": "OSTEONECROSIS",
+      "clinical_service_or_procedure": "Lower Extremity MRI (Hip)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical suspicion of osteonecrosis / avascular necrosis (AVN) of the femoral head with risk factors (e.g. chronic steroid therapy, sickle cell disease, alcoholism) and normal or inconclusive plain radiographs",
+            "parameter": "suspected_femoral_head_osteonecrosis",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes detailing hip pain, AVN risk factors, and negative/indeterminate plain radiographs"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 73721"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "MRI is the most sensitive diagnostic modality for early avascular necrosis of the hip."
+    }
+  ]
+}
