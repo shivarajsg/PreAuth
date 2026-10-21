@@ -1,0 +1,52 @@
+{
+  "section_title": "Follow-Up Limited / Localized CT",
+  "folder_classification": "ct/specialized",
+  "file_name": "cg2029_ct.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "76380"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2029-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 484,
+        "printed_page": "Page 2 of 6"
+      },
+      "source_section": "INDICATIONS",
+      "source_quote": "Re-evaluation of nephrolithiasis",
+      "clinical_service_or_procedure": "Follow-Up Limited / Localized CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Follow-up re-evaluation of known urinary tract calculi or nephrolithiasis",
+            "parameter": "nephrolithiasis_reevaluation",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Prior imaging report demonstrating renal/ureteral calculus and clinical rationale for low-dose limited follow-up scan"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 76380"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Limited scan field radiation-reduction protocol for stone tracking."
+    }
+  ]
+}

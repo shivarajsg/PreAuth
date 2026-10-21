@@ -1,0 +1,52 @@
+{
+  "section_title": "QCT Bone Density Study (CPT 77078)",
+  "folder_classification": "ct/specialized",
+  "file_name": "ct_bone_density_qct_77078.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "77078"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2024-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 451,
+        "printed_page": "Page 2 of 11"
+      },
+      "source_section": "INDICATIONS FOR CT BONE DENSITY STUDY / Screening for Asymptomatic Low Bone Mineral Density",
+      "source_quote": "Screening for Asymptomatic Low Bone Mineral Density",
+      "clinical_service_or_procedure": "Quantitative Computed Tomography (QCT) Bone Density Study",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Screening or diagnostic assessment of low bone mineral density (osteopenia or osteoporosis)",
+            "parameter": "suspected_low_bone_mineral_density",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes detailing fracture risk factors, postmenopausal status, or reason QCT is requested over standard DXA"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 77078"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "QCT bone density indication for spinal or peripheral bone mineral evaluation."
+    }
+  ]
+}

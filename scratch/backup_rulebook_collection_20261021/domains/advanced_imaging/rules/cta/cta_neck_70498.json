@@ -1,0 +1,52 @@
+{
+  "section_title": "Neck CTA (CPT 70498)",
+  "folder_classification": "cta",
+  "file_name": "cta_neck_70498.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "70498"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2040-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 641,
+        "printed_page": "Page 4 of 16"
+      },
+      "source_section": "INDICATIONS FOR NECK CT ANGIOGRAPHY / Evaluation of Suspected Extracranial Vascular Disease",
+      "source_quote": "Suspected carotid or vertebral artery dissection (secondary to trauma or",
+      "clinical_service_or_procedure": "Neck CTA",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical suspicion of acute carotid or vertebral artery dissection following trauma or spontaneous neck pain with Horner syndrome / TIA",
+            "parameter": "suspected_cervical_artery_dissection",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Emergency or neurology consultation notes detailing sudden unilateral neck pain, Horner's syndrome, or recent blunt trauma"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70498"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Urgent vascular dissection protocol for extracranial neck vasculature."
+    }
+  ]
+}

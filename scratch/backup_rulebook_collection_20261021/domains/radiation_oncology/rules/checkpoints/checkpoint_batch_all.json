@@ -1,0 +1,553 @@
+[
+  {
+    "rule_id": "RULE-RAD-ECG7000BONEPALLIATION-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 63,
+      "printed_page": "Page 63 of 67"
+    },
+    "source_section": "Bone Metastases and Oligometastases Radiation Therapy",
+    "source_quote": "Jahraus CD, Wallner PE, Heron DE, et al. ACROPath Oligometastases: The American",
+    "clinical_service_or_procedure": "Bone Metastases and Oligometastases Radiation Therapy",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000BONEPALLIATION-001",
+          "description": "Radiation oncology criteria satisfied for Bone Metastases and Oligometastases Radiation Therapy",
+          "parameter": "ecg7000bonepalliation_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7000BREAST-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 28,
+      "printed_page": "Page 28 of 67"
+    },
+    "source_section": "Breast Cancer Radiation Therapy (Whole Breast, APBI, Regional)",
+    "source_quote": "Evolent Clinical Guideline 7000 for Radiation Therapy Services",
+    "clinical_service_or_procedure": "Breast Cancer Radiation Therapy (Whole Breast, APBI, Regiona",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000BREAST-001",
+          "description": "Radiation oncology criteria satisfied for Breast Cancer Radiation Therapy (Whole Breast, APBI, Regional)",
+          "parameter": "ecg7000breast_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7000CNSSRS-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 11,
+      "printed_page": "Page 11 of 67"
+    },
+    "source_section": "Central Nervous System Tumors and Brain Metastases SRS/SBRT",
+    "source_quote": "Evolent Clinical Guideline 7000 for Radiation Therapy Services",
+    "clinical_service_or_procedure": "Central Nervous System Tumors and Brain Metastases SRS/SBRT",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000CNSSRS-001",
+          "description": "Radiation oncology criteria satisfied for Central Nervous System Tumors and Brain Metastases SRS/SBRT",
+          "parameter": "ecg7000cnssrs_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7000GICOLORECTAL-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 51,
+      "printed_page": "Page 51 of 67"
+    },
+    "source_section": "Gastrointestinal and Rectal Cancer Radiation Therapy",
+    "source_quote": "\u25cf For the treatment of Colon and Rectal Cancers in 1 fraction only in the following",
+    "clinical_service_or_procedure": "Gastrointestinal and Rectal Cancer Radiation Therapy",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000GICOLORECTAL-001",
+          "description": "Radiation oncology criteria satisfied for Gastrointestinal and Rectal Cancer Radiation Therapy",
+          "parameter": "ecg7000gicolorectal_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7000GYNECOLOGIC-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 57,
+      "printed_page": "Page 57 of 67"
+    },
+    "source_section": "Gynecologic Cancer Radiation Therapy (Cervical, Endometrial)",
+    "source_quote": "consensus statement from the American brachytherapy society. Brachytherapy.",
+    "clinical_service_or_procedure": "Gynecologic Cancer Radiation Therapy (Cervical, Endometrial)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000GYNECOLOGIC-001",
+          "description": "Radiation oncology criteria satisfied for Gynecologic Cancer Radiation Therapy (Cervical, Endometrial)",
+          "parameter": "ecg7000gynecologic_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7000HEADNECK-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 34,
+      "printed_page": "Page 34 of 67"
+    },
+    "source_section": "Head and Neck Cancer Radiation Therapy (IMRT)",
+    "source_quote": "Treatment in up to 33 fractions using IMRT or 3D-CRT for patients with no",
+    "clinical_service_or_procedure": "Head and Neck Cancer Radiation Therapy (IMRT)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000HEADNECK-001",
+          "description": "Radiation oncology criteria satisfied for Head and Neck Cancer Radiation Therapy (IMRT)",
+          "parameter": "ecg7000headneck_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7000LUNG-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 43,
+      "printed_page": "Page 43 of 67"
+    },
+    "source_section": "Lung Cancer Radiation Therapy (NSCLC SBRT, IMRT)",
+    "source_quote": "Evolent Clinical Guideline 7000 for Radiation Therapy Services",
+    "clinical_service_or_procedure": "Lung Cancer Radiation Therapy (NSCLC SBRT, IMRT)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000LUNG-001",
+          "description": "Radiation oncology criteria satisfied for Lung Cancer Radiation Therapy (NSCLC SBRT, IMRT)",
+          "parameter": "ecg7000lung_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7000PROSTATE-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 19,
+      "printed_page": "Page 19 of 67"
+    },
+    "source_section": "Prostate Cancer Radiation Therapy (IMRT, SBRT, Brachytherapy)",
+    "source_quote": "\u25cf Treatment in up to 5 fractions of SBRT for patients with no metastatic disease",
+    "clinical_service_or_procedure": "Prostate Cancer Radiation Therapy (IMRT, SBRT, Brachytherapy",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000PROSTATE-001",
+          "description": "Radiation oncology criteria satisfied for Prostate Cancer Radiation Therapy (IMRT, SBRT, Brachytherapy)",
+          "parameter": "ecg7000prostate_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7000STATEMENT-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7000 for Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7000 for Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 67"
+    },
+    "source_section": "Radiation Therapy Services Statement and General Documentation",
+    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "clinical_service_or_procedure": "Radiation Therapy Services Statement and General Documentati",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7000STATEMENT-001",
+          "description": "Radiation oncology criteria satisfied for Radiation Therapy Services Statement and General Documentation",
+          "parameter": "ecg7000statement_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7001NBRTINDICATIONS-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 4,
+      "printed_page": "Page 4 of 12"
+    },
+    "source_section": "Neutron Beam Radiation Therapy (NBRT) Indications",
+    "source_quote": "Evolent Clinical Guideline 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy",
+    "clinical_service_or_procedure": "Neutron Beam Radiation Therapy (NBRT) Indications",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7001NBRTINDICATIONS-001",
+          "description": "Radiation oncology criteria satisfied for Neutron Beam Radiation Therapy (NBRT) Indications",
+          "parameter": "ecg7001nbrtindications_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Flagged for medical director radiation oncologist review"
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7001PBRTINDICATIONS-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 3,
+      "printed_page": "Page 3 of 12"
+    },
+    "source_section": "Proton Beam Radiation Therapy (PBRT) Cancer Indications",
+    "source_quote": "Evolent Clinical Guideline 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy",
+    "clinical_service_or_procedure": "Proton Beam Radiation Therapy (PBRT) Cancer Indications",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7001PBRTINDICATIONS-001",
+          "description": "Radiation oncology criteria satisfied for Proton Beam Radiation Therapy (PBRT) Cancer Indications",
+          "parameter": "ecg7001pbrtindications_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7001PBRTPEDIATRIC-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 4,
+      "printed_page": "Page 4 of 12"
+    },
+    "source_section": "Proton Beam Radiation Therapy for Pediatric Cancers",
+    "source_quote": "Evolent Clinical Guideline 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy",
+    "clinical_service_or_procedure": "Proton Beam Radiation Therapy for Pediatric Cancers",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7001PBRTPEDIATRIC-001",
+          "description": "Radiation oncology criteria satisfied for Proton Beam Radiation Therapy for Pediatric Cancers",
+          "parameter": "ecg7001pbrtpediatric_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-ECG7001PBRTREIRRADIATION-001",
+    "domain": "radiation_oncology",
+    "document_type": "governing_policy",
+    "policy_title": "Evolent Clinical Guideline 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services (2026 Final)",
+    "policy_version": "2026 Final",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/ECG 7001 for Proton Beam Radiation Therapy and Neutron Beam Radiation Therapy Services 2026_final.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 4,
+      "printed_page": "Page 4 of 12"
+    },
+    "source_section": "Proton Beam Radiation Therapy for Re-Irradiation",
+    "source_quote": "\u25cf Other brain or spinal tumors that are adjacent critical structures such as an optic nerve,",
+    "clinical_service_or_procedure": "Proton Beam Radiation Therapy for Re-Irradiation",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-ECG7001PBRTREIRRADIATION-001",
+          "description": "Radiation oncology criteria satisfied for Proton Beam Radiation Therapy for Re-Irradiation",
+          "parameter": "ecg7001pbrtreirradiation_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RadOnc-Coding-Standards-2026"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Flagged for medical director radiation oncologist review"
+  },
+  {
+    "rule_id": "RULE-RAD-RADCODING3DPLANNING-001",
+    "domain": "radiation_oncology",
+    "document_type": "coding_grid",
+    "policy_title": "2026 Evolent Radiation Oncology Coding Standards (Final)",
+    "policy_version": "January 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/2026 Evolent Coding Standards FINAL 121225  L-NIA.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 26"
+    },
+    "source_section": "Radiation Oncology Coding Standards: 3D Conformal Planning",
+    "source_quote": "combines a computer-aided field setting simulation with isodose planning which occurs",
+    "clinical_service_or_procedure": "Radiation Oncology Coding Standards: 3D Conformal Planning",
+    "rule_type": "coding_rule",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-RADCODING3DPLANNING-001",
+          "description": "Radiation oncology criteria satisfied for Radiation Oncology Coding Standards: 3D Conformal Planning",
+          "parameter": "radcoding3dplanning_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-RAD-RADCODINGIMRTPLANNING-001",
+    "domain": "radiation_oncology",
+    "document_type": "coding_grid",
+    "policy_title": "2026 Evolent Radiation Oncology Coding Standards (Final)",
+    "policy_version": "January 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/radiation_oncology/policy_pdfs/current_2026/2026 Evolent Coding Standards FINAL 121225  L-NIA.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 5,
+      "printed_page": "Page 5 of 26"
+    },
+    "source_section": "Radiation Oncology Coding Standards: IMRT Treatment Planning",
+    "source_quote": "A traditional \u201cfield-in-field technique\u201d is not considered IMRT but rather 3D conformal",
+    "clinical_service_or_procedure": "Radiation Oncology Coding Standards: IMRT Treatment Planning",
+    "rule_type": "coding_rule",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-RAD-RADCODINGIMRTPLANNING-001",
+          "description": "Radiation oncology criteria satisfied for Radiation Oncology Coding Standards: IMRT Treatment Planning",
+          "parameter": "radcodingimrtplanning_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  }
+]

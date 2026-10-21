@@ -1,0 +1,52 @@
+{
+  "section_title": "Implantable Infusion Pump Insertion",
+  "folder_classification": "neuromodulation_pumps",
+  "file_name": "implantable_infusion_pumps_62350_62362.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "62350",
+    "62351",
+    "62360",
+    "62361",
+    "62362"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-IPM-CGINFUSIONPUMPS-001",
+      "domain": "interventional_pain_management",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+      "policy_version": "2026",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/interventional_pain_management/policy_pdfs/current_2026/2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_url": "https://www.evolent.com/clinical-guidelines",
+      "source_page": {
+        "physical_page": 68,
+        "printed_page": "Page 68 of 102"
+      },
+      "source_section": "Implantable Infusion Pump Insert 2026 (July)",
+      "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+      "clinical_service_or_procedure": "Implantable Infusion Pump Insert 2026 (July)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "SINGLE_CONDITION",
+        "criteria": [
+          {
+            "condition_id": "COND-IPM-CGINFUSIONPUMPS-001",
+            "description": "Clinical criteria satisfied for Implantable Infusion Pump Insert 2026 (July)",
+            "parameter": "cginfusionpumps_indication",
+            "comparator": "IS_PRESENT"
+          }
+        ]
+      },
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "FAIL_CONDITION",
+      "dependencies": [
+        "EPOS-1755"
+      ],
+      "human_review_required": true,
+      "extraction_status": "NEEDS_HUMAN_REVIEW",
+      "review_notes": "Flagged for human clinical review"
+    }
+  ]
+}

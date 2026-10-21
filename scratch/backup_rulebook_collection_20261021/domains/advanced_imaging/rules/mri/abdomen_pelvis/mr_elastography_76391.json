@@ -1,0 +1,59 @@
+{
+  "section_title": "Magnetic Resonance Elastography MRE (CPT 76391)",
+  "folder_classification": "mri/abdomen_pelvis",
+  "file_name": "mr_elastography_76391.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "76391"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2038-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 615,
+        "printed_page": "Page 2 of 8"
+      },
+      "source_section": "INDICATIONS FOR ABDOMEN MR ELASTOGRAPHY / Evaluation of Hepatic Fibrosis (1\u20133)",
+      "source_quote": "Fibrosis-4 index (FIB-4) score \u2265 2.67",
+      "clinical_service_or_procedure": "Magnetic Resonance Elastography (MRE) Abdomen",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Evaluation of hepatic fibrosis in patient with chronic liver disease (e.g. MASLD/MASH, viral hepatitis)",
+            "parameter": "chronic_liver_disease",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Calculated Fibrosis-4 (FIB-4) index score is greater than or equal to 2.67",
+            "parameter": "fib4_score",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 2.67
+          }
+        ]
+      },
+      "required_documentation": [
+        "Laboratory data calculating FIB-4 index score (age, AST, ALT, platelets) or documentation of inconclusive ultrasound elastography"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 76391"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Non-invasive quantitative staging of advanced hepatic fibrosis."
+    }
+  ]
+}

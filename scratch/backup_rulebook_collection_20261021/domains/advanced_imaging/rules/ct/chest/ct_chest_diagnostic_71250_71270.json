@@ -1,0 +1,151 @@
+{
+  "section_title": "CT Chest Diagnostic (CPT 71250, 71260, 71270)",
+  "folder_classification": "ct/chest",
+  "file_name": "ct_chest_diagnostic_71250_71270.json",
+  "rule_count": 3,
+  "procedure_codes": [
+    "71250",
+    "71260"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2018-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 355,
+        "printed_page": "Page 3 of 30"
+      },
+      "source_section": "INDICATIONS FOR CHEST CT / Follow-Up of Lung Nodules",
+      "source_quote": "Incidental pulmonary nodule on x-ray",
+      "clinical_service_or_procedure": "Chest CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Incidental solitary or multiple pulmonary nodules identified on recent chest radiograph",
+            "parameter": "incidental_nodule_on_xray",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Chest X-ray report identifying newly discovered pulmonary nodule requiring CT characterization"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 71250",
+        "CPT 71260"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Diagnostic follow-up of radiographic pulmonary nodule per Fleischner criteria."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2018-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 357,
+        "printed_page": "Page 5 of 30"
+      },
+      "source_section": "INDICATIONS FOR CHEST CT / Diffuse Lung Disease (DLD) / Interstitial Lung Disease (ILD)",
+      "source_quote": "For suspected sarcoidosis after initial workup including Chest x-ray",
+      "clinical_service_or_procedure": "Chest CT",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical suspicion of pulmonary sarcoidosis",
+            "parameter": "suspected_sarcoidosis",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Initial diagnostic workup with baseline chest radiograph completed",
+            "parameter": "chest_xray_completed",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Chest X-ray report and clinical evaluation notes detailing respiratory symptoms or lymphadenopathy"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 71260"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Diagnostic prerequisite chest X-ray before high-resolution CT for sarcoidosis."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2018-003",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 361,
+        "printed_page": "Page 9 of 30"
+      },
+      "source_section": "INDICATIONS FOR CHEST CT / Signs and Symptoms / Hemoptysis",
+      "source_quote": "Hemoptysis after x-ray completed (25)",
+      "clinical_service_or_procedure": "Chest CT",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Patient presents with unexplained hemoptysis",
+            "parameter": "unexplained_hemoptysis_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Preceding plain chest radiograph has been completed",
+            "parameter": "prior_chest_xray_completed",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Chest radiograph report and clinical notes detailing duration and severity of hemoptysis"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 71250",
+        "CPT 71260"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Chest CT indicated for hemoptysis after chest X-ray completed."
+    }
+  ]
+}

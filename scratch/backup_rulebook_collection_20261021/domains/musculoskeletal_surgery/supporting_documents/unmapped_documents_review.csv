@@ -1,0 +1,2 @@
+document_id,domain,document_title,document_type,version_status,disposition_status,unmapped_reason,evidentiary_limitation,human_review_required
+DOC-MSK-MISSING-001,musculoskeletal_surgery,Payer-Specific Inpatient Only Surgical Procedure Carve-Out List,other_supporting_document,current_2026_verified,PUBLIC_ANNUAL_FEE_SCHEDULE,Annual CMS Inpatient Only (IPO) schedule and commercial payer bulletins dictate mandatory inpatient stay criteria.,External annual regulatory fee schedule; informs place of service routing rather than clinical necessity.,True

@@ -1,0 +1,501 @@
+[
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-049",
+    "source_page": {
+      "physical_page": 11,
+      "printed_page": "Page 11 of 24"
+    },
+    "source_section": "Policy/Criteria - WALKERS",
+    "source_quote": "Requests for standard walkers are considered medically necessary when meeting all of the following: A. Mobility-related activities of daily living (MRADLs) in the home cannot be met due to mobility limitation; B. Walker can be safely used by member/enrollee; C. Functional mobility deficit will be sufficiently resolved with the use of a walker.",
+    "clinical_service_or_procedure": "Walker, standard (HCPCS E0130, E0135, E0141, E0143)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-049-A",
+          "description": "MRADLs in home cannot be met due to mobility limitation",
+          "parameter": "mradls_impaired_by_mobility",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-049-B",
+          "description": "Walker can be safely used by member/enrollee",
+          "parameter": "safe_walker_use_demonstrated",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-049-C",
+          "description": "Functional mobility deficit sufficiently resolved with walker",
+          "parameter": "deficit_resolved_by_walker",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Clinical mobility evaluation detailing in-home MRADL deficits",
+      "Physical therapy or provider safe ambulation assessment"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CMS LCD L33791 Walkers"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Standard walker criteria aligned with CMS LCD L33791."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-050",
+    "source_page": {
+      "physical_page": 11,
+      "printed_page": "Page 11 of 24"
+    },
+    "source_section": "Policy/Criteria - WALKERS",
+    "source_quote": "Requests for heavy duty walkers (E0148, E0149) are considered medically necessary when meeting the above standard walker criteria and the member/enrollee weighs more than 300 pounds. Requests for heavy duty, multiple braking system, variable wheel resistance walkers (E0147) are considered medically necessary when meeting the above standard walker criteria and the member/enrollee is unable to use a standard walker due to a severe neurologic disorder or other condition causing the restricted use of one hand.",
+    "clinical_service_or_procedure": "Walker, heavy duty (HCPCS E0147, E0148, E0149)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-050-A",
+          "description": "Standard walker criteria met",
+          "parameter": "standard_walker_criteria_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-050-B",
+          "description": "Weight > 300 lbs for E0148/E0149 OR severe neurologic disorder/restricted single hand use for E0147",
+          "parameter": "heavy_duty_walker_qualifying_feature",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Member weight measurement > 300 lbs (for E0148/E0149)",
+      "Neurologic assessment documenting single hand functional restriction (for E0147)"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Weight > 300 lbs threshold for E0148/E0149; single-hand neurologic restriction for E0147."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-051",
+    "source_page": {
+      "physical_page": 11,
+      "printed_page": "Page 11 of 24"
+    },
+    "source_section": "Policy/Criteria - WHEELCHAIRS",
+    "source_quote": "Initial requests for manual wheelchairs are medically necessary when meeting all of the following: A. Mobility limitation interferes with ability to participate in mobility-related activities of daily living, all of the following: 1. Mobility limitation cannot be met with a cane or walker; 2. Manual wheelchair will significantly improve member/enrollee\u2019s ability to participate in mobility-related activities of daily living; 3. Home provides adequate access and maneuvering space for requested manual wheelchair; 4. Willingness by member/enrollee or caregiver to use a manual wheelchair in the home; B. One of the following: 1. Caregiver is able to assist with wheelchair use; 2. Member/enrollee is able to safely and efficiently self-propel manual wheelchair.",
+    "clinical_service_or_procedure": "Manual wheelchair - Initial Request (HCPCS E1050-E1295)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-051-A",
+          "description": "Mobility limitation cannot be met with cane or walker",
+          "parameter": "cane_or_walker_insufficient",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-051-B",
+          "description": "Manual wheelchair significantly improves in-home MRADL participation",
+          "parameter": "mradl_significantly_improved",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-051-C",
+          "description": "Home provides adequate access and maneuvering space",
+          "parameter": "home_access_adequate",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-051-D",
+          "description": "Willingness to use manual wheelchair in the home",
+          "parameter": "willingness_to_use_in_home",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-051-E",
+          "description": "Caregiver able to assist OR member safely/efficiently self-propels",
+          "parameter": "propulsion_or_caregiver_assistance_feasible",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "In-home MRADL mobility assessment",
+      "Home environment evaluation confirming doorways and turns",
+      "Self-propulsion or caregiver assistance demonstration"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CMS LCD L33788 Manual Wheelchair Bases"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Covers 37 HCPCS codes for standard, lightweight, and custom manual wheelchair bases."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-052",
+    "source_page": {
+      "physical_page": 12,
+      "printed_page": "Page 12 of 24"
+    },
+    "source_section": "Policy/Criteria - WHEELCHAIRS",
+    "source_quote": "A. Replacement necessary due to loss, theft, or irreparable damage and both of the following: 1. Documentation supports continued medical necessity; 2. Replacement is with the same or similar equipment; B. All of the following: 1. Replacement is due to one of the following reasons: a. Replacement necessary after reasonable useful lifetime of five years or more; b. Change in member/enrollee status requiring different equipment than currently in use and growth features of current equipment have been maximized;",
+    "clinical_service_or_procedure": "Manual wheelchair - Replacement Request (HCPCS E1050-E1295)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-052-A",
+          "description": "Loss, theft, or irreparable damage with continued necessity and same/similar replacement",
+          "parameter": "loss_theft_or_irreparable_damage",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-052-B",
+          "description": "Useful lifetime \u2265 5 years OR condition change with maximized growth features, plus all MRADL criteria",
+          "parameter": "lifetime_or_condition_change_replacement",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Police report (theft), damage report, or proof of age \u2265 5 years",
+      "Clinical records documenting growth feature maximization or condition change"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CMS 5-Year Reasonable Useful Lifetime (RUL) Rule"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "5-year reasonable useful lifetime rule explicitly applied to replacement wheelchairs."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-053",
+    "source_page": {
+      "physical_page": 12,
+      "printed_page": "Page 12 of 24"
+    },
+    "source_section": "Policy/Criteria - WHEELCHAIRS",
+    "source_quote": "Medically necessary as a component on a power wheelchair when all of the following are met: A. A licensed, certified medical professional (i.e. physical or occupational therapist) is involved with the assessment, prescription, trials and training of equipment; B. Adequate cognitive function to safely use the seat elevating feature; C. A clear functional need for the feature is indicated; D. Provision of the feature will improve functional independence with an activity, such as but not limited to facilitating reach for the completion of ADLs or IADLs or improving transfer biomechanics and safety.",
+    "clinical_service_or_procedure": "Power seat elevator on power wheelchair (HCPCS E2298)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-053-A",
+          "description": "Licensed PT/OT involved in assessment, prescription, trials, and training",
+          "parameter": "licensed_therapist_involved",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-053-B",
+          "description": "Adequate cognitive function to safely use seat elevation",
+          "parameter": "cognitive_function_adequate_for_elevation",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-053-C",
+          "description": "Clear functional need indicated for the feature",
+          "parameter": "functional_need_indicated",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-053-D",
+          "description": "Improves independence: facilitates reach for ADLs/IADLs or improves transfer biomechanics/safety",
+          "parameter": "reach_or_transfer_biomechanics_improved",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "PT/OT comprehensive seating evaluation including transfer biomechanics",
+      "Trial notes documenting safe cognitive operation of seat elevator"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "RESNA Position on the Application of Seat Elevation Devices (2019)"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "RESNA Position Paper cited directly as supporting authority (Reference 42)."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-054",
+    "source_page": {
+      "physical_page": 12,
+      "printed_page": "Page 12 of 24"
+    },
+    "source_section": "Policy/Criteria - WHEELCHAIRS",
+    "source_quote": "Not medically necessary, as there is insufficient clinical evidence to support safety and improved health outcomes of the JACO Assistive Robotic Arm (Kinova, Inc.) over other technologies.",
+    "clinical_service_or_procedure": "Robotic Arm, Wheelchair-mounted (JACO) (HCPCS E1399)",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-054-A",
+          "description": "Request is for JACO Assistive Robotic Arm on wheelchair",
+          "parameter": "jaco_robotic_arm_requested",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Unproven robotic technology without established superiority over assistive alternatives."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-055",
+    "source_page": {
+      "physical_page": 12,
+      "printed_page": "Page 12 of 24"
+    },
+    "source_section": "Policy/Criteria - WHEELCHAIRS",
+    "source_quote": "Medically necessary when used in lieu of a wheelchair for those who would qualify for a wheelchair (except for the ability to self- propel a manual wheelchair).",
+    "clinical_service_or_procedure": "Rollabout chair (HCPCS E1031)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-055-A",
+          "description": "Member qualifies for a wheelchair except for the ability to self- propel a manual wheelchair",
+          "parameter": "wheelchair_eligible_except_self_propulsion",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-055-B",
+          "description": "Used in lieu of a standard wheelchair",
+          "parameter": "used_in_lieu_of_wheelchair",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Clinical mobility notes confirming inability to self-propel"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Specifically indicated for non-self-propelling individuals in lieu of wheelchair."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-056",
+    "source_page": {
+      "physical_page": 12,
+      "printed_page": "Page 12 of 24"
+    },
+    "source_section": "Policy/Criteria - WHEELCHAIRS",
+    "source_quote": "Medically necessary when meeting all of the following: A. Less than 5 years old (as evident by the age/date of purchase information provided);",
+    "clinical_service_or_procedure": "Wheelchair and other DME repairs (HCPCS K0108, K0739, E1399)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-056-A",
+          "description": "Equipment is less than 5 years old based on purchase date",
+          "parameter": "equipment_age_years",
+          "comparator": "LESS_THAN",
+          "value": "5"
+        },
+        {
+          "condition_id": "COND-DME-107-056-B",
+          "description": "Cost of repairs is less than the cost of replacement",
+          "parameter": "repair_cost_less_than_replacement",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-056-C",
+          "description": "Repairs required due to normal wear and tear, not abuse/misuse or overutilization",
+          "parameter": "normal_wear_and_tear_verified",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Original equipment purchase invoice / date of service",
+      "Itemized repair cost estimate and parts invoice",
+      "Equipment technician report on condition and wear-and-tear"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Repairs using K0108, K0739, or E1399 mandate secondary review."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-057",
+    "source_page": {
+      "physical_page": 13,
+      "printed_page": "Page 13 of 24"
+    },
+    "source_section": "Policy/Criteria - WHEELCHAIRS",
+    "source_quote": "One month\u2019s rental for a standard manual wheelchair is considered medically necessary if a member/enrollee owned wheelchair is 41 being repaired.",
+    "clinical_service_or_procedure": "Standard manual wheelchair rental during repair",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-057-A",
+          "description": "Member-owned wheelchair is currently undergoing authorized repair",
+          "parameter": "wheelchair_undergoing_repair",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-057-B",
+          "description": "Rental is for standard manual wheelchair for up to one month",
+          "parameter": "rental_duration_months",
+          "comparator": "LESS_THAN_OR_EQUAL",
+          "value": "1"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Proof of member-owned wheelchair repair in progress",
+      "Rental agreement for loaner standard manual wheelchair"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "One month loaner wheelchair rental authorized while primary chair is repaired."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-058",
+    "source_page": {
+      "physical_page": 13,
+      "printed_page": "Page 13 of 24"
+    },
+    "source_section": "Policy/Criteria - WHEELCHAIRS",
+    "source_quote": "Requests for wheelchair or other DME repairs specifically using codes K0108, K0739, or E1399 require mandatory secondary review by a medical director or therapy advisor.",
+    "clinical_service_or_procedure": "Wheelchair and DME repairs (HCPCS K0108, K0739, E1399) - Secondary Review Requirement",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-058-A",
+          "description": "Mandatory secondary review completed by medical director or therapy advisor",
+          "parameter": "secondary_medical_review_completed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Mandatory clinical peer review for miscellaneous and non-specific repair codes."
+  }
+]

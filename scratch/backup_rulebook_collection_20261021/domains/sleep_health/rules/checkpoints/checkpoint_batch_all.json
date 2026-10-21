@@ -1,0 +1,300 @@
+[
+  {
+    "rule_id": "RULE-SLP-CG2050-001",
+    "domain": "sleep_health",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 3 of 20"
+    },
+    "source_section": "STATEMENT / General Information (CG 2050)",
+    "source_quote": "All appropriate supporting documentation, including recent pertinent office visit notes, laboratory data, and results of any special testing must be provided.",
+    "clinical_service_or_procedure": "Attended Polysomnography (PSG)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-SLP-2050-DOC1",
+          "description": "Recent pertinent face-to-face clinical office visit notes submitted",
+          "parameter": "clinical_notes_submitted",
+          "comparator": "IS_PRESENT"
+        },
+        {
+          "condition_id": "COND-SLP-2050-DOC2",
+          "description": "Comprehensive sleep evaluation documentation including Epworth Sleepiness Scale or validated score",
+          "parameter": "sleep_history_documented",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Recent pertinent office visit notes",
+      "Comprehensive sleep history",
+      "Validated sleepiness scale score"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-SLP-CG2050-002",
+    "domain": "sleep_health",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 36"
+    },
+    "source_section": "Contraindications for a Home Sleep Study / Indications for Attended PSG",
+    "source_quote": "Contraindications For a Home Sleep Study, Unattended - Adults",
+    "clinical_service_or_procedure": "Attended Polysomnography (In-Lab PSG)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-SLP-2050-COMORB",
+          "description": "Patient has comorbid conditions that preclude home sleep testing (e.g. moderate-to-severe pulmonary disease, neuromuscular disease, CHF)",
+          "parameter": "hst_contraindication_comorbidity",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-SLP-CG2050-003",
+    "domain": "sleep_health",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 13,
+      "printed_page": "Page 13 of 36"
+    },
+    "source_section": "Attended Polysomnography / Pediatric Sleep Evaluation",
+    "source_quote": "Note: In children, OSAS is often associated with daytime neurobehavioral problems (e.g.,",
+    "clinical_service_or_procedure": "Pediatric Attended Polysomnography",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-SLP-2050-PEDIATRIC",
+          "description": "Patient is under 18 years of age with suspected sleep-disordered breathing (home sleep testing not indicated)",
+          "parameter": "patient_age_years",
+          "comparator": "LESS_THAN",
+          "value": 18,
+          "unit": "years"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-SLP-CG2050-004",
+    "domain": "sleep_health",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 36"
+    },
+    "source_section": "Attended Polysomnography / Suspected Narcolepsy and MSLT",
+    "source_quote": "Narcolepsy or idiopathic hypersomnia (10)",
+    "clinical_service_or_procedure": "Attended PSG with MSLT for Narcolepsy",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-SLP-2050-NARCOLEPSY",
+          "description": "Suspected narcolepsy or idiopathic hypersomnia requiring nocturnal polysomnography followed by daytime MSLT",
+          "parameter": "suspected_narcolepsy",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-SLP-CG2051-001",
+    "domain": "sleep_health",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 25,
+      "printed_page": "Page 2 of 13"
+    },
+    "source_section": "STATEMENT / General Information (CG 2051)",
+    "source_quote": "All appropriate supporting documentation, including recent pertinent office visit notes, laboratory data, and results of any special testing must be provided.",
+    "clinical_service_or_procedure": "Unattended Home Sleep Testing (HST)",
+    "rule_type": "documentation_requirement",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-SLP-2051-DOC1",
+          "description": "Recent clinical notes documenting assessment of obstructive sleep apnea symptoms",
+          "parameter": "clinical_notes_submitted",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Recent clinical office visit notes",
+      "Documentation of OSA signs/symptoms"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-SLP-CG2051-002",
+    "domain": "sleep_health",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 25,
+      "printed_page": "Page 25 of 36"
+    },
+    "source_section": "Indications for Home Sleep Testing (HST)",
+    "source_quote": "Unattended home sleep studies are used to confirm the diagnosis of obstructive sleep apnea",
+    "clinical_service_or_procedure": "Unattended Home Sleep Testing (HST)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-SLP-2051-ADULT-OSA",
+          "description": "Adult patient with high pretest probability of uncomplicated obstructive sleep apnea (snoring, witnessed apneas, daytime sleepiness)",
+          "parameter": "osa_pretest_probability",
+          "comparator": "EQUALS",
+          "value": "HIGH_UNCOMPLICATED"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-SLP-CG2051-003",
+    "domain": "sleep_health",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 27,
+      "printed_page": "Page 27 of 36"
+    },
+    "source_section": "Contraindications for Home Sleep Study, Unattended",
+    "source_quote": "CONTRAINDICATIONS FOR HOME SLEEP STUDY,",
+    "clinical_service_or_procedure": "Home Sleep Testing in Patients with Severe Comorbidities",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-SLP-2051-CONTRA",
+          "description": "Patient has comorbid severe cardiopulmonary condition, neuromuscular disorder, or pediatric age making HST inappropriate",
+          "parameter": "hst_contraindicated",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "RULE-SLP-CG2050-002"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Redirects to attended in-lab polysomnography."
+  },
+  {
+    "rule_id": "RULE-SLP-PREAMBLE-001",
+    "domain": "sleep_health",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Sleep Studies Guidelines",
+    "policy_version": "2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/sleep_health/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Sleep Studies.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 36"
+    },
+    "source_section": "Preamble and Guideline Development Process",
+    "source_quote": "In all cases, clinical judgment consistent with the standards of good medical practice will be used when applying the guidelines.",
+    "clinical_service_or_procedure": "Sleep Studies Clinical Review Framework",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-SLP-PRE-001",
+          "description": "Clinical judgment consistent with standards of good medical practice used when applying guidelines",
+          "parameter": "clinical_review_standard",
+          "comparator": "EQUALS",
+          "value": "GOOD_MEDICAL_PRACTICE_STANDARDS"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "dependencies": [],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Clinical review framework; requires medical director evaluation when guidelines are silent."
+  }
+]

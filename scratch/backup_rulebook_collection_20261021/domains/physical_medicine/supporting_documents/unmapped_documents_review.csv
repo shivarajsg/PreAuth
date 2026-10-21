@@ -1,0 +1,2 @@
+document_id,domain,document_title,document_type,version_status,disposition_status,unmapped_reason,evidentiary_limitation,human_review_required
+DOC-PHY-MISSING-001,physical_medicine,Health Plan Summary Plan Description (SPD) Annual Therapy Benefit Caps,other_supporting_document,current_2026_verified,PLAN_SPECIFIC_ACCESS_REQUIRED,Employer group certificates of coverage define hard annual financial or visit caps (e.g. 20-60 visits/year) overriding medical necessity.,Available only in individual commercial plan evidence of coverage contracts.,True

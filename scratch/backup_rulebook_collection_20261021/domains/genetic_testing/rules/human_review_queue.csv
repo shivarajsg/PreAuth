@@ -1,0 +1,4 @@
+rule_id,guideline_id,policy_title,physical_page,review_reason,source_quote
+RULE-GEN-PREAMBLEGEN-001,PREAMBLE-GEN,2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines,2,Complex molecular testing / investigational assay discretion,Evolent is committed to the philosophy of supporting safe and effective
+RULE-GEN-CGGENMELANOMAPROG-001,CG-GEN-MELANOMA-PROG,2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines,49,Complex molecular testing / investigational assay discretion,Oncology Testing: Algorithmic Assays
+RULE-GEN-CGGENEXOMEWES-001,CG-GEN-EXOME-WES,2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines,136,Complex molecular testing / investigational assay discretion,"Diagnostic Performance of Singleton and Trio, Rapid Genome and Exome Sequencing in Ill"

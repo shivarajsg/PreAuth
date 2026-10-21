@@ -1,0 +1,1052 @@
+======================================================================
+SECTION: EPIDURAL PUMP TRIALS (CG 1751) (Pages 17-21)
+
+--- Physical Page 17 (Printed Page Page 1 of 14 ) ---
+  Page 1 of 14
+  Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal
+  Pumps
+  Evolent Clinical Guideline 1751 for Epidural Spine
+  Injections and Single Injection Trials for Intrathecal
+  Pumps
+  Guideline Number:
+  Evolent_CG_1751
+  Applicable Codes
+  "Evolent" refers to Evolent Health LLC and Evolent Specialty Services, Inc.
+  © 2022 - 2026 Evolent. All rights Reserved.
+  Original Date:
+  May 2022
+  Last Revised Date:
+  December 2025
+  Implementation Date:
+  July 2026
+  TABLE OF CONTENTS
+  STATEMENT ................................................................................................................................................ 3
+  GENERAL INFORMATION ............................................................................................................................... 3
+  PURPOSE .................................................................................................................................................... 3
+  SCOPE ........................................................................................................................................................ 3
+  SPECIAL NOTE ............................................................................................................................................ 3
+  New Episode of Care ............................................................................................................................ 3
+  INDICATIONS FOR INITIAL EPIDURAL SPINAL INJECTIONS/NERVE BLOCKS .................................. 4
+  GENERAL TO ALL CAUDAL, INTERLAMINAR AND TRANSFORAMINAL INJECTIONS ............................................... 4
+  TREATMENT PURPOSES ............................................................................................................................... 4
+  DIAGNOSTIC PURPOSES ............................................................................................................................... 5
+  REPEAT EPIDURAL SPINAL INJECTIONS ......................................................................................................... 5
+  INITIAL TREATMENT PHASE .......................................................................................................................... 5
+  Therapeutic Phase ................................................................................................................................ 5
+  CONTRAINDICATIONS FOR EPIDURAL SPINAL INJECTIONS............................................................................... 6
+  INDICATIONS FOR INTRASPINAL DRUG TRIAL ..................................................................................... 6
+  CHRONIC INTRACTABLE PAIN IN NON-TERMINAL INDIVIDUALS ........................................................................ 6
+  SPASTICITY IN NON-TERMINAL INDIVIDUALS .................................................................................................. 6
+  ADDITIONAL TRIALS ..................................................................................................................................... 7
+  CONTRAINDICATIONS FOR INTRASPINAL DRUG TRIAL ..................................................................................... 7
+  EXCLUSIONS ............................................................................................................................................... 7
+  CODING AND STANDARDS ....................................................................................................................... 7
+  CODES ........................................................................................................................................................ 7
+  APPLICABLE LINES OF BUSINESS .................................................................................................................. 9
+  BACKGROUND ............................................................................................................................................ 9
+  MEDICAL NECESSITY ................................................................................................................................... 9
+  CONSERVATIVE TREATMENT* ....................................................................................................................... 9
+  HOME EXERCISE PROGRAM (HEP)** .......................................................................................................... 10
+
+--- Physical Page 18 (Printed Page  ) ---
+  Page 2 of 14
+  Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal
+  Pumps
+  ANALYSIS OF EVIDENCE ......................................................................................................................... 10
+  SUMMARY OF EVIDENCE ........................................................................................................................ 11
+  POLICY HISTORY ...................................................................................................................................... 12
+  LEGAL AND COMPLIANCE ...................................................................................................................... 12
+  GUIDELINE APPROVAL ............................................................................................................................... 12
+  Committee ........................................................................................................................................... 12
+  DISCLAIMER .............................................................................................................................................. 12
+  REFERENCES ............................................................................................................................................ 14
+
+--- Physical Page 19 (Printed Page  ) ---
+  Page 3 of 14
+  Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal
+  Pumps
+  STATEMENT
+  General Information
+  ● It is an expectation that all patients receive care/services from a licensed clinician. All
+  appropriate supporting documentation, including recent pertinent office visit notes,
+  laboratory data, and results of any special testing must be provided. If applicable: All
+  prior relevant imaging results and the reason that alternative imaging cannot be
+  performed must be included in the documentation submitted.
+  ● The guideline criteria in the following sections were developed utilizing evidence-based
+  and peer-reviewed resources from medical publications and societal organization
+  guidelines as well as from widely accepted standard of care, best practice
+  recommendations.
+  Purpose
+  This guideline describes indications, contraindications, and exclusions for the performance of
+  epidural spine injections, based on The American Society of Interventional Pain Physicians
+  (ASIPP) recommended algorithmic approach, (1) and indications, contraindications and
+  exclusions for single injection intraspinal drug trials for intrathecal pumps.
+  NOTE: There are no medical indications for intrathecal treatments except chronic pain and
+  intractable spasticity.
+  Scope
+  The therapeutic use of epidural injections is for short-term pain relief associated with acute back
+  pain or exacerbation of chronic back pain. With therapeutic injections, a corticosteroid is injected
+  close to the target area with the goal of pain reduction.
+  An implantable infusion pump (IIP), also referred to as an implantable drug delivery system
+  (IDDS), is a device for the delivery of medication to manage severe, chronic, intractable pain
+  and/or chronic intractable spasm. An intrathecal/intraspinal drug trial utilizes a temporary
+  implant to demonstrate efficacy and appropriateness of an IIP.
+  Special Note
+  New Episode of Care
+  Any injection performed at least two years from prior injections in the same region will be
+  considered a new episode of care and the INITIAL injection requirements must be met for
+  approval. Events such as surgery on the same spinal region or any new pathology would also
+  prompt a new episode of care.
+
+--- Physical Page 20 (Printed Page  ) ---
+  Page 4 of 14
+  Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal
+  Pumps
+  INDICATIONS FOR INITIAL EPIDURAL SPINAL
+  INJECTIONS/NERVE BLOCKS
+  General to all Caudal, Interlaminar and Transforaminal
+  Injections
+  ● Fluoroscopic guidance should be used for caudal and interlaminar injections and is
+  necessary for transforaminal injections.
+  ● For all injections, patients must exhibit pain causing functional disability or average pain
+  level of ≥ 6 on a scale of 0 to 10 (2–4) related to the requested spinal region.
+  Treatment Purposes
+  ● Acute pain or exacerbation of chronic radicular pain (all the following must be met) (1):
+  ○
+  Neck or back pain with acute radicular symptoms
+  ○
+  Duration of pain < 3 months
+  ○
+  Failure to respond to non-operative conservative treatment* targeting the
+  requested spinal region for a minimum of 2 weeks unless the medical reason this
+  treatment cannot be done is clearly documented (active therapy components not
+  required) (2)
+  ● Spinal stenosis causing axial or radicular pain (all of the following must be met) (1):
+  ○
+  Failure to respond to non-operative conservative treatment* targeting the requested
+  spinal region for a minimum of six (6) weeks in the last six (6) months unless the
+  medical reason this treatment cannot be done is clearly documented
+  ■ OR details of engagement in ongoing non-operative conservative treatment if the
+  individual has had prior spinal injections in the same region (3,5)
+  ● Failed back surgery syndrome or epidural fibrosis causing axial or radicular pain (all of
+  the following must be met) (1,6):
+  ○
+  Documentation of a medical reason that clearly indicates why an injection is needed
+  (not typically done immediately post-surgery) (3)
+  ○
+  Failure to respond to non-operative conservative treatment* targeting the
+  requested spinal region for a minimum of six (6) weeks in the last six (6) months
+  unless the medical reason this treatment cannot be done is clearly documented
+  ■ OR details of engagement in ongoing non-operative conservative treatment if the
+  individual has had prior spinal injections in the same region (2)
+  NOTE: Failure of conservative treatment is defined as one of the following:
+  ● Lack of meaningful improvement after a full course of treatment; OR
+  ● Progression or worsening of symptoms during treatment; OR
+  ● Documentation of a medical reason the member is unable to participate in treatment
+
+--- Physical Page 21 (Printed Page  ) ---
+  Page 5 of 14
+  Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal
+  Pumps
+  (Closure of medical or therapy offices, patient inconvenience, or noncompliance without
+  explanation does not constitute “inability to complete” treatment)
+  Diagnostic Purposes (1,4)
+  ● Transforaminal injection to identify the pain generator for surgical planning (all of the
+  following must be met):
+  ○
+  Documentation of a pre-operative evaluation and plan for surgery
+  NOTE: No more than 2 levels of transforaminal blocks should be done in one day
+  Repeat Epidural Spinal Injections
+  Epidural injections may be repeated only as medically necessary. Each epidural injection
+  requires an authorization, and the following criteria must be met for repeat injections.
+  Initial Treatment Phase
+  ● Up to 3 epidural injections may be performed in the initial treatment phase, no sooner
+  than 2 weeks apart, provided that at least 30% pain relief or significant documented
+  functional improvement is obtained (4)
+  ○
+  If an injection during the initial treatment phase is unsuccessful, another injection
+  may be performed at a different level in the same spinal region or with a change in
+  technique given there is a question about the pain generator or evidence of multi-
+  level pathology
+  Therapeutic Phase
+  ● Epidural injections may only be repeated after the initial treatment phase if the individual
+  has had at least 50% pain relief or significant documented functional improvement for a
+  minimum of 2 months before each therapeutic injection (3)
+  ● The patient:
+  ○
+  continues to have pain moderate to severe pain causing functional disability or
+  average pain level ≥ 6 on a scale of 0 to 10 related to the requested spinal
+  region. (3,4)
+  ○
+  is engaged in ongoing active conservative treatment, unless the medical reason this
+  treatment cannot be done is clearly documented
+  ● In the first year of treatment, a total of 6 epidural injections may be performed per spinal
+  region
+  ○
+  This includes up to 3 injections in the initial treatment phase and 3 additional
+  therapeutic injections. (3)
+  ● After the first year of treatment, a maximum of 4 epidural injections may be performed in
+  a 12-month period per spinal region. (3,4)
+  ○
+  If special circumstances are documented (e.g., elderly individual with severe spinal
+======================================================================
+SECTION: FACET BLOCKS (CG 1753) (Pages 31-35)
+
+--- Physical Page 31 (Printed Page Page 1 of 14 ) ---
+  Page 1 of 14
+  Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks
+  Evolent Clinical Guideline 1753 for Paravertebral Facet
+  Joint Injections or Blocks
+  Guideline Number:
+  Evolent_CG_1753
+  Applicable Codes
+  "Evolent" refers to Evolent Health LLC and Evolent Specialty Services, Inc.
+  © 2012 - 2026 Evolent. All rights Reserved.
+  Original Date:
+  October 2012
+  Last Revised Date:
+  December 2025
+  Implementation Date:
+  July 2026
+  TABLE OF CONTENTS
+  STATEMENT ................................................................................................................................................ 2
+  GENERAL INFORMATION ............................................................................................................................... 2
+  SPECIAL NOTE ............................................................................................................................................ 2
+  INDICATIONS FOR FACET JOINT INJECTIONS OR MEDIAL BRANCH NERVE BLOCKS ................... 2
+  FACET JOINT PAIN  ...................................................................................................................................... 2
+  IMAGING GUIDANCE  .................................................................................................................................... 3
+  REPEAT INJECTIONS .................................................................................................................................... 3
+  Initial Treatment Phase ......................................................................................................................... 3
+  Therapeutic Phase ................................................................................................................................ 4
+  EXCLUSIONS ............................................................................................................................................... 4
+  CONTRAINDICATIONS ............................................................................................................................... 5
+  CODING AND STANDARDS ....................................................................................................................... 5
+  CODES ........................................................................................................................................................ 5
+  APPLICABLE LINES OF BUSINESS .................................................................................................................. 7
+  BACKGROUND ............................................................................................................................................ 7
+  DEFINITIONS ................................................................................................................................................ 7
+  MEDICAL NECESSITY ................................................................................................................................... 7
+  CONSERVATIVE TREATMENT*  ...................................................................................................................... 8
+  HOME EXERCISE PROGRAM (HEP)**  ........................................................................................................... 8
+  SUMMARY OF EVIDENCE .......................................................................................................................... 8
+  ANALYSIS OF EVIDENCE ......................................................................................................................... 11
+  POLICY HISTORY ...................................................................................................................................... 12
+  LEGAL AND COMPLIANCE ...................................................................................................................... 13
+  GUIDELINE APPROVAL ............................................................................................................................... 13
+  Committee ........................................................................................................................................... 13
+  DISCLAIMER .............................................................................................................................................. 13
+  REFERENCES ............................................................................................................................................ 14
+
+--- Physical Page 32 (Printed Page  ) ---
+  Page 2 of 14
+  Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks
+  STATEMENT
+  General Information
+  ● It is an expectation that all patients receive care/services from a licensed clinician. All
+  appropriate supporting documentation, including recent pertinent office visit notes,
+  laboratory data, and results of any special testing must be provided. If applicable: All
+  prior relevant imaging results and the reason that alternative imaging cannot be
+  performed must be included in the documentation submitted.
+  ● The guideline criteria in the following sections were developed utilizing evidence-based
+  and peer-reviewed resources from medical publications and societal organization
+  guidelines as well as from widely accepted standard of care, best practice
+  recommendations.
+  Special Note
+  ● Any injection performed at least two years from prior injections in the same region will be
+  considered a new episode of care and the INITIAL injection requirements must be met
+  for approval. Events such as surgery on the same spinal region or any new pathology
+  would also prompt a new episode of care.
+  ● Unilateral injections performed at the same level on the right vs. left within 1 month of
+  each other would be considered as one procedure toward the total number of facet
+  procedures allowed per 12 months.
+  INDICATIONS FOR FACET JOINT INJECTIONS OR
+  MEDIAL BRANCH NERVE BLOCKS
+  Facet Joint Pain (1)
+  To confirm non-radicular pain suggestive of facet joint or pars interarticularis origin, ALL the
+  following must be met:
+  ● Pain that:
+  ○
+  Is causing functional disability or average pain level of ≥ 6 (scale of 0 to 10) related
+  to the requested spinal region
+  ○
+  Duration for at least 3 months
+  ○
+  Is either:
+  ■ By history, mainly axial or non-radicular
+  ■ Is radicular due to stenosis caused by synovial cyst (confirmed on imaging)(2)
+  ○
+  Is of primary source that is not sacroiliac joint pain, discogenic pain, disc herniation,
+  or radiculitis
+  ● If diagnosed chronic lumbar spondylolysis
+
+--- Physical Page 33 (Printed Page  ) ---
+  Page 3 of 14
+  Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks
+  ○
+  Imaging studies confirming the presence of a pars interarticularis fracture/defect are
+  required.
+  ● Failure to respond to non-operative conservative treatment* targeting the requested
+  spinal region for a minimum of six (6) weeks in the last six (6) months unless the medical
+  reason this treatment cannot be done is clearly documented
+  ○
+  Failure of conservative treatment is defined as one of the following:
+  ■ Lack of meaningful improvement after a full course of treatment; OR
+  ■ Progression or worsening of symptoms during treatment; OR
+  ■ Documentation of a medical reason the member is unable to participate in the
+  treatment (Closure of medical or therapy offices, patient inconvenience, or
+  noncompliance without explanation does not constitute ‘inability to complete’
+  treatment)
+  ○
+  OR details of engagement in ongoing non-operative conservative treatment* if the
+  individual has had prior spinal injections in the same region
+  Imaging Guidance (3–5)
+  ● ALL procedures must be performed under imaging guidance.
+  ○
+  The facet joint is commonly identified under image guidance by Computed
+  tomography (CT) or Fluoroscopy. Medial Branch Blocks are commonly identified by
+  Fluoroscopy. Ultrasound guidance can be an effective alternative if CT or
+  fluoroscopy guided techniques are contraindicated; however, individual patient
+  factors such as poor visualization due to deeper tissue layers e.g., increased Body
+  Mass Index (BMI) may contribute to substandard image resolution.
+  Repeat Injections (1,6)
+  Facet joint injections and medial branch nerve blocks may be repeated only as medically
+  necessary. Injections performed on different days of service require separate authorization, and
+  the following criteria must be met for repeat injections:
+  Initial Treatment Phase
+  ● Up to 2 diagnostic injections may be performed in the initial diagnostic phase, no sooner
+  than 2 weeks apart:
+  ○
+  At the same level, provided at least 50% pain relief or significant documented
+  functional improvement is obtained OR
+  ○
+  a second diagnostic injection may be performed at a different spinal level or with a
+  change in technique (e.g., from an intra-articular facet injection to a medial branch
+  nerve block) if:
+  ■ there is a question about the pain generator or evidence of multi-level pathology
+  AND
+  ■ the first diagnostic injection was unsuccessful at achieving any pain relief.
+
+--- Physical Page 34 (Printed Page  ) ---
+  Page 4 of 14
+  Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks
+  ○
+  If the most recent injection was a diagnostic block with local anesthetic only, there
+  must be at least 7 days between injections.
+  Therapeutic Phase
+  ● Facet joint injections may only be repeated after the initial diagnostic phase if:
+  ○
+  It is an initial therapeutic injection subsequent to a successful initial treatment phase
+  that provided at least 50% relief or functional improvement.
+  ○
+  the individual has had at least 50% pain relief or significant documented functional
+  improvement for a minimum of 2 months before each repeat therapeutic injection.
+  ○
+  The individual continues to have pain causing functional disability or average pain
+  level ≥ 6 on a scale of 0 to 10 related to the requested spinal region.
+  ○
+  The individual is engaged in ongoing active conservative treatment* unless the
+  medical reason this treatment cannot be done is clearly documented (7)
+  ■ Diagnostic injections within 1 month of the previous injection do not require
+  documentation of ongoing active conservative therapy.
+  ● In the diagnostic phase, a maximum of 2 procedures may be performed. Repeat
+  diagnostic injections after prior radiofrequency neurolysis are approvable if there is a
+  question about the pain generator, different levels are to be targeted, or if there is
+  surgery in the same spinal region.
+  ● A maximum of 4 facet injections may be performed in a 12-month period per spinal
+  region (except under unusual circumstances, such as a recurrent injury)
+  ● If different spinal regions are being treated, injections should be administered at intervals
+  of no sooner than 7 days unless a medical reason is provided to necessitate injecting
+  multiple regions on the same date of service (see Medical Necessity)
+  NOTE: Radiofrequency ablation (RFA) procedures should be considered in individuals with a
+  successful medial branch nerve block (at least 70% pain relief or improved ability to function),
+  but with insufficient sustained relief (less than 2-3 months improvement). RFA cannot be
+  performed on patients who have received an intra-articular joint injection instead of diagnostic
+  medial branch blocks.
+  EXCLUSIONS
+  These requests are excluded from consideration:
+  ● Sacral lateral branch blocks (S1, S2, S3)
+  ● Atlantoaxial joint injections (C1-2)
+  ● Occipital nerve blocks
+  ● Hardware injection or block for diagnosis or treatment of post-surgical or other spine
+  pain
+
+--- Physical Page 35 (Printed Page  ) ---
+  Page 5 of 14
+  Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks
+  CONTRAINDICATIONS (3)
+  Although there are no absolute contraindications there are relative contraindications that
+  include:
+  ● Active systemic or spinal infection
+  ● Skin infection at the site of needle puncture
+  ● Inability to obtain percutaneous access to the target facet joint.
+  ● Medication or contrast agent allergy
+  CODING AND STANDARDS
+  Codes
+  CPT
+  Code
+  Description
+  Cervical Thoracic Region
+  64490
+  Injection(s), diagnostic or therapeutic agent, paravertebral facet
+  (zygapophyseal) joint (or nerves innervating that joint) with image
+  guidance (fluoroscopy or CT), cervical or thoracic; single level
+  +64491
+  Injection(s), diagnostic or therapeutic agent, paravertebral facet
+  (zygapophyseal) joint (or nerves innervating that joint) with image
+  guidance (fluoroscopy or CT), cervical or thoracic; second level (List
+  separately in addition to code for primary procedure)
+  +64492
+  Injection(s), diagnostic or therapeutic agent, paravertebral facet
+  (zygapophyseal) joint (or nerves innervating that joint) with image
+  guidance (fluoroscopy or CT), cervical or thoracic; third and any
+  additional levels (List separately in addition to code for primary
+  procedure)
+  0213T
+  Injection(s), diagnostic or therapeutic agent, paravertebral facet
+  (zygapophyseal) joint (or nerves innervating that joint) with ultrasound
+  guidance, cervical or thoracic; single level
+  +0214T
+  Injection(s), diagnostic or therapeutic agent, paravertebral facet
+  (zygapophyseal) joint (or nerves innervating that joint) with ultrasound
+  guidance, cervical or thoracic; second level (List separately in addition
+  to code for primary procedure)
+======================================================================
+SECTION: SI INJECTIONS (CG 1756) (Pages 57-61)
+
+--- Physical Page 57 (Printed Page Page 1 of 10 ) ---
+  Page 1 of 10
+  Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections
+  Evolent Clinical Guideline 1756 for Sacroiliac Joint
+  Injections
+  Guideline Number:
+  Evolent_CG_1756
+  Applicable Codes
+  "Evolent" refers to Evolent Health LLC and Evolent Specialty Services, Inc.
+  © 2014 - 2025 Evolent. All rights Reserved.
+  Original Date:
+  January 2014
+  Last Revised Date:
+  December 2024
+  Implementation Date:
+  July 2025
+  TABLE OF CONTENTS
+  STATEMENT .......................................................................................................................................... 2
+  GENERAL INFORMATION ......................................................................................................................... 2
+  SPECIAL NOTE ...................................................................................................................................... 2
+  INDICATIONS FOR SACROILIAC JOINT INJECTIONS (INTRAARTICULAR OR LIGAMENTOUS
+  INJECTIONS ONLY) .............................................................................................................................. 2
+  SACROILIAC JOINT PAIN ......................................................................................................................... 2
+  SPONDYLOARTHROPATHY ...................................................................................................................... 3
+  IMAGING GUIDANCE  ............................................................................................................................... 3
+  DIAGNOSTIC PURPOSES FOR SURGICAL PLANNING ................................................................................. 4
+  REPEAT INJECTIONS  .............................................................................................................................. 4
+  Initial Treatment Phase ................................................................................................................... 4
+  Therapeutic Phase .......................................................................................................................... 4
+  EXCLUSIONS ......................................................................................................................................... 5
+  CONTRAINDICATIONS ......................................................................................................................... 5
+  LEGISLATIVE LANGUAGE ................................................................................................................... 5
+  WASHINGTON ........................................................................................................................................ 5
+  20160318B – Spinal Injections ....................................................................................................... 5
+  CODING AND STANDARDS ................................................................................................................. 6
+  CODING ................................................................................................................................................ 6
+  CPT Codes ...................................................................................................................................... 6
+  APPLICABLE LINES OF BUSINESS ............................................................................................................ 6
+  BACKGROUND ...................................................................................................................................... 6
+  DEFINITIONS .......................................................................................................................................... 6
+  MEDICAL NECESSITY ............................................................................................................................. 7
+  HOME EXERCISE PROGRAM (HEP)**  ..................................................................................................... 8
+  POLICY HISTORY .................................................................................................................................. 8
+  LEGAL AND COMPLIANCE .................................................................................................................. 9
+  GUIDELINE APPROVAL ........................................................................................................................... 9
+  Committee ....................................................................................................................................... 9
+  DISCLAIMER .......................................................................................................................................... 9
+  REFERENCES ...................................................................................................................................... 10
+
+--- Physical Page 58 (Printed Page  ) ---
+  Page 2 of 10
+  Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections
+  STATEMENT
+  General Information
+  It is an expectation that all patients receive care/services from a licensed clinician. All
+  appropriate supporting documentation, including recent pertinent office visit notes, laboratory
+  data, and results of any special testing must be provided. If applicable: All prior relevant
+  imaging results and the reason that alternative imaging cannot be performed must be
+  included in the documentation submitted.
+  Special Note
+  Any injection performed at least two years from prior injections in the same region will be
+  considered a new episode of care and the INITIAL injection requirements must be met for
+  approval. Events such as surgery on the same spinal region or any new pathology would
+  also prompt a new episode of care.
+  See Legislative Language for specific mandates in Washington
+  INDICATIONS FOR SACROILIAC JOINT INJECTIONS
+  (INTRAARTICULAR OR LIGAMENTOUS INJECTIONS
+  ONLY)
+  Sacroiliac Joint Pain (1,2,3,4)
+  For the treatment of sacroiliac joint (SIJ) pain ALL of the following must be met:
+  ● Primarily axial low back pain (below level of L5) which may radiate to the groin or
+  lower extremity
+  ● Pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10
+  related to the requested spinal region
+  ● A cluster of any three (3) of the following positive provocation exam findings to
+  suggest the diagnosis (5,6,7):
+  ○
+  Pelvic (SI) distraction test
+  ○
+  Pelvic (SI) compression test
+  ○
+  Sacral Thrust test
+  ○
+  FABER (Patrick’s test)
+  ○
+  Posterior shear test
+  ○
+  Yeoman’s test
+  ○
+  Gaenslen’s test
+  ○
+  Thigh Thrust test
+  ● Duration of pain of at least 3 months
+  ● Failure to respond to non-operative conservative treatment targeting the requested
+  spinal region for a minimum of 6 weeks in the last 6 months unless the medical
+  reason this treatment cannot be done is clearly documented;
+
+--- Physical Page 59 (Printed Page  ) ---
+  Page 3 of 10
+  Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections
+  ○
+  OR details of active engagement in ongoing non-operative conservative
+  treatment if the individual has had prior spinal injections in the same region
+  Spondyloarthropathy (8)
+  ALL of the following must be met:
+  ● The individual has experienced ≥ 3 months of low back pain
+  ● Age of onset < 45 years
+  ● Comprehensive pain management program is in place including physical therapy,
+  home exercise, patient education, psychosocial support, and/or oral medication
+  ● Prior history of evidence of sacroiliitis on imaging (i.e., active inflammation on
+  magnetic resonance imaging [MRI] or definite radiographic sacroiliitis grade 2-4
+  bilaterally or grade 3-4 unilaterally)
+  ● 1 or more spondyloarthropathy features:
+  ○
+  Inflammatory back pain evidence with at least 4 of the following criteria present
+  (9):
+  ■ Age at onset < 40 years
+  ■ Insidious onset
+  ■ Improvement with exercise
+  ■ No improvement with rest
+  ■ Pain at night (with improvement upon getting up)
+  ○
+  Arthritis
+  ○
+  Enthesitis of the heel (irritability of muscles, tendons, or ligaments where they
+  enter the bone)
+  ○
+  Uveitis (inflammation of the uvea, the middle layer of the eye)
+  ○
+  Dactylitis (inflammation of a finger or toe)
+  ○
+  Psoriasis
+  ○
+  Crohn’s/colitis
+  ○
+  Good response to NSAIDs
+  ○
+  Family history of spondyloarthropathy
+  ○
+  Positive testing for HLA-B27
+  ○
+  Elevated C-reactive protein (CRP)
+  Imaging Guidance (3,4)
+  ● The sacroiliac joint is commonly identified under image guidance by Fluoroscopy or
+  Computed tomography (CT). CT is less effective than Fluoroscopy regarding
+  observing of the escape of the injectate to the adjacent structures and cannot rule out
+  concurrent intravascular flow. With proper use by skilled interventional pain
+  physicians with ultrasound experience, the use of ultrasound guidance is similar to
+  CT or Fluoroscopy but can have a lower accuracy of needle placement.
+  ● Ultrasound guidance can be an effective alternative if fluoroscopy or CT guided
+
+--- Physical Page 60 (Printed Page  ) ---
+  Page 4 of 10
+  Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections
+  techniques are contraindicated or when radiation exposure is problematic; however,
+  individual patient factors such as poor visualization due to deeper tissue layers (e.g.,
+  increased Body Mass Index (BMI) may contribute to substandard image resolution).
+  NOTE: ALL procedures must be performed under imaging guidance
+  Diagnostic Purposes for Surgical Planning (3,6)
+  For diagnostic purposes, all the following must be met:
+  ● The sacroiliac joint injection is an image-guided, contrast-enhanced intra-articular
+  injection
+  ● At least 75% pain relief for the expected duration of the anesthetic after each
+  diagnostic injection
+  ● After the diagnostic relief period, the individual continues to have pain causing
+  functional disability or average pain level ≥ 6 on a scale of 0 to 10 related to the
+  requested spinal region.
+  ● No more than two diagnostic injections per diagnostic phase
+  ● Documentation of a pre-operative evaluation and plan for SIJ surgery
+  Repeat Injections (1,3,6)
+  Sacroiliac joint injections may be repeated only as Medical Necessity. Each sacroiliac joint
+  injection requires an authorization, and the following criteria must be met for repeat
+  injections:
+  Initial Treatment Phase
+  ● Up to 2 sacroiliac joint injections may be performed in the initial treatment phase, no
+  sooner than 2 weeks apart, provided that at least 50% pain relief or significant
+  documented functional improvement is obtained
+  Therapeutic Phase
+  ● Sacroiliac joint injections may only be repeated after the initial treatment phase if the
+  individual has had at least 50% pain relief or significant documented functional
+  improvement for a minimum of 2 months before each therapeutic injection
+  ● The individual continues to have pain causing functional disability or average pain
+  level ≥ 6 on a scale of 0 to 10 related to the requested spinal region
+  ● The individual is engaged in ongoing active conservative treatment unless the
+  medical reason this treatment cannot be done is clearly documented
+  ● For individuals that have received other interventional pain injections in the
+  lumbar/sacral region (e.g., epidural steroid injection or facet joint injection) since the
+  last SIJ injection, at least one repeat positive provocative exam finding is required
+  (pelvic (SI) distraction test, pelvic (SI) compression test, sacral thrust test, FABER
+  (Patrick’s test), posterior shear test, Yeoman’s test, Gaenslen’s test, or thigh thrust)
+  ● A maximum of 4 sacroiliac joint injections may be performed in a 12-month period
+  per region in the therapeutic phase
+
+--- Physical Page 61 (Printed Page  ) ---
+  Page 5 of 10
+  Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections
+  EXCLUSIONS
+  These requests are excluded from consideration under this guideline:
+  ● Sacral lateral branch blocks (S1, S2, S3)
+  ● Radiofrequency denervation of the sacroiliac joint
+  CONTRAINDICATIONS (2,3,4)
+  ● Absolute contraindications:
+  ○
+  Active systemic or spinal infection
+  ○
+  Skin infection at the site of needle puncture
+  ○
+  Local malignancy
+  ○
+  Septic joint
+  ● Relative contraindications:
+  ○
+  Coagulopathy
+  ○
+  Pregnancy
+  ○
+  Uncontrollable Diabetes
+  ○
+  Current and uninterrupted use of blood-thinning medication
+  LEGISLATIVE LANGUAGE
+  Washington
+  20160318B – Spinal Injections (10)
+  Number and Coverage Topic:
+  20160318B – Spinal Injections
+  HTCC Coverage Determination:
+  Spinal injections are a covered benefit with conditions.
+  HTCC Reimbursement Determination:
+  Limitations of Coverage:*
+  ● Therapeutic epidural injections in the lumbar or cervical-thoracic spine for chronic
+  pain are a covered benefit when all of the following conditions are met: ƒ
+  ○
+  For treatment of radicular pain; ƒ
+  ○
+  With fluoroscopic guidance or CT guidance; ƒ
+  ○
+  After failure of conservative therapy; ƒ
+  ○
+  No more than two without clinically meaningful improvement in pain and function;
+  and
+  ○
+  Maximum of three in six months.
+======================================================================
+SECTION: SPINAL CORD STIMULATION (CG 1757) (Pages 78-82)
+
+--- Physical Page 78 (Printed Page  ) ---
+  Page 2 of 12
+  Evolent Clinical Guideline 1757 for Spinal Cord Stimulation
+  STATEMENT
+  General Information
+  ● It is an expectation that all patients receive care/services from a licensed clinician. All
+  appropriate supporting documentation, including recent pertinent office visit notes,
+  laboratory data, and results of any special testing must be provided. If applicable: All
+  prior relevant imaging results and the reason that alternative imaging cannot be
+  performed must be included in the documentation submitted.
+  ● The guideline criteria in the following sections were developed utilizing evidence-based
+  and peer-reviewed resources from medical publications and societal organization
+  guidelines as well as from widely accepted standard of care, best practice
+  recommendations.
+  Special Note
+  ● Code 63650 is also applicable for dorsal root ganglion stimulation (DRG). DRG has
+  specific advantages over SCS as it has better CRPS coverage and greater anatomical
+  specificity allowing for improved coverage for specific areas of the body, such as pain in
+  the foot, knee, hip, and groin — areas noted to be difficult for SCS. (1)
+  ● For individuals with chronic pain who have failed conservative approaches, SCS should
+  be considered among other options before prescribing long-term opioids. (2)
+  INDICATIONS
+  All patients colonized with methicillin-sensitive or methicillin-resistant Staphylococcus aureus
+  (MRSA or MSSA) must have a decolonization plan to be performed no earlier than 10 days prior
+  to the planned procedure.
+  Spinal Cord Stimulation
+  A spinal cord stimulation (SCS) trial is appropriate when ALL the following criteria are met:
+  ● Pain that:
+  ○
+  Is causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10 (3)
+  ○
+  Is of at least 6 months duration (3)
+  ○
+  Is caused by at least one of the following (2,3):
+  ■ Failed spine surgery syndrome (FSSS)/persistent spinal pain syndrome (PSPS)
+  or post-laminectomy syndrome (4)
+  ■ Complex regional pain syndrome (CRPS), type I or type II, meeting Budapest
+  criteria
+  ■ Chronic neuropathic pain of certain origins that falls into ONE of the following
+  diagnoses:
+
+--- Physical Page 79 (Printed Page  ) ---
+  Page 3 of 12
+  Evolent Clinical Guideline 1757 for Spinal Cord Stimulation
+  □ Lumbosacral arachnoiditis
+  □ Post herpetic neuralgia
+  □ Radiculopathy
+  □ Chronic ischemic leg pain
+  □ Diabetic peripheral neuropathy (5)
+  □ Phantom limb syndrome (stump pain)
+  □ Peripheral neuropathy
+  □ Chronic back pain (neuropathic pain) and not a surgical candidate
+  □ Chronic, refractory angina pectoris, characterized by ALL the following:
+   Continued angina after percutaneous coronary intervention or coronary
+  artery bypass graft
+   Not a candidate for further revascularization
+   Angina is NYHA (New York Heart Association) III (less than ordinary
+  physical activity causes symptoms) or IV (symptoms present at rest)
+   Optimal pharmacotherapy for at least one month with failure to tolerate
+  medications in indicated dosage or failure to respond adequately to
+  indicated medications
+  ● Failure to respond to non-operative conservative treatment (e.g., medication trials,
+  interventional procedures (e.g., sympathetic nerve blocks, epidural steroid injections)) for
+  a minimum of 6 months unless the medical reason this treatment cannot be done is
+  clearly documented (6)
+  ● A completed presurgical psychological assessment that documents the following (2,3):
+  ○
+  Pain is not due to psychiatric disorders such as depression, anxiety, somatic
+  symptom disorder, or sequelae of substance use
+  ○
+  Satisfactory management of personality and psychiatric disorders
+  ○
+  Satisfactory management of substance use disorder in recovery
+  ○
+  Demonstration of cognitive ability to manage the stimulator
+  Dorsal Root Ganglion Stimulator
+  A dorsal root ganglion stimulation (DRGS) trial is appropriate when ALL the following criteria
+  are met:
+  ● Pain that:
+  ○
+  Is causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10 (3)
+  ○
+  Duration of at least 6 months (3)
+  ○
+  Is caused by complex regional pain syndrome (CRPS) affecting the lower limbs, type
+  I or type II, meeting Budapest criteria
+
+--- Physical Page 80 (Printed Page  ) ---
+  Page 4 of 12
+  Evolent Clinical Guideline 1757 for Spinal Cord Stimulation
+  ● Failure to respond to non-operative conservative treatment (e.g., medication trials,
+  interventional procedures (e.g., sympathetic nerve blocks, epidural steroid injections)) for
+  a minimum of 6 months unless the medical reason this treatment cannot be done is
+  clearly documented (6)
+  ● A completed presurgical psychological assessment that documents the following (2,3):
+  ○
+  Pain is not due to psychiatric disorders such as depression, anxiety, somatic
+  symptom disorder, or sequelae of substance use
+  ○
+  Satisfactory management of personality and psychiatric disorders
+  ○
+  Satisfactory management of substance use disorder in recovery
+  ○
+  Demonstration of cognitive ability to manage the stimulator
+  Permanent Spinal Cord or Dorsal Root Ganglion Stimulator (2)
+  Appropriate when ALL the following criteria are met:
+  ● Documentation of a successful trial of the temporary SCS device providing at least 50%
+  reduction in pain
+  ● Significant functional improvement for a minimum duration of 3 days
+  ● Following a device-related non-superficial infection IF:
+  ○
+  A consultation with an infectious disease specialist is documented
+  ○
+  There is a minimum 12-week interval between removal of the infected device and
+  implantation of the new device
+  NOTE: A medical reason for use of a permanent stimulator device different from the temporary
+  trial device must be clearly documented
+  Revision or Removal of Spinal Cord or Dorsal Root Ganglion
+  Stimulator Device
+  Indicated with ONE of the following:
+  ● Migration of lead(s)
+  ● Loss of effectiveness
+  ● Intolerance by the individual
+  ● Infection
+  ○
+  A consultation with an infectious disease specialist is documented
+  ○
+  There is a minimum 12-week interval between removal of the infected device and
+  implantation of the new device
+  ○
+  It is strongly recommended that a nasal swab to test for Staphylococcus aureus and
+  decolonization for positive patients be performed before revision due to surgical site
+  infection. A medical reason why this cannot be performed must be clearly
+  documented.
+
+--- Physical Page 81 (Printed Page  ) ---
+  Page 5 of 12
+  Evolent Clinical Guideline 1757 for Spinal Cord Stimulation
+  ● Painful generator site
+  ● Development of neurological deficits
+  ● Patient demand
+  CONTRAINDICATIONS (3)
+  ● Active systemic or spinal infection
+  ● Body habitus that is insufficient to support the weight and bulk of the device
+  ● Coagulation disorder
+  ● Pregnancy
+  Note: It is strongly recommended that patients with a prior history of surgical site infection be
+  tested for Staphylococcus aureus via nasal swab prior to surgery.
+  CODING AND STANDARDS
+  Codes
+  CPT
+  Code
+  Description
+  63650
+  Percutaneous implantation of neurostimulator electrode array, epidural
+  63655
+  Laminectomy for implantation of neurostimulator electrodes,
+  plate/paddle, epidural
+  63661
+  Removal of spinal neurostimulator electrode percutaneous array(s),
+  including fluoroscopy, when performed
+  63662
+  Removal of spinal neurostimulator electrode plate/paddle(s) placed via
+  laminotomy or laminectomy, including fluoroscopy, when performed
+  63663
+  Revision including replacement, when performed, of spinal
+  neurostimulator electrode percutaneous array(s), including fluoroscopy,
+  when performed
+  63664
+  Revision including replacement, when performed, of spinal
+  neurostimulator electrode plate/paddle(s) placed via laminotomy or
+  laminectomy, including fluoroscopy, when performed
+
+--- Physical Page 82 (Printed Page  ) ---
+  Page 6 of 12
+  Evolent Clinical Guideline 1757 for Spinal Cord Stimulation
+  CPT
+  Code
+  Description
+  63685
+  Insertion or replacement of spinal neurostimulator pulse generator or
+  receiver, requiring pocket creation and connection between electrode
+  array and pulse generator or receiver
+  63688
+  Revision or removal of implanted spinal neurostimulator pulse generator
+  or receiver, with detachable connection to electrode array
+  Applicable Lines of Business
+  ☒
+  CHIP (Children’s Health Insurance Program)
+  ☒
+  Commercial
+  ☒
+  Exchange/Marketplace
+  ☒
+  Medicaid
+  ☒
+  Medicare Advantage
+  BACKGROUND
+  Medical Necessity
+  It is generally considered not medically necessary to perform multiple interventional pain
+  procedures on the same date of service. Documentation of a medical reason to perform
+  procedures in different regions on the same day can be provided and will be considered on a
+  case-by-case basis.
+  Home Exercise Program (HEP)** (7)
+  The following two elements are required to meet conservative therapy guidelines for HEP:
+  ● Documentation of an exercise prescription/plan provided by a physician, physical
+  therapist, or chiropractor AND
+  ● Follow-up documentation regarding completion of HEP after the required 6-week
+  timeframe or inability to complete HEP due to a documented medical reason (e.g.,
+  increased pain or inability to physically perform exercises).
+======================================================================
+SECTION: SYMPATHETIC BLOCKS (CG 1758) (Pages 89-93)
+
+--- Physical Page 89 (Printed Page Page 1 of 14 ) ---
+  Page 1 of 14
+  Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks
+  Evolent Clinical Guideline 1758 for Sympathetic Nerve
+  Blocks
+  Guideline Number:
+  Evolent_CG_1758
+  Applicable Codes
+  "Evolent" refers to Evolent Health LLC and Evolent Specialty Services, Inc.
+  © 2020 - 2026 Evolent. All rights Reserved.
+  Original Date:
+  November 2020
+  Last Revised Date:
+  December 2025
+  Implementation Date:
+  July 2026
+  TABLE OF CONTENTS
+  STATEMENT ................................................................................................................................................ 3
+  GENERAL INFORMATION ............................................................................................................................... 3
+  PURPOSE .................................................................................................................................................... 3
+  SPECIAL NOTE ............................................................................................................................................ 3
+  New Episodes of Care .......................................................................................................................... 3
+  INDICATIONS ............................................................................................................................................... 3
+  GENERAL INDICATIONS ................................................................................................................................ 3
+  INDICATIONS FOR STELLATE GANGLION BLOCK ............................................................................................. 4
+  Diagnostic Evaluation or Acute Management of Sympathetically Maintained Pain ............................. 4
+  Diagnostic Evaluation, Acute or Chronic Management of Sympathetically Maintained Pain ............... 4
+  General Limitations ............................................................................................................................... 5
+  Contraindications .................................................................................................................................. 5
+  INDICATIONS FOR THORACIC OR LUMBAR SYMPATHETIC BLOCK ..................................................................... 5
+  Diagnostic Evaluation or Acute Management of Sympathetically Maintained Pain ............................. 5
+  Diagnostic Evaluation, Acute or Chronic Management of Sympathetically Maintained Pain ............... 5
+  General Limitations ............................................................................................................................... 6
+  Contraindications .................................................................................................................................. 6
+  INDICATIONS FOR CELIAC PLEXUS BLOCK ..................................................................................................... 6
+  For The Diagnostic Evaluation of Sympathetically Maintained Visceral Pain....................................... 6
+  For the Acute or Chronic Management of Sympathetically Maintained Visceral .................................. 6
+  General Limitations ............................................................................................................................... 7
+  Contraindications .................................................................................................................................. 7
+  INDICATIONS FOR SUPERIOR HYPOGASTRIC BLOCK ....................................................................................... 7
+  For The Diagnostic Evaluation of Sympathetically Maintained Visceral Pain....................................... 7
+  For the Acute or Chronic Management of Sympathetically Maintained Visceral Pain ......................... 7
+  General Limitations ............................................................................................................................... 8
+  Contraindications .................................................................................................................................. 8
+  EXCLUSIONS ............................................................................................................................................... 8
+  CODING AND STANDARDS ....................................................................................................................... 8
+  CODES ........................................................................................................................................................ 8
+  APPLICABLE LINES OF BUSINESS .................................................................................................................. 9
+
+--- Physical Page 90 (Printed Page      ) ---
+  Page 2 of 14
+  Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks
+  SUMMARY OF EVIDENCE .......................................................................................................................... 9
+  ANALYSIS OF EVIDENCE ......................................................................................................................... 11
+  POLICY HISTORY ...................................................................................................................................... 12
+  LEGAL AND COMPLIANCE ...................................................................................................................... 12
+  GUIDELINE APPROVAL ............................................................................................................................... 12
+  Committee ........................................................................................................................................... 12
+  DISCLAIMER .............................................................................................................................................. 12
+  REFERENCES ............................................................................................................................................ 14
+
+--- Physical Page 91 (Printed Page      ) ---
+  Page 3 of 14
+  Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks
+  STATEMENT
+  General Information
+  ● It is an expectation that all patients receive care/services from a licensed clinician. All
+  appropriate supporting documentation, including recent pertinent office visit notes,
+  laboratory data, and results of any special testing must be provided. If applicable: All
+  prior relevant imaging results and the reason that alternative imaging cannot be
+  performed must be included in the documentation submitted.
+  ● The guideline criteria in the following sections were developed utilizing evidence-based
+  and peer-reviewed resources from medical publications and societal organization
+  guidelines as well as from widely accepted standard of care, best practice
+  recommendations.
+  Purpose
+  This guideline focuses on the utilization management of sympathetic nerve blocks for the
+  diagnosis and acute and chronic management of sympathetically maintained pain for specific
+  indications.
+  Special Note
+  Sympathetically maintained pain is a symptom of neuropathic pain. The pain is driven by
+  overactivity of the sympathetic nervous system with or without an identifiable injury and is
+  notably characterized as a clinical syndrome called complex regional pain syndrome (CRPS);
+  but may also occur from neuropathic pain syndromes of different etiologies. Sympathetic nerve
+  blocks provide diagnostic value in the identification of sympathetically maintained pain and the
+  focused location of nerves along the spinal column provide a targeted advantage. These blocks
+  are widely used in both acute and chronic management of sympathetically maintained pain of
+  visceral, ischemic, and neuropathic etiologies.
+  New Episodes of Care
+  Any injection performed at least two years from prior injections in the same region will be
+  considered a new episode of care and the INITIAL injection requirements must be met for
+  approval. Events such as surgery on the same spinal region or any new pathology would also
+  prompt a new episode of care.
+  INDICATIONS
+  General Indications
+  ● Acute or chronic noncancer pain causing functional disability or average pain level of ≥ 6
+  on a scale of 0 to 10 prior to injection AND continuation of pain or functional disability
+  after the relief period due to the block
+  ● Cancer pain affecting quality of life prior to injection and continuation after the relief
+
+--- Physical Page 92 (Printed Page      ) ---
+  Page 4 of 14
+  Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks
+  period due to the block (1)
+  NOTE: It is generally considered not medically necessary to perform multiple interventional
+  pain procedures on the same date of service (e.g., diagnostic block and neurolytic procedure)
+  NOTE: Each block must be performed under image guidance (2)
+  Indications for Stellate Ganglion Block
+  Applies to face, upper extremities and upper thoracic region
+  Diagnostic Evaluation or Acute Management of Sympathetically
+  Maintained Pain
+  For pain resulting from:
+  ● Acute Herpes Zoster (shingles) for prevention of postherpetic neuralgia (3–5) AND
+  ○
+  Pain duration less than 4 weeks, AND
+  ○
+  Active antiviral therapy regimen or documented medical reason unable to tolerate
+  ● Cancer pain or phantom limb pain (2) AND
+  ● Failure to respond to nonoperative conservative treatment pertinent to the diagnosis or a
+  clearly documented medical reason the conservative treatment cannot be done
+  ● The previous block resulted in at least 50% relief or significant documented functional
+  improvement for at least the duration of the anesthetic
+  NOTE: Up to 6 sympathetic blocks may be performed per 12 months
+  Diagnostic Evaluation, Acute or Chronic Management of
+  Sympathetically Maintained Pain
+  For pain resulting from:
+  ● Complex regional pain syndrome types I (4,6) and II (7) meeting Budapest criteria, AND
+  ○
+  Failure to respond to functional restoration modalities which may include physical
+  therapy, occupational therapy, or pain psychology modalities (e.g. rehabilitation
+  strategies such as desensitization, range of motion, biofeedback, etc) or clearly
+  documented medical reason the patient is unable to participate
+  ○
+  Active participation in ongoing functional restoration or a clearly documented medical
+  reason the treatment cannot be done (2)
+  ● The previous block resulted in at least 50% relief or significant documented functional
+  improvement for at least the duration of the anesthetic
+  NOTE: During the initial treatment phase, a total of 6 blocks may be performed within the first
+  12 weeks. Following the initial treatment phase, a maximum of 4 sympathetic nerve blocks may
+  be performed in a 12-month period
+
+--- Physical Page 93 (Printed Page      ) ---
+  Page 5 of 14
+  Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks
+  General Limitations
+  ● It has been at least one week since the prior injection in the same or different region
+  ● Bilateral stellate ganglion blocks will not be performed on the same day of service
+  Contraindications
+  ● Patient refusal
+  ● Local or systemic infection
+  ● Coagulopathy or recent myocardial infarction
+  ● Contralateral pneumothorax or severe emphysema
+  ● Contralateral palsy of recurrent laryngeal nerve or phrenic nerve
+  ● Allergy to anesthetic medication
+  Indications for Thoracic or Lumbar Sympathetic Block
+  Applies to thoracic region and lower extremities
+  Diagnostic Evaluation or Acute Management of Sympathetically
+  Maintained Pain
+  For pain resulting from:
+  ● Acute Herpes Zoster (shingles) for prevention of postherpetic neuralgia (3,8) AND
+  ○
+  Pain duration less than 4 weeks, AND
+  ○
+  Active antiviral therapy regimen or documented medical reason unable to tolerate
+  ● Cancer pain, phantom limb pain, or nonsurgical ischemic limb pain (2) AND
+  ○
+  Failure to respond to nonoperative conservative treatment pertinent to the diagnosis
+  or a clearly documented medical reason the conservative treatment cannot be done
+  ● The previous block resulted in at least 50% relief or significant documented functional
+  improvement for at least the duration of the anesthetic
+  NOTE: Up to 6 sympathetic blocks may be performed per 12 months.
+  Diagnostic Evaluation, Acute or Chronic Management of
+  Sympathetically Maintained Pain
+  For pain resulting from:
+  ● Complex regional pain syndrome types I and II (6,9) meeting Budapest criteria, AND
+  ○
+  Failure to respond to functional restoration modalities which may include physical
+  therapy, occupational therapy, or pain psychology modalities (e.g. rehabilitation
+  strategies such as desensitization, range of motion, biofeedback, etc) or clearly
+  documented medical reason the patient is unable to participate

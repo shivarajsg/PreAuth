@@ -101,7 +101,7 @@ def payer_config_mgr():
 
 @pytest.fixture(scope="module")
 def rule_registry():
-    reg = RuleRegistry()
+    reg = RuleRegistry(include_archived=True)
     reg.load_all_domains()
     return reg
 

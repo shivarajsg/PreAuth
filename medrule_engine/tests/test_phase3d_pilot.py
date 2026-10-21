@@ -43,7 +43,7 @@ RESULTS_FILE = PILOT_DIR / "pilot_run_results.json"
 
 @pytest.fixture(scope="module")
 def registry():
-    reg = RuleRegistry()
+    reg = RuleRegistry(include_archived=True)
     reg.load_all_domains()
     db = GovernanceDatabase()
     reg.attach_governance_db(db)

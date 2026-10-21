@@ -67,7 +67,7 @@ class TestPhase3FEndToEnd(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.registry = RuleRegistry()
+        cls.registry = RuleRegistry(include_archived=True)
         cls.registry.load_all_domains()
 
     def setUp(self):

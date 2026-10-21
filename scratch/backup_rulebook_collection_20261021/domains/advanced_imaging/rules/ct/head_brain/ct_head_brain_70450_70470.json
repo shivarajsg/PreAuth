@@ -1,0 +1,180 @@
+{
+  "section_title": "CT Head/Brain (CPT 70450, 70460, 70470)",
+  "folder_classification": "ct/head_brain",
+  "file_name": "ct_head_brain_70450_70470.json",
+  "rule_count": 4,
+  "procedure_codes": [
+    "70450",
+    "70460",
+    "70470"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2008-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 150,
+        "printed_page": "Page 5 of 26"
+      },
+      "source_section": "Stroke and Vascular Disease / Evaluation of Known or Suspected Stroke (11,12)",
+      "source_quote": "Evaluation of Known or Suspected Stroke (11,12)",
+      "clinical_service_or_procedure": "Brain CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Known or clinically suspected acute ischemic stroke or intracranial hemorrhage",
+            "parameter": "suspected_acute_stroke",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Emergency medical records documenting focal neurologic deficit, NIH Stroke Scale, or last known normal time"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70450",
+        "CPT 70460"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Emergency stroke evaluation pathway for non-contrast brain CT."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2008-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 151,
+        "printed_page": "Page 6 of 26"
+      },
+      "source_section": "Evaluation of Known or Suspected Vascular Disease (13)",
+      "source_quote": "Evaluation of suspected acute subarachnoid hemorrhage (SAH)",
+      "clinical_service_or_procedure": "Brain CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical suspicion of acute subarachnoid hemorrhage",
+            "parameter": "suspected_acute_sah",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes documenting sudden onset severe thunderclap headache or signs of meningismus"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70450"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Urgent non-contrast CT for acute subarachnoid hemorrhage."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2008-003",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 151,
+        "printed_page": "Page 6 of 26"
+      },
+      "source_section": "INDICATIONS / Head Trauma / Evaluation of Known or Suspected Trauma (14,15)",
+      "source_quote": "Known or suspected trauma or injury to the head with documentation of one or more of",
+      "clinical_service_or_procedure": "Brain CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Known or suspected acute head trauma with acute, new, or fluctuating focal neurologic findings, motor changes, or mental status changes",
+            "parameter": "acute_head_trauma_with_neurologic_deficit",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Emergency department notes or trauma physical examination documenting mechanism of head injury and acute neurological deficits"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70450",
+        "CPT 70460",
+        "CPT 70470"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Brain CT is the primary modality for acute head trauma evaluation."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2008-004",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 149,
+        "printed_page": "Page 4 of 26"
+      },
+      "source_section": "INDICATIONS / Evaluation of Headache (1,2) / Acute, sudden onset headache",
+      "source_quote": "Acute, sudden onset headache (< 4 weeks), with any ONE of the following",
+      "clinical_service_or_procedure": "Brain CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Acute sudden onset severe headache presenting within 48 hours of onset ('worst headache of life' or 'thunderclap' headache) concerning for acute subarachnoid hemorrhage",
+            "parameter": "thunderclap_or_worst_headache_of_life",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes documenting acute peak headache onset within seconds to minutes and physical examination"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70450"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Non-contrast Brain CT is initial test of choice for acute sudden severe headache / suspected SAH."
+    }
+  ]
+}

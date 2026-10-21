@@ -1,0 +1,229 @@
+==================================================
+PHYSICAL PAGE 905:
+--- Physical Page 905 (idx 904) ---
+Page 3 of 20
+Evolent Clinical Guideline 2056 for Thoracic Spine Computed Tomography (CT)
+STATEMENT
+General Information
+● It is an expectation that all patients receive care/services from a licensed clinician. All
+appropriate supporting documentation, including recent pertinent office visit notes,
+laboratory data, and results of any special testing must be provided. If applicable: All
+prior relevant imaging results and the reason that alternative imaging cannot be
+performed must be included in the documentation submitted.
+● Where a specific clinical indication is not directly addressed in this guideline, medical
+necessity determination will be made based on widely accepted standard of care criteria.
+These criteria are supported by evidence-based or peer-reviewed sources such as
+medical literature, societal guidelines and state/national recommendations.
+● The guideline criteria in the following sections were developed utilizing evidence-based
+and peer-reviewed resources from medical publications and societal organization
+guidelines as well as from widely accepted standard of care, best practice
+recommendations.
+Purpose
+Computed tomography is used for the evaluation, assessment of severity, and follow-up of
+diseases of the spine. CT may be used for conditions, e.g., degenerative changes, infection,
+and immune suppression, when magnetic resonance imaging (MRI) is contraindicated. It may
+also be used in the evaluation of tumors, cancer, or metastasis in the thoracic spine, and it may
+be used for preoperative and post-surgical evaluations. CT is fast and is often performed in
+acute settings and provides good visualization of cortical bone.
+Special Note
+If there is a combination request* for an overlapping body part, either requested at the same
+time or sequentially (within the past 3 months), one of the following must be demonstrated:
+● The results of the prior study should be inconclusive or show a need for additional or
+follow-up imaging evaluation
+● The office notes should clearly document an indication why overlapping imaging is
+needed and how it will change management for the patient (the entire spinal cord and/or
+autonomic postganglionic chain must be assessed).
+(*Unless approvable in the combination section as noted in the guidelines)
+INDICATIONS FOR THORACIC SPINE CT
+Evaluation of Neurologic Deficits (1)
+When Thoracic Spine MRI is Contraindicated or cannot be performed
+● With any of the following new neurological deficits documented on physical exam that
+==================================================
+PHYSICAL PAGE 906:
+--- Physical Page 906 (idx 905) ---
+Page 4 of 20
+Evolent Clinical Guideline 2056 for Thoracic Spine Computed Tomography (CT)
+localizes to the thoracic spine
+○
+Extremity muscular weakness (and not likely caused by plexopathy or peripheral
+neuropathy)
+○
+Pathologic reflexes (e.g., Babinski, Lhermitte's sign, (2) Chaddock Sign, (3) Hoffman’s
+and other upper motor neuron signs); OR abnormal deep tendon reflexes (and not
+likely caused by plexopathy, or peripheral neuropathy)
+○
+Absent/decreased sensation along a particular thoracic dermatome (nerve
+distribution): pin prick, touch, vibration, proprioception, or temperature (and not likely
+caused by plexopathy, or peripheral neuropathy)
+○
+Upper or lower extremity increase muscle tone/spasticity
+○
+New onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related
+to an inherent bowel or bladder process
+○
+Gait abnormalities (see Table 1 below for more details)
+● Suspected thoracic cord compression with any neurological deficits as listed above
+Evaluation of Back Pain (1)
+With any of the following when Thoracic Spine MRI is Contraindicated
+● With new or worsening objective neurologic deficits on exam, as above
+● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6)
+months:
+NOTE - Failure of conservative treatment is defined as one of the following:
+○
+Lack of meaningful improvement after a full course of treatment; OR
+○
+Progression or worsening of symptoms during treatment; OR
+○
+Documentation of a medical reason the member is unable to participate in treatment
+Closure of medical or therapy offices, patient inconvenience, or noncompliance without
+explanation does not constitute “inability to complete” treatment.
+● With progression or worsening of symptoms during the course of conservative
+treatment*
+● With an abnormal electromyography (EMG) or nerve conduction study (if performed)
+indicating a thoracic radiculopathy. (4,5)
+● Isolated back pain in pediatric population when at least ONE of the following red flags
+are present (6,7) (Note: conservative care not required if red flags are present)
+○
+Age 5 or younger
+○
+Constant pain
+○
+Pain lasting > 4 weeks
+○
+Abnormal neurologic examination
+○
+Early morning stiffness and/or gelling
+==================================================
+PHYSICAL PAGE 925:
+--- Physical Page 925 (idx 924) ---
+Page 3 of 23
+Evolent Clinical Guideline 2057 for Thoracic Spine Magnetic Resonance Imaging (MRI)
+STATEMENT
+General Information
+● It is an expectation that all patients receive care/services from a licensed clinician. All
+appropriate supporting documentation, including recent pertinent office visit notes,
+laboratory data, and results of any special testing must be provided. If applicable: All
+prior relevant imaging results and the reason that alternative imaging cannot be
+performed must be included in the documentation submitted.
+● Where a specific clinical indication is not directly addressed in this guideline, medical
+necessity determination will be made based on widely accepted standard of care
+criteria. These criteria are supported by evidence-based or peer-reviewed sources such
+as medical literature, societal guidelines and state/national recommendations.
+● The guideline criteria in the following sections were developed utilizing evidence-based
+and peer-reviewed resources from medical publications and societal organization
+guidelines as well as from widely accepted standard of care, best practice
+recommendations.
+Purpose
+Magnetic resonance imaging (MRI) produces high quality multiplanar images of organs and
+structures within the body without using ionizing radiation. It is the preferred modality for
+evaluating the internal structure of the spinal cord, providing assessment of conditions such as
+degenerative disc pathology, osteomyelitis, and discitis.
+Special Note
+If there is a combination request* for an overlapping body part, either requested at the same
+time or sequentially (within the past 3 months), one of the following must be demonstrated:
+● The results of the prior study should be inconclusive or show a need for additional or
+follow-up imaging evaluation
+● The office notes should clearly document an indication why overlapping imaging is
+needed and how it will change management for the patient (the entire spinal cord and/or
+autonomic postganglionic chain must be assessed).
+(*Unless approvable in the combination section as noted in the guidelines)
+INDICATIONS FOR THORACIC SPINE MRI
+Evaluation of Neurologic Deficits (1)
+● With any of the following new neurological deficits documented on physical exam that
+localizes to the thoracic spine
+○
+Extremity muscular weakness (not likely caused by plexopathy or peripheral
+neuropathy)
+==================================================
+PHYSICAL PAGE 926:
+--- Physical Page 926 (idx 925) ---
+Page 4 of 23
+Evolent Clinical Guideline 2057 for Thoracic Spine Magnetic Resonance Imaging (MRI)
+○
+Pathologic reflexes (e.g., Babinski, Lhermitte's sign (2), Chaddock Sign (3), Hoffman’s
+and other upper motor neuron signs); OR abnormal deep tendon reflexes (not likely
+caused by plexopathy, or peripheral neuropathy)
+○
+Absent/decreased sensation along a particular thoracic dermatome (nerve
+distribution): pin prick, touch, vibration, proprioception, or temperature (and not likely
+caused by plexopathy, or peripheral neuropathy)
+○
+Upper or lower extremity increase muscle tone/spasticity
+○
+New onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related
+to an inherent bowel or bladder process
+○
+Gait abnormalities (see Table 1 below for more details)
+● Suspected thoracic cord compression with any neurological deficits as listed above
+Evaluation of Back Pain (1)
+With any of the following:
+● With new or worsening objective neurologic deficits on exam, as above
+● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6)
+months:
+NOTE - Failure of conservative treatment is defined as one of the following:
+○
+Lack of meaningful improvement after a full course of treatment; OR
+○
+Progression or worsening of symptoms during treatment; OR
+○
+Documentation of a medical reason the member is unable to participate in treatment
+Closure of medical or therapy offices, patient inconvenience, or noncompliance without
+explanation does not constitute “inability to complete” treatment.
+● With progression or worsening of symptoms during the course of conservative
+treatment*
+● With an abnormal electromyography (EMG) or nerve conduction study (if performed)
+indicating a thoracic radiculopathy (4,5)
+● Isolated back pain in pediatric population when at least ONE of the following red flags
+are present (6,7) (Note: conservative care not required if red flags are present).
+○
+Age 5 or younger
+○
+Constant pain
+○
+Pain lasting > 4 weeks
+○
+Abnormal neurologic examination
+○
+Early morning stiffness and/or gelling
+○
+Night pain that prevents or disrupts sleep
+○
+Radicular pain
+==================================================
+PHYSICAL PAGE 965:
+--- Physical Page 965 (idx 964) ---
+Page 3 of 24
+Evolent Clinical Guideline 2062 for Upper Extremity Computed Tomography (CT)
+STATEMENT
+General Information
+● It is an expectation that all patients receive care/services from a licensed clinician. All
+appropriate supporting documentation, including recent pertinent office visit notes,
+laboratory data, and results of any special testing must be provided. If applicable: All
+prior relevant imaging results and the reason that alternative imaging cannot be
+performed must be included in the documentation submitted.
+● Where a specific clinical indication is not directly addressed in this guideline, medical
+necessity determination will be made based on widely accepted standard of care criteria.
+These criteria are supported by evidence-based or peer-reviewed sources such as
+medical literature, societal guidelines and state/national recommendations.
+● The guideline criteria in the following sections were developed utilizing evidence-based
+and peer-reviewed resources from medical publications and societal organization
+guidelines as well as from widely accepted standard of care, best practice
+recommendations.
+Purpose
+Computed tomography (CT) may be used for the diagnosis, evaluation, and management of
+conditions of the hand, wrist, elbow, and shoulder. CT is not usually the initial imaging test, but it
+is performed after standard X-rays. CT may be used for preoperative evaluation or to evaluate
+specific abnormalities of the bones, joints, and soft tissues of the upper extremities.
+Special Notes
+● X-rays must precede CT evaluation, unless otherwise indicated
+● Some indications are for magnetic resonance imaging (MRI), CT, or MR or CT
+Arthrogram (more than one should not be approved at the same time)
+● If a CT Arthrogram fits approvable criteria below, approve as CT
+● When specifically indicated below, MRI is the preferred study for the evaluation of the
+extremities and CT is indicated only when MRI is contraindicated or cannot be
+performed
+INDICATIONS FOR UPPER EXTREMITY CT
+(SHOULDER, ELBOW, OR WRIST)
+Upper Extremity Pain (1,2)
+NOTE: Prior completed X-ray showing no clear etiology of joint/extremity pain must precede
+upper extremity CT evaluation unless otherwise indicated

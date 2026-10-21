@@ -1,0 +1,59 @@
+{
+  "section_title": "MRI Bone Marrow (CPT 77084)",
+  "folder_classification": "mri/specialized",
+  "file_name": "mri_bone_marrow_77084.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "77084"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2007-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 141,
+        "printed_page": "Page 3 of 7"
+      },
+      "source_section": "INDICATIONS FOR BONE MARROW MRI / Multiple Myeloma",
+      "source_quote": "Initial Staging of Known Disease \u25cb Restaging on Active Treatment \u25cb Surveillance \u25a0 Annually if asymptomatic",
+      "clinical_service_or_procedure": "Bone Marrow MRI",
+      "rule_type": "temporal_threshold",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Confirmed diagnosis of multiple myeloma",
+            "parameter": "multiple_myeloma_diagnosed",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Requested for initial staging, restaging on active therapy, or annual asymptomatic surveillance",
+            "parameter": "myeloma_mri_interval_met",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Hematology/oncology consultation note documenting multiple myeloma staging, active chemotherapy/immunotherapy, or annual surveillance date"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 77084"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Surveillance interval and staging indication for multiple myeloma bone marrow MRI."
+    }
+  ]
+}

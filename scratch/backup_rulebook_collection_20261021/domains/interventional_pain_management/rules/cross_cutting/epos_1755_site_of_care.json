@@ -1,0 +1,81 @@
+{
+  "section_title": "Evolent Place of Service Policy 1755 for IPM",
+  "folder_classification": "cross_cutting",
+  "file_name": "epos_1755_site_of_care.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "Site of Care"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-IPM-EPOS1755-001",
+      "domain": "interventional_pain_management",
+      "document_type": "supplementary_policy",
+      "policy_title": "Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
+      "policy_version": "2026 Final",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/interventional_pain_management/policy_pdfs/current_2026/EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
+      "source_url": "https://www.evolent.com/clinical-guidelines",
+      "source_page": {
+        "physical_page": 1,
+        "printed_page": "Page 1 of 8"
+      },
+      "source_section": "Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
+      "source_quote": "Evolent Place of Service Policy 1755 for Interventional Pain Management",
+      "clinical_service_or_procedure": "Evolent Place of Service Policy 1755 for Interventional Pain",
+      "rule_type": "place_of_service",
+      "conditions": {
+        "operator": "SINGLE_CONDITION",
+        "criteria": [
+          {
+            "condition_id": "COND-IPM-EPOS1755-001",
+            "description": "Clinical criteria satisfied for Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
+            "parameter": "epos1755_indication",
+            "comparator": "IS_PRESENT"
+          }
+        ]
+      },
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "FAIL_CONDITION",
+      "dependencies": [],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": ""
+    },
+    {
+      "rule_id": "RULE-IPM-EPOS1755-002",
+      "domain": "interventional_pain_management",
+      "document_type": "supplementary_policy",
+      "policy_title": "Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
+      "policy_version": "2026 Final",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/interventional_pain_management/policy_pdfs/current_2026/EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
+      "source_url": "https://www.evolent.com/clinical-guidelines",
+      "source_page": {
+        "physical_page": 1,
+        "printed_page": "Page 1 of 8"
+      },
+      "source_section": "Place of Service Policy Statement / Setting Alignment",
+      "source_quote": "PATIENT CRITERIA FOR SELECTION OF OUTPATIENT HOSPITAL SETTING ........................................................ 3",
+      "clinical_service_or_procedure": "Interventional Pain Management Site of Care",
+      "rule_type": "place_of_service",
+      "conditions": {
+        "operator": "SINGLE_CONDITION",
+        "criteria": [
+          {
+            "condition_id": "COND-IPM-POS-OFFICE",
+            "description": "Procedure performed in freestanding office or ambulatory surgery center unless clinical exception met",
+            "parameter": "place_of_service_alignment",
+            "comparator": "EQUALS",
+            "value": "AMBULATORY_PREFERRED"
+          }
+        ]
+      },
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "FAIL_CONDITION",
+      "dependencies": [],
+      "human_review_required": false,
+      "extraction_status": "DRAFT"
+    }
+  ]
+}

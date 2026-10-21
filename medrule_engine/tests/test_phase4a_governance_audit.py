@@ -27,7 +27,7 @@ class TestPhase4AGovernanceAudit(unittest.TestCase):
     def setUpClass(cls):
         cls.repo_root = Path(__file__).resolve().parents[2]
         cls.manifests_dir = cls.repo_root / "rulebook_collection" / "manifests"
-        cls.registry = RuleRegistry()
+        cls.registry = RuleRegistry(include_archived=True)
         cls.registry.load_all_domains()
 
     # -------------------------------------------------------------------------

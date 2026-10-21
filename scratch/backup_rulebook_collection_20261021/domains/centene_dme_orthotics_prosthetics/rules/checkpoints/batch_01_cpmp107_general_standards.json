@@ -1,0 +1,185 @@
+[
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-001",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 24"
+    },
+    "source_section": "Policy/Criteria - Section I.A.1 General Criteria",
+    "source_quote": "Equipment is necessary and reasonable for the treatment of an illness or injury or to improve the functioning of a physical deficit;*",
+    "clinical_service_or_procedure": "Durable Medical Equipment, Orthotics, and Prosthetics - General Medical Necessity and Reasonableness Standard",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-001-A",
+          "description": "Equipment makes a meaningful contribution to treatment of illness/injury or improvement of malformed body member",
+          "parameter": "medical_necessity_contribution",
+          "comparator": "IS_PRESENT"
+        },
+        {
+          "condition_id": "COND-DME-107-001-B",
+          "description": "Expense of item is not disproportionate to therapeutic benefits and not substantially more costly than feasible alternative",
+          "parameter": "cost_reasonableness_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Clinical documentation establishing medical necessity and reasonable contribution to care",
+      "Comparative cost analysis if higher cost alternative is requested over standard item"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CMS Medicare Claims Processing Manual Ch. 20 Section 10"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Preamble standard: if a lesser cost medically necessary item exists, higher cost item will be denied."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-002",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 24"
+    },
+    "source_section": "Policy/Criteria - Section I.A.2 General Criteria",
+    "source_quote": "Both of the following have been provided to the member/enrollee and/or caregiver, as applicable: a. Education regarding use of the device, with demonstrated understanding; b. A trial of the requested device, with demonstrated ability to use it safely and effectively.",
+    "clinical_service_or_procedure": "Durable Medical Equipment, Orthotics, and Prosthetics - Patient Education and Device Trial Requirement",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-002-A",
+          "description": "Education regarding use of device provided with demonstrated understanding",
+          "parameter": "device_education_provided",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-002-B",
+          "description": "Trial of requested device completed with demonstrated ability to use safely and effectively",
+          "parameter": "device_trial_successful",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Caregiver or member education attestation",
+      "Device trial documentation demonstrating safe and effective use"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Mandatory prerequisite for all DMEPOS items under Section I.A.2."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-003",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 24"
+    },
+    "source_section": "Policy/Criteria - Section I.A Note on Deluxe Features",
+    "source_quote": "Additional \"deluxe\" features or items that are rented or purchased for aesthetic reasons or added convenience, do not meet the reasonableness test.",
+    "clinical_service_or_procedure": "Deluxe DME Features, Aesthetic Additions, and Convenience Items",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-003-A",
+          "description": "Requested item or component is for aesthetic reasons",
+          "parameter": "aesthetic_purpose",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-003-B",
+          "description": "Requested item or component is for added convenience",
+          "parameter": "convenience_purpose",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Deluxe/convenience features fail reasonableness test."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-004",
+    "source_page": {
+      "physical_page": 13,
+      "printed_page": "Page 13 of 24"
+    },
+    "source_section": "Background - Member/Enrollee\u2019s Home",
+    "source_quote": "However, an institution may not be considered a member/enrollee\u2019s home if the following are met: \u2022 Meets at least the basic requirement in the definition of a hospital, i.e., it is primarily engaged in providing by or under the supervision of physicians, inpatient, diagnostic and therapeutic services for medical diagnosis, treatment, and care of injured, disabled, and sick persons, or rehabilitation services for the rehabilitation of injured, disabled, or sick persons; or \u2022 Meets at least the basic requirement in the definition of a skilled nursing facility, i.e., it is primarily engaged in providing to inpatients skilled nursing care and related services for members/enrollees who require medical or nursing care, or rehabilitation services for the rehabilitation of injured, disabled, or sick persons.",
+    "clinical_service_or_procedure": "DMEPOS Place of Service - Hospital or Skilled Nursing Facility Inpatient Exclusion",
+    "rule_type": "place_of_service",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-004-A",
+          "description": "Member resides in hospital providing inpatient diagnostic/therapeutic services",
+          "parameter": "institution_type",
+          "comparator": "EQUALS",
+          "value": "HOSPITAL"
+        },
+        {
+          "condition_id": "COND-DME-107-004-B",
+          "description": "Member resides in skilled nursing facility providing inpatient skilled nursing care (without permanent address change)",
+          "parameter": "institution_type",
+          "comparator": "EQUALS",
+          "value": "SNF_NON_PERMANENT"
+        }
+      ]
+    },
+    "exclusion_conditions": [
+      "Permanent admission to SNF or inpatient hospice where home address has been officially changed"
+    ],
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CMS SOM Appendix A"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Exception applies if member permanently admitted to SNF/hospice and changed official home address."
+  }
+]

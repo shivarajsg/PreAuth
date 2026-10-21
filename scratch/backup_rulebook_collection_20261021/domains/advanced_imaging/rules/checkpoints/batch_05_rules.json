@@ -1,0 +1,370 @@
+[
+  {
+    "rule_id": "RULE-ADV-CG2032-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 504,
+      "printed_page": "Page 4 of 23"
+    },
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY CT / Non-specific Lower Extremity Pain (1,2)",
+    "source_quote": "Lower extremity pain with no specific joint identified with MRI contraindicated or cannot be performed AND with prior X-ray",
+    "clinical_service_or_procedure": "Lower Extremity CT",
+    "rule_type": "conditional_modality_selection",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Lower extremity pain without specific localized joint involvement",
+          "parameter": "non_specific_lower_extremity_pain",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Prior plain radiographs (X-ray) completed of the symptomatic region",
+          "parameter": "prior_xray_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "MRI is medically contraindicated or cannot be performed",
+          "parameter": "mri_contraindicated",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Plain radiograph report and clinical documentation detailing MRI contraindication (e.g. non-MRI conditional pacemaker, foreign body)"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 73700",
+      "CPT 73701"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Lower extremity CT indication requiring prior X-ray and MRI contraindication."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2033-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 527,
+      "printed_page": "Page 4 of 13"
+    },
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / Lower Extremity Peripheral Vascular Disease",
+    "source_quote": "INDICATIONS FOR LOWER EXTREMITY COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA)",
+    "clinical_service_or_procedure": "Lower Extremity CTA",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known or clinically suspected lower extremity peripheral arterial disease undergoing revascularization planning",
+          "parameter": "lower_extremity_pad_surgical_planning",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Vascular surgery evaluation detailing non-invasive vascular testing (ABI/PVR) and surgical or endovascular revascularization plan"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 73706"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Lower extremity CTA for revascularization and endovascular intervention planning."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2034-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 540,
+      "printed_page": "Page 4 of 13"
+    },
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Peripheral Arterial Disease",
+    "source_quote": "For known or suspected atherosclerotic peripheral arterial disease when any ONE of the following non-invasive studies are abnormal or indeterminate",
+    "clinical_service_or_procedure": "Lower Extremity MRA",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known or suspected atherosclerotic peripheral arterial disease of the lower extremities",
+          "parameter": "suspected_lower_extremity_pad",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Prior non-invasive vascular study (ankle-brachial index, segmental pressures, or pulse volume recording) is abnormal or indeterminate",
+          "parameter": "prior_noninvasive_vascular_study_abnormal",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Vascular lab report showing abnormal ABI (< 0.9) or pulse volume recordings"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 73725"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Diagnostic prerequisite non-invasive vascular testing prior to lower extremity MRA."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2035-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 553,
+      "printed_page": "Page 4 of 22"
+    },
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Pain or Suspected Joint Specific Injury",
+    "source_quote": "Joint Specific Pain or Suspected Joint Specific Injury",
+    "clinical_service_or_procedure": "Lower Extremity MRI (Knee, Hip, Ankle, Foot)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of joint-specific pain, mechanical locking, instability, or suspected internal derangement (ligament/meniscal tear)",
+          "parameter": "joint_specific_injury_or_pain",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Physical examination documenting joint effusion, mechanical locking, McMurray, Lachman, or joint line tenderness and initial X-ray report"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 73721",
+      "CPT 73722",
+      "CPT 73723"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Standard lower extremity joint MRI for internal derangement."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2036-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 574,
+      "printed_page": "Page 3 of 20"
+    },
+    "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Neurologic Deficits (1)",
+    "source_quote": "INDICATIONS FOR LUMBAR SPINE CT",
+    "clinical_service_or_procedure": "Lumbar Spine CT",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of acute lumbar trauma, surgical fusion integrity/pseudoarthrosis, or lumbar pain when MRI is contraindicated",
+          "parameter": "lumbar_ct_indication_met",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Clinical notes documenting spinal trauma, hardware evaluation, or contraindication to lumbar MRI"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 72131"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Lumbar spine CT for bony architecture and fusion assessment."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2037-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 594,
+      "printed_page": "Page 3 of 22"
+    },
+    "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits (1)",
+    "source_quote": "INDICATIONS FOR LUMBAR SPINE MRI",
+    "clinical_service_or_procedure": "Lumbar Spine MRI",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of low back pain with lumbosacral radiculopathy or radiating leg pain",
+          "parameter": "lumbar_radiculopathy_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Completion of at least 6 weeks of conservative care within the prior 6 months without meaningful improvement",
+          "parameter": "conservative_therapy_duration_weeks",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 6,
+          "unit": "weeks"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Physical therapy records or clinical follow-up notes documenting 6 weeks of conservative treatment"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 72148",
+      "CPT 72158"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Conservative care prerequisite trial for lumbar radiculopathy."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2037-002",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 595,
+      "printed_page": "Page 4 of 22"
+    },
+    "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits / Cauda Equina Syndrome",
+    "source_quote": "defined symptoms (see Cauda Equina Syndrome section)",
+    "clinical_service_or_procedure": "Lumbar Spine MRI",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of acute cauda equina syndrome with saddle anesthesia, progressive bilateral motor weakness, or bowel/bladder sphincter dysfunction",
+          "parameter": "suspected_cauda_equina_syndrome",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "required_documentation": [
+      "Urgent neurological or emergency evaluation documenting saddle sensory loss or acute sphincter incontinence"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 72148"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Emergency cauda equina syndrome pathway bypassing conservative care trial."
+  },
+  {
+    "rule_id": "RULE-ADV-CG2038-001",
+    "domain": "advanced_imaging",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+    "policy_version": "2026 v2",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+    "source_page": {
+      "physical_page": 615,
+      "printed_page": "Page 2 of 8"
+    },
+    "source_section": "INDICATIONS FOR ABDOMEN MR ELASTOGRAPHY / Evaluation of Hepatic Fibrosis (1\u20133)",
+    "source_quote": "Fibrosis-4 index (FIB-4) score \u2265 2.67",
+    "clinical_service_or_procedure": "Magnetic Resonance Elastography (MRE) Abdomen",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of hepatic fibrosis in patient with chronic liver disease (e.g. MASLD/MASH, viral hepatitis)",
+          "parameter": "chronic_liver_disease",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Calculated Fibrosis-4 (FIB-4) index score is greater than or equal to 2.67",
+          "parameter": "fib4_score",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 2.67
+        }
+      ]
+    },
+    "required_documentation": [
+      "Laboratory data calculating FIB-4 index score (age, AST, ALT, platelets) or documentation of inconclusive ultrasound elastography"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "CPT 76391"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Non-invasive quantitative staging of advanced hepatic fibrosis."
+  }
+]

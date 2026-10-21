@@ -1,0 +1,603 @@
+[
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-024",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Requests for hip orthotics for hip osteoarthritis in patients who are not surgical candidates will be reviewed on a case-by-case basis by a medical director and/or therapy advisor.",
+    "clinical_service_or_procedure": "Hip orthotics for Non-Surgical Hip Osteoarthritis",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-024-A",
+          "description": "Patient has hip osteoarthritis and is not a surgical candidate",
+          "parameter": "hip_osteoarthritis_non_surgical",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-024-B",
+          "description": "Case-by-case review completed by medical director or therapy advisor",
+          "parameter": "medical_director_review_completed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "UNDETERMINED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Individualized medical director evaluation required for non-surgical OA."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-025",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Medically necessary when ordered by an orthopedic surgeon for use in the treatment for Legg-Calv\u00e9-Perthes disease in children.",
+    "clinical_service_or_procedure": "Legg Perthes orthotics (HCPCS L1700, L1710, L1720, L1730, L1755)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-025-A",
+          "description": "Ordered by an orthopedic surgeon",
+          "parameter": "ordering_provider_specialty",
+          "comparator": "EQUALS",
+          "value": "ORTHOPEDIC_SURGEON"
+        },
+        {
+          "condition_id": "COND-DME-107-025-B",
+          "description": "Diagnosis of Legg-Calv\u00e9-Perthes disease in a child",
+          "parameter": "legg_calve_perthes_disease",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Orthopedic surgeon order and clinical evaluation"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Established clinical indication for Legg-Calve-Perthes disease."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-026",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Requests for HKAFOs require mandatory secondary review by a medical director and/or therapy advisor to determine medical necessity.",
+    "clinical_service_or_procedure": "Hip-knee-ankle-foot orthotics (HKAFO) (HCPCS L2050, L2060, L2090)",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-026-A",
+          "description": "Mandatory secondary review completed by medical director or therapy advisor",
+          "parameter": "secondary_medical_review_completed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "UNDETERMINED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "All HKAFO requests require secondary clinical review."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-027",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Requests for orthotic components will be reviewed using relevant nationally recognized decision support tool criteria for similar codes.",
+    "clinical_service_or_procedure": "Orthotic components (HCPCS L2570, L2580, L2627, L2628)",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-027-A",
+          "description": "Evaluated against relevant nationally recognized decision support tool criteria (InterQual)",
+          "parameter": "decision_support_tool_criteria_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "UNDETERMINED",
+    "missing_information_behavior": "CANNOT_DETERMINE",
+    "dependencies": [
+      "InterQual Orthotic Components Criteria"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Defers to nationally recognized clinical decision support tools (InterQual)."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-028",
+    "source_page": {
+      "physical_page": 7,
+      "printed_page": "Page 7 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Medically necessary for arch, heel, or other foot pain when meeting both of the following: A. Foot condition, as indicated by one of the following: 1. Juvenile idiopathic arthritis; 2. Pes cavus (high arch); 3. Rheumatoid arthritis; 4. Plantar fasciitis when symptoms have been present for at least one month; 5. Posterior tibial tendon dysfunction in adult, as indicated by one or more of the following: a. Stage I disease (tenosynovitis without deformity); b. Stage II disease (flexible and passively correctable deformity); B. Documentation that adjustment of activities, anti-inflammatory medications, prefabricated orthotics, stretching of calf muscles and plantar surface have failed to improve symptoms.",
+    "clinical_service_or_procedure": "Foot orthotics, custom (HCPCS L3000, L3001, L3002, L3003, L3010, L3020, L3030, L3031, L3070, L3080)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-028-A",
+          "description": "Qualifying foot condition (JIA, pes cavus, RA, plantar fasciitis \u22651 month, or PTTD Stage I/II)",
+          "parameter": "qualifying_foot_condition",
+          "comparator": "IS_PRESENT"
+        },
+        {
+          "condition_id": "COND-DME-107-028-B",
+          "description": "Failure of conservative care: activity adjustment, NSAIDs, prefab orthotics, and stretching",
+          "parameter": "conservative_care_failed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Clinical notes documenting foot condition and duration",
+      "Documentation detailing failure of activity adjustment, medications, prefab inserts, and stretching"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Plantar fasciitis requires \u22651 month duration. PTTD limited to Stage I or II."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-029",
+    "source_page": {
+      "physical_page": 7,
+      "printed_page": "Page 7 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Medically necessary when ordered immediately post-operative for orthopedic surgeries such as rotator cuff repair, tendon repair, or ORIF. Replacement with the same or similar item due to normal wear and tear is considered medically necessary when the orthotic is still needed.",
+    "clinical_service_or_procedure": "Shoulder, elbow, wrist, hand, finger orthotics (HCPCS L3904, L4000, L4010, L4020, L4030, L4205)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-029-A",
+          "description": "Ordered immediately post-operative for orthopedic surgery (rotator cuff, tendon repair, ORIF)",
+          "parameter": "post_operative_orthopedic_surgery",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-029-B",
+          "description": "Replacement due to normal wear and tear when orthotic is still medically needed",
+          "parameter": "replacement_wear_and_tear_needed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Operative report or surgical discharge plan",
+      "Replacement order documenting ongoing medical need"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Covers immediate post-op period and normal wear/tear replacements."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-030",
+    "source_page": {
+      "physical_page": 7,
+      "printed_page": "Page 7 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Medically necessary when the request specific criteria in A. or B. are met: A. Initial request meets all of the following: 1. Functional needs cannot be met with activity modification and compensatory techniques; 2. Requested prosthesis is anticipated to meet functional needs; 3. Clinical examination findings include all of the following:",
+    "clinical_service_or_procedure": "Upper Extremity and Myoelectric Prosthetics - Initial Request (HCPCS L6000-L7499)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-030-A",
+          "description": "Functional needs cannot be met with activity modification or compensatory techniques",
+          "parameter": "compensatory_techniques_inadequate",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-030-B",
+          "description": "Requested prosthesis anticipated to meet functional needs",
+          "parameter": "prosthesis_meets_functional_needs",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-030-C",
+          "description": "Clinical exam: appropriate residual limb length, stable volume, skin integrity, strength/ROM, cognitive function",
+          "parameter": "residual_limb_clinical_exam_pass",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-030-D",
+          "description": "Comprehensive rehab plan: pre-prosthetic therapy, control method discussed, task training, home exercise",
+          "parameter": "prosthetic_rehab_plan_complete",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Prosthetist detailed clinical evaluation and measurements",
+      "Physiatry or orthopedic comprehensive limb exam",
+      "Comprehensive prosthetic rehabilitation and training plan"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Requires mandatory secondary review by medical director or therapy advisor."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-031",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Replacement request, all of the following: 1. Replacement is requested due to one of the following: a. Current prosthesis no longer functions properly or physiological or surgical changes to residual limb no longer accommodate current prosthesis; b. Irreparable wear to prosthesis or prosthetic components; c. Significant change in member/enrollee condition resulting in poor fit or function of prosthesis or prosthetic components; 2. Irreparable damage to prosthesis or prosthetic components or repair cost > 60% of replacement cost;",
+    "clinical_service_or_procedure": "Upper Extremity and Myoelectric Prosthetics - Replacement Request (HCPCS L6000-L7499)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-031-A",
+          "description": "Loss of function, physiological/surgical limb change, irreparable wear, or condition change",
+          "parameter": "replacement_qualifying_reason",
+          "comparator": "IS_PRESENT"
+        },
+        {
+          "condition_id": "COND-DME-107-031-B",
+          "description": "Irreparable damage or repair cost exceeds 60% of replacement cost",
+          "parameter": "repair_cost_vs_replacement_threshold",
+          "comparator": "GREATER_THAN",
+          "value": "60%"
+        },
+        {
+          "condition_id": "COND-DME-107-031-C",
+          "description": "Prosthesis has been properly cared for following manufacturer recommendations",
+          "parameter": "proper_care_maintained",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-031-D",
+          "description": "Medical documentation supports continued use, motivation, appropriate functional level, same/similar components",
+          "parameter": "continued_medical_need_supported",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Detailed repair estimate demonstrating repair cost >60% of replacement",
+      "Prosthetist clinical evaluation of limb changes and wear"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Mandatory 60% repair-cost threshold and secondary review by medical director."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-032",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "All requests for upper extremity and myoelectric prosthetics and additions require mandatory secondary review by a medical director and/or therapy advisor.",
+    "clinical_service_or_procedure": "Upper Extremity and Myoelectric Prosthetics - Mandatory Secondary Review Requirement",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-032-A",
+          "description": "Secondary review completed by medical director or therapy advisor",
+          "parameter": "secondary_medical_review_completed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Mandatory clinical peer review for all upper extremity and myoelectric prosthetics."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-033",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Medically necessary post-mastectomy. If the request is for a custom prosthetic, accompanying documentation must state the reason why a prefabricated device is not adequate.",
+    "clinical_service_or_procedure": "Breast Prosthetics (HCPCS L8030, L8035)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-033-A",
+          "description": "Post-mastectomy status",
+          "parameter": "post_mastectomy_status",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-033-B",
+          "description": "If custom prosthetic requested, documentation states why prefabricated device is not adequate",
+          "parameter": "custom_breast_prosthetic_justified",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Surgical notes documenting mastectomy",
+      "If custom requested: clinical rationale why prefab is inadequate"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "dependencies": [
+      "Women's Health and Cancer Rights Act (WHCRA)"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "WHCRA-mandated post-mastectomy coverage. Custom requires pre-fab inadequacy justification."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-034",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Not medically necessary, as there is insufficient evidence in published peer-reviewed literature to support the effectiveness of this device.",
+    "clinical_service_or_procedure": "External Lower Extremity Sensory Prosthetic Device (Walkasins\u00ae) (HCPCS L8720, L8721)",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-034-A",
+          "description": "Request is for Walkasins device",
+          "parameter": "walkasins_device_requested",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Added in Revision 08/26 as an explicit non-coverage exclusion."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-035",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Not medically necessary, as there is insufficient evidence in published peer-reviewed literature to support the effectiveness of these devices.",
+    "clinical_service_or_procedure": "Myoelectric Rehabilitation Systems (HCPCS E0738, E0739)",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-035-A",
+          "description": "Request is for myoelectric rehabilitation system (MyoPro)",
+          "parameter": "myoelectric_rehab_system_requested",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Updated in 07/25 to include HCPCS E0738 and E0739 as not medically necessary."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-036",
+    "source_page": {
+      "physical_page": 8,
+      "printed_page": "Page 8 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Requests for facial prosthetics are medically necessary when there is loss or absence of facial tissue due to disease, trauma, surgery, or a congenital defect.",
+    "clinical_service_or_procedure": "Facial Prosthetics (HCPCS L8040, L8041, L8042, L8043, L8044, L8045, L8046, L8047, L8499)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-036-A",
+          "description": "Loss or absence of facial tissue due to disease, trauma, surgery, or congenital defect",
+          "parameter": "facial_tissue_loss_or_absence",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Surgical or clinical notes detailing etiology of facial tissue loss",
+      "Anaplastology or prosthetics detailed fabrication plan"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Covers traumatic, surgical, oncology, or congenital facial tissue absence."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-037",
+    "source_page": {
+      "physical_page": 9,
+      "printed_page": "Page 9 of 24"
+    },
+    "source_section": "Policy/Criteria - PUMPS",
+    "source_quote": "Medically necessary when used for one of the following indications: A. Iron poisoning when used in the administration of deferoxamine for the treatment of acute iron poisoning and iron overload; B. Chemotherapy for liver cancer when used in the treatment of primary hepatocellular carcinoma or colorectal cancer where the disease is unresectable or where the patient refuses surgical excision of the tumor; C. With opioid drugs when used for intractable pain caused by cancer; D. To administer a drug considered reasonable and necessary by either: 1. Prolonged infusion of at least eight hours because of proven improved clinical efficacy (i.e., proven or generally accepted to have significant advantages over intermittent bolus administration regimens or infusions lasting less than eight hours); 2. Intermittent infusion, each episode of infusion lasting less than eight hours",
+    "clinical_service_or_procedure": "Ambulatory infusion pump (HCPCS E0780, E0781)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-037-A",
+          "description": "Deferoxamine for iron poisoning/overload, liver cancer chemo, opioid for cancer pain, or qualifying prolonged/ intermittent infusion",
+          "parameter": "ambulatory_pump_qualifying_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Prescription specifying drug, dosage, and infusion duration",
+      "Oncology or clinical notes confirming cancer pain or diagnosis"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "CMS NCD 280.14 aligned criteria for ambulatory infusion."
+  }
+]

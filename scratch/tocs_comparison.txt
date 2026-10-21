@@ -1,0 +1,274 @@
+=== 2026 AI TOC (pp 3-5) ===
+--- PAGE 3 ---
+2026 Evolent Clinical Guidelines – Advanced Imaging 
+Page 3 
+TABLE OF CONTENTS 
+Advanced Imaging Clinical Guidelines
+
+Abdomen Pelvis Computed Tomography (CT)
+
+Abdomen Computed Tomography (CT)
+
+Abdomen Computed Tomography Angiography (CTA)
+
+Abdomen Magnetic Resonance Angiography (MRA)
+
+Abdomen Magnetic Resonance Imaging (MRI), Magnetic Resonance 
+Cholangiopancreatography (MRCP)
+
+Abdomen Pelvis Computed Tomography Angiography (CTA)
+
+Abdominal Aorta Computed Tomography Angiography with Lower Extremity Runoff
+
+Bone Marrow Magnetic Resonance Imaging (MRI)
+
+Brain Computed Tomography (CT)
+
+Magnetic Resonance Spectroscopy (MRS)
+
+Brain Magnetic Resonance Angiography (MRA)
+
+Brain Computed Tomography Angiography (CTA)
+
+Brain Magnetic Resonance Imaging (MRI) With or Without Internal Auditory Canal (IAC) 
+Views
+
+Brain Positron Emission Tomography (PET) Scan
+
+Breast Magnetic Resonance Imaging (MRI)
+
+Cerebral Perfusion Computed Tomography (CT)
+
+Cervical Spine Computed Tomography (CT)
+
+Computed Tomography (CT) Bone Density Study
+
+Computed Tomography (CT) (Virtual) Colonoscopy - Screening
+
+Computed Tomography (CT) (Virtual) Colonoscopy - Diagnostic
+
+Chest Magnetic Resonance Angiography (MRA)
+
+Chest Computed Tomography Angiography (CTA)
+
+Chest Computed Tomography (CT)
+
+Cervical Spine Magnetic Resonance Imaging (MRI)
+
+Chest Magnetic Resonance Imaging (MRI)
+
+Computed Tomography (CT) or Magnetic Resonance Imaging (MRI) Guidance for 
+Needle Placement
+
+Fetal Magnetic Resonance Imaging (MRI)
+
+Functional Magnetic Resonance Imaging (MRI) Brain
+
+Follow Up, Limited or Localized Computed Tomography (CT)
+
+--- PAGE 4 ---
+2026 Evolent Clinical Guidelines – Advanced Imaging
+Page 3 
+TABLE OF CONTENTS 
+Advanced Imaging Clinical Guidelines
+
+Low Dose Computed Tomography (CT) for Lung Cancer Screening
+
+Low Field Magnetic Resonance Imaging (MRI)
+
+Lower Extremity Computed Tomography (CT) Ankle, Foot, Hip, Knee, Leg, Lower 
+Extremity
+
+Lower Extremity Computed Tomography Angiography (CTA)
+
+Lower Extremity Magnetic Resonance Angiography (MRA) Ankle, Lower 
+Extremity
+
+Lower Extremity Magnetic Resonance Imaging (MRI) Ankle, Foot, Hip, Knee, 
+Lower Extremity
+
+Lumbar Spine Computed Tomography (CT)
+
+Lumbar Spine Magnetic Resonance Imaging (MRI)
+
+Magnetic Resonance Elastography (MRE)
+
+Neck Computed Tomography (CT)
+
+Neck Computed Tomography Angiography (CTA)
+
+Neck Magnetic Resonance Angiography (MRA)
+
+Pelvis Computed Tomography Angiography (CTA)
+
+Pelvis Magnetic Resonance Angiography (MRA)
+
+Pelvis (Magnetic Resonance Imaging (MRI)
+
+Positron Emission Tomography (PET) Scan, PET Scan with Computed 
+Tomography (CT) for Attenuation
+
+Sinus Maxillofacial Computed Tomography (CT)
+
+Sinus, Face, Orbit, Neck, and Internal Auditory Canal Magnetic Resonance 
+Imaging (MRI)
+
+Radiopharmaceutical Tumor Localization Single Proton Emission Computed 
+Tomography (SPECT)
+
+Spinal Canal Magnetic Resonance Angiography (MRA)
+
+Temporal Bone, Mastoid, Orbits, Sella, Internal Auditory Canal Computed 
+Tomography (CT)
+
+Temporomandibular Joint (TMJ) Magnetic Resonance Imaging (MRI)
+
+Thoracic Spine Computed Tomography (CT)
+
+--- PAGE 5 ---
+Page 3 
+TABLE OF CONTENTS 
+Advanced Imaging Clinical Guidelines
+
+Thoracic Spine Magnetic Resonance Imaging (MRI)
+
+Tumor Imaging Positron Emission Tomography (PET) Any Site, Breast Cancer, 
+Melanoma
+
+Unlisted Study CT and MRI
+
+Upper Extremity Computed Tomography (CT) Arm, Carpal Joint, Hand, 
+Scapula, Shoulder, Upper Extremity, Wrist
+
+Upper Extremity Computed Tomography Angiography (CTA)
+
+Upper Extremity Magnetic Resonance Angiography (MRA) 
+Arm, Upper
+
+Upper Extremity Magnetic Resonance Imaging (MRI)
+
+Urgent/Emergent Criteria
+2026 Evolent Clinical Guidelines – Advanced Imaging
+
+
+=== 2025 AI TOC (pp 3-4) ===
+--- PAGE 3 ---
+TABLE OF CONTENTS 
+ADVANCED IMAGING GUIDELINES 
+70336 – MRI TEMPOROMANDIBULAR JOINT 
+70450 – CT HEAD/BRAIN 
+70480 – CT TEMPORAL, BONE, MASTOID, ORBIT 
+70486 – CT MAXILLOFACIAL/SINUS 
+70490 – CT SOFT TISSUE NECK 
+70496 – CT ANGIOGRAPHY, HEAD 
+70498 – CT ANGIOGRAPHY, NECK 
+70540 – MRI ORBIT, FACE, AND/OR NECK 
+70544 – MR ANGIOGRAPHY HEAD/BRAIN 
+70547 – MR ANGIOGRAPHY NECK 
+70551 – MRI BRAIN (INCLUDES INTERNAL AUDITORY CANAL) 
+70554 – FUNCTIONAL MRI BRAIN 
+71250 – CT CHEST (THORAX) 
+71271 – LOW DOSE CT FOR LUNG CANCER SCREENING 
+71275 – CT ANGIOGRAPHY, CHEST (NON CORONARY) 
+71550 – MRI CHEST (THORAX) 
+71555 – MR ANGIOGRAPHY CHEST 
+72125 – CT CERVICAL SPINE 
+72128 – CT THORACIC SPINE 
+72131 – CT LUMBAR SPINE 
+72141 – MRI CERVICAL SPINE 
+72146 – MRI THORACIC SPINE 
+72148 – MRI LUMBAR SPINE 
+72159 – MR ANGIOGRAPHY SPINAL CANAL 
+72191 – CT ANGIOGRAPHY, PELVIS 
+72192 – CT PELVIS 
+72196 – MRI PELVIS 
+72198 – MR ANGIOGRAPHY, PELVIS 
+73200 – CT UPPER EXTREMITY 
+73206 – CT ANGIOGRAPHY, UPPER EXTREMITY 
+73220 – MRI UPPER EXTREMITY 
+73225 – MR ANGIOGRAPHY UPPER EXTREMITY 
+73700 – CT LOWER EXTREMITY 
+73706 – CT ANGIOGRAPHY, LOWER EXTREMITY 
+73720 – MRI LOWER EXTREMITY 
+73725 – MR ANGIOGRAPHY, LOWER EXTREMITY 
+74150 – CT ABDOMEN 
+74174 – CT ANGIOGRAPHY, ABDOMEN AND PELVIS 
+74175 – CT ANGIOGRAPHY, ABDOMEN 
+74176 – CT ABDOMEN AND PELVIS COMBINATION
+2025 Evolent Clinical Guidelines  -  Advanced Imaging Guidelines
+                Page 3
+
+--- PAGE 4 ---
+74181 – MRI MRCP ABDOMEN 
+74185 – MR ANGIOGRAPHY, ABDOMEN 
+74261 – CT COLONOSCOPY DIAGNOSTIC (VIRTUAL) 
+74263 – CT COLONOSCOPY SCREENING (VIRTUAL) 
+74712 – FETAL MRI 
+75557 – MRI HEART 
+75571 – ELECTRON BEAM TOMOGRAPHY (EBCT) 
+75572 – CT HEART 
+75573 – CT HEART CONGENITAL STUDIES 
+75574 – CTA CORONARY ARTERIES (CCTA) 
+75635 – CT ANGIOGRAPHY, ABDOMINAL ARTERIES 
+76376 – 3D RENDERING (CT MULTIPLANAR RECONSTRUCTION) 
+76380 – FOLLOW-UP, LIMITED OR LOCALIZED (SEE CT MAXILLOFACIAL/SINUS) 
+76390 – MR SPECTROSCOPY 
+76391 – MAGNETIC RESONANCE ELASTOGRAPHY (MRE)
+76497 – UNLISTED CT PROCEDURE (SEE UNLISTED STUDIES) 
+76498 – UNLISTED MRI PROCEDURE (SEE UNLISTED STUDIES) 
+77012 – CT NEEDLE GUIDANCE 
+77021 – MRI NEEDLE GUIDANCE 
+77046 – MRI BREAST 
+77078 – CT BONE DENSITY STUDY 
+77084 – MRI BONE MARROW 
+78429 – HEART PET WITH CT FOR ATTENUATION 
+78451 – MYOCARDIAL PERFUSION IMAGING 
+78459 – PET SCAN, HEART (CARDIAC) 
+78472 – MUGA SCAN 
+78608 – PET SCAN, BRAIN 
+78803 – RADIOPHARMACEUTICAL TUMOR LOCALIZATION (SPECT), SINGLE AREA 
+78813 – PET SCANS
+78816 – PET SCANS WITH CT ATTENUATION
+0042T – CEREBRAL PREFUSION CT 
+G0219 – PET IMAGING WHOLE BODY, MELANOMA - NONCOVERED 
+G0235 – PET IMAGING, ANY SITE, NOT OTHERWISE SPECIFIED 
+G0252 – PET IMAGING, INITIAL DIAGNOSIS OF BREAST CANCER 
+S8042 – LOW FIELD MRI 
+2025 Evolent Clinical Guidelines  -  Advanced Imaging Guidelines
+                Page 4
+
+
+=== 2026 IPM TOC (p 3) ===
+--- PAGE 3 ---
+3
+TABLE OF CONTENTS 
+INTERVENTIONAL PAIN MANAGEMENT GUIDELINES 
+EPIDURAL SPINE INJECTIONS 
+EPIDURAL SPINE INJECTIONS AND SINGLE INJECTION TRIALS FOR INTRATHECAL PUMPS 
+PARAVERTEBRAL FACET JOINT INJECTIONS OR BLOCKS 
+PARAVERTEBRAL FACET JOINT DENERVATION (RADIOFREQUENCY NEUROLYSIS) 
+SACROILIAC JOINT INJECTIONS 
+EXPANDED INTERVENTIONAL PAIN MANAGEMENT GUIDELINES 
+IMPLANTABLE INFUSION PUMP INSERTION 
+SPINAL CORD STIMULATION 
+SYMPATHETIC NERVE BLOCKS 
+2026 Evolent Clinical Guidelines  -  Interventional Pain Management Guidelines
+
+
+=== 2025 IPM TOC (p 3) ===
+--- PAGE 3 ---
+3
+TABLE OF CONTENTS 
+INTERVENTIONAL PAIN MANAGEMENT GUIDELINES 
+EPIDURAL SPINE INJECTIONS 
+EPIDURAL SPINE INJECTIONS AND SINGLE INJECTION TRIALS FOR INTRATHECAL PUMPS 
+PARAVERTEBRAL FACET JOINT INJECTIONS OR BLOCKS 
+PARAVERTEBRAL FACET JOINT DENERVATION (RADIOFREQUENCY NEUROLYSIS) 
+SACROILIAC JOINT INJECTIONS 
+EXPANDED INTERVENTIONAL PAIN MANAGEMENT GUIDELINES 
+IMPLANTABLE INFUSION PUMP INSERTION 
+SPINAL CORD STIMULATION 
+SYMPATHETIC NERVE BLOCKS 
+2025 Evolent Clinical Guidelines  -  Interventional Pain Management Guidelines
+
+

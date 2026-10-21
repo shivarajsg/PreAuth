@@ -1,0 +1,1616 @@
+[
+  {
+    "rule_id": "RULE-ADV-CG2000-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 9,
+    "source_section": "Inflammatory Bowel Disease (3–5)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "For suspected inflammatory bowel disease after complete work up including physical exam, labs, and recent colonoscopy",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Physical examination documented in medical records",
+          "parameter": "physical_exam_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Diagnostic laboratory workup completed",
+          "parameter": "lab_workup_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Recent colonoscopy completed prior to advanced imaging request",
+          "parameter": "recent_colonoscopy_completed",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 29 \nEvolent Clinical Guideline 2000 for Abdomen Pelvis Computed Tomography (CT) \nInflammatory Bowel Disease (3–5) \n● For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative \nColitis (includes CT enterography, however, MRI should be considered for age < 35 to \nreduce radiation exposure) \n○ \nFor suspected inflammatory bowel disease after complete work up including physical \nexam, labs, and recent colonoscopy \n○ \nKnown inflammatory bowel disease with recurrence or worsening signs/symptoms \nrequiring re-evaluation or for monitoring therapy \nEvaluation of Inflammation and Infection \nPeritonitis \nSuspected or known recent peritonitis AND at least one of the following (6,7): \n● Rebound, guarding (not voluntary) or rigid abdomen, OR \n● Severe tenderness to palpation present over entire abdomen \nDiverticulitis or Acute Appendicitis (8,9) \n● Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the \nfollowing (10): \n○ \nWBC Elevated \n○ \nFever \n○ \nAnorexia \n○ \nNausea and vomiting \nNOTE: If CT is requested for a pregnant woman with suspected appendicitis, ultrasound \nneeds to be insufficient and a contraindication to MRI provided (11) \n● Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or \ncannot be completed (due to body habitus or inability to cooperate) OR when peritoneal \nsigns are present (guarding, rebound) or other red flags \n● Suspected diverticulitis when (13): \n○ \nPain is present in the LLQ (< 3 months duration), medical records note suspicion for \ndiverticulitis, the patient has no prior history of diverticulitis AND either: \n■ LLQ tenderness is present on exam; OR \n■ Patient is immunocompromised; OR \n■ Patient has a history of diverticulitis, symptoms are similar to prior episodes, \nAND patient has failed treatment currently (treatment could be liquid diet or \nantibiotic) \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal/pelvic pain or severe tenderness or mass not responding to antibiotic \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-003",
+    "domain": "advanced_imaging",
+    "audit_status": "HUMAN_REVIEW_REQUIRED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 9,
+    "source_section": "Inflammatory Bowel Disease (3–5)",
+    "issue_description": "Governance blocked rule: Advisory wording ('MRI should be considered'). Flagged for medical director determination regarding whether this constitutes a mandatory denial of CT or peer-to-peer advisory suggestion.",
+    "rule_quote": "For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative Colitis (includes CT enterography, however, MRI should be considered for age < 35 to reduce radiation exposure)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Requested procedure is CT enterography or CT abdomen/pelvis for IBD",
+          "parameter": "requested_modality",
+          "comparator": "EQUALS",
+          "value": "CT"
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Patient age is strictly less than 35 years",
+          "parameter": "patient_age_years",
+          "comparator": "LESS_THAN",
+          "value": 35,
+          "unit": "years"
+        }
+      ]
+    },
+    "decision_effect": "ALTERNATIVE_MODALITY_RECOMMENDED",
+    "full_page_text": " \nPage 4 of 29 \nEvolent Clinical Guideline 2000 for Abdomen Pelvis Computed Tomography (CT) \nInflammatory Bowel Disease (3–5) \n● For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative \nColitis (includes CT enterography, however, MRI should be considered for age < 35 to \nreduce radiation exposure) \n○ \nFor suspected inflammatory bowel disease after complete work up including physical \nexam, labs, and recent colonoscopy \n○ \nKnown inflammatory bowel disease with recurrence or worsening signs/symptoms \nrequiring re-evaluation or for monitoring therapy \nEvaluation of Inflammation and Infection \nPeritonitis \nSuspected or known recent peritonitis AND at least one of the following (6,7): \n● Rebound, guarding (not voluntary) or rigid abdomen, OR \n● Severe tenderness to palpation present over entire abdomen \nDiverticulitis or Acute Appendicitis (8,9) \n● Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the \nfollowing (10): \n○ \nWBC Elevated \n○ \nFever \n○ \nAnorexia \n○ \nNausea and vomiting \nNOTE: If CT is requested for a pregnant woman with suspected appendicitis, ultrasound \nneeds to be insufficient and a contraindication to MRI provided (11) \n● Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or \ncannot be completed (due to body habitus or inability to cooperate) OR when peritoneal \nsigns are present (guarding, rebound) or other red flags \n● Suspected diverticulitis when (13): \n○ \nPain is present in the LLQ (< 3 months duration), medical records note suspicion for \ndiverticulitis, the patient has no prior history of diverticulitis AND either: \n■ LLQ tenderness is present on exam; OR \n■ Patient is immunocompromised; OR \n■ Patient has a history of diverticulitis, symptoms are similar to prior episodes, \nAND patient has failed treatment currently (treatment could be liquid diet or \nantibiotic) \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal/pelvic pain or severe tenderness or mass not responding to antibiotic \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-004",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 9,
+    "source_section": "Diverticulitis or Acute Appendicitis (8,9)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the following (10): ○ WBC Elevated ○ Fever ○ Anorexia ○ Nausea and vomiting",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected acute diverticulitis or acute appendicitis for initial diagnostic evaluation",
+          "parameter": "provisional_diagnosis",
+          "comparator": "CONTAINS",
+          "value": [
+            "Diverticulitis",
+            "Acute Appendicitis"
+          ]
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "At least one objective inflammatory or systemic clinical sign present",
+          "parameter": "clinical_signs_group",
+          "comparator": "IS_PRESENT",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "SIGN-001",
+                "description": "Elevated white blood cell count (leukocytosis)",
+                "parameter": "wbc_count",
+                "comparator": "EQUALS",
+                "value": "ELEVATED"
+              },
+              {
+                "condition_id": "SIGN-002",
+                "description": "Documented fever",
+                "parameter": "fever_present",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "SIGN-003",
+                "description": "Documented anorexia",
+                "parameter": "anorexia_present",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "SIGN-004",
+                "description": "Documented nausea and vomiting",
+                "parameter": "nausea_and_vomiting_present",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 29 \nEvolent Clinical Guideline 2000 for Abdomen Pelvis Computed Tomography (CT) \nInflammatory Bowel Disease (3–5) \n● For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative \nColitis (includes CT enterography, however, MRI should be considered for age < 35 to \nreduce radiation exposure) \n○ \nFor suspected inflammatory bowel disease after complete work up including physical \nexam, labs, and recent colonoscopy \n○ \nKnown inflammatory bowel disease with recurrence or worsening signs/symptoms \nrequiring re-evaluation or for monitoring therapy \nEvaluation of Inflammation and Infection \nPeritonitis \nSuspected or known recent peritonitis AND at least one of the following (6,7): \n● Rebound, guarding (not voluntary) or rigid abdomen, OR \n● Severe tenderness to palpation present over entire abdomen \nDiverticulitis or Acute Appendicitis (8,9) \n● Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the \nfollowing (10): \n○ \nWBC Elevated \n○ \nFever \n○ \nAnorexia \n○ \nNausea and vomiting \nNOTE: If CT is requested for a pregnant woman with suspected appendicitis, ultrasound \nneeds to be insufficient and a contraindication to MRI provided (11) \n● Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or \ncannot be completed (due to body habitus or inability to cooperate) OR when peritoneal \nsigns are present (guarding, rebound) or other red flags \n● Suspected diverticulitis when (13): \n○ \nPain is present in the LLQ (< 3 months duration), medical records note suspicion for \ndiverticulitis, the patient has no prior history of diverticulitis AND either: \n■ LLQ tenderness is present on exam; OR \n■ Patient is immunocompromised; OR \n■ Patient has a history of diverticulitis, symptoms are similar to prior episodes, \nAND patient has failed treatment currently (treatment could be liquid diet or \nantibiotic) \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal/pelvic pain or severe tenderness or mass not responding to antibiotic \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-005",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 9,
+    "source_section": "Diverticulitis or Acute Appendicitis (8,9)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or cannot be completed (due to body habitus or inability to cooperate) OR when peritoneal signs are present (guarding, rebound) or other red flags",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient age is strictly less than 18 years",
+          "parameter": "patient_age_years",
+          "comparator": "LESS_THAN",
+          "value": 18,
+          "unit": "years"
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Provisional diagnosis is suspected acute appendicitis",
+          "parameter": "provisional_diagnosis",
+          "comparator": "EQUALS",
+          "value": "Appendicitis"
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Ultrasound inconclusive/incomplete OR peritoneal signs present",
+          "parameter": "ultrasound_or_peritoneal_signs",
+          "comparator": "IS_PRESENT",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "US-001",
+                "description": "Prior ultrasound inconclusive or incomplete",
+                "parameter": "prior_ultrasound_status",
+                "comparator": "CONTAINS",
+                "value": [
+                  "INCONCLUSIVE",
+                  "INCOMPLETE"
+                ]
+              },
+              {
+                "condition_id": "US-002",
+                "description": "Peritoneal signs documented (guarding, rebound) or other red flags",
+                "parameter": "peritoneal_signs_present",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 29 \nEvolent Clinical Guideline 2000 for Abdomen Pelvis Computed Tomography (CT) \nInflammatory Bowel Disease (3–5) \n● For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative \nColitis (includes CT enterography, however, MRI should be considered for age < 35 to \nreduce radiation exposure) \n○ \nFor suspected inflammatory bowel disease after complete work up including physical \nexam, labs, and recent colonoscopy \n○ \nKnown inflammatory bowel disease with recurrence or worsening signs/symptoms \nrequiring re-evaluation or for monitoring therapy \nEvaluation of Inflammation and Infection \nPeritonitis \nSuspected or known recent peritonitis AND at least one of the following (6,7): \n● Rebound, guarding (not voluntary) or rigid abdomen, OR \n● Severe tenderness to palpation present over entire abdomen \nDiverticulitis or Acute Appendicitis (8,9) \n● Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the \nfollowing (10): \n○ \nWBC Elevated \n○ \nFever \n○ \nAnorexia \n○ \nNausea and vomiting \nNOTE: If CT is requested for a pregnant woman with suspected appendicitis, ultrasound \nneeds to be insufficient and a contraindication to MRI provided (11) \n● Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or \ncannot be completed (due to body habitus or inability to cooperate) OR when peritoneal \nsigns are present (guarding, rebound) or other red flags \n● Suspected diverticulitis when (13): \n○ \nPain is present in the LLQ (< 3 months duration), medical records note suspicion for \ndiverticulitis, the patient has no prior history of diverticulitis AND either: \n■ LLQ tenderness is present on exam; OR \n■ Patient is immunocompromised; OR \n■ Patient has a history of diverticulitis, symptoms are similar to prior episodes, \nAND patient has failed treatment currently (treatment could be liquid diet or \nantibiotic) \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal/pelvic pain or severe tenderness or mass not responding to antibiotic \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2001-001",
+    "domain": "advanced_imaging",
+    "audit_status": "HUMAN_REVIEW_REQUIRED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 37,
+    "source_section": "STATEMENT / Special Note",
+    "issue_description": "Governance blocked rule: Anti-unbundling coding rule mandating combined CT Abdomen/Pelvis codes (74176-74178) when both regions are indicated.",
+    "rule_quote": "When separate requests for CT abdomen and CT Pelvis are encountered for processes involving both the abdomen and pelvis, they need to be resubmitted as Evolent Clinical Guideline 2000 for Abdomen and Pelvis CT (to avoid unbundling; CPT codes 74176, 74177, 74178).",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Separate requests submitted for CT Abdomen and CT Pelvis",
+          "parameter": "separate_abdomen_and_pelvis_requested",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Clinical process or pathology involves both abdominal and pelvic anatomy",
+          "parameter": "pathology_involves_both_cavities",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "ALTERNATIVE_MODALITY_RECOMMENDED",
+    "full_page_text": " \nPage 3 of 23 \nEvolent Clinical Guideline 2001 for Abdomen Computed Tomography (CT) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care \ncriteria. These criteria are supported by evidence-based or peer-reviewed sources such \nas medical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nAbdomen Computed Tomography (CT) uses radiation to generate images of the organs and \nstructures in the upper abdomen. Abdominal imaging begins at the diaphragm and extends to \nthe umbilicus or iliac crests.   \nSpecial Note \n● Abdomen CT is used for diseases suspected to be limited to the abdomen. Abdomen \nand Pelvis CT (CPT Codes: 74176, 74177, 74178) is used when the indication(s) include \nboth the abdomen AND pelvis, such as CT Urography, CT Enterography, acute \nabdominal pain or widespread inflammatory disease. \n● When separate requests for CT abdomen and CT Pelvis are encountered for processes \ninvolving both the abdomen and pelvis, they need to be resubmitted as Evolent Clinical \nGuideline 2000 for Abdomen and Pelvis CT (to avoid unbundling; CPT codes 74176, \n74177, 74178).  \nINDICATIONS FOR ABDOMEN CT \nOrgan Specific Imaging \nAdrenal (1) \n● Indeterminate adrenal lesion seen on prior imaging \n● For follow up of known adrenal mass when a change in tumor is suspected by either \nimaging, laboratory evaluation and/or symptoms \n● Adrenal mass < 4 cm incidentally discovered with benign characteristics (homogenous, \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2003-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 75,
+    "source_section": "INDICATIONS FOR ABDOMEN MRA / Other Vascular Abnormalities / Takayasu's Arteritis (15)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Takayasu's Arteritis (15): ○ At initial diagnosis ○ Every 6 months for the first 2 years while on therapy ○ Annually after the first 2 years",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Confirmed diagnosis of Takayasu's arteritis",
+          "parameter": "takayasu_arteritis_diagnosed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "MRA requested at initial diagnosis, q6 months during first 2 years of active therapy, or annually thereafter",
+          "parameter": "takayasu_surveillance_interval_met",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 6 of 18 \nEvolent Clinical Guideline 2003 for Abdomen Magnetic Resonance Angiography (MRA) \nOther Vascular Abnormalities of the Abdomen \n● Initial evaluation of inconclusive vascular findings on prior imaging \n● For evaluation or monitoring of non-aortic large vessel or visceral vascular disease of the \nabdomen (e.g., aneurysm, dissection, arteriovenous malformations (AVM), vascular \nfistula, intramural hematoma, compression syndromes and vasculitis involving any of the \nfollowing: inferior vena cava, superior/inferior mesenteric, celiac, hepatic, splenic or renal \narteries/veins), and the findings are reasonably expected to be limited to the \nabdomen. (10) For assessment in patients with spontaneous coronary artery dissection \n(SCAD), can be done at time of coronary angiography (11,12) \n● Suspected complications of known aneurysm of the abdomen as evidenced by clinical \nfindings such as new onset of abdominal pain (prior ultrasound is NOT required) \n● For patients with fibromuscular dysplasia (FMD) (13,14): \n○ \nOne-time vascular study from brain to pelvis \n● Takayasu's Arteritis (15): \n○ \nAt initial diagnosis \n○ \nEvery 6 months for the first 2 years while on therapy \n○ \nAnnually after the first 2 years \nVenous Disease \n● Suspected venous thrombosis (including renal vein thrombosis and/or portal venous \nthrombosis) if previous studies (such as ultrasound) have not resulted in a clear \ndiagnosis (16,17) \n● Suspected pelvic congestion syndrome (including May-Thurner and nutcracker \nsyndromes)  when ultrasound is indeterminant with (no contraindication to CT is \nneeded) (18) \n● Evaluation of suspected pelvic vascular disease or pelvic congestive syndrome when \nAbdomen MR angiography is ordered in addition to Pelvis MRA with prior inconclusive \nultrasound (18) \n● For acute unilateral (or asymmetric) lower extremity edema with negative or inconclusive \ndoppler US and CT (19) \n● For chronic (greater than 3 months) unilateral (or asymmetric) lower extremity edema \nand suspicion of malignant cause when Abdomen and Pelvis CT (or Pelvis CT) is \nnegative or inconclusive (19) \nPeripheral Vascular Disease (20–22) \nNote: There is no single CPT code for MRA of the abdomen and pelvis with bilateral lower \nextremity runoff as there is for CTA (CPT Code 75635).  Therefore, when CTA is \ncontraindicated or cannot be performed an analogous MR angiography study is Abdomen MRA \n(CPT 74185) and one Lower Extremity MRA (CPT 73725). This will provide imaging of the \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2004-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 92,
+    "source_section": "INDICATIONS / Biliary / Choledochal cyst",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Suspected choledochal cyst after ultrasound has been done",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinically suspected choledochal cyst or congenital biliary duct dilatation",
+          "parameter": "suspected_choledochal_cyst",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Initial diagnostic workup with abdominal ultrasound completed",
+          "parameter": "prior_ultrasound_completed",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 5 of 26 \nEvolent Clinical Guideline 2004 for Abdomen Magnetic Resonance Imaging (MRI) with or without \nMagnetic Resonance Cholangiopancreatography (MRCP) \n● Suspected choledochal cyst after ultrasound has been done \n● Long-term postoperative surveillance for patients with history of choledochal cyst \n● Post-surgical biliary anatomy and complications when Endoscopic Retrograde \nCholangiopancreatography (ERCP) is not possible or contraindicated \n● Assessment of benign or malignant biliary strictures \n● Evaluation of biliary abnormalities (such as dilated bile duct) identified on prior imaging \n(e.g. ultrasound, CT or MRI) when there are symptoms and/or clinical concern for \npancreaticobiliary disease  \n● Evaluation of pancreaticobiliary disease in pregnant patients after ultrasound has been \ndone \n● Jaundice or abnormal liver function tests after equivocal or abnormal ultrasound \n● Evaluation of suspected congenital anomaly of the pancreaticobiliary tract, e.g., aberrant \nducts, pancreas divisum or related complications \nPancreas \n● Pancreatic cystic lesion found on initial imaging, approve for initial characterization of \nlesion (11) \n● Follow-up for pancreatic cyst (including Intraductal Papillary Mucinous Neoplasm \n(IPMN)) as below (12,13): \n○ \nIncidental and asymptomatic cysts <1.5 cm, AND: \n■ Age < 65, image annually x 5 years, then every 2 years if stable \n■ Age 65-79, imaging every 2 years x 5, then stop if stable \n○ \nCysts 1.5-1.9 cm with main pancreatic duct communication (MPD), image annually x \n5 years, then every 2 years x 2, stop if stable at year 9 \n○ \nCysts 2.0-2.5 cm with MPD communication, image every 6 months x 4, then annually \nx 2, then every 2 years x 3, stop if stable at year 10 \n○ \nCysts 1.5-2.5 cm with NO MPD communication (or cannot be determined), image \nevery 6 mos. x 4, then annually x 2 then every 2 years x 3, stop if stable at year 10 \n○ \nCyst > 2.5 cm on surveillance (i.e., intervention has not been chosen), image every 6 \nmos. x 4, then annually x 2 years, then every 2 years x 3. Stop if stable at year 10 \n○ \nPatients > 80 years of age at presentation are imaged less frequently: image every 2 \nyears x 2, stop if stable at year 4 (intervals are the same regardless of size if \nsurveillance chosen) \n○ \nGrowth or suspicious change on a surveillance imaging scan may warrant more \nfrequent surveillance \n● Suspected new onset acute pancreatitis and ALL of the following: \n○ \nEpigastric or upper abdominal pain \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2004-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 92,
+    "source_section": "INDICATIONS / Pancreas",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Suspected new onset acute pancreatitis and ALL of the following: ○ Epigastric or upper abdominal pain",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected new onset acute pancreatitis",
+          "parameter": "suspected_acute_pancreatitis",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Documented epigastric or upper abdominal pain",
+          "parameter": "epigastric_pain_present",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 5 of 26 \nEvolent Clinical Guideline 2004 for Abdomen Magnetic Resonance Imaging (MRI) with or without \nMagnetic Resonance Cholangiopancreatography (MRCP) \n● Suspected choledochal cyst after ultrasound has been done \n● Long-term postoperative surveillance for patients with history of choledochal cyst \n● Post-surgical biliary anatomy and complications when Endoscopic Retrograde \nCholangiopancreatography (ERCP) is not possible or contraindicated \n● Assessment of benign or malignant biliary strictures \n● Evaluation of biliary abnormalities (such as dilated bile duct) identified on prior imaging \n(e.g. ultrasound, CT or MRI) when there are symptoms and/or clinical concern for \npancreaticobiliary disease  \n● Evaluation of pancreaticobiliary disease in pregnant patients after ultrasound has been \ndone \n● Jaundice or abnormal liver function tests after equivocal or abnormal ultrasound \n● Evaluation of suspected congenital anomaly of the pancreaticobiliary tract, e.g., aberrant \nducts, pancreas divisum or related complications \nPancreas \n● Pancreatic cystic lesion found on initial imaging, approve for initial characterization of \nlesion (11) \n● Follow-up for pancreatic cyst (including Intraductal Papillary Mucinous Neoplasm \n(IPMN)) as below (12,13): \n○ \nIncidental and asymptomatic cysts <1.5 cm, AND: \n■ Age < 65, image annually x 5 years, then every 2 years if stable \n■ Age 65-79, imaging every 2 years x 5, then stop if stable \n○ \nCysts 1.5-1.9 cm with main pancreatic duct communication (MPD), image annually x \n5 years, then every 2 years x 2, stop if stable at year 9 \n○ \nCysts 2.0-2.5 cm with MPD communication, image every 6 months x 4, then annually \nx 2, then every 2 years x 3, stop if stable at year 10 \n○ \nCysts 1.5-2.5 cm with NO MPD communication (or cannot be determined), image \nevery 6 mos. x 4, then annually x 2 then every 2 years x 3, stop if stable at year 10 \n○ \nCyst > 2.5 cm on surveillance (i.e., intervention has not been chosen), image every 6 \nmos. x 4, then annually x 2 years, then every 2 years x 3. Stop if stable at year 10 \n○ \nPatients > 80 years of age at presentation are imaged less frequently: image every 2 \nyears x 2, stop if stable at year 4 (intervals are the same regardless of size if \nsurveillance chosen) \n○ \nGrowth or suspicious change on a surveillance imaging scan may warrant more \nfrequent surveillance \n● Suspected new onset acute pancreatitis and ALL of the following: \n○ \nEpigastric or upper abdominal pain \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2005-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 118,
+    "source_section": "INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities of the Abdomen and Pelvis",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evaluation of known or suspected mesenteric ischemia/ischemic colitis",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion or known acute or chronic mesenteric ischemia or ischemic colitis",
+          "parameter": "suspected_mesenteric_ischemia",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 5 of 15 \nEvolent Clinical Guideline 2005 for Abdomen Pelvis Computed Tomography Angiography (CTA) \nhas been provided (e.g., complex vascular anatomy or suspected complications) with \nany ONE of the following: \n○ \nWithin 1 year postoperatively then \n○ \nAnnually with past inconclusive or insufficient ultrasound \n○ \nEvery 5 years (inconclusive or insufficient ultrasound not required at the 5-year \ninterval)  \n● If symptomatic or imaging shows increasing or new findings related to stent graft – more \nfrequent imaging may be needed as clinically indicated \n● Suspected complications (such as new onset lower extremity claudication, ischemia, or \nreduction in ankle brachial index (ABI) after aneurysm repair) \n● Evaluation of endovascular/interventional abdominal vascular procedures for luminal \npatency versus restenosis due to conditions such as atherosclerosis, thromboembolism, \nand intimal hyperplasia \n● Evaluation of post-operative complications, such as pseudoaneurysms, related to \nsurgical bypass grafts, vascular stents, and stent-grafts in the peritoneal cavity \nIschemia or Hemorrhage \n● To determine the vascular source of retroperitoneal hematoma or hemorrhage when CT \nis insufficient to determine the source (CT rather than MRA/CTA is the modality of \nchoice for diagnosing hemorrhage) (4) \n● Evaluation of known or suspected mesenteric ischemia/ischemic colitis (5) \n● To localize active lower gastrointestinal bleeding, or non-localized intermittent bleeding \nin a hemodynamically stable patient when colonoscopy was unsuccessful, \ncontraindicated or unavailable (6–8) \nOther Vascular Abnormalities of the Abdomen and Pelvis \n● Initial evaluation of inconclusive vascular findings on prior imaging of the abdomen \nand/or pelvis \n● For evaluation or monitoring of non-aortic large vessel or visceral vascular disease of the \nabdomen (e.g., aneurysm, dissection, arteriovenous malformations (AVM), vascular \nfistula, intramural hematoma, compression syndromes and vasculitis involving any of the \nfollowing: inferior vena cava, superior/inferior mesenteric, celiac, hepatic, splenic or renal \narteries/veins) (9)  \n● As part of an extracardiac vascular assessment in patients with spontaneous coronary \nartery dissection (SCAD), can be done at time of coronary angiography (10,11) \n● Suspected complications of known aneurysm of the abdomen and/or pelvis as \nevidenced by clinical findings such as new onset of abdominal pain (prior ultrasound is \nNOT required)  \n● For patients with fibromuscular dysplasia (FMD) (12,13): \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2005-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 119,
+    "source_section": "INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Suspected pelvic congestive syndrome (including May-Thurner and nutcracker syndromes) when ultrasound is indeterminant",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected pelvic congestion syndrome, May-Thurner, or nutcracker syndrome",
+          "parameter": "suspected_pelvic_venous_syndrome",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Initial pelvic or vascular ultrasound was indeterminate",
+          "parameter": "prior_ultrasound_indeterminate",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 6 of 15 \nEvolent Clinical Guideline 2005 for Abdomen Pelvis Computed Tomography Angiography (CTA) \n○ \nOne-time vascular study from brain to pelvis \n● For patients with Takayasu's Arteritis (14): \n○ \nAt initial diagnosis \n○ \nEvery 6 months for the first 2 years while on therapy \n○ \nAnnually after the first 2 years \nVenous Disease \n● Suspected venous thrombosis (including renal vein thrombosis and/or portal venous \nthrombosis) if previous studies (such as ultrasound) have not resulted in a clear \ndiagnosis (15,16) \n● Suspected pelvic congestive syndrome (including May-Thurner and nutcracker \nsyndromes) when ultrasound is indeterminant with no contraindications to CT (17) \n● For acute unilateral (or asymmetric) lower extremity edema with negative or inconclusive \ndoppler US and CT (18)   \n● For chronic (greater than 3 months) unilateral (or asymmetric) lower extremity edema \nand suspicion of malignant cause when Abdomen and Pelvis (or Pelvis CT) is negative \nor inconclusive (18) \nEvaluation of Tumor \n● When needed for clarification of vascular involvement from tumor (including suspected \nrenal vein thrombosis) (16) \n● For imaging of the deep inferior epigastric arteries prior to breast reconstructive \nsurgery (19) \nPREOPERATIVE OR POSTOPERATIVE ASSESSMENT \nWhen not otherwise specified in the guideline: \nPreoperative Evaluation: \n● Prior to the following procedures: \n○ \nSolid organ transplantation \n○ \nEndovascular aneurysm repair (EVAR) \n○ \nRepair of abdominal aortic aneurysm \n○ \nTranscatheter Aortic Valve Replacement (TAVR) (20) \n○ \nImaging of the deep inferior epigastric arteries prior to breast reconstructive \nsurgery (19) \n● Imaging of the area requested is needed to develop a surgical plan \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 150,
+    "source_section": "Stroke and Vascular Disease / Evaluation of Known or Suspected Stroke (11,12)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evaluation of Known or Suspected Stroke (11,12)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known or clinically suspected acute ischemic stroke or intracranial hemorrhage",
+          "parameter": "suspected_acute_stroke",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 5 of 26 \nEvolent Clinical Guideline 2008 for Brain Computed Tomography (CT) \n● Chronic headache (>3 months) and any ONE of the following when MRI is \ncontraindicated or cannot be performed: \no Change in character or pattern (e.g. increased severity, frequency or duration) \n● Cluster headaches or other trigeminal-autonomic cephalalgias (paroxysmal hemicrania, \nhemicrania continua, short-lasting unilateral neuralgiform headache attacks \n(SUNCT/SUNA)) once to eliminate secondary causes  \nAdditional Indications in the Pediatric Population (<18) When None of \nthe Above Apply  (4,5) \n● Persistent headache and any ONE of the following (no contraindication to MRI is \nneeded) \n○ \nImmune deficiency \n○ \nHistory of neoplasm \n○ \nHistory of congenital heart disease \n○ \nCoagulopathy \n○ \nSee Imaging in Known Genetic Conditions for additional indications \n● Persistent headache and any ONE of the following when MRI is contraindicated or \ncannot be performed: \n○ \nAge < 6 years old \n○ \nOccipital location \n○ \nDocumentation of absence of family history of headache \n○ \nConcern for increased intracranial pressure with symptoms such as recurring \nheadaches after waking \nNeurological Symptoms or Deficits (6–10)  \n● Acute, new, fluctuating, or persistent neurologic symptoms or deficits such as, sensory \ndeficits, limb weakness, abnormal reflexes (pathological, asymmetric, hyperreflexia), \nspeech difficulties, visual loss, lack of coordination, or mental status changes. \nStroke and Vascular Disease \nEvaluation of Known or Suspected Stroke (11,12) \n● Suspected stroke with any acute, new, or fluctuating symptoms or deficits such as \nsensory deficits, limb weakness, speech difficulties, visual loss, lack of coordination, or \nmental status changes (see Background) \n● History of stroke and ONE of the following: \no No prior workup when MRI is contraindicated or cannot be performed \no New neurologic signs or symptoms \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 151,
+    "source_section": "Evaluation of Known or Suspected Vascular Disease (13)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evaluation of suspected acute subarachnoid hemorrhage (SAH)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of acute subarachnoid hemorrhage",
+          "parameter": "suspected_acute_sah",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 6 of 26 \nEvolent Clinical Guideline 2008 for Brain Computed Tomography (CT) \n● Suspected stroke with: \n○ \nA personal or first-degree family history (brother, sister, parent, or child) of aneurysm \nOR \n○ \nKnown coagulopathy or on anticoagulation \n● Symptoms of transient ischemic attack (TIA) (episodic neurologic symptoms such as \nsensory deficits, limb weakness, speech difficulties, visual loss, lack of coordination, or \nmental status changes) when MRI is contraindicated or cannot be performed \n● See Imaging in Known Genetic Conditions section for additional indications (including \nfor HbSS sickle cell disease or HbSβ0 thalassemia)  \nEvaluation of Known or Suspected Vascular Disease (13) \n● Evaluation of suspected acute subarachnoid hemorrhage (SAH) \n● Follow-up for known hemorrhage, hematoma, or vascular abnormalities (11)  \n● Suspected central venous thrombosis and ANY ONE of the following when MRI is \ncontraindicated or cannot be performed: \n○ \nPatient has a hypercoagulable state such as pregnancy, post-partum, prothrombotic \nconditions (acquired or genetic), malignancy, oral contraceptive use, recent infection, \nrecent trauma or covid-19 \n○ \nDocumentation of concern for central venous thrombosis is specified \n○ \nPapilledema or signs/symptoms of increased intracranial pressure \n● Known Moyamoya disease or reversible cerebral vasoconstriction with any new or \nchanging neurological signs or symptoms when MRI is contraindicated or cannot be \nperformed \nHead Trauma \nEvaluation of Known or Suspected Trauma (14,15)  \n● Known or suspected trauma or injury to the head with documentation of one or more of \nthe following acute, new, or fluctuating: \n○ \nFocal neurologic findings \n○ \nMotor changes  \n○ \nMental status changes \n○ \nAmnesia \n○ \nVomiting \n○ \nSeizures \n○ \nHeadache \n○ \nSigns of increased intracranial pressure \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-003",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 151,
+    "source_section": "INDICATIONS / Head Trauma / Evaluation of Known or Suspected Trauma (14,15)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Known or suspected trauma or injury to the head with documentation of one or more of",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known or suspected acute head trauma with acute, new, or fluctuating focal neurologic findings, motor changes, or mental status changes",
+          "parameter": "acute_head_trauma_with_neurologic_deficit",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 6 of 26 \nEvolent Clinical Guideline 2008 for Brain Computed Tomography (CT) \n● Suspected stroke with: \n○ \nA personal or first-degree family history (brother, sister, parent, or child) of aneurysm \nOR \n○ \nKnown coagulopathy or on anticoagulation \n● Symptoms of transient ischemic attack (TIA) (episodic neurologic symptoms such as \nsensory deficits, limb weakness, speech difficulties, visual loss, lack of coordination, or \nmental status changes) when MRI is contraindicated or cannot be performed \n● See Imaging in Known Genetic Conditions section for additional indications (including \nfor HbSS sickle cell disease or HbSβ0 thalassemia)  \nEvaluation of Known or Suspected Vascular Disease (13) \n● Evaluation of suspected acute subarachnoid hemorrhage (SAH) \n● Follow-up for known hemorrhage, hematoma, or vascular abnormalities (11)  \n● Suspected central venous thrombosis and ANY ONE of the following when MRI is \ncontraindicated or cannot be performed: \n○ \nPatient has a hypercoagulable state such as pregnancy, post-partum, prothrombotic \nconditions (acquired or genetic), malignancy, oral contraceptive use, recent infection, \nrecent trauma or covid-19 \n○ \nDocumentation of concern for central venous thrombosis is specified \n○ \nPapilledema or signs/symptoms of increased intracranial pressure \n● Known Moyamoya disease or reversible cerebral vasoconstriction with any new or \nchanging neurological signs or symptoms when MRI is contraindicated or cannot be \nperformed \nHead Trauma \nEvaluation of Known or Suspected Trauma (14,15)  \n● Known or suspected trauma or injury to the head with documentation of one or more of \nthe following acute, new, or fluctuating: \n○ \nFocal neurologic findings \n○ \nMotor changes  \n○ \nMental status changes \n○ \nAmnesia \n○ \nVomiting \n○ \nSeizures \n○ \nHeadache \n○ \nSigns of increased intracranial pressure \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-004",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 149,
+    "source_section": "INDICATIONS / Evaluation of Headache (1,2) / Acute, sudden onset headache",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Acute, sudden onset headache (< 4 weeks), with any ONE of the following",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Acute sudden onset severe headache presenting within 48 hours of onset ('worst headache of life' or 'thunderclap' headache) concerning for acute subarachnoid hemorrhage",
+          "parameter": "thunderclap_or_worst_headache_of_life",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 26 \nEvolent Clinical Guideline 2008 for Brain Computed Tomography (CT) \nINDICATIONS \nHeadache \nEvaluation of Headache (1,2) \n● Acute, sudden onset headache (< 4 weeks), with any ONE of the following (no \ncontraindication to MRI is needed): \no A personal or family history (brother, sister, parent, or child) of brain aneurysm or \nAVM (arteriovenous malformation) \no < 48 hours of “worst headache in my life” or “thunderclap” headache (Sudden onset \nnew headache reaching maximum intensity within 2-3 minutes, lasting more than 5 \nminutes) \no Prior history of stroke or intracranial bleed \no Known coagulopathy or on anticoagulation \n● New onset headache (< 3 months with no prior history of headache) with any ONE of the \nfollowing (no contraindication to MRI is needed): \no Fever \no Subacute head trauma \no Acute, new, or fluctuating neurologic deficits, such as sensory deficits, limb \nweakness, abnormal reflexes (pathological, asymmetric, hyperreflexia), speech \ndifficulties, visual loss, lack of coordination, or mental status changes or with signs of \nincreased intracranial pressure (papilledema).  \n○ \nMigraine with atypical/complex aura (such as motor, brainstem or retinal auras which \nmay be characterized by motor weakness, balance issues, vertigo, slurred speech, \nvisional loss and/or double vision) \n■ NOTE: Imaging is not indicated for typical migraine symptoms characterized by \nvisual and/or sensory and/or speech/language symptoms AND the absence of \nmotor, brainstem or retinal symptoms. Typical migraines develop gradually, last \none hour or less and are completely reversible \no Severe unilateral headache with radiation to or from the neck, associated with \nsuspicion of carotid or vertebral artery dissection \n● New onset headache with any ONE of the following when MRI is contraindicated or \ncannot be performed: \no History of cancer or significantly immunocompromised \no Age > 50 \no Related to activity or event (sexual activity, exertion, Valsalva, position), new or \nprogressively worsening (3) \no Persistent or progressively worsening during a course of physician-directed \ntreatment (1) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2009-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 176,
+    "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Evaluation of Known Intracranial Vascular Disease (1,2)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evaluation of Known Intracranial Vascular Disease (1,2)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Acute ischemic stroke presentation being evaluated for large vessel occlusion (LVO) or mechanical thrombectomy eligibility",
+          "parameter": "acute_stroke_lvo_evaluation",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 5 of 20 \nEvolent Clinical Guideline 2009 for Brain Computed Tomography Angiography (CTA) \nHemorrhagic \n● Known subarachnoid hemorrhage (SAH) (1,2) \n● Known cerebral intraparenchymal hemorrhage with concern for underlying vascular \nabnormality (2,17) \nVenous – when MRA is contraindicated or cannot be performed (7,17)  \n● Suspected central venous thrombosis and ANY ONE of the following:  \n○ \nPatient has a hypercoagulable state such as pregnancy, post-partum, prothrombotic \nconditions (acquired or genetic), malignancy, oral contraceptive use, recent infection, \nrecent trauma or covid-19 \n○ \nDocumentation of concern for central venous thrombosis is specified \n○ \nPapilledema or signs of increased intracranial pressure \n● Distinguishing benign intracranial hypertension (pseudotumor cerebri) from dural sinus \nthrombosis \nVasculitis and Other Intracranial Vascular Disease  \n● Known vasculitis or autoimmune disease with concern for secondary CNS vasculitis \nbased on neurological signs or symptoms \n● Suspected primary CNS vasculitis based on neurological signs and symptoms with \ncompleted infectious/inflammatory lab work-up (1,23) \n● Large vessel vasculitis  \n○ \nGiant cell arteritis with suspected intracranial involvement (24) \n○ \nTakayasu's Arteritis (25) \n■ At initial diagnosis \n■ Every 6 months for the first 2 years while on therapy \n■ Annually after the first 2 years \n● Suspected Moyamoya disease (2,26)  \n● Suspected reversible cerebral vasoconstriction syndrome (7,27) \n● For patients with fibromuscular dysplasia (FMD) (28,29): \n○ \nOne-time vascular study from brain to pelvis \n● Spontaneous coronary arteries dissection (SCAD) (6): \n○ \nOne-time vascular study from the brain to pelvis \nEvaluation of Known Intracranial Vascular Disease (1,2) \n● Known intracranial aneurysm, treated aneurysm, or known vascular malformation (i.e., \nAVM or dural arteriovenous fistula) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2015-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 297,
+    "source_section": "INDICATIONS / Acute Ischemic Stroke",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "within 24 hours of known ischemic infarct",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Acute ischemic stroke being evaluated for endovascular thrombectomy or reperfusion therapy",
+          "parameter": "acute_ischemic_stroke_reperfusion",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Evaluation performed within 24 hours of symptom onset or last known normal",
+          "parameter": "hours_since_stroke_onset",
+          "comparator": "LESS_THAN_OR_EQUAL",
+          "value": 24,
+          "unit": "hours"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 3 of 9 \nEvolent Clinical Guideline 2015 for Cerebral Perfusion Computed Tomography (CT) \n○ \nFor early detection of acute cerebral ischemia and infarct to determine the \nappropriateness of an intervention or procedure (7,8) \n■ For suspected infarct indicated by focal neurological deficit or initial imaging \nwithin 24 hours of known ischemic infarct (6) \n○ \nPrediction of hemorrhagic transformation in acute ischemic stroke (7–9) \n○ \nDifferentiating post-ictal paralysis or other stroke mimics from acute stroke after MRI \nhas been completed or is contraindicated and will guide treatment (9) \n○ \nFor noninvasive evaluation of suspected vasospasm related cerebral \nischemia/infarction and/or delayed cerebral ischemia after subarachnoid hemorrhage \nwhen transcranial Doppler cannot be done or is indeterminate (1) \n○ \nFor the assessment of cerebral blood flow after carotid revascularization in \nindividuals with severe carotid artery stenosis or signs/symptoms of cerebral \nhyperperfusion (10) \nCODING AND STANDARDS \nCodes \n70473  \nApplicable Lines of Business \n☒ \nCHIP (Children’s Health Insurance Program) \n☒ \nCommercial \n☒ \nExchange/Marketplace \n☒ \nMedicaid \n☒ \nMedicare Advantage \nBACKGROUND \nOverview \nCTP is not widely used especially in outpatients. It is useful in specific scenarios after initial CT \nand/or MR imaging has been obtained for assessment of, patients with acute stroke, and also a \nwide range of patients with other cerebrovascular diseases. In evaluating acute stroke it may \nassist in differentiating the unsalvageable core infarct and salvageable ischemic regions of the \nbrain that may benefit from thrombectomy or thrombolysis. (2) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2016-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 308,
+    "source_section": "INDICATIONS FOR CERVICAL SPINE CT / Evaluation of Trauma or Acute Injury (13)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evaluation of Trauma or Acute Injury (13)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Acute high-impact blunt cervical trauma or acute injury meeting Canadian C-Spine Rule or NEXUS criteria",
+          "parameter": "acute_cervical_trauma",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 5 of 23 \nEvolent Clinical Guideline 2016 for Cervical Spine Computed Tomography (CT) \n○ \nRadicular pain \n○ \nFever, weight loss, or malaise  \n○ \nPostural changes (e.g., kyphosis or scoliosis) \n○ \nLimp (or refusal to walk in a younger child) \nEvaluation of Suspected Myelopathy (11,12) \nWhen Cervical Spine MRI is Contraindicated \n● Progressive symptoms including hand clumsiness, worsening handwriting, difficulty with \ngrasping and holding objects, diffuse numbness in the hands, pins and needles \nsensation, increasing difficulty with balance and ambulation \n● Any of the neurological deficits as noted above \nNOTE: Does NOT require conservative care \nEvaluation of Trauma or Acute Injury (13) \n● Presents with any of the following neurological deficits as above \n● With progression or worsening of symptoms during the course of conservative \ntreatment* \n● History of underlying spinal abnormalities (i.e., ankylosing spondylitis) (Both MRI and CT \nare indicated) (14,15) \n● When the patient is clinically unevaluable or there are preliminary imaging findings (x-ray \nor MRI) needing further evaluation \n● When office notes specify that the C-spine cannot be clinical cleared because of a high-\nrisk feature such as neurological deficit, midline spinal tenderness, altered mental status, \nhigh risk mechanism, unable to rotate neck as described in the NEXUS (National \nEmergency X-Radiography Utilization Study) or CCR (Canadian Cervical Rules) criteria \nfor imaging (16): \n○ \nCT for initial imaging \n○ \nMRI when suspect spinal cord or nerve root injury or when patient is obtunded, and \nCT is negative \n○ \nCT or MRI for treatment planning of unstable spine (16) \nEvaluation of Compression Fractures (17) \n● To assess union of a fracture when physical examination, plain radiographs, or prior \nimaging suggest delayed or non-healing \n● To determine the position of fracture fragments \n● With history of malignancy  \n● Fracture on initial imaging in a young patient (<50) with no history of trauma and concern \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2017-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 330,
+    "source_section": "Evaluation of Neck Pain (5,6)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references",
+    "rule_quote": "Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months: NOTE - Failure of conservative treatment is defined as one of the following: ○ Lack of meaningful improvement after a full course of treatment; OR ○ Progression or worsening of symptoms during treatment; OR ○ Documentation of a medical reason the member is unable to participate in treatment",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of non-emergent neck pain without acute progressive cord compression",
+          "parameter": "clinical_indication",
+          "comparator": "EQUALS",
+          "value": "NECK_PAIN"
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Completion of at least six (6) consecutive weeks of conservative therapy within the prior six (6) months",
+          "parameter": "conservative_care_duration_weeks",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 6,
+          "unit": "weeks"
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Conservative therapy completed within the preceding 6 months",
+          "parameter": "conservative_care_recency_months",
+          "comparator": "LESS_THAN_OR_EQUAL",
+          "value": 6,
+          "unit": "months"
+        },
+        {
+          "condition_id": "COND-004",
+          "description": "Documented failure (lack of improvement, progression, or medically documented contraindication)",
+          "parameter": "conservative_therapy_outcome",
+          "comparator": "DOCUMENTED_FAILURE",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 26 \nEvolent Clinical Guideline 2017 for Cervical Spine Magnetic Resonance Imaging (MRI) \n \nneuropathy) \n○ \nPathologic reflexes (e.g., Babinski, Lhermitte's sign, (3) Chaddock Sign, (4) Hoffman’s \nand other upper motor neuron signs); OR abnormal deep tendon reflexes (not likely \ncaused by plexopathy, or peripheral neuropathy) \n○ \nAbsent/decreased sensation along a particular cervical dermatome (nerve \ndistribution): pin prick, touch, vibration, proprioception, or temperature (and not likely \ncaused by plexopathy or peripheral neuropathy) \n○ \nUpper or lower extremity increase muscle tone/spasticity \n○ \nNew onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related \nto an inherent bowel or bladder process \n○ \nGait abnormalities (see Table 1 below for more details) \n● Suspected cervical cord compression with any neurological deficits as listed above \nEvaluation of Neck Pain (5,6)  \n● With new or worsening objective neurologic deficits on exam, as above \n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) \nmonths: \nNOTE - Failure of conservative treatment is defined as one of the following: \n○ \nLack of meaningful improvement after a full course of treatment; OR \n○ \nProgression or worsening of symptoms during treatment; OR \n○ \nDocumentation of a medical reason the member is unable to participate in treatment \nClosure of medical or therapy offices, patient inconvenience, or noncompliance \nwithout explanation does not constitute “inability to complete” treatment. \n● With progression or worsening of symptoms during the course of conservative \ntreatment* \n● With an abnormal electromyography (EMG) or nerve conduction study (if performed) \nindicating a cervical radiculopathy. (7,8)  \n● Isolated neck pain in pediatric population when at least ONE of the following red flags \nare present (9,10) (Note: conservative care is not required if red flags are present).  \n○ \nAge 5 or younger \n○ \nConstant pain \n○ \nPain lasting > 4 weeks \n○ \nAbnormal neurologic examination \n○ \nEarly morning stiffness and/or gelling \n○ \nNight pain that prevents or disrupts sleep \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2017-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 331,
+    "source_section": "Evaluation of Suspected Myelopathy (11,12)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains clinical footnotes or superscript references",
+    "rule_quote": "Evaluation of Suspected Myelopathy (11,12) ● Progressive symptoms including hand clumsiness, worsening handwriting, difficulty with grasping and holding objects, diffuse numbness in the hands, pins and needles sensation, increasing difficulty with balance and ambulation ● Any of the neurological deficits as noted above NOTE: Does NOT require conservative care",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of cervical myelopathy with progressive upper extremity dysfunction or balance difficulty",
+          "parameter": "suspected_cervical_myelopathy",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Objective neurological exam findings (hyperreflexia, clonus, gait instability, Babinski)",
+          "parameter": "myelopathic_neurologic_deficits",
+          "comparator": "IS_PRESENT",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 5 of 26 \nEvolent Clinical Guideline 2017 for Cervical Spine Magnetic Resonance Imaging (MRI) \n \n○ \nRadicular pain \n○ \nFever, weight loss, or malaise  \n○ \nPostural changes (e.g., kyphosis or scoliosis) \n○ \nLimp (or refusal to walk in a younger child) \nEvaluation of Suspected Myelopathy (11,12) \n \n● Progressive symptoms including hand clumsiness, worsening handwriting, difficulty with \ngrasping and holding objects, diffuse numbness in the hands, pins and needles \nsensation, increasing difficulty with balance and ambulation \n● Any of the neurological deficits as noted above \nNOTE: Does NOT require conservative care \nEvaluation of Known or Suspected Multiple Sclerosis \n(MS) (12,13) \n● Evidence of MS on recent baseline Brain MRI \n● Suspected or known MS with new or changing symptoms consistent with cervical spinal \ncord disease (focal neurologic deficit or clinical sign, e.g., Lhermitte sign) (3) \n● Suspected or known pediatric demyelinating diseases (MS/ADEM) \n● For evaluation of neuromyelitis optica spectrum disorders (recurrent or bilateral optic \nneuritis; recurrent transverse myelitis) (14) \n● For known MS, prior to the initiation or change of disease modification treatments and \nassess disease burden (to establish a new baseline) (15) \n● Follow-up scans, including brain and spine imaging, if patients have known cervical \nspine disease: \n○ \n3-6 months after starting/changing treatment \n○ \nEvery 6-12 months until stable on disease modifying treatment   \n○ \nOnce stable on disease modifying treatment, every 1-2 years to assess for \nsubclinical disease activity, less frequently when stable for 2-3 years \nEvaluation of Trauma or Acute Injury (16) \n● Presents with any of the following neurological deficits as above \n● With progression or worsening of symptoms during the course of conservative \ntreatment* \n● History of underlying spinal abnormalities (i.e., ankylosing spondylitis) (Both MRI and CT \nare indicated) (17,18) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2017-003",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 330,
+    "source_section": "INDICATIONS / Evaluation of Neck Pain (5,6)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains clinical footnotes or superscript references",
+    "rule_quote": "Suspected cervical cord compression with any neurological deficits as listed above",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected acute cervical spinal cord compression with objective neurological deficit",
+          "parameter": "suspected_cervical_cord_compression",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 26 \nEvolent Clinical Guideline 2017 for Cervical Spine Magnetic Resonance Imaging (MRI) \n \nneuropathy) \n○ \nPathologic reflexes (e.g., Babinski, Lhermitte's sign, (3) Chaddock Sign, (4) Hoffman’s \nand other upper motor neuron signs); OR abnormal deep tendon reflexes (not likely \ncaused by plexopathy, or peripheral neuropathy) \n○ \nAbsent/decreased sensation along a particular cervical dermatome (nerve \ndistribution): pin prick, touch, vibration, proprioception, or temperature (and not likely \ncaused by plexopathy or peripheral neuropathy) \n○ \nUpper or lower extremity increase muscle tone/spasticity \n○ \nNew onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related \nto an inherent bowel or bladder process \n○ \nGait abnormalities (see Table 1 below for more details) \n● Suspected cervical cord compression with any neurological deficits as listed above \nEvaluation of Neck Pain (5,6)  \n● With new or worsening objective neurologic deficits on exam, as above \n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) \nmonths: \nNOTE - Failure of conservative treatment is defined as one of the following: \n○ \nLack of meaningful improvement after a full course of treatment; OR \n○ \nProgression or worsening of symptoms during treatment; OR \n○ \nDocumentation of a medical reason the member is unable to participate in treatment \nClosure of medical or therapy offices, patient inconvenience, or noncompliance \nwithout explanation does not constitute “inability to complete” treatment. \n● With progression or worsening of symptoms during the course of conservative \ntreatment* \n● With an abnormal electromyography (EMG) or nerve conduction study (if performed) \nindicating a cervical radiculopathy. (7,8)  \n● Isolated neck pain in pediatric population when at least ONE of the following red flags \nare present (9,10) (Note: conservative care is not required if red flags are present).  \n○ \nAge 5 or younger \n○ \nConstant pain \n○ \nPain lasting > 4 weeks \n○ \nAbnormal neurologic examination \n○ \nEarly morning stiffness and/or gelling \n○ \nNight pain that prevents or disrupts sleep \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2022-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 436,
+    "source_section": "INDICATIONS (1,2)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Patient had failed or incomplete colonoscopy",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Diagnostic evaluation of the colon required",
+          "parameter": "diagnostic_colonic_evaluation_needed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Patient had a prior failed or technically incomplete conventional optical colonoscopy",
+          "parameter": "failed_or_incomplete_colonoscopy",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": "       \nPage 2 of 7 \nEvolent Clinical Guideline 2022 for CT (Virtual) Colonoscopy - Diagnostic \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care criteria. \nThese criteria are supported by evidence-based or peer-reviewed sources such as \nmedical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nComputed tomographic colonography (CTC), also referred to as virtual colonoscopy, is a \nminimally invasive structural examination of the colon and rectum to evaluate for colorectal \npolyps or neoplasms. \nSee Legislative Language for specific mandates for the State of Rhode Island. \nINDICATIONS (1,2) \nFor diagnostic evaluation \nSymptomatic patients when conventional colonoscopy is contraindicated or could not be \ncompleted and ONE of the following: \n● Patient had failed or incomplete colonoscopy (1)  \n● Patient has an obstructive colorectal cancer \n● When colonoscopy is medically contraindicated or not possible (e.g., patient is unable to \nundergo sedation or has medical conditions such as a recent myocardial infarction, \nrecent colonic surgery, a bleeding disorder, or severe lung and/or heart disease) (1) \nFollow-Up Studies \n● For a 3-year follow-up when 1-2 polyps that are 6-9 mm in diameter detected at CTC if \npatient does not undergo polypectomy (or is unwilling or unable to undergo \ncolonoscopy)(2) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2030-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 490,
+    "source_section": "INDICATIONS / For Annual Screening / Group 1 - High Risk for Lung Cancer (3,4)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references",
+    "rule_quote": "Group 1 - High Risk for Lung Cancer (3,4)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient age is between 50 and 80 years old",
+          "parameter": "patient_age_years",
+          "comparator": "BETWEEN",
+          "value": [
+            50,
+            80
+          ],
+          "unit": "years"
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Documented smoking history of at least 20 pack-years",
+          "parameter": "smoking_history_pack_years",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 20,
+          "unit": "pack_years"
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Patient is currently smoking or has quit smoking within the past 15 years",
+          "parameter": "current_or_recent_smoker_15yr",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 2 of 8 \nEvolent Clinical Guideline 2030 for Low Dose Computed Tomography (CT) for Lung Cancer Screening \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care \ncriteria. These criteria are supported by evidence-based or peer-reviewed sources such \nas medical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nLow Dose Computed Tomography (LDCT) generates images of the lungs (chest) and is used to \nscreen for and detect lung cancer in high-risk patients and/or patients with a history of lung \ncancer. This study uses low doses of radiation (100-120 kVp and 40-60 mAs) and is primarily \nused to evaluate the lung parenchyma. When evaluation of structures such as lymph nodes or \nthe mediastinum is needed, a standard dose CT with IV contrast may be more appropriate. (1) \nINDICATIONS \nFor Annual Screening \nThe use of low-dose, non-contrast spiral (helical) multi-detector CT imaging as a screening \ntechnique for lung cancer is considered medically necessary ONLY when used to screen for \nlung cancer for certain high-risk, asymptomatic individuals (i.e., no acute lung-related \nsymptoms, when ALL of the following criteria are met)  \nNOTE: Screening should be discontinued once a person develops a health problem that limits \nthe willingness or ability to have curative intent treatment. (2) \nGroup 1 - High Risk for Lung Cancer (3,4) \n● Individual is between 50-80 years of age*; AND \n● There is at least a 20 pack-year history of cigarette** smoking \n*May approve for individuals over the age limit if the individual is a candidate for and willing \nto undergo curative treatment upon diagnosis. \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2032-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 504,
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY CT / Non-specific Lower Extremity Pain (1,2)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions",
+    "rule_quote": "Lower extremity pain with no specific joint identified with MRI contraindicated or cannot be performed AND with prior X-ray",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Lower extremity pain without specific localized joint involvement",
+          "parameter": "non_specific_lower_extremity_pain",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Prior plain radiographs (X-ray) completed of the symptomatic region",
+          "parameter": "prior_xray_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "MRI is medically contraindicated or cannot be performed",
+          "parameter": "mri_contraindicated",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 23 \nEvolent Clinical Guideline 2032 for Lower Extremity Computed Tomography (CT) \nNon-specific Lower Extremity Pain (1,2) \nLower extremity pain with no specific joint identified with MRI contraindicated or cannot be \nperformed AND with prior X-ray showing no clear etiology of extremity pain with any ONE of \nthe following: \n● Persistent musculotendinous lower extremity pain unresponsive to ACTIVE \nConservative Therapy (ACT) which includes physical therapy, chiropractic treatments, \nand/or physician supervised Home Exercise Program (HEP) of at least four (4) weeks \nduration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment  \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nJoint Specific Pain or Suspected Joint Specific Injury  \nIn the absence of a positive joint specific orthopedic sign on exam (see list below), advanced \nimaging is indicated with MRI contraindicated or cannot be performed AND prior X-ray \nshowing no clear etiology for the joint pain with any ONE of the following: \n● Persistent joint pain unresponsive to ACTIVE Conservative Therapy (ACT) which \nincludes physical therapy, chiropractic treatments, and/or physician supervised Home \nExercise Program (HEP) of at least four (4) weeks duration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nNOTE: For Bilateral Hip CT requests: When the patient meets hip joint CT criteria for both right \nand left hip pain (X-ray completed AND persistent pain unresponsive to active conservative \ntherapy AND MRI contraindicated or cannot be performed) without a positive orthopedic sign, \nthen Pelvis CT (Evolent_CG_2042) is the preferred study. \nJoint Specific Orthopedic Signs  \nNOTE: CT is indicated if MRI contraindicated or cannot be performed OR if the study requested \nas a CT arthrogram \nNOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred; \nhowever, it is NOT required UNLESS otherwise specified in bold below.   \nNOTE: The joint specific exam testing list below is intended to be thorough but cannot possibly \nbe all inclusive. Advanced imaging is indicated for any orthopedic exam test that clearly \nsuggests joint instability \nJoint specific advanced imaging is indicated for any positive orthopedic sign listed below: \nAnkle (3–7) \nIf MRI contraindicated or cannot be performed; \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2035-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 553,
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Pain or Suspected Joint Specific Injury",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions",
+    "rule_quote": "Joint Specific Pain or Suspected Joint Specific Injury",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of joint-specific pain, mechanical locking, instability, or suspected internal derangement (ligament/meniscal tear)",
+          "parameter": "joint_specific_injury_or_pain",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 22 \nEvolent Clinical Guideline 2035 for Lower Extremity Magnetic Resonance Imaging (MRI) \nNon-specific Lower Extremity Pain (1,2) \nLower extremity pain with no specific joint identified with prior X-ray showing no clear etiology of \nextremity pain with any ONE of the following: \n● Persistent musculotendinous lower extremity pain unresponsive to ACTIVE \nConservative Therapy (ACT) which includes physical therapy, chiropractic treatments, \nand/or physician supervised Home Exercise Program (HEP) of at least four (4) weeks \nduration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment  \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nJoint Specific Pain or Suspected Joint Specific Injury  \nIn the absence of a positive joint specific orthopedic sign on exam (see list below), advanced \nimaging is indicated with prior X-ray showing no clear etiology for the joint pain with any ONE of \nthe following: \n● Persistent joint pain unresponsive to ACTIVE Conservative Therapy (ACT) which \nincludes physical therapy, chiropractic treatments, and/or physician supervised Home \nExercise Program (HEP) of at least four (4) weeks duration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nNOTE: For Bilateral Hip MRI requests: When the patient meets hip joint MRI criteria for both \nright and left hip pain (X-ray completed AND persistent pain unresponsive to active conservative \ntherapy) without a positive orthopedic sign, then Pelvis MRI (Evolent_CG_2045) is the preferred \nstudy. \nJoint Specific Orthopedic Signs \nNOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred; \nhowever, it is NOT required UNLESS otherwise specified in bold below.   \nNOTE: The joint specific exam testing list below is intended to be thorough but cannot possibly \nbe all inclusive. Advanced imaging is indicated for any orthopedic exam test that clearly \nsuggests joint instability \nJoint specific advanced imaging is indicated for any positive orthopedic sign listed below: \nAnkle (3–7) \n● Physical exam demonstrating a positive result for any ONE of the following tests: \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2035-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 553,
+    "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Orthopedic Signs",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions",
+    "rule_quote": "Joint specific advanced imaging is indicated for any positive orthopedic sign listed below:",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Physical examination demonstrates positive joint-specific sign for meniscal or ligamentous tear (e.g. McMurray test, joint line tenderness, Lachman test, anterior/posterior drawer, pivot shift)",
+          "parameter": "positive_knee_orthopedic_sign",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Prior plain radiograph completed showing no clear explanation for mechanical symptoms or acute fracture",
+          "parameter": "prior_xray_completed",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 22 \nEvolent Clinical Guideline 2035 for Lower Extremity Magnetic Resonance Imaging (MRI) \nNon-specific Lower Extremity Pain (1,2) \nLower extremity pain with no specific joint identified with prior X-ray showing no clear etiology of \nextremity pain with any ONE of the following: \n● Persistent musculotendinous lower extremity pain unresponsive to ACTIVE \nConservative Therapy (ACT) which includes physical therapy, chiropractic treatments, \nand/or physician supervised Home Exercise Program (HEP) of at least four (4) weeks \nduration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment  \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nJoint Specific Pain or Suspected Joint Specific Injury  \nIn the absence of a positive joint specific orthopedic sign on exam (see list below), advanced \nimaging is indicated with prior X-ray showing no clear etiology for the joint pain with any ONE of \nthe following: \n● Persistent joint pain unresponsive to ACTIVE Conservative Therapy (ACT) which \nincludes physical therapy, chiropractic treatments, and/or physician supervised Home \nExercise Program (HEP) of at least four (4) weeks duration within the last 6 months \n● With progression or worsening of symptoms during the course of active conservative \ntreatment \n● Pediatric patient that is either under the age of 12 years OR cannot comply with the \nprescribed therapy \nNOTE: For Bilateral Hip MRI requests: When the patient meets hip joint MRI criteria for both \nright and left hip pain (X-ray completed AND persistent pain unresponsive to active conservative \ntherapy) without a positive orthopedic sign, then Pelvis MRI (Evolent_CG_2045) is the preferred \nstudy. \nJoint Specific Orthopedic Signs \nNOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred; \nhowever, it is NOT required UNLESS otherwise specified in bold below.   \nNOTE: The joint specific exam testing list below is intended to be thorough but cannot possibly \nbe all inclusive. Advanced imaging is indicated for any orthopedic exam test that clearly \nsuggests joint instability \nJoint specific advanced imaging is indicated for any positive orthopedic sign listed below: \nAnkle (3–7) \n● Physical exam demonstrating a positive result for any ONE of the following tests: \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2036-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 574,
+    "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Neurologic Deficits (1)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references",
+    "rule_quote": "INDICATIONS FOR LUMBAR SPINE CT",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of acute lumbar trauma, surgical fusion integrity/pseudoarthrosis, or lumbar pain when MRI is contraindicated",
+          "parameter": "lumbar_ct_indication_met",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 3 of 20 \nEvolent Clinical Guideline 2036 for Lumbar Spine Computed Tomography (CT) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care criteria. \nThese criteria are supported by evidence-based or peer-reviewed sources such as \nmedical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nComputed tomography is used for the evaluation, assessment of severity, and follow-up of \ndiseases of the spine. CT is often used to study the lumbar spine for conditions such as \ndegenerative disc disease when MRI is contraindicated. CT provides excellent depiction of bone \ndetail and is used in the evaluation of known fractures of the lumbar spine and for evaluation of \npostoperative patients.  \nSpecial Note \nIf there is a combination request* for an overlapping body part, either requested at the same \ntime or sequentially (within the past 3 months) one of the following must be demonstrated:   \n● The results of the prior study should be inconclusive or show a need for additional or \nfollow up imaging evaluation  \n● The office notes should clearly document an indication why overlapping imaging is \nneeded and how it will change management for the patient. \n(*Unless approvable in the combination section as noted in the guidelines) \nINDICATIONS FOR LUMBAR SPINE CT \nEvaluation of Neurologic Deficits (1) \nWhen Lumbar Spine MRI is Contraindicated or Cannot be performed \n● With any of the following new neurological deficits documented on physical exam that \nlocalizes to the lumbar spine \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2037-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 594,
+    "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits (1)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references",
+    "rule_quote": "INDICATIONS FOR LUMBAR SPINE MRI",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of low back pain with lumbosacral radiculopathy or radiating leg pain",
+          "parameter": "lumbar_radiculopathy_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Completion of at least 6 weeks of conservative care within the prior 6 months without meaningful improvement",
+          "parameter": "conservative_therapy_duration_weeks",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 6,
+          "unit": "weeks"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 3 of 22 \nEvolent Clinical Guideline 2037 for Lumbar Spine Magnetic Resonance Imaging (MRI) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care criteria. \nThese criteria are supported by evidence-based or peer-reviewed sources such as \nmedical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nMagnetic resonance imaging (MRI) is used in the evaluation, diagnosis, and management of \nspine-related conditions, e.g., degenerative disc disease, cauda equina compression, \nradiculopathy, infections, or cancer in the lumbar spine.  \nSpecial Note \nIf there is a combination request* for an overlapping body part, either requested at the same \ntime or sequentially (within the past 3 months) one of the following must be demonstrated:  \n● The results of the prior study should be inconclusive or show a need for additional or \nfollow-up imaging evaluation \n● The office notes should clearly document an indication why overlapping imaging is \nneeded and how it will change management for the patient. \n(*Unless approvable in the combination section as noted in the guidelines) \nINDICATIONS FOR LUMBAR SPINE MRI \nEvaluation of Neurologic Deficits (1) \n● With any of the following new neurological deficits documented on physical exam that \nlocalizes to the lumbar spine \n○ \nExtremity muscular weakness (not likely caused by plexopathy, peripheral \nneuropathy or neuromuscular disease) \n○ \nPathologic abnormal reflexes (not likely caused by plexopathy, peripheral neuropathy \nor neuromuscular disease) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2037-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 595,
+    "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits / Cauda Equina Syndrome",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains clinical footnotes or superscript references",
+    "rule_quote": "defined symptoms (see Cauda Equina Syndrome section)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of acute cauda equina syndrome with saddle anesthesia, progressive bilateral motor weakness, or bowel/bladder sphincter dysfunction",
+          "parameter": "suspected_cauda_equina_syndrome",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 22 \nEvolent Clinical Guideline 2037 for Lumbar Spine Magnetic Resonance Imaging (MRI) \n○ \nAbsent/decreased sensation along a particular lumbar dermatome (nerve \ndistribution): pin prick, touch, vibration, proprioception or temperature (and not likely \ncaused by plexopathy, or peripheral neuropathy) \n○ \nLower extremity decreased muscle tone (not likely caused by plexopathy, peripheral \nneuropathy or neuromuscular disease) \n○ \nNew onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related \nto an inherent bowel or bladder process \n○ \nGait abnormalities (see Table 1 below for more details) \n○ \nNew onset foot drop (not related to a peripheral nerve injury, e.g., peroneal nerve) \n● Cauda Equina Syndrome as evidence by severe back pain/sciatica along with one of the \ndefined symptoms (see Cauda Equina Syndrome section) \nEvaluation of Back Pain (1) \nWith any of the Following: \n● With new or worsening objective neurologic deficits on exam, as above \n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) \nmonths: \nNOTE - Failure of conservative treatment is defined as one of the following: \n○ \nLack of meaningful improvement after a full course of treatment; OR \n○ \nProgression or worsening of symptoms during treatment; OR \n○ \nDocumentation of a medical reason the member is unable to participate in treatment \nClosure of medical or therapy offices, patient inconvenience, or noncompliance without \nexplanation does not constitute “inability to complete” treatment. \n● With progression or worsening of symptoms during the course of conservative \ntreatment* \n● With an abnormal electromyography (EMG) or nerve conduction study (if performed) \nindicating a lumbar radiculopathy. (2,3)  \n● Isolated back pain in pediatric population when at least ONE of the following red flags \nare present (4,5) (Note: conservative care not required if red flags are present).  \n○ \nAge 5 or younger \n○ \nConstant pain \n○ \nPain lasting > 4 weeks \n○ \nAbnormal neurologic examination \n○ \nEarly morning stiffness and/or gelling \n○ \nNight pain that prevents or disrupts sleep \n○ \nRadicular pain \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2042-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 673,
+    "source_section": "INDICATIONS FOR PELVIS CT / Pelvic Pain for Unknown Etiology",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "For acute pelvic pain in a patient over the age of 65 (2)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Evaluation of acute severe pelvic pain of unknown etiology",
+          "parameter": "acute_pelvic_pain",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Patient age is strictly greater than 65 years",
+          "parameter": "patient_age_years",
+          "comparator": "GREATER_THAN",
+          "value": 65,
+          "unit": "years"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 16 \nEvolent Clinical Guideline 2042 for Pelvis Computed Tomography (CT) \n● For acute pelvic pain in a patient over the age of 65 (2) \nInflammation and Infection (3,4)  \n● Fistula  \n○ \nSuspected perianal fistula or occult anorectal abscess (5)  \n○ \nFor patients with recurrent fistula in anal or perianal Crohn’s disease when MRI is \ncontraindicated or cannot be performed (6) \n○ \nAny history of fistula limited to the pelvis that requires re-evaluation or is suspected \nto have recurred \n● Infection \n○ \nSuspected infection in the pelvis (based on elevated WBC, fever, anorexia, or \nnausea and vomiting) \n○ \nComplications of diverticulitis limited to the pelvis (prior imaging study is not required \nfor diverticulitis diagnosis) with severe abdominal pain or severe tenderness or mass, \nnot responding to antibiotic treatment \n○ \nAny known infection to have created an abscess in the pelvis that requires re-\nevaluation \n● Stricture \n○ \nSuspected urethral stricture or periurethral pathology after initial evaluation with \ncystoscopy or urethroscopy and additional imaging is needed (such as for suspected \nmalignancy, diverticula, fistula or extensive fibrosis OR for preoperative planning) \n● Fluid Collection \n○ \nAbnormal fluid collection seen on prior imaging that needs follow-up evaluation and \nlimited to the pelvis \nHernia (7)  \n● Suspected hernia and one of the following: \n○ \nDeep pelvic hernia (obturator, sciatic or perineal) \n○ \nRecurrent groin hernia AND exam and ultrasound are non-diagnostic or equivocal \n● Known or suspected inguinal, obturator, sciatic perineal hernia with suspected \ncomplications based on one or more of the following: \n○ \nSymptoms such as severe pain, vomiting, diarrhea or blood in stool  \n○ \nExam findings such as inability to reduce hernia, severe tenderness, guarding, \nrebound \n○ \nComplication is suggested on prior imaging \n● Known pelvic or groin hernia and imaging is needed for surgical planning \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2045-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 718,
+    "source_section": "INDICATIONS FOR PELVIC MRI / Infection and Inflammation",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Suspected perianal fistula or occult anorectal abscess (6)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of perianal fistula, perirectal abscess, or complex fistulizing Crohn's disease",
+          "parameter": "suspected_perianal_fistula_or_abscess",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 22 \nEvolent Clinical Guideline 2045 for Pelvis Magnetic Resonance Imaging (MRI) \n○ Suspected perianal fistula or occult anorectal abscess (6)  \n○ For patients with recurrent fistula in anal or perianal Crohn’s disease (7)  \n○ Any history of fistula limited to the pelvis that requires re-evaluation or is suspected \nto have recurred \n● Infection \n○ Suspected infection in the pelvis (based on elevated WBC, fever, anorexia, or \nnausea and vomiting) \n○ Complications of diverticulitis limited to the pelvis (prior imaging study is not required \nfor diverticulitis diagnosis) with severe abdominal pain or severe tenderness or mass, \nnot responding to antibiotic treatment \n○ Any known infection to have created an abscess in the pelvis that requires re-\nevaluation \n● Stricture \n○ Suspected urethral stricture or periurethral pathology after initial evaluation with \ncystoscopy or urethroscopy and additional imaging is needed (such as for suspected \nmalignancy, diverticula, fistula or extensive fibrosis OR  for preoperative planning) (8)  \nFor Inflammation and Infection When CT is Contraindicated or Cannot \nBe Performed \n● Any known infection that is clinically suspected to have created an abscess in the pelvis \n● Abnormal fluid collection limited to the abdomen seen on prior imaging that needs follow-\nup evaluation \n● Suspected peritonitis when abdominal pain and tenderness to palpation are present, and \nat LEAST one of the following (5): \n○ Rebound, guarding or rigid abdomen, OR \n○ Severe tenderness to palpation over the entire abdomen \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal pain, severe tenderness, or mass that is not responding to antibiotic \ntreatment) \nHernia (9)  \n● Suspected athletic pubalgia (sports hernia) in a patient with persistent groin pain that \noccurs with exertion, who has not responded to active conservative treatment for four \nweeks, when prior imaging (ultrasound or CT) is inconclusive \n● Suspected hernia and CT is inconclusive, contraindicated or cannot be performed and \none of the following: \n○ Deep pelvic hernia (obturator, sciatic or perineal) \n○ Groin (e.g. inguinal or femoral), occult or incisional hernia AND exam and ultrasound \nare non-diagnostic or equivocal \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2054-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 881,
+    "source_section": "INDICATIONS FOR SELLA CT",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "For further evaluation of known sellar and/or parasellar masses",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known sellar, suprasellar, or parasellar mass requiring bony evaluation of sella turcica or surgical planning",
+          "parameter": "sellar_or_parasellar_mass",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 17 \nEvolent Clinical Guideline 2054 for Temporal Bone, Mastoid, Orbits, Sella, Internal Auditory Canal \nComputed Tomography (CT) \nperformed for any ONE of the following: \n○ \nExophthalmos (proptosis) or enophthalmos (sunken eye) \n○ \nOphthalmoplegia with concern for orbital pathology  \n○ \nClinical suspicion of osteomyelitis with any ONE of the following (6): \n■ Direct visualization of bony deformity \n■ Indeterminate or abnormal prior imaging \n○ \nUnilateral optic disk swelling \n○ \nDocumented visual defect(s) with any ONE of the following (7): \n■ Unilateral visual defects \n■ Optic disc(s) abnormalities on exam (such as optic disc blurring, edema, or \npallor); AND not explained by an underlying known diagnosis (such as glaucoma, \nmacular degeneration) \n● Suspected Optic Neuritis with atypical presentation (such as bilateral, absence of pain, \noptic nerve hemorrhages, severe visual impairment, lack of response to steroids, poor \nrecovery or recurrence) (8)  \n● Suspected Orbital Inflammatory Disease (also known as Orbital Inflammatory \nPseudotumor)  \n● Complex strabismus with ophthalmoplegia (ophthalmoparesis) to aid in diagnosis and/or \nmanagement \nINDICATIONS FOR SELLA CT  \nSella CT (9) \nWhen MRI is contraindicated or cannot be performed: \n● For further evaluation of known sellar and/or parasellar masses \n● Suspected pituitary gland disorder based on any ONE of the following: \n○ \nDocumented visual field defect suggesting compression of the optic chiasm \n○ \nLaboratory findings suggesting pituitary dysfunction (such as abnormal levels of \nprolactin, growth hormone, cortisol, testosterone, oxytocin, TSH, ACTH, LH, FSH, \nADH) \n○ \nPituitary apoplexy (sudden loss of pituitary function often due ischemia or \nhemorrhage) with acute onset of neurological and hormonal symptoms \n○ \nPrior imaging suggesting sella (pituitary) mass \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2055-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 896,
+    "source_section": "INDICATIONS FOR TEMPOROMANDIBULAR JOINT (TMJ) MRI / Suspected Internal TMJ Derangement",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains clinical footnotes or superscript references",
+    "rule_quote": "Suspected Internal TMJ Derangement",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected internal derangement of the temporomandibular joint with mechanical locking, persistent pain, or limitation of mouth opening",
+          "parameter": "suspected_tmj_internal_derangement",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 2 of 8 \nEvolent Clinical Guideline 2055 for Temporomandibular Joint (TMJ) Magnetic Resonance Imaging (MRI) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care \ncriteria. These criteria are supported by evidence-based or peer-reviewed sources such \nas medical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nImaging can assist in the diagnosis of TMJ dysfunction (TMD) when history and physical \nexamination findings are equivocal.  \nINDICATIONS FOR TEMPOROMANDIBULAR JOINT \n(TMJ) MRI \nEvaluation of Temporomandibular Disorders (TMD) (1) \nTemporomandibular disorders (TMD) is an umbrella diagnostic term that encompasses the \nentire clinical spectrum of related jaw/facial dysfunction symptomatology. Imaging of the TMJ \ncan be considered when the etiology of TMD is suspected to be an internal anatomic \nderangement within the joint  \nSuspected Internal TMJ Derangement \n● Persistent symptoms of facial or jaw pain, restricted range of motion, pain and/or noise \nwith TMJ function (i.e., chewing) (2–4) AND \n● Conservative therapy with a trial of pharmacotherapy* AND behavioral modification** \nhas been unsuccessful for at least four (4) weeks \n*Pharmacotherapy typically includes analgesics, anti-inflammatories (NSAIDs), and/or \nmuscle relaxants.  In chronic cases, antidepressants and benzodiazepines may be used.  \n**Behavioral modification may include patient education, self-care, cognitive behavior \ntherapy, physical therapy, and/or occlusal devices \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2056-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 905,
+    "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Neurologic Deficits (1) / When Thoracic Spine MRI is Contraindicated or cannot be performed",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references",
+    "rule_quote": "When Thoracic Spine MRI is Contraindicated or cannot be performed",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient has new progressive neurological deficit localizing to the thoracic spine (e.g., extremity weakness, bowel/bladder dysfunction, gait instability)",
+          "parameter": "thoracic_neurologic_deficit_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Thoracic spine MRI is contraindicated (e.g. non-MRI-compatible device, severe claustrophobia) or cannot be performed",
+          "parameter": "thoracic_mri_contraindicated_or_unavailable",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 3 of 20 \nEvolent Clinical Guideline 2056 for Thoracic Spine Computed Tomography (CT) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care criteria. \nThese criteria are supported by evidence-based or peer-reviewed sources such as \nmedical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nComputed tomography is used for the evaluation, assessment of severity, and follow-up of \ndiseases of the spine. CT may be used for conditions, e.g., degenerative changes, infection, \nand immune suppression, when magnetic resonance imaging (MRI) is contraindicated. It may \nalso be used in the evaluation of tumors, cancer, or metastasis in the thoracic spine, and it may \nbe used for preoperative and post-surgical evaluations. CT is fast and is often performed in \nacute settings and provides good visualization of cortical bone. \nSpecial Note \nIf there is a combination request* for an overlapping body part, either requested at the same \ntime or sequentially (within the past 3 months), one of the following must be demonstrated: \n● The results of the prior study should be inconclusive or show a need for additional or \nfollow-up imaging evaluation \n● The office notes should clearly document an indication why overlapping imaging is \nneeded and how it will change management for the patient (the entire spinal cord and/or \nautonomic postganglionic chain must be assessed). \n(*Unless approvable in the combination section as noted in the guidelines) \nINDICATIONS FOR THORACIC SPINE CT \nEvaluation of Neurologic Deficits (1)  \nWhen Thoracic Spine MRI is Contraindicated or cannot be performed \n● With any of the following new neurological deficits documented on physical exam that \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2056-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 906,
+    "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Back Pain (1) / Pain lasting > 4 weeks",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references",
+    "rule_quote": "Pain lasting > 4 weeks",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Persistent thoracic back pain lasting greater than 4 weeks",
+          "parameter": "thoracic_pain_duration_weeks",
+          "comparator": "GREATER_THAN",
+          "value": 4
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Failure of at least 4-6 weeks of conservative management including physical therapy or medications",
+          "parameter": "conservative_therapy_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Thoracic spine MRI is contraindicated or cannot be performed",
+          "parameter": "thoracic_mri_contraindicated",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 20 \nEvolent Clinical Guideline 2056 for Thoracic Spine Computed Tomography (CT) \nlocalizes to the thoracic spine  \n○ \nExtremity muscular weakness (and not likely caused by plexopathy or peripheral \nneuropathy) \n○ \nPathologic reflexes (e.g., Babinski, Lhermitte's sign, (2) Chaddock Sign, (3) Hoffman’s \nand other upper motor neuron signs); OR abnormal deep tendon reflexes (and not \nlikely caused by plexopathy, or peripheral neuropathy)  \n○ \nAbsent/decreased sensation along a particular thoracic dermatome (nerve \ndistribution): pin prick, touch, vibration, proprioception, or temperature (and not likely \ncaused by plexopathy, or peripheral neuropathy) \n○ \nUpper or lower extremity increase muscle tone/spasticity  \n○ \nNew onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related \nto an inherent bowel or bladder process \n○ \nGait abnormalities (see Table 1 below for more details) \n● Suspected thoracic cord compression with any neurological deficits as listed above \nEvaluation of Back Pain (1) \nWith any of the following when Thoracic Spine MRI is Contraindicated \n● With new or worsening objective neurologic deficits on exam, as above \n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) \nmonths: \nNOTE - Failure of conservative treatment is defined as one of the following: \n○ \nLack of meaningful improvement after a full course of treatment; OR \n○ \nProgression or worsening of symptoms during treatment; OR \n○ \nDocumentation of a medical reason the member is unable to participate in treatment \nClosure of medical or therapy offices, patient inconvenience, or noncompliance without \nexplanation does not constitute “inability to complete” treatment. \n● With progression or worsening of symptoms during the course of conservative \ntreatment* \n● With an abnormal electromyography (EMG) or nerve conduction study (if performed) \nindicating a thoracic radiculopathy. (4,5) \n● Isolated back pain in pediatric population when at least ONE of the following red flags \nare present (6,7) (Note: conservative care not required if red flags are present) \n○ \nAge 5 or younger \n○ \nConstant pain \n○ \nPain lasting > 4 weeks \n○ \nAbnormal neurologic examination \n○ \nEarly morning stiffness and/or gelling \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2057-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 925,
+    "source_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Neurologic Deficits (1)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references",
+    "rule_quote": "INDICATIONS FOR THORACIC SPINE MRI",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient has objective physical exam findings of thoracic myelopathy or sensory/motor level deficit",
+          "parameter": "thoracic_myelopathy_or_deficit_present",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 3 of 23 \nEvolent Clinical Guideline 2057 for Thoracic Spine Magnetic Resonance Imaging (MRI) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care \ncriteria. These criteria are supported by evidence-based or peer-reviewed sources such \nas medical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nMagnetic resonance imaging (MRI) produces high quality multiplanar images of organs and \nstructures within the body without using ionizing radiation. It is the preferred modality for \nevaluating the internal structure of the spinal cord, providing assessment of conditions such as \ndegenerative disc pathology, osteomyelitis, and discitis. \nSpecial Note \nIf there is a combination request* for an overlapping body part, either requested at the same \ntime or sequentially (within the past 3 months), one of the following must be demonstrated: \n● The results of the prior study should be inconclusive or show a need for additional or \nfollow-up imaging evaluation \n● The office notes should clearly document an indication why overlapping imaging is \nneeded and how it will change management for the patient (the entire spinal cord and/or \nautonomic postganglionic chain must be assessed). \n(*Unless approvable in the combination section as noted in the guidelines) \nINDICATIONS FOR THORACIC SPINE MRI \nEvaluation of Neurologic Deficits (1)  \n● With any of the following new neurological deficits documented on physical exam that \nlocalizes to the thoracic spine \n○ \nExtremity muscular weakness (not likely caused by plexopathy or peripheral \nneuropathy) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2057-002",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 926,
+    "source_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Back Pain (1) / Pain lasting > 4 weeks",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references",
+    "rule_quote": "Pain lasting > 4 weeks",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Thoracic back pain lasting greater than 4 weeks",
+          "parameter": "thoracic_pain_duration_weeks",
+          "comparator": "GREATER_THAN",
+          "value": 4
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Failure of at least 4-6 weeks of conservative management (e.g. physical therapy, chiropractic treatments, home exercise program)",
+          "parameter": "conservative_therapy_completed",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 23 \nEvolent Clinical Guideline 2057 for Thoracic Spine Magnetic Resonance Imaging (MRI) \n○ \nPathologic reflexes (e.g., Babinski, Lhermitte's sign (2), Chaddock Sign (3), Hoffman’s \nand other upper motor neuron signs); OR abnormal deep tendon reflexes (not likely \ncaused by plexopathy, or peripheral neuropathy)  \n○ \nAbsent/decreased sensation along a particular thoracic dermatome (nerve \ndistribution): pin prick, touch, vibration, proprioception, or temperature (and not likely \ncaused by plexopathy, or peripheral neuropathy) \n○ \nUpper or lower extremity increase muscle tone/spasticity  \n○ \nNew onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related \nto an inherent bowel or bladder process \n○ \nGait abnormalities (see Table 1 below for more details) \n● Suspected thoracic cord compression with any neurological deficits as listed above \nEvaluation of Back Pain (1)  \nWith any of the following: \n● With new or worsening objective neurologic deficits on exam, as above \n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) \nmonths: \nNOTE - Failure of conservative treatment is defined as one of the following: \n○ \nLack of meaningful improvement after a full course of treatment; OR \n○ \nProgression or worsening of symptoms during treatment; OR \n○ \nDocumentation of a medical reason the member is unable to participate in treatment \nClosure of medical or therapy offices, patient inconvenience, or noncompliance without \nexplanation does not constitute “inability to complete” treatment. \n● With progression or worsening of symptoms during the course of conservative \ntreatment* \n● With an abnormal electromyography (EMG) or nerve conduction study (if performed) \nindicating a thoracic radiculopathy (4,5)  \n● Isolated back pain in pediatric population when at least ONE of the following red flags \nare present (6,7) (Note: conservative care not required if red flags are present).   \n○ \nAge 5 or younger \n○ \nConstant pain \n○ \nPain lasting > 4 weeks \n○ \nAbnormal neurologic examination \n○ \nEarly morning stiffness and/or gelling \n○ \nNight pain that prevents or disrupts sleep \n○ \nRadicular pain \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2062-001",
+    "domain": "advanced_imaging",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 965,
+    "source_section": "INDICATIONS FOR UPPER EXTREMITY CT / Upper Extremity Pain (1,2) / Special Notes",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "X-rays must precede CT evaluation, unless otherwise indicated",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Upper extremity plain X-ray completed showing no definitive diagnostic etiology for joint/extremity pain",
+          "parameter": "prior_xray_negative_or_inconclusive",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Persistent pain unresponsive to at least 4 weeks of active conservative therapy, OR acute complex fracture/arthrogram planning",
+          "parameter": "conservative_therapy_or_bony_injury",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 3 of 24 \nEvolent Clinical Guideline 2062 for Upper Extremity Computed Tomography (CT) \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care criteria. \nThese criteria are supported by evidence-based or peer-reviewed sources such as \nmedical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nComputed tomography (CT) may be used for the diagnosis, evaluation, and management of \nconditions of the hand, wrist, elbow, and shoulder. CT is not usually the initial imaging test, but it \nis performed after standard X-rays. CT may be used for preoperative evaluation or to evaluate \nspecific abnormalities of the bones, joints, and soft tissues of the upper extremities. \nSpecial Notes \n● X-rays must precede CT evaluation, unless otherwise indicated \n● Some indications are for magnetic resonance imaging (MRI), CT, or MR or CT \nArthrogram (more than one should not be approved at the same time) \n● If a CT Arthrogram fits approvable criteria below, approve as CT \n● When specifically indicated below, MRI is the preferred study for the evaluation of the \nextremities and CT is indicated only when MRI is contraindicated or cannot be \nperformed \nINDICATIONS FOR UPPER EXTREMITY CT \n(SHOULDER, ELBOW, OR WRIST) \nUpper Extremity Pain (1,2) \nNOTE: Prior completed X-ray showing no clear etiology of joint/extremity pain must precede \nupper extremity CT evaluation unless otherwise indicated \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2066-001",
+    "domain": "advanced_imaging",
+    "audit_status": "HUMAN_REVIEW_REQUIRED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 1036,
+    "source_section": "INDICATIONS FOR EMERGENT STUDIES / Emergent Studies",
+    "issue_description": "Governance blocked rule: Emergent retrospective review requires physician clinical determination of life/limb threat.",
+    "rule_quote": "INDICATIONS FOR EMERGENT STUDIES",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Requested imaging was required to render immediate medical attention needed to prevent loss of life, limb, or risk of permanent disability (e.g. airway/breathing/circulation compromise, acute compartment syndrome, acute vascular thrombosis/embolus)",
+          "parameter": "emergent_life_or_limb_threat_present",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 2 of 7 \nEvolent Clinical Guideline 2066 for Urgent/Emergent Criteria \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care \ncriteria. These criteria are supported by evidence-based or peer-reviewed sources such \nas medical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nEvolent reviews certain imaging studies for the existence of an urgent/emergent situation. This \ntype of medical necessity review is only conducted for those requests where the date of service \nhas passed (a retrospective review).  \nINDICATIONS FOR EMERGENT STUDIES \nEmergent Studies \nThe requested study is required to render immediate medical attention needed to prevent loss \nof life, limb, or risk of significant morbidity/permanent disability such as (1–3): \n● Conditions that impair bodily functions that support life (airway, breathing & circulation) \n● Conditions that are consistent with a disorder that damages tissue in a substantial \nfashion (e.g., compartment syndrome or thrombus/embolus) \nINDICATIONS FOR URGENT STUDIES \nUrgent Studies \nFor the evaluation of a condition that requires prompt medical intervention to prevent additional \nconsequences to the health/wellbeing of the member. This includes preventing the medical \ncondition from precipitating an emergency situation such as (2): \n● Any condition that cannot be postponed for a period of time (24 hours) without risking \nprogression to an emergent condition (4,5) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2066-002",
+    "domain": "advanced_imaging",
+    "audit_status": "HUMAN_REVIEW_REQUIRED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 1036,
+    "source_section": "INDICATIONS FOR URGENT STUDIES / Urgent Studies",
+    "issue_description": "Governance blocked rule: Urgent retrospective review requires physician clinical evaluation of 24-hour urgency.",
+    "rule_quote": "INDICATIONS FOR URGENT STUDIES",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Condition required prompt medical intervention to prevent progression to an emergent condition or could not be postponed for 24 hours without substantial risk of harm",
+          "parameter": "urgent_intervention_needed_within_24h",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 2 of 7 \nEvolent Clinical Guideline 2066 for Urgent/Emergent Criteria \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted.  \n● Where a specific clinical indication is not directly addressed in this guideline, medical \nnecessity determination will be made based on widely accepted standard of care \ncriteria. These criteria are supported by evidence-based or peer-reviewed sources such \nas medical literature, societal guidelines and state/national recommendations. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nEvolent reviews certain imaging studies for the existence of an urgent/emergent situation. This \ntype of medical necessity review is only conducted for those requests where the date of service \nhas passed (a retrospective review).  \nINDICATIONS FOR EMERGENT STUDIES \nEmergent Studies \nThe requested study is required to render immediate medical attention needed to prevent loss \nof life, limb, or risk of significant morbidity/permanent disability such as (1–3): \n● Conditions that impair bodily functions that support life (airway, breathing & circulation) \n● Conditions that are consistent with a disorder that damages tissue in a substantial \nfashion (e.g., compartment syndrome or thrombus/embolus) \nINDICATIONS FOR URGENT STUDIES \nUrgent Studies \nFor the evaluation of a condition that requires prompt medical intervention to prevent additional \nconsequences to the health/wellbeing of the member. This includes preventing the medical \ncondition from precipitating an emergency situation such as (2): \n● Any condition that cannot be postponed for a period of time (24 hours) without risking \nprogression to an emergent condition (4,5) \n"
+  },
+  {
+    "rule_id": "RULE-ADV-PREAMBLE-001",
+    "domain": "advanced_imaging",
+    "audit_status": "HUMAN_REVIEW_REQUIRED",
+    "policy_id": "POL-ADV-2026-V2",
+    "policy_version": "2026 v2",
+    "policy_name": "2026 Evolent Clinical Guidelines - Advanced Imaging v2",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 2,
+    "source_section": "Preamble / Guidelines for Clinical Review Determination",
+    "issue_description": "Governance blocked rule: Clinical preamble establishing that determinations are made based on both guidelines and clinical judgment consistent with standards of good medical practice.",
+    "rule_quote": "clinical judgment consistent with the standards of good medical practice will",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical information submitted at the time of the request is evaluated against evidence-based medical necessity criteria and individual patient circumstances",
+          "parameter": "clinical_information_submitted",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": "Guidelines for Clinical Review Determination \nPreamble \nEvolent is committed to the philosophy of supporting safe and effective \ntreatment for patients. The medical necessity criteria that follow are \nguidelines for the provision of diagnostic imaging.  These criteria are \ndesigned to guide both providers and reviewers to the most appropriate \ndiagnostic tests based on a patient’s unique circumstances.  In all cases, \nclinical judgment consistent with the standards of good medical practice will \nbe used when applying the guidelines.  Determinations are made based on \nboth the guideline and clinical information provided at the time of the \nrequest.  It is expected that medical necessity decisions may change as new \nevidence-based information is provided or based on unique aspects of the \npatient’s condition.  The treating clinician has final authority and \nresponsibility for treatment decisions regarding the care of the patient.   \nGuideline Development Process \nThese medical necessity criteria were developed by Evolent for the purpose\nof making clinical review determinations for requests for therapies and \ndiagnostic procedures.  The developers of the criteria sets included \nrepresentatives from the disciplines of radiology, internal medicine, nursing, \ncardiology, and other specialty groups.  Evolent’s guidelines are reviewed\nyearly and modified when necessary following a literature search of \npertinent and established clinical guidelines and accepted diagnostic imaging \npractices.   \nAll inquiries should be directed to: \nEvolent Specialty Services, Inc.\nc/o Privacy\n1812 N. Moore St, Suite 1705, Arlington, VA 22209\nFax 800-830-1762 / Privacy@Evolent.com\n2026 Evolent Clinical Guidelines - Advanced Imaging \nPage 2\n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-001",
+    "domain": "interventional_pain_management",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 4,
+    "source_section": "Epidural Spine Injections 2026 (July)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evolent Clinical Guideline 1750 for Epidural Spine Injections",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGEPIDURALINJECTIONS-001",
+          "description": "Clinical criteria satisfied for Epidural Spine Injections 2026 (July)",
+          "parameter": "cgepiduralinjections_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": "Page 1 of 13 \nEvolent Clinical Guideline 1750 for Epidural Spine Injections \nEvolent Clinical Guideline 1750 for Epidural Spine \nInjections \nGuideline Number: \nEvolent_CG_1750 \nApplicable Codes \n\"Evolent\" refers to Evolent Health LLC and Evolent Specialty Services, Inc. \n© 2012 - 2026 Evolent. All rights Reserved. \nOriginal Date: \nOctober 2012 \nLast Revised Date: \nDecember 2025 \nImplementation Date: \nJuly 2026 \nTABLE OF CONTENTS \nSTATEMENT ................................................................................................................................................ 3\nGENERAL INFORMATION ............................................................................................................................... 3\nPURPOSE .................................................................................................................................................... 3\nSCOPE ........................................................................................................................................................ 3\nSPECIAL NOTE ............................................................................................................................................ 3\nNew Episodes of Care .......................................................................................................................... 3\nINDICATIONS ............................................................................................................................................... 3\nGENERAL TO ALL CAUDAL, INTERLAMINAR, AND TRANSFORAMINAL INJECTIONS .............................................. 3\nTREATMENT PURPOSES ............................................................................................................................... 3\nDIAGNOSTIC PURPOSES ............................................................................................................................... 4\nREPEAT INJECTIONS .................................................................................................................................... 4\nInitial Treatment Phase ......................................................................................................................... 5\nTherapeutic Phase ................................................................................................................................ 5\nEXCLUSIONS ............................................................................................................................................... 5\nCONTRAINDICATIONS ................................................................................................................................... 6\nCODING AND STANDARDS ....................................................................................................................... 6\nCODES ........................................................................................................................................................ 6\nAPPLICABLE LINES OF BUSINESS .................................................................................................................. 7\nBACKGROUND ............................................................................................................................................ 7\nMEDICAL NECESSITY ................................................................................................................................... 7\nCONSERVATIVE TREATMENT* ....................................................................................................................... 8\nHOME EXERCISE PROGRAM (HEP)** ............................................................................................................ 8\nSUMMARY OF ANALYSIS .......................................................................................................................... 8\nANALYSIS OF EVIDENCE ......................................................................................................................... 10\nPOLICY HISTORY ...................................................................................................................................... 11\nLEGAL AND COMPLIANCE ...................................................................................................................... 12\nGUIDELINE APPROVAL ............................................................................................................................... 12\nCommittee ........................................................................................................................................... 12\nDISCLAIMER .............................................................................................................................................. 12\n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-002",
+    "domain": "interventional_pain_management",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 11,
+    "source_section": "Epidural Spine Injections 2026 / Conservative Treatment Prerequisites",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria; Page contains clinical footnotes or superscript references",
+    "rule_quote": "The following two elements are required to meet conservative therapy guidelines for HEP:",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-ESI-CONS-001",
+          "description": "Failure of conservative therapy (pharmacotherapy, active physical therapy) for radicular pain",
+          "parameter": "conservative_therapy_failure",
+          "comparator": "DOCUMENTED_FAILURE",
+          "value": "CONSERVATIVE_MANAGEMENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 8 of 13 \nEvolent Clinical Guideline 1750 for Epidural Spine Injections \n● Conditions which may be contraindications to epidural injections \n● Responsiveness to prior interventions \nNOTE: It is generally considered not medically necessary to perform multiple interventional \npain procedures on the same date of service. Documentation of a medical reason to perform \ninjections in different regions on the same day can be provided and will be considered on a \ncase-by-case basis (e.g., holding anticoagulation therapy on two separate dates creates undue \nrisk for the patient). Different types of injections in the same spinal region (cervical, thoracic, or \nlumbar) should not be done on the same day with the exception of a facet injection and epidural \nsteroid injection (ESI) performed during the same session for a synovial cyst confirmed on \nimaging. \nConservative Treatment* \nNon-operative conservative treatment should include a multimodality approach consisting of at \nleast one (1) active and one (1) inactive component targeting the affected spinal region. \n● Active Modalities \n○ \nPhysical therapy \n○ \nPhysician-supervised home exercise program (HEP)** \n○ \nChiropractic care \n● Inactive Modalities \n○ \nMedications (e.g., NSAIDs, steroids, analgesics) \n○ \nInjections (e.g., epidural steroid injection, selective nerve root block) \n○ \nMedical devices (e.g., TENS unit, bracing) \nHome Exercise Program (HEP)** \nThe following two elements are required to meet conservative therapy guidelines for HEP: \n● Documentation of an exercise prescription/plan provided by a physician, physical \ntherapist, or chiropractor AND \n● Follow-up documentation regarding completion of HEP after the required 6-week \ntimeframe or inability to complete HEP due to a documented medical reason (i.e., \nincreased pain or inability to physically perform exercises) \nSUMMARY OF ANALYSIS \nEpidural Interventions in the Management of Chronic Spinal Pain: American Society of \nInterventional Pain Physicians (ASIPP) Comprehensive Evidence-Based Guidelines (1): \n● Study Design: This study is a comprehensive review and guideline development based \non systematic reviews and randomized controlled trials (RCTs) related to epidural \ninterventions for chronic spinal pain.  \n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGEPIDURALPUMPTRIALS-001",
+    "domain": "interventional_pain_management",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 17,
+    "source_section": "Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGEPIDURALPUMPTRIALS-001",
+          "description": "Clinical criteria satisfied for Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
+          "parameter": "cgepiduralpumptrials_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": "Page 1 of 14 \nEvolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal \nPumps \nEvolent Clinical Guideline 1751 for Epidural Spine \nInjections and Single Injection Trials for Intrathecal \nPumps \nGuideline Number: \nEvolent_CG_1751 \nApplicable Codes \n\"Evolent\" refers to Evolent Health LLC and Evolent Specialty Services, Inc. \n© 2022 - 2026 Evolent. All rights Reserved. \nOriginal Date: \nMay 2022 \nLast Revised Date: \nDecember 2025 \nImplementation Date: \nJuly 2026 \nTABLE OF CONTENTS \nSTATEMENT ................................................................................................................................................ 3\nGENERAL INFORMATION ............................................................................................................................... 3\nPURPOSE .................................................................................................................................................... 3\nSCOPE ........................................................................................................................................................ 3\nSPECIAL NOTE ............................................................................................................................................ 3\nNew Episode of Care ............................................................................................................................ 3\nINDICATIONS FOR INITIAL EPIDURAL SPINAL INJECTIONS/NERVE BLOCKS .................................. 4\nGENERAL TO ALL CAUDAL, INTERLAMINAR AND TRANSFORAMINAL INJECTIONS ............................................... 4\nTREATMENT PURPOSES ............................................................................................................................... 4\nDIAGNOSTIC PURPOSES ............................................................................................................................... 5\nREPEAT EPIDURAL SPINAL INJECTIONS ......................................................................................................... 5\nINITIAL TREATMENT PHASE .......................................................................................................................... 5\nTherapeutic Phase ................................................................................................................................ 5\nCONTRAINDICATIONS FOR EPIDURAL SPINAL INJECTIONS............................................................................... 6\nINDICATIONS FOR INTRASPINAL DRUG TRIAL ..................................................................................... 6\nCHRONIC INTRACTABLE PAIN IN NON-TERMINAL INDIVIDUALS ........................................................................ 6\nSPASTICITY IN NON-TERMINAL INDIVIDUALS .................................................................................................. 6\nADDITIONAL TRIALS ..................................................................................................................................... 7\nCONTRAINDICATIONS FOR INTRASPINAL DRUG TRIAL ..................................................................................... 7\nEXCLUSIONS ............................................................................................................................................... 7\nCODING AND STANDARDS ....................................................................................................................... 7\nCODES ........................................................................................................................................................ 7\nAPPLICABLE LINES OF BUSINESS .................................................................................................................. 9\nBACKGROUND ............................................................................................................................................ 9\nMEDICAL NECESSITY ................................................................................................................................... 9\nCONSERVATIVE TREATMENT* ....................................................................................................................... 9\nHOME EXERCISE PROGRAM (HEP)** .......................................................................................................... 10\n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGFACETBLOCKS-001",
+    "domain": "interventional_pain_management",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 31,
+    "source_section": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGFACETBLOCKS-001",
+          "description": "Clinical criteria satisfied for Paravertebral Facet Joint Injection or Blocks 2026 (July)",
+          "parameter": "cgfacetblocks_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": "Page 1 of 14 \nEvolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks \nEvolent Clinical Guideline 1753 for Paravertebral Facet \nJoint Injections or Blocks \nGuideline Number: \nEvolent_CG_1753 \nApplicable Codes \n\"Evolent\" refers to Evolent Health LLC and Evolent Specialty Services, Inc. \n© 2012 - 2026 Evolent. All rights Reserved. \nOriginal Date: \nOctober 2012 \nLast Revised Date: \nDecember 2025 \nImplementation Date: \nJuly 2026 \nTABLE OF CONTENTS \nSTATEMENT ................................................................................................................................................ 2\nGENERAL INFORMATION ............................................................................................................................... 2\nSPECIAL NOTE ............................................................................................................................................ 2\nINDICATIONS FOR FACET JOINT INJECTIONS OR MEDIAL BRANCH NERVE BLOCKS ................... 2\nFACET JOINT PAIN  ...................................................................................................................................... 2\nIMAGING GUIDANCE  .................................................................................................................................... 3\nREPEAT INJECTIONS .................................................................................................................................... 3\nInitial Treatment Phase ......................................................................................................................... 3\nTherapeutic Phase ................................................................................................................................ 4\nEXCLUSIONS ............................................................................................................................................... 4\nCONTRAINDICATIONS ............................................................................................................................... 5\nCODING AND STANDARDS ....................................................................................................................... 5\nCODES ........................................................................................................................................................ 5\nAPPLICABLE LINES OF BUSINESS .................................................................................................................. 7\nBACKGROUND ............................................................................................................................................ 7\nDEFINITIONS ................................................................................................................................................ 7\nMEDICAL NECESSITY ................................................................................................................................... 7\nCONSERVATIVE TREATMENT*  ...................................................................................................................... 8\nHOME EXERCISE PROGRAM (HEP)**  ........................................................................................................... 8\nSUMMARY OF EVIDENCE .......................................................................................................................... 8\nANALYSIS OF EVIDENCE ......................................................................................................................... 11\nPOLICY HISTORY ...................................................................................................................................... 12\nLEGAL AND COMPLIANCE ...................................................................................................................... 13\nGUIDELINE APPROVAL ............................................................................................................................... 13\nCommittee ........................................................................................................................................... 13\nDISCLAIMER .............................................................................................................................................. 13\nREFERENCES ............................................................................................................................................ 14 \n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGINFUSIONPUMPS-001",
+    "domain": "interventional_pain_management",
+    "audit_status": "HUMAN_REVIEW_REQUIRED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 68,
+    "source_section": "Implantable Infusion Pump Insert 2026 (July)",
+    "issue_description": "Governance blocked rule: Flagged for human clinical review",
+    "rule_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGINFUSIONPUMPS-001",
+          "description": "Clinical criteria satisfied for Implantable Infusion Pump Insert 2026 (July)",
+          "parameter": "cginfusionpumps_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 2 of 10 \nEvolent Clinical Guideline 1752 for Implantable Infusion Pump Insertion \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nPurpose \nThe purpose of this guideline is to address criteria for intraspinal drug trials as well as the \npermanent placement of an implantable infusion pump. \nNOTE: There are no medical indications for intrathecal treatments except chronic pain and \nintractable spasticity. For information on multiple procedures performed in the same day of \nservice, see Medical Necessity. \nINDICATIONS FOR INTRASPINAL DRUG TRIAL \nAll patients colonized with methicillin-sensitive or methicillin-resistant Staphylococcus aureus \n(MRSA or MSSA) must have a decolonization plan to be performed no earlier than 10 days prior \nto the planned procedure. (1) \nChronic Intractable Pain in Non-Terminal Individuals \nFor the treatment of chronic intractable pain in non-terminal individuals (ALL the following \ncriteria must be met): \n● Pain causing functional disability that significantly interferes with activities of daily living, \nincluding ability to work and overall quality of life (2) OR persistent pain level of ≥ 6 on a \nscale of 0 to 10 despite treatment \n● Failure to respond to non-operative conservative therapy targeting the requested spinal \nregion for a minimum of 12 weeks unless the medical reason this treatment cannot be \ndone is clearly documented \nSpasticity in Non-Terminal Individuals \nFor the treatment of spasticity in non-terminal individuals (ALL the following must be met): \n● Intractable spasticity that results in the individual’s inability to maintain an upright \nposture, severely impairs balance in ambulation, or significantly interferes with activities \nof daily living related to ONE of the following conditions (3,4): \n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGSIINJECTIONS-001",
+    "domain": "interventional_pain_management",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 57,
+    "source_section": "Sacroiliac Joint Injections 2026 (July)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria; Page contains clinical footnotes or superscript references",
+    "rule_quote": "Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGSIINJECTIONS-001",
+          "description": "Clinical criteria satisfied for Sacroiliac Joint Injections 2026 (July)",
+          "parameter": "cgsiinjections_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": "Page 1 of 10 \nEvolent Clinical Guideline 1756 for Sacroiliac Joint Injections \nEvolent Clinical Guideline 1756 for Sacroiliac Joint \nInjections \nGuideline Number: \nEvolent_CG_1756 \nApplicable Codes \n\"Evolent\" refers to Evolent Health LLC and Evolent Specialty Services, Inc. \n© 2014 - 2025 Evolent. All rights Reserved. \nOriginal Date: \nJanuary 2014 \nLast Revised Date: \nDecember 2024 \nImplementation Date: \nJuly 2025 \nTABLE OF CONTENTS \nSTATEMENT .......................................................................................................................................... 2\nGENERAL INFORMATION ......................................................................................................................... 2\nSPECIAL NOTE ...................................................................................................................................... 2\nINDICATIONS FOR SACROILIAC JOINT INJECTIONS (INTRAARTICULAR OR LIGAMENTOUS \nINJECTIONS ONLY) .............................................................................................................................. 2\nSACROILIAC JOINT PAIN ......................................................................................................................... 2\nSPONDYLOARTHROPATHY ...................................................................................................................... 3\nIMAGING GUIDANCE  ............................................................................................................................... 3\nDIAGNOSTIC PURPOSES FOR SURGICAL PLANNING ................................................................................. 4\nREPEAT INJECTIONS  .............................................................................................................................. 4\nInitial Treatment Phase ................................................................................................................... 4\nTherapeutic Phase .......................................................................................................................... 4\nEXCLUSIONS ......................................................................................................................................... 5\nCONTRAINDICATIONS ......................................................................................................................... 5\nLEGISLATIVE LANGUAGE ................................................................................................................... 5\nWASHINGTON ........................................................................................................................................ 5\n20160318B – Spinal Injections ....................................................................................................... 5\nCODING AND STANDARDS ................................................................................................................. 6\nCODING ................................................................................................................................................ 6\nCPT Codes ...................................................................................................................................... 6\nAPPLICABLE LINES OF BUSINESS ............................................................................................................ 6\nBACKGROUND ...................................................................................................................................... 6\nDEFINITIONS .......................................................................................................................................... 6\nMEDICAL NECESSITY ............................................................................................................................. 7\nHOME EXERCISE PROGRAM (HEP)**  ..................................................................................................... 8\nPOLICY HISTORY .................................................................................................................................. 8\nLEGAL AND COMPLIANCE .................................................................................................................. 9\nGUIDELINE APPROVAL ........................................................................................................................... 9\nCommittee ....................................................................................................................................... 9\nDISCLAIMER .......................................................................................................................................... 9\nREFERENCES ...................................................................................................................................... 10 \n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGSPINALCORDSTIM-001",
+    "domain": "interventional_pain_management",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 78,
+    "source_section": "Spinal Cord Stimulation 2026 (July)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions",
+    "rule_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGSPINALCORDSTIM-001",
+          "description": "Clinical criteria satisfied for Spinal Cord Stimulation 2026 (July)",
+          "parameter": "cgspinalcordstim_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 2 of 12 \nEvolent Clinical Guideline 1757 for Spinal Cord Stimulation \nSTATEMENT \nGeneral Information \n● It is an expectation that all patients receive care/services from a licensed clinician. All \nappropriate supporting documentation, including recent pertinent office visit notes, \nlaboratory data, and results of any special testing must be provided. If applicable: All \nprior relevant imaging results and the reason that alternative imaging cannot be \nperformed must be included in the documentation submitted. \n● The guideline criteria in the following sections were developed utilizing evidence-based \nand peer-reviewed resources from medical publications and societal organization \nguidelines as well as from widely accepted standard of care, best practice \nrecommendations. \nSpecial Note \n● Code 63650 is also applicable for dorsal root ganglion stimulation (DRG). DRG has \nspecific advantages over SCS as it has better CRPS coverage and greater anatomical \nspecificity allowing for improved coverage for specific areas of the body, such as pain in \nthe foot, knee, hip, and groin — areas noted to be difficult for SCS. (1) \n● For individuals with chronic pain who have failed conservative approaches, SCS should \nbe considered among other options before prescribing long-term opioids. (2) \nINDICATIONS \nAll patients colonized with methicillin-sensitive or methicillin-resistant Staphylococcus aureus \n(MRSA or MSSA) must have a decolonization plan to be performed no earlier than 10 days prior \nto the planned procedure. \nSpinal Cord Stimulation \nA spinal cord stimulation (SCS) trial is appropriate when ALL the following criteria are met:  \n● Pain that: \n○ \nIs causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10 (3) \n○ \nIs of at least 6 months duration (3) \n○ \nIs caused by at least one of the following (2,3): \n■ Failed spine surgery syndrome (FSSS)/persistent spinal pain syndrome (PSPS) \nor post-laminectomy syndrome (4)  \n■ Complex regional pain syndrome (CRPS), type I or type II, meeting Budapest \ncriteria \n■ Chronic neuropathic pain of certain origins that falls into ONE of the following \ndiagnoses:  \n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGSPINALCORDSTIM-002",
+    "domain": "interventional_pain_management",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 80,
+    "source_section": "Spinal Cord Stimulation 2026 / Permanent Implant Trial Prerequisite",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions",
+    "rule_quote": "● Documentation of a successful trial of the temporary SCS device providing at least 50%",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-SCS-TRIAL-001",
+          "description": "Documented trial of spinal cord stimulation demonstrating successful pain relief",
+          "parameter": "scs_trial_pain_relief",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 50,
+          "unit": "%"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": " \nPage 4 of 12 \nEvolent Clinical Guideline 1757 for Spinal Cord Stimulation \n● Failure to respond to non-operative conservative treatment (e.g., medication trials, \ninterventional procedures (e.g., sympathetic nerve blocks, epidural steroid injections)) for \na minimum of 6 months unless the medical reason this treatment cannot be done is \nclearly documented (6)  \n● A completed presurgical psychological assessment that documents the following (2,3): \n○ \nPain is not due to psychiatric disorders such as depression, anxiety, somatic \nsymptom disorder, or sequelae of substance use \n○ \nSatisfactory management of personality and psychiatric disorders \n○ \nSatisfactory management of substance use disorder in recovery \n○ \nDemonstration of cognitive ability to manage the stimulator \nPermanent Spinal Cord or Dorsal Root Ganglion Stimulator (2) \nAppropriate when ALL the following criteria are met: \n● Documentation of a successful trial of the temporary SCS device providing at least 50% \nreduction in pain \n● Significant functional improvement for a minimum duration of 3 days \n● Following a device-related non-superficial infection IF: \n○ \nA consultation with an infectious disease specialist is documented \n○ \nThere is a minimum 12-week interval between removal of the infected device and \nimplantation of the new device \nNOTE: A medical reason for use of a permanent stimulator device different from the temporary \ntrial device must be clearly documented \nRevision or Removal of Spinal Cord or Dorsal Root Ganglion \nStimulator Device \nIndicated with ONE of the following: \n● Migration of lead(s) \n● Loss of effectiveness \n● Intolerance by the individual \n● Infection \n○ \nA consultation with an infectious disease specialist is documented \n○ \nThere is a minimum 12-week interval between removal of the infected device and \nimplantation of the new device \n○ \nIt is strongly recommended that a nasal swab to test for Staphylococcus aureus and \ndecolonization for positive patients be performed before revision due to surgical site \ninfection. A medical reason why this cannot be performed must be clearly \ndocumented. \n"
+  },
+  {
+    "rule_id": "RULE-IPM-CGSYMPATHETICBLOCKS-001",
+    "domain": "interventional_pain_management",
+    "audit_status": "PARTIALLY_VERIFIED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 89,
+    "source_section": "Sympathetic Nerve Blocks 2026 (July)",
+    "issue_description": "Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria",
+    "rule_quote": "Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-CGSYMPATHETICBLOCKS-001",
+          "description": "Clinical criteria satisfied for Sympathetic Nerve Blocks 2026 (July)",
+          "parameter": "cgsympatheticblocks_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": "Page 1 of 14 \nEvolent Clinical Guideline 1758 for Sympathetic Nerve Blocks \nEvolent Clinical Guideline 1758 for Sympathetic Nerve \nBlocks \nGuideline Number: \nEvolent_CG_1758 \nApplicable Codes \n\"Evolent\" refers to Evolent Health LLC and Evolent Specialty Services, Inc. \n© 2020 - 2026 Evolent. All rights Reserved. \nOriginal Date: \nNovember 2020 \nLast Revised Date: \nDecember 2025 \nImplementation Date: \nJuly 2026 \nTABLE OF CONTENTS \nSTATEMENT ................................................................................................................................................ 3\nGENERAL INFORMATION ............................................................................................................................... 3\nPURPOSE .................................................................................................................................................... 3\nSPECIAL NOTE ............................................................................................................................................ 3\nNew Episodes of Care .......................................................................................................................... 3\nINDICATIONS ............................................................................................................................................... 3\nGENERAL INDICATIONS ................................................................................................................................ 3\nINDICATIONS FOR STELLATE GANGLION BLOCK ............................................................................................. 4\nDiagnostic Evaluation or Acute Management of Sympathetically Maintained Pain ............................. 4\nDiagnostic Evaluation, Acute or Chronic Management of Sympathetically Maintained Pain ............... 4\nGeneral Limitations ............................................................................................................................... 5\nContraindications .................................................................................................................................. 5\nINDICATIONS FOR THORACIC OR LUMBAR SYMPATHETIC BLOCK ..................................................................... 5\nDiagnostic Evaluation or Acute Management of Sympathetically Maintained Pain ............................. 5\nDiagnostic Evaluation, Acute or Chronic Management of Sympathetically Maintained Pain ............... 5\nGeneral Limitations ............................................................................................................................... 6\nContraindications .................................................................................................................................. 6\nINDICATIONS FOR CELIAC PLEXUS BLOCK ..................................................................................................... 6\nFor The Diagnostic Evaluation of Sympathetically Maintained Visceral Pain....................................... 6\nFor the Acute or Chronic Management of Sympathetically Maintained Visceral .................................. 6\nGeneral Limitations ............................................................................................................................... 7\nContraindications .................................................................................................................................. 7\nINDICATIONS FOR SUPERIOR HYPOGASTRIC BLOCK ....................................................................................... 7\nFor The Diagnostic Evaluation of Sympathetically Maintained Visceral Pain....................................... 7\nFor the Acute or Chronic Management of Sympathetically Maintained Visceral Pain ......................... 7\nGeneral Limitations ............................................................................................................................... 8\nContraindications .................................................................................................................................. 8\nEXCLUSIONS ............................................................................................................................................... 8\nCODING AND STANDARDS ....................................................................................................................... 8\nCODES ........................................................................................................................................................ 8\nAPPLICABLE LINES OF BUSINESS .................................................................................................................. 9\n"
+  },
+  {
+    "rule_id": "RULE-IPM-PREAMBLEIPM-001",
+    "domain": "interventional_pain_management",
+    "audit_status": "HUMAN_REVIEW_REQUIRED",
+    "policy_id": "POL-IPM-2026",
+    "policy_version": "2026",
+    "policy_name": "2026 Evolent Interventional Pain Management Guidelines",
+    "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
+    "physical_page": 2,
+    "source_section": "Preamble and Guideline Development Process",
+    "issue_description": "Governance blocked rule: Flagged for human clinical review",
+    "rule_quote": "treatment for patients. The medical necessity criteria that follow are",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-IPM-PREAMBLEIPM-001",
+          "description": "Clinical criteria satisfied for Preamble and Guideline Development Process",
+          "parameter": "preambleipm_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "full_page_text": "Guidelines for Clinical Review Determination \nPreamble \nEvolent is committed to the philosophy of supporting safe and effective \ntreatment for patients. The medical necessity criteria that follow are \nguidelines for the provision of diagnostic imaging. These criteria are \ndesigned to guide both providers and reviewers to the most appropriate \ndiagnostic tests based on a patient’s unique circumstances. In all cases, \nclinical judgment consistent with the standards of good medical practice \nwill be used when applying the guidelines. Determinations are made based \non both the guideline and clinical information provided at the time of the \nrequest. It is expected that medical necessity decisions may change as new \nevidence-based information is provided or based on unique aspects of the \npatient’s condition. The treating clinician has final authority and \nresponsibility for treatment decisions regarding the care of the patient.\nGuideline Development Process \nThese medical necessity criteria were developed by Evolent for the purpose \nof making clinical review determinations for requests for therapies and \ndiagnostic procedures.  The developers of the criteria sets included \nrepresentatives from the disciplines of radiology, internal medicine, nursing, \ncardiology, and other specialty groups.  Evolent’s guidelines are reviewed \nyearly and modified when necessary following a literature search of \npertinent and established clinical guidelines and accepted diagnostic \nimaging practices.   \nAll inquiries should be directed to: \nEvolent Specialty Services, Inc.\nc/o Privacy\n1812 N. Moore St, Suite 1705, Arlington, VA 22209\nFax 800-830-1762 / Privacy@Evolent.com\n2026 Evolent Clinical Guidelines - Interventional Pain Management Guidelines\nPage 2\n"
+  }
+]

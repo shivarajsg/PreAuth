@@ -1,0 +1,278 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://medrule.org/schemas/medrule_rule_schema_v1.json",
+  "title": "MedRule Canonical Policy Rule Extraction Schema",
+  "version": "1.0.0",
+  "description": "Authoritative, canonical schema for extracting deterministic prior-authorization criteria across all nine MedRule clinical domains.",
+  "type": "object",
+  "required": [
+    "rule_id",
+    "domain",
+    "document_type",
+    "policy_title",
+    "policy_version",
+    "version_status",
+    "source_file",
+    "source_page",
+    "source_section",
+    "source_quote",
+    "clinical_service_or_procedure",
+    "rule_type",
+    "conditions",
+    "decision_effect",
+    "missing_information_behavior",
+    "human_review_required",
+    "extraction_status"
+  ],
+  "properties": {
+    "rule_id": {
+      "type": "string",
+      "description": "Stable, unique identifier following format: RULE-<DOMAIN_CODE>-<CG_OR_POLICY>-<NUMERIC_ID>",
+      "pattern": "^RULE-[A-Z0-9]+-[A-Z0-9_]+-[0-9]{3,}$"
+    },
+    "domain": {
+      "type": "string",
+      "description": "Controlled clinical domain identifier.",
+      "enum": [
+        "advanced_imaging",
+        "cardiology",
+        "musculoskeletal_surgery",
+        "interventional_pain_management",
+        "radiation_oncology",
+        "physical_medicine",
+        "sleep_health",
+        "genetic_testing",
+        "centene_dme_orthotics_prosthetics",
+        "cross_domain_references"
+      ]
+    },
+    "document_type": {
+      "type": "string",
+      "description": "Controlled document classification type per MedRule taxonomy.",
+      "enum": [
+        "governing_policy",
+        "supplementary_policy",
+        "coding_grid",
+        "checklist",
+        "form",
+        "tip_sheet",
+        "external_reference",
+        "other"
+      ]
+    },
+    "policy_title": {
+      "type": "string",
+      "description": "Exact title of the source policy document.",
+      "minLength": 3
+    },
+    "policy_version": {
+      "type": "string",
+      "description": "Published edition, version string, or revision date of the source document.",
+      "minLength": 1
+    },
+    "version_status": {
+      "type": "string",
+      "description": "Temporal and governance status of the policy version.",
+      "enum": [
+        "current_2026_verified",
+        "historical",
+        "superseded",
+        "future_preview",
+        "unverified"
+      ]
+    },
+    "source_file": {
+      "type": "string",
+      "description": "Relative local path to the verified source PDF from project root.",
+      "minLength": 5
+    },
+    "source_url": {
+      "type": "string",
+      "description": "Official publisher URL where the source PDF was downloaded.",
+      "format": "uri"
+    },
+    "source_page": {
+      "type": "object",
+      "description": "Precise page identification within the source PDF.",
+      "required": ["physical_page"],
+      "properties": {
+        "physical_page": {
+          "type": "integer",
+          "description": "1-indexed physical PDF page number.",
+          "minimum": 1
+        },
+        "printed_page": {
+          "type": "string",
+          "description": "Header or footer printed page label (e.g. 'Page 4 of 29')."
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_section": {
+      "type": "string",
+      "description": "Heading, section title, or clinical subsection name where the criterion appears.",
+      "minLength": 2
+    },
+    "source_quote": {
+      "type": "string",
+      "description": "Verbatim, faithful textual excerpt extracted directly from the source page supporting the criterion.",
+      "minLength": 10
+    },
+    "clinical_service_or_procedure": {
+      "type": "string",
+      "description": "Specific imaging modality, diagnostic test, surgical procedure, therapy, or service governed by this criterion.",
+      "minLength": 2
+    },
+    "rule_type": {
+      "type": "string",
+      "description": "Classification of the structural rule pattern.",
+      "enum": [
+        "clinical_prerequisite",
+        "clinical_indication",
+        "documentation_requirement",
+        "exclusion_criterion",
+        "temporal_threshold",
+        "conditional_modality_selection",
+        "administrative_prerequisite",
+        "coding_rule",
+        "place_of_service",
+        "frequency_limit",
+        "other"
+      ]
+    },
+    "conditions": {
+      "type": "object",
+      "description": "Explicit clinical conditions and their logical boolean relationships.",
+      "required": ["operator", "criteria"],
+      "properties": {
+        "operator": {
+          "type": "string",
+          "description": "Boolean composition operator for child criteria.",
+          "enum": ["ALL_OF", "ANY_OF", "NONE_OF", "SINGLE_CONDITION"]
+        },
+        "criteria": {
+          "type": "array",
+          "description": "List of atomic conditions or nested condition groups.",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["condition_id", "description"],
+            "properties": {
+              "condition_id": {
+                "type": "string",
+                "description": "Unique condition element ID within the rule."
+              },
+              "description": {
+                "type": "string",
+                "description": "Human-readable description of the condition."
+              },
+              "parameter": {
+                "type": "string",
+                "description": "Clinical variable, test name, anatomical site, or symptom being evaluated."
+              },
+              "comparator": {
+                "type": "string",
+                "description": "Relational operator for evaluation.",
+                "enum": [
+                  "EQUALS",
+                  "NOT_EQUALS",
+                  "GREATER_THAN",
+                  "GREATER_THAN_OR_EQUAL",
+                  "LESS_THAN",
+                  "LESS_THAN_OR_EQUAL",
+                  "BETWEEN",
+                  "CONTAINS",
+                  "NOT_CONTAINS",
+                  "IS_PRESENT",
+                  "IS_ABSENT",
+                  "DOCUMENTED_FAILURE",
+                  "CONTRAINDICATED"
+                ]
+              },
+              "value": {
+                "description": "Target threshold, boolean flag, string label, or array of acceptable values."
+              },
+              "unit": {
+                "type": "string",
+                "description": "Measurement unit (e.g. 'weeks', 'months', 'cm', 'RBC/hpf', 'hours', 'sessions', 'mg')."
+              },
+              "is_optional": {
+                "type": "boolean",
+                "default": false
+              },
+              "sub_conditions": {
+                "type": "object",
+                "description": "Nested condition group allowing arbitrary Boolean trees (AND/OR recursion)."
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "required_documentation": {
+      "type": "array",
+      "description": "Specific clinical records, test reports, or clinical notes required by this rule.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclusion_conditions": {
+      "type": "array",
+      "description": "Explicit clinical contraindications, disqualifiers, or non-coverage scenarios.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision_effect": {
+      "type": "string",
+      "description": "The limited prior authorization effect explicitly supported by the source text.",
+      "enum": [
+        "INDICATED",
+        "NOT_INDICATED",
+        "ALTERNATIVE_MODALITY_RECOMMENDED",
+        "DOCUMENTATION_DEFICIENT",
+        "PAYS_AS_CLAIM_EDIT",
+        "CONTINGENT_ON_APPEAL",
+        "UNDETERMINED"
+      ]
+    },
+    "missing_information_behavior": {
+      "type": "string",
+      "description": "Behavior required when clinical evidence is absent in patient record.",
+      "enum": [
+        "PEND_FOR_DOCUMENTATION",
+        "CANNOT_DETERMINE",
+        "FAIL_CONDITION",
+        "ASSUME_ABSENT",
+        "ESCALATE_TO_PEER_REVIEW"
+      ]
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "Cross-references to other policies, place of service rules, forms, or coding grids.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "description": "True if criterion requires medical director discretion, ambiguous phrasing interpretation, or exception handling."
+    },
+    "extraction_status": {
+      "type": "string",
+      "description": "Lifecycle extraction and governance review status.",
+      "enum": [
+        "DRAFT",
+        "NEEDS_HUMAN_REVIEW",
+        "APPROVED"
+      ]
+    },
+    "review_notes": {
+      "type": "string",
+      "description": "Notes for the clinical or technical reviewer explaining ambiguity, rationale, or parsing caveats."
+    }
+  },
+  "additionalProperties": false
+}

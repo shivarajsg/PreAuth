@@ -1,0 +1,2 @@
+document_id,domain,document_title,document_type,version_status,disposition_status,unmapped_reason,evidentiary_limitation,human_review_required
+DOC-SLP-MISSING-001,sleep_health,Commercial Employer Group Home Sleep Test Exemption Lists,other_supporting_document,current_2026_verified,PLAN_SPECIFIC_ACCESS_REQUIRED,"Specific self-insured employer health plans exempt members from home sleep test requirements, allowing direct attended PSG.",Available only in confidential employer benefit schedules.,True

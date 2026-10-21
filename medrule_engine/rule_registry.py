@@ -58,9 +58,15 @@ class RuleRecord:
 class RuleRegistry:
     """In-memory, read-only registry of validated MedRule policy rules."""
 
-    def __init__(self, domains_dir: Optional[Path] = None, schema_path: Optional[Path] = None):
+    def __init__(
+        self,
+        domains_dir: Optional[Path] = None,
+        schema_path: Optional[Path] = None,
+        include_archived: bool = False,
+    ):
         self.domains_dir = domains_dir or DEFAULT_DOMAINS_DIR
         self.schema_path = schema_path or DEFAULT_SCHEMA_PATH
+        self.include_archived = include_archived
         
         self._rules_by_id: Dict[str, RuleRecord] = {}
         self._rules_by_domain: Dict[str, List[RuleRecord]] = {}
@@ -74,6 +80,10 @@ class RuleRegistry:
     def load_all_domains(self) -> int:
         """Load and validate draft_rules.json from all clinical domains.
         
+        Loads exclusively from active clinical domains (domains_dir).
+        Archived domains from archive_candidate/unrelated_domains are loaded
+        only if self.include_archived is explicitly set to True.
+        
         Returns:
             int: Total count of validated rules loaded into registry.
         """
@@ -81,6 +91,10 @@ class RuleRegistry:
         self._rules_by_domain.clear()
 
         domain_dirs = [d for d in self.domains_dir.iterdir() if d.is_dir()]
+        if self.include_archived:
+            archive_dir = self.domains_dir.parent / "archive_candidate" / "unrelated_domains"
+            if archive_dir.exists():
+                domain_dirs.extend([d for d in archive_dir.iterdir() if d.is_dir()])
         total_loaded = 0
 
         for dom_dir in sorted(domain_dirs):
@@ -163,6 +177,11 @@ class RuleRegistry:
         if not self._loaded:
             self.load_all_domains()
         return list(self._rules_by_id.values())
+
+    @property
+    def all_rules(self) -> List[RuleRecord]:
+        """Property returning all loaded rules."""
+        return self.get_all_rules()
 
     def get_statistics(self) -> Dict[str, Any]:
         """Return counts by domain, status, and governance."""

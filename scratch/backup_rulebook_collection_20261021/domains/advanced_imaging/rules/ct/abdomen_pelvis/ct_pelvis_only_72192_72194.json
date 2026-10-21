@@ -1,0 +1,62 @@
+{
+  "section_title": "CT Pelvis Only (CPT 72192-72194)",
+  "folder_classification": "ct/abdomen_pelvis",
+  "file_name": "ct_pelvis_only_72192_72194.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "72192",
+    "72193"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2042-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 673,
+        "printed_page": "Page 4 of 16"
+      },
+      "source_section": "INDICATIONS FOR PELVIS CT / Pelvic Pain for Unknown Etiology",
+      "source_quote": "For acute pelvic pain in a patient over the age of 65 (2)",
+      "clinical_service_or_procedure": "Pelvis CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Evaluation of acute severe pelvic pain of unknown etiology",
+            "parameter": "acute_pelvic_pain",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Patient age is strictly greater than 65 years",
+            "parameter": "patient_age_years",
+            "comparator": "GREATER_THAN",
+            "value": 65,
+            "unit": "years"
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes documenting acute pelvic pain presentation and physical examination in geriatric patient"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72192",
+        "CPT 72193"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Age-stratified acute pelvic pain pathway in geriatric patients."
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+[
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.184: Home Ventilators",
+    "policy_version": "Revision 03/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.184.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.184.pdf",
+    "rule_id": "RULE-DME-184-001",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 8"
+    },
+    "source_section": "Policy/Criteria - Section I.A Restrictive Thoracic",
+    "source_quote": "Initial request for the first three months of noninvasive home ventilator use for restrictive thoracic disorders, all of the following:4,5,9 1. Documentation of a neuromuscular disease (ex. amyotrophic lateral sclerosis) or a severe thoracic cage abnormality (ex. post-thoracoplasty for tuberculosis or severe kyphoscoliosis)",
+    "clinical_service_or_procedure": "Noninvasive Home Ventilator - Restrictive Thoracic Disorders (HCPCS E0466)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-184-001-A",
+          "description": "Neuromuscular disease (ALS) or severe thoracic cage abnormality",
+          "parameter": "restrictive_thoracic_diagnosis",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-184-001-B",
+          "description": "Awake PaCO2 \u2265 45 mm Hg, sleep O2 sat \u2264 88% for \u22655 min, MIP < 60 cm H2O, or FVC < 50%",
+          "parameter": "respiratory_insufficiency_threshold_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-184-001-C",
+          "description": "Cannot be treated with RAD; ventilator will provide AVAPS not CPAP",
+          "parameter": "rad_inadequate_and_avaps_provided",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "ABG report documenting PaCO2 \u2265 45 mm Hg or sleep oximetry",
+      "Pulmonary function tests (MIP / FVC)",
+      "Documentation explaining why RAD is inadequate"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Initial authorization strictly limited to first 3 months."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.184: Home Ventilators",
+    "policy_version": "Revision 03/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.184.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.184.pdf",
+    "rule_id": "RULE-DME-184-002",
+    "source_page": {
+      "physical_page": 1,
+      "printed_page": "Page 1 of 8"
+    },
+    "source_section": "Policy/Criteria - Section I.B Severe COPD",
+    "source_quote": "Initial request for the first three months of noninvasive home ventilator use for severe COPD, all of the following: 1. An arterial blood gas PaCO2 measurement was done while awake and breathing at baseline and prescribed FIO2 is \u2265 52 mm Hg;4",
+    "clinical_service_or_procedure": "Noninvasive Home Ventilator - Severe COPD (HCPCS E0466)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-184-002-A",
+          "description": "Severe COPD with baseline PaCO2 \u2265 52 mm Hg",
+          "parameter": "awake_paco2_level",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 52,
+          "unit": "mm Hg"
+        },
+        {
+          "condition_id": "COND-DME-184-002-B",
+          "description": "Sleep apnea considered and ruled out prior to therapy",
+          "parameter": "sleep_apnea_ruled_out",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-184-002-C",
+          "description": "Cannot be treated with RAD; ventilator will provide AVAPS",
+          "parameter": "rad_inadequate_and_avaps_provided",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Baseline ABG documenting PaCO2 \u2265 52 mm Hg",
+      "Documentation ruling out sleep apnea as predominant cause"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Severe COPD threshold PaCO2 \u2265 52 mm Hg awake on prescribed FIO2."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.184: Home Ventilators",
+    "policy_version": "Revision 03/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.184.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.184.pdf",
+    "rule_id": "RULE-DME-184-003",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 8"
+    },
+    "source_section": "Policy/Criteria - Section I.C Obesity Hypoventilation",
+    "source_quote": "Initial request for the first three months of noninvasive home ventilator use for obesity hypoventilation syndrome (OHS) (also known as Pickwickian syndrome), all of the following: 1. BMI \u2265 30;13,14 2. An initial arterial blood gas PaCO2, done while awake and breathing at baseline and the prescribed FIO2 is \u2265 45 mm Hg;13,14",
+    "clinical_service_or_procedure": "Noninvasive Home Ventilator - Obesity Hypoventilation Syndrome (OHS) (HCPCS E0466)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-184-003-A",
+          "description": "BMI \u2265 30",
+          "parameter": "body_mass_index",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 30,
+          "unit": "kg/m2"
+        },
+        {
+          "condition_id": "COND-DME-184-003-B",
+          "description": "Baseline awake PaCO2 \u2265 45 mm Hg",
+          "parameter": "awake_paco2_level",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 45,
+          "unit": "mm Hg"
+        },
+        {
+          "condition_id": "COND-DME-184-003-C",
+          "description": "PSG confirms sleep-disordered hypoventilation without other primary cause",
+          "parameter": "psg_confirmed_ohs",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "BMI calculation and height/weight",
+      "Awake ABG showing PaCO2 \u2265 45 mm Hg",
+      "Polysomnography report documenting hypoventilation"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "OHS requires BMI \u2265 30, awake PaCO2 \u2265 45 mm Hg, and PSG."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.184: Home Ventilators",
+    "policy_version": "Revision 03/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.184.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.184.pdf",
+    "rule_id": "RULE-DME-184-004",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 8"
+    },
+    "source_section": "Policy/Criteria - Section II Continuation Criteria",
+    "source_quote": "continued use of noninvasive home ventilators after the initial three-month certification period is medically necessary when meeting the following: A. The device is used for at least an average of four hours per 24-hour period;5 B. Documentation supports both of the following: 1. Ongoing benefits from use of the device;5,10 2. The noninvasive home ventilator is not being used provide RAD or CPAP therapy",
+    "clinical_service_or_procedure": "Noninvasive Home Ventilator - Continued Use (HCPCS E0466)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-184-004-A",
+          "description": "Device used for at least average of 4 hours per 24-hour period",
+          "parameter": "average_daily_usage_hours",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 4,
+          "unit": "hours"
+        },
+        {
+          "condition_id": "COND-DME-184-004-B",
+          "description": "Documented ongoing clinical benefit from use",
+          "parameter": "ongoing_clinical_benefit",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-184-004-C",
+          "description": "Not being used to provide RAD/CPAP therapy",
+          "parameter": "not_rad_or_cpap_therapy",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Device compliance download confirming \u22654 hours/24hr usage",
+      "Pulmonologist clinical follow-up documenting ongoing benefit"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Continuation requires adherence \u2265 4 hours/day and clinical benefit."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.184: Home Ventilators",
+    "policy_version": "Revision 03/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.184.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.184.pdf",
+    "rule_id": "RULE-DME-184-005",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 8"
+    },
+    "source_section": "Policy/Criteria - Section III Overlap Syndromes",
+    "source_quote": "noninvasive home ventilators for overlap syndromes (presence of more than one condition, such as COPD and sleep apnea) require secondary review by a medical director.4,10",
+    "clinical_service_or_procedure": "Noninvasive Home Ventilator - Overlap Syndromes (COPD + Sleep Apnea)",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-184-005-A",
+          "description": "Presence of overlap syndrome (COPD + sleep apnea)",
+          "parameter": "overlap_syndrome_present",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-184-005-B",
+          "description": "Secondary review completed by medical director",
+          "parameter": "secondary_medical_review_completed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "UNDETERMINED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Mandatory secondary review by medical director for overlap syndromes."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.184: Home Ventilators",
+    "policy_version": "Revision 03/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.184.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.184.pdf",
+    "rule_id": "RULE-DME-184-006",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 8"
+    },
+    "source_section": "Policy/Criteria - Section IV Invasive Ventilator",
+    "source_quote": "initial and ongoing use of an invasive ventilator is medically necessary for a long-term/chronic condition or disease affecting the ability to effectively maintain an adequate respiratory",
+    "clinical_service_or_procedure": "Invasive Home Mechanical Ventilator (HCPCS E0465)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-184-006-A",
+          "description": "Long-term/chronic respiratory condition requiring invasive tracheostomy ventilation",
+          "parameter": "chronic_invasive_ventilation_needed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Pulmonology records confirming tracheostomy and ventilator dependence"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Invasive ventilation via tracheostomy indicated for chronic respiratory failure."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.184: Home Ventilators",
+    "policy_version": "Revision 03/25",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.184.pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.184.pdf",
+    "rule_id": "RULE-DME-184-007",
+    "source_page": {
+      "physical_page": 3,
+      "printed_page": "Page 3 of 8"
+    },
+    "source_section": "Policy/Criteria - Section V Second / Back-up Ventilator",
+    "source_quote": "a second or back up noninvasive or invasive ventilator is considered medically necessary for the following indications: A. A second ventilator to serve a different purpose from the first ventilator, based on medical needs.",
+    "clinical_service_or_procedure": "Second or Back-up Ventilator (HCPCS E0465, E0466)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ANY_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-184-007-A",
+          "description": "Serves a different purpose based on medical needs (e.g. negative pressure vs positive pressure)",
+          "parameter": "different_ventilator_purpose",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-184-007-B",
+          "description": "Wheelchair-mounted during day and bed-mounted at night",
+          "parameter": "wheelchair_vs_bed_mounted_need",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-184-007-C",
+          "description": "Residence in remote area with poor emergency access",
+          "parameter": "remote_area_residence",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Physician clinical documentation justifying second ventilator purpose, wheelchair mount, or remote area"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Back-up ventilator requires distinct functional justification or geographic isolation."
+  }
+]

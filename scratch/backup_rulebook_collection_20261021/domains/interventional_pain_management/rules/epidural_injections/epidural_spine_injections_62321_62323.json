@@ -1,0 +1,92 @@
+{
+  "section_title": "Epidural Spine Injections (ESI)",
+  "folder_classification": "epidural_injections",
+  "file_name": "epidural_spine_injections_62321_62323.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "62320",
+    "62321",
+    "62322",
+    "62323",
+    "64479",
+    "64480",
+    "64483",
+    "64484"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-001",
+      "domain": "interventional_pain_management",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+      "policy_version": "2026",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/interventional_pain_management/policy_pdfs/current_2026/2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_url": "https://www.evolent.com/clinical-guidelines",
+      "source_page": {
+        "physical_page": 4,
+        "printed_page": "Page 4 of 102"
+      },
+      "source_section": "Epidural Spine Injections 2026 (July)",
+      "source_quote": "Evolent Clinical Guideline 1750 for Epidural Spine Injections",
+      "clinical_service_or_procedure": "Epidural Spine Injections 2026 (July)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "SINGLE_CONDITION",
+        "criteria": [
+          {
+            "condition_id": "COND-IPM-CGEPIDURALINJECTIONS-001",
+            "description": "Clinical criteria satisfied for Epidural Spine Injections 2026 (July)",
+            "parameter": "cgepiduralinjections_indication",
+            "comparator": "IS_PRESENT"
+          }
+        ]
+      },
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "FAIL_CONDITION",
+      "dependencies": [
+        "EPOS-1755"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": ""
+    },
+    {
+      "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-002",
+      "domain": "interventional_pain_management",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+      "policy_version": "2026",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/interventional_pain_management/policy_pdfs/current_2026/2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_url": "https://www.evolent.com/clinical-guidelines",
+      "source_page": {
+        "physical_page": 11,
+        "printed_page": "Page 11 of 102"
+      },
+      "source_section": "Epidural Spine Injections 2026 / Conservative Treatment Prerequisites",
+      "source_quote": "The following two elements are required to meet conservative therapy guidelines for HEP:",
+      "clinical_service_or_procedure": "Epidural Steroid Injection (ESI)",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "SINGLE_CONDITION",
+        "criteria": [
+          {
+            "condition_id": "COND-IPM-ESI-CONS-001",
+            "description": "Failure of conservative therapy (pharmacotherapy, active physical therapy) for radicular pain",
+            "parameter": "conservative_therapy_failure",
+            "comparator": "DOCUMENTED_FAILURE",
+            "value": "CONSERVATIVE_MANAGEMENT"
+          }
+        ]
+      },
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "FAIL_CONDITION",
+      "dependencies": [
+        "Form-Conservative-IPM"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT"
+    }
+  ]
+}

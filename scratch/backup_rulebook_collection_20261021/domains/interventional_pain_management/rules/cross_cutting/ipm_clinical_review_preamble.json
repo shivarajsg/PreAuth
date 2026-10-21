@@ -1,0 +1,48 @@
+{
+  "section_title": "IPM Clinical Review Preamble",
+  "folder_classification": "cross_cutting",
+  "file_name": "ipm_clinical_review_preamble.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "General"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-IPM-PREAMBLEIPM-001",
+      "domain": "interventional_pain_management",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+      "policy_version": "2026",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/interventional_pain_management/policy_pdfs/current_2026/2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_url": "https://www.evolent.com/clinical-guidelines",
+      "source_page": {
+        "physical_page": 2,
+        "printed_page": "Page 2 of 102"
+      },
+      "source_section": "Preamble and Guideline Development Process",
+      "source_quote": "treatment for patients. The medical necessity criteria that follow are",
+      "clinical_service_or_procedure": "Preamble and Guideline Development Process",
+      "rule_type": "administrative_prerequisite",
+      "conditions": {
+        "operator": "SINGLE_CONDITION",
+        "criteria": [
+          {
+            "condition_id": "COND-IPM-PREAMBLEIPM-001",
+            "description": "Clinical criteria satisfied for Preamble and Guideline Development Process",
+            "parameter": "preambleipm_indication",
+            "comparator": "IS_PRESENT"
+          }
+        ]
+      },
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "FAIL_CONDITION",
+      "dependencies": [
+        "EPOS-1755"
+      ],
+      "human_review_required": true,
+      "extraction_status": "NEEDS_HUMAN_REVIEW",
+      "review_notes": "Flagged for human clinical review"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+================================================================================
+RULEBOOK COLLECTION - DOWNLOAD SUMMARY REPORT (PHASE 1)
+================================================================================
+
+1. Number of source PDFs inspected: 2
+   - PreauthorizationMRI.pdf (2 pages)
+   - CP.MP.107.pdf / CP.MP.107(4).pdf (21 pages)
+
+2. Total URL occurrences discovered: 116 raw occurrences (50 unique link occurrences)
+   - PreauthorizationMRI.pdf: 20 link annotations + 10 printed text URLs = 30 raw occurrences (10 link citations)
+   - CP.MP.107.pdf: 47 link annotations + 39 printed text URLs = 86 raw occurrences (40 link citations)
+
+3. Number of unique normalized URLs: 30
+   - PreauthorizationMRI.pdf: 10 unique URLs
+   - CP.MP.107.pdf / CP.MP.107(4).pdf: 20 unique URLs
+
+4. Number of unique links pointing directly to PDFs: 13
+   - PreauthorizationMRI.pdf: 10 links
+   - CP.MP.107.pdf / CP.MP.107(4).pdf: 3 links
+
+5. Number of PDFs successfully downloaded and validated: 13
+   - All 13 downloaded PDFs were opened and validated using PyMuPDF (fitz)
+   - Magic bytes %PDF verified, page counts range from 1 to 1,074 pages
+   - 100% download and validation success rate for all linked PDF documents
+
+6. Number of duplicates detected: 0 duplicate file contents (86 occurrences deduplicated to 30 unique URLs)
+   - Duplicate PDF file contents (by SHA-256 hash comparison): 0
+   - Duplicate policy versions: 0
+   - Repeated URL occurrences deduplicated across source pages: 56 repeated occurrences
+
+7. Number of failed or inaccessible downloads: 7
+   - 0 failed downloads among direct PDF links
+   - 7 non-PDF external web links were inaccessible or returned client/server errors upon HTTP verification
+
+8. Number of links that do not directly serve PDFs: 17
+   - 10 accessible web links returning HTML (Content-Type: text/html)
+   - 7 inaccessible/failed web links (DNS failure, HTTP 403, HTTP 404)
+
+9. Number of additional PDFs linked by each seed document:
+   - PreauthorizationMRI.pdf: 10 additional PDFs
+   - CP.MP.107.pdf / CP.MP.107(4).pdf: 3 additional PDFs
+   Total newly downloaded PDFs: 13 (seed documents excluded from downloaded count)
+
+10. Complete filenames of all successfully downloaded PDFs (13 files):
+    1. 2025 Evolent Advanced Imaging Guidelines_0.pdf (13,300,693 bytes, 1,074 pages)
+    2. 2025 Evolent Interventional Pain Management Guidelines.pdf (1,827,255 bytes, 75 pages)
+    3. clm104c20.pdf (846,937 bytes, 120 pages)
+    4. Conservative Treatment Form - Imaging Evolent 01112024.pdf (122,575 bytes, 2 pages)
+    5. Conservative Treatment Form - IPM Evolent 01112024.pdf (113,313 bytes, 1 page)
+    6. Evolent Generic Prior Authorization Checklist (non cardiac) 11112024.pdf (145,236 bytes, 1 page)
+    7. Evolent Tip Sheet Advanced Imaging 2.16.24.pdf (451,941 bytes, 6 pages)
+    8. Evolent Tip Sheet Pediatric Imaging 2.16.24.pdf (385,179 bytes, 6 pages)
+    9. IPM Checklist Evolent 04262024.pdf (231,998 bytes, 3 pages)
+   10. IPM Tip Sheet Evolent 04262024.pdf (145,256 bytes, 4 pages)
+   11. LDCT Form Evolent 02162024_0.pdf (154,949 bytes, 1 page)
+   12. RESNA_App of Seat Elevation Devices 2019.pdf (678,159 bytes, 39 pages)
+   13. som107ap_a_hospitals.pdf (2,920,847 bytes, 616 pages)
+
+11. List of failed URLs and the reason for each failure:
+    1. http://www.cms.hhs.gov/mcd/search.asp
+       - Reason: ConnectionError (DNS resolution failed for hostname 'www.cms.hhs.gov')
+    2. https://www.wpath.org/newsroom/medical-necessity-statement
+       - Reason: HTTP 404 Not Found (web page no longer exists at URL)
+    3. https://www.jointcommission.org/standards/standard-faqs/critical-access-hospital/provision-of-care-treatment-and-services-pc/000001668/
+       - Reason: HTTP 403 Forbidden (web application firewall / bot protection)
+    4. http://www.doi.org/10.1080/26895269.2022.2100644
+       - Reason: HTTP 403 Forbidden (Taylor & Francis publisher bot protection)
+    5. http://www.doi.org/10.1002/ppul.24135
+       - Reason: HTTP 403 Forbidden (Wiley Online Library bot protection)
+    6. http://www.doi.org/10.1016/j.jamcollsurg.2019.06.004
+       - Reason: HTTP 403 Forbidden (Elsevier ScienceDirect bot protection)
+    7. http://www.doi.org/10.1080/17483107.2018.1428692
+       - Reason: HTTP 403 Forbidden (Taylor & Francis publisher bot protection)
+
+================================================================================
+DOCUMENT INVENTORY SUMMARY
+================================================================================
+Seed Documents (source_pdfs/): 2 (PreauthorizationMRI.pdf, CP.MP.107.pdf / CP.MP.107(4).pdf)
+Newly Downloaded PDFs (downloaded_pdfs/): 13
+Total Project PDFs: 15 (clearly distinguishing original 2 seeds from 13 downloaded PDFs)
+================================================================================

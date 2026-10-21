@@ -1,0 +1,103 @@
+{
+  "section_title": "Brain CTA (CPT 70496)",
+  "folder_classification": "cta",
+  "file_name": "cta_brain_70496.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "70496"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2009-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 175,
+        "printed_page": "Page 4 of 20"
+      },
+      "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Aneurysm Screening",
+      "source_quote": "For one first degree relative with aneurysm, asymptomatic screening is not indicated and would require a neurological sign or symptom supporting clinical concern for aneurysm",
+      "clinical_service_or_procedure": "CTA Brain",
+      "rule_type": "exclusion_criterion",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Patient has only one first-degree relative with intracranial aneurysm",
+            "parameter": "first_degree_aneurysm_relatives_count",
+            "comparator": "EQUALS",
+            "value": 1
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Patient is entirely asymptomatic without focal neurological signs or symptoms",
+            "parameter": "patient_is_asymptomatic",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Neurological evaluation notes documenting active symptoms if CTA is requested with single affected relative"
+      ],
+      "exclusion_conditions": [
+        "Routine asymptomatic intracranial aneurysm screening in patients with only one affected first-degree relative"
+      ],
+      "decision_effect": "NOT_INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70496"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Explicit policy exclusion requiring at least two first-degree relatives or neurological symptoms for aneurysm screening."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2009-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 176,
+        "printed_page": "Page 5 of 20"
+      },
+      "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Evaluation of Known Intracranial Vascular Disease (1,2)",
+      "source_quote": "Evaluation of Known Intracranial Vascular Disease (1,2)",
+      "clinical_service_or_procedure": "Brain CTA",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Acute ischemic stroke presentation being evaluated for large vessel occlusion (LVO) or mechanical thrombectomy eligibility",
+            "parameter": "acute_stroke_lvo_evaluation",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Emergency neurological exam documenting NIHSS score, last known well time, and acute focal deficits"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70496"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Brain CTA indicated for acute stroke large vessel occlusion evaluation."
+    }
+  ]
+}

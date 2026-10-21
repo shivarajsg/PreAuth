@@ -1,0 +1,210 @@
+[01/35] Rule ID: RULE-ADV-CG2000-002
+    Page: 9 | Section: Inflammatory Bowel Disease (3–5)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Physical examination documented in medical records", "parameter": "physical_exam_completed", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Diagnostic laboratory workup completed", "parameter": "lab_workup_completed", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-003", "description": "Recent colonoscopy completed prior to advanced imaging request", "parameter": "recent_colonoscopy_completed", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: For suspected inflammatory bowel disease after complete work up including physical exam, labs, and r...
+----------------------------------------------------------------------
+[02/35] Rule ID: RULE-ADV-CG2000-004
+    Page: 9 | Section: Diverticulitis or Acute Appendicitis (8,9)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Suspected acute diverticulitis or acute appendicitis for initial diagnostic evaluation", "parameter": "provisional_diagnosis", "comparator": "CONTAINS", "value": ["Diverticulitis", "Acute Appendicitis"]}, {"condition_id": "COND-002", "description": "At least one objective inflammatory or systemic clinical sign present", "parameter": "clinical_signs_group", "comparator": "IS_PRESENT", "sub_conditions": {"operator": "ANY_OF", "criteria": [{"condition_id": "SIGN-001", "description": "Elevated white blood cell count (leukocytosis)", "parameter": "wbc_count", "comparator": "EQUALS", "value": "ELEVATED"}, {"condition_id": "SIGN-002", "description": "Documented fever", "parameter": "fever_present", "comparator": "EQUALS", "value": true}, {"condition_id": "SIGN-003", "description": "Documented anorexia", "parameter": "anorexia_present", "comparator": "EQUALS", "value": true}, {"condition_id": "SIGN-004", "description": "Documented nausea and vomiting", "parameter": "nausea_and_vomiting_present", "comparator": "EQUALS", "value": true}]}}]}
+    Quote snippet: Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the followin...
+----------------------------------------------------------------------
+[03/35] Rule ID: RULE-ADV-CG2000-005
+    Page: 9 | Section: Diverticulitis or Acute Appendicitis (8,9)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Patient age is strictly less than 18 years", "parameter": "patient_age_years", "comparator": "LESS_THAN", "value": 18, "unit": "years"}, {"condition_id": "COND-002", "description": "Provisional diagnosis is suspected acute appendicitis", "parameter": "provisional_diagnosis", "comparator": "EQUALS", "value": "Appendicitis"}, {"condition_id": "COND-003", "description": "Ultrasound inconclusive/incomplete OR peritoneal signs present", "parameter": "ultrasound_or_peritoneal_signs", "comparator": "IS_PRESENT", "sub_conditions": {"operator": "ANY_OF", "criteria": [{"condition_id": "US-001", "description": "Prior ultrasound inconclusive or incomplete", "parameter": "prior_ultrasound_status", "comparator": "CONTAINS", "value": ["INCONCLUSIVE", "INCOMPLETE"]}, {"condition_id": "US-002", "description": "Peritoneal signs documented (guarding, rebound) or other red flags", "parameter": "peritoneal_signs_present", "comparator": "EQUALS", "value": true}]}}]}
+    Quote snippet: Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or cannot be compl...
+----------------------------------------------------------------------
+[04/35] Rule ID: RULE-ADV-CG2003-001
+    Page: 75 | Section: INDICATIONS FOR ABDOMEN MRA / Other Vascular Abnormalities / Takayasu's Arteritis (15)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Confirmed diagnosis of Takayasu's arteritis", "parameter": "takayasu_arteritis_diagnosed", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "MRA requested at initial diagnosis, q6 months during first 2 years of active therapy, or annually thereafter", "parameter": "takayasu_surveillance_interval_met", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Takayasu's Arteritis (15): ○ At initial diagnosis ○ Every 6 months for the first 2 years while on th...
+----------------------------------------------------------------------
+[05/35] Rule ID: RULE-ADV-CG2004-001
+    Page: 92 | Section: INDICATIONS / Biliary / Choledochal cyst
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Clinically suspected choledochal cyst or congenital biliary duct dilatation", "parameter": "suspected_choledochal_cyst", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Initial diagnostic workup with abdominal ultrasound completed", "parameter": "prior_ultrasound_completed", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Suspected choledochal cyst after ultrasound has been done...
+----------------------------------------------------------------------
+[06/35] Rule ID: RULE-ADV-CG2004-002
+    Page: 92 | Section: INDICATIONS / Pancreas
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Suspected new onset acute pancreatitis", "parameter": "suspected_acute_pancreatitis", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Documented epigastric or upper abdominal pain", "parameter": "epigastric_pain_present", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Suspected new onset acute pancreatitis and ALL of the following: ○ Epigastric or upper abdominal pai...
+----------------------------------------------------------------------
+[07/35] Rule ID: RULE-ADV-CG2005-001
+    Page: 118 | Section: INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities of the Abdomen and Pelvis
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Clinical suspicion or known acute or chronic mesenteric ischemia or ischemic colitis", "parameter": "suspected_mesenteric_ischemia", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Evaluation of known or suspected mesenteric ischemia/ischemic colitis...
+----------------------------------------------------------------------
+[08/35] Rule ID: RULE-ADV-CG2005-002
+    Page: 119 | Section: INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Suspected pelvic congestion syndrome, May-Thurner, or nutcracker syndrome", "parameter": "suspected_pelvic_venous_syndrome", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Initial pelvic or vascular ultrasound was indeterminate", "parameter": "prior_ultrasound_indeterminate", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Suspected pelvic congestive syndrome (including May-Thurner and nutcracker syndromes) when ultrasoun...
+----------------------------------------------------------------------
+[09/35] Rule ID: RULE-ADV-CG2008-001
+    Page: 150 | Section: Stroke and Vascular Disease / Evaluation of Known or Suspected Stroke (11,12)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Known or clinically suspected acute ischemic stroke or intracranial hemorrhage", "parameter": "suspected_acute_stroke", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Evaluation of Known or Suspected Stroke (11,12)...
+----------------------------------------------------------------------
+[10/35] Rule ID: RULE-ADV-CG2008-002
+    Page: 151 | Section: Evaluation of Known or Suspected Vascular Disease (13)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Clinical suspicion of acute subarachnoid hemorrhage", "parameter": "suspected_acute_sah", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Evaluation of suspected acute subarachnoid hemorrhage (SAH)...
+----------------------------------------------------------------------
+[11/35] Rule ID: RULE-ADV-CG2008-003
+    Page: 151 | Section: INDICATIONS / Head Trauma / Evaluation of Known or Suspected Trauma (14,15)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Known or suspected acute head trauma with acute, new, or fluctuating focal neurologic findings, motor changes, or mental status changes", "parameter": "acute_head_trauma_with_neurologic_deficit", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Known or suspected trauma or injury to the head with documentation of one or more of...
+----------------------------------------------------------------------
+[12/35] Rule ID: RULE-ADV-CG2008-004
+    Page: 149 | Section: INDICATIONS / Evaluation of Headache (1,2) / Acute, sudden onset headache
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Acute sudden onset severe headache presenting within 48 hours of onset ('worst headache of life' or 'thunderclap' headache) concerning for acute subarachnoid hemorrhage", "parameter": "thunderclap_or_worst_headache_of_life", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Acute, sudden onset headache (< 4 weeks), with any ONE of the following...
+----------------------------------------------------------------------
+[13/35] Rule ID: RULE-ADV-CG2009-002
+    Page: 176 | Section: INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Evaluation of Known Intracranial Vascular Disease (1,2)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Acute ischemic stroke presentation being evaluated for large vessel occlusion (LVO) or mechanical thrombectomy eligibility", "parameter": "acute_stroke_lvo_evaluation", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Evaluation of Known Intracranial Vascular Disease (1,2)...
+----------------------------------------------------------------------
+[14/35] Rule ID: RULE-ADV-CG2015-001
+    Page: 297 | Section: INDICATIONS / Acute Ischemic Stroke
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Acute ischemic stroke being evaluated for endovascular thrombectomy or reperfusion therapy", "parameter": "acute_ischemic_stroke_reperfusion", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Evaluation performed within 24 hours of symptom onset or last known normal", "parameter": "hours_since_stroke_onset", "comparator": "LESS_THAN_OR_EQUAL", "value": 24, "unit": "hours"}]}
+    Quote snippet: within 24 hours of known ischemic infarct...
+----------------------------------------------------------------------
+[15/35] Rule ID: RULE-ADV-CG2016-001
+    Page: 308 | Section: INDICATIONS FOR CERVICAL SPINE CT / Evaluation of Trauma or Acute Injury (13)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Acute high-impact blunt cervical trauma or acute injury meeting Canadian C-Spine Rule or NEXUS criteria", "parameter": "acute_cervical_trauma", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Evaluation of Trauma or Acute Injury (13)...
+----------------------------------------------------------------------
+[16/35] Rule ID: RULE-ADV-CG2017-001
+    Page: 330 | Section: Evaluation of Neck Pain (5,6)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Evaluation of non-emergent neck pain without acute progressive cord compression", "parameter": "clinical_indication", "comparator": "EQUALS", "value": "NECK_PAIN"}, {"condition_id": "COND-002", "description": "Completion of at least six (6) consecutive weeks of conservative therapy within the prior six (6) months", "parameter": "conservative_care_duration_weeks", "comparator": "GREATER_THAN_OR_EQUAL", "value": 6, "unit": "weeks"}, {"condition_id": "COND-003", "description": "Conservative therapy completed within the preceding 6 months", "parameter": "conservative_care_recency_months", "comparator": "LESS_THAN_OR_EQUAL", "value": 6, "unit": "months"}, {"condition_id": "COND-004", "description": "Documented failure (lack of improvement, progression, or medically documented contraindication)", "parameter": "conservative_therapy_outcome", "comparator": "DOCUMENTED_FAILURE", "value": true}]}
+    Quote snippet: Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months: NO...
+----------------------------------------------------------------------
+[17/35] Rule ID: RULE-ADV-CG2017-002
+    Page: 331 | Section: Evaluation of Suspected Myelopathy (11,12)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Clinical suspicion of cervical myelopathy with progressive upper extremity dysfunction or balance difficulty", "parameter": "suspected_cervical_myelopathy", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Objective neurological exam findings (hyperreflexia, clonus, gait instability, Babinski)", "parameter": "myelopathic_neurologic_deficits", "comparator": "IS_PRESENT", "value": true}]}
+    Quote snippet: Evaluation of Suspected Myelopathy (11,12) ● Progressive symptoms including hand clumsiness, worseni...
+----------------------------------------------------------------------
+[18/35] Rule ID: RULE-ADV-CG2017-003
+    Page: 330 | Section: INDICATIONS / Evaluation of Neck Pain (5,6)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Suspected acute cervical spinal cord compression with objective neurological deficit", "parameter": "suspected_cervical_cord_compression", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Suspected cervical cord compression with any neurological deficits as listed above...
+----------------------------------------------------------------------
+[19/35] Rule ID: RULE-ADV-CG2022-001
+    Page: 436 | Section: INDICATIONS (1,2)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Diagnostic evaluation of the colon required", "parameter": "diagnostic_colonic_evaluation_needed", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Patient had a prior failed or technically incomplete conventional optical colonoscopy", "parameter": "failed_or_incomplete_colonoscopy", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Patient had failed or incomplete colonoscopy...
+----------------------------------------------------------------------
+[20/35] Rule ID: RULE-ADV-CG2030-001
+    Page: 490 | Section: INDICATIONS / For Annual Screening / Group 1 - High Risk for Lung Cancer (3,4)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Patient age is between 50 and 80 years old", "parameter": "patient_age_years", "comparator": "BETWEEN", "value": [50, 80], "unit": "years"}, {"condition_id": "COND-002", "description": "Documented smoking history of at least 20 pack-years", "parameter": "smoking_history_pack_years", "comparator": "GREATER_THAN_OR_EQUAL", "value": 20, "unit": "pack_years"}, {"condition_id": "COND-003", "description": "Patient is currently smoking or has quit smoking within the past 15 years", "parameter": "current_or_recent_smoker_15yr", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Group 1 - High Risk for Lung Cancer (3,4)...
+----------------------------------------------------------------------
+[21/35] Rule ID: RULE-ADV-CG2032-001
+    Page: 504 | Section: INDICATIONS FOR LOWER EXTREMITY CT / Non-specific Lower Extremity Pain (1,2)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Lower extremity pain without specific localized joint involvement", "parameter": "non_specific_lower_extremity_pain", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Prior plain radiographs (X-ray) completed of the symptomatic region", "parameter": "prior_xray_completed", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-003", "description": "MRI is medically contraindicated or cannot be performed", "parameter": "mri_contraindicated", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Lower extremity pain with no specific joint identified with MRI contraindicated or cannot be perform...
+----------------------------------------------------------------------
+[22/35] Rule ID: RULE-ADV-CG2035-001
+    Page: 553 | Section: INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Pain or Suspected Joint Specific Injury
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Evaluation of joint-specific pain, mechanical locking, instability, or suspected internal derangement (ligament/meniscal tear)", "parameter": "joint_specific_injury_or_pain", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Joint Specific Pain or Suspected Joint Specific Injury...
+----------------------------------------------------------------------
+[23/35] Rule ID: RULE-ADV-CG2035-002
+    Page: 553 | Section: INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Orthopedic Signs
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Physical examination demonstrates positive joint-specific sign for meniscal or ligamentous tear (e.g. McMurray test, joint line tenderness, Lachman test, anterior/posterior drawer, pivot shift)", "parameter": "positive_knee_orthopedic_sign", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Prior plain radiograph completed showing no clear explanation for mechanical symptoms or acute fracture", "parameter": "prior_xray_completed", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Joint specific advanced imaging is indicated for any positive orthopedic sign listed below:...
+----------------------------------------------------------------------
+[24/35] Rule ID: RULE-ADV-CG2036-001
+    Page: 574 | Section: INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Neurologic Deficits (1)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Evaluation of acute lumbar trauma, surgical fusion integrity/pseudoarthrosis, or lumbar pain when MRI is contraindicated", "parameter": "lumbar_ct_indication_met", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: INDICATIONS FOR LUMBAR SPINE CT...
+----------------------------------------------------------------------
+[25/35] Rule ID: RULE-ADV-CG2037-001
+    Page: 594 | Section: INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits (1)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Evaluation of low back pain with lumbosacral radiculopathy or radiating leg pain", "parameter": "lumbar_radiculopathy_present", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Completion of at least 6 weeks of conservative care within the prior 6 months without meaningful improvement", "parameter": "conservative_therapy_duration_weeks", "comparator": "GREATER_THAN_OR_EQUAL", "value": 6, "unit": "weeks"}]}
+    Quote snippet: INDICATIONS FOR LUMBAR SPINE MRI...
+----------------------------------------------------------------------
+[26/35] Rule ID: RULE-ADV-CG2037-002
+    Page: 595 | Section: INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits / Cauda Equina Syndrome
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Clinical suspicion of acute cauda equina syndrome with saddle anesthesia, progressive bilateral motor weakness, or bowel/bladder sphincter dysfunction", "parameter": "suspected_cauda_equina_syndrome", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: defined symptoms (see Cauda Equina Syndrome section)...
+----------------------------------------------------------------------
+[27/35] Rule ID: RULE-ADV-CG2042-001
+    Page: 673 | Section: INDICATIONS FOR PELVIS CT / Pelvic Pain for Unknown Etiology
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Evaluation of acute severe pelvic pain of unknown etiology", "parameter": "acute_pelvic_pain", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Patient age is strictly greater than 65 years", "parameter": "patient_age_years", "comparator": "GREATER_THAN", "value": 65, "unit": "years"}]}
+    Quote snippet: For acute pelvic pain in a patient over the age of 65 (2)...
+----------------------------------------------------------------------
+[28/35] Rule ID: RULE-ADV-CG2045-001
+    Page: 718 | Section: INDICATIONS FOR PELVIC MRI / Infection and Inflammation
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Clinical suspicion of perianal fistula, perirectal abscess, or complex fistulizing Crohn's disease", "parameter": "suspected_perianal_fistula_or_abscess", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Suspected perianal fistula or occult anorectal abscess (6)...
+----------------------------------------------------------------------
+[29/35] Rule ID: RULE-ADV-CG2054-001
+    Page: 881 | Section: INDICATIONS FOR SELLA CT
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Known sellar, suprasellar, or parasellar mass requiring bony evaluation of sella turcica or surgical planning", "parameter": "sellar_or_parasellar_mass", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: For further evaluation of known sellar and/or parasellar masses...
+----------------------------------------------------------------------
+[30/35] Rule ID: RULE-ADV-CG2055-001
+    Page: 896 | Section: INDICATIONS FOR TEMPOROMANDIBULAR JOINT (TMJ) MRI / Suspected Internal TMJ Derangement
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page mentions conservative care prerequisites not fully isolated in rule conditions; Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Suspected internal derangement of the temporomandibular joint with mechanical locking, persistent pain, or limitation of mouth opening", "parameter": "suspected_tmj_internal_derangement", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Suspected Internal TMJ Derangement...
+----------------------------------------------------------------------
+[31/35] Rule ID: RULE-ADV-CG2056-001
+    Page: 905 | Section: INDICATIONS FOR THORACIC SPINE CT / Evaluation of Neurologic Deficits (1) / When Thoracic Spine MRI is Contraindicated or cannot be performed
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Patient has new progressive neurological deficit localizing to the thoracic spine (e.g., extremity weakness, bowel/bladder dysfunction, gait instability)", "parameter": "thoracic_neurologic_deficit_present", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Thoracic spine MRI is contraindicated (e.g. non-MRI-compatible device, severe claustrophobia) or cannot be performed", "parameter": "thoracic_mri_contraindicated_or_unavailable", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: When Thoracic Spine MRI is Contraindicated or cannot be performed...
+----------------------------------------------------------------------
+[32/35] Rule ID: RULE-ADV-CG2056-002
+    Page: 906 | Section: INDICATIONS FOR THORACIC SPINE CT / Evaluation of Back Pain (1) / Pain lasting > 4 weeks
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Persistent thoracic back pain lasting greater than 4 weeks", "parameter": "thoracic_pain_duration_weeks", "comparator": "GREATER_THAN", "value": 4}, {"condition_id": "COND-002", "description": "Failure of at least 4-6 weeks of conservative management including physical therapy or medications", "parameter": "conservative_therapy_completed", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-003", "description": "Thoracic spine MRI is contraindicated or cannot be performed", "parameter": "thoracic_mri_contraindicated", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Pain lasting > 4 weeks...
+----------------------------------------------------------------------
+[33/35] Rule ID: RULE-ADV-CG2057-001
+    Page: 925 | Section: INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Neurologic Deficits (1)
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Patient has objective physical exam findings of thoracic myelopathy or sensory/motor level deficit", "parameter": "thoracic_myelopathy_or_deficit_present", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: INDICATIONS FOR THORACIC SPINE MRI...
+----------------------------------------------------------------------
+[34/35] Rule ID: RULE-ADV-CG2057-002
+    Page: 926 | Section: INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Back Pain (1) / Pain lasting > 4 weeks
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains clinical footnotes or superscript references
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Thoracic back pain lasting greater than 4 weeks", "parameter": "thoracic_pain_duration_weeks", "comparator": "GREATER_THAN", "value": 4}, {"condition_id": "COND-002", "description": "Failure of at least 4-6 weeks of conservative management (e.g. physical therapy, chiropractic treatments, home exercise program)", "parameter": "conservative_therapy_completed", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: Pain lasting > 4 weeks...
+----------------------------------------------------------------------
+[35/35] Rule ID: RULE-ADV-CG2062-001
+    Page: 965 | Section: INDICATIONS FOR UPPER EXTREMITY CT / Upper Extremity Pain (1,2) / Special Notes
+    Issue: Core criteria verified, but surrounding policy text includes uncodified context: Page contains contraindication notes not codified as explicit exclusion criteria
+    Conditions: {"operator": "ALL_OF", "criteria": [{"condition_id": "COND-001", "description": "Upper extremity plain X-ray completed showing no definitive diagnostic etiology for joint/extremity pain", "parameter": "prior_xray_negative_or_inconclusive", "comparator": "EQUALS", "value": true}, {"condition_id": "COND-002", "description": "Persistent pain unresponsive to at least 4 weeks of active conservative therapy, OR acute complex fracture/arthrogram planning", "parameter": "conservative_therapy_or_bony_injury", "comparator": "EQUALS", "value": true}]}
+    Quote snippet: X-rays must precede CT evaluation, unless otherwise indicated...
+----------------------------------------------------------------------

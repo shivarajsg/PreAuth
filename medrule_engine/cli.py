@@ -32,6 +32,7 @@ def build_parser() -> argparse.ArgumentParser:
     eval_p.add_argument("--rules-dir", type=Path, default=None, help="Path to rulebook domains directory.")
     eval_p.add_argument("--pretty", action="store_true", help="Pretty-print JSON output.")
     eval_p.add_argument("--quiet", "-q", action="store_true", help="Suppress console progress.")
+    eval_p.add_argument("--tree", action="store_true", help="Evaluate using deterministic decision tree engine.")
 
     # Command: intake
     intake_p = subparsers.add_parser("intake", help="Process case through 10-stage production intake orchestrator")
@@ -66,7 +67,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def run_evaluate(case_path: Path, output_path: Optional[Path], target_rules: Optional[List[str]],
-                 rules_dir: Optional[Path], pretty: bool, quiet: bool) -> int:
+                 rules_dir: Optional[Path], pretty: bool, quiet: bool, tree: bool = False) -> int:
     """Run deterministic rule evaluation."""
     if not case_path.exists():
         sys.stderr.write(f"Error: Case file not found: {case_path}\n")
@@ -81,6 +82,63 @@ def run_evaluate(case_path: Path, output_path: Optional[Path], target_rules: Opt
 
     registry = RuleRegistry(domains_dir=rules_dir)
     service = EvaluationService(registry=registry)
+
+    if tree:
+        from medrule_engine.decision_tree import DecisionTreeEngine
+        dt_engine = DecisionTreeEngine(registry=registry)
+        try:
+            tree_assessment = dt_engine.evaluate(case_data, target_rule_ids=target_rules)
+        except Exception as e:
+            sys.stderr.write(f"Decision-tree evaluation error: {e}\n")
+            return 2
+
+        res = {
+            "case_id": tree_assessment.case_id,
+            "overall_outcome": tree_assessment.overall_outcome.value,
+            "overall_summary": tree_assessment.overall_summary,
+            "clinical_necessity": {
+                "outcome": tree_assessment.clinical_necessity_outcome.value,
+                "explanation": tree_assessment.clinical_necessity_explanation,
+                "rules": [
+                    {
+                        "rule_id": r.rule_id,
+                        "outcome": r.outcome.value,
+                        "governance_status": r.governance_status,
+                        "is_blocked": r.is_blocked_by_governance,
+                        "explanation": r.explanation
+                    }
+                    for r in tree_assessment.clinical_necessity_rules
+                ]
+            },
+            "place_of_service": {
+                "outcome": tree_assessment.place_of_service_outcome.value if tree_assessment.place_of_service_outcome else None,
+                "explanation": tree_assessment.place_of_service_explanation,
+                "rules": [
+                    {
+                        "rule_id": r.rule_id,
+                        "outcome": r.outcome.value,
+                        "explanation": r.explanation
+                    }
+                    for r in tree_assessment.place_of_service_rules
+                ]
+            } if tree_assessment.place_of_service_outcome else None,
+            "human_review_reasons": tree_assessment.human_review_reasons,
+            "missing_evidence_fields": tree_assessment.missing_evidence_fields,
+            "uncovered_gaps_encountered": tree_assessment.uncovered_gaps_encountered,
+            "is_binding": tree_assessment.is_binding,
+            "reproducibility_hash": tree_assessment.reproducibility_hash
+        }
+        indent = 2 if pretty else None
+        audit_json = json.dumps(res, indent=indent, sort_keys=True)
+        if output_path:
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(output_path, "w", encoding="utf-8") as f:
+                f.write(audit_json)
+            if not quiet:
+                print(f"Decision tree assessment saved to: {output_path}")
+        else:
+            print(audit_json)
+        return 0
 
     try:
         assessment, audit = service.evaluate_case(
@@ -219,7 +277,8 @@ def main(args: Optional[List[str]] = None) -> int:
             target_rules=parsed.target_rules,
             rules_dir=parsed.rules_dir,
             pretty=parsed.pretty,
-            quiet=parsed.quiet
+            quiet=parsed.quiet,
+            tree=getattr(parsed, "tree", False)
         )
     elif parsed.command == "intake":
         return run_intake(

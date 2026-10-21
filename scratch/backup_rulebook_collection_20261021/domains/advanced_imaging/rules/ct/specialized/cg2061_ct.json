@@ -1,0 +1,101 @@
+{
+  "section_title": "Unlisted CT Procedure - Low Dose Whole Body CT (CPT 76497)",
+  "folder_classification": "ct/specialized",
+  "file_name": "cg2061_ct.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "76497",
+    "76498"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2061-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 954,
+        "printed_page": "Page 2 of 10"
+      },
+      "source_section": "INDICATIONS FOR UNLISTED MRI / Radiation treatment planning",
+      "source_quote": "Unlisted MRI (CPT Code 76498), can be used in the context of:",
+      "clinical_service_or_procedure": "Unlisted MRI Procedure (CPT 76498)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "MRI is requested specifically for radiation therapy treatment planning and simulation",
+            "parameter": "radiation_treatment_planning_simulation",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Radiation oncologist treatment planning orders specifying immobilization, tumor target delineation, or fusion protocol"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 76498"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Unlisted MRI indicated for radiation therapy treatment planning."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2061-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 956,
+        "printed_page": "Page 4 of 10"
+      },
+      "source_section": "INDICATIONS FOR UNLISTED CT / Low Dose Whole Body CT",
+      "source_quote": "INDICATIONS FOR UNLISTED CT",
+      "clinical_service_or_procedure": "Unlisted CT Procedure - Low Dose Whole Body CT (CPT 76497)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ANY_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Evaluation of suspected, initial staging, or restaging of Multiple Myeloma",
+            "parameter": "multiple_myeloma_evaluation",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Evaluation of Monoclonal Gammopathy of Undetermined Significance (MGUS), Solitary Plasmacytoma, or Smoldering Multiple Myeloma",
+            "parameter": "plasma_cell_dyscrasia_evaluation",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Hematology/oncology records showing abnormal monoclonal protein, bone marrow biopsy, or CRAB criteria"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 76497"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Low dose whole-body CT indicated for plasma cell dyscrasias and multiple myeloma."
+    }
+  ]
+}

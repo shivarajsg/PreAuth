@@ -1,0 +1,210 @@
+{
+  "status": "SUCCESS",
+  "filename": "Test_Case_Policy_Resolved_Lumbar_MRI.pdf",
+  "pages_analyzed": 1,
+  "extracted_fields": {
+    "case_id": "CASE-PDF-1792584654",
+    "patient_id": "MEM-88219",
+    "clinical_domain": "advanced_imaging",
+    "procedure_code": "72148",
+    "procedure_name": "MRI Lumbar Spine without contrast",
+    "line_of_business": "COMMERCIAL",
+    "requested_date_of_service": "2026-02-26",
+    "payer_id": "CENTENE",
+    "plan_id": "COMMERCIAL_CHOICE_PLUS",
+    "place_of_service": "OFFICE",
+    "submitted_documents": "Comprehensive clinical notes and diagnostic findings, Uploaded Physician PDF (Test_Case_Policy_Resolved_Lumbar_MRI.pdf), Clinical Notes & Order Documentation",
+    "evidence": {
+      "ordering_provider_name": "Dr. Physician",
+      "ordering_provider_license": true,
+      "diagnosis_icd10": "M62.838",
+      "laterality": "RIGHT",
+      "anatomical_region": "LUMBAR_SPINE",
+      "anatomy_region": "LUMBAR_SPINE",
+      "clinical_office_notes": true,
+      "clinical_indication_documented": true,
+      "place_of_service_code": "POS_11",
+      "prior_conservative_care_modalities": {
+        "status": "CONFLICTING",
+        "details": "Contradictory documented statements for 'prior_conservative_care_modalities'",
+        "values": [
+          {
+            "status": "CONFLICTING",
+            "details": "Contradictory documented statements for 'prior_conservative_care_modalities'",
+            "values": [
+              {
+                "status": "CONFLICTING",
+                "details": "Contradictory documented statements for 'prior_conservative_care_modalities'",
+                "values": [
+                  [
+                    "Physical Therapy"
+                  ],
+                  [
+                    "Oral NSAIDs",
+                    "Activity Modification"
+                  ]
+                ]
+              },
+              [
+                "Physical Therapy"
+              ]
+            ]
+          },
+          [
+            "Physical Therapy"
+          ]
+        ]
+      },
+      "lumbar_radiculopathy_present": true,
+      "radicular_pain_confirmed": true,
+      "conservative_therapy_duration_weeks": 6,
+      "conservative_care_weeks": 6,
+      "conservative_care_completed": true,
+      "red_flag_symptoms_documented": true,
+      "suspected_cauda_equina_syndrome": {
+        "status": "CONFLICTING",
+        "details": "Contradictory documented statements for 'suspected_cauda_equina_syndrome'",
+        "values": [
+          false,
+          true
+        ]
+      }
+    },
+    "evidence_provenance": {
+      "ordering_provider_name": {
+        "snippet": "Attending Physician",
+        "value": "Dr. Physician"
+      },
+      "ordering_provider_license": {
+        "snippet": "Attending Physician",
+        "value": true
+      },
+      "diagnosis_icd10": {
+        "snippet": "M62.838",
+        "value": "M62.838"
+      },
+      "laterality": {
+        "snippet": "Laterality documented: RIGHT",
+        "value": "RIGHT"
+      },
+      "anatomical_region": {
+        "snippet": "Anatomical region documented: LUMBAR_SPINE",
+        "value": "LUMBAR_SPINE"
+      },
+      "anatomy_region": {
+        "snippet": "Anatomical region documented: LUMBAR_SPINE",
+        "value": "LUMBAR_SPINE"
+      },
+      "clinical_office_notes": {
+        "snippet": "CLINICAL PRE-CERTIFICATION ORDER: MRI LUMBAR SPINE (POLICY RESOLVED)",
+        "value": true
+      },
+      "clinical_indication_documented": {
+        "snippet": "CLINICAL PRE-CERTIFICATION ORDER: MRI LUMBAR SPINE (POLICY RESOLVED)",
+        "value": true
+      },
+      "place_of_service_code": {
+        "snippet": "Place of Service: OFFICE (POS_11)",
+        "value": "POS_11"
+      },
+      "prior_conservative_care_modalities": {
+        "status": "CONFLICTING",
+        "snippet": "1: 1: 1: Patient has completed 6 weeks of structured physical therapy (2 sessions per week) with certified physical therapist. | 2: Concurrent oral NSAID therapy (Meloxicam 15 mg daily) and activity modification were maintained without functional relief. | 2: Physical therapy progress notes and compliance logs have been reviewed and documented in medical chart. | 2: I certify that clinical indication criteria for MRI Lumbar Spine without contrast (CPT 72148) are met under 2026 Guidelines.",
+        "value": [
+          {
+            "status": "CONFLICTING",
+            "details": "Contradictory documented statements for 'prior_conservative_care_modalities'",
+            "values": [
+              {
+                "status": "CONFLICTING",
+                "details": "Contradictory documented statements for 'prior_conservative_care_modalities'",
+                "values": [
+                  [
+                    "Physical Therapy"
+                  ],
+                  [
+                    "Oral NSAIDs",
+                    "Activity Modification"
+                  ]
+                ]
+              },
+              [
+                "Physical Therapy"
+              ]
+            ]
+          },
+          [
+            "Physical Therapy"
+          ]
+        ]
+      },
+      "lumbar_radiculopathy_present": {
+        "snippet": "Primary Diagnosis: Muscle spasm of back with radiculopathy (ICD-10 M62.838)",
+        "value": true
+      },
+      "radicular_pain_confirmed": {
+        "snippet": "Primary Diagnosis: Muscle spasm of back with radiculopathy (ICD-10 M62.838)",
+        "value": true
+      },
+      "conservative_therapy_duration_weeks": {
+        "snippet": "Patient has completed 6 weeks of structured physical therapy (2 sessions per week) with certified physical therapist.",
+        "value": 6
+      },
+      "conservative_care_weeks": {
+        "snippet": "Patient has completed 6 weeks of structured physical therapy (2 sessions per week) with certified physical therapist.",
+        "value": 6
+      },
+      "conservative_care_completed": {
+        "snippet": "Patient has completed 6 weeks of structured physical therapy (2 sessions per week) with certified physical therapist.",
+        "value": true
+      },
+      "red_flag_symptoms_documented": {
+        "snippet": "RED FLAGS & CONTRAINDICATIONS ASSESSMENT",
+        "value": true
+      },
+      "suspected_cauda_equina_syndrome": {
+        "status": "CONFLICTING",
+        "snippet": "1: No evidence of bowel or bladder incontinence. | 2: No progressive focal motor weakness or saddle anesthesia.",
+        "value": [
+          false,
+          true
+        ]
+      }
+    }
+  },
+  "details": {
+    "patient_id": "MEM-88219",
+    "patient_dob": "04/12/1978",
+    "patient_age": "Adult",
+    "patient_gender": "Male",
+    "ordering_provider": "Dr. Physician",
+    "provider_specialty": "Attending Physician",
+    "facility_name": "AL PRE",
+    "procedure_code": "72148",
+    "procedure_name": "MRI Lumbar Spine without contrast",
+    "clinical_domain": "advanced_imaging",
+    "clinical_domain_label": "Advanced Imaging",
+    "diagnosis_icd10": "M62.838",
+    "diagnosis_description": "Other muscle spasm / Lumbar radicular syndrome",
+    "date_of_service": "2026-02-26",
+    "line_of_business": "COMMERCIAL",
+    "payer_id": "CENTENE",
+    "plan_id": "COMMERCIAL_CHOICE_PLUS",
+    "place_of_service": "OFFICE",
+    "place_of_service_code": "POS_11",
+    "key_findings": [
+      "Diagnosis: Other muscle spasm / Lumbar radicular syndrome (ICD-10 M62.838)",
+      "Ordering Physician: Dr. Physician",
+      "Requested Procedure: MRI Lumbar Spine without contrast (CPT 72148)",
+      "Place of Service: OFFICE (POS_11)",
+      "Documented lumbar radiculopathy / radiating pain",
+      "Prior conservative therapy documented (6 weeks)"
+    ],
+    "evidence_count": 17,
+    "pages_analyzed": 1,
+    "character_count": 2032,
+    "narrative_excerpt": "CLINICAL PRE-CERTIFICATION ORDER: MRI LUMBAR SPINE (POLICY RESOLVED)\n1. PATIENT & ENCOUNTER INFORMATION\nPatient Name: John Doe                  Date of Birth: 04/12/1978 (Age: 48, Male)\nMember ID: MEM-88219                   Date of Service: 2026-02-26\nHealth Plan: Commercial Choice Plus     Payer: Centene / Evolent Commercial\n2. ORDERING PHYSICIAN & PRACTICE\nAttending Physician: Dr. Yu, MD        Specialty: Spine & Orthopedics\nFacility / Practice: Metro Orthopedic Spine Institute, Outpatient Clinic\nState Medical License: Active Verified NPI: 1982736450\n3. ORDERED PROCEDURE & DIAGNOSTIC CODING\nRequested Procedure: MRI Lumbar Spine without contrast\nProcedure Code: CPT 72148              Clinical Domain: Advanced Imaging\nPrimary Diagnosis: Muscle spasm of back with radiculopathy (ICD-10 M62.838)\n4. CLINICAL HISTORY & SYMPTOMS\nPatient presents with severe lower back pain radiating down the right lower extremity in the L5 dermatome\nfor 8 consecutive weeks. Symptoms have caused functional limitations in daily ambulation and occupational duties.\nPhysical examination demonstrates positive straight leg raise test on the right at 40 degrees and diminished\nsensory perception along the right lateral calf and dorsal foot.\n5. CONSERVATIVE THERAPY & OBJECTIVE FINDINGS\nPatient has completed 6 weeks of structured physical therapy (2 sessions per week) with certified physical therapist.\nConcurrent oral NSAID therapy (Meloxicam 15 mg daily) and activity modification were maintained without functional relief.\nPhysical therapy progress notes and compliance logs have been reviewed and documented in medical chart.\n6. RED FLAGS & CONTRAINDICATIONS ASSESSMENT\nNegative for acute cauda equina syndrome. No evidence of bowel or bladder incontinence.\nNo progressive focal motor weakness or saddle anesthesia.\n7. PHYSICIAN CERTIFICATION & CLINICAL ORDER\nI certify that clinical indication criteria for MRI Lumbar Spine without contrast (CPT 72148) are met under 2026 Guidelines.\nDr. Yu, MD - Attending Spine & Orthopedic Specialist"
+  },
+  "text_snippet": "CLINICAL PRE-CERTIFICATION ORDER: MRI LUMBAR SPINE (POLICY RESOLVED) 1. PATIENT & ENCOUNTER INFORMATION Patient Name: John Doe Date of Birth: 04/12/1978 (Age: 48, Male) Member ID: MEM-88219 Date of Service: 2026-02-26 Health Plan: Commercial Choice Plus Payer: Centene / Evolent Commercial 2. ORDERING PHYSICIAN & PRACTICE Attending Physician: Dr. Yu, MD Specialty: Spine & Orthopedics Facility / Practic",
+  "summary": "Extracted 25 clinical & administrative fields from Test_Case_Policy_Resolved_Lumbar_MRI.pdf (1 pages, 2032 characters)."
+}

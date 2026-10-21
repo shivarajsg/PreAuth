@@ -1,0 +1,54 @@
+{
+  "section_title": "Fetal MRI (CPT 74712-74713)",
+  "folder_classification": "mri/specialized",
+  "file_name": "mri_fetal_74712_74713.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "74712",
+    "74713"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2027-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 466,
+        "printed_page": "Page 2 of 7"
+      },
+      "source_section": "INDICATIONS FOR FETAL MRI",
+      "source_quote": "Fetal surgery is planned",
+      "clinical_service_or_procedure": "Fetal MRI",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "In-utero fetal surgery or fetal intervention is actively planned",
+            "parameter": "planned_fetal_surgery",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Maternal-fetal medicine (MFM) or pediatric surgery consultation notes outlining planned in-utero surgical procedure"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74712",
+        "CPT 74713"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Preoperative planning indication for in-utero fetal surgical intervention."
+    }
+  ]
+}

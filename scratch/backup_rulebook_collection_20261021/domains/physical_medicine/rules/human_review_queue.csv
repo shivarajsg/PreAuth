@@ -1,0 +1,4 @@
+rule_id,guideline_id,policy_title,physical_page,review_reason,source_quote
+RULE-PHY-PREAMBLEPHY-001,PREAMBLE-PHY,2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines,2,Clinical discretion / investigational service / pediatric chiropractic review,Evolent is committed to the philosophy of supporting safe and effective
+RULE-PHY-ECG1501CHIROINFANT-001,ECG-1501-CHIRO-INFANT,2026 Evolent Clinical Guidelines for Medical Necessity Review: Physical Medicine Guidelines,35,Clinical discretion / investigational service / pediatric chiropractic review,Evolent Clinical Guideline 1501 for Chiropractic Infant Care Policy
+RULE-PHY-POLICYEXPERIMENTALPHYSMED-001,POLICY-EXPERIMENTAL-PHYSMED,"Experimental, Unproven, or Investigational Services in Physical Medicine",1,Clinical discretion / investigational service / pediatric chiropractic review,"Experimental, Unproven, or Investigational Services"

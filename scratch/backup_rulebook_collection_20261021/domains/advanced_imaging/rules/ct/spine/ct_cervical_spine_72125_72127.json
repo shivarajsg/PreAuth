@@ -1,0 +1,52 @@
+{
+  "section_title": "CT Cervical Spine (CPT 72125-72127)",
+  "folder_classification": "ct/spine",
+  "file_name": "ct_cervical_spine_72125_72127.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "72125"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2016-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 308,
+        "printed_page": "Page 5 of 23"
+      },
+      "source_section": "INDICATIONS FOR CERVICAL SPINE CT / Evaluation of Trauma or Acute Injury (13)",
+      "source_quote": "Evaluation of Trauma or Acute Injury (13)",
+      "clinical_service_or_procedure": "Cervical Spine CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Acute high-impact blunt cervical trauma or acute injury meeting Canadian C-Spine Rule or NEXUS criteria",
+            "parameter": "acute_cervical_trauma",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Emergency department notes documenting high-risk injury mechanism, midline neck tenderness, or focal neurological deficit"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72125"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Acute cervical trauma pathway for rapid bony fracture evaluation."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "section_title": "Abdominal Aorta CTA with Runoff (CPT 75635)",
+  "folder_classification": "cta",
+  "file_name": "cta_aorta_runoff_75635.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "75635"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2006-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 132,
+        "printed_page": "Page 4 of 10"
+      },
+      "source_section": "INDICATIONS / Peripheral Arterial Disease / Critical Limb Ischemia",
+      "source_quote": "For acute critical limb ischemia with any ONE of the below clinical signs of peripheral vascular disease: \u25cb Ischemic rest pain \u25cb Tissue loss \u25cb Gangrene",
+      "clinical_service_or_procedure": "CTA Abdominal Aorta with Lower Extremity Runoff",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Suspected or known peripheral arterial disease with critical limb ischemia",
+            "parameter": "critical_limb_ischemia_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "At least one sign: ischemic rest pain, non-healing ischemic ulceration/tissue loss, or gangrene",
+            "parameter": "cli_objective_signs",
+            "comparator": "IS_PRESENT",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Vascular surgery or podiatry exam documenting rest pain, tissue ulceration, or gangrene"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 75635"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Urgent critical limb ischemia bypasses conservative medical trial."
+    }
+  ]
+}

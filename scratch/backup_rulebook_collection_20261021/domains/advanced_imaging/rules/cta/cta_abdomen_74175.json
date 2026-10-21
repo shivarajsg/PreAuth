@@ -1,0 +1,120 @@
+{
+  "section_title": "Abdomen CTA (CPT 74175)",
+  "folder_classification": "cta",
+  "file_name": "cta_abdomen_74175.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "74175"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2002-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 61,
+        "printed_page": "Page 4 of 12"
+      },
+      "source_section": "INDICATIONS FOR ABDOMEN CTA / Renal Artery Stenosis",
+      "source_quote": "In a patient with hypertension AND prior abnormal or inconclusive ultrasound with any ONE of the following (1,2): \u25cf Onset of hypertension prior to the age of 30 without a family history of hypertension and when there is suspicion of fibromuscular dysplasia or a vasculitis \u25cf Failure to obtain adequate blood pressure control on 3 antihypertensive medications, including one diuretic",
+      "clinical_service_or_procedure": "CTA Abdomen",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Documented hypertension with prior abnormal or inconclusive renal artery duplex ultrasound",
+            "parameter": "hypertension_with_prior_ultrasound",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Early onset (<30 yr) without family history OR resistant hypertension on 3 medications including diuretic",
+            "parameter": "renovascular_hypertension_features",
+            "comparator": "IS_PRESENT",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "RAS-001",
+                  "description": "Onset of hypertension prior to age 30 without family history",
+                  "parameter": "hypertension_onset_age",
+                  "comparator": "LESS_THAN",
+                  "value": 30,
+                  "unit": "years"
+                },
+                {
+                  "condition_id": "RAS-002",
+                  "description": "Refractory hypertension failing 3 concurrent antihypertensive drugs including a diuretic",
+                  "parameter": "antihypertensive_medications_count",
+                  "comparator": "GREATER_THAN_OR_EQUAL",
+                  "value": 3
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "required_documentation": [
+        "Renal duplex ultrasound report demonstrating abnormal or inconclusive velocity measurements",
+        "Medication administration record detailing 3 concurrent antihypertensive agents with diuretic"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74175"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Secondary renovascular hypertension indication requiring prior ultrasound failure."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2002-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 61,
+        "printed_page": "Page 4 of 12"
+      },
+      "source_section": "INDICATIONS FOR ABDOMEN CTA / Other Vascular Abnormalities of the Abdomen",
+      "source_quote": "Initial evaluation of inconclusive vascular findings on prior imaging of the abdomen",
+      "clinical_service_or_procedure": "CTA Abdomen",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Inconclusive or equivocal vascular finding on prior abdominal ultrasound or CT",
+            "parameter": "prior_vascular_imaging_inconclusive",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Prior abdominal imaging report citing indeterminate vascular abnormality requiring definitive angiography"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 74175"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Diagnostic clarification pathway for indeterminate vascular findings."
+    }
+  ]
+}

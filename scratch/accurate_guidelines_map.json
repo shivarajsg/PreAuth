@@ -1,0 +1,764 @@
+[
+  {
+    "guideline_id": "PREAMBLE",
+    "title": "Guidelines for Clinical Review Determination Preamble and Development Process",
+    "start_page": 2,
+    "end_page": 3,
+    "page_count": 2,
+    "codes": []
+  },
+  {
+    "guideline_id": "CG-2000",
+    "title": "Abdomen Pelvis Computed Tomography (CT)",
+    "start_page": 6,
+    "end_page": 34,
+    "page_count": 29,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "74176",
+      "74177",
+      "74178"
+    ]
+  },
+  {
+    "guideline_id": "CG-2001",
+    "title": "Abdomen Computed Tomography (CT)",
+    "start_page": 35,
+    "end_page": 57,
+    "page_count": 23,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "74150",
+      "74160",
+      "74170"
+    ]
+  },
+  {
+    "guideline_id": "CG-2002",
+    "title": "Abdomen Computed Tomography Angiography (CTA)",
+    "start_page": 58,
+    "end_page": 69,
+    "page_count": 12,
+    "codes": [
+      "74175"
+    ]
+  },
+  {
+    "guideline_id": "CG-2003",
+    "title": "Abdomen Magnetic Resonance Angiography (MRA)",
+    "start_page": 70,
+    "end_page": 87,
+    "page_count": 18,
+    "codes": [
+      "74185"
+    ]
+  },
+  {
+    "guideline_id": "CG-2004",
+    "title": "Abdomen Magnetic Resonance Imaging (MRI) with or without",
+    "start_page": 88,
+    "end_page": 113,
+    "page_count": 26,
+    "codes": [
+      "+0698T",
+      "+0724T",
+      "0698T",
+      "0724T",
+      "74181",
+      "74182",
+      "74183"
+    ]
+  },
+  {
+    "guideline_id": "CG-2005",
+    "title": "Abdomen Pelvis Computed Tomography Angiography (CTA)",
+    "start_page": 114,
+    "end_page": 128,
+    "page_count": 15,
+    "codes": [
+      "74174"
+    ]
+  },
+  {
+    "guideline_id": "CG-2006",
+    "title": "Abdominal Aorta Computed Tomography Angiography with Lower",
+    "start_page": 129,
+    "end_page": 138,
+    "page_count": 10,
+    "codes": [
+      "75635"
+    ]
+  },
+  {
+    "guideline_id": "CG-2007",
+    "title": "Bone Marrow Magnetic Resonance Imaging (MRI)",
+    "start_page": 139,
+    "end_page": 145,
+    "page_count": 7,
+    "codes": [
+      "77084"
+    ]
+  },
+  {
+    "guideline_id": "CG-2008",
+    "title": "Brain Computed Tomography (CT)",
+    "start_page": 146,
+    "end_page": 171,
+    "page_count": 26,
+    "codes": [
+      "+0722T",
+      "+07472",
+      "0722T",
+      "70450",
+      "70460",
+      "70470"
+    ]
+  },
+  {
+    "guideline_id": "CG-2009",
+    "title": "Brain Computed Tomography Angiography (CTA)",
+    "start_page": 172,
+    "end_page": 191,
+    "page_count": 20,
+    "codes": [
+      "70496"
+    ]
+  },
+  {
+    "guideline_id": "CG-2010",
+    "title": "Magnetic Resonance Spectroscopy (MRS)",
+    "start_page": 192,
+    "end_page": 199,
+    "page_count": 8,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "76390"
+    ]
+  },
+  {
+    "guideline_id": "CG-2011",
+    "title": "Brain Magnetic Resonance Angiography (MRA)",
+    "start_page": 200,
+    "end_page": 219,
+    "page_count": 20,
+    "codes": [
+      "70544",
+      "70545",
+      "70546"
+    ]
+  },
+  {
+    "guideline_id": "CG-2012",
+    "title": "Brain Magnetic Resonance Imaging (MRI) With or Without Internal",
+    "start_page": 220,
+    "end_page": 269,
+    "page_count": 50,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "70551",
+      "70552",
+      "70553"
+    ]
+  },
+  {
+    "guideline_id": "CG-2013",
+    "title": "Brain Positron Emission Tomography (PET) Scan",
+    "start_page": 270,
+    "end_page": 279,
+    "page_count": 10,
+    "codes": [
+      "78608",
+      "78609"
+    ]
+  },
+  {
+    "guideline_id": "CG-2014",
+    "title": "Breast Magnetic Resonance Imaging (MRI)",
+    "start_page": 280,
+    "end_page": 294,
+    "page_count": 15,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "77046",
+      "77047",
+      "77048",
+      "77049"
+    ]
+  },
+  {
+    "guideline_id": "CG-2015",
+    "title": "Cerebral Perfusion Computed Tomography (CT)",
+    "start_page": 295,
+    "end_page": 303,
+    "page_count": 9,
+    "codes": [
+      "70473"
+    ]
+  },
+  {
+    "guideline_id": "CG-2016",
+    "title": "Cervical Spine Computed Tomography (CT)",
+    "start_page": 304,
+    "end_page": 326,
+    "page_count": 23,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "72125",
+      "72126",
+      "72127"
+    ]
+  },
+  {
+    "guideline_id": "CG-2017",
+    "title": "Cervical Spine Magnetic Resonance Imaging (MRI)",
+    "start_page": 327,
+    "end_page": 352,
+    "page_count": 26,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "72141",
+      "72142",
+      "72156"
+    ]
+  },
+  {
+    "guideline_id": "CG-2018",
+    "title": "Chest Computed Tomography (CT)",
+    "start_page": 353,
+    "end_page": 382,
+    "page_count": 30,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "71250",
+      "71260",
+      "71270",
+      "71271"
+    ]
+  },
+  {
+    "guideline_id": "CG-2019",
+    "title": "Chest Magnetic Resonance Imaging (MRI)",
+    "start_page": 383,
+    "end_page": 396,
+    "page_count": 14,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "71550",
+      "71551",
+      "71552"
+    ]
+  },
+  {
+    "guideline_id": "CG-2020",
+    "title": "Chest Computed Tomography Angiography (CTA)",
+    "start_page": 397,
+    "end_page": 415,
+    "page_count": 19,
+    "codes": [
+      "71275"
+    ]
+  },
+  {
+    "guideline_id": "CG-2021",
+    "title": "Chest Magnetic Resonance Angiography (MRA)",
+    "start_page": 416,
+    "end_page": 434,
+    "page_count": 19,
+    "codes": [
+      "71555"
+    ]
+  },
+  {
+    "guideline_id": "CG-2022",
+    "title": "CT (Virtual) Colonoscopy - Diagnostic",
+    "start_page": 435,
+    "end_page": 441,
+    "page_count": 7,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "74261",
+      "74262"
+    ]
+  },
+  {
+    "guideline_id": "CG-2023",
+    "title": "CT (Virtual) Colonoscopy - Screening",
+    "start_page": 442,
+    "end_page": 449,
+    "page_count": 8,
+    "codes": [
+      "0722T",
+      "74263"
+    ]
+  },
+  {
+    "guideline_id": "CG-2024",
+    "title": "Computed Tomography (CT) Bone Density Study",
+    "start_page": 450,
+    "end_page": 460,
+    "page_count": 11,
+    "codes": [
+      "77078"
+    ]
+  },
+  {
+    "guideline_id": "CG-2026",
+    "title": "Computed Tomography (CT) or Magnetic Resonance Imaging (MRI)",
+    "start_page": 461,
+    "end_page": 464,
+    "page_count": 4,
+    "codes": [
+      "77011",
+      "77012",
+      "77013",
+      "77021",
+      "77022"
+    ]
+  },
+  {
+    "guideline_id": "CG-2027",
+    "title": "Fetal Magnetic Resonance Imaging",
+    "start_page": 465,
+    "end_page": 471,
+    "page_count": 7,
+    "codes": [
+      "+74713",
+      "74712",
+      "74713"
+    ]
+  },
+  {
+    "guideline_id": "CG-2028",
+    "title": "Functional",
+    "start_page": 472,
+    "end_page": 482,
+    "page_count": 11,
+    "codes": [
+      "70554",
+      "70555"
+    ]
+  },
+  {
+    "guideline_id": "CG-2029",
+    "title": "Follow Up, Limited or Localized Computed Tomography (CT)",
+    "start_page": 483,
+    "end_page": 488,
+    "page_count": 6,
+    "codes": []
+  },
+  {
+    "guideline_id": "CG-2030",
+    "title": "Low Dose Computed Tomography (CT) for Lung Cancer Screening",
+    "start_page": 489,
+    "end_page": 496,
+    "page_count": 8,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "71271"
+    ]
+  },
+  {
+    "guideline_id": "CG-2031",
+    "title": "Low Field Magnetic Resonance Imaging (MRI)",
+    "start_page": 497,
+    "end_page": 500,
+    "page_count": 4,
+    "codes": [
+      "8042"
+    ]
+  },
+  {
+    "guideline_id": "CG-2032",
+    "title": "Lower Extremity Computed Tomography (CT)",
+    "start_page": 501,
+    "end_page": 523,
+    "page_count": 23,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "73700",
+      "73701",
+      "73702"
+    ]
+  },
+  {
+    "guideline_id": "CG-2033",
+    "title": "Lower Extremity Computed Tomography Angiography (CTA)",
+    "start_page": 524,
+    "end_page": 536,
+    "page_count": 13,
+    "codes": [
+      "73706"
+    ]
+  },
+  {
+    "guideline_id": "CG-2034",
+    "title": "Lower Extremity Magnetic Resonance Angiography (MRA)",
+    "start_page": 537,
+    "end_page": 549,
+    "page_count": 13,
+    "codes": [
+      "73725"
+    ]
+  },
+  {
+    "guideline_id": "CG-2035",
+    "title": "Lower Extremity Magnetic Resonance Imaging (MRI)",
+    "start_page": 550,
+    "end_page": 571,
+    "page_count": 22,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "72195",
+      "72196",
+      "72197",
+      "73718",
+      "73719",
+      "73720",
+      "73721",
+      "73722",
+      "73723"
+    ]
+  },
+  {
+    "guideline_id": "CG-2036",
+    "title": "Lumbar Spine Computed Tomography (CT)",
+    "start_page": 572,
+    "end_page": 591,
+    "page_count": 20,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "72131",
+      "72132",
+      "72133"
+    ]
+  },
+  {
+    "guideline_id": "CG-2037",
+    "title": "Lumbar Spine Magnetic Resonance Imaging (MRI)",
+    "start_page": 592,
+    "end_page": 613,
+    "page_count": 22,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "72148",
+      "72149",
+      "72158"
+    ]
+  },
+  {
+    "guideline_id": "CG-2038",
+    "title": "Magnetic Resonance Elastography (MRE)",
+    "start_page": 614,
+    "end_page": 621,
+    "page_count": 8,
+    "codes": [
+      "76391"
+    ]
+  },
+  {
+    "guideline_id": "CG-2039",
+    "title": "Neck Computed Tomography (CT)",
+    "start_page": 622,
+    "end_page": 637,
+    "page_count": 16,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "70490",
+      "70491",
+      "70492"
+    ]
+  },
+  {
+    "guideline_id": "CG-2040",
+    "title": "Neck Computed Tomography Angiography (CTA)",
+    "start_page": 638,
+    "end_page": 653,
+    "page_count": 16,
+    "codes": [
+      "70498"
+    ]
+  },
+  {
+    "guideline_id": "CG-2041",
+    "title": "Neck Magnetic Resonance Angiography (MRA)",
+    "start_page": 654,
+    "end_page": 669,
+    "page_count": 16,
+    "codes": [
+      "70547",
+      "70548",
+      "70549"
+    ]
+  },
+  {
+    "guideline_id": "CG-2042",
+    "title": "Pelvis Computed Tomography (CT)",
+    "start_page": 670,
+    "end_page": 685,
+    "page_count": 16,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "72192",
+      "72193",
+      "72194"
+    ]
+  },
+  {
+    "guideline_id": "CG-2043",
+    "title": "Pelvis Computed Tomography Angiography (CTA)",
+    "start_page": 686,
+    "end_page": 697,
+    "page_count": 12,
+    "codes": [
+      "72191"
+    ]
+  },
+  {
+    "guideline_id": "CG-2044",
+    "title": "Pelvis Magnetic Resonance Angiography (MRA)",
+    "start_page": 698,
+    "end_page": 714,
+    "page_count": 17,
+    "codes": [
+      "72198"
+    ]
+  },
+  {
+    "guideline_id": "CG-2045",
+    "title": "Pelvis Magnetic Resonance Imaging (MRI)",
+    "start_page": 715,
+    "end_page": 736,
+    "page_count": 22,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "72195",
+      "72196",
+      "72197"
+    ]
+  },
+  {
+    "guideline_id": "CG-2046",
+    "title": "Positron Emission Tomography (PET) Scan, PET Scan with Computed",
+    "start_page": 737,
+    "end_page": 807,
+    "page_count": 71,
+    "codes": [
+      "78811",
+      "78812",
+      "78813",
+      "78814",
+      "78815",
+      "78816"
+    ]
+  },
+  {
+    "guideline_id": "CG-2047",
+    "title": "Sinus Maxillofacial Computed Tomography (CT)",
+    "start_page": 808,
+    "end_page": 825,
+    "page_count": 18,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "70486",
+      "70487",
+      "70488"
+    ]
+  },
+  {
+    "guideline_id": "CG-2048",
+    "title": "Sinus, Face, Orbit, Neck, and Internal Auditory Canal Magnetic",
+    "start_page": 826,
+    "end_page": 851,
+    "page_count": 26,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "70540",
+      "70542",
+      "70543"
+    ]
+  },
+  {
+    "guideline_id": "CG-2052",
+    "title": "Radiopharmaceutical Tumor Localization Single Proton Emission",
+    "start_page": 852,
+    "end_page": 869,
+    "page_count": 18,
+    "codes": [
+      "78830",
+      "78831",
+      "78832",
+      "78835"
+    ]
+  },
+  {
+    "guideline_id": "CG-2053",
+    "title": "Spinal Canal Magnetic Resonance Angiography (MRA)",
+    "start_page": 870,
+    "end_page": 877,
+    "page_count": 8,
+    "codes": [
+      "72159"
+    ]
+  },
+  {
+    "guideline_id": "CG-2054",
+    "title": "Temporal Bone, Mastoid, Orbits, Sella, Internal Auditory Canal",
+    "start_page": 878,
+    "end_page": 894,
+    "page_count": 17,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "70480",
+      "70481",
+      "70482"
+    ]
+  },
+  {
+    "guideline_id": "CG-2055",
+    "title": "Temporomandibular Joint (TMJ) Magnetic Resonance Imaging (MRI)",
+    "start_page": 895,
+    "end_page": 902,
+    "page_count": 8,
+    "codes": [
+      "70336"
+    ]
+  },
+  {
+    "guideline_id": "CG-2056",
+    "title": "Thoracic Spine Computed Tomography (CT)",
+    "start_page": 903,
+    "end_page": 922,
+    "page_count": 20,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "72128",
+      "72129",
+      "72130"
+    ]
+  },
+  {
+    "guideline_id": "CG-2057",
+    "title": "Thoracic Spine Magnetic Resonance Imaging (MRI)",
+    "start_page": 923,
+    "end_page": 945,
+    "page_count": 23,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "72146",
+      "72147",
+      "72157"
+    ]
+  },
+  {
+    "guideline_id": "CG-2058",
+    "title": "Tumor Imaging Positron Emission Tomography (PET)",
+    "start_page": 946,
+    "end_page": 952,
+    "page_count": 7,
+    "codes": []
+  },
+  {
+    "guideline_id": "CG-2061",
+    "title": "Unlisted Study",
+    "start_page": 953,
+    "end_page": 962,
+    "page_count": 10,
+    "codes": [
+      "+0722T",
+      "0698T",
+      "0722T",
+      "76497",
+      "76498"
+    ]
+  },
+  {
+    "guideline_id": "CG-2062",
+    "title": "Upper Extremity Computed Tomography (CT)",
+    "start_page": 963,
+    "end_page": 986,
+    "page_count": 24,
+    "codes": [
+      "+0722T",
+      "0722T",
+      "73200",
+      "73201",
+      "73202"
+    ]
+  },
+  {
+    "guideline_id": "CG-2063",
+    "title": "Upper Extremity Computed Tomography Angiography (CTA)",
+    "start_page": 987,
+    "end_page": 998,
+    "page_count": 12,
+    "codes": [
+      "73206"
+    ]
+  },
+  {
+    "guideline_id": "CG-2064",
+    "title": "Upper Extremity Magnetic Resonance Angiography (MRA)",
+    "start_page": 999,
+    "end_page": 1011,
+    "page_count": 13,
+    "codes": [
+      "73225"
+    ]
+  },
+  {
+    "guideline_id": "CG-2065",
+    "title": "Upper Extremity Magnetic Resonance Imaging (MRI)",
+    "start_page": 1012,
+    "end_page": 1034,
+    "page_count": 23,
+    "codes": [
+      "+0698T",
+      "0698T",
+      "73218",
+      "73219",
+      "73220",
+      "73221",
+      "73222",
+      "73223"
+    ]
+  },
+  {
+    "guideline_id": "CG-2066",
+    "title": "Urgent/Emergent Criteria",
+    "start_page": 1035,
+    "end_page": 1041,
+    "page_count": 7,
+    "codes": []
+  },
+  {
+    "guideline_id": "EPOS-2067",
+    "title": "Evolent Place of Service Policy 2067 for Radiology (2026 Final)",
+    "start_page": 1,
+    "end_page": 11,
+    "page_count": 11,
+    "codes": []
+  }
+]

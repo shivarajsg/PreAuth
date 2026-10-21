@@ -1,0 +1,52 @@
+{
+  "section_title": "CT Orbit / Sella / Temporal Bone (CPT 70480-70482)",
+  "folder_classification": "ct/head_brain",
+  "file_name": "ct_temporal_bone_orbit_sella_70480_70482.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "70480"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2054-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 881,
+        "printed_page": "Page 4 of 17"
+      },
+      "source_section": "INDICATIONS FOR SELLA CT",
+      "source_quote": "For further evaluation of known sellar and/or parasellar masses",
+      "clinical_service_or_procedure": "Temporal Bone, Mastoid, Sella CT",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Known sellar, suprasellar, or parasellar mass requiring bony evaluation of sella turcica or surgical planning",
+            "parameter": "sellar_or_parasellar_mass",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Endocrine or neurosurgical consultation notes and prior brain MRI report showing pituitary/sellar lesion"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70480"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Sellar architecture evaluation for pituitary surgical approaches."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "section_title": "Brain MRA (CPT 70544-70546)",
+  "folder_classification": "mra",
+  "file_name": "mra_brain_70544_70546.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "70544",
+    "70546"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2011-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 203,
+        "printed_page": "Page 4 of 20"
+      },
+      "source_section": "INDICATIONS FOR BRAIN MR ANGIOGRAPHY / Aneurysm Screening",
+      "source_quote": "Repeat study is recommended every 5-7 years",
+      "clinical_service_or_procedure": "MRA Brain",
+      "rule_type": "temporal_threshold",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "High-risk individual undergoing periodic surveillance for intracranial aneurysm (e.g. 2+ first-degree relatives)",
+            "parameter": "high_risk_aneurysm_screening_qualified",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Interval of at least 5 to 7 years elapsed since prior negative intracranial vascular screening",
+            "parameter": "years_since_prior_aneurysm_screening",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 5,
+            "unit": "years"
+          }
+        ]
+      },
+      "required_documentation": [
+        "Family history verifying two or more first-degree relatives with intracranial aneurysm and prior negative MRA report"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 70544",
+        "CPT 70546"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "5-7 year periodic interval threshold for high-risk familial aneurysm surveillance."
+    }
+  ]
+}

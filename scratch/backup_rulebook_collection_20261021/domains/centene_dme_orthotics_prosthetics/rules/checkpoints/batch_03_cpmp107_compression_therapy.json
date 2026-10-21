@@ -1,0 +1,442 @@
+[
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-014",
+    "source_page": {
+      "physical_page": 4,
+      "printed_page": "Page 4 of 24"
+    },
+    "source_section": "Policy/Criteria - NEWBORN CARE EQUIPMENT",
+    "source_quote": "Medically necessary when breast pumps are a covered benefit for the member/enrollee.",
+    "clinical_service_or_procedure": "Breast pumps (HCPCS E0604)",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-014-A",
+          "description": "Breast pump is a covered plan benefit",
+          "parameter": "covered_plan_benefit",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "CANNOT_DETERMINE",
+    "dependencies": [
+      "Member Benefit Schedule"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Coverage is dependent upon individual plan benefit design."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-015",
+    "source_page": {
+      "physical_page": 4,
+      "printed_page": "Page 4 of 24"
+    },
+    "source_section": "Policy/Criteria - OTHER EQUIPMENT",
+    "source_quote": "Medically necessary when meeting all of the following: A. Standard bed or standard hospital bed is unable to meet positioning needs due to disability; B. Less intensive alternatives to improve the member/enrollee\u2019s safety have been tried and ruled out (to include documentation of why medical needs could not be met).",
+    "clinical_service_or_procedure": "Enclosed Beds (HCPCS E0316, E1399, E0328/E0329)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-015-A",
+          "description": "Standard bed/hospital bed unable to meet positioning needs due to disability",
+          "parameter": "standard_bed_inadequate",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-015-B",
+          "description": "Less intensive safety alternatives tried and ruled out",
+          "parameter": "less_intensive_safety_ruled_out",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-015-C",
+          "description": "Qualifying diagnosis (CP, developmental delay, genetic/neuro disorder, seizure, severe behavior)",
+          "parameter": "enclosed_bed_qualifying_diagnosis",
+          "comparator": "IS_PRESENT"
+        },
+        {
+          "condition_id": "COND-DME-107-015-D",
+          "description": "PT/OT home evaluation, functional status, and caregiver education documented",
+          "parameter": "therapist_home_eval_documented",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-015-E",
+          "description": "Itemized invoice and model specifications provided",
+          "parameter": "bed_invoice_provided",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "PT/OT functional evaluation and home safety assessment",
+      "Documentation ruling out rails, floor mattresses, alarms, monitors, calming routines",
+      "Caregiver training attestation",
+      "Itemized bed invoice"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Requires mandatory secondary review by medical director and/or therapy advisor."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-016",
+    "source_page": {
+      "physical_page": 5,
+      "printed_page": "Page 5 of 24"
+    },
+    "source_section": "Policy/Criteria - OTHER EQUIPMENT",
+    "source_quote": "All requests for enclosed beds require mandatory secondary review by a medical director and/or therapy advisor.",
+    "clinical_service_or_procedure": "Enclosed Beds - Secondary Review Requirement",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-016-A",
+          "description": "Medical director and/or therapy advisor secondary review conducted",
+          "parameter": "secondary_medical_review_completed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Mandatory peer-to-peer / medical director secondary review gateway."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-017",
+    "source_page": {
+      "physical_page": 5,
+      "printed_page": "Page 5 of 24"
+    },
+    "source_section": "Policy/Criteria - OTHER EQUIPMENT",
+    "source_quote": "Medically necessary when all of the following are met: A. Documentation of therapist evaluation and ongoing treatment plan; B. Commercial device must be unable to meet the positioning needs due to height, weight, or disability; C. Other positioning devices in the home must be reviewed to ensure duplication of devices are not already in place.",
+    "clinical_service_or_procedure": "Positioning seat (HCPCS T5001, E1399)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-017-A",
+          "description": "Therapist evaluation and ongoing treatment plan documented",
+          "parameter": "therapist_eval_and_plan",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-017-B",
+          "description": "Commercial device unable to meet positioning needs due to height, weight, or disability",
+          "parameter": "commercial_device_inadequate",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-017-C",
+          "description": "Home positioning devices reviewed to ensure no duplication",
+          "parameter": "no_device_duplication",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "PT/OT seating and positioning evaluation",
+      "Inventory of existing seating/positioning devices in the home"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Requires mandatory secondary review by medical director or therapy advisor."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-018",
+    "source_page": {
+      "physical_page": 5,
+      "printed_page": "Page 5 of 24"
+    },
+    "source_section": "Policy/Criteria - OTHER EQUIPMENT",
+    "source_quote": "Requests for not otherwise specified supplies or miscellaneous equipment codes require mandatory secondary review by a medical director and/or therapy advisor to determine medical necessity.",
+    "clinical_service_or_procedure": "Specialized supply or miscellaneous equipment (HCPCS E0240, T2028, T2029, K0108, K0739, E1399)",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-018-A",
+          "description": "Secondary review completed by medical director or therapy advisor",
+          "parameter": "secondary_medical_review_completed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "UNDETERMINED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "dependencies": [
+      "CP.MP.99 Wheelchair Seating for seating requests"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "All NOC/miscellaneous equipment codes require secondary medical director review."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-019",
+    "source_page": {
+      "physical_page": 5,
+      "printed_page": "Page 5 of 24"
+    },
+    "source_section": "Policy/Criteria - OTHER EQUIPMENT",
+    "source_quote": "Not medically necessary, as there is insufficient evidence in published peer-reviewed literature to support the use of this technology over currently available alternatives.",
+    "clinical_service_or_procedure": "ROMTech\u00ae PortableConnect\u00ae Device (HCPCS E1399, A9900)",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-019-A",
+          "description": "Request is for ROMTech PortableConnect Device",
+          "parameter": "romtech_portableconnect_requested",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Explicit non-coverage determination based on lack of evidence."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-020",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Medically necessary when all of the following are met: A. Musculoskeletal or neurologic impairment requiring traction equipment; B. One of the following: 1. Diagnosis of temporomandibular joint (TMJ) dysfunction and has received treatment for TMJ condition; 2. Distortion of the lower jaw and neck anatomy (e.g. radical neck dissection) such that a chin halter is unable to be utilized; 3. The treating physician orders and/or documents the medical necessity for greater than 20 pounds of cervical traction in the home setting.",
+    "clinical_service_or_procedure": "Cervical traction equipment (HCPCS E0849)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-020-A",
+          "description": "Musculoskeletal or neurologic impairment requiring traction",
+          "parameter": "cervical_impairment_requiring_traction",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        },
+        {
+          "condition_id": "COND-DME-107-020-B",
+          "description": "TMJ dysfunction treated, lower jaw/neck distortion precluding chin halter, or >20 lbs home traction ordered",
+          "parameter": "cervical_traction_qualifying_feature",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Physician order documenting traction poundage",
+      "Clinical records documenting TMJ treatment or anatomical distortion"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "E0849 indicated when chin halter cannot be used or >20 lbs ordered."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-021",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Requests for custom molded cervical collars require mandatory secondary review by a medical director and/or therapy advisor to determine medical necessity. Documentation accompanying the request must state the reason why a prefabricated collar is not adequate.",
+    "clinical_service_or_procedure": "Cervical collar, custom molded (HCPCS L0170, L0190, L0200)",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-021-A",
+          "description": "Documentation states why prefabricated collar is not adequate",
+          "parameter": "prefabricated_collar_inadequate_reason",
+          "comparator": "IS_PRESENT"
+        },
+        {
+          "condition_id": "COND-DME-107-021-B",
+          "description": "Mandatory secondary review completed by medical director or therapy advisor",
+          "parameter": "secondary_medical_review_completed",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Physician/orthotist documentation stating why prefabricated collar fails",
+      "Anatomical measurements or structural deformity findings"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "ESCALATE_TO_PEER_REVIEW",
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Mandatory secondary review requirement for custom molded cervical collars."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-022",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Requests for spinal orthotics will be reviewed using relevant nationally recognized decision support tool criteria for similar codes.",
+    "clinical_service_or_procedure": "Spinal Orthotics (HCPCS L0700, L0710, L0720, L0999, L1000, L1001, L1005, L1006)",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-022-A",
+          "description": "Evaluated against relevant nationally recognized decision support tool criteria (InterQual)",
+          "parameter": "decision_support_tool_criteria_met",
+          "comparator": "EQUALS",
+          "value": "TRUE"
+        }
+      ]
+    },
+    "decision_effect": "UNDETERMINED",
+    "missing_information_behavior": "CANNOT_DETERMINE",
+    "dependencies": [
+      "InterQual Spinal Orthotics Criteria"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Defers to nationally recognized clinical decision support tools (InterQual)."
+  },
+  {
+    "domain": "centene_dme_orthotics_prosthetics",
+    "document_type": "governing_policy",
+    "policy_title": "Clinical Policy CP.MP.107: Durable Medical Equipment and Orthotics and Prosthetics Guidelines (Rev. 08/26)",
+    "policy_version": "Revision 08/26",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/centene_dme_orthotics_prosthetics/policy_pdfs/current_2026/CP.MP.107 (Revision 08-26).pdf",
+    "source_url": "https://www.centene.com/content/dam/centene/policies/clinical-policies/CP.MP.107.pdf",
+    "rule_id": "RULE-DME-107-023",
+    "source_page": {
+      "physical_page": 6,
+      "printed_page": "Page 6 of 24"
+    },
+    "source_section": "Policy/Criteria - PROSTHETICS AND ORTHOTICS",
+    "source_quote": "Medically necessary when ordered by an orthopedic surgeon for treatment of, or postoperatively for any of the following: A. Total hip arthroplasty; B. Hip labral tear; C. Hip disorders in children when used to stabilize the hip and/or to correct and maintain hip abduction.",
+    "clinical_service_or_procedure": "Hip orthotics (HCPCS L1640, L1680, L1685, L1686, L1690)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-DME-107-023-A",
+          "description": "Ordered by an orthopedic surgeon",
+          "parameter": "ordering_provider_specialty",
+          "comparator": "EQUALS",
+          "value": "ORTHOPEDIC_SURGEON"
+        },
+        {
+          "condition_id": "COND-DME-107-023-B",
+          "description": "Total hip arthroplasty, labral tear, or pediatric hip disorder requiring abduction",
+          "parameter": "hip_orthotic_indication",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "required_documentation": [
+      "Orthopedic surgeon operative report or clinic note",
+      "Prescription specifying hip stabilization or abduction"
+    ],
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": "Lateral replacements due to growth are medically necessary in pediatrics."
+  }
+]

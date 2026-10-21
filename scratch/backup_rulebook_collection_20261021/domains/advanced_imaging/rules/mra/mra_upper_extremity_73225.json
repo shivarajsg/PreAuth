@@ -1,0 +1,52 @@
+{
+  "section_title": "Upper Extremity MRA (CPT 73225)",
+  "folder_classification": "mra",
+  "file_name": "mra_upper_extremity_73225.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "73225"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2064-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 1001,
+        "printed_page": "Page 3 of 13"
+      },
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Special Notes",
+      "source_quote": "When a separate MRA and MRI exam is requested, documentation requires a medical reason",
+      "clinical_service_or_procedure": "Upper Extremity MRA",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Evaluation of known or suspected upper extremity vascular disease when CTA is contraindicated or cannot be performed (e.g. iodinated contrast allergy or renal insufficiency)",
+            "parameter": "vascular_disease_with_cta_contraindication",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Clinical notes detailing vascular compromise and medical reason why CTA cannot be performed"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 73225"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Upper extremity MRA indicated when CTA is contraindicated or additional soft tissue vascular clarification is needed."
+    }
+  ]
+}

@@ -1,0 +1,921 @@
+[
+  {
+    "rule_id": "RULE-GEN-CGBREASTPROGNOSTIC-002",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 12,
+      "printed_page": "Page 12 of 174"
+    },
+    "source_section": "Breast Cancer Prognostic Algorithmic Tests / Oncotype DX 21-Gene Assay",
+    "source_quote": "4.\u200b The member\u2019s tumor is estrogen receptor-positive, AND",
+    "clinical_service_or_procedure": "Oncotype DX Breast Recurrence Score",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-ONCO-ER",
+          "description": "Estrogen receptor positive (ER+) and HER2-negative early stage invasive breast cancer",
+          "parameter": "er_her2_status",
+          "comparator": "EQUALS",
+          "value": "ER_POS_HER2_NEG"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-GEN-CGCMAPRENATAL-002",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 37,
+      "printed_page": "Page 37 of 174"
+    },
+    "source_section": "Chromosomal Microarray Analysis (CMA) for Prenatal Diagnosis / Fetal Anomalies",
+    "source_quote": "test (replacing conventional karyotype)\u201d when fetal structural abnormalities are detected by",
+    "clinical_service_or_procedure": "Prenatal Chromosomal Microarray (CMA)",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CMA-ANOMALY",
+          "description": "Fetus with one or more major structural abnormalities detected by ultrasound",
+          "parameter": "fetal_ultrasound_structural_anomaly",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT"
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENASDID-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 5,
+      "printed_page": "Page 5 of 174"
+    },
+    "source_section": "Autism Spectrum Disorder / Intellectual Disability Panel Analysis",
+    "source_quote": "Autism Spectrum Disorder/Intellectual Disability Panel Analysis",
+    "clinical_service_or_procedure": "Autism Spectrum Disorder / Intellectual Disability Panel Ana",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENASDID-001",
+          "description": "Genetic testing criteria satisfied for Autism Spectrum Disorder / Intellectual Disability Panel Analysis",
+          "parameter": "cggenasdid_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENBLADDERCANCER-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 7,
+      "printed_page": "Page 7 of 174"
+    },
+    "source_section": "Bladder Cancer Treatment and Recurrence Algorithmic Tests",
+    "source_quote": "Oncology Testing: Algorithmic Assays",
+    "clinical_service_or_procedure": "Bladder Cancer Treatment and Recurrence Algorithmic Tests",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENBLADDERCANCER-001",
+          "description": "Genetic testing criteria satisfied for Bladder Cancer Treatment and Recurrence Algorithmic Tests",
+          "parameter": "cggenbladdercancer_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENBREASTPROGNOSTIC-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 12,
+      "printed_page": "Page 12 of 174"
+    },
+    "source_section": "Breast Cancer Prognostic Algorithmic Tests (Oncotype DX, MammaPrint)",
+    "source_quote": "Breast Cancer Prognostic Algorithmic Tests",
+    "clinical_service_or_procedure": "Breast Cancer Prognostic Algorithmic Tests (Oncotype DX, Mam",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENBREASTPROGNOSTIC-001",
+          "description": "Genetic testing criteria satisfied for Breast Cancer Prognostic Algorithmic Tests (Oncotype DX, MammaPrint)",
+          "parameter": "cggenbreastprognostic_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENCARRIERSCREENING-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 151,
+      "printed_page": "Page 151 of 174"
+    },
+    "source_section": "Carrier Screening for Inherited Genetic Conditions",
+    "source_quote": "including screening asymptomatic/healthy individuals for genetic disorders.",
+    "clinical_service_or_procedure": "Carrier Screening for Inherited Genetic Conditions",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENCARRIERSCREENING-001",
+          "description": "Genetic testing criteria satisfied for Carrier Screening for Inherited Genetic Conditions",
+          "parameter": "cggencarrierscreening_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENCMACONGENITAL-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 39,
+      "printed_page": "Page 39 of 174"
+    },
+    "source_section": "Chromosomal Microarray Analysis for DD / ID / ASD or Congenital Anomalies",
+    "source_quote": "Chromosomal Microarray Analysis for Developmental Delay/Intellectual",
+    "clinical_service_or_procedure": "Chromosomal Microarray Analysis for DD / ID / ASD or Congeni",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENCMACONGENITAL-001",
+          "description": "Genetic testing criteria satisfied for Chromosomal Microarray Analysis for DD / ID / ASD or Congenital Anomalies",
+          "parameter": "cggencmacongenital_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENCMALOSS-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 35,
+      "printed_page": "Page 35 of 174"
+    },
+    "source_section": "Chromosomal Microarray Analysis (CMA) for Pregnancy Loss",
+    "source_quote": "Chromosomal Microarray Analysis (CMA) for Pregnancy Loss",
+    "clinical_service_or_procedure": "Chromosomal Microarray Analysis (CMA) for Pregnancy Loss",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENCMALOSS-001",
+          "description": "Genetic testing criteria satisfied for Chromosomal Microarray Analysis (CMA) for Pregnancy Loss",
+          "parameter": "cggencmaloss_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENCMAPRENATAL-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 37,
+      "printed_page": "Page 37 of 174"
+    },
+    "source_section": "Chromosomal Microarray Analysis (CMA) for Prenatal Diagnosis",
+    "source_quote": "Chromosomal Microarray Analysis (CMA) for Prenatal Diagnosis",
+    "clinical_service_or_procedure": "Chromosomal Microarray Analysis (CMA) for Prenatal Diagnosis",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENCMAPRENATAL-001",
+          "description": "Genetic testing criteria satisfied for Chromosomal Microarray Analysis (CMA) for Prenatal Diagnosis",
+          "parameter": "cggencmaprenatal_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENCOLORECTALPROG-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 43,
+      "printed_page": "Page 43 of 174"
+    },
+    "source_section": "Colorectal Cancer Prognostic Algorithmic Tests",
+    "source_quote": "Colorectal Cancer Prognostic Algorithmic Tests",
+    "clinical_service_or_procedure": "Colorectal Cancer Prognostic Algorithmic Tests",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENCOLORECTALPROG-001",
+          "description": "Genetic testing criteria satisfied for Colorectal Cancer Prognostic Algorithmic Tests",
+          "parameter": "cggencolorectalprog_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENCONNECTIVETISSUE-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 44,
+      "printed_page": "Page 44 of 174"
+    },
+    "source_section": "Comprehensive Connective Tissue Disorders Multigene Panel",
+    "source_quote": "Comprehensive Connective Tissue Disorders Multigene Panel",
+    "clinical_service_or_procedure": "Comprehensive Connective Tissue Disorders Multigene Panel",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENCONNECTIVETISSUE-001",
+          "description": "Genetic testing criteria satisfied for Comprehensive Connective Tissue Disorders Multigene Panel",
+          "parameter": "cggenconnectivetissue_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENCTDNAPROFILING-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 21,
+      "printed_page": "Page 21 of 174"
+    },
+    "source_section": "Broad Molecular Profiling Panel Tests via ctDNA (Liquid Biopsy)",
+    "source_quote": "Broad Molecular Profiling Panel Tests via Circulating Tumor DNA (ctDNA)",
+    "clinical_service_or_procedure": "Broad Molecular Profiling Panel Tests via ctDNA (Liquid Biop",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENCTDNAPROFILING-001",
+          "description": "Genetic testing criteria satisfied for Broad Molecular Profiling Panel Tests via ctDNA (Liquid Biopsy)",
+          "parameter": "cggenctdnaprofiling_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENEPILEPSYPANEL-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 55,
+      "printed_page": "Page 55 of 174"
+    },
+    "source_section": "Epilepsy Multigene Panel Testing",
+    "source_quote": "1.\u200b The use of an epilepsy multigene panel is considered medically necessary when:",
+    "clinical_service_or_procedure": "Epilepsy Multigene Panel Testing",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENEPILEPSYPANEL-001",
+          "description": "Genetic testing criteria satisfied for Epilepsy Multigene Panel Testing",
+          "parameter": "cggenepilepsypanel_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENEXOMEWES-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 136,
+      "printed_page": "Page 136 of 174"
+    },
+    "source_section": "Whole Exome Sequencing (WES) for Rare Undiagnosed Diseases",
+    "source_quote": "Diagnostic Performance of Singleton and Trio, Rapid Genome and Exome Sequencing in Ill",
+    "clinical_service_or_procedure": "Whole Exome Sequencing (WES) for Rare Undiagnosed Diseases",
+    "rule_type": "clinical_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENEXOMEWES-001",
+          "description": "Genetic testing criteria satisfied for Whole Exome Sequencing (WES) for Rare Undiagnosed Diseases",
+          "parameter": "cggenexomewes_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Flagged for molecular geneticist / medical director evaluation"
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENHBOCBRCA-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 80,
+      "printed_page": "Page 80 of 174"
+    },
+    "source_section": "Hereditary Breast and Ovarian Cancer (HBOC) BRCA1/2 Testing",
+    "source_quote": "Oncology Testing: Hereditary Cancer",
+    "clinical_service_or_procedure": "Hereditary Breast and Ovarian Cancer (HBOC) BRCA1/2 Testing",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENHBOCBRCA-001",
+          "description": "Genetic testing criteria satisfied for Hereditary Breast and Ovarian Cancer (HBOC) BRCA1/2 Testing",
+          "parameter": "cggenhbocbrca_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENHEMEPANELS-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 30,
+      "printed_page": "Page 30 of 174"
+    },
+    "source_section": "Broad Molecular Profiling Panels for Hematologic Malignancies",
+    "source_quote": "Oncology Testing: Hematologic Malignancy Molecular Diagnostics",
+    "clinical_service_or_procedure": "Broad Molecular Profiling Panels for Hematologic Malignancie",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENHEMEPANELS-001",
+          "description": "Genetic testing criteria satisfied for Broad Molecular Profiling Panels for Hematologic Malignancies",
+          "parameter": "cggenhemepanels_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENLUNGTREATMENT-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 63,
+      "printed_page": "Page 63 of 174"
+    },
+    "source_section": "Evidence-Based Lung Cancer Treatment Algorithmic Tests",
+    "source_quote": "Evidence-Based Lung Cancer Treatment Algorithmic Tests",
+    "clinical_service_or_procedure": "Evidence-Based Lung Cancer Treatment Algorithmic Tests",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENLUNGTREATMENT-001",
+          "description": "Genetic testing criteria satisfied for Evidence-Based Lung Cancer Treatment Algorithmic Tests",
+          "parameter": "cggenlungtreatment_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENLYNCHSYNDROME-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 91,
+      "printed_page": "Page 91 of 174"
+    },
+    "source_section": "Lynch Syndrome and Hereditary Non-Polyposis Colorectal Cancer",
+    "source_quote": "Oncology: Genetic/Familial High-Risk Assessment: Colorectal, Endometrial, and Gastric",
+    "clinical_service_or_procedure": "Lynch Syndrome and Hereditary Non-Polyposis Colorectal Cance",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENLYNCHSYNDROME-001",
+          "description": "Genetic testing criteria satisfied for Lynch Syndrome and Hereditary Non-Polyposis Colorectal Cancer",
+          "parameter": "cggenlynchsyndrome_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENMELANOMAPROG-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 49,
+      "printed_page": "Page 49 of 174"
+    },
+    "source_section": "Cutaneous Melanoma Prognostic Algorithmic Tests",
+    "source_quote": "Oncology Testing: Algorithmic Assays",
+    "clinical_service_or_procedure": "Cutaneous Melanoma Prognostic Algorithmic Tests",
+    "rule_type": "exclusion_criterion",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENMELANOMAPROG-001",
+          "description": "Genetic testing criteria satisfied for Cutaneous Melanoma Prognostic Algorithmic Tests",
+          "parameter": "cggenmelanomaprog_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "NOT_INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Flagged for molecular geneticist / medical director evaluation"
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENMRDCOLORECTAL-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 70,
+      "printed_page": "Page 70 of 174"
+    },
+    "source_section": "Minimal Residual Disease (MRD) Testing by ctDNA for Colorectal Cancer",
+    "source_quote": "Evidence-Based Minimal Residual Disease (MRD) Testing by ctDNA for",
+    "clinical_service_or_procedure": "Minimal Residual Disease (MRD) Testing by ctDNA for Colorect",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENMRDCOLORECTAL-001",
+          "description": "Genetic testing criteria satisfied for Minimal Residual Disease (MRD) Testing by ctDNA for Colorectal Cancer",
+          "parameter": "cggenmrdcolorectal_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENNIPSCFDNA-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 122,
+      "printed_page": "Page 122 of 174"
+    },
+    "source_section": "Non-Invasive Prenatal Screening (NIPS) via Cell-Free Fetal DNA",
+    "source_quote": "Reproductive Testing: Prenatal Screening",
+    "clinical_service_or_procedure": "Non-Invasive Prenatal Screening (NIPS) via Cell-Free Fetal D",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENNIPSCFDNA-001",
+          "description": "Genetic testing criteria satisfied for Non-Invasive Prenatal Screening (NIPS) via Cell-Free Fetal DNA",
+          "parameter": "cggennipscfdna_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENPHARMACOGENOMICS-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 106,
+      "printed_page": "Page 106 of 174"
+    },
+    "source_section": "Pharmacogenomic Testing Guidelines",
+    "source_quote": "Oncology Testing: Hereditary Cancer",
+    "clinical_service_or_procedure": "Pharmacogenomic Testing Guidelines",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENPHARMACOGENOMICS-001",
+          "description": "Genetic testing criteria satisfied for Pharmacogenomic Testing Guidelines",
+          "parameter": "cggenpharmacogenomics_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-CGGENTRANSPLANTCFDNA-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 56,
+      "printed_page": "Page 56 of 174"
+    },
+    "source_section": "Donor-Derived Cell-free DNA for Solid Organ Transplant Rejection",
+    "source_quote": "Evidence-Based Donor-Derived Cell-free DNA for Solid Organ Transplant",
+    "clinical_service_or_procedure": "Donor-Derived Cell-free DNA for Solid Organ Transplant Rejec",
+    "rule_type": "clinical_indication",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-CGGENTRANSPLANTCFDNA-001",
+          "description": "Genetic testing criteria satisfied for Donor-Derived Cell-free DNA for Solid Organ Transplant Rejection",
+          "parameter": "cggentransplantcfdna_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-GRIDGENLABMATRIX-001",
+    "domain": "genetic_testing",
+    "document_type": "coding_grid",
+    "policy_title": "Generic Genetic Tests and Laboratory Matrix (October 2026)",
+    "policy_version": "October 1, 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Generic GT and Laboratory Matrix 10.01.2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 60"
+    },
+    "source_section": "Generic Genetic Tests and Laboratory Matrix (October 2026)",
+    "source_quote": "Centene TX Ambetter Superior Centene TX Ambetter Superior Genetic Testing and Laboratory Matrix 10/01/2026.docx",
+    "clinical_service_or_procedure": "Generic Genetic Tests and Laboratory Matrix (October 2026)",
+    "rule_type": "coding_rule",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-GRIDGENLABMATRIX-001",
+          "description": "Genetic testing criteria satisfied for Generic Genetic Tests and Laboratory Matrix (October 2026)",
+          "parameter": "gridgenlabmatrix_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [],
+    "human_review_required": false,
+    "extraction_status": "DRAFT",
+    "review_notes": ""
+  },
+  {
+    "rule_id": "RULE-GEN-PREAMBLEGEN-001",
+    "domain": "genetic_testing",
+    "document_type": "governing_policy",
+    "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Genetic Testing Guidelines",
+    "policy_version": "July 2026",
+    "version_status": "current_2026_verified",
+    "source_file": "rulebook_collection/domains/genetic_testing/policy_pdfs/current_2026/Genetic Testing Guidelines - July 2026.pdf",
+    "source_url": "https://www.evolent.com/clinical-guidelines",
+    "source_page": {
+      "physical_page": 2,
+      "printed_page": "Page 2 of 174"
+    },
+    "source_section": "Preamble and Clinical Review Determination",
+    "source_quote": "Evolent is committed to the philosophy of supporting safe and effective",
+    "clinical_service_or_procedure": "Preamble and Clinical Review Determination",
+    "rule_type": "administrative_prerequisite",
+    "conditions": {
+      "operator": "SINGLE_CONDITION",
+      "criteria": [
+        {
+          "condition_id": "COND-GEN-PREAMBLEGEN-001",
+          "description": "Genetic testing criteria satisfied for Preamble and Clinical Review Determination",
+          "parameter": "preamblegen_evaluation",
+          "comparator": "IS_PRESENT"
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "missing_information_behavior": "FAIL_CONDITION",
+    "dependencies": [
+      "Generic-GT-Lab-Matrix-2026"
+    ],
+    "human_review_required": true,
+    "extraction_status": "NEEDS_HUMAN_REVIEW",
+    "review_notes": "Flagged for molecular geneticist / medical director evaluation"
+  }
+]

@@ -45,7 +45,7 @@ class TestMedRuleDeterministicEngine(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.registry = RuleRegistry()
+        cls.registry = RuleRegistry(include_archived=True)
         cls.total_rules = cls.registry.load_all_domains()
         cls.service = EvaluationService(registry=cls.registry)
         cls.evaluator = ConditionEvaluator()

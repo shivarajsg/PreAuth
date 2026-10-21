@@ -1,0 +1,113 @@
+{
+  "section_title": "MRI Upper Extremity (CPT 73218-73223)",
+  "folder_classification": "mri/extremities",
+  "file_name": "mri_upper_extremity_73218_73223.json",
+  "rule_count": 2,
+  "procedure_codes": [
+    "73221",
+    "73222",
+    "73223"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2065-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 1014,
+        "printed_page": "Page 3 of 23"
+      },
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY MRI (SHOULDER, ELBOW, OR WRIST) / Upper Extremity Pain (1,2) / Special Notes",
+      "source_quote": "Plain X-rays must precede MRI evaluation unless otherwise indicated",
+      "clinical_service_or_procedure": "Upper Extremity MRI (Shoulder, Elbow, Wrist, Hand)",
+      "rule_type": "clinical_prerequisite",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Preceding plain radiograph performed and showing no clear explanation for joint or extremity pain",
+            "parameter": "prior_plain_xray_negative",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Persistent pain unresponsive to active conservative therapy (physical therapy, chiropractic, supervised HEP) of at least 4 weeks duration within last 6 months, OR positive orthopedic joint exam test",
+            "parameter": "active_conservative_therapy_or_positive_sign",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Plain radiograph report, orthopedic exam records, and 4 weeks of conservative therapy documentation"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 73221",
+        "CPT 73222",
+        "CPT 73223"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Upper extremity MRI requires plain X-ray and 4 weeks conservative therapy unless positive orthopedic exam test."
+    },
+    {
+      "rule_id": "RULE-ADV-CG2065-002",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 1015,
+        "printed_page": "Page 4 of 23"
+      },
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY MRI / Joint Specific Orthopedic Signs / Shoulder",
+      "source_quote": "Bear hug test",
+      "clinical_service_or_procedure": "Upper Extremity MRI (Shoulder)",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Physical examination demonstrates positive joint-specific sign for rotator cuff tear (Bear hug test, Belly press test, Drop arm test, Empty can test, or External rotation lag sign)",
+            "parameter": "positive_rotator_cuff_orthopedic_sign",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Preceding plain radiograph completed showing no clear explanation for pain (active conservative therapy waived)",
+            "parameter": "prior_xray_completed",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Orthopedic physical exam documentation of positive rotator cuff exam maneuvers and plain radiograph report"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 73221",
+        "CPT 73222",
+        "CPT 73223"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Positive orthopedic shoulder signs waive the 4-week active conservative therapy prerequisite."
+    }
+  ]
+}

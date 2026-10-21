@@ -12,6 +12,7 @@ from medrule_engine.audit_logger import AuditLogger
 from medrule_engine.case_validator import CaseIntake, CaseValidator
 from medrule_engine.condition_evaluator import ConditionEvaluator, EvaluationState
 from medrule_engine.decision_aggregator import CaseAssessment, CaseAssessmentStatus, DecisionAggregator, RuleEvaluationResult
+from medrule_engine.decision_tree import DecisionTreeAssessment, DecisionTreeEngine
 from medrule_engine.evidence_validator import EvidenceValidator
 from medrule_engine.policy_router import PolicyRouter, RoutingResult
 from medrule_engine.rule_registry import RuleRecord, RuleRegistry
@@ -39,6 +40,13 @@ class EvaluationService:
         self.evidence_auditor = evidence_auditor or EvidenceValidator()
         self.aggregator = aggregator or DecisionAggregator()
         self.audit_logger = logger_ or AuditLogger()
+        self.tree_engine = DecisionTreeEngine(
+            registry=self.registry,
+            validator=self.validator,
+            router=self.router,
+            evaluator=self.evaluator,
+            evidence_auditor=self.evidence_auditor
+        )
 
     def evaluate_rule(
         self,
@@ -286,6 +294,16 @@ class EvaluationService:
         }
 
 
+    def evaluate_decision_tree(
+        self,
+        case_data: Union[Dict[str, Any], CaseIntake],
+        target_rule_ids: Optional[List[str]] = None,
+        policy_context: Optional[Dict[str, Any]] = None
+    ) -> DecisionTreeAssessment:
+        """Evaluate a case deterministically using the compiled decision tree."""
+        return self.tree_engine.evaluate(case_data, target_rule_ids=target_rule_ids, policy_context=policy_context)
+
+
 # Global instance for quick functional imports
 _DEFAULT_SERVICE = EvaluationService()
 
@@ -316,3 +334,13 @@ def evaluate_batch(
 ) -> Dict[str, Any]:
     """Functional interface for batch evaluation."""
     return _DEFAULT_SERVICE.evaluate_batch(cases, policy_context, target_rule_ids)
+
+
+def evaluate_decision_tree(
+    case_data: Union[Dict[str, Any], CaseIntake],
+    target_rule_ids: Optional[List[str]] = None,
+    policy_context: Optional[Dict[str, Any]] = None
+) -> DecisionTreeAssessment:
+    """Functional interface for deterministic decision-tree evaluation."""
+    return _DEFAULT_SERVICE.evaluate_decision_tree(case_data, target_rule_ids, policy_context)
+

@@ -1,0 +1,54 @@
+{
+  "section_title": "Brain PET (CPT 78608-78609)",
+  "folder_classification": "pet_spect",
+  "file_name": "pet_brain_78608_78609.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "78811",
+    "78815"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2013-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 271,
+        "printed_page": "Page 2 of 10"
+      },
+      "source_section": "INDICATIONS FOR BRAIN PET SCAN / Known Brain Tumor or Cancer (1,2)",
+      "source_quote": "Evaluation of primary brain lymphoma",
+      "clinical_service_or_procedure": "Brain PET Scan",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Confirmed or clinically suspected primary central nervous system lymphoma (PCNSL)",
+            "parameter": "primary_brain_lymphoma",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Neurology / oncology consultation notes and MRI findings consistent with suspected primary CNS lymphoma"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 78811",
+        "CPT 78815"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "Oncology metabolic imaging indication for primary central nervous system lymphoma."
+    }
+  ]
+}

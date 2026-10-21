@@ -1,0 +1,54 @@
+{
+  "section_title": "MRI Pelvis (CPT 72195-72197)",
+  "folder_classification": "mri/abdomen_pelvis",
+  "file_name": "mri_pelvis_72195_72197.json",
+  "rule_count": 1,
+  "procedure_codes": [
+    "72195",
+    "72197"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2045-001",
+      "domain": "advanced_imaging",
+      "document_type": "governing_policy",
+      "policy_title": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Advanced Imaging Guidelines (v2)",
+      "policy_version": "2026 v2",
+      "version_status": "current_2026_verified",
+      "source_file": "rulebook_collection/domains/advanced_imaging/policy_pdfs/current_2026/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
+      "source_page": {
+        "physical_page": 718,
+        "printed_page": "Page 4 of 22"
+      },
+      "source_section": "INDICATIONS FOR PELVIC MRI / Infection and Inflammation",
+      "source_quote": "Suspected perianal fistula or occult anorectal abscess (6)",
+      "clinical_service_or_procedure": "Pelvis MRI",
+      "rule_type": "clinical_indication",
+      "conditions": {
+        "operator": "ALL_OF",
+        "criteria": [
+          {
+            "condition_id": "COND-001",
+            "description": "Clinical suspicion of perianal fistula, perirectal abscess, or complex fistulizing Crohn's disease",
+            "parameter": "suspected_perianal_fistula_or_abscess",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      },
+      "required_documentation": [
+        "Colorectal surgery or gastroenterology clinical examination documenting perianal pain, drainage, or induration"
+      ],
+      "decision_effect": "INDICATED",
+      "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
+      "dependencies": [
+        "CPT 72195",
+        "CPT 72197"
+      ],
+      "human_review_required": false,
+      "extraction_status": "DRAFT",
+      "review_notes": "High-resolution pelvic MRI for sphincter mapping in perianal fistulizing disease."
+    }
+  ]
+}
