@@ -1,11 +1,11 @@
 {
   "phase": "MedRule Phase 3D",
-  "timestamp": "2026-10-19T05:53:31.979383+00:00",
+  "timestamp": "2026-10-21T15:18:50.073310+00:00",
   "total_cases_evaluated": 36,
   "domains_evaluated": 9,
-  "pass_rate_percentage": 100.0,
-  "passed_cases": 36,
-  "failed_cases": 0,
+  "pass_rate_percentage": 38.89,
+  "passed_cases": 14,
+  "failed_cases": 22,
   "total_human_adjudications": 36,
   "agreement_breakdown": {
     "AGREEMENT": 28,
@@ -19,9 +19,9 @@
   "strict_non_binding_enforced": true,
   "zero_approved_rules_enforced": true,
   "timings": {
-    "registry_load_ms": 496.92,
-    "total_elapsed_ms": 896.02,
-    "average_ms_per_case": 2.742
+    "registry_load_ms": 109.81,
+    "total_elapsed_ms": 222.89,
+    "average_ms_per_case": 1.043
   },
   "case_evaluations": [
     {
@@ -40,9 +40,9 @@
       "is_binding": false,
       "requires_human_review": false,
       "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "52b1e4f77ca83cf34084424744127370bc46aaef6d2f782b3296ecdbb04dff89",
+      "reproducibility_hash_sha256": "500f308c72a945427b12d0e2f57b910983f3a954f453a24ba8d4321ced4f6ff2",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 3.758
+      "elapsed_ms": 3.009
     },
     {
       "case_id": "CASE-PILOT-ADV-002",
@@ -60,9 +60,9 @@
       "is_binding": false,
       "requires_human_review": false,
       "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "4e36b5c0e5234a41b30899deff2dda08e463485f7924b2a5625d7aff116be3c5",
+      "reproducibility_hash_sha256": "a9a57bd2e8c7827d7e003ecd8849ce0563fe80ba266e4e5740b50c60726686eb",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 3.575
+      "elapsed_ms": 4.191
     },
     {
       "case_id": "CASE-PILOT-ADV-003",
@@ -80,9 +80,9 @@
       "is_binding": false,
       "requires_human_review": false,
       "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "39a854d3f4cbb0f5b5e8e8960c2ff85d7720d49105301fe6a95f2a6f774f119e",
+      "reproducibility_hash_sha256": "4be6f0e4d80df336ef9e4e9d3eea6d7fce06e70252b07e2e79fcfaf69429ae6c",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.98
+      "elapsed_ms": 2.416
     },
     {
       "case_id": "CASE-PILOT-ADV-004",
@@ -100,9 +100,9 @@
       "is_binding": false,
       "requires_human_review": true,
       "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "672453ba6c29bdadb516ef9a76befcfecb902cc1a49cfa5de3d5285e3a43f0b0",
+      "reproducibility_hash_sha256": "d164305eae23f8d894c1faf897dd4d252abac68fa5b2931fabfd7eb20ddd90b8",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.667
+      "elapsed_ms": 2.618
     },
     {
       "case_id": "CASE-PILOT-CARD-001",
@@ -111,18 +111,20 @@
       "procedure_name": "Abdominal Aortic Ultrasound Screening",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-04-10",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "0f111bc9cd97f373f027df560a422f828de694e187162a875324f0f84fa2047e",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "23a0e07f8e889122840c4c8046ccbc19c0c4794f2938b3488bf00f2ed5b51011",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.811
+      "elapsed_ms": 0.76
     },
     {
       "case_id": "CASE-PILOT-CARD-002",
@@ -131,18 +133,20 @@
       "procedure_name": "Abdominal Aortic Ultrasound Screening",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-04-11",
-      "engine_status": "CRITERIA_NOT_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_NOT_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_NOT_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "ab59b8557474bbe08f75b5352ed1d8754d00cfabb3b130e51bdbb40e674f9cdc",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "18eda65b506590a3cf7e66992a83626085a72bd54ee29218054a9f3a2e4e131d",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.779
+      "elapsed_ms": 0.784
     },
     {
       "case_id": "CASE-PILOT-CARD-003",
@@ -164,7 +168,7 @@
       ],
       "reproducibility_hash_sha256": "d14cb2c73fde6374756652c1e2e4347bc204efaa93e91c6ad65f54926a14cf77",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.757
+      "elapsed_ms": 0.538
     },
     {
       "case_id": "CASE-PILOT-CARD-004",
@@ -173,20 +177,20 @@
       "procedure_name": "Abdominal Aortic Ultrasound Screening",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2024-05-01",
-      "engine_status": "POLICY_VERSION_UNRESOLVED",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "POLICY_VERSION_UNRESOLVED",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "POLICY_VERSION_UNRESOLVED",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
       "unresolved_dependencies": [
-        "Requested date of service (2024-05-01) precedes the effective date of the 2026 governing guidelines (effective 2026-01-01). Historical policy retrieval required."
+        "No active rules configured for clinical domain 'cardiology'."
       ],
-      "reproducibility_hash_sha256": "1f84070f814be7f4b58045c5002268e1c0b1ae009866099ba55de726a742e972",
+      "reproducibility_hash_sha256": "423fec92fc9d5bd498fa4d8c7a53c53eabefe4f2c3ce434883cb99026cf69f4d",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 0.635
+      "elapsed_ms": 0.679
     },
     {
       "case_id": "CASE-PILOT-MSK-001",
@@ -195,18 +199,20 @@
       "procedure_name": "Total Knee Arthroplasty (TKA)",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-05-15",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "ac6cf3f28f6f95211aed529b141eded2b7980823cde5ce614a8834416d0c0e59",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "93b96df9b30ae0f40ad141221bc8681a31eb4ea5dd46e437bd050e24f69d914a",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.784
+      "elapsed_ms": 0.522
     },
     {
       "case_id": "CASE-PILOT-MSK-002",
@@ -215,18 +221,20 @@
       "procedure_name": "Total Knee Arthroplasty (TKA)",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-05-16",
-      "engine_status": "CRITERIA_NOT_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_NOT_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_NOT_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "c65fa593e77732155e5d9cf0fd4e531a37d76268ddc05705fb970f52030ca9b6",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "87a475468eeb3c51bbeb3ca2afc8877b76e57f16be52ad020e357d42c5f688e0",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.795
+      "elapsed_ms": 0.615
     },
     {
       "case_id": "CASE-PILOT-MSK-003",
@@ -235,18 +243,20 @@
       "procedure_name": "Arthrodesis, posterior lumbar",
       "line_of_business": "MEDICARE_ADVANTAGE",
       "date_of_service": "2026-05-17",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "d87b8beae34c85a713d428fecf340eee888310c6c63f1d3c3647fffd6febee2a",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "46028ebb59df994355b0569abe998ba5fdaefed4d234a1f466c80731d68fed2c",
       "applicability_status": "STATUTORY_OVERRIDE",
-      "elapsed_ms": 5.005
+      "elapsed_ms": 0.672
     },
     {
       "case_id": "CASE-PILOT-MSK-004",
@@ -255,18 +265,20 @@
       "procedure_name": "Total Knee Arthroplasty (TKA)",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-05-18",
-      "engine_status": "INSUFFICIENT_INFORMATION",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "INSUFFICIENT_INFORMATION",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "INSUFFICIENT_INFORMATION",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "16ce76659a46baf54eb8f45c9da0c9df82bd7173e7aad57ffeae8123dcbaa2ec",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "7d203dccc6d2961248abeb6294a55c390facdc1d6845303cd4e3359ecfa8f08e",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.558
+      "elapsed_ms": 0.451
     },
     {
       "case_id": "CASE-PILOT-PAIN-001",
@@ -284,9 +296,9 @@
       "is_binding": false,
       "requires_human_review": false,
       "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "de928b4d9c5a19719280b4610c5921cc9812a42d1f98cf718837b0b606b259bb",
+      "reproducibility_hash_sha256": "aa7d926fbc19cb9f6e7c1c08faf4d6d6da5bd5a2b55bd9353e8977ad89da513c",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 3.103
+      "elapsed_ms": 3.036
     },
     {
       "case_id": "CASE-PILOT-PAIN-002",
@@ -304,9 +316,9 @@
       "is_binding": false,
       "requires_human_review": false,
       "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "f45b630c43d30c97436c50d9fb911efdd961b77b07611336dd315598b9da1d64",
+      "reproducibility_hash_sha256": "3d73b8f0ab67f87e0546b58f67f8a63b3a4ca2c2561fe5cf617273640be4c12c",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.766
+      "elapsed_ms": 2.775
     },
     {
       "case_id": "CASE-PILOT-PAIN-003",
@@ -328,7 +340,7 @@
       ],
       "reproducibility_hash_sha256": "c5bf2b433056d9bd15229d7121005f809a8722fcc9b1c3221aca93313f391e16",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 1.051
+      "elapsed_ms": 0.709
     },
     {
       "case_id": "CASE-PILOT-PAIN-004",
@@ -346,9 +358,9 @@
       "is_binding": false,
       "requires_human_review": false,
       "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "484c039ed83f5f01e992cdb40cf0aa5eb10754620d6d72898a67e7689f04ec1a",
+      "reproducibility_hash_sha256": "3c5ac835bc62fa02af1f7c8ce1c006bd23b9dbd56f6c71f61ef4cd8d07eb8fae",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 3.298
+      "elapsed_ms": 1.789
     },
     {
       "case_id": "CASE-PILOT-RAD-001",
@@ -357,18 +369,20 @@
       "procedure_name": "Intensity Modulated Radiation Therapy (IMRT) Plan",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-06-01",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "97960610c1f5f8264775eca02047c0b78338aada9d4d690fe57db0b657b21b0f",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "c00124e187c9816a3e9b7e8844fb551181caafbeeefbdcdb3a7dbc067d802c35",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.548
+      "elapsed_ms": 0.707
     },
     {
       "case_id": "CASE-PILOT-RAD-002",
@@ -390,7 +404,7 @@
       ],
       "reproducibility_hash_sha256": "584dd67d9bc47e86c6c537471c3edc217441646113873e496c3d21f722b75aee",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.878
+      "elapsed_ms": 0.572
     },
     {
       "case_id": "CASE-PILOT-RAD-003",
@@ -399,18 +413,20 @@
       "procedure_name": "Intensity Modulated Radiation Therapy (IMRT) Plan",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-06-03",
-      "engine_status": "INSUFFICIENT_INFORMATION",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "INSUFFICIENT_INFORMATION",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "INSUFFICIENT_INFORMATION",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "c58f6e7b67c568d20c5907575d5786a346ea40f18bf9e468ec1de8350b9a6c65",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "096cf87eaff52b1721e8532940d9b25a3902f3875b48e172222d6e50cbde4446",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.394
+      "elapsed_ms": 0.38
     },
     {
       "case_id": "CASE-PILOT-RAD-004",
@@ -419,18 +435,20 @@
       "procedure_name": "Intensity Modulated Radiation Therapy (IMRT) Plan",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-06-04",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "cd2119456738e86609bdcf0adea5e6845026abf7e26e5bb7e10f9839a76445ee",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "92c582936f1398d672a157126ba5c38c5d39745324d4f6cedfc0b1de6957c4de",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.58
+      "elapsed_ms": 0.461
     },
     {
       "case_id": "CASE-PILOT-PHYS-001",
@@ -439,18 +457,20 @@
       "procedure_name": "Therapeutic Exercise (15 minutes)",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-03-20",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "fe4a28a94fb844ab7d0acaaf49155681d05d60bb3fc39484f15a3f54a808bcca",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "c59cecebd4d69612e2997061f339a308bff33d9bad7a118054d498817f8b4f70",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.92
+      "elapsed_ms": 0.566
     },
     {
       "case_id": "CASE-PILOT-PHYS-002",
@@ -459,18 +479,20 @@
       "procedure_name": "Therapeutic Exercise (15 minutes)",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-03-21",
-      "engine_status": "CRITERIA_NOT_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_NOT_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_NOT_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "e21f00d084495df446277dcd653b33f8913948968686979a69c0bbfecae6a6b1",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "6e63986e0c43c7d474bf12374938762cfcff1ac43875ea89ab1ea71fec3aa347",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 2.733
+      "elapsed_ms": 0.659
     },
     {
       "case_id": "CASE-PILOT-PHYS-003",
@@ -479,18 +501,20 @@
       "procedure_name": "Therapeutic Exercise (15 minutes)",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-03-22",
-      "engine_status": "INSUFFICIENT_INFORMATION",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "INSUFFICIENT_INFORMATION",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "INSUFFICIENT_INFORMATION",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "bcd21ef9deb8ceb93f8ecfb0d5a606f878a541f70a9a30cf5e0ad415fcf7d5b2",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "b50732298aa6e82b1ffc7412b5ec6ce0485ba7a204da4ae5eaa6fcdb156d63b8",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.91
+      "elapsed_ms": 0.661
     },
     {
       "case_id": "CASE-PILOT-PHYS-004",
@@ -512,7 +536,7 @@
       ],
       "reproducibility_hash_sha256": "9a9f9623c32bb58d973e595f82e149545b6eb17b70c8ae1e573afd66f5d3084c",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 1.046
+      "elapsed_ms": 0.557
     },
     {
       "case_id": "CASE-PILOT-SLEEP-001",
@@ -521,18 +545,20 @@
       "procedure_name": "Polysomnography (PSG), Attended in Sleep Lab",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-04-20",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "44c0f1c9ddedddcf7e3fb9ecf9d5a512177774b22f00e8d52190c9591f9777d7",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "02acff63fd605a3e3e45ece4a30d98aba4c036f8ed55811cc27285bcbc690188",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.728
+      "elapsed_ms": 0.704
     },
     {
       "case_id": "CASE-PILOT-SLEEP-002",
@@ -541,18 +567,20 @@
       "procedure_name": "Polysomnography (PSG), Attended in Sleep Lab",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-04-21",
-      "engine_status": "CRITERIA_NOT_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_NOT_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_NOT_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "1cb4bbcf9c998503a0172ce447de2754b1c8be168d69b4d1242a3ffaba96ec14",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "394f439eb95b97a2765508bd1cff3e35a6f11b416f41d9e483320bdf8ae811b6",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 3.96
+      "elapsed_ms": 0.542
     },
     {
       "case_id": "CASE-PILOT-SLEEP-003",
@@ -574,7 +602,7 @@
       ],
       "reproducibility_hash_sha256": "c65ad0056f5a59c63f3a3edbfee0e46f3acba2d3bad044b902b7876e55ac2794",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.781
+      "elapsed_ms": 0.55
     },
     {
       "case_id": "CASE-PILOT-SLEEP-004",
@@ -583,18 +611,20 @@
       "procedure_name": "Polysomnography (PSG), Attended in Sleep Lab",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-04-23",
-      "engine_status": "INSUFFICIENT_INFORMATION",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "INSUFFICIENT_INFORMATION",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "INSUFFICIENT_INFORMATION",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "33e1c83bd2d8fbd84ba7460bf8a6dd5ab50852711ddc80a8d55055f16332f0e7",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "328682e9c86102235df0cae1a0b66a69d4396a7a646de6ba4d9db9c67c3c12c8",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 2.634
+      "elapsed_ms": 0.631
     },
     {
       "case_id": "CASE-PILOT-GEN-001",
@@ -603,18 +633,20 @@
       "procedure_name": "BRCA1 and BRCA2 Full Gene Sequencing",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-05-10",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "d3aad050420e0eda597bb8f6771b3c8a9690f50cc1eb8a15bc112177ff6151a5",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "cf15853e366930f9f21457461219ab19c76a98037ff817a043113a539b86e94a",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 4.127
+      "elapsed_ms": 0.357
     },
     {
       "case_id": "CASE-PILOT-GEN-002",
@@ -636,7 +668,7 @@
       ],
       "reproducibility_hash_sha256": "356bc614b12bbc6c12f560a580d803daf477c531bf3a7f5cc17e7fef18159c3d",
       "applicability_status": "PLAN_SPECIFIC_ACCESS_REQUIRED",
-      "elapsed_ms": 0.977
+      "elapsed_ms": 0.35
     },
     {
       "case_id": "CASE-PILOT-GEN-003",
@@ -645,18 +677,20 @@
       "procedure_name": "BRCA1 and BRCA2 Full Gene Sequencing",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-05-12",
-      "engine_status": "INSUFFICIENT_INFORMATION",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "INSUFFICIENT_INFORMATION",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "INSUFFICIENT_INFORMATION",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "0866b752c62bb949afed403da155ea90364b9de13106ba5dc3c3a8a17f0756ea",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "6c1122d3c71f08e78f1ee5f81291590b488771684b3c984282b1ece1c823199d",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.278
+      "elapsed_ms": 0.359
     },
     {
       "case_id": "CASE-PILOT-GEN-004",
@@ -665,18 +699,20 @@
       "procedure_name": "BRCA1 and BRCA2 Full Gene Sequencing",
       "line_of_business": "COMMERCIAL",
       "date_of_service": "2026-05-13",
-      "engine_status": "CRITERIA_NOT_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_NOT_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_NOT_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "31c9667aa1104aa3e49eb05d2f3471bc4691f8f7c148290a5e6d6e140ffc4518",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "c235a39a40c63fe7be269e6563fb74bc27990ed60d307c81d80d0858478e61ed",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.934
+      "elapsed_ms": 0.472
     },
     {
       "case_id": "CASE-PILOT-DME-001",
@@ -685,18 +721,20 @@
       "procedure_name": "Continuous Positive Airway Pressure (CPAP) Device",
       "line_of_business": "MEDICAID",
       "date_of_service": "2026-08-15",
-      "engine_status": "CRITERIA_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "7cb729b48c1cc730cc608c9743b7e7d484be199ce292994e968f7c75124653b8",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "b25997c356a361ffcf4e62e0b8dc7cb2bfecefe1258d13b609370435bf0fb61c",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.355
+      "elapsed_ms": 0.459
     },
     {
       "case_id": "CASE-PILOT-DME-002",
@@ -705,18 +743,20 @@
       "procedure_name": "Continuous Positive Airway Pressure (CPAP) Device",
       "line_of_business": "MEDICAID",
       "date_of_service": "2026-08-16",
-      "engine_status": "CRITERIA_NOT_MET",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "CRITERIA_NOT_MET",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "CRITERIA_NOT_MET",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "d885c596edcae4172f0a6de9a134ea12c098c20aa2aa6389555f44e2759fbfeb",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "dc2b46b5d18ebbe0cc51193f2291692233796ceb603102f559d633025a26ae92",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.402
+      "elapsed_ms": 0.717
     },
     {
       "case_id": "CASE-PILOT-DME-003",
@@ -738,7 +778,7 @@
       ],
       "reproducibility_hash_sha256": "28366f9732a6c37b8c454ca9a44ae823e258d8cd821798776658f3110be41a3f",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 0.918
+      "elapsed_ms": 1.601
     },
     {
       "case_id": "CASE-PILOT-DME-004",
@@ -747,18 +787,20 @@
       "procedure_name": "Semi-Electric Hospital Bed with Mattress",
       "line_of_business": "MEDICARE_ADVANTAGE",
       "date_of_service": "2026-08-18",
-      "engine_status": "INSUFFICIENT_INFORMATION",
+      "engine_status": "POLICY_NOT_APPLICABLE",
       "expected_status": "INSUFFICIENT_INFORMATION",
-      "status_match": true,
+      "status_match": false,
       "human_adjudication_decision": "INSUFFICIENT_INFORMATION",
       "human_comparison_status": "AGREEMENT",
       "discrepancy_id": null,
       "is_binding": false,
       "requires_human_review": false,
-      "unresolved_dependencies": [],
-      "reproducibility_hash_sha256": "b4771e0cdb0ab5e895a3c1d5c8638e6e20ca6ecbd2c0c017b88ccc52cee2c6ba",
+      "unresolved_dependencies": [
+        "None of the requested target_rule_ids could be found in registry."
+      ],
+      "reproducibility_hash_sha256": "daaa991e3c929393ab9353ac1aa56306795572a3f9ba658b331cbec4450891a3",
       "applicability_status": "VERIFIED_APPLICABLE",
-      "elapsed_ms": 3.285
+      "elapsed_ms": 0.671
     }
   ]
 }

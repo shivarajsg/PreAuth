@@ -49,6 +49,9 @@ class AuditLogger:
                     "expected_value": cr.expected_value,
                     "actual_value": cr.actual_value,
                     "status": cr.status.value,
+                    "criterion_state": cr.criterion_state.value if hasattr(cr, "criterion_state") and cr.criterion_state else None,
+                    "evidence_state": cr.evidence_state.value if hasattr(cr, "evidence_state") and cr.evidence_state else None,
+                    "evidence_snippet": getattr(cr, "evidence_snippet", None),
                     "reason": cr.reason,
                     "is_optional": cr.is_optional,
                     "evidence_missing": cr.evidence_missing,
@@ -62,6 +65,9 @@ class AuditLogger:
                             "parameter": sub.parameter,
                             "comparator": sub.comparator,
                             "status": sub.status.value,
+                            "criterion_state": sub.criterion_state.value if hasattr(sub, "criterion_state") and sub.criterion_state else None,
+                            "evidence_state": sub.evidence_state.value if hasattr(sub, "evidence_state") and sub.evidence_state else None,
+                            "evidence_snippet": getattr(sub, "evidence_snippet", None),
                             "reason": sub.reason
                         }
                         for sub in cr.sub_evaluations
