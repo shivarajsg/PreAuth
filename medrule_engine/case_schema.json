@@ -154,6 +154,11 @@
     "notes": {
       "type": "string",
       "description": "Optional administrative or intake notes."
+    },
+    "evidence_provenance": {
+      "type": "object",
+      "description": "Optional mapping of extracted clinical parameters to verbatim document snippets and source offsets.",
+      "additionalProperties": true
     }
   },
   "additionalProperties": false

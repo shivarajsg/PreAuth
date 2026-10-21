@@ -40,6 +40,7 @@ class CaseIntake:
     supporting_documentation_provided: List[str] = field(default_factory=list)
     ordering_provider: Optional[Dict[str, Any]] = None
     notes: Optional[str] = None
+    evidence_provenance: Dict[str, Any] = field(default_factory=dict)
     raw_payload: Dict[str, Any] = field(default_factory=dict, repr=False)
 
     def get_evidence(self, parameter: str) -> Tuple[bool, Any]:
@@ -138,6 +139,7 @@ class CaseValidator:
             supporting_documentation_provided=list(case_dict.get("supporting_documentation_provided", [])),
             ordering_provider=case_dict.get("ordering_provider"),
             notes=case_dict.get("notes"),
+            evidence_provenance=dict(case_dict.get("evidence_provenance", {})),
             raw_payload=case_dict
         )
 

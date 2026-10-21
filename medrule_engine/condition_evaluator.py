@@ -27,6 +27,29 @@ class EvaluationState(str, Enum):
         return self.value
 
 
+class CriterionState(str, Enum):
+    """Normalized four-state representation for clinical policy criteria."""
+    MET = "MET"
+    NOT_MET = "NOT_MET"
+    INSUFFICIENT_DATA = "INSUFFICIENT_DATA"
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+
+    def __repr__(self) -> str:
+        return self.value
+
+
+class EvidenceState(str, Enum):
+    """Evidence presence and certainty classification."""
+    EXPLICIT_POSITIVE = "EXPLICIT_POSITIVE"
+    EXPLICIT_NEGATIVE = "EXPLICIT_NEGATIVE"
+    MISSING = "MISSING"
+    AMBIGUOUS = "AMBIGUOUS"
+    CONFLICTING = "CONFLICTING"
+
+    def __repr__(self) -> str:
+        return self.value
+
+
 @dataclass
 class CriterionEvaluation:
     """Detailed result of evaluating a single atomic or sub-condition criterion."""
@@ -42,6 +65,9 @@ class CriterionEvaluation:
     evidence_missing: bool = False
     type_error: Optional[str] = None
     sub_evaluations: List["CriterionEvaluation"] = field(default_factory=list)
+    criterion_state: CriterionState = CriterionState.INSUFFICIENT_DATA
+    evidence_state: EvidenceState = EvidenceState.MISSING
+    evidence_snippet: Optional[str] = None
 
 
 @dataclass
@@ -118,6 +144,22 @@ class ConditionEvaluator:
                     has_unknown = True
 
             if is_false:
+                # Mark remaining unevaluated criteria as NOT_APPLICABLE due to short-circuit
+                if len(eval_results) < len(raw_criteria):
+                    for remaining_crit in raw_criteria[len(eval_results):]:
+                        eval_results.append(CriterionEvaluation(
+                            condition_id=remaining_crit.get("condition_id", "UNKNOWN"),
+                            description=remaining_crit.get("description", ""),
+                            parameter=remaining_crit.get("parameter"),
+                            comparator=remaining_crit.get("comparator"),
+                            expected_value=remaining_crit.get("value"),
+                            actual_value=None,
+                            status=EvaluationState.UNKNOWN,
+                            reason="Bypassed by ALL_OF short-circuit (prior mandatory criterion is FALSE).",
+                            is_optional=bool(remaining_crit.get("is_optional", False)),
+                            criterion_state=CriterionState.NOT_APPLICABLE,
+                            evidence_state=EvidenceState.MISSING
+                        ))
                 return ConditionGroupEvaluation(
                     operator=operator,
                     status=EvaluationState.FALSE,
@@ -157,12 +199,29 @@ class ConditionEvaluator:
 
                 if c_res.status == EvaluationState.TRUE:
                     has_true = True
+                    c_res.criterion_state = CriterionState.MET
                     short_circuit_reason = f"Alternative criterion {c_res.condition_id} is TRUE: {c_res.reason}"
                     break  # Safe short-circuit for ANY_OF
                 elif c_res.status == EvaluationState.UNKNOWN:
                     has_unknown = True
 
             if has_true:
+                # Mark remaining unevaluated alternative criteria as NOT_APPLICABLE
+                if len(eval_results) < len(raw_criteria):
+                    for remaining_crit in raw_criteria[len(eval_results):]:
+                        eval_results.append(CriterionEvaluation(
+                            condition_id=remaining_crit.get("condition_id", "UNKNOWN"),
+                            description=remaining_crit.get("description", ""),
+                            parameter=remaining_crit.get("parameter"),
+                            comparator=remaining_crit.get("comparator"),
+                            expected_value=remaining_crit.get("value"),
+                            actual_value=None,
+                            status=EvaluationState.UNKNOWN,
+                            reason="Alternative criterion satisfied; this alternative was not required.",
+                            is_optional=bool(remaining_crit.get("is_optional", False)),
+                            criterion_state=CriterionState.NOT_APPLICABLE,
+                            evidence_state=EvidenceState.MISSING
+                        ))
                 return ConditionGroupEvaluation(
                     operator=operator,
                     status=EvaluationState.TRUE,
@@ -252,6 +311,10 @@ class ConditionEvaluator:
         # 1. If criterion has sub_conditions (nested tree)
         if sub_conds and isinstance(sub_conds, dict) and "criteria" in sub_conds:
             sub_res = self._evaluate_group(sub_conds, case, depth + 1)
+            crit_state = (
+                CriterionState.MET if sub_res.status == EvaluationState.TRUE
+                else (CriterionState.NOT_MET if sub_res.status == EvaluationState.FALSE else CriterionState.INSUFFICIENT_DATA)
+            )
             return CriterionEvaluation(
                 condition_id=cid,
                 description=desc,
@@ -262,7 +325,9 @@ class ConditionEvaluator:
                 status=sub_res.status,
                 reason=f"Nested [{sub_res.operator}]: {sub_res.explanation}",
                 is_optional=is_optional,
-                sub_evaluations=sub_res.criteria_results
+                sub_evaluations=sub_res.criteria_results,
+                criterion_state=crit_state,
+                evidence_state=EvidenceState.EXPLICIT_POSITIVE if crit_state == CriterionState.MET else EvidenceState.MISSING
             )
 
         # 2. Atomic criterion evaluation
@@ -278,7 +343,9 @@ class ConditionEvaluator:
                 status=EvaluationState.UNKNOWN,
                 reason="Criterion defines clinical narrative without explicit parameter identifier.",
                 is_optional=is_optional,
-                evidence_missing=True
+                evidence_missing=True,
+                criterion_state=CriterionState.INSUFFICIENT_DATA,
+                evidence_state=EvidenceState.MISSING
             )
 
         is_present, actual_val = case.get_evidence(param)
@@ -295,7 +362,9 @@ class ConditionEvaluator:
                 status=EvaluationState.UNKNOWN,
                 reason=f"Evidence parameter '{param}' is missing from case record.",
                 is_optional=is_optional,
-                evidence_missing=True
+                evidence_missing=True,
+                criterion_state=CriterionState.INSUFFICIENT_DATA,
+                evidence_state=EvidenceState.MISSING
             )
 
         # 2. Parameter exists with explicit null/None
@@ -310,7 +379,45 @@ class ConditionEvaluator:
                 status=EvaluationState.UNKNOWN,
                 reason=f"Evidence parameter '{param}' was provided as null (unrecorded/missing).",
                 is_optional=is_optional,
-                evidence_missing=True
+                evidence_missing=True,
+                criterion_state=CriterionState.INSUFFICIENT_DATA,
+                evidence_state=EvidenceState.MISSING
+            )
+
+        # Check for explicitly marked conflicting or ambiguous evidence
+        if isinstance(actual_val, dict) and actual_val.get("status") in ("CONFLICTING", "AMBIGUOUS"):
+            ev_state = EvidenceState.CONFLICTING if actual_val["status"] == "CONFLICTING" else EvidenceState.AMBIGUOUS
+            details = actual_val.get("details", "")
+            return CriterionEvaluation(
+                condition_id=cid,
+                description=desc,
+                parameter=param,
+                comparator=comparator,
+                expected_value=expected_val,
+                actual_value=actual_val,
+                status=EvaluationState.UNKNOWN,
+                reason=f"Evidence for parameter '{param}' is {ev_state.value.lower()}: {details}",
+                is_optional=is_optional,
+                evidence_missing=True,
+                criterion_state=CriterionState.INSUFFICIENT_DATA,
+                evidence_state=ev_state,
+                evidence_snippet=actual_val.get("snippet")
+            )
+        if isinstance(actual_val, str) and actual_val.upper() in ("CONFLICTING", "AMBIGUOUS"):
+            ev_state = EvidenceState.CONFLICTING if actual_val.upper() == "CONFLICTING" else EvidenceState.AMBIGUOUS
+            return CriterionEvaluation(
+                condition_id=cid,
+                description=desc,
+                parameter=param,
+                comparator=comparator,
+                expected_value=expected_val,
+                actual_value=actual_val,
+                status=EvaluationState.UNKNOWN,
+                reason=f"Evidence for parameter '{param}' is documented as {ev_state.value.lower()}.",
+                is_optional=is_optional,
+                evidence_missing=True,
+                criterion_state=CriterionState.INSUFFICIENT_DATA,
+                evidence_state=ev_state
             )
 
         # 3. Handle IS_ABSENT comparator where explicit absence of finding is required
@@ -327,7 +434,9 @@ class ConditionEvaluator:
                     status=EvaluationState.TRUE,
                     reason=f"Parameter '{param}' is confirmed absent (explicit False).",
                     is_optional=is_optional,
-                    evidence_missing=False
+                    evidence_missing=False,
+                    criterion_state=CriterionState.MET,
+                    evidence_state=EvidenceState.EXPLICIT_NEGATIVE
                 )
             # Empty collection or empty string -> confirmed empty/absent
             if isinstance(actual_val, (list, tuple, set, str, dict)) and len(actual_val) == 0:
@@ -341,7 +450,9 @@ class ConditionEvaluator:
                     status=EvaluationState.TRUE,
                     reason=f"Parameter '{param}' is empty ({type(actual_val).__name__}), confirming absence.",
                     is_optional=is_optional,
-                    evidence_missing=False
+                    evidence_missing=False,
+                    criterion_state=CriterionState.MET,
+                    evidence_state=EvidenceState.EXPLICIT_NEGATIVE
                 )
             # Boolean True or positive presence -> absence requirement violated
             if actual_val is True:
@@ -355,7 +466,9 @@ class ConditionEvaluator:
                     status=EvaluationState.FALSE,
                     reason=f"Parameter '{param}' is present (True) when absence was required.",
                     is_optional=is_optional,
-                    evidence_missing=False
+                    evidence_missing=False,
+                    criterion_state=CriterionState.NOT_MET,
+                    evidence_state=EvidenceState.EXPLICIT_POSITIVE
                 )
             # Numerical zero or other number -> numerical value is present, not absent
             if isinstance(actual_val, (int, float)):
@@ -369,7 +482,9 @@ class ConditionEvaluator:
                     status=EvaluationState.FALSE,
                     reason=f"Parameter '{param}' has recorded numerical measurement ({actual_val}) when absence was required.",
                     is_optional=is_optional,
-                    evidence_missing=False
+                    evidence_missing=False,
+                    criterion_state=CriterionState.NOT_MET,
+                    evidence_state=EvidenceState.EXPLICIT_POSITIVE
                 )
             # Non-empty collection/string
             return CriterionEvaluation(
@@ -382,11 +497,29 @@ class ConditionEvaluator:
                 status=EvaluationState.FALSE,
                 reason=f"Parameter '{param}' is present ({actual_val}) when absence was required.",
                 is_optional=is_optional,
-                evidence_missing=False
+                evidence_missing=False,
+                criterion_state=CriterionState.NOT_MET,
+                evidence_state=EvidenceState.EXPLICIT_POSITIVE
             )
 
         # 4. Evaluate atomic comparators
         status, reason, type_err = self._apply_comparator(comparator, actual_val, expected_val, crit.get("unit"), param)
+        crit_state = (
+            CriterionState.MET if status == EvaluationState.TRUE
+            else (CriterionState.NOT_MET if status == EvaluationState.FALSE else CriterionState.INSUFFICIENT_DATA)
+        )
+        if actual_val is False or (isinstance(actual_val, str) and actual_val.upper() in ("FALSE", "DENIED", "ABSENT", "NO")):
+            ev_state = EvidenceState.EXPLICIT_NEGATIVE
+        else:
+            ev_state = EvidenceState.EXPLICIT_POSITIVE
+
+        # Check if case raw payload or evidence snippet exists
+        snippet = None
+        if hasattr(case, "raw_payload") and isinstance(case.raw_payload, dict):
+            prov = case.raw_payload.get("evidence_provenance", {})
+            if isinstance(prov, dict) and param in prov:
+                snippet = prov[param].get("snippet") if isinstance(prov[param], dict) else str(prov[param])
+
         return CriterionEvaluation(
             condition_id=cid,
             description=desc,
@@ -398,7 +531,10 @@ class ConditionEvaluator:
             reason=reason,
             is_optional=is_optional,
             evidence_missing=False,
-            type_error=type_err
+            type_error=type_err,
+            criterion_state=crit_state,
+            evidence_state=ev_state,
+            evidence_snippet=snippet
         )
 
     def _apply_comparator(
@@ -548,6 +684,8 @@ class ConditionEvaluator:
             # Check boolean True or string matching
             if actual is True:
                 return EvaluationState.TRUE, f"Condition status '{comparator}' documented as TRUE.", None
+            if expected is not None and isinstance(actual, str) and actual.strip().upper() == str(expected).strip().upper():
+                return EvaluationState.TRUE, f"Condition status '{comparator}' matches required therapy '{expected}'.", None
             if isinstance(actual, str) and actual.strip().upper() in (comparator, "TRUE", "YES", "CONFIRMED", "DOCUMENTED"):
                 return EvaluationState.TRUE, f"Condition status '{comparator}' confirmed by '{actual}'.", None
             if actual is False or (isinstance(actual, str) and actual.strip().upper() in ("FALSE", "NO", "NONE")):

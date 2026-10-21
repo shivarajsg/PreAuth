@@ -27,11 +27,23 @@ PROCEDURE_CATALOG = {
         "domain": "advanced_imaging",
         "keywords": ["ct abdomen", "without contrast", "renal calculus", "kidney stone"]
     },
+    "74178": {
+        "code": "74178",
+        "name": "CT Abdomen and Pelvis with and without contrast",
+        "domain": "advanced_imaging",
+        "keywords": ["ct abdomen", "with & without", "with and without", "biphasic ct"]
+    },
     "70553": {
         "code": "70553",
         "name": "MRI Brain with and without contrast",
         "domain": "advanced_imaging",
         "keywords": ["mri brain", "brain mri", "headache", "neuropathy", "acoustic neuroma", "seizure"]
+    },
+    "70552": {
+        "code": "70552",
+        "name": "MRI Brain with contrast",
+        "domain": "advanced_imaging",
+        "keywords": ["mri brain with", "brain mri with contrast"]
     },
     "70551": {
         "code": "70551",
@@ -39,11 +51,23 @@ PROCEDURE_CATALOG = {
         "domain": "advanced_imaging",
         "keywords": ["mri brain without", "dementia", "stroke", "infarct"]
     },
+    "70450": {
+        "code": "70450",
+        "name": "CT Head / Brain without contrast",
+        "domain": "advanced_imaging",
+        "keywords": ["ct head", "ct brain", "head ct without contrast", "head trauma", "hemorrhage"]
+    },
     "71250": {
         "code": "71250",
         "name": "CT Thorax / Chest without contrast",
         "domain": "advanced_imaging",
         "keywords": ["ct chest", "ct thorax", "pulmonary nodule", "ldct", "lung cancer screen"]
+    },
+    "71260": {
+        "code": "71260",
+        "name": "CT Thorax / Chest with contrast",
+        "domain": "advanced_imaging",
+        "keywords": ["ct chest with contrast", "ct thorax with contrast", "mediastinal adenopathy"]
     },
     "72148": {
         "code": "72148",
@@ -51,11 +75,35 @@ PROCEDURE_CATALOG = {
         "domain": "advanced_imaging",
         "keywords": ["mri lumbar", "lumbar spine", "back pain", "herniated disc", "radiculopathy"]
     },
+    "72149": {
+        "code": "72149",
+        "name": "MRI Lumbar Spine with contrast",
+        "domain": "advanced_imaging",
+        "keywords": ["mri lumbar with", "lumbar spine with contrast"]
+    },
+    "72158": {
+        "code": "72158",
+        "name": "MRI Lumbar Spine with and without contrast",
+        "domain": "advanced_imaging",
+        "keywords": ["mri lumbar with and without", "lumbar spine with & without"]
+    },
     "73721": {
         "code": "73721",
         "name": "MRI Lower Extremity Joint (Knee) without contrast",
         "domain": "advanced_imaging",
         "keywords": ["mri knee", "knee mri", "meniscus", "meniscal tear", "cruciate ligament", "acl"]
+    },
+    "73722": {
+        "code": "73722",
+        "name": "MRI Lower Extremity Joint (Knee) with contrast",
+        "domain": "advanced_imaging",
+        "keywords": ["mri knee with contrast", "knee mri with contrast"]
+    },
+    "73723": {
+        "code": "73723",
+        "name": "MRI Lower Extremity Joint (Knee) with and without contrast",
+        "domain": "advanced_imaging",
+        "keywords": ["mri knee with and without", "knee mri with & without"]
     },
     "78815": {
         "code": "78815",
@@ -105,11 +153,17 @@ PROCEDURE_CATALOG = {
         "domain": "musculoskeletal_surgery",
         "keywords": ["spine fusion", "lumbar fusion", "spondylolisthesis", "arthrodesis"]
     },
+    "62322": {
+        "code": "62322",
+        "name": "Lumbar/Sacral Epidural Steroid Injection without imaging",
+        "domain": "interventional_pain_management",
+        "keywords": ["epidural steroid without", "lesi without imaging", "esi non-guided"]
+    },
     "62323": {
         "code": "62323",
-        "name": "Lumbar Epidural Steroid Injection",
+        "name": "Lumbar Epidural Steroid Injection with imaging",
         "domain": "interventional_pain_management",
-        "keywords": ["epidural steroid", "lesi", "esi", "lumbar epidural", "nerve root injection"]
+        "keywords": ["epidural steroid", "lesi", "esi", "lumbar epidural", "nerve root injection", "fluoroscopic epidural"]
     },
     "64483": {
         "code": "64483",
@@ -117,11 +171,23 @@ PROCEDURE_CATALOG = {
         "domain": "interventional_pain_management",
         "keywords": ["transforaminal", "tfesi", "epidural injection", "nerve root block"]
     },
+    "64484": {
+        "code": "64484",
+        "name": "Lumbar or Sacral Transforaminal Epidural Steroid Injection, add'l level",
+        "domain": "interventional_pain_management",
+        "keywords": ["transforaminal additional", "tfesi add'l level"]
+    },
     "64490": {
         "code": "64490",
         "name": "Facet Joint Injection / Medial Branch Block (Lumbar)",
         "domain": "interventional_pain_management",
         "keywords": ["facet joint", "medial branch block", "facet injection", "lumbar facet"]
+    },
+    "64493": {
+        "code": "64493",
+        "name": "Facet Joint Injection / Medial Branch Block, add'l level",
+        "domain": "interventional_pain_management",
+        "keywords": ["facet joint additional", "medial branch block add'l"]
     },
     "63650": {
         "code": "63650",
@@ -206,13 +272,17 @@ PROCEDURE_CATALOG = {
 
 def _extract_text_from_pdf_bytes(pdf_bytes: bytes) -> Tuple[str, int]:
     """Read full text and page count from in-memory PDF bytes."""
-    doc = fitz.open(stream=pdf_bytes, filetype="pdf")
-    num_pages = len(doc)
-    text_parts = []
-    for page in doc:
-        text_parts.append(page.get_text())
-    doc.close()
-    return "\n".join(text_parts), num_pages
+    try:
+        doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+        num_pages = len(doc)
+        text_parts = []
+        for page in doc:
+            text_parts.append(page.get_text())
+        doc.close()
+        return "\n".join(text_parts), num_pages
+    except Exception as exc:
+        logger.warning("Failed to extract text from PDF stream: %s", exc)
+        return "", 0
 
 
 def _detect_patient_id(text: str) -> str:
@@ -364,118 +434,337 @@ def _detect_payer_and_plan(text: str, lob: str) -> Tuple[str, str]:
     return payer, plan
 
 
-def _extract_clinical_evidence(text: str, domain: str, procedure_code: str) -> Dict[str, Any]:
-    """Extract structured evidence key-value parameters from doctor's narrative."""
-    text_lower = text.lower()
+def _split_into_sentences(text: str) -> List[str]:
+    """Split text into individual sentences for contextual analysis."""
+    raw = re.split(r'(?:\. |\n+|; |• |\| )', text)
+    return [s.strip() for s in raw if s.strip()]
+
+
+def _is_negated_in_sentence(sentence: str, target: str) -> bool:
+    """Check if target keyword is explicitly negated in sentence."""
+    s_lower = sentence.lower()
+    t_lower = target.lower()
+    if t_lower not in s_lower:
+        return False
+
+    neg_cues = [
+        r"\bno\b", r"\bnot\b", r"\bdenies\b", r"\bdenied\b", r"\bwithout\b",
+        r"\babsence of\b", r"\bnegative for\b", r"\brules out\b", r"\bruled out\b",
+        r"\bnone\b", r"\bno evidence of\b", r"\bunremarkable\b", r"\bintact\b"
+    ]
+    for cue in neg_cues:
+        pattern1 = rf"{cue}\s+(?:[\w\-]+\s+){{0,6}}{re.escape(t_lower)}"
+        pattern2 = rf"{re.escape(t_lower)}\s+(?:is|are|was|were)?\s*(?:ruled out|negative|denied|absent|none|unremarkable|intact)"
+        if re.search(pattern1, s_lower) or re.search(pattern2, s_lower):
+            return True
+    return False
+
+
+def _detect_laterality_and_anatomy(text: str) -> Tuple[Optional[str], Optional[str]]:
+    """Extract laterality and anatomical region from text."""
+    t_lower = text.lower()
+    laterality = None
+    if re.search(r"\b(?:bilateral|both)\b", t_lower):
+        laterality = "BILATERAL"
+    elif re.search(r"\b(?:right|rt)\b", t_lower):
+        laterality = "RIGHT"
+    elif re.search(r"\b(?:left|lt)\b", t_lower):
+        laterality = "LEFT"
+
+    anatomy = None
+    if any(k in t_lower for k in ("lumbar", "l1", "l2", "l3", "l4", "l5", "s1")):
+        anatomy = "LUMBAR_SPINE"
+    elif any(k in t_lower for k in ("cervical", "c-spine")):
+        anatomy = "CERVICAL_SPINE"
+    elif any(k in t_lower for k in ("thoracic", "t-spine")):
+        anatomy = "THORACIC_SPINE"
+    elif "knee" in t_lower:
+        anatomy = "KNEE"
+    elif "hip" in t_lower:
+        anatomy = "HIP"
+    elif any(k in t_lower for k in ("brain", "head", "cranial")):
+        anatomy = "BRAIN"
+    elif any(k in t_lower for k in ("abdomen", "pelvis")):
+        anatomy = "ABDOMEN_PELVIS"
+    elif any(k in t_lower for k in ("chest", "thorax", "lung")):
+        anatomy = "CHEST"
+
+    return laterality, anatomy
+
+
+def _detect_place_of_service(text: str) -> Tuple[str, str]:
+    """Extract requested place of service from text. Returns (pos_enum, pos_code)."""
+    t_lower = text.lower()
+    if re.search(r"\b(?:hospital\s*outpatient|outpatient\s*hospital|hopd|hospital\s*department)\b", t_lower):
+        return "OUTPATIENT_HOSPITAL", "POS_22"
+    elif re.search(r"\b(?:ambulatory\s*(?:surgical|surgery)\s*center|asc|freestanding)\b", t_lower):
+        return "AMBULATORY_SURGICAL_CENTER", "POS_24"
+    elif re.search(r"\b(?:inpatient|hospital\s*admission|admitted)\b", t_lower):
+        return "INPATIENT_HOSPITAL", "POS_21"
+    else:
+        return "OFFICE", "POS_11"
+
+
+def _extract_clinical_evidence(text: str, domain: str, procedure_code: str) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    """Extract structured evidence key-value parameters and source provenance from doctor's narrative."""
+    sentences = _split_into_sentences(text)
     evidence: Dict[str, Any] = {}
+    provenance: Dict[str, Any] = {}
 
-    # Extract physician name if found
-    doc_match = re.search(r"(?:Dr\.|Doctor|Physician|Provider)\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)", text)
+    def record_fact(param: str, val: Any, sentence: str):
+        if param in evidence:
+            existing_val = evidence[param]
+            if existing_val != val:
+                evidence[param] = {
+                    "status": "CONFLICTING",
+                    "details": f"Contradictory documented statements for '{param}'",
+                    "values": [existing_val, val]
+                }
+                provenance[param] = {
+                    "status": "CONFLICTING",
+                    "snippet": f"1: {provenance.get(param, {}).get('snippet', '')} | 2: {sentence.strip()}",
+                    "value": [existing_val, val]
+                }
+                return
+        evidence[param] = val
+        provenance[param] = {"snippet": sentence.strip(), "value": val}
+
+    # Ordering provider
+    doc_match = re.search(r"(?:Dr\.|Doctor|Physician|Provider|Attending)\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?(?:\s*,\s*(?:MD|DO|MBBS))?)", text)
     if doc_match:
-        evidence["ordering_provider_name"] = f"Dr. {doc_match.group(1).strip()}"
+        record_fact("ordering_provider_name", f"Dr. {doc_match.group(1).strip()}", doc_match.group(0))
+        record_fact("ordering_provider_license", True, doc_match.group(0))
 
-    # Extract ICD-10 diagnosis code if present
+    # ICD-10
     icd_match = re.search(r"\b([A-TV-Z][0-9][0-9A-Z](?:\.[0-9A-Z]{1,4})?)\b", text)
     if icd_match:
-        evidence["diagnosis_icd10"] = icd_match.group(1)
+        record_fact("diagnosis_icd10", icd_match.group(1), icd_match.group(0))
 
-    # Domain-specific heuristics for criteria evaluation
-    if domain == "advanced_imaging":
-        if "lumbar" in text_lower or "back pain" in text_lower or procedure_code in ("72148", "72158") or "spine" in text_lower or "m62" in text_lower or "radiculopathy" in text_lower:
-            evidence["lumbar_radiculopathy_present"] = True
-            evidence["conservative_therapy_duration_weeks"] = 6
-            evidence["clinical_indication_documented"] = True
-            evidence["ordering_provider_license"] = True
-            evidence["prior_conservative_care_modalities"] = ["Physical Therapy", "Oral NSAIDs", "Activity Modification"]
-            if "cauda equina" in text_lower or "bowel" in text_lower or "bladder" in text_lower or "saddle" in text_lower:
-                evidence["suspected_cauda_equina_syndrome"] = True
+    # Laterality & Anatomy
+    lat, anat = _detect_laterality_and_anatomy(text)
+    if lat:
+        record_fact("laterality", lat, f"Laterality documented: {lat}")
+    if anat:
+        record_fact("anatomical_region", anat, f"Anatomical region documented: {anat}")
+        record_fact("anatomy_region", anat, f"Anatomical region documented: {anat}")
+
+    # Clinical Office notes documented
+    for s in sentences:
+        s_low = s.lower()
+        if any(kw in s_low for kw in ("clinical progress note", "office note", "consultation", "pre-certification")):
+            record_fact("clinical_office_notes", True, s)
+            record_fact("clinical_indication_documented", True, s)
+            break
+
+    # Place of Service code
+    pos_enum, pos_code = _detect_place_of_service(text)
+    record_fact("place_of_service_code", pos_code, f"Place of Service: {pos_enum} ({pos_code})")
+
+    # Domain & Procedure Specific Logic
+    for s in sentences:
+        s_low = s.lower()
+
+        # 1. Lumbar Spine & IPM
+        if any(kw in s_low for kw in ("radiculopathy", "radiating pain", "radicular")):
+            if _is_negated_in_sentence(s, "radiculopathy") or _is_negated_in_sentence(s, "radiating pain") or _is_negated_in_sentence(s, "radicular"):
+                record_fact("lumbar_radiculopathy_present", False, s)
+                record_fact("radicular_pain_confirmed", False, s)
             else:
-                evidence["suspected_cauda_equina_syndrome"] = False
-        elif "pancreatitis" in text_lower:
-            evidence["pancreatitis_diagnostic_markers"] = "ELEVATED"
-            evidence["conservative_treatment_duration_hours"] = 96
-            evidence["ultrasound_findings"] = "NO_GALLSTONES_OR_DILATED_DUCT"
-            evidence["ordering_provider_license"] = True
-        elif "diverticulitis" in text_lower:
-            evidence["diverticulitis_diagnosis_suspected"] = True
-            evidence["conservative_care_completed"] = True
-            evidence["ordering_provider_license"] = True
-        elif "headache" in text_lower or "seizure" in text_lower or "brain" in text_lower or procedure_code in ("70551", "70553"):
-            evidence["neurological_deficit_present"] = True
-            evidence["red_flag_symptoms_documented"] = True
-            evidence["ordering_provider_license"] = True
-        elif "knee" in text_lower or procedure_code == "73721":
-            evidence["knee_meniscal_or_ligamentous_injury_suspected"] = True
-            evidence["conservative_care_weeks"] = 6
-            evidence["weight_bearing_radiographs_completed"] = True
-            evidence["ordering_provider_license"] = True
-        else:
-            evidence["clinical_indication_documented"] = True
-            evidence["ordering_provider_license"] = True
+                record_fact("lumbar_radiculopathy_present", True, s)
+                record_fact("radicular_pain_confirmed", True, s)
 
-    elif domain == "cardiology":
-        if "ischemia" in text_lower or "stress" in text_lower or "cath" in text_lower or "cad" in text_lower:
-            evidence["stress_test_findings"] = "HIGH_RISK_ISCHEMIA"
-            evidence["angina_symptoms"] = "CANADIAN_CLASS_III_IV"
-            evidence["ordering_physician_specialty"] = "CARDIOLOGY"
-        else:
-            evidence["cardiac_symptoms_documented"] = True
-            evidence["ordering_physician_specialty"] = "CARDIOLOGY"
+        if any(kw in s_low for kw in ("cauda equina", "bowel incontinence", "bladder incontinence", "saddle anesthesia")):
+            if _is_negated_in_sentence(s, "cauda equina") or _is_negated_in_sentence(s, "incontinence") or _is_negated_in_sentence(s, "bowel") or _is_negated_in_sentence(s, "bladder"):
+                record_fact("suspected_cauda_equina_syndrome", False, s)
+            else:
+                record_fact("suspected_cauda_equina_syndrome", True, s)
 
-    elif domain == "musculoskeletal_surgery":
-        if "knee" in text_lower or "osteoarthritis" in text_lower or "tka" in text_lower:
-            evidence["osteoarthritis_severity"] = "GRADE_IV_ADVANCED"
-            evidence["conservative_therapy_duration_months"] = 6
-            evidence["functional_impairment_daily_living"] = True
-        elif "spine" in text_lower or "fusion" in text_lower:
-            evidence["spondylolisthesis_documented"] = True
-            evidence["conservative_therapy_duration_months"] = 6
-            evidence["functional_impairment_daily_living"] = True
-        else:
-            evidence["joint_degeneration_documented"] = True
-            evidence["conservative_therapy_duration_months"] = 6
+        # Conservative therapy & modalities
+        if any(kw in s_low for kw in ("conservative", "physical therapy", "pt", "nsaid", "therapy")):
+            if _is_negated_in_sentence(s, "conservative") or _is_negated_in_sentence(s, "physical therapy") or _is_negated_in_sentence(s, "pt"):
+                record_fact("conservative_therapy_duration_weeks", 0, s)
+                record_fact("conservative_care_weeks", 0, s)
+                record_fact("conservative_care_completed", False, s)
+            else:
+                # Extract weeks or months
+                m_wk = re.search(r'(\d+)\s*(?:weeks?|wks?)\b', s_low)
+                m_mo = re.search(r'(\d+)\s*(?:months?|mos?)\b', s_low)
+                if m_wk:
+                    wks = int(m_wk.group(1))
+                    record_fact("conservative_therapy_duration_weeks", wks, s)
+                    record_fact("conservative_care_weeks", wks, s)
+                    if wks >= 6:
+                        record_fact("conservative_care_completed", True, s)
+                elif m_mo:
+                    mos = int(m_mo.group(1))
+                    record_fact("conservative_therapy_duration_weeks", mos * 4, s)
+                    record_fact("conservative_care_weeks", mos * 4, s)
+                    record_fact("conservative_therapy_duration_months", mos, s)
+                    if mos * 4 >= 6:
+                        record_fact("conservative_care_completed", True, s)
 
-    elif domain == "interventional_pain_management":
-        evidence["radicular_pain_confirmed"] = True
-        evidence["conservative_care_weeks"] = 6
-        evidence["lumbar_mri_nerve_root_compression"] = True
+                mods = []
+                if "physical therapy" in s_low or "pt" in s_low:
+                    mods.append("Physical Therapy")
+                if "nsaid" in s_low:
+                    mods.append("Oral NSAIDs")
+                if "activity modification" in s_low or "rest" in s_low:
+                    mods.append("Activity Modification")
+                if "chiropractic" in s_low:
+                    mods.append("Chiropractic Care")
+                if mods:
+                    record_fact("prior_conservative_care_modalities", mods, s)
 
-    elif domain == "radiation_oncology":
-        evidence["histologically_confirmed_prostate_cancer"] = True
-        evidence["nccn_risk_category"] = "INTERMEDIATE_RISK"
-        evidence["critical_structure_sparing_indicated"] = True
+        # Nerve root compression
+        if "nerve root compression" in s_low or "mri shows" in s_low or "disc herniation" in s_low:
+            if _is_negated_in_sentence(s, "compression") or _is_negated_in_sentence(s, "herniation"):
+                record_fact("lumbar_mri_nerve_root_compression", False, s)
+            else:
+                record_fact("lumbar_mri_nerve_root_compression", True, s)
 
-    elif domain == "physical_medicine":
-        evidence["post_operative_condition"] = True
-        evidence["measurable_functional_deficit"] = True
-        evidence["established_rehabilitation_goals"] = True
+        # 2. Pancreatitis & Abdominal Imaging
+        if any(kw in s_low for kw in ("pancreatitis", "amylase", "lipase")):
+            if "elevated" in s_low or "high" in s_low or "positive" in s_low:
+                record_fact("pancreatitis_diagnostic_markers", "ELEVATED", s)
+            elif "normal" in s_low or "unremarkable" in s_low or _is_negated_in_sentence(s, "elevated"):
+                record_fact("pancreatitis_diagnostic_markers", "NORMAL", s)
 
-    elif domain == "sleep_health":
-        evidence["epworth_sleepiness_scale_score"] = 14
-        evidence["habitual_snoring_observed_apneas"] = True
-        evidence["absence_of_severe_comorbidities"] = True
+        if "abdominal pain" in s_low or "epigastric" in s_low:
+            if _is_negated_in_sentence(s, "pain") or _is_negated_in_sentence(s, "abdominal"):
+                record_fact("abdominal_pain_documented", False, s)
+            else:
+                record_fact("abdominal_pain_documented", True, s)
 
-    elif domain == "genetic_testing":
-        evidence["personal_history_breast_cancer_under_50"] = True
-        evidence["genetic_counseling_pre_test_completed"] = True
-        evidence["first_degree_relative_ovarian_cancer"] = True
+        if "fluid resuscitation" in s_low or "conservative therapy continued" in s_low or "treatment duration" in s_low or "hours" in s_low:
+            m_hr = re.search(r'(\d+)\s*(?:hours?|hrs?)\b', s_low)
+            if m_hr:
+                record_fact("conservative_treatment_duration_hours", int(m_hr.group(1)), s)
 
-    elif domain == "centene_dme_orthotics_prosthetics":
-        if "cgm" in text_lower or "glucose" in text_lower or "diabetes" in text_lower:
-            evidence["type_1_diabetes_mellitus"] = True
-            evidence["multiple_daily_insulin_injections"] = True
-            evidence["documented_frequent_hypoglycemia"] = True
-        elif "wheelchair" in text_lower or "mobility" in text_lower:
-            evidence["mobility_limitation_daily_activities"] = True
-            evidence["upper_extremity_weakness"] = True
-        elif "bed" in text_lower:
-            evidence["frequent_body_repositioning_needed"] = True
-            evidence["head_elevation_required_greater_30_degrees"] = True
-        else:
-            evidence["mobility_limitation_daily_activities"] = True
-            evidence["upper_extremity_weakness"] = True
+        if "ultrasound" in s_low or "ruq" in s_low:
+            if "no gallstones" in s_low or "no gallstones or dilated" in s_low or _is_negated_in_sentence(s, "gallstones"):
+                record_fact("ultrasound_findings", "NO_GALLSTONES_OR_DILATED_DUCT", s)
+            elif "gallstones" in s_low or "cholelithiasis" in s_low:
+                record_fact("ultrasound_findings", "GALLSTONES_PRESENT", s)
 
-    return evidence
+        if "diverticulitis" in s_low:
+            if _is_negated_in_sentence(s, "diverticulitis"):
+                record_fact("diverticulitis_diagnosis_suspected", False, s)
+            else:
+                record_fact("diverticulitis_diagnosis_suspected", True, s)
+
+        # 3. Brain MRI / Neurology
+        if "headache" in s_low:
+            if _is_negated_in_sentence(s, "headache"):
+                record_fact("headache_documented", False, s)
+            else:
+                record_fact("headache_documented", True, s)
+
+        if any(kw in s_low for kw in ("focal neurological", "neurological deficit", "focal deficit")):
+            if _is_negated_in_sentence(s, "deficit") or _is_negated_in_sentence(s, "neurological"):
+                record_fact("focal_neurological_deficit_present", False, s)
+                record_fact("focal_neurological_deficit", False, s)
+                record_fact("neurological_deficit_present", False, s)
+            else:
+                record_fact("focal_neurological_deficit_present", True, s)
+                record_fact("focal_neurological_deficit", True, s)
+                record_fact("neurological_deficit_present", True, s)
+
+        if "multiple sclerosis" in s_low or bool(re.search(r"\bms\b", s_low)):
+            if _is_negated_in_sentence(s, "multiple sclerosis"):
+                record_fact("suspected_or_established_multiple_sclerosis", False, s)
+            else:
+                record_fact("suspected_or_established_multiple_sclerosis", True, s)
+
+        if any(kw in s_low for kw in ("red flag", "thunderclap", "sudden onset severe")):
+            if _is_negated_in_sentence(s, "red flag"):
+                record_fact("red_flag_symptoms_documented", False, s)
+            else:
+                record_fact("red_flag_symptoms_documented", True, s)
+
+        if "seizure" in s_low:
+            if _is_negated_in_sentence(s, "seizure"):
+                record_fact("seizure_activity_documented", False, s)
+                record_fact("seizures_documented", False, s)
+            else:
+                record_fact("seizure_activity_documented", True, s)
+                record_fact("seizures_documented", True, s)
+
+        # 4. Knee MRI / Orthopedics
+        if any(kw in s_low for kw in ("meniscus", "meniscal", "cruciate", "acl")):
+            if _is_negated_in_sentence(s, "tear") or _is_negated_in_sentence(s, "meniscus") or _is_negated_in_sentence(s, "acl"):
+                record_fact("knee_meniscal_or_ligamentous_injury_suspected", False, s)
+                record_fact("meniscal_tear_suspected", False, s)
+            else:
+                record_fact("knee_meniscal_or_ligamentous_injury_suspected", True, s)
+                record_fact("meniscal_tear_suspected", True, s)
+
+        if "effusion" in s_low:
+            if _is_negated_in_sentence(s, "effusion"):
+                record_fact("joint_effusion_present", False, s)
+            else:
+                record_fact("joint_effusion_present", True, s)
+
+        if any(kw in s_low for kw in ("mcmurray", "joint line tenderness", "lachman", "drawer", "pivot shift", "internal derangement")):
+            if _is_negated_in_sentence(s, "mcmurray") or _is_negated_in_sentence(s, "tenderness") or _is_negated_in_sentence(s, "lachman"):
+                record_fact("positive_knee_orthopedic_sign", False, s)
+                record_fact("joint_specific_injury_or_pain", False, s)
+            else:
+                record_fact("positive_knee_orthopedic_sign", True, s)
+                record_fact("joint_specific_injury_or_pain", True, s)
+
+        if any(kw in s_low for kw in ("radiographs", "x-ray", "xray")):
+            if _is_negated_in_sentence(s, "radiographs") or _is_negated_in_sentence(s, "x-ray") or _is_negated_in_sentence(s, "xray"):
+                record_fact("weight_bearing_radiographs_completed", False, s)
+                record_fact("prior_xray_completed", False, s)
+            else:
+                record_fact("weight_bearing_radiographs_completed", True, s)
+                record_fact("prior_xray_completed", True, s)
+
+        if any(kw in s_low for kw in ("osteoarthritis", "joint degeneration")):
+            if "grade iv" in s_low or "advanced" in s_low or "severe" in s_low:
+                record_fact("osteoarthritis_severity", "GRADE_IV_ADVANCED", s)
+            elif "mild" in s_low or "grade i" in s_low:
+                record_fact("osteoarthritis_severity", "GRADE_I_MILD", s)
+
+        if "functional impairment" in s_low or "activities of daily living" in s_low or "adl" in s_low:
+            if _is_negated_in_sentence(s, "impairment"):
+                record_fact("functional_impairment_daily_living", False, s)
+            else:
+                record_fact("functional_impairment_daily_living", True, s)
+
+        # 5. Cardiology
+        if "ischemia" in s_low or "stress test" in s_low:
+            if "high risk" in s_low:
+                record_fact("stress_test_findings", "HIGH_RISK_ISCHEMIA", s)
+            elif _is_negated_in_sentence(s, "ischemia"):
+                record_fact("stress_test_findings", "NEGATIVE_FOR_ISCHEMIA", s)
+
+        if "angina" in s_low or "chest pressure" in s_low or "chest pain" in s_low:
+            if "class iii" in s_low or "class iv" in s_low:
+                record_fact("angina_symptoms", "CANADIAN_CLASS_III_IV", s)
+            elif _is_negated_in_sentence(s, "angina") or _is_negated_in_sentence(s, "pain"):
+                record_fact("angina_symptoms", "NONE", s)
+
+        # 6. Place of Service Exception Attributes (EPOS)
+        if "claustrophobia" in s_low or "open mri" in s_low:
+            if _is_negated_in_sentence(s, "claustrophobia"):
+                record_fact("severe_claustrophobia_open_mri_needed", False, s)
+            else:
+                record_fact("severe_claustrophobia_open_mri_needed", True, s)
+
+        if "bariatric" in s_low or "weight exceeds" in s_low:
+            if _is_negated_in_sentence(s, "bariatric") or _is_negated_in_sentence(s, "exceeds"):
+                record_fact("bariatric_weight_exceeds_freestanding_scanner", False, s)
+            else:
+                record_fact("bariatric_weight_exceeds_freestanding_scanner", True, s)
+
+        if "specialized protocol" in s_low or "complex protocol" in s_low:
+            if _is_negated_in_sentence(s, "protocol"):
+                record_fact("complex_specialized_protocol_needed", False, s)
+            else:
+                record_fact("complex_specialized_protocol_needed", True, s)
+
+    return evidence, provenance
 
 
 def _detect_patient_demographics(text: str) -> Dict[str, str]:
@@ -543,37 +832,73 @@ def _format_narrative_excerpt(text: str, max_chars: int = 2800) -> str:
 
 def extract_case_from_pdf(pdf_bytes: bytes, filename: str = "doctor_notes.pdf") -> Dict[str, Any]:
     """Parse clinical PDF bytes and return structured case intake data dictionary."""
+    clean_filename = filename.replace("\\", "/").split("/")[-1]
     text, num_pages = _extract_text_from_pdf_bytes(pdf_bytes)
     
-    if not text.strip():
-        raise ValueError("Uploaded PDF does not contain extractable text (it may be a raster scan or empty).")
+    timestamp_suffix = int(datetime.now().timestamp())
+    case_id = f"CASE-PDF-{timestamp_suffix}"
+
+    # Handle unreadable, blank, or scanned PDFs gracefully
+    if not text or not text.strip():
+        return {
+            "status": "UNREADABLE_OR_SCANNED_DOCUMENT",
+            "error": "Uploaded document contains no extractable text (it may be a raster scan or image-only PDF). Requires OCR preprocessing or manual clinical review.",
+            "filename": clean_filename,
+            "pages_analyzed": num_pages,
+            "diagnostics": {
+                "extracted_characters": len(text) if text else 0,
+                "pages_analyzed": num_pages,
+                "is_raster_scan_likely": True
+            },
+            "extracted_fields": {
+                "case_id": case_id,
+                "patient_id": "PT-UNRESOLVED",
+                "clinical_domain": "UNKNOWN",
+                "procedure_code": "UNKNOWN",
+                "procedure_name": "Unspecified Procedure",
+                "line_of_business": "COMMERCIAL",
+                "requested_date_of_service": datetime.now().strftime("%Y-%m-%d"),
+                "payer_id": "EVOLENT",
+                "plan_id": "COMMERCIAL_CHOICE_PLUS",
+                "place_of_service": "OFFICE",
+                "submitted_documents": f"Uploaded Physician PDF ({clean_filename})",
+                "evidence": {},
+                "evidence_provenance": {}
+            },
+            "details": {
+                "patient_id": "PT-UNRESOLVED",
+                "procedure_code": "UNKNOWN",
+                "procedure_name": "Unspecified Procedure",
+                "clinical_domain": "UNKNOWN",
+                "clinical_domain_label": "Unknown / Unresolved",
+                "key_findings": ["Unreadable or scanned document: No machine-readable text found."],
+                "evidence_count": 0,
+                "pages_analyzed": num_pages,
+                "character_count": 0,
+                "narrative_excerpt": ""
+            },
+            "text_snippet": "",
+            "summary": f"Document {clean_filename} is an image-only scan or unreadable PDF with 0 extractable characters."
+        }
 
     patient_id = _detect_patient_id(text)
     procedure_code, procedure_name, clinical_domain = _detect_procedure_and_domain(text)
     line_of_business = _detect_line_of_business(text)
     date_of_service = _detect_date_of_service(text)
     payer_id, plan_id = _detect_payer_and_plan(text, line_of_business)
-    evidence = _extract_clinical_evidence(text, clinical_domain, procedure_code)
+    pos_enum, pos_code = _detect_place_of_service(text)
+    evidence, provenance = _extract_clinical_evidence(text, clinical_domain, procedure_code)
     demographics = _detect_patient_demographics(text)
     provider_info = _detect_provider_details(text, evidence.get("ordering_provider_name"))
 
-    timestamp_suffix = int(datetime.now().timestamp())
-    case_id = f"CASE-PDF-{timestamp_suffix}"
-
-    # Generate document citation summary
-    clean_filename = filename.replace("\\", "/").split("/")[-1]
     submitted_docs = f"Comprehensive clinical notes and diagnostic findings, Uploaded Physician PDF ({clean_filename}), Clinical Notes & Order Documentation"
-
-    # Formatted clinical narrative excerpt
     formatted_narrative = _format_narrative_excerpt(text)
     snippet = " ".join(text[:450].split())
 
-    # Build human-readable key findings summary
     key_findings: List[str] = []
     ordering_provider = provider_info["provider_name"]
     diag_code = evidence.get("diagnosis_icd10", "Documented")
     
-    # Comprehensive diagnosis description mapping
     icd_descriptions = {
         "M62.838": "Other muscle spasm / Lumbar radicular syndrome",
         "M54.5": "Low back pain, unspecified",
@@ -604,23 +929,31 @@ def extract_case_from_pdf(pdf_bytes: bytes, filename: str = "doctor_notes.pdf") 
     key_findings.append(f"Diagnosis: {diag_desc} (ICD-10 {diag_code})")
     key_findings.append(f"Ordering Physician: {ordering_provider}")
     key_findings.append(f"Requested Procedure: {procedure_name} (CPT {procedure_code})")
+    key_findings.append(f"Place of Service: {pos_enum} ({pos_code})")
     
     if "lumbar_radiculopathy_present" in evidence:
-        key_findings.append("Documented lumbar radiculopathy / radiating pain")
+        val = evidence["lumbar_radiculopathy_present"]
+        if val is True:
+            key_findings.append("Documented lumbar radiculopathy / radiating pain")
+        elif val is False:
+            key_findings.append("Lumbar radiculopathy explicitly denied / absent")
     if "conservative_therapy_duration_weeks" in evidence:
-        key_findings.append(f"Prior conservative therapy completed ({evidence['conservative_therapy_duration_weeks']} weeks)")
+        dur = evidence['conservative_therapy_duration_weeks']
+        if isinstance(dur, (int, float)):
+            key_findings.append(f"Prior conservative therapy documented ({dur} weeks)")
     if "prior_conservative_care_modalities" in evidence:
-        modalities_str = ", ".join(evidence["prior_conservative_care_modalities"])
-        key_findings.append(f"Conservative modalities: {modalities_str}")
+        mods = evidence["prior_conservative_care_modalities"]
+        if isinstance(mods, list):
+            key_findings.append(f"Conservative modalities: {', '.join(mods)}")
     if "suspected_cauda_equina_syndrome" in evidence:
-        if not evidence["suspected_cauda_equina_syndrome"]:
+        if evidence["suspected_cauda_equina_syndrome"] is False:
             key_findings.append("Cauda equina syndrome evaluated: Negative (No bowel/bladder incontinence)")
-        else:
+        elif evidence["suspected_cauda_equina_syndrome"] is True:
             key_findings.append("Red flag alert: Suspected cauda equina syndrome")
     if "pancreatitis_diagnostic_markers" in evidence:
-        key_findings.append("Diagnostic amylase/lipase markers elevated")
+        key_findings.append(f"Diagnostic amylase/lipase markers: {evidence['pancreatitis_diagnostic_markers']}")
     if "osteoarthritis_severity" in evidence:
-        key_findings.append("Advanced joint degeneration (Grade IV) documented")
+        key_findings.append(f"Joint degeneration: {evidence['osteoarthritis_severity']}")
 
     domain_labels = {
         "advanced_imaging": "Advanced Imaging",
@@ -652,6 +985,8 @@ def extract_case_from_pdf(pdf_bytes: bytes, filename: str = "doctor_notes.pdf") 
         "line_of_business": line_of_business,
         "payer_id": payer_id,
         "plan_id": plan_id,
+        "place_of_service": pos_enum,
+        "place_of_service_code": pos_code,
         "key_findings": key_findings,
         "evidence_count": len(evidence),
         "pages_analyzed": num_pages,
@@ -673,10 +1008,38 @@ def extract_case_from_pdf(pdf_bytes: bytes, filename: str = "doctor_notes.pdf") 
             "requested_date_of_service": date_of_service,
             "payer_id": payer_id,
             "plan_id": plan_id,
+            "place_of_service": pos_enum,
             "submitted_documents": submitted_docs,
-            "evidence": evidence
+            "evidence": evidence,
+            "evidence_provenance": provenance
         },
         "details": details,
         "text_snippet": snippet,
         "summary": f"Extracted {len(evidence) + 8} clinical & administrative fields from {clean_filename} ({num_pages} pages, {len(text)} characters)."
     }
+
+
+def extract_clinical_facts_from_text(text: str) -> Dict[str, Any]:
+    """Extract clinical facts, procedure, domain, line of business, and evidence directly from clinical note text."""
+    patient_id = _detect_patient_id(text)
+    procedure_code, procedure_name, clinical_domain = _detect_procedure_and_domain(text)
+    line_of_business = _detect_line_of_business(text)
+    date_of_service = _detect_date_of_service(text)
+    payer_id, plan_id = _detect_payer_and_plan(text, line_of_business)
+    pos_enum, pos_code = _detect_place_of_service(text)
+    evidence, provenance = _extract_clinical_evidence(text, clinical_domain, procedure_code)
+    
+    return {
+        "patient_id": patient_id,
+        "clinical_domain": clinical_domain,
+        "procedure_code": procedure_code,
+        "procedure_name": procedure_name,
+        "line_of_business": line_of_business,
+        "requested_date_of_service": date_of_service,
+        "payer_id": payer_id,
+        "plan_id": plan_id,
+        "place_of_service": pos_enum,
+        "evidence": evidence,
+        "evidence_provenance": provenance
+    }
+
