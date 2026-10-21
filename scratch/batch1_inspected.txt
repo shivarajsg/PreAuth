@@ -1,0 +1,340 @@
+================================================================================
+[01] Rule ID: RULE-ADV-CG2000-002
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 9 (printed Page 4 of 29)
+     Section: Inflammatory Bowel Disease (3–5)
+     Quote: For suspected inflammatory bowel disease after complete work up including physical exam, labs, and recent colonoscopy
+     Quote in PDF text: False
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Physical examination documented in medical records",
+      "parameter": "physical_exam_completed",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Diagnostic laboratory workup completed",
+      "parameter": "lab_workup_completed",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-003",
+      "description": "Recent colonoscopy completed prior to advanced imaging request",
+      "parameter": "recent_colonoscopy_completed",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[02] Rule ID: RULE-ADV-CG2000-004
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 9 (printed Page 4 of 29)
+     Section: Diverticulitis or Acute Appendicitis (8,9)
+     Quote: Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the following (10): ○ WBC Elevated ○ Fever ○ Anorexia ○ Nausea and vomiting
+     Quote in PDF text: False
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Suspected acute diverticulitis or acute appendicitis for initial diagnostic evaluation",
+      "parameter": "provisional_diagnosis",
+      "comparator": "CONTAINS",
+      "value": [
+        "Diverticulitis",
+        "Acute Appendicitis"
+      ]
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "At least one objective inflammatory or systemic clinical sign present",
+      "parameter": "clinical_signs_group",
+      "comparator": "IS_PRESENT",
+      "sub_conditions": {
+        "operator": "ANY_OF",
+        "criteria": [
+          {
+            "condition_id": "SIGN-001",
+            "description": "Elevated white blood cell count (leukocytosis)",
+            "parameter": "wbc_count",
+            "comparator": "EQUALS",
+            "value": "ELEVATED"
+          },
+          {
+            "condition_id": "SIGN-002",
+            "description": "Documented fever",
+            "parameter": "fever_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "SIGN-003",
+            "description": "Documented anorexia",
+            "parameter": "anorexia_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "SIGN-004",
+            "description": "Documented nausea and vomiting",
+            "parameter": "nausea_and_vomiting_present",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      }
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[03] Rule ID: RULE-ADV-CG2000-005
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 9 (printed Page 4 of 29)
+     Section: Diverticulitis or Acute Appendicitis (8,9)
+     Quote: Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or cannot be completed (due to body habitus or inability to cooperate) OR when peritoneal signs are present (guarding, rebound) or other red flags
+     Quote in PDF text: False
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Patient age is strictly less than 18 years",
+      "parameter": "patient_age_years",
+      "comparator": "LESS_THAN",
+      "value": 18,
+      "unit": "years"
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Provisional diagnosis is suspected acute appendicitis",
+      "parameter": "provisional_diagnosis",
+      "comparator": "EQUALS",
+      "value": "Appendicitis"
+    },
+    {
+      "condition_id": "COND-003",
+      "description": "Ultrasound inconclusive/incomplete OR peritoneal signs present",
+      "parameter": "ultrasound_or_peritoneal_signs",
+      "comparator": "IS_PRESENT",
+      "sub_conditions": {
+        "operator": "ANY_OF",
+        "criteria": [
+          {
+            "condition_id": "US-001",
+            "description": "Prior ultrasound inconclusive or incomplete",
+            "parameter": "prior_ultrasound_status",
+            "comparator": "CONTAINS",
+            "value": [
+              "INCONCLUSIVE",
+              "INCOMPLETE"
+            ]
+          },
+          {
+            "condition_id": "US-002",
+            "description": "Peritoneal signs documented (guarding, rebound) or other red flags",
+            "parameter": "peritoneal_signs_present",
+            "comparator": "EQUALS",
+            "value": true
+          }
+        ]
+      }
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[04] Rule ID: RULE-ADV-CG2003-001
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 75 (printed Page 6 of 18)
+     Section: INDICATIONS FOR ABDOMEN MRA / Other Vascular Abnormalities / Takayasu's Arteritis (15)
+     Quote: Takayasu's Arteritis (15): ○ At initial diagnosis ○ Every 6 months for the first 2 years while on therapy ○ Annually after the first 2 years
+     Quote in PDF text: False
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Confirmed diagnosis of Takayasu's arteritis",
+      "parameter": "takayasu_arteritis_diagnosed",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "MRA requested at initial diagnosis, q6 months during first 2 years of active therapy, or annually thereafter",
+      "parameter": "takayasu_surveillance_interval_met",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[05] Rule ID: RULE-ADV-CG2004-001
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 92 (printed Page 5 of 26)
+     Section: INDICATIONS / Biliary / Choledochal cyst
+     Quote: Suspected choledochal cyst after ultrasound has been done
+     Quote in PDF text: True
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Clinically suspected choledochal cyst or congenital biliary duct dilatation",
+      "parameter": "suspected_choledochal_cyst",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Initial diagnostic workup with abdominal ultrasound completed",
+      "parameter": "prior_ultrasound_completed",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[06] Rule ID: RULE-ADV-CG2004-002
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 92 (printed Page 5 of 26)
+     Section: INDICATIONS / Pancreas
+     Quote: Suspected new onset acute pancreatitis and ALL of the following: ○ Epigastric or upper abdominal pain
+     Quote in PDF text: False
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Suspected new onset acute pancreatitis",
+      "parameter": "suspected_acute_pancreatitis",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Documented epigastric or upper abdominal pain",
+      "parameter": "epigastric_pain_present",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[07] Rule ID: RULE-ADV-CG2005-001
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 118 (printed Page 5 of 15)
+     Section: INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities of the Abdomen and Pelvis
+     Quote: Evaluation of known or suspected mesenteric ischemia/ischemic colitis
+     Quote in PDF text: True
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Clinical suspicion or known acute or chronic mesenteric ischemia or ischemic colitis",
+      "parameter": "suspected_mesenteric_ischemia",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[08] Rule ID: RULE-ADV-CG2005-002
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 119 (printed Page 6 of 15)
+     Section: INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities
+     Quote: Suspected pelvic congestive syndrome (including May-Thurner and nutcracker syndromes) when ultrasound is indeterminant
+     Quote in PDF text: False
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Suspected pelvic congestion syndrome, May-Thurner, or nutcracker syndrome",
+      "parameter": "suspected_pelvic_venous_syndrome",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Initial pelvic or vascular ultrasound was indeterminate",
+      "parameter": "prior_ultrasound_indeterminate",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[09] Rule ID: RULE-ADV-CG2008-001
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 150 (printed Page 5 of 26)
+     Section: Stroke and Vascular Disease / Evaluation of Known or Suspected Stroke (11,12)
+     Quote: Evaluation of Known or Suspected Stroke (11,12)
+     Quote in PDF text: True
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Known or clinically suspected acute ischemic stroke or intracranial hemorrhage",
+      "parameter": "suspected_acute_stroke",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+================================================================================
+[10] Rule ID: RULE-ADV-CG2008-002
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 151 (printed Page 6 of 26)
+     Section: Evaluation of Known or Suspected Vascular Disease (13)
+     Quote: Evaluation of suspected acute subarachnoid hemorrhage (SAH)
+     Quote in PDF text: True
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Clinical suspicion of acute subarachnoid hemorrhage",
+      "parameter": "suspected_acute_sah",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+

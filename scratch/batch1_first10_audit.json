@@ -1,0 +1,352 @@
+[
+  {
+    "rule_id": "RULE-ADV-CG2000-002",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 9,
+    "printed_page": "Page 4 of 29",
+    "source_section": "Inflammatory Bowel Disease (3–5)",
+    "source_quote": "For suspected inflammatory bowel disease after complete work up including physical exam, labs, and recent colonoscopy",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Physical examination documented in medical records",
+          "parameter": "physical_exam_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Diagnostic laboratory workup completed",
+          "parameter": "lab_workup_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Recent colonoscopy completed prior to advanced imaging request",
+          "parameter": "recent_colonoscopy_completed",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 29 \nEvolent Clinical Guideline 2000 for Abdomen Pelvis Computed Tomography (CT) \nInflammatory Bowel Disease (3–5) \n● For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative \nColitis (includes CT enterography, however, MRI should be considered for age < 35 to \nreduce radiation exposure) \n○ \nFor suspected inflammatory bowel disease after complete work up including physical \nexam, labs, and recent colonoscopy \n○ \nKnown inflammatory bowel disease with recurrence or worsening signs/symptoms \nrequiring re-evaluation or for monitoring therapy \nEvaluation of Inflammation and Infection \nPeritonitis \nSuspected or known recent peritonitis AND at least one of the following (6,7): \n● Rebound, guarding (not voluntary) or rigid abdomen, OR \n● Severe tenderness to palpation present over entire abdomen \nDiverticulitis or Acute Appendicitis (8,9) \n● Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the \nfollowing (10): \n○ \nWBC Elevated \n○ \nFever \n○ \nAnorexia \n○ \nNausea and vomiting \nNOTE: If CT is requested for a pregnant woman with suspected appendicitis, ultrasound \nneeds to be insufficient and a contraindication to MRI provided (11) \n● Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or \ncannot be completed (due to body habitus or inability to cooperate) OR when peritoneal \nsigns are present (guarding, rebound) or other red flags \n● Suspected diverticulitis when (13): \n○ \nPain is present in the LLQ (< 3 months duration), medical records note suspicion for \ndiverticulitis, the patient has no prior history of diverticulitis AND either: \n■ LLQ tenderness is present on exam; OR \n■ Patient is immunocompromised; OR \n■ Patient has a history of diverticulitis, symptoms are similar to prior episodes, \nAND patient has failed treatment currently (treatment could be liquid diet or \nantibiotic) \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal/pelvic pain or severe tenderness or mass not responding to antibiotic \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-004",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 9,
+    "printed_page": "Page 4 of 29",
+    "source_section": "Diverticulitis or Acute Appendicitis (8,9)",
+    "source_quote": "Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the following (10): ○ WBC Elevated ○ Fever ○ Anorexia ○ Nausea and vomiting",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected acute diverticulitis or acute appendicitis for initial diagnostic evaluation",
+          "parameter": "provisional_diagnosis",
+          "comparator": "CONTAINS",
+          "value": [
+            "Diverticulitis",
+            "Acute Appendicitis"
+          ]
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "At least one objective inflammatory or systemic clinical sign present",
+          "parameter": "clinical_signs_group",
+          "comparator": "IS_PRESENT",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "SIGN-001",
+                "description": "Elevated white blood cell count (leukocytosis)",
+                "parameter": "wbc_count",
+                "comparator": "EQUALS",
+                "value": "ELEVATED"
+              },
+              {
+                "condition_id": "SIGN-002",
+                "description": "Documented fever",
+                "parameter": "fever_present",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "SIGN-003",
+                "description": "Documented anorexia",
+                "parameter": "anorexia_present",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "SIGN-004",
+                "description": "Documented nausea and vomiting",
+                "parameter": "nausea_and_vomiting_present",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 29 \nEvolent Clinical Guideline 2000 for Abdomen Pelvis Computed Tomography (CT) \nInflammatory Bowel Disease (3–5) \n● For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative \nColitis (includes CT enterography, however, MRI should be considered for age < 35 to \nreduce radiation exposure) \n○ \nFor suspected inflammatory bowel disease after complete work up including physical \nexam, labs, and recent colonoscopy \n○ \nKnown inflammatory bowel disease with recurrence or worsening signs/symptoms \nrequiring re-evaluation or for monitoring therapy \nEvaluation of Inflammation and Infection \nPeritonitis \nSuspected or known recent peritonitis AND at least one of the following (6,7): \n● Rebound, guarding (not voluntary) or rigid abdomen, OR \n● Severe tenderness to palpation present over entire abdomen \nDiverticulitis or Acute Appendicitis (8,9) \n● Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the \nfollowing (10): \n○ \nWBC Elevated \n○ \nFever \n○ \nAnorexia \n○ \nNausea and vomiting \nNOTE: If CT is requested for a pregnant woman with suspected appendicitis, ultrasound \nneeds to be insufficient and a contraindication to MRI provided (11) \n● Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or \ncannot be completed (due to body habitus or inability to cooperate) OR when peritoneal \nsigns are present (guarding, rebound) or other red flags \n● Suspected diverticulitis when (13): \n○ \nPain is present in the LLQ (< 3 months duration), medical records note suspicion for \ndiverticulitis, the patient has no prior history of diverticulitis AND either: \n■ LLQ tenderness is present on exam; OR \n■ Patient is immunocompromised; OR \n■ Patient has a history of diverticulitis, symptoms are similar to prior episodes, \nAND patient has failed treatment currently (treatment could be liquid diet or \nantibiotic) \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal/pelvic pain or severe tenderness or mass not responding to antibiotic \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2000-005",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 9,
+    "printed_page": "Page 4 of 29",
+    "source_section": "Diverticulitis or Acute Appendicitis (8,9)",
+    "source_quote": "Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or cannot be completed (due to body habitus or inability to cooperate) OR when peritoneal signs are present (guarding, rebound) or other red flags",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Patient age is strictly less than 18 years",
+          "parameter": "patient_age_years",
+          "comparator": "LESS_THAN",
+          "value": 18,
+          "unit": "years"
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Provisional diagnosis is suspected acute appendicitis",
+          "parameter": "provisional_diagnosis",
+          "comparator": "EQUALS",
+          "value": "Appendicitis"
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Ultrasound inconclusive/incomplete OR peritoneal signs present",
+          "parameter": "ultrasound_or_peritoneal_signs",
+          "comparator": "IS_PRESENT",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "US-001",
+                "description": "Prior ultrasound inconclusive or incomplete",
+                "parameter": "prior_ultrasound_status",
+                "comparator": "CONTAINS",
+                "value": [
+                  "INCONCLUSIVE",
+                  "INCOMPLETE"
+                ]
+              },
+              {
+                "condition_id": "US-002",
+                "description": "Peritoneal signs documented (guarding, rebound) or other red flags",
+                "parameter": "peritoneal_signs_present",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 4 of 29 \nEvolent Clinical Guideline 2000 for Abdomen Pelvis Computed Tomography (CT) \nInflammatory Bowel Disease (3–5) \n● For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative \nColitis (includes CT enterography, however, MRI should be considered for age < 35 to \nreduce radiation exposure) \n○ \nFor suspected inflammatory bowel disease after complete work up including physical \nexam, labs, and recent colonoscopy \n○ \nKnown inflammatory bowel disease with recurrence or worsening signs/symptoms \nrequiring re-evaluation or for monitoring therapy \nEvaluation of Inflammation and Infection \nPeritonitis \nSuspected or known recent peritonitis AND at least one of the following (6,7): \n● Rebound, guarding (not voluntary) or rigid abdomen, OR \n● Severe tenderness to palpation present over entire abdomen \nDiverticulitis or Acute Appendicitis (8,9) \n● Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the \nfollowing (10): \n○ \nWBC Elevated \n○ \nFever \n○ \nAnorexia \n○ \nNausea and vomiting \nNOTE: If CT is requested for a pregnant woman with suspected appendicitis, ultrasound \nneeds to be insufficient and a contraindication to MRI provided (11) \n● Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or \ncannot be completed (due to body habitus or inability to cooperate) OR when peritoneal \nsigns are present (guarding, rebound) or other red flags \n● Suspected diverticulitis when (13): \n○ \nPain is present in the LLQ (< 3 months duration), medical records note suspicion for \ndiverticulitis, the patient has no prior history of diverticulitis AND either: \n■ LLQ tenderness is present on exam; OR \n■ Patient is immunocompromised; OR \n■ Patient has a history of diverticulitis, symptoms are similar to prior episodes, \nAND patient has failed treatment currently (treatment could be liquid diet or \nantibiotic) \n● Complications of diverticulitis (diagnosed either clinically or by imaging) with severe \nabdominal/pelvic pain or severe tenderness or mass not responding to antibiotic \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2003-001",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 75,
+    "printed_page": "Page 6 of 18",
+    "source_section": "INDICATIONS FOR ABDOMEN MRA / Other Vascular Abnormalities / Takayasu's Arteritis (15)",
+    "source_quote": "Takayasu's Arteritis (15): ○ At initial diagnosis ○ Every 6 months for the first 2 years while on therapy ○ Annually after the first 2 years",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Confirmed diagnosis of Takayasu's arteritis",
+          "parameter": "takayasu_arteritis_diagnosed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "MRA requested at initial diagnosis, q6 months during first 2 years of active therapy, or annually thereafter",
+          "parameter": "takayasu_surveillance_interval_met",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 6 of 18 \nEvolent Clinical Guideline 2003 for Abdomen Magnetic Resonance Angiography (MRA) \nOther Vascular Abnormalities of the Abdomen \n● Initial evaluation of inconclusive vascular findings on prior imaging \n● For evaluation or monitoring of non-aortic large vessel or visceral vascular disease of the \nabdomen (e.g., aneurysm, dissection, arteriovenous malformations (AVM), vascular \nfistula, intramural hematoma, compression syndromes and vasculitis involving any of the \nfollowing: inferior vena cava, superior/inferior mesenteric, celiac, hepatic, splenic or renal \narteries/veins), and the findings are reasonably expected to be limited to the \nabdomen. (10) For assessment in patients with spontaneous coronary artery dissection \n(SCAD), can be done at time of coronary angiography (11,12) \n● Suspected complications of known aneurysm of the abdomen as evidenced by clinical \nfindings such as new onset of abdominal pain (prior ultrasound is NOT required) \n● For patients with fibromuscular dysplasia (FMD) (13,14): \n○ \nOne-time vascular study from brain to pelvis \n● Takayasu's Arteritis (15): \n○ \nAt initial diagnosis \n○ \nEvery 6 months for the first 2 years while on therapy \n○ \nAnnually after the first 2 years \nVenous Disease \n● Suspected venous thrombosis (including renal vein thrombosis and/or portal venous \nthrombosis) if previous studies (such as ultrasound) have not resulted in a clear \ndiagnosis (16,17) \n● Suspected pelvic congestion syndrome (including May-Thurner and nutcracker \nsyndromes)  when ultrasound is indeterminant with (no contraindication to CT is \nneeded) (18) \n● Evaluation of suspected pelvic vascular disease or pelvic congestive syndrome when \nAbdomen MR angiography is ordered in addition to Pelvis MRA with prior inconclusive \nultrasound (18) \n● For acute unilateral (or asymmetric) lower extremity edema with negative or inconclusive \ndoppler US and CT (19) \n● For chronic (greater than 3 months) unilateral (or asymmetric) lower extremity edema \nand suspicion of malignant cause when Abdomen and Pelvis CT (or Pelvis CT) is \nnegative or inconclusive (19) \nPeripheral Vascular Disease (20–22) \nNote: There is no single CPT code for MRA of the abdomen and pelvis with bilateral lower \nextremity runoff as there is for CTA (CPT Code 75635).  Therefore, when CTA is \ncontraindicated or cannot be performed an analogous MR angiography study is Abdomen MRA \n(CPT 74185) and one Lower Extremity MRA (CPT 73725). This will provide imaging of the \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2004-001",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 92,
+    "printed_page": "Page 5 of 26",
+    "source_section": "INDICATIONS / Biliary / Choledochal cyst",
+    "source_quote": "Suspected choledochal cyst after ultrasound has been done",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinically suspected choledochal cyst or congenital biliary duct dilatation",
+          "parameter": "suspected_choledochal_cyst",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Initial diagnostic workup with abdominal ultrasound completed",
+          "parameter": "prior_ultrasound_completed",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 5 of 26 \nEvolent Clinical Guideline 2004 for Abdomen Magnetic Resonance Imaging (MRI) with or without \nMagnetic Resonance Cholangiopancreatography (MRCP) \n● Suspected choledochal cyst after ultrasound has been done \n● Long-term postoperative surveillance for patients with history of choledochal cyst \n● Post-surgical biliary anatomy and complications when Endoscopic Retrograde \nCholangiopancreatography (ERCP) is not possible or contraindicated \n● Assessment of benign or malignant biliary strictures \n● Evaluation of biliary abnormalities (such as dilated bile duct) identified on prior imaging \n(e.g. ultrasound, CT or MRI) when there are symptoms and/or clinical concern for \npancreaticobiliary disease  \n● Evaluation of pancreaticobiliary disease in pregnant patients after ultrasound has been \ndone \n● Jaundice or abnormal liver function tests after equivocal or abnormal ultrasound \n● Evaluation of suspected congenital anomaly of the pancreaticobiliary tract, e.g., aberrant \nducts, pancreas divisum or related complications \nPancreas \n● Pancreatic cystic lesion found on initial imaging, approve for initial characterization of \nlesion (11) \n● Follow-up for pancreatic cyst (including Intraductal Papillary Mucinous Neoplasm \n(IPMN)) as below (12,13): \n○ \nIncidental and asymptomatic cysts <1.5 cm, AND: \n■ Age < 65, image annually x 5 years, then every 2 years if stable \n■ Age 65-79, imaging every 2 years x 5, then stop if stable \n○ \nCysts 1.5-1.9 cm with main pancreatic duct communication (MPD), image annually x \n5 years, then every 2 years x 2, stop if stable at year 9 \n○ \nCysts 2.0-2.5 cm with MPD communication, image every 6 months x 4, then annually \nx 2, then every 2 years x 3, stop if stable at year 10 \n○ \nCysts 1.5-2.5 cm with NO MPD communication (or cannot be determined), image \nevery 6 mos. x 4, then annually x 2 then every 2 years x 3, stop if stable at year 10 \n○ \nCyst > 2.5 cm on surveillance (i.e., intervention has not been chosen), image every 6 \nmos. x 4, then annually x 2 years, then every 2 years x 3. Stop if stable at year 10 \n○ \nPatients > 80 years of age at presentation are imaged less frequently: image every 2 \nyears x 2, stop if stable at year 4 (intervals are the same regardless of size if \nsurveillance chosen) \n○ \nGrowth or suspicious change on a surveillance imaging scan may warrant more \nfrequent surveillance \n● Suspected new onset acute pancreatitis and ALL of the following: \n○ \nEpigastric or upper abdominal pain \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2004-002",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 92,
+    "printed_page": "Page 5 of 26",
+    "source_section": "INDICATIONS / Pancreas",
+    "source_quote": "Suspected new onset acute pancreatitis and ALL of the following: ○ Epigastric or upper abdominal pain",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected new onset acute pancreatitis",
+          "parameter": "suspected_acute_pancreatitis",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Documented epigastric or upper abdominal pain",
+          "parameter": "epigastric_pain_present",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 5 of 26 \nEvolent Clinical Guideline 2004 for Abdomen Magnetic Resonance Imaging (MRI) with or without \nMagnetic Resonance Cholangiopancreatography (MRCP) \n● Suspected choledochal cyst after ultrasound has been done \n● Long-term postoperative surveillance for patients with history of choledochal cyst \n● Post-surgical biliary anatomy and complications when Endoscopic Retrograde \nCholangiopancreatography (ERCP) is not possible or contraindicated \n● Assessment of benign or malignant biliary strictures \n● Evaluation of biliary abnormalities (such as dilated bile duct) identified on prior imaging \n(e.g. ultrasound, CT or MRI) when there are symptoms and/or clinical concern for \npancreaticobiliary disease  \n● Evaluation of pancreaticobiliary disease in pregnant patients after ultrasound has been \ndone \n● Jaundice or abnormal liver function tests after equivocal or abnormal ultrasound \n● Evaluation of suspected congenital anomaly of the pancreaticobiliary tract, e.g., aberrant \nducts, pancreas divisum or related complications \nPancreas \n● Pancreatic cystic lesion found on initial imaging, approve for initial characterization of \nlesion (11) \n● Follow-up for pancreatic cyst (including Intraductal Papillary Mucinous Neoplasm \n(IPMN)) as below (12,13): \n○ \nIncidental and asymptomatic cysts <1.5 cm, AND: \n■ Age < 65, image annually x 5 years, then every 2 years if stable \n■ Age 65-79, imaging every 2 years x 5, then stop if stable \n○ \nCysts 1.5-1.9 cm with main pancreatic duct communication (MPD), image annually x \n5 years, then every 2 years x 2, stop if stable at year 9 \n○ \nCysts 2.0-2.5 cm with MPD communication, image every 6 months x 4, then annually \nx 2, then every 2 years x 3, stop if stable at year 10 \n○ \nCysts 1.5-2.5 cm with NO MPD communication (or cannot be determined), image \nevery 6 mos. x 4, then annually x 2 then every 2 years x 3, stop if stable at year 10 \n○ \nCyst > 2.5 cm on surveillance (i.e., intervention has not been chosen), image every 6 \nmos. x 4, then annually x 2 years, then every 2 years x 3. Stop if stable at year 10 \n○ \nPatients > 80 years of age at presentation are imaged less frequently: image every 2 \nyears x 2, stop if stable at year 4 (intervals are the same regardless of size if \nsurveillance chosen) \n○ \nGrowth or suspicious change on a surveillance imaging scan may warrant more \nfrequent surveillance \n● Suspected new onset acute pancreatitis and ALL of the following: \n○ \nEpigastric or upper abdominal pain \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2005-001",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 118,
+    "printed_page": "Page 5 of 15",
+    "source_section": "INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities of the Abdomen and Pelvis",
+    "source_quote": "Evaluation of known or suspected mesenteric ischemia/ischemic colitis",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion or known acute or chronic mesenteric ischemia or ischemic colitis",
+          "parameter": "suspected_mesenteric_ischemia",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 5 of 15 \nEvolent Clinical Guideline 2005 for Abdomen Pelvis Computed Tomography Angiography (CTA) \nhas been provided (e.g., complex vascular anatomy or suspected complications) with \nany ONE of the following: \n○ \nWithin 1 year postoperatively then \n○ \nAnnually with past inconclusive or insufficient ultrasound \n○ \nEvery 5 years (inconclusive or insufficient ultrasound not required at the 5-year \ninterval)  \n● If symptomatic or imaging shows increasing or new findings related to stent graft – more \nfrequent imaging may be needed as clinically indicated \n● Suspected complications (such as new onset lower extremity claudication, ischemia, or \nreduction in ankle brachial index (ABI) after aneurysm repair) \n● Evaluation of endovascular/interventional abdominal vascular procedures for luminal \npatency versus restenosis due to conditions such as atherosclerosis, thromboembolism, \nand intimal hyperplasia \n● Evaluation of post-operative complications, such as pseudoaneurysms, related to \nsurgical bypass grafts, vascular stents, and stent-grafts in the peritoneal cavity \nIschemia or Hemorrhage \n● To determine the vascular source of retroperitoneal hematoma or hemorrhage when CT \nis insufficient to determine the source (CT rather than MRA/CTA is the modality of \nchoice for diagnosing hemorrhage) (4) \n● Evaluation of known or suspected mesenteric ischemia/ischemic colitis (5) \n● To localize active lower gastrointestinal bleeding, or non-localized intermittent bleeding \nin a hemodynamically stable patient when colonoscopy was unsuccessful, \ncontraindicated or unavailable (6–8) \nOther Vascular Abnormalities of the Abdomen and Pelvis \n● Initial evaluation of inconclusive vascular findings on prior imaging of the abdomen \nand/or pelvis \n● For evaluation or monitoring of non-aortic large vessel or visceral vascular disease of the \nabdomen (e.g., aneurysm, dissection, arteriovenous malformations (AVM), vascular \nfistula, intramural hematoma, compression syndromes and vasculitis involving any of the \nfollowing: inferior vena cava, superior/inferior mesenteric, celiac, hepatic, splenic or renal \narteries/veins) (9)  \n● As part of an extracardiac vascular assessment in patients with spontaneous coronary \nartery dissection (SCAD), can be done at time of coronary angiography (10,11) \n● Suspected complications of known aneurysm of the abdomen and/or pelvis as \nevidenced by clinical findings such as new onset of abdominal pain (prior ultrasound is \nNOT required)  \n● For patients with fibromuscular dysplasia (FMD) (12,13): \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2005-002",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 119,
+    "printed_page": "Page 6 of 15",
+    "source_section": "INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities",
+    "source_quote": "Suspected pelvic congestive syndrome (including May-Thurner and nutcracker syndromes) when ultrasound is indeterminant",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Suspected pelvic congestion syndrome, May-Thurner, or nutcracker syndrome",
+          "parameter": "suspected_pelvic_venous_syndrome",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Initial pelvic or vascular ultrasound was indeterminate",
+          "parameter": "prior_ultrasound_indeterminate",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 6 of 15 \nEvolent Clinical Guideline 2005 for Abdomen Pelvis Computed Tomography Angiography (CTA) \n○ \nOne-time vascular study from brain to pelvis \n● For patients with Takayasu's Arteritis (14): \n○ \nAt initial diagnosis \n○ \nEvery 6 months for the first 2 years while on therapy \n○ \nAnnually after the first 2 years \nVenous Disease \n● Suspected venous thrombosis (including renal vein thrombosis and/or portal venous \nthrombosis) if previous studies (such as ultrasound) have not resulted in a clear \ndiagnosis (15,16) \n● Suspected pelvic congestive syndrome (including May-Thurner and nutcracker \nsyndromes) when ultrasound is indeterminant with no contraindications to CT (17) \n● For acute unilateral (or asymmetric) lower extremity edema with negative or inconclusive \ndoppler US and CT (18)   \n● For chronic (greater than 3 months) unilateral (or asymmetric) lower extremity edema \nand suspicion of malignant cause when Abdomen and Pelvis (or Pelvis CT) is negative \nor inconclusive (18) \nEvaluation of Tumor \n● When needed for clarification of vascular involvement from tumor (including suspected \nrenal vein thrombosis) (16) \n● For imaging of the deep inferior epigastric arteries prior to breast reconstructive \nsurgery (19) \nPREOPERATIVE OR POSTOPERATIVE ASSESSMENT \nWhen not otherwise specified in the guideline: \nPreoperative Evaluation: \n● Prior to the following procedures: \n○ \nSolid organ transplantation \n○ \nEndovascular aneurysm repair (EVAR) \n○ \nRepair of abdominal aortic aneurysm \n○ \nTranscatheter Aortic Valve Replacement (TAVR) (20) \n○ \nImaging of the deep inferior epigastric arteries prior to breast reconstructive \nsurgery (19) \n● Imaging of the area requested is needed to develop a surgical plan \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-001",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 150,
+    "printed_page": "Page 5 of 26",
+    "source_section": "Stroke and Vascular Disease / Evaluation of Known or Suspected Stroke (11,12)",
+    "source_quote": "Evaluation of Known or Suspected Stroke (11,12)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Known or clinically suspected acute ischemic stroke or intracranial hemorrhage",
+          "parameter": "suspected_acute_stroke",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 5 of 26 \nEvolent Clinical Guideline 2008 for Brain Computed Tomography (CT) \n● Chronic headache (>3 months) and any ONE of the following when MRI is \ncontraindicated or cannot be performed: \no Change in character or pattern (e.g. increased severity, frequency or duration) \n● Cluster headaches or other trigeminal-autonomic cephalalgias (paroxysmal hemicrania, \nhemicrania continua, short-lasting unilateral neuralgiform headache attacks \n(SUNCT/SUNA)) once to eliminate secondary causes  \nAdditional Indications in the Pediatric Population (<18) When None of \nthe Above Apply  (4,5) \n● Persistent headache and any ONE of the following (no contraindication to MRI is \nneeded) \n○ \nImmune deficiency \n○ \nHistory of neoplasm \n○ \nHistory of congenital heart disease \n○ \nCoagulopathy \n○ \nSee Imaging in Known Genetic Conditions for additional indications \n● Persistent headache and any ONE of the following when MRI is contraindicated or \ncannot be performed: \n○ \nAge < 6 years old \n○ \nOccipital location \n○ \nDocumentation of absence of family history of headache \n○ \nConcern for increased intracranial pressure with symptoms such as recurring \nheadaches after waking \nNeurological Symptoms or Deficits (6–10)  \n● Acute, new, fluctuating, or persistent neurologic symptoms or deficits such as, sensory \ndeficits, limb weakness, abnormal reflexes (pathological, asymmetric, hyperreflexia), \nspeech difficulties, visual loss, lack of coordination, or mental status changes. \nStroke and Vascular Disease \nEvaluation of Known or Suspected Stroke (11,12) \n● Suspected stroke with any acute, new, or fluctuating symptoms or deficits such as \nsensory deficits, limb weakness, speech difficulties, visual loss, lack of coordination, or \nmental status changes (see Background) \n● History of stroke and ONE of the following: \no No prior workup when MRI is contraindicated or cannot be performed \no New neurologic signs or symptoms \n"
+  },
+  {
+    "rule_id": "RULE-ADV-CG2008-002",
+    "domain": "advanced_imaging",
+    "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+    "physical_page": 151,
+    "printed_page": "Page 6 of 26",
+    "source_section": "Evaluation of Known or Suspected Vascular Disease (13)",
+    "source_quote": "Evaluation of suspected acute subarachnoid hemorrhage (SAH)",
+    "conditions": {
+      "operator": "ALL_OF",
+      "criteria": [
+        {
+          "condition_id": "COND-001",
+          "description": "Clinical suspicion of acute subarachnoid hemorrhage",
+          "parameter": "suspected_acute_sah",
+          "comparator": "EQUALS",
+          "value": true
+        }
+      ]
+    },
+    "decision_effect": "INDICATED",
+    "page_text": " \nPage 6 of 26 \nEvolent Clinical Guideline 2008 for Brain Computed Tomography (CT) \n● Suspected stroke with: \n○ \nA personal or first-degree family history (brother, sister, parent, or child) of aneurysm \nOR \n○ \nKnown coagulopathy or on anticoagulation \n● Symptoms of transient ischemic attack (TIA) (episodic neurologic symptoms such as \nsensory deficits, limb weakness, speech difficulties, visual loss, lack of coordination, or \nmental status changes) when MRI is contraindicated or cannot be performed \n● See Imaging in Known Genetic Conditions section for additional indications (including \nfor HbSS sickle cell disease or HbSβ0 thalassemia)  \nEvaluation of Known or Suspected Vascular Disease (13) \n● Evaluation of suspected acute subarachnoid hemorrhage (SAH) \n● Follow-up for known hemorrhage, hematoma, or vascular abnormalities (11)  \n● Suspected central venous thrombosis and ANY ONE of the following when MRI is \ncontraindicated or cannot be performed: \n○ \nPatient has a hypercoagulable state such as pregnancy, post-partum, prothrombotic \nconditions (acquired or genetic), malignancy, oral contraceptive use, recent infection, \nrecent trauma or covid-19 \n○ \nDocumentation of concern for central venous thrombosis is specified \n○ \nPapilledema or signs/symptoms of increased intracranial pressure \n● Known Moyamoya disease or reversible cerebral vasoconstriction with any new or \nchanging neurological signs or symptoms when MRI is contraindicated or cannot be \nperformed \nHead Trauma \nEvaluation of Known or Suspected Trauma (14,15)  \n● Known or suspected trauma or injury to the head with documentation of one or more of \nthe following acute, new, or fluctuating: \n○ \nFocal neurologic findings \n○ \nMotor changes  \n○ \nMental status changes \n○ \nAmnesia \n○ \nVomiting \n○ \nSeizures \n○ \nHeadache \n○ \nSigns of increased intracranial pressure \n"
+  }
+]

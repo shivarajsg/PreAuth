@@ -1,0 +1,721 @@
+================================================================================
+[11] Rule ID: RULE-ADV-CG2008-003 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 151 (printed Page 6 of 26)
+     Section: INDICATIONS / Head Trauma / Evaluation of Known or Suspected Trauma (14,15)
+     Quote: Known or suspected trauma or injury to the head with documentation of one or more of
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Known or suspected acute head trauma with acute, new, or fluctuating focal neurologic findings, motor changes, or mental status changes",
+      "parameter": "acute_head_trauma_with_neurologic_deficit",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 6 of 26
+  Evolent Clinical Guideline 2008 for Brain Computed Tomography (CT)
+  ● Suspected stroke with:
+  ○
+  A personal or first-degree family history (brother, sister, parent, or child) of aneurysm
+  OR
+  ○
+  Known coagulopathy or on anticoagulation
+  ● Symptoms of transient ischemic attack (TIA) (episodic neurologic symptoms such as
+  sensory deficits, limb weakness, speech difficulties, visual loss, lack of coordination, or
+  mental status changes) when MRI is contraindicated or cannot be performed
+  ● See Imaging in Known Genetic Conditions section for additional indications (including
+  for HbSS sickle cell disease or HbSβ0 thalassemia)
+  Evaluation of Known or Suspected Vascular Disease (13)
+  ● Evaluation of suspected acute subarachnoid hemorrhage (SAH)
+  ● Follow-up for known hemorrhage, hematoma, or vascular abnormalities (11)
+  ● Suspected central venous thrombosis and ANY ONE of the following when MRI is
+  contraindicated or cannot be performed:
+  ○
+  Patient has a hypercoagulable state such as pregnancy, post-partum, prothrombotic
+  conditions (acquired or genetic), malignancy, oral contraceptive use, recent infection,
+  recent trauma or covid-19
+  ○
+  Documentation of concern for central venous thrombosis is specified
+  ○
+  Papilledema or signs/symptoms of increased intracranial pressure
+  ● Known Moyamoya disease or reversible cerebral vasoconstriction with any new or
+  changing neurological signs or symptoms when MRI is contraindicated or cannot be
+  performed
+  Head Trauma
+  Evaluation of Known or Suspected Trauma (14,15)
+  ● Known or suspected trauma or injury to the head with documentation of one or more of
+  the following acute, new, or fluctuating:
+  ○
+  Focal neurologic findings
+  ○
+  Motor changes
+  ○
+  Mental status changes
+  ○
+  Amnesia
+  ○
+  Vomiting
+  ○
+  Seizures
+  ○
+  Headache
+  ○
+  Signs of increased intracranial pressure
+
+================================================================================
+[12] Rule ID: RULE-ADV-CG2008-004 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 149 (printed Page 4 of 26)
+     Section: INDICATIONS / Evaluation of Headache (1,2) / Acute, sudden onset headache
+     Quote: Acute, sudden onset headache (< 4 weeks), with any ONE of the following
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Acute sudden onset severe headache presenting within 48 hours of onset ('worst headache of life' or 'thunderclap' headache) concerning for acute subarachnoid hemorrhage",
+      "parameter": "thunderclap_or_worst_headache_of_life",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 4 of 26
+  Evolent Clinical Guideline 2008 for Brain Computed Tomography (CT)
+  INDICATIONS
+  Headache
+  Evaluation of Headache (1,2)
+  ● Acute, sudden onset headache (< 4 weeks), with any ONE of the following (no
+  contraindication to MRI is needed):
+  o A personal or family history (brother, sister, parent, or child) of brain aneurysm or
+  AVM (arteriovenous malformation)
+  o < 48 hours of “worst headache in my life” or “thunderclap” headache (Sudden onset
+  new headache reaching maximum intensity within 2-3 minutes, lasting more than 5
+  minutes)
+  o Prior history of stroke or intracranial bleed
+  o Known coagulopathy or on anticoagulation
+  ● New onset headache (< 3 months with no prior history of headache) with any ONE of the
+  following (no contraindication to MRI is needed):
+  o Fever
+  o Subacute head trauma
+  o Acute, new, or fluctuating neurologic deficits, such as sensory deficits, limb
+  weakness, abnormal reflexes (pathological, asymmetric, hyperreflexia), speech
+  difficulties, visual loss, lack of coordination, or mental status changes or with signs of
+  increased intracranial pressure (papilledema).
+  ○
+  Migraine with atypical/complex aura (such as motor, brainstem or retinal auras which
+  may be characterized by motor weakness, balance issues, vertigo, slurred speech,
+  visional loss and/or double vision)
+  ■ NOTE: Imaging is not indicated for typical migraine symptoms characterized by
+  visual and/or sensory and/or speech/language symptoms AND the absence of
+  motor, brainstem or retinal symptoms. Typical migraines develop gradually, last
+  one hour or less and are completely reversible
+  o Severe unilateral headache with radiation to or from the neck, associated with
+  suspicion of carotid or vertebral artery dissection
+  ● New onset headache with any ONE of the following when MRI is contraindicated or
+  cannot be performed:
+  o History of cancer or significantly immunocompromised
+  o Age > 50
+  o Related to activity or event (sexual activity, exertion, Valsalva, position), new or
+  progressively worsening (3)
+  o Persistent or progressively worsening during a course of physician-directed
+  treatment (1)
+
+================================================================================
+[13] Rule ID: RULE-ADV-CG2009-002 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 176 (printed Page 5 of 20)
+     Section: INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Evaluation of Known Intracranial Vascular Disease (1,2)
+     Quote: Evaluation of Known Intracranial Vascular Disease (1,2)
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Acute ischemic stroke presentation being evaluated for large vessel occlusion (LVO) or mechanical thrombectomy eligibility",
+      "parameter": "acute_stroke_lvo_evaluation",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 5 of 20
+  Evolent Clinical Guideline 2009 for Brain Computed Tomography Angiography (CTA)
+  Hemorrhagic
+  ● Known subarachnoid hemorrhage (SAH) (1,2)
+  ● Known cerebral intraparenchymal hemorrhage with concern for underlying vascular
+  abnormality (2,17)
+  Venous – when MRA is contraindicated or cannot be performed (7,17)
+  ● Suspected central venous thrombosis and ANY ONE of the following:
+  ○
+  Patient has a hypercoagulable state such as pregnancy, post-partum, prothrombotic
+  conditions (acquired or genetic), malignancy, oral contraceptive use, recent infection,
+  recent trauma or covid-19
+  ○
+  Documentation of concern for central venous thrombosis is specified
+  ○
+  Papilledema or signs of increased intracranial pressure
+  ● Distinguishing benign intracranial hypertension (pseudotumor cerebri) from dural sinus
+  thrombosis
+  Vasculitis and Other Intracranial Vascular Disease
+  ● Known vasculitis or autoimmune disease with concern for secondary CNS vasculitis
+  based on neurological signs or symptoms
+  ● Suspected primary CNS vasculitis based on neurological signs and symptoms with
+  completed infectious/inflammatory lab work-up (1,23)
+  ● Large vessel vasculitis
+  ○
+  Giant cell arteritis with suspected intracranial involvement (24)
+  ○
+  Takayasu's Arteritis (25)
+  ■ At initial diagnosis
+  ■ Every 6 months for the first 2 years while on therapy
+  ■ Annually after the first 2 years
+  ● Suspected Moyamoya disease (2,26)
+  ● Suspected reversible cerebral vasoconstriction syndrome (7,27)
+  ● For patients with fibromuscular dysplasia (FMD) (28,29):
+  ○
+  One-time vascular study from brain to pelvis
+  ● Spontaneous coronary arteries dissection (SCAD) (6):
+  ○
+  One-time vascular study from the brain to pelvis
+  Evaluation of Known Intracranial Vascular Disease (1,2)
+  ● Known intracranial aneurysm, treated aneurysm, or known vascular malformation (i.e.,
+  AVM or dural arteriovenous fistula)
+
+================================================================================
+[14] Rule ID: RULE-ADV-CG2015-001 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 297 (printed Page 3 of 9)
+     Section: INDICATIONS / Acute Ischemic Stroke
+     Quote: within 24 hours of known ischemic infarct
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Acute ischemic stroke being evaluated for endovascular thrombectomy or reperfusion therapy",
+      "parameter": "acute_ischemic_stroke_reperfusion",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Evaluation performed within 24 hours of symptom onset or last known normal",
+      "parameter": "hours_since_stroke_onset",
+      "comparator": "LESS_THAN_OR_EQUAL",
+      "value": 24,
+      "unit": "hours"
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 3 of 9
+  Evolent Clinical Guideline 2015 for Cerebral Perfusion Computed Tomography (CT)
+  ○
+  For early detection of acute cerebral ischemia and infarct to determine the
+  appropriateness of an intervention or procedure (7,8)
+  ■ For suspected infarct indicated by focal neurological deficit or initial imaging
+  within 24 hours of known ischemic infarct (6)
+  ○
+  Prediction of hemorrhagic transformation in acute ischemic stroke (7–9)
+  ○
+  Differentiating post-ictal paralysis or other stroke mimics from acute stroke after MRI
+  has been completed or is contraindicated and will guide treatment (9)
+  ○
+  For noninvasive evaluation of suspected vasospasm related cerebral
+  ischemia/infarction and/or delayed cerebral ischemia after subarachnoid hemorrhage
+  when transcranial Doppler cannot be done or is indeterminate (1)
+  ○
+  For the assessment of cerebral blood flow after carotid revascularization in
+  individuals with severe carotid artery stenosis or signs/symptoms of cerebral
+  hyperperfusion (10)
+  CODING AND STANDARDS
+  Codes
+  70473
+  Applicable Lines of Business
+  ☒
+  CHIP (Children’s Health Insurance Program)
+  ☒
+  Commercial
+  ☒
+  Exchange/Marketplace
+  ☒
+  Medicaid
+  ☒
+  Medicare Advantage
+  BACKGROUND
+  Overview
+  CTP is not widely used especially in outpatients. It is useful in specific scenarios after initial CT
+  and/or MR imaging has been obtained for assessment of, patients with acute stroke, and also a
+  wide range of patients with other cerebrovascular diseases. In evaluating acute stroke it may
+  assist in differentiating the unsalvageable core infarct and salvageable ischemic regions of the
+  brain that may benefit from thrombectomy or thrombolysis. (2)
+
+================================================================================
+[15] Rule ID: RULE-ADV-CG2016-001 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 308 (printed Page 5 of 23)
+     Section: INDICATIONS FOR CERVICAL SPINE CT / Evaluation of Trauma or Acute Injury (13)
+     Quote: Evaluation of Trauma or Acute Injury (13)
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Acute high-impact blunt cervical trauma or acute injury meeting Canadian C-Spine Rule or NEXUS criteria",
+      "parameter": "acute_cervical_trauma",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 5 of 23
+  Evolent Clinical Guideline 2016 for Cervical Spine Computed Tomography (CT)
+  ○
+  Radicular pain
+  ○
+  Fever, weight loss, or malaise
+  ○
+  Postural changes (e.g., kyphosis or scoliosis)
+  ○
+  Limp (or refusal to walk in a younger child)
+  Evaluation of Suspected Myelopathy (11,12)
+  When Cervical Spine MRI is Contraindicated
+  ● Progressive symptoms including hand clumsiness, worsening handwriting, difficulty with
+  grasping and holding objects, diffuse numbness in the hands, pins and needles
+  sensation, increasing difficulty with balance and ambulation
+  ● Any of the neurological deficits as noted above
+  NOTE: Does NOT require conservative care
+  Evaluation of Trauma or Acute Injury (13)
+  ● Presents with any of the following neurological deficits as above
+  ● With progression or worsening of symptoms during the course of conservative
+  treatment*
+  ● History of underlying spinal abnormalities (i.e., ankylosing spondylitis) (Both MRI and CT
+  are indicated) (14,15)
+  ● When the patient is clinically unevaluable or there are preliminary imaging findings (x-ray
+  or MRI) needing further evaluation
+  ● When office notes specify that the C-spine cannot be clinical cleared because of a high-
+  risk feature such as neurological deficit, midline spinal tenderness, altered mental status,
+  high risk mechanism, unable to rotate neck as described in the NEXUS (National
+  Emergency X-Radiography Utilization Study) or CCR (Canadian Cervical Rules) criteria
+  for imaging (16):
+  ○
+  CT for initial imaging
+  ○
+  MRI when suspect spinal cord or nerve root injury or when patient is obtunded, and
+  CT is negative
+  ○
+  CT or MRI for treatment planning of unstable spine (16)
+  Evaluation of Compression Fractures (17)
+  ● To assess union of a fracture when physical examination, plain radiographs, or prior
+  imaging suggest delayed or non-healing
+  ● To determine the position of fracture fragments
+  ● With history of malignancy
+  ● Fracture on initial imaging in a young patient (<50) with no history of trauma and concern
+
+================================================================================
+[16] Rule ID: RULE-ADV-CG2017-001 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 330 (printed Page 4 of 26)
+     Section: Evaluation of Neck Pain (5,6)
+     Quote: Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months: NOTE - Failure of conservative treatment is defined as one of the following: ○ Lack of meaningful improvement after a full course of treatment; OR ○ Progression or worsening of symptoms during treatment; OR ○ Documentation of a medical reason the member is unable to participate in treatment
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Evaluation of non-emergent neck pain without acute progressive cord compression",
+      "parameter": "clinical_indication",
+      "comparator": "EQUALS",
+      "value": "NECK_PAIN"
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Completion of at least six (6) consecutive weeks of conservative therapy within the prior six (6) months",
+      "parameter": "conservative_care_duration_weeks",
+      "comparator": "GREATER_THAN_OR_EQUAL",
+      "value": 6,
+      "unit": "weeks"
+    },
+    {
+      "condition_id": "COND-003",
+      "description": "Conservative therapy completed within the preceding 6 months",
+      "parameter": "conservative_care_recency_months",
+      "comparator": "LESS_THAN_OR_EQUAL",
+      "value": 6,
+      "unit": "months"
+    },
+    {
+      "condition_id": "COND-004",
+      "description": "Documented failure (lack of improvement, progression, or medically documented contraindication)",
+      "parameter": "conservative_therapy_outcome",
+      "comparator": "DOCUMENTED_FAILURE",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 4 of 26
+  Evolent Clinical Guideline 2017 for Cervical Spine Magnetic Resonance Imaging (MRI)
+  neuropathy)
+  ○
+  Pathologic reflexes (e.g., Babinski, Lhermitte's sign, (3) Chaddock Sign, (4) Hoffman’s
+  and other upper motor neuron signs); OR abnormal deep tendon reflexes (not likely
+  caused by plexopathy, or peripheral neuropathy)
+  ○
+  Absent/decreased sensation along a particular cervical dermatome (nerve
+  distribution): pin prick, touch, vibration, proprioception, or temperature (and not likely
+  caused by plexopathy or peripheral neuropathy)
+  ○
+  Upper or lower extremity increase muscle tone/spasticity
+  ○
+  New onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related
+  to an inherent bowel or bladder process
+  ○
+  Gait abnormalities (see Table 1 below for more details)
+  ● Suspected cervical cord compression with any neurological deficits as listed above
+  Evaluation of Neck Pain (5,6)
+  ● With new or worsening objective neurologic deficits on exam, as above
+  ● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6)
+  months:
+  NOTE - Failure of conservative treatment is defined as one of the following:
+  ○
+  Lack of meaningful improvement after a full course of treatment; OR
+  ○
+  Progression or worsening of symptoms during treatment; OR
+  ○
+  Documentation of a medical reason the member is unable to participate in treatment
+  Closure of medical or therapy offices, patient inconvenience, or noncompliance
+  without explanation does not constitute “inability to complete” treatment.
+  ● With progression or worsening of symptoms during the course of conservative
+  treatment*
+  ● With an abnormal electromyography (EMG) or nerve conduction study (if performed)
+  indicating a cervical radiculopathy. (7,8)
+  ● Isolated neck pain in pediatric population when at least ONE of the following red flags
+  are present (9,10) (Note: conservative care is not required if red flags are present).
+  ○
+  Age 5 or younger
+  ○
+  Constant pain
+  ○
+  Pain lasting > 4 weeks
+  ○
+  Abnormal neurologic examination
+  ○
+  Early morning stiffness and/or gelling
+  ○
+  Night pain that prevents or disrupts sleep
+
+================================================================================
+[17] Rule ID: RULE-ADV-CG2017-002 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 331 (printed Page 5 of 26)
+     Section: Evaluation of Suspected Myelopathy (11,12)
+     Quote: Evaluation of Suspected Myelopathy (11,12) ● Progressive symptoms including hand clumsiness, worsening handwriting, difficulty with grasping and holding objects, diffuse numbness in the hands, pins and needles sensation, increasing difficulty with balance and ambulation ● Any of the neurological deficits as noted above NOTE: Does NOT require conservative care
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Clinical suspicion of cervical myelopathy with progressive upper extremity dysfunction or balance difficulty",
+      "parameter": "suspected_cervical_myelopathy",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Objective neurological exam findings (hyperreflexia, clonus, gait instability, Babinski)",
+      "parameter": "myelopathic_neurologic_deficits",
+      "comparator": "IS_PRESENT",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 5 of 26
+  Evolent Clinical Guideline 2017 for Cervical Spine Magnetic Resonance Imaging (MRI)
+  ○
+  Radicular pain
+  ○
+  Fever, weight loss, or malaise
+  ○
+  Postural changes (e.g., kyphosis or scoliosis)
+  ○
+  Limp (or refusal to walk in a younger child)
+  Evaluation of Suspected Myelopathy (11,12)
+  ● Progressive symptoms including hand clumsiness, worsening handwriting, difficulty with
+  grasping and holding objects, diffuse numbness in the hands, pins and needles
+  sensation, increasing difficulty with balance and ambulation
+  ● Any of the neurological deficits as noted above
+  NOTE: Does NOT require conservative care
+  Evaluation of Known or Suspected Multiple Sclerosis
+  (MS) (12,13)
+  ● Evidence of MS on recent baseline Brain MRI
+  ● Suspected or known MS with new or changing symptoms consistent with cervical spinal
+  cord disease (focal neurologic deficit or clinical sign, e.g., Lhermitte sign) (3)
+  ● Suspected or known pediatric demyelinating diseases (MS/ADEM)
+  ● For evaluation of neuromyelitis optica spectrum disorders (recurrent or bilateral optic
+  neuritis; recurrent transverse myelitis) (14)
+  ● For known MS, prior to the initiation or change of disease modification treatments and
+  assess disease burden (to establish a new baseline) (15)
+  ● Follow-up scans, including brain and spine imaging, if patients have known cervical
+  spine disease:
+  ○
+  3-6 months after starting/changing treatment
+  ○
+  Every 6-12 months until stable on disease modifying treatment
+  ○
+  Once stable on disease modifying treatment, every 1-2 years to assess for
+  subclinical disease activity, less frequently when stable for 2-3 years
+  Evaluation of Trauma or Acute Injury (16)
+  ● Presents with any of the following neurological deficits as above
+  ● With progression or worsening of symptoms during the course of conservative
+  treatment*
+  ● History of underlying spinal abnormalities (i.e., ankylosing spondylitis) (Both MRI and CT
+  are indicated) (17,18)
+
+================================================================================
+[18] Rule ID: RULE-ADV-CG2017-003 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 330 (printed Page 4 of 26)
+     Section: INDICATIONS / Evaluation of Neck Pain (5,6)
+     Quote: Suspected cervical cord compression with any neurological deficits as listed above
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Suspected acute cervical spinal cord compression with objective neurological deficit",
+      "parameter": "suspected_cervical_cord_compression",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 4 of 26
+  Evolent Clinical Guideline 2017 for Cervical Spine Magnetic Resonance Imaging (MRI)
+  neuropathy)
+  ○
+  Pathologic reflexes (e.g., Babinski, Lhermitte's sign, (3) Chaddock Sign, (4) Hoffman’s
+  and other upper motor neuron signs); OR abnormal deep tendon reflexes (not likely
+  caused by plexopathy, or peripheral neuropathy)
+  ○
+  Absent/decreased sensation along a particular cervical dermatome (nerve
+  distribution): pin prick, touch, vibration, proprioception, or temperature (and not likely
+  caused by plexopathy or peripheral neuropathy)
+  ○
+  Upper or lower extremity increase muscle tone/spasticity
+  ○
+  New onset bowel or bladder dysfunction (e.g., retention or incontinence)—not related
+  to an inherent bowel or bladder process
+  ○
+  Gait abnormalities (see Table 1 below for more details)
+  ● Suspected cervical cord compression with any neurological deficits as listed above
+  Evaluation of Neck Pain (5,6)
+  ● With new or worsening objective neurologic deficits on exam, as above
+  ● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6)
+  months:
+  NOTE - Failure of conservative treatment is defined as one of the following:
+  ○
+  Lack of meaningful improvement after a full course of treatment; OR
+  ○
+  Progression or worsening of symptoms during treatment; OR
+  ○
+  Documentation of a medical reason the member is unable to participate in treatment
+  Closure of medical or therapy offices, patient inconvenience, or noncompliance
+  without explanation does not constitute “inability to complete” treatment.
+  ● With progression or worsening of symptoms during the course of conservative
+  treatment*
+  ● With an abnormal electromyography (EMG) or nerve conduction study (if performed)
+  indicating a cervical radiculopathy. (7,8)
+  ● Isolated neck pain in pediatric population when at least ONE of the following red flags
+  are present (9,10) (Note: conservative care is not required if red flags are present).
+  ○
+  Age 5 or younger
+  ○
+  Constant pain
+  ○
+  Pain lasting > 4 weeks
+  ○
+  Abnormal neurologic examination
+  ○
+  Early morning stiffness and/or gelling
+  ○
+  Night pain that prevents or disrupts sleep
+
+================================================================================
+[19] Rule ID: RULE-ADV-CG2022-001 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 436 (printed Page 2 of 7)
+     Section: INDICATIONS (1,2)
+     Quote: Patient had failed or incomplete colonoscopy
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Diagnostic evaluation of the colon required",
+      "parameter": "diagnostic_colonic_evaluation_needed",
+      "comparator": "EQUALS",
+      "value": true
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Patient had a prior failed or technically incomplete conventional optical colonoscopy",
+      "parameter": "failed_or_incomplete_colonoscopy",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 2 of 7
+  Evolent Clinical Guideline 2022 for CT (Virtual) Colonoscopy - Diagnostic
+  STATEMENT
+  General Information
+  ● It is an expectation that all patients receive care/services from a licensed clinician. All
+  appropriate supporting documentation, including recent pertinent office visit notes,
+  laboratory data, and results of any special testing must be provided. If applicable: All
+  prior relevant imaging results and the reason that alternative imaging cannot be
+  performed must be included in the documentation submitted.
+  ● Where a specific clinical indication is not directly addressed in this guideline, medical
+  necessity determination will be made based on widely accepted standard of care criteria.
+  These criteria are supported by evidence-based or peer-reviewed sources such as
+  medical literature, societal guidelines and state/national recommendations.
+  ● The guideline criteria in the following sections were developed utilizing evidence-based
+  and peer-reviewed resources from medical publications and societal organization
+  guidelines as well as from widely accepted standard of care, best practice
+  recommendations.
+  Purpose
+  Computed tomographic colonography (CTC), also referred to as virtual colonoscopy, is a
+  minimally invasive structural examination of the colon and rectum to evaluate for colorectal
+  polyps or neoplasms.
+  See Legislative Language for specific mandates for the State of Rhode Island.
+  INDICATIONS (1,2)
+  For diagnostic evaluation
+  Symptomatic patients when conventional colonoscopy is contraindicated or could not be
+  completed and ONE of the following:
+  ● Patient had failed or incomplete colonoscopy (1)
+  ● Patient has an obstructive colorectal cancer
+  ● When colonoscopy is medically contraindicated or not possible (e.g., patient is unable to
+  undergo sedation or has medical conditions such as a recent myocardial infarction,
+  recent colonic surgery, a bleeding disorder, or severe lung and/or heart disease) (1)
+  Follow-Up Studies
+  ● For a 3-year follow-up when 1-2 polyps that are 6-9 mm in diameter detected at CTC if
+  patient does not undergo polypectomy (or is unwilling or unable to undergo
+  colonoscopy)(2)
+
+================================================================================
+[20] Rule ID: RULE-ADV-CG2030-001 (Status: DRAFT)
+     Domain: advanced_imaging
+     Source File: rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf
+     Page: physical 490 (printed Page 2 of 8)
+     Section: INDICATIONS / For Annual Screening / Group 1 - High Risk for Lung Cancer (3,4)
+     Quote: Group 1 - High Risk for Lung Cancer (3,4)
+     Conditions: {
+  "operator": "ALL_OF",
+  "criteria": [
+    {
+      "condition_id": "COND-001",
+      "description": "Patient age is between 50 and 80 years old",
+      "parameter": "patient_age_years",
+      "comparator": "BETWEEN",
+      "value": [
+        50,
+        80
+      ],
+      "unit": "years"
+    },
+    {
+      "condition_id": "COND-002",
+      "description": "Documented smoking history of at least 20 pack-years",
+      "parameter": "smoking_history_pack_years",
+      "comparator": "GREATER_THAN_OR_EQUAL",
+      "value": 20,
+      "unit": "pack_years"
+    },
+    {
+      "condition_id": "COND-003",
+      "description": "Patient is currently smoking or has quit smoking within the past 15 years",
+      "parameter": "current_or_recent_smoker_15yr",
+      "comparator": "EQUALS",
+      "value": true
+    }
+  ]
+}
+     Decision Effect: INDICATED
+
+--- Page Text Excerpt ---
+  Page 2 of 8
+  Evolent Clinical Guideline 2030 for Low Dose Computed Tomography (CT) for Lung Cancer Screening
+  STATEMENT
+  General Information
+  ● It is an expectation that all patients receive care/services from a licensed clinician. All
+  appropriate supporting documentation, including recent pertinent office visit notes,
+  laboratory data, and results of any special testing must be provided. If applicable: All
+  prior relevant imaging results and the reason that alternative imaging cannot be
+  performed must be included in the documentation submitted.
+  ● Where a specific clinical indication is not directly addressed in this guideline, medical
+  necessity determination will be made based on widely accepted standard of care
+  criteria. These criteria are supported by evidence-based or peer-reviewed sources such
+  as medical literature, societal guidelines and state/national recommendations.
+  ● The guideline criteria in the following sections were developed utilizing evidence-based
+  and peer-reviewed resources from medical publications and societal organization
+  guidelines as well as from widely accepted standard of care, best practice
+  recommendations.
+  Purpose
+  Low Dose Computed Tomography (LDCT) generates images of the lungs (chest) and is used to
+  screen for and detect lung cancer in high-risk patients and/or patients with a history of lung
+  cancer. This study uses low doses of radiation (100-120 kVp and 40-60 mAs) and is primarily
+  used to evaluate the lung parenchyma. When evaluation of structures such as lymph nodes or
+  the mediastinum is needed, a standard dose CT with IV contrast may be more appropriate. (1)
+  INDICATIONS
+  For Annual Screening
+  The use of low-dose, non-contrast spiral (helical) multi-detector CT imaging as a screening
+  technique for lung cancer is considered medically necessary ONLY when used to screen for
+  lung cancer for certain high-risk, asymptomatic individuals (i.e., no acute lung-related
+  symptoms, when ALL of the following criteria are met)
+  NOTE: Screening should be discontinued once a person develops a health problem that limits
+  the willingness or ability to have curative intent treatment. (2)
+  Group 1 - High Risk for Lung Cancer (3,4)
+  ● Individual is between 50-80 years of age*; AND
+  ● There is at least a 20 pack-year history of cigarette** smoking
+  *May approve for individuals over the age limit if the individual is a candidate for and willing
+  to undergo curative treatment upon diagnosis.
+
