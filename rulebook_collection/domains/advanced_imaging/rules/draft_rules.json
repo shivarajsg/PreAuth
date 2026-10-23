@@ -1815,11 +1815,11 @@
     "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
     "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
     "source_page": {
-      "physical_page": 176,
-      "printed_page": "Page 5 of 20"
+      "physical_page": 175,
+      "printed_page": "Page 4 of 20"
     },
-    "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Evaluation of Known Intracranial Vascular Disease (1,2)",
-    "source_quote": "Evaluation of Known Intracranial Vascular Disease (1,2)",
+    "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Cerebrovascular Disease / Ischemic",
+    "source_quote": "Recent ischemic stroke or transient ischemic attack (See background section) (16,17)",
     "clinical_service_or_procedure": "Brain CTA",
     "rule_type": "clinical_indication",
     "conditions": {
@@ -3026,7 +3026,7 @@
       "printed_page": "Page 2 of 11"
     },
     "source_section": "INDICATIONS FOR CT BONE DENSITY STUDY / Screening for Asymptomatic Low Bone Mineral Density",
-    "source_quote": "Screening for Asymptomatic Low Bone Mineral Density",
+    "source_quote": "A CT bone density study (Quantitative CT (QCT)) is indicated for screening for asymptomatic low BMD [or suspected osteopenia/osteoporosis] after meeting any ONE of the following general criteria: \u25cf Dual x-ray absorptiometry (DXA)... scanning is insufficient OR not available \u25cf Patients with advanced degenerative changes of the spine \u25cf Severe obesity (BMI > 35 kg/m2)",
     "clinical_service_or_procedure": "Quantitative Computed Tomography (QCT) Bone Density Study",
     "rule_type": "clinical_indication",
     "conditions": {
@@ -3038,6 +3038,37 @@
           "parameter": "suspected_low_bone_mineral_density",
           "comparator": "EQUALS",
           "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Meets at least one general prerequisite for QCT over DXA (DXA insufficient/unavailable, advanced spinal degenerative changes, or severe obesity with BMI > 35 kg/m2)",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-002A",
+                "description": "Dual x-ray absorptiometry (DXA) scanning is expected to be insufficient OR is not available",
+                "parameter": "dxa_insufficient_or_unavailable",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-002B",
+                "description": "Patients with advanced degenerative changes of the spine that may falsely elevate DXA bone mineral density",
+                "parameter": "advanced_spine_degenerative_changes",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-002C",
+                "description": "Severe obesity with Body Mass Index strictly greater than 35 kg/m2 that may limit accuracy of DXA scans",
+                "parameter": "patient_bmi",
+                "comparator": "GREATER_THAN",
+                "value": 35.0,
+                "unit": "kg/m2"
+              }
+            ]
+          }
         }
       ]
     },
@@ -3051,7 +3082,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "QCT bone density indication for spinal or peripheral bone mineral evaluation."
+    "review_notes": "QCT bone density indication requires suspected low BMD AND at least one general prerequisite (ANY_OF: DXA insufficient/unavailable, advanced spinal degenerative changes, or BMI > 35 kg/m2)."
   },
   {
     "rule_id": "RULE-ADV-CG2026-001",
@@ -3234,12 +3265,19 @@
       "printed_page": "Page 2 of 8"
     },
     "source_section": "INDICATIONS / For Annual Screening / Group 1 - High Risk for Lung Cancer (3,4)",
-    "source_quote": "Group 1 - High Risk for Lung Cancer (3,4)",
+    "source_quote": "medically necessary ONLY when used to screen for lung cancer for certain high-risk, asymptomatic individuals (i.e., no acute lung-related symptoms, when ALL of the following criteria are met) / Group 1 - High Risk for Lung Cancer (3,4) \u25cf Individual is between 50-80 years of age; AND \u25cf There is at least a 20 pack-year history of cigarette smoking",
     "clinical_service_or_procedure": "Low Dose CT (LDCT) for Lung Cancer Screening",
     "rule_type": "clinical_indication",
     "conditions": {
       "operator": "ALL_OF",
       "criteria": [
+        {
+          "condition_id": "COND-000",
+          "description": "Patient is asymptomatic with no acute lung-related signs or symptoms",
+          "parameter": "patient_is_asymptomatic",
+          "comparator": "EQUALS",
+          "value": true
+        },
         {
           "condition_id": "COND-001",
           "description": "Patient age is between 50 and 80 years old",
@@ -3278,7 +3316,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "USPSTF and CMS aligned annual LDCT lung cancer screening criteria."
+    "review_notes": "USPSTF and CMS aligned annual LDCT lung cancer screening criteria: requires affirmative documentation of asymptomatic status, age 50-80, >= 20 pack-years, and current or quit within 15 years."
   },
   {
     "rule_id": "RULE-ADV-CG2031-001",
@@ -3336,7 +3374,7 @@
       "printed_page": "Page 4 of 23"
     },
     "source_section": "INDICATIONS FOR LOWER EXTREMITY CT / Non-specific Lower Extremity Pain (1,2)",
-    "source_quote": "Lower extremity pain with no specific joint identified with MRI contraindicated or cannot be performed AND with prior X-ray",
+    "source_quote": "Lower extremity pain with no specific joint identified with MRI contraindicated or cannot be performed AND with prior X-ray showing no clear etiology of extremity pain with any ONE of the following: Persistent musculotendinous lower extremity pain unresponsive to ACTIVE Conservative Therapy (ACT)... of at least four (4) weeks duration within the last 6 months; With progression or worsening of symptoms during the course of active conservative treatment; Pediatric patient that is either under the age of 12 years OR cannot comply with the prescribed therapy",
     "clinical_service_or_procedure": "Lower Extremity CT",
     "rule_type": "conditional_modality_selection",
     "conditions": {
@@ -3362,6 +3400,38 @@
           "parameter": "mri_contraindicated",
           "comparator": "EQUALS",
           "value": true
+        },
+        {
+          "condition_id": "COND-004",
+          "description": "Active conservative therapy requirement met (unresponsive to >= 4 weeks ACT in prior 6 months, OR symptom progression/worsening during care, OR pediatric age < 12 years)",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-004A",
+                "description": "Persistent pain unresponsive to active conservative therapy (ACT) of at least four (4) weeks duration within the last 6 months",
+                "parameter": "conservative_therapy_duration_weeks",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 4,
+                "unit": "weeks"
+              },
+              {
+                "condition_id": "COND-004B",
+                "description": "Progression or worsening of symptoms during the course of active conservative treatment",
+                "parameter": "conservative_treatment_worsening",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-004C",
+                "description": "Pediatric patient under the age of 12 years or unable to comply with prescribed therapy",
+                "parameter": "patient_age_years",
+                "comparator": "LESS_THAN",
+                "value": 12,
+                "unit": "years"
+              }
+            ]
+          }
         }
       ]
     },
@@ -3376,7 +3446,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "Lower extremity CT indication requiring prior X-ray and MRI contraindication."
+    "review_notes": "Lower extremity CT requires prior X-ray, MRI contraindication, and ANY ONE of: >= 4 weeks ACT in prior 6 months, progression/worsening during care, or age < 12."
   },
   {
     "rule_id": "RULE-ADV-CG2032-002",
@@ -3524,7 +3594,7 @@
       "printed_page": "Page 4 of 22"
     },
     "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Pain or Suspected Joint Specific Injury",
-    "source_quote": "Joint Specific Pain or Suspected Joint Specific Injury",
+    "source_quote": "In the absence of a positive joint specific orthopedic sign on exam (see list below), advanced imaging is indicated with prior X-ray showing no clear etiology for the joint pain with any ONE of the following: Persistent joint pain unresponsive to ACTIVE Conservative Therapy (ACT)... of at least four (4) weeks duration within the last 6 months; With progression or worsening of symptoms during the course of active conservative treatment; Pediatric patient that is either under the age of 12 years OR cannot comply with the prescribed therapy",
     "clinical_service_or_procedure": "Lower Extremity MRI (Knee, Hip, Ankle, Foot)",
     "rule_type": "clinical_indication",
     "conditions": {
@@ -3532,10 +3602,49 @@
       "criteria": [
         {
           "condition_id": "COND-001",
-          "description": "Evaluation of joint-specific pain, mechanical locking, instability, or suspected internal derangement (ligament/meniscal tear)",
+          "description": "Evaluation of joint-specific pain or suspected joint injury in the absence of a positive orthopedic instability sign",
           "parameter": "joint_specific_injury_or_pain",
           "comparator": "EQUALS",
           "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Prior plain radiograph (X-ray) of the requested joint completed showing no clear etiology for joint pain",
+          "parameter": "prior_xray_completed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Active conservative therapy requirement met (unresponsive to >= 4 weeks ACT in prior 6 months, OR progression/worsening during treatment, OR pediatric age < 12 years)",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-003A",
+                "description": "Persistent joint pain unresponsive to active conservative therapy (ACT) of at least four (4) weeks duration within the last 6 months",
+                "parameter": "conservative_therapy_duration_weeks",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 4,
+                "unit": "weeks"
+              },
+              {
+                "condition_id": "COND-003B",
+                "description": "Progression or worsening of symptoms during the course of active conservative treatment",
+                "parameter": "conservative_treatment_worsening",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-003C",
+                "description": "Pediatric patient under the age of 12 years or unable to comply with prescribed therapy",
+                "parameter": "patient_age_years",
+                "comparator": "LESS_THAN",
+                "value": 12,
+                "unit": "years"
+              }
+            ]
+          }
         }
       ]
     },
@@ -3551,7 +3660,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "Standard lower extremity joint MRI for internal derangement."
+    "review_notes": "Lower extremity joint MRI without positive orthopedic instability signs requires prior X-ray and conservative therapy (>= 4 weeks ACT in prior 6 months, worsening during treatment, or age < 12). Positive orthopedic signs are evaluated separately under CG2035-002."
   },
   {
     "rule_id": "RULE-ADV-CG2035-002",
@@ -3567,30 +3676,76 @@
       "printed_page": "Page 4 of 22"
     },
     "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Orthopedic Signs",
-    "source_quote": "Joint specific advanced imaging is indicated for any positive orthopedic sign listed below:",
+    "source_quote": "Joint specific advanced imaging is indicated for any positive orthopedic sign listed below: NOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred; however, it is NOT required UNLESS otherwise specified in bold below... Suspected ACL Rupture - acute knee injury with physical exam limited by pain and swelling AFTER initial X-ray completed that does not show a clear etiology with any ONE of the following: Extreme mechanism of injury (such as twisting, blunt force); Extreme pain with inability to perform physical examination; Instability to stand (bear full weight)",
     "clinical_service_or_procedure": "Lower Extremity MRI (Knee)",
     "rule_type": "clinical_indication",
     "conditions": {
-      "operator": "ALL_OF",
+      "operator": "ANY_OF",
       "criteria": [
         {
           "condition_id": "COND-001",
-          "description": "Physical examination demonstrates positive joint-specific sign for meniscal or ligamentous tear (e.g. McMurray test, joint line tenderness, Lachman test, anterior/posterior drawer, pivot shift)",
+          "description": "Physical examination demonstrates positive joint-specific sign for meniscal or ligamentous tear (e.g. McMurray test, joint line tenderness, Lachman test, anterior/posterior drawer, pivot shift, valgus/varus laxity) \u2014 initial X-ray is preferred but NOT required",
           "parameter": "positive_knee_orthopedic_sign",
           "comparator": "EQUALS",
           "value": true
         },
         {
           "condition_id": "COND-002",
-          "description": "Prior plain radiograph completed showing no clear explanation for mechanical symptoms or acute fracture",
-          "parameter": "prior_xray_completed",
-          "comparator": "EQUALS",
-          "value": true
+          "description": "Suspected ACL Rupture: Acute knee injury with physical examination limited by severe pain and swelling after initial plain radiograph completed showing no clear explanation, plus extreme mechanism, extreme pain, or inability to stand",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-002A",
+                "description": "Acute knee injury with physical examination limited by severe pain and swelling",
+                "parameter": "acute_knee_injury_exam_limited_by_pain_swelling",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-002B",
+                "description": "Initial plain radiograph (X-ray) completed showing no clear explanation or acute fracture",
+                "parameter": "prior_xray_completed",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-002C",
+                "description": "Documentation of extreme mechanism of injury, extreme pain preventing exam, or inability to bear weight",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-002C1",
+                      "description": "Extreme mechanism of injury (such as twisting or blunt force)",
+                      "parameter": "extreme_mechanism_of_injury",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002C2",
+                      "description": "Extreme pain with inability to perform physical examination",
+                      "parameter": "inability_to_perform_physical_exam",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002C3",
+                      "description": "Inability to stand or bear full weight",
+                      "parameter": "inability_to_bear_full_weight",
+                      "comparator": "EQUALS",
+                      "value": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
     "required_documentation": [
-      "Orthopedic physical examination documenting specific positive knee exam signs and plain radiograph report"
+      "Orthopedic physical examination documenting positive knee exam signs, OR acute knee trauma documentation with swelling limiting exam and initial negative X-ray report"
     ],
     "decision_effect": "INDICATED",
     "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
@@ -3601,7 +3756,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "With positive orthopedic knee exam signs, active conservative therapy is waived."
+    "review_notes": "Lower extremity knee MRI for positive orthopedic instability signs (X-ray preferred but not required) or acute trauma with exam limited by pain/swelling after negative initial X-ray."
   },
   {
     "rule_id": "RULE-ADV-CG2035-003",
@@ -3654,27 +3809,297 @@
     "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
     "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
     "source_page": {
-      "physical_page": 574,
-      "printed_page": "Page 3 of 20"
+      "physical_page": 575,
+      "printed_page": "Page 4 of 20"
     },
-    "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Neurologic Deficits (1)",
-    "source_quote": "INDICATIONS FOR LUMBAR SPINE CT",
+    "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Back Pain (1) / Evaluation of Neurologic Deficits (1) / Evaluation of Trauma / Postoperative Evaluation",
+    "source_quote": "INDICATIONS FOR LUMBAR SPINE CT\nEvaluation of Back Pain (1)\nWith any of the following when Lumbar Spine MRI is Contraindicated:\n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months... With progression or worsening of symptoms during the course of conservative treatment... With an abnormal electromyography (EMG) or nerve conduction study (if performed) indicating a lumbar radiculopathy... Isolated back pain in pediatric population when at least ONE of the following red flags are present... Postoperative Evaluation: Evaluation of post operative pseudarthrosis, hardware complication and/or extent of fusion after initial x-rays (a contraindication to MRI is not needed)... NOTE: For this indication, advanced imaging should not occur until > 6 months after surgery",
     "clinical_service_or_procedure": "Lumbar Spine CT",
     "rule_type": "clinical_indication",
     "conditions": {
-      "operator": "ALL_OF",
+      "operator": "ANY_OF",
       "criteria": [
         {
           "condition_id": "COND-001",
-          "description": "Evaluation of acute lumbar trauma, surgical fusion integrity/pseudoarthrosis, or lumbar pain when MRI is contraindicated",
-          "parameter": "lumbar_ct_indication_met",
-          "comparator": "EQUALS",
-          "value": true
+          "description": "Track A (Trauma & Fracture Assessment): Evaluation of acute lumbar trauma with preliminary imaging, fracture fragment positioning, or delayed union / non-healing fracture",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-001A",
+                "description": "Acute lumbar trauma or acute injury with preliminary imaging findings (e.g., x-ray) needing further evaluation or patient clinically unevaluable",
+                "parameter": "acute_lumbar_trauma_with_preliminary_imaging",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-001B",
+                "description": "Assessment of compression fracture union when physical exam, plain radiographs, or prior imaging suggest delayed or non-healing",
+                "parameter": "delayed_union_or_nonunion_fracture",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-001C",
+                "description": "Determination of fracture fragment position following lumbar spine fracture",
+                "parameter": "fracture_fragment_position_evaluation",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Track B (Postoperative Hardware & Fusion): Evaluation of postoperative pseudarthrosis, hardware complication, and/or extent of fusion after initial x-rays and > 6 months post-surgery (MRI contraindication is not needed)",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-002A",
+                "description": "Clinical suspicion of postoperative pseudarthrosis, hardware complication, or assessment of extent of fusion",
+                "parameter": "postoperative_fusion_hardware_or_pseudarthrosis",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-002B",
+                "description": "Preliminary plain radiographs (initial X-rays) of the lumbar spine have been completed",
+                "parameter": "prior_lumbar_xray_completed",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-002C",
+                "description": "Postoperative interval is greater than 6 months following lumbar surgery",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-002C1",
+                      "description": "Postoperative interval in months is greater than 6",
+                      "parameter": "postoperative_interval_months",
+                      "comparator": "GREATER_THAN",
+                      "value": 6,
+                      "unit": "months"
+                    },
+                    {
+                      "condition_id": "COND-002C2",
+                      "description": "Postoperative interval is documented as greater than 6 months",
+                      "parameter": "postoperative_interval_greater_than_6_months",
+                      "comparator": "EQUALS",
+                      "value": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "Track C (Back Pain & Neurologic Deficits with MRI Contraindication): Evaluation of lumbar back pain or new focal neurologic deficit when lumbar MRI is contraindicated or cannot be performed",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-003A",
+                "description": "Lumbar spine MRI is contraindicated (e.g., non-conditional implant, metallic foreign body, severe claustrophobia) or cannot be performed",
+                "parameter": "lumbar_mri_contraindicated",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-003B",
+                "description": "Clinical indication met for back pain, conservative therapy failure, radiculopathy, or objective neurologic deficit",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-003B1",
+                      "description": "Objective focal neurologic deficit localizing to lumbar spine (e.g., foot drop, motor weakness, sensory loss, abnormal reflexes) or suspected cauda equina syndrome",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-003B1A",
+                            "description": "Objective focal neurologic deficit localizing to lumbar spine",
+                            "parameter": "objective_neurologic_deficit_lumbar",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-003B1B",
+                            "description": "Clinical suspicion of cauda equina syndrome with saddle anesthesia or sphincter dysfunction",
+                            "parameter": "suspected_cauda_equina_syndrome",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-003B2",
+                      "description": "Adult pathway: Failure of conservative treatment for >= 6 weeks within last 6 months, OR worsening during treatment, OR medical inability to participate, OR abnormal EMG/NCS lumbar radiculopathy",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-003B2A",
+                            "description": "Patient is adult (age >= 18 years)",
+                            "parameter": "patient_age_years",
+                            "comparator": "GREATER_THAN_OR_EQUAL",
+                            "value": 18
+                          },
+                          {
+                            "condition_id": "COND-003B2B",
+                            "description": "Adult conservative care trial failed, progressed, medically contraindicated, or verified by abnormal EMG/NCS",
+                            "sub_conditions": {
+                              "operator": "ANY_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-003B2B1",
+                                  "description": "Failure of conservative treatment for a minimum of six (6) weeks within the last six (6) months",
+                                  "parameter": "lumbar_conservative_therapy_weeks",
+                                  "comparator": "GREATER_THAN_OR_EQUAL",
+                                  "value": 6,
+                                  "unit": "weeks"
+                                },
+                                {
+                                  "condition_id": "COND-003B2B2",
+                                  "description": "Progression or worsening of symptoms during the course of conservative treatment",
+                                  "parameter": "conservative_treatment_worsening",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B2B3",
+                                  "description": "Documentation of a medical reason the member is unable to participate in conservative treatment",
+                                  "parameter": "medical_contraindication_to_conservative_therapy",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B2B4",
+                                  "description": "Abnormal electromyography (EMG) or nerve conduction study indicating a lumbar radiculopathy",
+                                  "parameter": "abnormal_emg_ncs_lumbar_radiculopathy",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-003B3",
+                      "description": "Pediatric pathway: Isolated back pain in pediatric population (age < 18) with at least ONE verified red flag (conservative care not required)",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-003B3A",
+                            "description": "Patient is pediatric (age < 18 years)",
+                            "parameter": "patient_age_years",
+                            "comparator": "LESS_THAN",
+                            "value": 18
+                          },
+                          {
+                            "condition_id": "COND-003B3B",
+                            "description": "At least ONE of ten source-verified pediatric red flags present",
+                            "sub_conditions": {
+                              "operator": "ANY_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-003B3B01",
+                                  "description": "Age 5 or younger",
+                                  "parameter": "patient_age_years",
+                                  "comparator": "LESS_THAN_OR_EQUAL",
+                                  "value": 5
+                                },
+                                {
+                                  "condition_id": "COND-003B3B02",
+                                  "description": "Constant lumbar pain",
+                                  "parameter": "constant_lumbar_pain",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B3B03",
+                                  "description": "Lumbar pain lasting greater than 4 weeks",
+                                  "parameter": "lumbar_pain_duration_weeks",
+                                  "comparator": "GREATER_THAN",
+                                  "value": 4,
+                                  "unit": "weeks"
+                                },
+                                {
+                                  "condition_id": "COND-003B3B04",
+                                  "description": "Abnormal neurologic examination",
+                                  "parameter": "abnormal_neurologic_exam",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B3B05",
+                                  "description": "Early morning stiffness and/or gelling",
+                                  "parameter": "morning_stiffness_or_gelling",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B3B06",
+                                  "description": "Night pain that prevents or disrupts sleep",
+                                  "parameter": "night_pain_disrupting_sleep",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B3B07",
+                                  "description": "Radicular pain present",
+                                  "parameter": "radicular_pain_present",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B3B08",
+                                  "description": "Constitutional symptoms (fever, weight loss, malaise)",
+                                  "parameter": "constitutional_symptoms_fever_weight_loss",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B3B09",
+                                  "description": "Postural changes (e.g., kyphosis or scoliosis)",
+                                  "parameter": "postural_changes_kyphosis_scoliosis",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-003B3B10",
+                                  "description": "Limp or refusal to walk in a younger child",
+                                  "parameter": "gait_abnormality_or_limp",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
     "required_documentation": [
-      "Clinical notes documenting spinal trauma, hardware evaluation, or contraindication to lumbar MRI"
+      "Clinical notes documenting acute spinal trauma, hardware evaluation, or contraindication to lumbar MRI",
+      "Physical therapy records or clinical notes documenting 6 weeks conservative care failure or worsening",
+      "Preliminary plain radiograph (X-ray) reports for trauma or postoperative hardware evaluation"
     ],
     "decision_effect": "INDICATED",
     "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
@@ -3683,7 +4108,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "Lumbar spine CT for bony architecture and fusion assessment."
+    "review_notes": "Lumbar spine CT decomposed into independent trauma/delayed union, postoperative hardware/fusion (>6m after X-ray), and back pain/neurologic deficit when MRI is contraindicated."
   },
   {
     "rule_id": "RULE-ADV-CG2037-001",
@@ -3695,11 +4120,11 @@
     "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
     "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
     "source_page": {
-      "physical_page": 594,
-      "printed_page": "Page 3 of 22"
+      "physical_page": 595,
+      "printed_page": "Page 4 of 22"
     },
-    "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits (1)",
-    "source_quote": "INDICATIONS FOR LUMBAR SPINE MRI",
+    "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Back Pain (1)",
+    "source_quote": "Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months:",
     "clinical_service_or_procedure": "Lumbar Spine MRI",
     "rule_type": "clinical_prerequisite",
     "conditions": {
@@ -4584,7 +5009,7 @@
       "printed_page": "Page 4 of 17"
     },
     "source_section": "INDICATIONS FOR SELLA CT",
-    "source_quote": "For further evaluation of known sellar and/or parasellar masses",
+    "source_quote": "When MRI is contraindicated or cannot be performed: \u25cf For further evaluation of known sellar and/or parasellar masses",
     "clinical_service_or_procedure": "Temporal Bone, Mastoid, Sella CT",
     "rule_type": "clinical_indication",
     "conditions": {
@@ -4594,6 +5019,13 @@
           "condition_id": "COND-001",
           "description": "Known sellar, suprasellar, or parasellar mass requiring bony evaluation of sella turcica or surgical planning",
           "parameter": "sellar_or_parasellar_mass",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Brain/sella MRI is medically contraindicated or cannot be performed",
+          "parameter": "mri_contraindicated",
           "comparator": "EQUALS",
           "value": true
         }
@@ -4609,7 +5041,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "Sellar architecture evaluation for pituitary surgical approaches."
+    "review_notes": "Sellar architecture evaluation for pituitary surgical approaches when MRI is contraindicated or cannot be performed."
   },
   {
     "rule_id": "RULE-ADV-CG2055-001",
@@ -4625,7 +5057,7 @@
       "printed_page": "Page 2 of 8"
     },
     "source_section": "INDICATIONS FOR TEMPOROMANDIBULAR JOINT (TMJ) MRI / Suspected Internal TMJ Derangement",
-    "source_quote": "Suspected Internal TMJ Derangement",
+    "source_quote": "Persistent symptoms of facial or jaw pain, restricted range of motion, pain and/or noise with TMJ function (i.e., chewing) AND Conservative therapy with a trial of pharmacotherapy* AND behavioral modification** has been unsuccessful for at least four (4) weeks",
     "clinical_service_or_procedure": "Temporomandibular Joint (TMJ) MRI",
     "rule_type": "clinical_indication",
     "conditions": {
@@ -4633,10 +5065,41 @@
       "criteria": [
         {
           "condition_id": "COND-001",
-          "description": "Suspected internal derangement of the temporomandibular joint with mechanical locking, persistent pain, or limitation of mouth opening",
+          "description": "Suspected internal derangement of the temporomandibular joint with persistent facial or jaw pain, restricted range of motion, or pain and/or noise with TMJ function",
           "parameter": "suspected_tmj_internal_derangement",
           "comparator": "EQUALS",
           "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Unsuccessful trial of conservative therapy for at least four (4) weeks including both pharmacotherapy and behavioral modification",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-002A",
+                "description": "Conservative therapy trial duration of at least four (4) weeks has been unsuccessful",
+                "parameter": "tmj_conservative_therapy_duration_weeks",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 4,
+                "unit": "weeks"
+              },
+              {
+                "condition_id": "COND-002B",
+                "description": "Trial of pharmacotherapy (analgesics, NSAIDs, or muscle relaxants) completed without meaningful improvement",
+                "parameter": "tmj_pharmacotherapy_trial_completed",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-002C",
+                "description": "Trial of behavioral modification (patient education, self-care, PT, or occlusal splint) completed without meaningful improvement",
+                "parameter": "tmj_behavioral_modification_completed",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
         }
       ]
     },
@@ -4650,7 +5113,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "TMJ articular disc displacement and derangement evaluation."
+    "review_notes": "TMJ MRI requires suspected internal derangement and an unsuccessful trial of at least 4 weeks of conservative therapy including both pharmacotherapy and behavioral modification (no 6-month recency window in source)."
   },
   {
     "rule_id": "RULE-ADV-CG2056-001",
@@ -4715,8 +5178,8 @@
       "physical_page": 906,
       "printed_page": "Page 4 of 20"
     },
-    "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Back Pain (1) / Pain lasting > 4 weeks",
-    "source_quote": "Pain lasting > 4 weeks",
+    "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Back Pain (1)",
+    "source_quote": "Evaluation of Back Pain (1)\nWith any of the following when Thoracic Spine MRI is Contraindicated:\n\u25cf Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months: NOTE - Failure of conservative treatment is defined as one of the following: Lack of meaningful improvement after a full course of treatment; OR Progression or worsening of symptoms during treatment; OR Documentation of a medical reason the member is unable to participate in treatment... With an abnormal electromyography (EMG) or nerve conduction study (if performed) indicating a thoracic radiculopathy... Isolated back pain in pediatric population when at least ONE of the following red flags are present (Note: conservative care not required if red flags are present): Age 5 or younger; Constant pain; Pain lasting > 4 weeks; Abnormal neurologic examination; Early morning stiffness and/or gelling; Night pain that prevents or disrupts sleep; Radicular pain; Fever, weight loss, malaise; Postural changes (e.g., kyphosis or scoliosis); Limp (or refusal to walk in a younger child)",
     "clinical_service_or_procedure": "Thoracic Spine CT",
     "rule_type": "clinical_prerequisite",
     "conditions": {
@@ -4724,29 +5187,174 @@
       "criteria": [
         {
           "condition_id": "COND-001",
-          "description": "Persistent thoracic back pain lasting greater than 4 weeks",
-          "parameter": "thoracic_pain_duration_weeks",
-          "comparator": "GREATER_THAN",
-          "value": 4
-        },
-        {
-          "condition_id": "COND-002",
-          "description": "Failure of at least 4-6 weeks of conservative management including physical therapy or medications",
-          "parameter": "conservative_therapy_completed",
-          "comparator": "EQUALS",
-          "value": true
-        },
-        {
-          "condition_id": "COND-003",
           "description": "Thoracic spine MRI is contraindicated or cannot be performed",
           "parameter": "thoracic_mri_contraindicated",
           "comparator": "EQUALS",
           "value": true
+        },
+        {
+          "condition_id": "COND-002",
+          "description": "Evaluation of thoracic back pain meeting adult conservative care requirement or pediatric red-flag criteria",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-002A",
+                "description": "Adult pathway: Failure of conservative treatment for a minimum of 6 weeks within the last 6 months (or verified policy exception)",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-002A1",
+                      "description": "Patient is adult (age >= 18 years)",
+                      "parameter": "patient_age_years",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 18
+                    },
+                    {
+                      "condition_id": "COND-002A2",
+                      "description": "Failure of conservative treatment for >= 6 weeks within last 6 months, OR worsening during treatment, OR medical inability to participate, OR abnormal EMG/NCS thoracic radiculopathy",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-002A2A",
+                            "description": "Failure of conservative treatment for a minimum of six (6) weeks within the last six (6) months",
+                            "parameter": "thoracic_conservative_therapy_weeks",
+                            "comparator": "GREATER_THAN_OR_EQUAL",
+                            "value": 6,
+                            "unit": "weeks"
+                          },
+                          {
+                            "condition_id": "COND-002A2B",
+                            "description": "Progression or worsening of symptoms during the course of conservative treatment",
+                            "parameter": "conservative_treatment_worsening",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002A2C",
+                            "description": "Documentation of a medical reason the member is unable to participate in conservative treatment",
+                            "parameter": "medical_contraindication_to_conservative_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002A2D",
+                            "description": "Abnormal electromyography (EMG) or nerve conduction study indicating a thoracic radiculopathy",
+                            "parameter": "abnormal_emg_ncs_thoracic_radiculopathy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-002B",
+                "description": "Pediatric pathway: Isolated back pain in pediatric population with at least ONE verified red flag (conservative care not required)",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-002B1",
+                      "description": "Patient is pediatric (age < 18 years)",
+                      "parameter": "patient_age_years",
+                      "comparator": "LESS_THAN",
+                      "value": 18
+                    },
+                    {
+                      "condition_id": "COND-002B2",
+                      "description": "At least ONE of ten source-verified pediatric red flags present (conservative care waived)",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-002B2A",
+                            "description": "Age 5 or younger",
+                            "parameter": "patient_age_years",
+                            "comparator": "LESS_THAN_OR_EQUAL",
+                            "value": 5
+                          },
+                          {
+                            "condition_id": "COND-002B2B",
+                            "description": "Constant thoracic pain",
+                            "parameter": "constant_thoracic_pain",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002B2C",
+                            "description": "Thoracic pain lasting greater than 4 weeks",
+                            "parameter": "thoracic_pain_duration_weeks",
+                            "comparator": "GREATER_THAN",
+                            "value": 4,
+                            "unit": "weeks"
+                          },
+                          {
+                            "condition_id": "COND-002B2D",
+                            "description": "Abnormal neurologic examination",
+                            "parameter": "abnormal_neurologic_exam",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002B2E",
+                            "description": "Early morning stiffness and/or gelling",
+                            "parameter": "morning_stiffness_or_gelling",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002B2F",
+                            "description": "Night pain that prevents or disrupts sleep",
+                            "parameter": "night_pain_disrupting_sleep",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002B2G",
+                            "description": "Radicular pain present",
+                            "parameter": "radicular_pain_present",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002B2H",
+                            "description": "Constitutional symptoms (fever, weight loss, malaise)",
+                            "parameter": "constitutional_symptoms_fever_weight_loss",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002B2I",
+                            "description": "Postural changes (e.g. kyphosis or scoliosis)",
+                            "parameter": "postural_changes_kyphosis_scoliosis",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-002B2J",
+                            "description": "Limp or refusal to walk in a younger child",
+                            "parameter": "gait_abnormality_or_limp",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
     "required_documentation": [
-      "Progress notes documenting pain duration, conservative treatment dates and modalities, and MRI contraindication"
+      "Clinical notes documenting duration of conservative therapy or specific exception, and documentation of MRI contraindication; for pediatric patients, documentation of red flags"
     ],
     "decision_effect": "INDICATED",
     "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
@@ -4757,7 +5365,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "Thoracic CT for chronic thoracic pain after failed conservative therapy when MRI contraindicated."
+    "review_notes": "Thoracic CT for back pain when MRI is contraindicated: requires minimum 6 weeks conservative therapy within prior 6 months (or worsening, medical inability, abnormal EMG) for adults; pediatric patients qualify with any 1 of 10 red flags without conservative care."
   },
   {
     "rule_id": "RULE-ADV-CG2057-001",
@@ -4815,31 +5423,167 @@
       "physical_page": 926,
       "printed_page": "Page 4 of 23"
     },
-    "source_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Back Pain (1) / Pain lasting > 4 weeks",
-    "source_quote": "Pain lasting > 4 weeks",
+    "source_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Back Pain (1)",
+    "source_quote": "Evaluation of Back Pain (1)\nWith any of the following:\n\u25cf Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months: NOTE - Failure of conservative treatment is defined as one of the following: Lack of meaningful improvement after a full course of treatment; OR Progression or worsening of symptoms during treatment; OR Documentation of a medical reason the member is unable to participate in treatment... With an abnormal electromyography (EMG) or nerve conduction study (if performed) indicating a thoracic radiculopathy... Isolated back pain in pediatric population when at least ONE of the following red flags are present (Note: conservative care not required if red flags are present): Age 5 or younger; Constant pain; Pain lasting > 4 weeks; Abnormal neurologic examination; Early morning stiffness and/or gelling; Night pain that prevents or disrupts sleep; Radicular pain; Fever, weight loss, or malaise; Postural changes (e.g., kyphosis or scoliosis); Limp (or refusal to walk in a younger child)",
     "clinical_service_or_procedure": "Thoracic Spine MRI",
     "rule_type": "clinical_prerequisite",
     "conditions": {
-      "operator": "ALL_OF",
+      "operator": "ANY_OF",
       "criteria": [
         {
           "condition_id": "COND-001",
-          "description": "Thoracic back pain lasting greater than 4 weeks",
-          "parameter": "thoracic_pain_duration_weeks",
-          "comparator": "GREATER_THAN",
-          "value": 4
+          "description": "Adult pathway: Failure of conservative treatment for a minimum of 6 weeks within the last 6 months (or verified policy exception)",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-001A",
+                "description": "Patient is adult (age >= 18 years)",
+                "parameter": "patient_age_years",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 18
+              },
+              {
+                "condition_id": "COND-001B",
+                "description": "Failure of conservative treatment for >= 6 weeks within last 6 months, OR worsening during treatment, OR medical inability to participate, OR abnormal EMG/NCS thoracic radiculopathy",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-001B1",
+                      "description": "Failure of conservative treatment for a minimum of six (6) weeks within the last six (6) months",
+                      "parameter": "thoracic_conservative_therapy_weeks",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 6,
+                      "unit": "weeks"
+                    },
+                    {
+                      "condition_id": "COND-001B2",
+                      "description": "Progression or worsening of symptoms during the course of conservative treatment",
+                      "parameter": "conservative_treatment_worsening",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-001B3",
+                      "description": "Documentation of a medical reason the member is unable to participate in conservative treatment",
+                      "parameter": "medical_contraindication_to_conservative_therapy",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-001B4",
+                      "description": "Abnormal electromyography (EMG) or nerve conduction study indicating a thoracic radiculopathy",
+                      "parameter": "abnormal_emg_ncs_thoracic_radiculopathy",
+                      "comparator": "EQUALS",
+                      "value": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         },
         {
           "condition_id": "COND-002",
-          "description": "Failure of at least 4-6 weeks of conservative management (e.g. physical therapy, chiropractic treatments, home exercise program)",
-          "parameter": "conservative_therapy_completed",
-          "comparator": "EQUALS",
-          "value": true
+          "description": "Pediatric pathway: Isolated back pain in pediatric population with at least ONE verified red flag (conservative care not required)",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-002A",
+                "description": "Patient is pediatric (age < 18 years)",
+                "parameter": "patient_age_years",
+                "comparator": "LESS_THAN",
+                "value": 18
+              },
+              {
+                "condition_id": "COND-002B",
+                "description": "At least ONE of ten source-verified pediatric red flags present (conservative care waived)",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-002B01",
+                      "description": "Age 5 or younger",
+                      "parameter": "patient_age_years",
+                      "comparator": "LESS_THAN_OR_EQUAL",
+                      "value": 5
+                    },
+                    {
+                      "condition_id": "COND-002B02",
+                      "description": "Constant thoracic pain",
+                      "parameter": "constant_thoracic_pain",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002B03",
+                      "description": "Thoracic pain lasting greater than 4 weeks",
+                      "parameter": "thoracic_pain_duration_weeks",
+                      "comparator": "GREATER_THAN",
+                      "value": 4,
+                      "unit": "weeks"
+                    },
+                    {
+                      "condition_id": "COND-002B04",
+                      "description": "Abnormal neurologic examination",
+                      "parameter": "abnormal_neurologic_exam",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002B05",
+                      "description": "Early morning stiffness and/or gelling",
+                      "parameter": "morning_stiffness_or_gelling",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002B06",
+                      "description": "Night pain that prevents or disrupts sleep",
+                      "parameter": "night_pain_disrupting_sleep",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002B07",
+                      "description": "Radicular pain present",
+                      "parameter": "radicular_pain_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002B08",
+                      "description": "Constitutional symptoms (fever, weight loss, malaise)",
+                      "parameter": "constitutional_symptoms_fever_weight_loss",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002B09",
+                      "description": "Postural changes (e.g. kyphosis or scoliosis)",
+                      "parameter": "postural_changes_kyphosis_scoliosis",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-002B10",
+                      "description": "Limp or refusal to walk in a younger child",
+                      "parameter": "gait_abnormality_or_limp",
+                      "comparator": "EQUALS",
+                      "value": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
     "required_documentation": [
-      "Physical therapy notes or physician progress notes verifying duration of pain and conservative management regimen"
+      "Clinical notes documenting duration of conservative therapy or specific exception; for pediatric patients, documentation of red flags"
     ],
     "decision_effect": "INDICATED",
     "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
@@ -4850,7 +5594,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "Thoracic MRI for uncomplicated thoracic pain after conservative therapy."
+    "review_notes": "Thoracic MRI for back pain: requires minimum 6 weeks conservative therapy within prior 6 months (or worsening, medical inability, abnormal EMG) for adults; pediatric patients qualify with any 1 of 10 red flags without conservative care."
   },
   {
     "rule_id": "RULE-ADV-CG2058-001",
@@ -5004,11 +5748,11 @@
     "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
     "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
     "source_page": {
-      "physical_page": 965,
-      "printed_page": "Page 3 of 24"
+      "physical_page": 966,
+      "printed_page": "Page 4 of 24"
     },
-    "source_section": "INDICATIONS FOR UPPER EXTREMITY CT / Upper Extremity Pain (1,2) / Special Notes",
-    "source_quote": "X-rays must precede CT evaluation, unless otherwise indicated",
+    "source_section": "INDICATIONS FOR UPPER EXTREMITY CT / Non-specific Upper Extremity Pain & Joint Specific Pain",
+    "source_quote": "If MRI is contraindicated or cannot be performed, or requested as a CT arthrogram / Upper extremity pain with no specific joint identified with prior X-ray showing no clear etiology of joint/extremity pain with any ONE of the following: Persistent joint or musculotendinous upper extremity pain unresponsive to ACTIVE Conservative Therapy (ACT)... of at least four (4) weeks duration within the last 6 months",
     "clinical_service_or_procedure": "Upper Extremity CT (Shoulder, Elbow, Wrist, Hand)",
     "rule_type": "clinical_prerequisite",
     "conditions": {
@@ -5027,6 +5771,29 @@
           "parameter": "conservative_therapy_or_bony_injury",
           "comparator": "EQUALS",
           "value": true
+        },
+        {
+          "condition_id": "COND-003",
+          "description": "MRI is medically contraindicated or cannot be performed, OR procedure is requested as a CT arthrogram",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-003A",
+                "description": "Upper extremity MRI is medically contraindicated or cannot be performed",
+                "parameter": "mri_contraindicated",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-003B",
+                "description": "Procedure is specifically requested as a CT arthrogram",
+                "parameter": "requested_as_ct_arthrogram",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
         }
       ]
     },
@@ -5042,7 +5809,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": "Upper extremity CT requires preceding plain X-ray and conservative therapy unless acute fracture/surgical planning."
+    "review_notes": "Upper extremity CT requires preceding plain X-ray, conservative therapy (or acute fracture/bony injury), and MRI contraindication or request as CT arthrogram."
   },
   {
     "rule_id": "RULE-ADV-CG2063-001",

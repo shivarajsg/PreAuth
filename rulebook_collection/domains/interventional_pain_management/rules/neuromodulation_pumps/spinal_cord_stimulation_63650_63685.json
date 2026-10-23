@@ -21,20 +21,289 @@
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
         "physical_page": 78,
-        "printed_page": "Page 78 of 102"
+        "printed_page": "Page 2 of 12"
       },
-      "source_section": "Spinal Cord Stimulation 2026 (July)",
-      "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+      "source_section": "Evolent Clinical Guideline 1757 for Spinal Cord Stimulation",
+      "source_quote": "A spinal cord stimulation (SCS) trial is appropriate when ALL the following criteria are met: Pain that: Is causing functional disability or average pain level of \u2265 6 on a scale of 0 to 10; Is of at least 6 months duration; Is caused by at least one of the following: Failed spine surgery syndrome (FSSS)/persistent spinal pain syndrome (PSPS) or post-laminectomy syndrome; Complex regional pain syndrome (CRPS), type I or type II, meeting Budapest criteria; Chronic neuropathic pain of certain origins; Failure to respond to non-operative conservative treatment for a minimum of 6 months; A completed presurgical psychological assessment",
       "clinical_service_or_procedure": "Spinal Cord Stimulation 2026 (July)",
       "rule_type": "clinical_indication",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ALL_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-CGSPINALCORDSTIM-001",
-            "description": "Clinical criteria satisfied for Spinal Cord Stimulation 2026 (July)",
-            "parameter": "cgspinalcordstim_indication",
-            "comparator": "IS_PRESENT"
+            "condition_id": "COND-IPM-SCS-NO-ACTIVE-INFECTION",
+            "description": "Contraindication: Absence of active systemic or spinal infection",
+            "parameter": "active_systemic_or_spinal_infection",
+            "comparator": "EQUALS",
+            "value": false
+          },
+          {
+            "condition_id": "COND-IPM-SCS-NOT-PREGNANT",
+            "description": "Contraindication: Absence of pregnancy",
+            "parameter": "pregnancy_status",
+            "comparator": "EQUALS",
+            "value": false
+          },
+          {
+            "condition_id": "COND-IPM-SCS-MRSA-MSSA-PROTOCOL",
+            "description": "Infection screening: All patients colonized with MRSA or MSSA must have a decolonization plan to be performed no earlier than 10 days prior to the planned procedure",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-SCS-MRSA-NOT-COLONIZED",
+                  "description": "Patient not colonized with MRSA or MSSA",
+                  "parameter": "mrsa_mssa_colonization_present",
+                  "comparator": "EQUALS",
+                  "value": false
+                },
+                {
+                  "condition_id": "COND-IPM-SCS-MRSA-DECOLONIZATION-PLAN",
+                  "description": "Colonized patient has documented decolonization plan performed/scheduled no earlier than 10 days prior to procedure",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SCS-MRSA-COLONIZED",
+                        "parameter": "mrsa_mssa_colonization_present",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-DECOLONIZATION-DOCUMENTED",
+                        "parameter": "decolonization_plan_documented",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-DECOLONIZATION-TIMING",
+                        "description": "Decolonization protocol scheduled no earlier than 10 days prior to procedure (timing <= 10 days)",
+                        "parameter": "decolonization_timing_days_prior_to_procedure",
+                        "comparator": "LESS_THAN_OR_EQUAL",
+                        "value": 10
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-SCS-PAIN-DURATION",
+            "description": "Pain of at least 6 months duration",
+            "parameter": "pain_duration_months",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6.0,
+            "unit": "months"
+          },
+          {
+            "condition_id": "COND-IPM-SCS-BASELINE-PAIN",
+            "description": "Pain causing functional disability or average pain level >= 6 on scale 0 to 10",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-SCS-PAIN-SCORE",
+                  "parameter": "pain_intensity_score_numeric",
+                  "comparator": "GREATER_THAN_OR_EQUAL",
+                  "value": 6
+                },
+                {
+                  "condition_id": "COND-IPM-SCS-DISABILITY",
+                  "parameter": "functional_disability_documented",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-SCS-CONSERVATIVE",
+            "description": "Failure to respond to non-operative conservative treatment for a minimum of 6 months or documented exception",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-SCS-CONS-DUR",
+                  "parameter": "conservative_therapy_duration_months",
+                  "comparator": "GREATER_THAN_OR_EQUAL",
+                  "value": 6.0,
+                  "unit": "months"
+                },
+                {
+                  "condition_id": "COND-IPM-SCS-CONS-EXC",
+                  "parameter": "conservative_therapy_exception_documented",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-SCS-PSYCH-EVAL",
+            "description": "Completed presurgical psychological assessment documenting all 4 mandatory elements",
+            "sub_conditions": {
+              "operator": "ALL_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-SCS-PSYCH-NOT-PRIMARY",
+                  "description": "Pain is not due to psychiatric disorders (depression, anxiety, somatic symptom disorder, substance use sequelae)",
+                  "parameter": "pain_not_due_to_psychiatric_disorder",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-SCS-PSYCH-MGMT",
+                  "description": "Satisfactory management of personality and psychiatric disorders",
+                  "parameter": "psychiatric_personality_disorders_managed",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-SCS-PSYCH-SUBSTANCE",
+                  "description": "Satisfactory management of substance use disorder in recovery",
+                  "parameter": "substance_use_disorder_in_recovery",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-SCS-PSYCH-COGNITIVE",
+                  "description": "Demonstration of cognitive ability to manage the stimulator",
+                  "parameter": "cognitive_ability_to_manage_stimulator",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-SCS-CLINICAL-PATHWAYS",
+            "description": "At least one qualifying clinical trial indication pathway met (SCS Trial Etiologies OR DRGS Lower Limb CRPS)",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-SCS-PATH-1-ETIOLOGIES",
+                  "description": "SCS Trial qualifying etiology (FBSS/PSPS, CRPS I/II, or chronic neuropathic pain of qualifying origin)",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-FBSS",
+                        "description": "Failed spine surgery syndrome (FSSS) / persistent spinal pain syndrome (PSPS) or post-laminectomy syndrome",
+                        "parameter": "failed_spine_surgery_syndrome_present",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-CRPS",
+                        "description": "Complex regional pain syndrome (CRPS), type I or type II, meeting Budapest criteria",
+                        "parameter": "crps_budapest_criteria_met",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-ARACHNOIDITIS",
+                        "description": "Lumbosacral arachnoiditis",
+                        "parameter": "lumbosacral_arachnoiditis",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-PHN",
+                        "description": "Post herpetic neuralgia",
+                        "parameter": "post_herpetic_neuralgia",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-RADICULOPATHY",
+                        "description": "Radiculopathy",
+                        "parameter": "radiculopathy_present",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-ISCHEMIC-LEG",
+                        "description": "Chronic ischemic leg pain",
+                        "parameter": "chronic_ischemic_leg_pain",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-DPN",
+                        "description": "Diabetic peripheral neuropathy",
+                        "parameter": "diabetic_peripheral_neuropathy",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-PHANTOM",
+                        "description": "Phantom limb syndrome (stump pain)",
+                        "parameter": "phantom_limb_syndrome",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-PERIPHERAL-NEUROPATHY",
+                        "description": "Peripheral neuropathy",
+                        "parameter": "peripheral_neuropathy",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-NONSURGICAL-BACK",
+                        "description": "Chronic back pain (neuropathic pain) and not a surgical candidate",
+                        "parameter": "chronic_neuropathic_back_pain_nonsurgical",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SCS-P1-ANGINA",
+                        "description": "Chronic, refractory angina pectoris (NYHA III/IV, post-PCI/CABG, not revascularization candidate, failed optimal meds >= 1 month)",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SCS-P1-ANGINA-POST-REVASC",
+                              "parameter": "continued_angina_post_pci_or_cabg",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SCS-P1-ANGINA-NO-FURTHER-REVASC",
+                              "parameter": "not_revascularization_candidate",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SCS-P1-ANGINA-NYHA",
+                              "parameter": "angina_nyha_class_3_or_4",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SCS-P1-ANGINA-MEDS",
+                              "parameter": "failed_optimal_meds_duration_months",
+                              "comparator": "GREATER_THAN_OR_EQUAL",
+                              "value": 1.0,
+                              "unit": "months"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-SCS-PATH-2-DRGS",
+                  "description": "Pathway 2: Dorsal root ganglion stimulation (DRGS) trial for lower limb CRPS type I or II meeting Budapest criteria",
+                  "parameter": "lower_limb_crps_budapest_criteria_met",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
           }
         ]
       },

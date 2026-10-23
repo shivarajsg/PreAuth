@@ -18,21 +18,218 @@
       "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
-        "physical_page": 57,
-        "printed_page": "Page 57 of 102"
+        "physical_page": 58,
+        "printed_page": "Page 2 of 10"
       },
-      "source_section": "Sacroiliac Joint Injections 2026 (July)",
-      "source_quote": "Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections",
+      "source_section": "Sacroiliac Joint Injections 2026 (July) / INDICATIONS FOR SACROILIAC JOINT INJECTIONS",
+      "source_quote": "For the treatment of sacroiliac joint (SIJ) pain ALL of the following must be met: Primarily axial low back pain (below level of L5)... pain level of ≥ 6... cluster of any three (3) of the following positive provocation exam findings... Duration of pain of at least 3 months... Failure to respond to non-operative conservative treatment... minimum of 6 weeks in the last 6 months",
       "clinical_service_or_procedure": "Sacroiliac Joint Injections 2026 (July)",
       "rule_type": "clinical_indication",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ALL_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-CGSIINJECTIONS-001",
-            "description": "Clinical criteria satisfied for Sacroiliac Joint Injections 2026 (July)",
-            "parameter": "cgsiinjections_indication",
-            "comparator": "IS_PRESENT"
+            "condition_id": "COND-IPM-SIJ-GUIDANCE",
+            "description": "Imaging guidance required for sacroiliac joint injection",
+            "parameter": "imaging_guidance_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-SIJ-CLINICAL-INDICATION",
+            "description": "One of three authorized SI joint injection clinical pathways satisfied (Mechanical SIJ pain, Spondyloarthropathy, or Pre-surgical diagnostic)",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-SIJ-PATH-1",
+                  "description": "Pathway 1: Mechanical Sacroiliac Joint Pain (axial pain below L5, duration >= 3m, pain >= 6/10 or disability, cluster >= 3 of 8 provocative tests, failed >= 6w conservative care in last 6m)",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SIJ-P1-LOCATION",
+                        "description": "Primarily axial low back pain below the level of L5",
+                        "parameter": "axial_pain_below_l5_present",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P1-DURATION",
+                        "description": "Pain duration >= 3 months",
+                        "parameter": "pain_duration_months",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 3
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P1-PAIN-BASELINE",
+                        "description": "Pain causing functional disability or average pain score >= 6/10",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SIJ-P1-PAIN-SCORE",
+                              "description": "Pain intensity score >= 6 on numeric scale",
+                              "parameter": "pain_intensity_score_numeric",
+                              "comparator": "GREATER_THAN_OR_EQUAL",
+                              "value": 6
+                            },
+                            {
+                              "condition_id": "COND-IPM-SIJ-P1-DISABILITY",
+                              "description": "Documented functional disability caused by pain",
+                              "parameter": "functional_disability_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P1-PROVOCATIVE-CLUSTER",
+                        "description": "A cluster of at least three (3) of eight positive provocative exam findings",
+                        "parameter": "provocative_exam_findings_count",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 3
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P1-CONSERVATIVE",
+                        "description": "Failed conservative therapy >= 6 weeks in last 6 months, or ongoing conservative care, or documented medical reason",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SIJ-P1-CONS-6W",
+                              "description": "Conservative therapy >= 6 weeks within last 6 months",
+                              "sub_conditions": {
+                                "operator": "ALL_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-SIJ-P1-CONS-DUR",
+                                    "description": "Conservative therapy duration >= 6 weeks",
+                                    "parameter": "conservative_therapy_duration_weeks",
+                                    "comparator": "GREATER_THAN_OR_EQUAL",
+                                    "value": 6
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-SIJ-P1-CONS-REC",
+                                    "description": "Conservative therapy completed within last 6 months",
+                                    "parameter": "conservative_therapy_within_6_months",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-SIJ-P1-CONS-ONGOING",
+                              "description": "Details of engagement in ongoing conservative treatment",
+                              "parameter": "ongoing_conservative_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SIJ-P1-CONS-EXC",
+                              "description": "Documented medical reason unable to participate in conservative treatment",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-SIJ-PATH-2",
+                  "description": "Pathway 2: Spondyloarthropathy (low back pain >= 3m, age onset < 45, comprehensive pain program in place, imaging evidence of sacroiliitis, >= 1 spondyloarthropathy feature)",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SIJ-P2-DIAGNOSIS",
+                        "description": "Spondyloarthropathy diagnosed or evaluated",
+                        "parameter": "spondyloarthropathy_diagnosed",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P2-DURATION",
+                        "description": "Low back pain duration >= 3 months",
+                        "parameter": "pain_duration_months",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 3
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P2-AGE-ONSET",
+                        "description": "Age of symptom onset < 45 years",
+                        "parameter": "age_at_symptom_onset_years",
+                        "comparator": "LESS_THAN",
+                        "value": 45
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P2-PAIN-PROGRAM",
+                        "description": "Comprehensive pain management program is in place (PT, HEP, education, psychosocial, medication)",
+                        "parameter": "comprehensive_pain_program_active",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P2-IMAGING",
+                        "description": "Evidence of sacroiliitis on imaging (active inflammation on MRI or radiographic sacroiliitis grade 2-4 bilaterally or 3-4 unilaterally)",
+                        "parameter": "imaging_evidence_sacroiliitis",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P2-FEATURES",
+                        "description": "At least one (1) spondyloarthropathy feature present",
+                        "parameter": "spondyloarthropathy_features_count",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 1
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-SIJ-PATH-3",
+                  "description": "Pathway 3: Diagnostic SIJ injection for surgical planning (contrast-enhanced intra-articular injection, relief >= 75%, pre-op plan for SIJ surgery, diagnostic count <= 2)",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SIJ-P3-SURGICAL-PLAN",
+                        "description": "Documentation of pre-operative evaluation and surgical plan for SI joint surgery",
+                        "parameter": "preoperative_evaluation_and_surgical_plan_documented",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P3-TECHNIQUE",
+                        "description": "Image-guided contrast-enhanced intra-articular injection",
+                        "parameter": "contrast_enhanced_intraarticular_injection",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P3-RELIEF",
+                        "description": "At least 75% pain relief for expected duration of anesthetic after diagnostic injection",
+                        "parameter": "diagnostic_pain_relief_percentage",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 75
+                      },
+                      {
+                        "condition_id": "COND-IPM-SIJ-P3-COUNT",
+                        "description": "No more than two diagnostic injections per diagnostic phase",
+                        "parameter": "diagnostic_sij_injection_count",
+                        "comparator": "LESS_THAN_OR_EQUAL",
+                        "value": 2
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       },
@@ -43,7 +240,7 @@
       ],
       "human_review_required": false,
       "extraction_status": "DRAFT",
-      "review_notes": ""
+      "review_notes": "Remediated Phase 8B.8B: Decomposed into 3 clinical pathways (mechanical SIJ pain below L5 with duration >= 3m, pain >= 6/10 or disability, cluster >= 3 of 8 provocative tests, and failed >= 6w conservative care in prior 6m; spondyloarthropathy with onset < 45, pain >= 3m, imaging sacroiliitis, >= 1 feature, and active pain program; and pre-surgical diagnostic SIJ injection with contrast, relief >= 75%, and surgical plan) under mandatory imaging guidance."
     }
   ]
 }

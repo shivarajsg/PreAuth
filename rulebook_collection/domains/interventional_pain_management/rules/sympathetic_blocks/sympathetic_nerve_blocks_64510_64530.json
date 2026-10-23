@@ -20,21 +20,443 @@
       "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
-        "physical_page": 89,
-        "printed_page": "Page 89 of 102"
+        "physical_page": 91,
+        "printed_page": "Page 3 of 14"
       },
-      "source_section": "Sympathetic Nerve Blocks 2026 (July)",
-      "source_quote": "Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks",
+      "source_section": "Sympathetic Nerve Blocks 2026 (July) / INDICATIONS",
+      "source_quote": "General Indications: Acute or chronic noncancer pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10 prior to injection... Cancer pain affecting quality of life... Each block must be performed under image guidance... Bilateral blocks will not be performed on the same day of service.",
       "clinical_service_or_procedure": "Sympathetic Nerve Blocks 2026 (July)",
       "rule_type": "clinical_indication",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ALL_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-CGSYMPATHETICBLOCKS-001",
-            "description": "Clinical criteria satisfied for Sympathetic Nerve Blocks 2026 (July)",
-            "parameter": "cgsympatheticblocks_indication",
-            "comparator": "IS_PRESENT"
+            "condition_id": "COND-IPM-SYMP-GUIDANCE",
+            "description": "Each block must be performed under image guidance (ultrasound not permitted for thoracic, lumbar, or superior hypogastric blocks)",
+            "parameter": "imaging_guidance_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-SYMP-UNILATERAL",
+            "description": "Bilateral sympathetic blocks will not be performed on the same day of service",
+            "parameter": "bilateral_procedure_requested",
+            "comparator": "EQUALS",
+            "value": false
+          },
+          {
+            "condition_id": "COND-IPM-SYMP-BASELINE-PAIN",
+            "description": "Acute/chronic noncancer pain causing functional disability or pain >= 6/10, OR cancer pain affecting quality of life",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-SYMP-PAIN-SCORE",
+                  "parameter": "pain_intensity_score_numeric",
+                  "comparator": "GREATER_THAN_OR_EQUAL",
+                  "value": 6
+                },
+                {
+                  "condition_id": "COND-IPM-SYMP-DISABILITY",
+                  "parameter": "functional_disability_documented",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-SYMP-CANCER-PAIN",
+                  "parameter": "cancer_pain_present",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-SYMP-UPPER-ABD-CANCER",
+                  "parameter": "upper_abdominal_cancer_pain",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-SYMP-PELVIC-CANCER",
+                  "parameter": "pelvic_rectal_cancer_pain",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-SYMP-PATHWAYS",
+            "description": "At least one qualifying sympathetic nerve block modality indication pathway met",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-SYMP-PATH-1-STELLATE",
+                  "description": "Pathway 1: Stellate Ganglion Block (64510) for acute herpes zoster (< 4w + antiviral), cancer pain, phantom limb, CRPS (Budapest criteria + functional restoration), or repeat block (>= 50% relief)",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SYMP-P1-ZOSTER",
+                        "description": "Acute herpes zoster with pain duration < 4 weeks and active antiviral therapy regimen",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SYMP-P1-ZOSTER-CONF",
+                              "parameter": "acute_herpes_zoster_present",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P1-ZOSTER-DUR",
+                              "parameter": "zoster_duration_weeks",
+                              "comparator": "LESS_THAN",
+                              "value": 4.0,
+                              "unit": "weeks"
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P1-ZOSTER-ANTIVIRAL",
+                              "parameter": "active_antiviral_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P1-CANCER-PHANTOM",
+                        "description": "Cancer pain or phantom limb pain with failure of conservative treatment",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SYMP-P1-ETIOLOGY",
+                              "sub_conditions": {
+                                "operator": "ANY_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P1-CANCER",
+                                    "parameter": "cancer_pain_present",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P1-PHANTOM",
+                                    "parameter": "phantom_limb_pain_present",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P1-CONS-FAIL",
+                              "sub_conditions": {
+                                "operator": "ANY_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P1-CONS-FAILED",
+                                    "parameter": "conservative_therapy_failed",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P1-CONS-EXC",
+                                    "parameter": "conservative_therapy_exception_documented",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P1-CRPS",
+                        "description": "CRPS types I and II meeting Budapest criteria with failure of functional restoration and active participation",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SYMP-P1-CRPS-BUDAPEST",
+                              "parameter": "crps_budapest_criteria_met",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P1-CRPS-FAILED-FR",
+                              "parameter": "functional_restoration_failed",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P1-CRPS-ACTIVE-FR",
+                              "parameter": "active_functional_restoration",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P1-REPEAT",
+                        "description": "Repeat block: previous block resulted in at least 50% relief for duration of anesthetic",
+                        "parameter": "prior_block_relief_percentage",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 50,
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-SYMP-PATH-2-THORACIC-LUMBAR",
+                  "description": "Pathway 2: Thoracic or Lumbar Sympathetic Block (64520) for acute herpes zoster (< 4w + antiviral), cancer pain, phantom limb, ischemic limb pain, CRPS (Budapest criteria), or repeat block (>= 50% relief)",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SYMP-P2-ZOSTER",
+                        "description": "Acute herpes zoster with pain duration < 4 weeks and active antiviral therapy regimen",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SYMP-P2-ZOSTER-CONF",
+                              "parameter": "acute_herpes_zoster_present",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P2-ZOSTER-DUR",
+                              "parameter": "zoster_duration_weeks",
+                              "comparator": "LESS_THAN",
+                              "value": 4.0,
+                              "unit": "weeks"
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P2-ZOSTER-ANTIVIRAL",
+                              "parameter": "active_antiviral_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P2-CANCER-PHANTOM-ISCHEMIC",
+                        "description": "Cancer pain, phantom limb pain, or nonsurgical ischemic limb pain with failure of conservative treatment",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SYMP-P2-ETIOLOGY",
+                              "sub_conditions": {
+                                "operator": "ANY_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P2-CANCER",
+                                    "parameter": "cancer_pain_present",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P2-PHANTOM",
+                                    "parameter": "phantom_limb_pain_present",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P2-ISCHEMIC",
+                                    "parameter": "nonsurgical_ischemic_limb_pain",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P2-CONS-FAIL",
+                              "sub_conditions": {
+                                "operator": "ANY_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P2-CONS-FAILED",
+                                    "parameter": "conservative_therapy_failed",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P2-CONS-EXC",
+                                    "parameter": "conservative_therapy_exception_documented",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P2-CRPS",
+                        "description": "CRPS types I and II meeting Budapest criteria with failure of functional restoration and active participation",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SYMP-P2-CRPS-BUDAPEST",
+                              "parameter": "crps_budapest_criteria_met",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P2-CRPS-FAILED-FR",
+                              "parameter": "functional_restoration_failed",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P2-CRPS-ACTIVE-FR",
+                              "parameter": "active_functional_restoration",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P2-REPEAT",
+                        "description": "Repeat block: previous block resulted in at least 50% relief for duration of anesthetic",
+                        "parameter": "prior_block_relief_percentage",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 50,
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-SYMP-PATH-3-CELIAC",
+                  "description": "Pathway 3: Celiac Plexus Block (64530) for upper abdominal malignancy-associated pain, chronic relapsing pancreatitis, or repeat block (>= 50% relief)",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SYMP-P3-MALIGNANCY",
+                        "description": "Upper abdominal pain associated with malignancy (conservative treatment not required)",
+                        "parameter": "upper_abdominal_cancer_pain",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P3-PANCREATITIS",
+                        "description": "Chronic relapsing pancreatitis with failed conservative treatment or exception",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SYMP-P3-PANCREATITIS-CONF",
+                              "parameter": "chronic_pancreatitis_pain",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P3-PANCREATITIS-CONS",
+                              "sub_conditions": {
+                                "operator": "ANY_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P3-CONS-FAIL",
+                                    "parameter": "conservative_therapy_failed",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P3-CONS-EXC",
+                                    "parameter": "conservative_therapy_exception_documented",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P3-REPEAT",
+                        "description": "Repeat block: previous block resulted in at least 50% relief for duration of anesthetic",
+                        "parameter": "prior_block_relief_percentage",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 50,
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-SYMP-PATH-4-HYPOGASTRIC",
+                  "description": "Pathway 4: Superior Hypogastric Plexus Block (64517) for pelvic/rectal malignancy-associated pain, chronic noncancer pelvic/rectal visceral pain, or repeat block (>= 50% relief)",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-SYMP-P4-MALIGNANCY",
+                        "description": "Pelvic or rectal pain associated with malignancy (conservative treatment not required)",
+                        "parameter": "pelvic_rectal_cancer_pain",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P4-NONCANCER-VISCERAL",
+                        "description": "Chronic noncancer pain of pelvic and rectal viscera with failed conservative treatment or exception",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-SYMP-P4-VISCERAL-CONF",
+                              "parameter": "chronic_noncancer_pelvic_visceral_pain",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-SYMP-P4-VISCERAL-CONS",
+                              "sub_conditions": {
+                                "operator": "ANY_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P4-CONS-FAIL",
+                                    "parameter": "conservative_therapy_failed",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-SYMP-P4-CONS-EXC",
+                                    "parameter": "conservative_therapy_exception_documented",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-SYMP-P4-REPEAT",
+                        "description": "Repeat block: previous block resulted in at least 50% relief for duration of anesthetic",
+                        "parameter": "prior_block_relief_percentage",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 50,
+                        "unit": "%"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       },
@@ -45,7 +467,7 @@
       ],
       "human_review_required": false,
       "extraction_status": "DRAFT",
-      "review_notes": ""
+      "review_notes": "Remediated Phase 8B.8C: Decomposed into 4 anatomical block pathways (stellate ganglion block CPT 64510, thoracic/lumbar sympathetic block CPT 64520, celiac plexus block CPT 64530, and superior hypogastric plexus block CPT 64517) under mandatory image guidance, unilateral restriction, and baseline pain >= 6/10 or cancer pain."
     }
   ]
 }

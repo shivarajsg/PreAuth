@@ -21,20 +21,200 @@
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
         "physical_page": 46,
-        "printed_page": "Page 46 of 102"
+        "printed_page": "Page 2 of 12"
       },
-      "source_section": "Paravertebral Facet Joint Denervation 2026 (July)",
-      "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+      "source_section": "Paravertebral Facet Joint Denervation 2026 (July) / INDICATIONS FOR PARAVERTEBRAL FACET JOINT DENERVATION",
+      "source_quote": "For the treatment of facet-mediated pain, ALL of the following must be met: Pain that: Is causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10... Is of at least 3 months duration... positive response to at least one local anesthetic block of the facet joint nerves (medial branch blocks) with at least 70% pain relief... Failure of conservative treatment for a minimum of six (6) weeks in the last six (6) months... All procedures must be performed using fluoroscopic or CT guidance...",
       "clinical_service_or_procedure": "Paravertebral Facet Joint Denervation 2026 (July)",
       "rule_type": "clinical_indication",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ALL_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-CGFACETDENERVATION-001",
-            "description": "Clinical criteria satisfied for Paravertebral Facet Joint Denervation 2026 (July)",
-            "parameter": "cgfacetdenervation_indication",
-            "comparator": "IS_PRESENT"
+            "condition_id": "COND-IPM-RFA-GUIDANCE",
+            "description": "Mandatory fluoroscopic or CT guidance (ultrasound not permitted)",
+            "parameter": "imaging_guidance_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-RFA-PATHWAYS",
+            "description": "At least one qualifying RFA pathway met (Initial or Repeat Denervation)",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-RFA-PATH-1",
+                  "description": "Pathway 1: Initial Facet Radiofrequency Neurolysis with prior diagnostic MBB relief >= 70%, pain >= 6/10 or disability, duration >= 3m, primary SIJ/discogenic excluded, failed >= 6w conservative care",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-RFA-P1-BASELINE-PAIN",
+                        "description": "Pain causing functional disability or average pain level >= 6 on scale 0 to 10",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-RFA-P1-PAIN-SCORE",
+                              "parameter": "pain_intensity_score_numeric",
+                              "comparator": "GREATER_THAN_OR_EQUAL",
+                              "value": 6
+                            },
+                            {
+                              "condition_id": "COND-IPM-RFA-P1-DISABILITY",
+                              "parameter": "functional_disability_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P1-DURATION",
+                        "description": "Pain duration of at least 3 months",
+                        "parameter": "pain_duration_months",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 3.0,
+                        "unit": "months"
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P1-MBB-RELIEF",
+                        "description": "Positive response to at least one local anesthetic medial branch block with at least 70% pain relief",
+                        "parameter": "diagnostic_mbb_relief_percentage",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 70,
+                        "unit": "%"
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P1-PAIN-RETURNED",
+                        "description": "Insufficient sustained relief with return of pain causing disability or pain >= 6/10 after diagnostic relief period",
+                        "parameter": "pain_returned_after_diagnostic_block",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P1-EXCL-PRIMARY",
+                        "description": "Primary pain is not SI joint pain, discogenic pain, disc herniation, or radiculitis",
+                        "parameter": "primary_sij_discogenic_radicular_excluded",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P1-CONSERVATIVE",
+                        "description": "Failure of conservative treatment for a minimum of 6 weeks in the last 6 months or exception",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-RFA-P1-CONS-6W",
+                              "sub_conditions": {
+                                "operator": "ALL_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-RFA-P1-CONS-DUR",
+                                    "parameter": "conservative_therapy_duration_weeks",
+                                    "comparator": "GREATER_THAN_OR_EQUAL",
+                                    "value": 6,
+                                    "unit": "weeks"
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-RFA-P1-CONS-6M",
+                                    "parameter": "conservative_therapy_within_6_months",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-RFA-P1-CONS-EXC",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-RFA-PATH-2",
+                  "description": "Pathway 2: Repeat Facet Radiofrequency Neurolysis with positive response to prior RFA (>= 50% relief for >= 4 months), recurrence of pain >= 6/10 or disability, ongoing conservative care, <= 2 RFA per 12 months",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-RFA-P2-RELIEF-50",
+                        "description": "Positive response to prior radiofrequency denervation with at least 50% pain relief or functional improvement",
+                        "parameter": "prior_rfa_relief_percentage",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 50,
+                        "unit": "%"
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P2-RELIEF-DUR-4M",
+                        "description": "Pain relief lasted for at least 4 months",
+                        "parameter": "prior_rfa_duration_months",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 4.0,
+                        "unit": "months"
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P2-RECURRENT-PAIN",
+                        "description": "Continued pain causing functional disability or average pain level >= 6 on scale 0-10",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-RFA-P2-PAIN-SCORE",
+                              "parameter": "pain_intensity_score_numeric",
+                              "comparator": "GREATER_THAN_OR_EQUAL",
+                              "value": 6
+                            },
+                            {
+                              "condition_id": "COND-IPM-RFA-P2-DISABILITY",
+                              "parameter": "functional_disability_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P2-ONGOING-CONS",
+                        "description": "Engaged in ongoing non-operative conservative treatment or documented medical reason",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-RFA-P2-ONGOING-YES",
+                              "parameter": "ongoing_conservative_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-RFA-P2-ONGOING-EXC",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-RFA-P2-FREQ-LIMIT",
+                        "description": "Maximum of 2 facet denervation procedures performed in a 12-month period per spinal region",
+                        "parameter": "rfa_procedures_past_12_months",
+                        "comparator": "LESS_THAN_OR_EQUAL",
+                        "value": 2
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       },
@@ -45,7 +225,7 @@
       ],
       "human_review_required": false,
       "extraction_status": "DRAFT",
-      "review_notes": ""
+      "review_notes": "Remediated Phase 8B.8C: Decomposed into 2 clinical pathways (initial facet RFA with >= 70% diagnostic MBB relief, return of pain >= 6/10, failed >= 6w conservative care; and repeat facet RFA with >= 50% relief for >= 4 months, ongoing conservative therapy, <= 2 RFA per 12 months) under mandatory fluoroscopic or CT guidance."
     },
     {
       "rule_id": "RULE-IPM-CGFACETDENERVATION-002",
@@ -57,19 +237,19 @@
       "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
-        "physical_page": 46,
-        "printed_page": "Page 46 of 102"
+        "physical_page": 47,
+        "printed_page": "Page 3 of 12"
       },
-      "source_section": "Paravertebral Facet Joint Denervation 2026 / Diagnostic Block Prerequisites",
-      "source_quote": "\u25a0 Continued pain, after the diagnostic relief period, causing functional disability or",
+      "source_section": "Paravertebral Facet Joint Denervation 2026 (July) / Repeat Procedures",
+      "source_quote": "Positive response to prior radiofrequency denervation procedures with at least 50% pain relief or improved ability to function for at least 4 months",
       "clinical_service_or_procedure": "Facet Joint Radiofrequency Neurotomy / Denervation",
       "rule_type": "clinical_prerequisite",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ALL_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-FACET-RFA-DIAG",
-            "description": "Documented positive pain relief from prior diagnostic facet joint blocks",
+            "condition_id": "COND-IPM-FACET-RFA-REPEAT-RELIEF",
+            "description": "Documented positive pain relief from prior facet denervation procedure of at least 50% for repeat procedure",
             "parameter": "diagnostic_facet_block_relief",
             "comparator": "GREATER_THAN_OR_EQUAL",
             "value": 50,
@@ -81,7 +261,8 @@
       "missing_information_behavior": "FAIL_CONDITION",
       "dependencies": [],
       "human_review_required": false,
-      "extraction_status": "DRAFT"
+      "extraction_status": "DRAFT",
+      "review_notes": "Remediated Phase 8B.8C: Aligned citation to physical page 47 and confirmed repeat RFA threshold of >= 50% relief."
     }
   ]
 }

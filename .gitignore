@@ -22,3 +22,5 @@ venv/
 ENV/
 PreAuth_Local_Share.zip
 
+# Scratch directory
+scratch/

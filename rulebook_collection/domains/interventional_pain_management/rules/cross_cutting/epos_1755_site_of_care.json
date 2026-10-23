@@ -17,21 +17,128 @@
       "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
-        "physical_page": 1,
-        "printed_page": "Page 1 of 8"
+        "physical_page": 3,
+        "printed_page": "Page 3 of 8"
       },
-      "source_section": "Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
-      "source_quote": "Evolent Place of Service Policy 1755 for Interventional Pain Management",
+      "source_section": "Patient Criteria for Selection of Outpatient Hospital Setting",
+      "source_quote": "Patient Criteria for Selection of Outpatient Hospital Setting: In certain circumstances, a patient will qualify for care in an outpatient hospital. Outpatient hospital care will be deemed appropriate when ANY of the following criteria are met: American Society of Anesthesiologists\u00ae Physical Status (ASA\u00ae PS) score \u2265 3; Body Mass Index (BMI) \u2265 40 with or without obesity-related condition or unmanaged comorbidities; Patient has one or more moderate to severe health conditions",
       "clinical_service_or_procedure": "Evolent Place of Service Policy 1755 for Interventional Pain",
       "rule_type": "place_of_service",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ANY_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-EPOS1755-001",
-            "description": "Clinical criteria satisfied for Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
-            "parameter": "epos1755_indication",
-            "comparator": "IS_PRESENT"
+            "condition_id": "COND-IPM-EPOS-ASA-3",
+            "description": "American Society of Anesthesiologists (ASA) Physical Status score >= 3",
+            "parameter": "asa_physical_status_score",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 3
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-BMI-40",
+            "description": "Body Mass Index (BMI) >= 40 with or without obesity-related condition or unmanaged comorbidities",
+            "parameter": "patient_bmi",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 40.0,
+            "unit": "kg/m2"
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-HEART",
+            "description": "Heart problems (prior heart surgery, heart attack, heart failure, CAD/stents, arrhythmia, pacemaker, or defibrillator)",
+            "parameter": "heart_disease_or_prior_heart_surgery",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-LUNG",
+            "description": "Lung problems (COPD or asthma)",
+            "parameter": "chronic_lung_disease_copd_or_asthma",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-KIDNEY-LIVER",
+            "description": "Chronic kidney or liver problems (kidney failure or cirrhosis/active hepatitis)",
+            "parameter": "chronic_kidney_or_liver_disease",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-BLEEDING",
+            "description": "Blood clots or bleeding disorder",
+            "parameter": "bleeding_disorder_or_blood_clots",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-STROKE-TIA",
+            "description": "History of stroke or transient ischemic attack (TIA)",
+            "parameter": "history_of_stroke_or_tia",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-HYPERTENSION-3DRUGS",
+            "description": "High blood pressure requiring 3 or more drugs to control",
+            "parameter": "hypertension_requiring_3_or_more_drugs",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-DIABETES",
+            "description": "Poorly controlled diabetes",
+            "parameter": "poorly_controlled_diabetes",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-COGNITIVE",
+            "description": "Cognitive impairment or dementia",
+            "parameter": "cognitive_impairment_or_dementia",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-PREGNANCY",
+            "description": "Pregnancy",
+            "parameter": "pregnancy_status",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-SUBSTANCE-USE",
+            "description": "Substance use disorder (cannabis, hallucinogen, inhalant, opioid, sedative, stimulant, alcohol)",
+            "parameter": "active_substance_use_disorder",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-ANESTHESIA-COMP",
+            "description": "Prior anesthesia complications (personal or family history)",
+            "parameter": "prior_anesthesia_complications",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-AIRWAY",
+            "description": "Difficult airway anticipated",
+            "parameter": "difficult_airway_anticipated",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-SLEEP-APNEA",
+            "description": "Diagnosed sleep apnea",
+            "parameter": "sleep_apnea_diagnosed",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-EPOS-ANAPHYLAXIS",
+            "description": "History of anaphylaxis to medication, latex, or iodine",
+            "parameter": "history_of_anaphylaxis",
+            "comparator": "EQUALS",
+            "value": true
           }
         ]
       },

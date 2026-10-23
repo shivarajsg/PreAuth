@@ -9,21 +9,291 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 4,
-      "printed_page": "Page 4 of 102"
+      "physical_page": 6,
+      "printed_page": "Page 3 of 13"
     },
-    "source_section": "Epidural Spine Injections 2026 (July)",
-    "source_quote": "Evolent Clinical Guideline 1750 for Epidural Spine Injections",
+    "source_section": "Epidural Spine Injections 2026 (July) / INDICATIONS",
+    "source_quote": "Fluoroscopic guidance should be used for caudal and interlaminar injections and is necessary for transforaminal injections. For all injections, patients must exhibit pain causing functional disability or average pain level of \u2265 6 on a scale of 0 to 10...",
     "clinical_service_or_procedure": "Epidural Spine Injections 2026 (July)",
     "rule_type": "clinical_indication",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ALL_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-CGEPIDURALINJECTIONS-001",
-          "description": "Clinical criteria satisfied for Epidural Spine Injections 2026 (July)",
-          "parameter": "cgepiduralinjections_indication",
-          "comparator": "IS_PRESENT"
+          "condition_id": "COND-IPM-ESI-GUIDANCE",
+          "description": "Imaging guidance required for epidural spine injections",
+          "parameter": "imaging_guidance_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-ESI-PAIN-BASELINE",
+          "description": "Baseline pain causing functional disability or average pain score >= 6 on scale of 0 to 10",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-ESI-PAIN-001",
+                "description": "Pain intensity score >= 6 on numeric rating scale",
+                "parameter": "pain_intensity_score_numeric",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 6
+              },
+              {
+                "condition_id": "COND-IPM-ESI-PAIN-002",
+                "description": "Documented functional disability caused by pain",
+                "parameter": "functional_disability_documented",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-ESI-CLINICAL-INDICATION",
+          "description": "One of four authorized clinical pathways satisfied (Acute radiculopathy, Spinal stenosis, FBSS/Fibrosis, or Pre-surgical diagnostic TFESI)",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-ESI-PATH-1",
+                "description": "Pathway 1: Acute neck or back pain with acute radicular symptoms, duration < 3 months, failed >= 2 weeks conservative therapy",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-ESI-P1-RADICULAR",
+                      "description": "Neck or back pain with acute radicular symptoms present",
+                      "parameter": "radicular_symptoms_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P1-DURATION",
+                      "description": "Duration of acute pain is less than 3 months",
+                      "parameter": "pain_duration_months",
+                      "comparator": "LESS_THAN",
+                      "value": 3
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P1-CONSERVATIVE",
+                      "description": "Failed conservative therapy >= 2 weeks or documented medical reason unable to participate",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-ESI-P1-CONS-DUR",
+                            "description": "Non-operative conservative treatment duration >= 2 weeks",
+                            "parameter": "conservative_therapy_duration_weeks",
+                            "comparator": "GREATER_THAN_OR_EQUAL",
+                            "value": 2
+                          },
+                          {
+                            "condition_id": "COND-IPM-ESI-P1-CONS-EXC",
+                            "description": "Medical reason conservative treatment cannot be done is clearly documented",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-ESI-PATH-2",
+                "description": "Pathway 2: Spinal stenosis causing axial or radicular pain, failed >= 6 weeks conservative therapy in prior 6 months (or ongoing)",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-ESI-P2-STENOSIS",
+                      "description": "Spinal stenosis confirmed on clinical/radiological evaluation",
+                      "parameter": "spinal_stenosis_confirmed",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P2-PAIN-TYPE",
+                      "description": "Stenosis causing axial or radicular pain",
+                      "parameter": "axial_or_radicular_pain_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P2-CONSERVATIVE",
+                      "description": "Failed conservative therapy >= 6 weeks in last 6 months, or ongoing conservative care, or documented medical reason",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-ESI-P2-CONS-6W",
+                            "description": "Conservative therapy >= 6 weeks within last 6 months",
+                            "sub_conditions": {
+                              "operator": "ALL_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-ESI-P2-CONS-DUR",
+                                  "description": "Conservative therapy duration >= 6 weeks",
+                                  "parameter": "conservative_therapy_duration_weeks",
+                                  "comparator": "GREATER_THAN_OR_EQUAL",
+                                  "value": 6
+                                },
+                                {
+                                  "condition_id": "COND-IPM-ESI-P2-CONS-REC",
+                                  "description": "Conservative therapy completed within last 6 months",
+                                  "parameter": "conservative_therapy_within_6_months",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-ESI-P2-CONS-ONGOING",
+                            "description": "Details of engagement in ongoing non-operative conservative treatment with prior spinal injections",
+                            "parameter": "ongoing_conservative_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-ESI-P2-CONS-EXC",
+                            "description": "Documented medical reason patient unable to participate in conservative treatment",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-ESI-PATH-3",
+                "description": "Pathway 3: Failed back surgery syndrome (FBSS) or epidural fibrosis causing axial or radicular pain, with medical necessity reason",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-ESI-P3-FBSS",
+                      "description": "Failed back surgery syndrome or epidural fibrosis confirmed",
+                      "parameter": "fbss_or_epidural_fibrosis_confirmed",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P3-MED-REASON",
+                      "description": "Documentation of medical reason clearly indicating why injection is needed post-surgery",
+                      "parameter": "medical_reason_for_injection_documented",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P3-PAIN-TYPE",
+                      "description": "Causing axial or radicular pain",
+                      "parameter": "axial_or_radicular_pain_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P3-CONSERVATIVE",
+                      "description": "Failed conservative therapy >= 6 weeks in last 6 months, or ongoing conservative care, or documented medical reason",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-ESI-P3-CONS-6W",
+                            "description": "Conservative therapy >= 6 weeks within last 6 months",
+                            "sub_conditions": {
+                              "operator": "ALL_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-ESI-P3-CONS-DUR",
+                                  "description": "Conservative therapy duration >= 6 weeks",
+                                  "parameter": "conservative_therapy_duration_weeks",
+                                  "comparator": "GREATER_THAN_OR_EQUAL",
+                                  "value": 6
+                                },
+                                {
+                                  "condition_id": "COND-IPM-ESI-P3-CONS-REC",
+                                  "description": "Conservative therapy completed within last 6 months",
+                                  "parameter": "conservative_therapy_within_6_months",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-ESI-P3-CONS-ONGOING",
+                            "description": "Details of engagement in ongoing conservative treatment",
+                            "parameter": "ongoing_conservative_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-ESI-P3-CONS-EXC",
+                            "description": "Documented medical reason unable to participate in conservative treatment",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-ESI-PATH-4",
+                "description": "Pathway 4: Diagnostic transforaminal injection for surgical planning (<= 2 levels)",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-ESI-P4-SURGICAL-PLAN",
+                      "description": "Documentation of pre-operative evaluation and surgical plan",
+                      "parameter": "preoperative_evaluation_and_surgical_plan_documented",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P4-APPROACH",
+                      "description": "Transforaminal approach confirmed",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-ESI-P4-APP-1",
+                            "description": "Injection approach is transforaminal",
+                            "parameter": "injection_approach",
+                            "comparator": "EQUALS",
+                            "value": "TRANSFORAMINAL"
+                          },
+                          {
+                            "condition_id": "COND-IPM-ESI-P4-APP-2",
+                            "description": "Diagnostic transforaminal injection confirmed",
+                            "parameter": "diagnostic_transforaminal_injection",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-ESI-P4-LEVELS",
+                      "description": "No more than 2 levels of transforaminal blocks performed in one day",
+                      "parameter": "transforaminal_levels_count",
+                      "comparator": "LESS_THAN_OR_EQUAL",
+                      "value": 2
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -34,7 +304,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": ""
+    "review_notes": "Remediated Phase 8B.8B: Decomposed into 4 clinical pathways (acute radicular pain < 3m with >= 2w conservative care, spinal stenosis with >= 6w conservative care, FBSS/fibrosis with medical necessity reason and >= 6w conservative care, and diagnostic TFESI for surgical planning <= 2 levels) with baseline pain >= 6/10 or disability and imaging guidance."
   },
   {
     "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-002",
@@ -46,11 +316,11 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 11,
-      "printed_page": "Page 11 of 102"
+      "physical_page": 7,
+      "printed_page": "Page 4 of 13"
     },
-    "source_section": "Epidural Spine Injections 2026 / Conservative Treatment Prerequisites",
-    "source_quote": "The following two elements are required to meet conservative therapy guidelines for HEP:",
+    "source_section": "Evolent Clinical Guideline 1750 for Epidural Spine Injections / INDICATIONS / Treatment Purposes",
+    "source_quote": "Failure to respond to non-operative conservative treatment* targeting the requested spinal region for a minimum of six (6) weeks in the last six (6) months unless the medical reason this treatment cannot be done is clearly documented",
     "clinical_service_or_procedure": "Epidural Steroid Injection (ESI)",
     "rule_type": "clinical_prerequisite",
     "conditions": {
@@ -83,21 +353,204 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 17,
-      "printed_page": "Page 17 of 102"
+      "physical_page": 22,
+      "printed_page": "Page 6 of 14"
     },
-    "source_section": "Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
-    "source_quote": "Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal",
+    "source_section": "Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July) / INDICATIONS FOR INTRASPINAL DRUG TRIAL",
+    "source_quote": "For the treatment of chronic intractable pain in non-terminal individuals... Failure to respond to non-operative conservative therapy... for a minimum of 12 weeks... NOTE: Intrathecal trials are not indicated in opioid-na\u00efve individuals",
     "clinical_service_or_procedure": "Epidural Spine Injections Single Injection Trials For Intrat",
     "rule_type": "clinical_prerequisite",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ANY_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-CGEPIDURALPUMPTRIALS-001",
-          "description": "Clinical criteria satisfied for Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
-          "parameter": "cgepiduralpumptrials_indication",
-          "comparator": "IS_PRESENT"
+          "condition_id": "COND-IPM-PUMP-PATH-1",
+          "description": "Pathway 1: Chronic intractable pain in non-terminal individual, pain >= 6/10 or disability, failed >= 12 weeks conservative therapy, not opioid-naive, trial count <= 2",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-PUMP-P1-PAIN-CONFIRMED",
+                "description": "Chronic intractable pain confirmed",
+                "parameter": "chronic_intractable_pain_confirmed",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P1-NONTERMINAL",
+                "description": "Patient is non-terminal",
+                "parameter": "patient_is_non_terminal",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P1-NOT-OPIOID-NAIVE",
+                "description": "Intrathecal trials are not indicated in opioid-naive individuals (must not be opioid naive)",
+                "parameter": "patient_is_opioid_naive",
+                "comparator": "EQUALS",
+                "value": false
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P1-TRIAL-LIMIT",
+                "description": "Trial limit of maximum 2 intraspinal drug trials",
+                "parameter": "intraspinal_drug_trial_count",
+                "comparator": "LESS_THAN_OR_EQUAL",
+                "value": 2
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P1-PAIN-BASELINE",
+                "description": "Pain causing functional disability or persistent pain level >= 6 on scale 0 to 10",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-PUMP-P1-PAIN-SCORE",
+                      "description": "Pain intensity score >= 6 on numeric scale",
+                      "parameter": "pain_intensity_score_numeric",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 6
+                    },
+                    {
+                      "condition_id": "COND-IPM-PUMP-P1-DISABILITY",
+                      "description": "Pain causing functional disability interfering with ADLs/work",
+                      "parameter": "functional_disability_documented",
+                      "comparator": "EQUALS",
+                      "value": true
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P1-CONSERVATIVE",
+                "description": "Failed conservative therapy >= 12 weeks or documented medical reason",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-PUMP-P1-CONS-12W",
+                      "description": "Non-operative conservative therapy duration >= 12 weeks",
+                      "parameter": "conservative_therapy_duration_weeks",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 12
+                    },
+                    {
+                      "condition_id": "COND-IPM-PUMP-P1-CONS-EXC",
+                      "description": "Documented medical reason conservative therapy cannot be done",
+                      "parameter": "conservative_therapy_exception_documented",
+                      "comparator": "EQUALS",
+                      "value": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-PUMP-PATH-2",
+          "description": "Pathway 2: Intractable spasticity in non-terminal individual (SCI, MS, Stiff Person, etc.) with functional impairment, failed >= 12 weeks conservative therapy, trial count <= 2",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-PUMP-P2-SPASTICITY-CONFIRMED",
+                "description": "Intractable spasticity confirmed",
+                "parameter": "intractable_spasticity_confirmed",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P2-NONTERMINAL",
+                "description": "Patient is non-terminal",
+                "parameter": "patient_is_non_terminal",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P2-ETIOLOGY",
+                "description": "Qualifying etiology (Spinal cord injury, Multiple sclerosis, Stiff person syndrome, etc.)",
+                "parameter": "qualifying_spasticity_etiology_present",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P2-FUNCTIONAL-IMPAIRMENT",
+                "description": "Severe functional impairment (upright posture, ambulation balance, ADLs)",
+                "parameter": "spasticity_functional_impairment_documented",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P2-TRIAL-LIMIT",
+                "description": "Trial limit of maximum 2 intraspinal drug trials",
+                "parameter": "intraspinal_drug_trial_count",
+                "comparator": "LESS_THAN_OR_EQUAL",
+                "value": 2
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P2-CONSERVATIVE",
+                "description": "Failed conservative therapy (oral medications, PT) >= 12 weeks or documented medical reason",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-PUMP-P2-CONS-12W",
+                      "description": "Conservative therapy duration >= 12 weeks",
+                      "parameter": "conservative_therapy_duration_weeks",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 12
+                    },
+                    {
+                      "condition_id": "COND-IPM-PUMP-P2-CONS-EXC",
+                      "description": "Documented medical reason conservative therapy cannot be done",
+                      "parameter": "conservative_therapy_exception_documented",
+                      "comparator": "EQUALS",
+                      "value": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-PUMP-PATH-3",
+          "description": "Pathway 3: Second intraspinal drug trial indicated when first trial had < 50% relief or intolerable side effects, trial count == 2",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-PUMP-P3-TRIAL-COUNT",
+                "description": "Second intraspinal drug trial requested (count == 2)",
+                "parameter": "intraspinal_drug_trial_count",
+                "comparator": "EQUALS",
+                "value": 2
+              },
+              {
+                "condition_id": "COND-IPM-PUMP-P3-FIRST-TRIAL-RESULT",
+                "description": "First trial resulted in < 50% pain relief or intolerable side effects",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-PUMP-P3-LOW-RELIEF",
+                      "description": "First trial pain relief < 50%",
+                      "parameter": "prior_trial_relief_percentage",
+                      "comparator": "LESS_THAN",
+                      "value": 50
+                    },
+                    {
+                      "condition_id": "COND-IPM-PUMP-P3-SIDE-EFFECTS",
+                      "description": "First trial had intolerable side effects",
+                      "parameter": "prior_trial_intolerable_side_effects",
+                      "comparator": "EQUALS",
+                      "value": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -108,7 +561,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": ""
+    "review_notes": "Remediated Phase 8B.8B: Decomposed into 3 clinical pathways (chronic intractable pain in non-terminal individuals with failed >= 12w conservative therapy and non-opioid-naive status; intractable spasticity in non-terminal individuals with failed >= 12w conservative therapy; and second intraspinal trial for first trial relief < 50% or intolerable side effects, trial limit <= 2)."
   },
   {
     "rule_id": "RULE-IPM-CGFACETBLOCKS-001",
@@ -120,21 +573,281 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 31,
-      "printed_page": "Page 31 of 102"
+      "physical_page": 32,
+      "printed_page": "Page 2 of 14"
     },
-    "source_section": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
-    "source_quote": "Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks",
+    "source_section": "Paravertebral Facet Joint Injection or Blocks 2026 (July) / INDICATIONS FOR FACET JOINT INJECTIONS OR MEDIAL BRANCH NERVE BLOCKS",
+    "source_quote": "To confirm non-radicular pain suggestive of facet joint or pars interarticularis origin, ALL the following must be met: Pain that: Is causing functional disability or average pain level of \u2265 6... Duration for at least 3 months... Is either: By history, mainly axial or non-radicular; Is radicular due to stenosis caused by synovial cyst... Is of primary source that is not sacroiliac joint pain, discogenic pain, disc herniation, or radiculitis...",
     "clinical_service_or_procedure": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
     "rule_type": "clinical_indication",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ALL_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-CGFACETBLOCKS-001",
-          "description": "Clinical criteria satisfied for Paravertebral Facet Joint Injection or Blocks 2026 (July)",
-          "parameter": "cgfacetblocks_indication",
-          "comparator": "IS_PRESENT"
+          "condition_id": "COND-IPM-FACET-GUIDANCE",
+          "description": "Mandatory imaging guidance (Fluoroscopy, CT, or Ultrasound if fluoroscopy/CT contraindicated)",
+          "parameter": "imaging_guidance_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-FACET-NOT-HARDWARE",
+          "description": "Exclusion: Hardware injection or block for diagnosis or treatment of post-surgical or other spine pain is excluded",
+          "parameter": "hardware_injection_requested",
+          "comparator": "EQUALS",
+          "value": false
+        },
+        {
+          "condition_id": "COND-IPM-FACET-MAX-DIAGNOSTIC-SESSIONS",
+          "description": "In the diagnostic phase, a maximum of 2 procedures may be performed per spinal region",
+          "parameter": "diagnostic_sessions_in_region_count",
+          "comparator": "LESS_THAN_OR_EQUAL",
+          "value": 2
+        },
+        {
+          "condition_id": "COND-IPM-FACET-MAX-YEARLY-INJECTIONS",
+          "description": "A maximum of 4 facet injections may be performed in a 12-month period per spinal region",
+          "parameter": "injections_past_12_months_count",
+          "comparator": "LESS_THAN_OR_EQUAL",
+          "value": 4
+        },
+        {
+          "condition_id": "COND-IPM-FACET-BASELINE-PAIN",
+          "description": "Pain causing functional disability or average pain level >= 6 on scale 0 to 10",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-FACET-PAIN-SCORE",
+                "description": "Pain intensity score >= 6 on numeric scale",
+                "parameter": "pain_intensity_score_numeric",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 6
+              },
+              {
+                "condition_id": "COND-IPM-FACET-DISABILITY",
+                "description": "Pain causing functional disability interfering with ADLs",
+                "parameter": "functional_disability_documented",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-FACET-CLINICAL-PATHWAYS",
+          "description": "At least one qualifying facet joint clinical indication pathway met",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-FACET-PATH-1",
+                "description": "Pathway 1: Axial non-radicular facet pain >= 3 months, primary SIJ/discogenic/radicular excluded, failed >= 6 weeks conservative therapy within last 6 months",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-FACET-P1-AXIAL",
+                      "description": "Pain is by history mainly axial or non-radicular",
+                      "parameter": "pain_is_axial_nonradicular",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-FACET-P1-DURATION",
+                      "description": "Duration of pain of at least 3 months",
+                      "parameter": "pain_duration_months",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 3.0,
+                      "unit": "months"
+                    },
+                    {
+                      "condition_id": "COND-IPM-FACET-P1-EXCL-PRIMARY",
+                      "description": "Primary pain source is not SI joint pain, discogenic pain, disc herniation, or radiculitis",
+                      "parameter": "primary_sij_discogenic_radicular_excluded",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-FACET-P1-CONSERVATIVE",
+                      "description": "Failed conservative therapy >= 6 weeks in last 6 months or ongoing or exception",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-FACET-P1-CONS-6W",
+                            "sub_conditions": {
+                              "operator": "ALL_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-FACET-P1-CONS-DUR",
+                                  "parameter": "conservative_therapy_duration_weeks",
+                                  "comparator": "GREATER_THAN_OR_EQUAL",
+                                  "value": 6,
+                                  "unit": "weeks"
+                                },
+                                {
+                                  "condition_id": "COND-IPM-FACET-P1-CONS-6M",
+                                  "parameter": "conservative_therapy_within_6_months",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-FACET-P1-CONS-ONGOING",
+                            "description": "Details of engagement in ongoing non-operative conservative treatment",
+                            "parameter": "ongoing_conservative_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-FACET-P1-CONS-EXC",
+                            "description": "Documented medical reason conservative therapy cannot be done",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-FACET-PATH-2",
+                "description": "Pathway 2: Radicular pain due to stenosis caused by facet synovial cyst confirmed on imaging, failed >= 6 weeks conservative therapy",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-FACET-P2-CYST",
+                      "description": "Facet synovial cyst confirmed on imaging (MRI or CT)",
+                      "parameter": "facet_synovial_cyst_confirmed_on_imaging",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-FACET-P2-STENOSIS",
+                      "description": "Radicular pain due to spinal stenosis caused by the synovial cyst",
+                      "parameter": "radicular_stenosis_symptoms_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-FACET-P2-CONSERVATIVE",
+                      "description": "Failed conservative therapy >= 6 weeks in last 6 months or exception or ongoing",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-FACET-P2-CONS-6W",
+                            "sub_conditions": {
+                              "operator": "ALL_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-FACET-P2-CONS-DUR",
+                                  "parameter": "conservative_therapy_duration_weeks",
+                                  "comparator": "GREATER_THAN_OR_EQUAL",
+                                  "value": 6,
+                                  "unit": "weeks"
+                                },
+                                {
+                                  "condition_id": "COND-IPM-FACET-P2-CONS-6M",
+                                  "parameter": "conservative_therapy_within_6_months",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-FACET-P2-CONS-ONGOING",
+                            "parameter": "ongoing_conservative_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-FACET-P2-CONS-EXC",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-FACET-PATH-3",
+                "description": "Pathway 3: Chronic lumbar spondylolysis with pars interarticularis fracture/defect confirmed on imaging, pain duration >= 3 months, failed >= 6 weeks conservative therapy",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-FACET-P3-PARS",
+                      "description": "Imaging studies confirming the presence of a pars interarticularis fracture/defect",
+                      "parameter": "pars_interarticularis_defect_confirmed",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-FACET-P3-DURATION",
+                      "description": "Duration of pain of at least 3 months",
+                      "parameter": "pain_duration_months",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 3.0,
+                      "unit": "months"
+                    },
+                    {
+                      "condition_id": "COND-IPM-FACET-P3-CONSERVATIVE",
+                      "description": "Failed conservative therapy >= 6 weeks in last 6 months or exception or ongoing",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-FACET-P3-CONS-6W",
+                            "sub_conditions": {
+                              "operator": "ALL_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-FACET-P3-CONS-DUR",
+                                  "parameter": "conservative_therapy_duration_weeks",
+                                  "comparator": "GREATER_THAN_OR_EQUAL",
+                                  "value": 6,
+                                  "unit": "weeks"
+                                },
+                                {
+                                  "condition_id": "COND-IPM-FACET-P3-CONS-6M",
+                                  "parameter": "conservative_therapy_within_6_months",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-FACET-P3-CONS-ONGOING",
+                            "parameter": "ongoing_conservative_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-FACET-P3-CONS-EXC",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -145,7 +858,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": ""
+    "review_notes": "Remediated Phase 8B.8C: Decomposed into 3 clinical pathways (axial facet pain >= 3m with failed >= 6w conservative care in last 6m and primary SIJ/discogenic excluded; synovial cyst radiculopathy; and chronic lumbar spondylolysis with pars interarticularis defect) under mandatory imaging guidance."
   },
   {
     "rule_id": "RULE-IPM-CGFACETDENERVATION-001",
@@ -158,20 +871,200 @@
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
       "physical_page": 46,
-      "printed_page": "Page 46 of 102"
+      "printed_page": "Page 2 of 12"
     },
-    "source_section": "Paravertebral Facet Joint Denervation 2026 (July)",
-    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "source_section": "Paravertebral Facet Joint Denervation 2026 (July) / INDICATIONS FOR PARAVERTEBRAL FACET JOINT DENERVATION",
+    "source_quote": "For the treatment of facet-mediated pain, ALL of the following must be met: Pain that: Is causing functional disability or average pain level of \u2265 6 on a scale of 0 to 10... Is of at least 3 months duration... positive response to at least one local anesthetic block of the facet joint nerves (medial branch blocks) with at least 70% pain relief... Failure of conservative treatment for a minimum of six (6) weeks in the last six (6) months... All procedures must be performed using fluoroscopic or CT guidance...",
     "clinical_service_or_procedure": "Paravertebral Facet Joint Denervation 2026 (July)",
     "rule_type": "clinical_indication",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ALL_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-CGFACETDENERVATION-001",
-          "description": "Clinical criteria satisfied for Paravertebral Facet Joint Denervation 2026 (July)",
-          "parameter": "cgfacetdenervation_indication",
-          "comparator": "IS_PRESENT"
+          "condition_id": "COND-IPM-RFA-GUIDANCE",
+          "description": "Mandatory fluoroscopic or CT guidance (ultrasound not permitted)",
+          "parameter": "imaging_guidance_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-RFA-PATHWAYS",
+          "description": "At least one qualifying RFA pathway met (Initial or Repeat Denervation)",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-RFA-PATH-1",
+                "description": "Pathway 1: Initial Facet Radiofrequency Neurolysis with prior diagnostic MBB relief >= 70%, pain >= 6/10 or disability, duration >= 3m, primary SIJ/discogenic excluded, failed >= 6w conservative care",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-RFA-P1-BASELINE-PAIN",
+                      "description": "Pain causing functional disability or average pain level >= 6 on scale 0 to 10",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-RFA-P1-PAIN-SCORE",
+                            "parameter": "pain_intensity_score_numeric",
+                            "comparator": "GREATER_THAN_OR_EQUAL",
+                            "value": 6
+                          },
+                          {
+                            "condition_id": "COND-IPM-RFA-P1-DISABILITY",
+                            "parameter": "functional_disability_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P1-DURATION",
+                      "description": "Pain duration of at least 3 months",
+                      "parameter": "pain_duration_months",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 3.0,
+                      "unit": "months"
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P1-MBB-RELIEF",
+                      "description": "Positive response to at least one local anesthetic medial branch block with at least 70% pain relief",
+                      "parameter": "diagnostic_mbb_relief_percentage",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 70,
+                      "unit": "%"
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P1-PAIN-RETURNED",
+                      "description": "Insufficient sustained relief with return of pain causing disability or pain >= 6/10 after diagnostic relief period",
+                      "parameter": "pain_returned_after_diagnostic_block",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P1-EXCL-PRIMARY",
+                      "description": "Primary pain is not SI joint pain, discogenic pain, disc herniation, or radiculitis",
+                      "parameter": "primary_sij_discogenic_radicular_excluded",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P1-CONSERVATIVE",
+                      "description": "Failure of conservative treatment for a minimum of 6 weeks in the last 6 months or exception",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-RFA-P1-CONS-6W",
+                            "sub_conditions": {
+                              "operator": "ALL_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-RFA-P1-CONS-DUR",
+                                  "parameter": "conservative_therapy_duration_weeks",
+                                  "comparator": "GREATER_THAN_OR_EQUAL",
+                                  "value": 6,
+                                  "unit": "weeks"
+                                },
+                                {
+                                  "condition_id": "COND-IPM-RFA-P1-CONS-6M",
+                                  "parameter": "conservative_therapy_within_6_months",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-RFA-P1-CONS-EXC",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-RFA-PATH-2",
+                "description": "Pathway 2: Repeat Facet Radiofrequency Neurolysis with positive response to prior RFA (>= 50% relief for >= 4 months), recurrence of pain >= 6/10 or disability, ongoing conservative care, <= 2 RFA per 12 months",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-RFA-P2-RELIEF-50",
+                      "description": "Positive response to prior radiofrequency denervation with at least 50% pain relief or functional improvement",
+                      "parameter": "prior_rfa_relief_percentage",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 50,
+                      "unit": "%"
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P2-RELIEF-DUR-4M",
+                      "description": "Pain relief lasted for at least 4 months",
+                      "parameter": "prior_rfa_duration_months",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 4.0,
+                      "unit": "months"
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P2-RECURRENT-PAIN",
+                      "description": "Continued pain causing functional disability or average pain level >= 6 on scale 0-10",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-RFA-P2-PAIN-SCORE",
+                            "parameter": "pain_intensity_score_numeric",
+                            "comparator": "GREATER_THAN_OR_EQUAL",
+                            "value": 6
+                          },
+                          {
+                            "condition_id": "COND-IPM-RFA-P2-DISABILITY",
+                            "parameter": "functional_disability_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P2-ONGOING-CONS",
+                      "description": "Engaged in ongoing non-operative conservative treatment or documented medical reason",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-RFA-P2-ONGOING-YES",
+                            "parameter": "ongoing_conservative_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-RFA-P2-ONGOING-EXC",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-RFA-P2-FREQ-LIMIT",
+                      "description": "Maximum of 2 facet denervation procedures performed in a 12-month period per spinal region",
+                      "parameter": "rfa_procedures_past_12_months",
+                      "comparator": "LESS_THAN_OR_EQUAL",
+                      "value": 2
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -182,7 +1075,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": ""
+    "review_notes": "Remediated Phase 8B.8C: Decomposed into 2 clinical pathways (initial facet RFA with >= 70% diagnostic MBB relief, return of pain >= 6/10, failed >= 6w conservative care; and repeat facet RFA with >= 50% relief for >= 4 months, ongoing conservative therapy, <= 2 RFA per 12 months) under mandatory fluoroscopic or CT guidance."
   },
   {
     "rule_id": "RULE-IPM-CGFACETDENERVATION-002",
@@ -194,19 +1087,19 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 46,
-      "printed_page": "Page 46 of 102"
+      "physical_page": 47,
+      "printed_page": "Page 3 of 12"
     },
-    "source_section": "Paravertebral Facet Joint Denervation 2026 / Diagnostic Block Prerequisites",
-    "source_quote": "\u25a0 Continued pain, after the diagnostic relief period, causing functional disability or",
+    "source_section": "Paravertebral Facet Joint Denervation 2026 (July) / Repeat Procedures",
+    "source_quote": "Positive response to prior radiofrequency denervation procedures with at least 50% pain relief or improved ability to function for at least 4 months",
     "clinical_service_or_procedure": "Facet Joint Radiofrequency Neurotomy / Denervation",
     "rule_type": "clinical_prerequisite",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ALL_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-FACET-RFA-DIAG",
-          "description": "Documented positive pain relief from prior diagnostic facet joint blocks",
+          "condition_id": "COND-IPM-FACET-RFA-REPEAT-RELIEF",
+          "description": "Documented positive pain relief from prior facet denervation procedure of at least 50% for repeat procedure",
           "parameter": "diagnostic_facet_block_relief",
           "comparator": "GREATER_THAN_OR_EQUAL",
           "value": 50,
@@ -218,7 +1111,8 @@
     "missing_information_behavior": "FAIL_CONDITION",
     "dependencies": [],
     "human_review_required": false,
-    "extraction_status": "DRAFT"
+    "extraction_status": "DRAFT",
+    "review_notes": "Remediated Phase 8B.8C: Aligned citation to physical page 47 and confirmed repeat RFA threshold of >= 50% relief."
   },
   {
     "rule_id": "RULE-IPM-CGINFUSIONPUMPS-001",
@@ -267,21 +1161,218 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 57,
-      "printed_page": "Page 57 of 102"
+      "physical_page": 58,
+      "printed_page": "Page 2 of 10"
     },
-    "source_section": "Sacroiliac Joint Injections 2026 (July)",
-    "source_quote": "Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections",
+    "source_section": "Sacroiliac Joint Injections 2026 (July) / INDICATIONS FOR SACROILIAC JOINT INJECTIONS",
+    "source_quote": "For the treatment of sacroiliac joint (SIJ) pain ALL of the following must be met: Primarily axial low back pain (below level of L5)... pain level of \u2265 6... cluster of any three (3) of the following positive provocation exam findings... Duration of pain of at least 3 months... Failure to respond to non-operative conservative treatment... minimum of 6 weeks in the last 6 months",
     "clinical_service_or_procedure": "Sacroiliac Joint Injections 2026 (July)",
     "rule_type": "clinical_indication",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ALL_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-CGSIINJECTIONS-001",
-          "description": "Clinical criteria satisfied for Sacroiliac Joint Injections 2026 (July)",
-          "parameter": "cgsiinjections_indication",
-          "comparator": "IS_PRESENT"
+          "condition_id": "COND-IPM-SIJ-GUIDANCE",
+          "description": "Imaging guidance required for sacroiliac joint injection",
+          "parameter": "imaging_guidance_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-SIJ-CLINICAL-INDICATION",
+          "description": "One of three authorized SI joint injection clinical pathways satisfied (Mechanical SIJ pain, Spondyloarthropathy, or Pre-surgical diagnostic)",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-SIJ-PATH-1",
+                "description": "Pathway 1: Mechanical Sacroiliac Joint Pain (axial pain below L5, duration >= 3m, pain >= 6/10 or disability, cluster >= 3 of 8 provocative tests, failed >= 6w conservative care in last 6m)",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SIJ-P1-LOCATION",
+                      "description": "Primarily axial low back pain below the level of L5",
+                      "parameter": "axial_pain_below_l5_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P1-DURATION",
+                      "description": "Pain duration >= 3 months",
+                      "parameter": "pain_duration_months",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 3
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P1-PAIN-BASELINE",
+                      "description": "Pain causing functional disability or average pain score >= 6/10",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SIJ-P1-PAIN-SCORE",
+                            "description": "Pain intensity score >= 6 on numeric scale",
+                            "parameter": "pain_intensity_score_numeric",
+                            "comparator": "GREATER_THAN_OR_EQUAL",
+                            "value": 6
+                          },
+                          {
+                            "condition_id": "COND-IPM-SIJ-P1-DISABILITY",
+                            "description": "Documented functional disability caused by pain",
+                            "parameter": "functional_disability_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P1-PROVOCATIVE-CLUSTER",
+                      "description": "A cluster of at least three (3) of eight positive provocative exam findings",
+                      "parameter": "provocative_exam_findings_count",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 3
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P1-CONSERVATIVE",
+                      "description": "Failed conservative therapy >= 6 weeks in last 6 months, or ongoing conservative care, or documented medical reason",
+                      "sub_conditions": {
+                        "operator": "ANY_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SIJ-P1-CONS-6W",
+                            "description": "Conservative therapy >= 6 weeks within last 6 months",
+                            "sub_conditions": {
+                              "operator": "ALL_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-SIJ-P1-CONS-DUR",
+                                  "description": "Conservative therapy duration >= 6 weeks",
+                                  "parameter": "conservative_therapy_duration_weeks",
+                                  "comparator": "GREATER_THAN_OR_EQUAL",
+                                  "value": 6
+                                },
+                                {
+                                  "condition_id": "COND-IPM-SIJ-P1-CONS-REC",
+                                  "description": "Conservative therapy completed within last 6 months",
+                                  "parameter": "conservative_therapy_within_6_months",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-SIJ-P1-CONS-ONGOING",
+                            "description": "Details of engagement in ongoing conservative treatment",
+                            "parameter": "ongoing_conservative_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SIJ-P1-CONS-EXC",
+                            "description": "Documented medical reason unable to participate in conservative treatment",
+                            "parameter": "conservative_therapy_exception_documented",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-SIJ-PATH-2",
+                "description": "Pathway 2: Spondyloarthropathy (low back pain >= 3m, age onset < 45, comprehensive pain program in place, imaging evidence of sacroiliitis, >= 1 spondyloarthropathy feature)",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SIJ-P2-DIAGNOSIS",
+                      "description": "Spondyloarthropathy diagnosed or evaluated",
+                      "parameter": "spondyloarthropathy_diagnosed",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P2-DURATION",
+                      "description": "Low back pain duration >= 3 months",
+                      "parameter": "pain_duration_months",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 3
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P2-AGE-ONSET",
+                      "description": "Age of symptom onset < 45 years",
+                      "parameter": "age_at_symptom_onset_years",
+                      "comparator": "LESS_THAN",
+                      "value": 45
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P2-PAIN-PROGRAM",
+                      "description": "Comprehensive pain management program is in place (PT, HEP, education, psychosocial, medication)",
+                      "parameter": "comprehensive_pain_program_active",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P2-IMAGING",
+                      "description": "Evidence of sacroiliitis on imaging (active inflammation on MRI or radiographic sacroiliitis grade 2-4 bilaterally or 3-4 unilaterally)",
+                      "parameter": "imaging_evidence_sacroiliitis",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P2-FEATURES",
+                      "description": "At least one (1) spondyloarthropathy feature present",
+                      "parameter": "spondyloarthropathy_features_count",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-SIJ-PATH-3",
+                "description": "Pathway 3: Diagnostic SIJ injection for surgical planning (contrast-enhanced intra-articular injection, relief >= 75%, pre-op plan for SIJ surgery, diagnostic count <= 2)",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SIJ-P3-SURGICAL-PLAN",
+                      "description": "Documentation of pre-operative evaluation and surgical plan for SI joint surgery",
+                      "parameter": "preoperative_evaluation_and_surgical_plan_documented",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P3-TECHNIQUE",
+                      "description": "Image-guided contrast-enhanced intra-articular injection",
+                      "parameter": "contrast_enhanced_intraarticular_injection",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P3-RELIEF",
+                      "description": "At least 75% pain relief for expected duration of anesthetic after diagnostic injection",
+                      "parameter": "diagnostic_pain_relief_percentage",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 75
+                    },
+                    {
+                      "condition_id": "COND-IPM-SIJ-P3-COUNT",
+                      "description": "No more than two diagnostic injections per diagnostic phase",
+                      "parameter": "diagnostic_sij_injection_count",
+                      "comparator": "LESS_THAN_OR_EQUAL",
+                      "value": 2
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -292,7 +1383,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": ""
+    "review_notes": "Remediated Phase 8B.8B: Decomposed into 3 clinical pathways (mechanical SIJ pain below L5 with duration >= 3m, pain >= 6/10 or disability, cluster >= 3 of 8 provocative tests, and failed >= 6w conservative care in prior 6m; spondyloarthropathy with onset < 45, pain >= 3m, imaging sacroiliitis, >= 1 feature, and active pain program; and pre-surgical diagnostic SIJ injection with contrast, relief >= 75%, and surgical plan) under mandatory imaging guidance."
   },
   {
     "rule_id": "RULE-IPM-CGSPINALCORDSTIM-001",
@@ -305,20 +1396,289 @@
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
       "physical_page": 78,
-      "printed_page": "Page 78 of 102"
+      "printed_page": "Page 2 of 12"
     },
-    "source_section": "Spinal Cord Stimulation 2026 (July)",
-    "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes,",
+    "source_section": "Evolent Clinical Guideline 1757 for Spinal Cord Stimulation",
+    "source_quote": "A spinal cord stimulation (SCS) trial is appropriate when ALL the following criteria are met: Pain that: Is causing functional disability or average pain level of \u2265 6 on a scale of 0 to 10; Is of at least 6 months duration; Is caused by at least one of the following: Failed spine surgery syndrome (FSSS)/persistent spinal pain syndrome (PSPS) or post-laminectomy syndrome; Complex regional pain syndrome (CRPS), type I or type II, meeting Budapest criteria; Chronic neuropathic pain of certain origins; Failure to respond to non-operative conservative treatment for a minimum of 6 months; A completed presurgical psychological assessment",
     "clinical_service_or_procedure": "Spinal Cord Stimulation 2026 (July)",
     "rule_type": "clinical_indication",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ALL_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-CGSPINALCORDSTIM-001",
-          "description": "Clinical criteria satisfied for Spinal Cord Stimulation 2026 (July)",
-          "parameter": "cgspinalcordstim_indication",
-          "comparator": "IS_PRESENT"
+          "condition_id": "COND-IPM-SCS-NO-ACTIVE-INFECTION",
+          "description": "Contraindication: Absence of active systemic or spinal infection",
+          "parameter": "active_systemic_or_spinal_infection",
+          "comparator": "EQUALS",
+          "value": false
+        },
+        {
+          "condition_id": "COND-IPM-SCS-NOT-PREGNANT",
+          "description": "Contraindication: Absence of pregnancy",
+          "parameter": "pregnancy_status",
+          "comparator": "EQUALS",
+          "value": false
+        },
+        {
+          "condition_id": "COND-IPM-SCS-MRSA-MSSA-PROTOCOL",
+          "description": "Infection screening: All patients colonized with MRSA or MSSA must have a decolonization plan to be performed no earlier than 10 days prior to the planned procedure",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-SCS-MRSA-NOT-COLONIZED",
+                "description": "Patient not colonized with MRSA or MSSA",
+                "parameter": "mrsa_mssa_colonization_present",
+                "comparator": "EQUALS",
+                "value": false
+              },
+              {
+                "condition_id": "COND-IPM-SCS-MRSA-DECOLONIZATION-PLAN",
+                "description": "Colonized patient has documented decolonization plan performed/scheduled no earlier than 10 days prior to procedure",
+                "sub_conditions": {
+                  "operator": "ALL_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SCS-MRSA-COLONIZED",
+                      "parameter": "mrsa_mssa_colonization_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-DECOLONIZATION-DOCUMENTED",
+                      "parameter": "decolonization_plan_documented",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-DECOLONIZATION-TIMING",
+                      "description": "Decolonization protocol scheduled no earlier than 10 days prior to procedure (timing <= 10 days)",
+                      "parameter": "decolonization_timing_days_prior_to_procedure",
+                      "comparator": "LESS_THAN_OR_EQUAL",
+                      "value": 10
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-SCS-PAIN-DURATION",
+          "description": "Pain of at least 6 months duration",
+          "parameter": "pain_duration_months",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 6.0,
+          "unit": "months"
+        },
+        {
+          "condition_id": "COND-IPM-SCS-BASELINE-PAIN",
+          "description": "Pain causing functional disability or average pain level >= 6 on scale 0 to 10",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-SCS-PAIN-SCORE",
+                "parameter": "pain_intensity_score_numeric",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 6
+              },
+              {
+                "condition_id": "COND-IPM-SCS-DISABILITY",
+                "parameter": "functional_disability_documented",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-SCS-CONSERVATIVE",
+          "description": "Failure to respond to non-operative conservative treatment for a minimum of 6 months or documented exception",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-SCS-CONS-DUR",
+                "parameter": "conservative_therapy_duration_months",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 6.0,
+                "unit": "months"
+              },
+              {
+                "condition_id": "COND-IPM-SCS-CONS-EXC",
+                "parameter": "conservative_therapy_exception_documented",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-SCS-PSYCH-EVAL",
+          "description": "Completed presurgical psychological assessment documenting all 4 mandatory elements",
+          "sub_conditions": {
+            "operator": "ALL_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-SCS-PSYCH-NOT-PRIMARY",
+                "description": "Pain is not due to psychiatric disorders (depression, anxiety, somatic symptom disorder, substance use sequelae)",
+                "parameter": "pain_not_due_to_psychiatric_disorder",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-SCS-PSYCH-MGMT",
+                "description": "Satisfactory management of personality and psychiatric disorders",
+                "parameter": "psychiatric_personality_disorders_managed",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-SCS-PSYCH-SUBSTANCE",
+                "description": "Satisfactory management of substance use disorder in recovery",
+                "parameter": "substance_use_disorder_in_recovery",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-SCS-PSYCH-COGNITIVE",
+                "description": "Demonstration of cognitive ability to manage the stimulator",
+                "parameter": "cognitive_ability_to_manage_stimulator",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-SCS-CLINICAL-PATHWAYS",
+          "description": "At least one qualifying clinical trial indication pathway met (SCS Trial Etiologies OR DRGS Lower Limb CRPS)",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-SCS-PATH-1-ETIOLOGIES",
+                "description": "SCS Trial qualifying etiology (FBSS/PSPS, CRPS I/II, or chronic neuropathic pain of qualifying origin)",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-FBSS",
+                      "description": "Failed spine surgery syndrome (FSSS) / persistent spinal pain syndrome (PSPS) or post-laminectomy syndrome",
+                      "parameter": "failed_spine_surgery_syndrome_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-CRPS",
+                      "description": "Complex regional pain syndrome (CRPS), type I or type II, meeting Budapest criteria",
+                      "parameter": "crps_budapest_criteria_met",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-ARACHNOIDITIS",
+                      "description": "Lumbosacral arachnoiditis",
+                      "parameter": "lumbosacral_arachnoiditis",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-PHN",
+                      "description": "Post herpetic neuralgia",
+                      "parameter": "post_herpetic_neuralgia",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-RADICULOPATHY",
+                      "description": "Radiculopathy",
+                      "parameter": "radiculopathy_present",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-ISCHEMIC-LEG",
+                      "description": "Chronic ischemic leg pain",
+                      "parameter": "chronic_ischemic_leg_pain",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-DPN",
+                      "description": "Diabetic peripheral neuropathy",
+                      "parameter": "diabetic_peripheral_neuropathy",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-PHANTOM",
+                      "description": "Phantom limb syndrome (stump pain)",
+                      "parameter": "phantom_limb_syndrome",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-PERIPHERAL-NEUROPATHY",
+                      "description": "Peripheral neuropathy",
+                      "parameter": "peripheral_neuropathy",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-NONSURGICAL-BACK",
+                      "description": "Chronic back pain (neuropathic pain) and not a surgical candidate",
+                      "parameter": "chronic_neuropathic_back_pain_nonsurgical",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SCS-P1-ANGINA",
+                      "description": "Chronic, refractory angina pectoris (NYHA III/IV, post-PCI/CABG, not revascularization candidate, failed optimal meds >= 1 month)",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SCS-P1-ANGINA-POST-REVASC",
+                            "parameter": "continued_angina_post_pci_or_cabg",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SCS-P1-ANGINA-NO-FURTHER-REVASC",
+                            "parameter": "not_revascularization_candidate",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SCS-P1-ANGINA-NYHA",
+                            "parameter": "angina_nyha_class_3_or_4",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SCS-P1-ANGINA-MEDS",
+                            "parameter": "failed_optimal_meds_duration_months",
+                            "comparator": "GREATER_THAN_OR_EQUAL",
+                            "value": 1.0,
+                            "unit": "months"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-SCS-PATH-2-DRGS",
+                "description": "Pathway 2: Dorsal root ganglion stimulation (DRGS) trial for lower limb CRPS type I or II meeting Budapest criteria",
+                "parameter": "lower_limb_crps_budapest_criteria_met",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
         }
       ]
     },
@@ -377,21 +1737,443 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 89,
-      "printed_page": "Page 89 of 102"
+      "physical_page": 91,
+      "printed_page": "Page 3 of 14"
     },
-    "source_section": "Sympathetic Nerve Blocks 2026 (July)",
-    "source_quote": "Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks",
+    "source_section": "Sympathetic Nerve Blocks 2026 (July) / INDICATIONS",
+    "source_quote": "General Indications: Acute or chronic noncancer pain causing functional disability or average pain level of \u2265 6 on a scale of 0 to 10 prior to injection... Cancer pain affecting quality of life... Each block must be performed under image guidance... Bilateral blocks will not be performed on the same day of service.",
     "clinical_service_or_procedure": "Sympathetic Nerve Blocks 2026 (July)",
     "rule_type": "clinical_indication",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ALL_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-CGSYMPATHETICBLOCKS-001",
-          "description": "Clinical criteria satisfied for Sympathetic Nerve Blocks 2026 (July)",
-          "parameter": "cgsympatheticblocks_indication",
-          "comparator": "IS_PRESENT"
+          "condition_id": "COND-IPM-SYMP-GUIDANCE",
+          "description": "Each block must be performed under image guidance (ultrasound not permitted for thoracic, lumbar, or superior hypogastric blocks)",
+          "parameter": "imaging_guidance_present",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-SYMP-UNILATERAL",
+          "description": "Bilateral sympathetic blocks will not be performed on the same day of service",
+          "parameter": "bilateral_procedure_requested",
+          "comparator": "EQUALS",
+          "value": false
+        },
+        {
+          "condition_id": "COND-IPM-SYMP-BASELINE-PAIN",
+          "description": "Acute/chronic noncancer pain causing functional disability or pain >= 6/10, OR cancer pain affecting quality of life",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-SYMP-PAIN-SCORE",
+                "parameter": "pain_intensity_score_numeric",
+                "comparator": "GREATER_THAN_OR_EQUAL",
+                "value": 6
+              },
+              {
+                "condition_id": "COND-IPM-SYMP-DISABILITY",
+                "parameter": "functional_disability_documented",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-SYMP-CANCER-PAIN",
+                "parameter": "cancer_pain_present",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-SYMP-UPPER-ABD-CANCER",
+                "parameter": "upper_abdominal_cancer_pain",
+                "comparator": "EQUALS",
+                "value": true
+              },
+              {
+                "condition_id": "COND-IPM-SYMP-PELVIC-CANCER",
+                "parameter": "pelvic_rectal_cancer_pain",
+                "comparator": "EQUALS",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "condition_id": "COND-IPM-SYMP-PATHWAYS",
+          "description": "At least one qualifying sympathetic nerve block modality indication pathway met",
+          "sub_conditions": {
+            "operator": "ANY_OF",
+            "criteria": [
+              {
+                "condition_id": "COND-IPM-SYMP-PATH-1-STELLATE",
+                "description": "Pathway 1: Stellate Ganglion Block (64510) for acute herpes zoster (< 4w + antiviral), cancer pain, phantom limb, CRPS (Budapest criteria + functional restoration), or repeat block (>= 50% relief)",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SYMP-P1-ZOSTER",
+                      "description": "Acute herpes zoster with pain duration < 4 weeks and active antiviral therapy regimen",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SYMP-P1-ZOSTER-CONF",
+                            "parameter": "acute_herpes_zoster_present",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P1-ZOSTER-DUR",
+                            "parameter": "zoster_duration_weeks",
+                            "comparator": "LESS_THAN",
+                            "value": 4.0,
+                            "unit": "weeks"
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P1-ZOSTER-ANTIVIRAL",
+                            "parameter": "active_antiviral_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P1-CANCER-PHANTOM",
+                      "description": "Cancer pain or phantom limb pain with failure of conservative treatment",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SYMP-P1-ETIOLOGY",
+                            "sub_conditions": {
+                              "operator": "ANY_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P1-CANCER",
+                                  "parameter": "cancer_pain_present",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P1-PHANTOM",
+                                  "parameter": "phantom_limb_pain_present",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P1-CONS-FAIL",
+                            "sub_conditions": {
+                              "operator": "ANY_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P1-CONS-FAILED",
+                                  "parameter": "conservative_therapy_failed",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P1-CONS-EXC",
+                                  "parameter": "conservative_therapy_exception_documented",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P1-CRPS",
+                      "description": "CRPS types I and II meeting Budapest criteria with failure of functional restoration and active participation",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SYMP-P1-CRPS-BUDAPEST",
+                            "parameter": "crps_budapest_criteria_met",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P1-CRPS-FAILED-FR",
+                            "parameter": "functional_restoration_failed",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P1-CRPS-ACTIVE-FR",
+                            "parameter": "active_functional_restoration",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P1-REPEAT",
+                      "description": "Repeat block: previous block resulted in at least 50% relief for duration of anesthetic",
+                      "parameter": "prior_block_relief_percentage",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 50,
+                      "unit": "%"
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-SYMP-PATH-2-THORACIC-LUMBAR",
+                "description": "Pathway 2: Thoracic or Lumbar Sympathetic Block (64520) for acute herpes zoster (< 4w + antiviral), cancer pain, phantom limb, ischemic limb pain, CRPS (Budapest criteria), or repeat block (>= 50% relief)",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SYMP-P2-ZOSTER",
+                      "description": "Acute herpes zoster with pain duration < 4 weeks and active antiviral therapy regimen",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SYMP-P2-ZOSTER-CONF",
+                            "parameter": "acute_herpes_zoster_present",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P2-ZOSTER-DUR",
+                            "parameter": "zoster_duration_weeks",
+                            "comparator": "LESS_THAN",
+                            "value": 4.0,
+                            "unit": "weeks"
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P2-ZOSTER-ANTIVIRAL",
+                            "parameter": "active_antiviral_therapy",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P2-CANCER-PHANTOM-ISCHEMIC",
+                      "description": "Cancer pain, phantom limb pain, or nonsurgical ischemic limb pain with failure of conservative treatment",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SYMP-P2-ETIOLOGY",
+                            "sub_conditions": {
+                              "operator": "ANY_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P2-CANCER",
+                                  "parameter": "cancer_pain_present",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P2-PHANTOM",
+                                  "parameter": "phantom_limb_pain_present",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P2-ISCHEMIC",
+                                  "parameter": "nonsurgical_ischemic_limb_pain",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P2-CONS-FAIL",
+                            "sub_conditions": {
+                              "operator": "ANY_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P2-CONS-FAILED",
+                                  "parameter": "conservative_therapy_failed",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P2-CONS-EXC",
+                                  "parameter": "conservative_therapy_exception_documented",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P2-CRPS",
+                      "description": "CRPS types I and II meeting Budapest criteria with failure of functional restoration and active participation",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SYMP-P2-CRPS-BUDAPEST",
+                            "parameter": "crps_budapest_criteria_met",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P2-CRPS-FAILED-FR",
+                            "parameter": "functional_restoration_failed",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P2-CRPS-ACTIVE-FR",
+                            "parameter": "active_functional_restoration",
+                            "comparator": "EQUALS",
+                            "value": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P2-REPEAT",
+                      "description": "Repeat block: previous block resulted in at least 50% relief for duration of anesthetic",
+                      "parameter": "prior_block_relief_percentage",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 50,
+                      "unit": "%"
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-SYMP-PATH-3-CELIAC",
+                "description": "Pathway 3: Celiac Plexus Block (64530) for upper abdominal malignancy-associated pain, chronic relapsing pancreatitis, or repeat block (>= 50% relief)",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SYMP-P3-MALIGNANCY",
+                      "description": "Upper abdominal pain associated with malignancy (conservative treatment not required)",
+                      "parameter": "upper_abdominal_cancer_pain",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P3-PANCREATITIS",
+                      "description": "Chronic relapsing pancreatitis with failed conservative treatment or exception",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SYMP-P3-PANCREATITIS-CONF",
+                            "parameter": "chronic_pancreatitis_pain",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P3-PANCREATITIS-CONS",
+                            "sub_conditions": {
+                              "operator": "ANY_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P3-CONS-FAIL",
+                                  "parameter": "conservative_therapy_failed",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P3-CONS-EXC",
+                                  "parameter": "conservative_therapy_exception_documented",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P3-REPEAT",
+                      "description": "Repeat block: previous block resulted in at least 50% relief for duration of anesthetic",
+                      "parameter": "prior_block_relief_percentage",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 50,
+                      "unit": "%"
+                    }
+                  ]
+                }
+              },
+              {
+                "condition_id": "COND-IPM-SYMP-PATH-4-HYPOGASTRIC",
+                "description": "Pathway 4: Superior Hypogastric Plexus Block (64517) for pelvic/rectal malignancy-associated pain, chronic noncancer pelvic/rectal visceral pain, or repeat block (>= 50% relief)",
+                "sub_conditions": {
+                  "operator": "ANY_OF",
+                  "criteria": [
+                    {
+                      "condition_id": "COND-IPM-SYMP-P4-MALIGNANCY",
+                      "description": "Pelvic or rectal pain associated with malignancy (conservative treatment not required)",
+                      "parameter": "pelvic_rectal_cancer_pain",
+                      "comparator": "EQUALS",
+                      "value": true
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P4-NONCANCER-VISCERAL",
+                      "description": "Chronic noncancer pain of pelvic and rectal viscera with failed conservative treatment or exception",
+                      "sub_conditions": {
+                        "operator": "ALL_OF",
+                        "criteria": [
+                          {
+                            "condition_id": "COND-IPM-SYMP-P4-VISCERAL-CONF",
+                            "parameter": "chronic_noncancer_pelvic_visceral_pain",
+                            "comparator": "EQUALS",
+                            "value": true
+                          },
+                          {
+                            "condition_id": "COND-IPM-SYMP-P4-VISCERAL-CONS",
+                            "sub_conditions": {
+                              "operator": "ANY_OF",
+                              "criteria": [
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P4-CONS-FAIL",
+                                  "parameter": "conservative_therapy_failed",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                },
+                                {
+                                  "condition_id": "COND-IPM-SYMP-P4-CONS-EXC",
+                                  "parameter": "conservative_therapy_exception_documented",
+                                  "comparator": "EQUALS",
+                                  "value": true
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "condition_id": "COND-IPM-SYMP-P4-REPEAT",
+                      "description": "Repeat block: previous block resulted in at least 50% relief for duration of anesthetic",
+                      "parameter": "prior_block_relief_percentage",
+                      "comparator": "GREATER_THAN_OR_EQUAL",
+                      "value": 50,
+                      "unit": "%"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     },
@@ -402,7 +2184,7 @@
     ],
     "human_review_required": false,
     "extraction_status": "DRAFT",
-    "review_notes": ""
+    "review_notes": "Remediated Phase 8B.8C: Decomposed into 4 anatomical block pathways (stellate ganglion block CPT 64510, thoracic/lumbar sympathetic block CPT 64520, celiac plexus block CPT 64530, and superior hypogastric plexus block CPT 64517) under mandatory image guidance, unilateral restriction, and baseline pain >= 6/10 or cancer pain."
   },
   {
     "rule_id": "RULE-IPM-EPOS1755-001",
@@ -414,21 +2196,128 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 1,
-      "printed_page": "Page 1 of 8"
+      "physical_page": 3,
+      "printed_page": "Page 3 of 8"
     },
-    "source_section": "Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
-    "source_quote": "Evolent Place of Service Policy 1755 for Interventional Pain Management",
+    "source_section": "Patient Criteria for Selection of Outpatient Hospital Setting",
+    "source_quote": "Patient Criteria for Selection of Outpatient Hospital Setting: In certain circumstances, a patient will qualify for care in an outpatient hospital. Outpatient hospital care will be deemed appropriate when ANY of the following criteria are met: American Society of Anesthesiologists\u00ae Physical Status (ASA\u00ae PS) score \u2265 3; Body Mass Index (BMI) \u2265 40 with or without obesity-related condition or unmanaged comorbidities; Patient has one or more moderate to severe health conditions",
     "clinical_service_or_procedure": "Evolent Place of Service Policy 1755 for Interventional Pain",
     "rule_type": "place_of_service",
     "conditions": {
-      "operator": "SINGLE_CONDITION",
+      "operator": "ANY_OF",
       "criteria": [
         {
-          "condition_id": "COND-IPM-EPOS1755-001",
-          "description": "Clinical criteria satisfied for Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
-          "parameter": "epos1755_indication",
-          "comparator": "IS_PRESENT"
+          "condition_id": "COND-IPM-EPOS-ASA-3",
+          "description": "American Society of Anesthesiologists (ASA) Physical Status score >= 3",
+          "parameter": "asa_physical_status_score",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 3
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-BMI-40",
+          "description": "Body Mass Index (BMI) >= 40 with or without obesity-related condition or unmanaged comorbidities",
+          "parameter": "patient_bmi",
+          "comparator": "GREATER_THAN_OR_EQUAL",
+          "value": 40.0,
+          "unit": "kg/m2"
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-HEART",
+          "description": "Heart problems (prior heart surgery, heart attack, heart failure, CAD/stents, arrhythmia, pacemaker, or defibrillator)",
+          "parameter": "heart_disease_or_prior_heart_surgery",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-LUNG",
+          "description": "Lung problems (COPD or asthma)",
+          "parameter": "chronic_lung_disease_copd_or_asthma",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-KIDNEY-LIVER",
+          "description": "Chronic kidney or liver problems (kidney failure or cirrhosis/active hepatitis)",
+          "parameter": "chronic_kidney_or_liver_disease",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-BLEEDING",
+          "description": "Blood clots or bleeding disorder",
+          "parameter": "bleeding_disorder_or_blood_clots",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-STROKE-TIA",
+          "description": "History of stroke or transient ischemic attack (TIA)",
+          "parameter": "history_of_stroke_or_tia",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-HYPERTENSION-3DRUGS",
+          "description": "High blood pressure requiring 3 or more drugs to control",
+          "parameter": "hypertension_requiring_3_or_more_drugs",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-DIABETES",
+          "description": "Poorly controlled diabetes",
+          "parameter": "poorly_controlled_diabetes",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-COGNITIVE",
+          "description": "Cognitive impairment or dementia",
+          "parameter": "cognitive_impairment_or_dementia",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-PREGNANCY",
+          "description": "Pregnancy",
+          "parameter": "pregnancy_status",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-SUBSTANCE-USE",
+          "description": "Substance use disorder (cannabis, hallucinogen, inhalant, opioid, sedative, stimulant, alcohol)",
+          "parameter": "active_substance_use_disorder",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-ANESTHESIA-COMP",
+          "description": "Prior anesthesia complications (personal or family history)",
+          "parameter": "prior_anesthesia_complications",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-AIRWAY",
+          "description": "Difficult airway anticipated",
+          "parameter": "difficult_airway_anticipated",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-SLEEP-APNEA",
+          "description": "Diagnosed sleep apnea",
+          "parameter": "sleep_apnea_diagnosed",
+          "comparator": "EQUALS",
+          "value": true
+        },
+        {
+          "condition_id": "COND-IPM-EPOS-ANAPHYLAXIS",
+          "description": "History of anaphylaxis to medication, latex, or iodine",
+          "parameter": "history_of_anaphylaxis",
+          "comparator": "EQUALS",
+          "value": true
         }
       ]
     },
@@ -449,11 +2338,11 @@
     "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
     "source_url": "https://www.evolent.com/clinical-guidelines",
     "source_page": {
-      "physical_page": 1,
-      "printed_page": "Page 1 of 8"
+      "physical_page": 3,
+      "printed_page": "Page 3 of 8"
     },
-    "source_section": "Place of Service Policy Statement / Setting Alignment",
-    "source_quote": "PATIENT CRITERIA FOR SELECTION OF OUTPATIENT HOSPITAL SETTING ........................................................ 3",
+    "source_section": "PATIENT CRITERIA FOR SELECTION OF OUTPATIENT HOSPITAL SETTING",
+    "source_quote": "Patient Criteria for Selection of Outpatient Hospital Setting",
     "clinical_service_or_procedure": "Interventional Pain Management Site of Care",
     "rule_type": "place_of_service",
     "conditions": {

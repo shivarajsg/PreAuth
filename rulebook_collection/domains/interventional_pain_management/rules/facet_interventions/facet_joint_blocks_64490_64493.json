@@ -28,21 +28,281 @@
       "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
-        "physical_page": 31,
-        "printed_page": "Page 31 of 102"
+        "physical_page": 32,
+        "printed_page": "Page 2 of 14"
       },
-      "source_section": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
-      "source_quote": "Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks",
+      "source_section": "Paravertebral Facet Joint Injection or Blocks 2026 (July) / INDICATIONS FOR FACET JOINT INJECTIONS OR MEDIAL BRANCH NERVE BLOCKS",
+      "source_quote": "To confirm non-radicular pain suggestive of facet joint or pars interarticularis origin, ALL the following must be met: Pain that: Is causing functional disability or average pain level of ≥ 6... Duration for at least 3 months... Is either: By history, mainly axial or non-radicular; Is radicular due to stenosis caused by synovial cyst... Is of primary source that is not sacroiliac joint pain, discogenic pain, disc herniation, or radiculitis...",
       "clinical_service_or_procedure": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
       "rule_type": "clinical_indication",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ALL_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-CGFACETBLOCKS-001",
-            "description": "Clinical criteria satisfied for Paravertebral Facet Joint Injection or Blocks 2026 (July)",
-            "parameter": "cgfacetblocks_indication",
-            "comparator": "IS_PRESENT"
+            "condition_id": "COND-IPM-FACET-GUIDANCE",
+            "description": "Mandatory imaging guidance (Fluoroscopy, CT, or Ultrasound if fluoroscopy/CT contraindicated)",
+            "parameter": "imaging_guidance_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-FACET-NOT-HARDWARE",
+            "description": "Exclusion: Hardware injection or block for diagnosis or treatment of post-surgical or other spine pain is excluded",
+            "parameter": "hardware_injection_requested",
+            "comparator": "EQUALS",
+            "value": false
+          },
+          {
+            "condition_id": "COND-IPM-FACET-MAX-DIAGNOSTIC-SESSIONS",
+            "description": "In the diagnostic phase, a maximum of 2 procedures may be performed per spinal region",
+            "parameter": "diagnostic_sessions_in_region_count",
+            "comparator": "LESS_THAN_OR_EQUAL",
+            "value": 2
+          },
+          {
+            "condition_id": "COND-IPM-FACET-MAX-YEARLY-INJECTIONS",
+            "description": "A maximum of 4 facet injections may be performed in a 12-month period per spinal region",
+            "parameter": "injections_past_12_months_count",
+            "comparator": "LESS_THAN_OR_EQUAL",
+            "value": 4
+          },
+          {
+            "condition_id": "COND-IPM-FACET-BASELINE-PAIN",
+            "description": "Pain causing functional disability or average pain level >= 6 on scale 0 to 10",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-FACET-PAIN-SCORE",
+                  "description": "Pain intensity score >= 6 on numeric scale",
+                  "parameter": "pain_intensity_score_numeric",
+                  "comparator": "GREATER_THAN_OR_EQUAL",
+                  "value": 6
+                },
+                {
+                  "condition_id": "COND-IPM-FACET-DISABILITY",
+                  "description": "Pain causing functional disability interfering with ADLs",
+                  "parameter": "functional_disability_documented",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-FACET-CLINICAL-PATHWAYS",
+            "description": "At least one qualifying facet joint clinical indication pathway met",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-FACET-PATH-1",
+                  "description": "Pathway 1: Axial non-radicular facet pain >= 3 months, primary SIJ/discogenic/radicular excluded, failed >= 6 weeks conservative therapy within last 6 months",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-FACET-P1-AXIAL",
+                        "description": "Pain is by history mainly axial or non-radicular",
+                        "parameter": "pain_is_axial_nonradicular",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-FACET-P1-DURATION",
+                        "description": "Duration of pain of at least 3 months",
+                        "parameter": "pain_duration_months",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 3.0,
+                        "unit": "months"
+                      },
+                      {
+                        "condition_id": "COND-IPM-FACET-P1-EXCL-PRIMARY",
+                        "description": "Primary pain source is not SI joint pain, discogenic pain, disc herniation, or radiculitis",
+                        "parameter": "primary_sij_discogenic_radicular_excluded",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-FACET-P1-CONSERVATIVE",
+                        "description": "Failed conservative therapy >= 6 weeks in last 6 months or ongoing or exception",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-FACET-P1-CONS-6W",
+                              "sub_conditions": {
+                                "operator": "ALL_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-FACET-P1-CONS-DUR",
+                                    "parameter": "conservative_therapy_duration_weeks",
+                                    "comparator": "GREATER_THAN_OR_EQUAL",
+                                    "value": 6,
+                                    "unit": "weeks"
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-FACET-P1-CONS-6M",
+                                    "parameter": "conservative_therapy_within_6_months",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-FACET-P1-CONS-ONGOING",
+                              "description": "Details of engagement in ongoing non-operative conservative treatment",
+                              "parameter": "ongoing_conservative_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-FACET-P1-CONS-EXC",
+                              "description": "Documented medical reason conservative therapy cannot be done",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-FACET-PATH-2",
+                  "description": "Pathway 2: Radicular pain due to stenosis caused by facet synovial cyst confirmed on imaging, failed >= 6 weeks conservative therapy",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-FACET-P2-CYST",
+                        "description": "Facet synovial cyst confirmed on imaging (MRI or CT)",
+                        "parameter": "facet_synovial_cyst_confirmed_on_imaging",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-FACET-P2-STENOSIS",
+                        "description": "Radicular pain due to spinal stenosis caused by the synovial cyst",
+                        "parameter": "radicular_stenosis_symptoms_present",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-FACET-P2-CONSERVATIVE",
+                        "description": "Failed conservative therapy >= 6 weeks in last 6 months or exception or ongoing",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-FACET-P2-CONS-6W",
+                              "sub_conditions": {
+                                "operator": "ALL_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-FACET-P2-CONS-DUR",
+                                    "parameter": "conservative_therapy_duration_weeks",
+                                    "comparator": "GREATER_THAN_OR_EQUAL",
+                                    "value": 6,
+                                    "unit": "weeks"
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-FACET-P2-CONS-6M",
+                                    "parameter": "conservative_therapy_within_6_months",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-FACET-P2-CONS-ONGOING",
+                              "parameter": "ongoing_conservative_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-FACET-P2-CONS-EXC",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-FACET-PATH-3",
+                  "description": "Pathway 3: Chronic lumbar spondylolysis with pars interarticularis fracture/defect confirmed on imaging, pain duration >= 3 months, failed >= 6 weeks conservative therapy",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-FACET-P3-PARS",
+                        "description": "Imaging studies confirming the presence of a pars interarticularis fracture/defect",
+                        "parameter": "pars_interarticularis_defect_confirmed",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-FACET-P3-DURATION",
+                        "description": "Duration of pain of at least 3 months",
+                        "parameter": "pain_duration_months",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 3.0,
+                        "unit": "months"
+                      },
+                      {
+                        "condition_id": "COND-IPM-FACET-P3-CONSERVATIVE",
+                        "description": "Failed conservative therapy >= 6 weeks in last 6 months or exception or ongoing",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-FACET-P3-CONS-6W",
+                              "sub_conditions": {
+                                "operator": "ALL_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-FACET-P3-CONS-DUR",
+                                    "parameter": "conservative_therapy_duration_weeks",
+                                    "comparator": "GREATER_THAN_OR_EQUAL",
+                                    "value": 6,
+                                    "unit": "weeks"
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-FACET-P3-CONS-6M",
+                                    "parameter": "conservative_therapy_within_6_months",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-FACET-P3-CONS-ONGOING",
+                              "parameter": "ongoing_conservative_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-FACET-P3-CONS-EXC",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       },
@@ -53,7 +313,7 @@
       ],
       "human_review_required": false,
       "extraction_status": "DRAFT",
-      "review_notes": ""
+      "review_notes": "Remediated Phase 8B.8C: Decomposed into 3 clinical pathways (axial facet pain >= 3m with failed >= 6w conservative care in last 6m and primary SIJ/discogenic excluded; synovial cyst radiculopathy; and chronic lumbar spondylolysis with pars interarticularis defect) under mandatory imaging guidance."
     }
   ]
 }

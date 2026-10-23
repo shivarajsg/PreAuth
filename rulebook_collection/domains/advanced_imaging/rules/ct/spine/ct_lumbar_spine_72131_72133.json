@@ -17,27 +17,297 @@
       "source_file": "rulebook_collection/domains/advanced_imaging/policies/current/2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
       "source_url": "https://www1.radmd.com/sites/default/files/2025-12/2026%20Evolent%20Clinical%20Guidelines%20-%20Advanced%20Imaging%20v2.pdf",
       "source_page": {
-        "physical_page": 574,
-        "printed_page": "Page 3 of 20"
+        "physical_page": 575,
+        "printed_page": "Page 4 of 20"
       },
-      "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Neurologic Deficits (1)",
-      "source_quote": "INDICATIONS FOR LUMBAR SPINE CT",
+      "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Back Pain (1) / Evaluation of Neurologic Deficits (1) / Evaluation of Trauma / Postoperative Evaluation",
+      "source_quote": "INDICATIONS FOR LUMBAR SPINE CT\nEvaluation of Back Pain (1)\nWith any of the following when Lumbar Spine MRI is Contraindicated:\n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months... With progression or worsening of symptoms during the course of conservative treatment... With an abnormal electromyography (EMG) or nerve conduction study (if performed) indicating a lumbar radiculopathy... Isolated back pain in pediatric population when at least ONE of the following red flags are present... Postoperative Evaluation: Evaluation of post operative pseudarthrosis, hardware complication and/or extent of fusion after initial x-rays (a contraindication to MRI is not needed)... NOTE: For this indication, advanced imaging should not occur until > 6 months after surgery",
       "clinical_service_or_procedure": "Lumbar Spine CT",
       "rule_type": "clinical_indication",
       "conditions": {
-        "operator": "ALL_OF",
+        "operator": "ANY_OF",
         "criteria": [
           {
             "condition_id": "COND-001",
-            "description": "Evaluation of acute lumbar trauma, surgical fusion integrity/pseudoarthrosis, or lumbar pain when MRI is contraindicated",
-            "parameter": "lumbar_ct_indication_met",
-            "comparator": "EQUALS",
-            "value": true
+            "description": "Track A (Trauma & Fracture Assessment): Evaluation of acute lumbar trauma with preliminary imaging, fracture fragment positioning, or delayed union / non-healing fracture",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-001A",
+                  "description": "Acute lumbar trauma or acute injury with preliminary imaging findings (e.g., x-ray) needing further evaluation or patient clinically unevaluable",
+                  "parameter": "acute_lumbar_trauma_with_preliminary_imaging",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-001B",
+                  "description": "Assessment of compression fracture union when physical exam, plain radiographs, or prior imaging suggest delayed or non-healing",
+                  "parameter": "delayed_union_or_nonunion_fracture",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-001C",
+                  "description": "Determination of fracture fragment position following lumbar spine fracture",
+                  "parameter": "fracture_fragment_position_evaluation",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-002",
+            "description": "Track B (Postoperative Hardware & Fusion): Evaluation of postoperative pseudarthrosis, hardware complication, and/or extent of fusion after initial x-rays and > 6 months post-surgery (MRI contraindication is not needed)",
+            "sub_conditions": {
+              "operator": "ALL_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-002A",
+                  "description": "Clinical suspicion of postoperative pseudarthrosis, hardware complication, or assessment of extent of fusion",
+                  "parameter": "postoperative_fusion_hardware_or_pseudarthrosis",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-002B",
+                  "description": "Preliminary plain radiographs (initial X-rays) of the lumbar spine have been completed",
+                  "parameter": "prior_lumbar_xray_completed",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-002C",
+                  "description": "Postoperative interval is greater than 6 months following lumbar surgery",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-002C1",
+                        "description": "Postoperative interval in months is greater than 6",
+                        "parameter": "postoperative_interval_months",
+                        "comparator": "GREATER_THAN",
+                        "value": 6,
+                        "unit": "months"
+                      },
+                      {
+                        "condition_id": "COND-002C2",
+                        "description": "Postoperative interval is documented as greater than 6 months",
+                        "parameter": "postoperative_interval_greater_than_6_months",
+                        "comparator": "EQUALS",
+                        "value": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-003",
+            "description": "Track C (Back Pain & Neurologic Deficits with MRI Contraindication): Evaluation of lumbar back pain or new focal neurologic deficit when lumbar MRI is contraindicated or cannot be performed",
+            "sub_conditions": {
+              "operator": "ALL_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-003A",
+                  "description": "Lumbar spine MRI is contraindicated (e.g., non-conditional implant, metallic foreign body, severe claustrophobia) or cannot be performed",
+                  "parameter": "lumbar_mri_contraindicated",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-003B",
+                  "description": "Clinical indication met for back pain, conservative therapy failure, radiculopathy, or objective neurologic deficit",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-003B1",
+                        "description": "Objective focal neurologic deficit localizing to lumbar spine (e.g., foot drop, motor weakness, sensory loss, abnormal reflexes) or suspected cauda equina syndrome",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-003B1A",
+                              "description": "Objective focal neurologic deficit localizing to lumbar spine",
+                              "parameter": "objective_neurologic_deficit_lumbar",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-003B1B",
+                              "description": "Clinical suspicion of cauda equina syndrome with saddle anesthesia or sphincter dysfunction",
+                              "parameter": "suspected_cauda_equina_syndrome",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-003B2",
+                        "description": "Adult pathway: Failure of conservative treatment for >= 6 weeks within last 6 months, OR worsening during treatment, OR medical inability to participate, OR abnormal EMG/NCS lumbar radiculopathy",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-003B2A",
+                              "description": "Patient is adult (age >= 18 years)",
+                              "parameter": "patient_age_years",
+                              "comparator": "GREATER_THAN_OR_EQUAL",
+                              "value": 18
+                            },
+                            {
+                              "condition_id": "COND-003B2B",
+                              "description": "Adult conservative care trial failed, progressed, medically contraindicated, or verified by abnormal EMG/NCS",
+                              "sub_conditions": {
+                                "operator": "ANY_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-003B2B1",
+                                    "description": "Failure of conservative treatment for a minimum of six (6) weeks within the last six (6) months",
+                                    "parameter": "lumbar_conservative_therapy_weeks",
+                                    "comparator": "GREATER_THAN_OR_EQUAL",
+                                    "value": 6,
+                                    "unit": "weeks"
+                                  },
+                                  {
+                                    "condition_id": "COND-003B2B2",
+                                    "description": "Progression or worsening of symptoms during the course of conservative treatment",
+                                    "parameter": "conservative_treatment_worsening",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B2B3",
+                                    "description": "Documentation of a medical reason the member is unable to participate in conservative treatment",
+                                    "parameter": "medical_contraindication_to_conservative_therapy",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B2B4",
+                                    "description": "Abnormal electromyography (EMG) or nerve conduction study indicating a lumbar radiculopathy",
+                                    "parameter": "abnormal_emg_ncs_lumbar_radiculopathy",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-003B3",
+                        "description": "Pediatric pathway: Isolated back pain in pediatric population (age < 18) with at least ONE verified red flag (conservative care not required)",
+                        "sub_conditions": {
+                          "operator": "ALL_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-003B3A",
+                              "description": "Patient is pediatric (age < 18 years)",
+                              "parameter": "patient_age_years",
+                              "comparator": "LESS_THAN",
+                              "value": 18
+                            },
+                            {
+                              "condition_id": "COND-003B3B",
+                              "description": "At least ONE of ten source-verified pediatric red flags present",
+                              "sub_conditions": {
+                                "operator": "ANY_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-003B3B01",
+                                    "description": "Age 5 or younger",
+                                    "parameter": "patient_age_years",
+                                    "comparator": "LESS_THAN_OR_EQUAL",
+                                    "value": 5
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B02",
+                                    "description": "Constant lumbar pain",
+                                    "parameter": "constant_lumbar_pain",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B03",
+                                    "description": "Lumbar pain lasting greater than 4 weeks",
+                                    "parameter": "lumbar_pain_duration_weeks",
+                                    "comparator": "GREATER_THAN",
+                                    "value": 4,
+                                    "unit": "weeks"
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B04",
+                                    "description": "Abnormal neurologic examination",
+                                    "parameter": "abnormal_neurologic_exam",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B05",
+                                    "description": "Early morning stiffness and/or gelling",
+                                    "parameter": "morning_stiffness_or_gelling",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B06",
+                                    "description": "Night pain that prevents or disrupts sleep",
+                                    "parameter": "night_pain_disrupting_sleep",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B07",
+                                    "description": "Radicular pain present",
+                                    "parameter": "radicular_pain_present",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B08",
+                                    "description": "Constitutional symptoms (fever, weight loss, malaise)",
+                                    "parameter": "constitutional_symptoms_fever_weight_loss",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B09",
+                                    "description": "Postural changes (e.g., kyphosis or scoliosis)",
+                                    "parameter": "postural_changes_kyphosis_scoliosis",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  },
+                                  {
+                                    "condition_id": "COND-003B3B10",
+                                    "description": "Limp or refusal to walk in a younger child",
+                                    "parameter": "gait_abnormality_or_limp",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       },
       "required_documentation": [
-        "Clinical notes documenting spinal trauma, hardware evaluation, or contraindication to lumbar MRI"
+        "Clinical notes documenting acute spinal trauma, hardware evaluation, or contraindication to lumbar MRI",
+        "Physical therapy records or clinical notes documenting 6 weeks conservative care failure or worsening",
+        "Preliminary plain radiograph (X-ray) reports for trauma or postoperative hardware evaluation"
       ],
       "decision_effect": "INDICATED",
       "missing_information_behavior": "PEND_FOR_DOCUMENTATION",
@@ -46,7 +316,7 @@
       ],
       "human_review_required": false,
       "extraction_status": "DRAFT",
-      "review_notes": "Lumbar spine CT for bony architecture and fusion assessment."
+      "review_notes": "Lumbar spine CT decomposed into independent trauma/delayed union, postoperative hardware/fusion (>6m after X-ray), and back pain/neurologic deficit when MRI is contraindicated."
     }
   ]
 }

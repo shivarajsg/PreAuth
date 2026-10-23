@@ -22,21 +22,204 @@
       "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
-        "physical_page": 17,
-        "printed_page": "Page 17 of 102"
+        "physical_page": 22,
+        "printed_page": "Page 6 of 14"
       },
-      "source_section": "Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
-      "source_quote": "Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal",
+      "source_section": "Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July) / INDICATIONS FOR INTRASPINAL DRUG TRIAL",
+      "source_quote": "For the treatment of chronic intractable pain in non-terminal individuals... Failure to respond to non-operative conservative therapy... for a minimum of 12 weeks... NOTE: Intrathecal trials are not indicated in opioid-naïve individuals",
       "clinical_service_or_procedure": "Epidural Spine Injections Single Injection Trials For Intrat",
       "rule_type": "clinical_prerequisite",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ANY_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-CGEPIDURALPUMPTRIALS-001",
-            "description": "Clinical criteria satisfied for Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
-            "parameter": "cgepiduralpumptrials_indication",
-            "comparator": "IS_PRESENT"
+            "condition_id": "COND-IPM-PUMP-PATH-1",
+            "description": "Pathway 1: Chronic intractable pain in non-terminal individual, pain >= 6/10 or disability, failed >= 12 weeks conservative therapy, not opioid-naive, trial count <= 2",
+            "sub_conditions": {
+              "operator": "ALL_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-PUMP-P1-PAIN-CONFIRMED",
+                  "description": "Chronic intractable pain confirmed",
+                  "parameter": "chronic_intractable_pain_confirmed",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P1-NONTERMINAL",
+                  "description": "Patient is non-terminal",
+                  "parameter": "patient_is_non_terminal",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P1-NOT-OPIOID-NAIVE",
+                  "description": "Intrathecal trials are not indicated in opioid-naive individuals (must not be opioid naive)",
+                  "parameter": "patient_is_opioid_naive",
+                  "comparator": "EQUALS",
+                  "value": false
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P1-TRIAL-LIMIT",
+                  "description": "Trial limit of maximum 2 intraspinal drug trials",
+                  "parameter": "intraspinal_drug_trial_count",
+                  "comparator": "LESS_THAN_OR_EQUAL",
+                  "value": 2
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P1-PAIN-BASELINE",
+                  "description": "Pain causing functional disability or persistent pain level >= 6 on scale 0 to 10",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-PUMP-P1-PAIN-SCORE",
+                        "description": "Pain intensity score >= 6 on numeric scale",
+                        "parameter": "pain_intensity_score_numeric",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 6
+                      },
+                      {
+                        "condition_id": "COND-IPM-PUMP-P1-DISABILITY",
+                        "description": "Pain causing functional disability interfering with ADLs/work",
+                        "parameter": "functional_disability_documented",
+                        "comparator": "EQUALS",
+                        "value": true
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P1-CONSERVATIVE",
+                  "description": "Failed conservative therapy >= 12 weeks or documented medical reason",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-PUMP-P1-CONS-12W",
+                        "description": "Non-operative conservative therapy duration >= 12 weeks",
+                        "parameter": "conservative_therapy_duration_weeks",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 12
+                      },
+                      {
+                        "condition_id": "COND-IPM-PUMP-P1-CONS-EXC",
+                        "description": "Documented medical reason conservative therapy cannot be done",
+                        "parameter": "conservative_therapy_exception_documented",
+                        "comparator": "EQUALS",
+                        "value": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-PUMP-PATH-2",
+            "description": "Pathway 2: Intractable spasticity in non-terminal individual (SCI, MS, Stiff Person, etc.) with functional impairment, failed >= 12 weeks conservative therapy, trial count <= 2",
+            "sub_conditions": {
+              "operator": "ALL_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-PUMP-P2-SPASTICITY-CONFIRMED",
+                  "description": "Intractable spasticity confirmed",
+                  "parameter": "intractable_spasticity_confirmed",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P2-NONTERMINAL",
+                  "description": "Patient is non-terminal",
+                  "parameter": "patient_is_non_terminal",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P2-ETIOLOGY",
+                  "description": "Qualifying etiology (Spinal cord injury, Multiple sclerosis, Stiff person syndrome, etc.)",
+                  "parameter": "qualifying_spasticity_etiology_present",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P2-FUNCTIONAL-IMPAIRMENT",
+                  "description": "Severe functional impairment (upright posture, ambulation balance, ADLs)",
+                  "parameter": "spasticity_functional_impairment_documented",
+                  "comparator": "EQUALS",
+                  "value": true
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P2-TRIAL-LIMIT",
+                  "description": "Trial limit of maximum 2 intraspinal drug trials",
+                  "parameter": "intraspinal_drug_trial_count",
+                  "comparator": "LESS_THAN_OR_EQUAL",
+                  "value": 2
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P2-CONSERVATIVE",
+                  "description": "Failed conservative therapy (oral medications, PT) >= 12 weeks or documented medical reason",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-PUMP-P2-CONS-12W",
+                        "description": "Conservative therapy duration >= 12 weeks",
+                        "parameter": "conservative_therapy_duration_weeks",
+                        "comparator": "GREATER_THAN_OR_EQUAL",
+                        "value": 12
+                      },
+                      {
+                        "condition_id": "COND-IPM-PUMP-P2-CONS-EXC",
+                        "description": "Documented medical reason conservative therapy cannot be done",
+                        "parameter": "conservative_therapy_exception_documented",
+                        "comparator": "EQUALS",
+                        "value": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-PUMP-PATH-3",
+            "description": "Pathway 3: Second intraspinal drug trial indicated when first trial had < 50% relief or intolerable side effects, trial count == 2",
+            "sub_conditions": {
+              "operator": "ALL_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-PUMP-P3-TRIAL-COUNT",
+                  "description": "Second intraspinal drug trial requested (count == 2)",
+                  "parameter": "intraspinal_drug_trial_count",
+                  "comparator": "EQUALS",
+                  "value": 2
+                },
+                {
+                  "condition_id": "COND-IPM-PUMP-P3-FIRST-TRIAL-RESULT",
+                  "description": "First trial resulted in < 50% pain relief or intolerable side effects",
+                  "sub_conditions": {
+                    "operator": "ANY_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-PUMP-P3-LOW-RELIEF",
+                        "description": "First trial pain relief < 50%",
+                        "parameter": "prior_trial_relief_percentage",
+                        "comparator": "LESS_THAN",
+                        "value": 50
+                      },
+                      {
+                        "condition_id": "COND-IPM-PUMP-P3-SIDE-EFFECTS",
+                        "description": "First trial had intolerable side effects",
+                        "parameter": "prior_trial_intolerable_side_effects",
+                        "comparator": "EQUALS",
+                        "value": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       },
@@ -47,7 +230,7 @@
       ],
       "human_review_required": false,
       "extraction_status": "DRAFT",
-      "review_notes": ""
+      "review_notes": "Remediated Phase 8B.8B: Decomposed into 3 clinical pathways (chronic intractable pain in non-terminal individuals with failed >= 12w conservative therapy and non-opioid-naive status; intractable spasticity in non-terminal individuals with failed >= 12w conservative therapy; and second intraspinal trial for first trial relief < 50% or intolerable side effects, trial limit <= 2)."
     }
   ]
 }

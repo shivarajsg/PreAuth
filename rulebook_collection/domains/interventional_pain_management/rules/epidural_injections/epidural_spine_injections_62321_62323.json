@@ -24,21 +24,291 @@
       "source_file": "rulebook_collection/domains/interventional_pain_management/policies/current/2026 Evolent Interventional Pain Management Guidelines.pdf",
       "source_url": "https://www.evolent.com/clinical-guidelines",
       "source_page": {
-        "physical_page": 4,
-        "printed_page": "Page 4 of 102"
+        "physical_page": 6,
+        "printed_page": "Page 3 of 13"
       },
-      "source_section": "Epidural Spine Injections 2026 (July)",
-      "source_quote": "Evolent Clinical Guideline 1750 for Epidural Spine Injections",
+      "source_section": "Epidural Spine Injections 2026 (July) / INDICATIONS",
+      "source_quote": "Fluoroscopic guidance should be used for caudal and interlaminar injections and is necessary for transforaminal injections. For all injections, patients must exhibit pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10...",
       "clinical_service_or_procedure": "Epidural Spine Injections 2026 (July)",
       "rule_type": "clinical_indication",
       "conditions": {
-        "operator": "SINGLE_CONDITION",
+        "operator": "ALL_OF",
         "criteria": [
           {
-            "condition_id": "COND-IPM-CGEPIDURALINJECTIONS-001",
-            "description": "Clinical criteria satisfied for Epidural Spine Injections 2026 (July)",
-            "parameter": "cgepiduralinjections_indication",
-            "comparator": "IS_PRESENT"
+            "condition_id": "COND-IPM-ESI-GUIDANCE",
+            "description": "Imaging guidance required for epidural spine injections",
+            "parameter": "imaging_guidance_present",
+            "comparator": "EQUALS",
+            "value": true
+          },
+          {
+            "condition_id": "COND-IPM-ESI-PAIN-BASELINE",
+            "description": "Baseline pain causing functional disability or average pain score >= 6 on scale of 0 to 10",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-ESI-PAIN-001",
+                  "description": "Pain intensity score >= 6 on numeric rating scale",
+                  "parameter": "pain_intensity_score_numeric",
+                  "comparator": "GREATER_THAN_OR_EQUAL",
+                  "value": 6
+                },
+                {
+                  "condition_id": "COND-IPM-ESI-PAIN-002",
+                  "description": "Documented functional disability caused by pain",
+                  "parameter": "functional_disability_documented",
+                  "comparator": "EQUALS",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "condition_id": "COND-IPM-ESI-CLINICAL-INDICATION",
+            "description": "One of four authorized clinical pathways satisfied (Acute radiculopathy, Spinal stenosis, FBSS/Fibrosis, or Pre-surgical diagnostic TFESI)",
+            "sub_conditions": {
+              "operator": "ANY_OF",
+              "criteria": [
+                {
+                  "condition_id": "COND-IPM-ESI-PATH-1",
+                  "description": "Pathway 1: Acute neck or back pain with acute radicular symptoms, duration < 3 months, failed >= 2 weeks conservative therapy",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-ESI-P1-RADICULAR",
+                        "description": "Neck or back pain with acute radicular symptoms present",
+                        "parameter": "radicular_symptoms_present",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P1-DURATION",
+                        "description": "Duration of acute pain is less than 3 months",
+                        "parameter": "pain_duration_months",
+                        "comparator": "LESS_THAN",
+                        "value": 3
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P1-CONSERVATIVE",
+                        "description": "Failed conservative therapy >= 2 weeks or documented medical reason unable to participate",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-ESI-P1-CONS-DUR",
+                              "description": "Non-operative conservative treatment duration >= 2 weeks",
+                              "parameter": "conservative_therapy_duration_weeks",
+                              "comparator": "GREATER_THAN_OR_EQUAL",
+                              "value": 2
+                            },
+                            {
+                              "condition_id": "COND-IPM-ESI-P1-CONS-EXC",
+                              "description": "Medical reason conservative treatment cannot be done is clearly documented",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-ESI-PATH-2",
+                  "description": "Pathway 2: Spinal stenosis causing axial or radicular pain, failed >= 6 weeks conservative therapy in prior 6 months (or ongoing)",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-ESI-P2-STENOSIS",
+                        "description": "Spinal stenosis confirmed on clinical/radiological evaluation",
+                        "parameter": "spinal_stenosis_confirmed",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P2-PAIN-TYPE",
+                        "description": "Stenosis causing axial or radicular pain",
+                        "parameter": "axial_or_radicular_pain_present",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P2-CONSERVATIVE",
+                        "description": "Failed conservative therapy >= 6 weeks in last 6 months, or ongoing conservative care, or documented medical reason",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-ESI-P2-CONS-6W",
+                              "description": "Conservative therapy >= 6 weeks within last 6 months",
+                              "sub_conditions": {
+                                "operator": "ALL_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-ESI-P2-CONS-DUR",
+                                    "description": "Conservative therapy duration >= 6 weeks",
+                                    "parameter": "conservative_therapy_duration_weeks",
+                                    "comparator": "GREATER_THAN_OR_EQUAL",
+                                    "value": 6
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-ESI-P2-CONS-REC",
+                                    "description": "Conservative therapy completed within last 6 months",
+                                    "parameter": "conservative_therapy_within_6_months",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-ESI-P2-CONS-ONGOING",
+                              "description": "Details of engagement in ongoing non-operative conservative treatment with prior spinal injections",
+                              "parameter": "ongoing_conservative_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-ESI-P2-CONS-EXC",
+                              "description": "Documented medical reason patient unable to participate in conservative treatment",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-ESI-PATH-3",
+                  "description": "Pathway 3: Failed back surgery syndrome (FBSS) or epidural fibrosis causing axial or radicular pain, with medical necessity reason",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-ESI-P3-FBSS",
+                        "description": "Failed back surgery syndrome or epidural fibrosis confirmed",
+                        "parameter": "fbss_or_epidural_fibrosis_confirmed",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P3-MED-REASON",
+                        "description": "Documentation of medical reason clearly indicating why injection is needed post-surgery",
+                        "parameter": "medical_reason_for_injection_documented",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P3-PAIN-TYPE",
+                        "description": "Causing axial or radicular pain",
+                        "parameter": "axial_or_radicular_pain_present",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P3-CONSERVATIVE",
+                        "description": "Failed conservative therapy >= 6 weeks in last 6 months, or ongoing conservative care, or documented medical reason",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-ESI-P3-CONS-6W",
+                              "description": "Conservative therapy >= 6 weeks within last 6 months",
+                              "sub_conditions": {
+                                "operator": "ALL_OF",
+                                "criteria": [
+                                  {
+                                    "condition_id": "COND-IPM-ESI-P3-CONS-DUR",
+                                    "description": "Conservative therapy duration >= 6 weeks",
+                                    "parameter": "conservative_therapy_duration_weeks",
+                                    "comparator": "GREATER_THAN_OR_EQUAL",
+                                    "value": 6
+                                  },
+                                  {
+                                    "condition_id": "COND-IPM-ESI-P3-CONS-REC",
+                                    "description": "Conservative therapy completed within last 6 months",
+                                    "parameter": "conservative_therapy_within_6_months",
+                                    "comparator": "EQUALS",
+                                    "value": true
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "condition_id": "COND-IPM-ESI-P3-CONS-ONGOING",
+                              "description": "Details of engagement in ongoing conservative treatment",
+                              "parameter": "ongoing_conservative_therapy",
+                              "comparator": "EQUALS",
+                              "value": true
+                            },
+                            {
+                              "condition_id": "COND-IPM-ESI-P3-CONS-EXC",
+                              "description": "Documented medical reason unable to participate in conservative treatment",
+                              "parameter": "conservative_therapy_exception_documented",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "condition_id": "COND-IPM-ESI-PATH-4",
+                  "description": "Pathway 4: Diagnostic transforaminal injection for surgical planning (<= 2 levels)",
+                  "sub_conditions": {
+                    "operator": "ALL_OF",
+                    "criteria": [
+                      {
+                        "condition_id": "COND-IPM-ESI-P4-SURGICAL-PLAN",
+                        "description": "Documentation of pre-operative evaluation and surgical plan",
+                        "parameter": "preoperative_evaluation_and_surgical_plan_documented",
+                        "comparator": "EQUALS",
+                        "value": true
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P4-APPROACH",
+                        "description": "Transforaminal approach confirmed",
+                        "sub_conditions": {
+                          "operator": "ANY_OF",
+                          "criteria": [
+                            {
+                              "condition_id": "COND-IPM-ESI-P4-APP-1",
+                              "description": "Injection approach is transforaminal",
+                              "parameter": "injection_approach",
+                              "comparator": "EQUALS",
+                              "value": "TRANSFORAMINAL"
+                            },
+                            {
+                              "condition_id": "COND-IPM-ESI-P4-APP-2",
+                              "description": "Diagnostic transforaminal injection confirmed",
+                              "parameter": "diagnostic_transforaminal_injection",
+                              "comparator": "EQUALS",
+                              "value": true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "condition_id": "COND-IPM-ESI-P4-LEVELS",
+                        "description": "No more than 2 levels of transforaminal blocks performed in one day",
+                        "parameter": "transforaminal_levels_count",
+                        "comparator": "LESS_THAN_OR_EQUAL",
+                        "value": 2
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       },
@@ -49,7 +319,7 @@
       ],
       "human_review_required": false,
       "extraction_status": "DRAFT",
-      "review_notes": ""
+      "review_notes": "Remediated Phase 8B.8B: Decomposed into 4 clinical pathways (acute radicular pain < 3m with >= 2w conservative care, spinal stenosis with >= 6w conservative care, FBSS/fibrosis with medical necessity reason and >= 6w conservative care, and diagnostic TFESI for surgical planning <= 2 levels) with baseline pain >= 6/10 or disability and imaging guidance."
     },
     {
       "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-002",
