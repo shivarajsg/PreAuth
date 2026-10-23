@@ -53,8 +53,8 @@
     },
     "procedure_code": {
       "type": "string",
-      "description": "Standard CPT or HCPCS billing code for requested procedure/service.",
-      "minLength": 3
+      "pattern": "^[0-9]{4}[0-9A-Z]$|^[A-Z][0-9]{4}$",
+      "description": "Standard 5-character alphanumeric CPT or HCPCS billing code for requested procedure/service."
     },
     "procedure_name": {
       "type": "string",

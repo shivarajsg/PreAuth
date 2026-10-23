@@ -65,7 +65,11 @@ class CaseIntake:
         if parameter == "primary_diagnosis_code" and self.primary_diagnosis_code is not None:
             return True, self.primary_diagnosis_code
         if parameter == "ordering_provider_license" and self.ordering_provider:
-            return True, self.ordering_provider.get("is_licensed")
+            if isinstance(self.ordering_provider, dict):
+                is_lic = self.ordering_provider.get("is_licensed")
+                if is_lic is not None:
+                    return True, is_lic
+            return False, None
             
         return False, None
 
@@ -87,6 +91,10 @@ class CaseValidator:
         """
         if not isinstance(case_dict, dict):
             return False, ["Case payload must be a JSON object (dictionary)"], None
+
+        # Normalize surrounding whitespace before validating procedure codes
+        if isinstance(case_dict.get("procedure_code"), str):
+            case_dict["procedure_code"] = case_dict["procedure_code"].strip()
 
         errors: List[str] = []
         for err in self.validator.iter_errors(case_dict):
