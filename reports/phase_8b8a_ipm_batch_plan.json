@@ -1,0 +1,1392 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "plan_metadata": {
+    "plan_id": "MEDRULE-PLAN-PHASE-08B8A-IPM-BATCH-PLAN",
+    "created_date": "2026-10-22",
+    "phase": "8B.8A",
+    "total_rules": 9,
+    "total_batches": 3,
+    "recommended_first_batch": "BATCH_1_SPINE_INJECTIONS",
+    "governance_status": "PROPOSED_PENDING_AUTHORIZATION",
+    "invariants_maintained": {
+      "approved_rules_count": 0,
+      "governance_blocked_gates_count": 7,
+      "production_edits_performed": 0
+    }
+  },
+  "batches": [
+    {
+      "batch_id": "BATCH_1_SPINE_INJECTIONS",
+      "batch_name": "Spine Injections (Epidural & Sacroiliac Joint Injections)",
+      "priority": "HIGH",
+      "rules_count": 3,
+      "target_rules": [
+        "RULE-IPM-CGEPIDURALINJECTIONS-001",
+        "RULE-IPM-CGEPIDURALPUMPTRIALS-001",
+        "RULE-IPM-CGSIINJECTIONS-001"
+      ],
+      "clinical_rationale": "High-volume spinal injection procedures sharing core injection delivery mechanics, fluoroscopic guidance standards, numeric pain scales (>= 6/10), and conservative therapy duration modeling (2 weeks acute vs 6 weeks chronic vs 12 weeks pump trial). Establishing these parameters first creates the foundation for all subsequent IPM rules with minimal cross-rule entanglement.",
+      "rule_specifications": [
+        {
+          "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-001",
+          "rule_name": "Epidural Spine Injections Indication",
+          "remediation_record_id": "REM-P3-001",
+          "clinical_service_or_procedure": "Epidural Spine Injections 2026 (July)",
+          "cpt_codes": [
+            "62320",
+            "62321",
+            "62322",
+            "62323",
+            "64479",
+            "64480",
+            "64483",
+            "64484"
+          ],
+          "governing_policy": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+          "guideline_section": "Evolent Clinical Guideline 1750 for Epidural Spine Injections",
+          "source_pages": {
+            "physical_pages": [
+              4,
+              6,
+              7,
+              8
+            ],
+            "printed_pages": [
+              "Page 1 of 13",
+              "Page 3 of 13",
+              "Page 4 of 13",
+              "Page 5 of 13"
+            ]
+          },
+          "decision_track": "CLINICAL_NECESSITY",
+          "current_logic_summary": "Single uncompiled boolean stub: parameter 'cgepiduralinjections_indication' IS_PRESENT.",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "acute_radicular_pain",
+                "description": "Acute neck or back pain with radicular symptoms, duration < 3 months, failed >= 2 weeks conservative therapy, pain >= 6/10 or disability, fluoroscopic guidance.",
+                "parameters": [
+                  "radicular_symptoms_present",
+                  "pain_duration_months",
+                  "conservative_therapy_duration_weeks",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "imaging_guidance_type"
+                ]
+              },
+              {
+                "pathway_name": "spinal_stenosis",
+                "description": "Spinal stenosis on imaging causing axial or radicular pain, failed >= 6 weeks conservative therapy in prior 6 months (or ongoing if prior injection), pain >= 6/10 or disability, fluoroscopic guidance.",
+                "parameters": [
+                  "spinal_stenosis_confirmed",
+                  "axial_or_radicular_pain_present",
+                  "conservative_therapy_duration_weeks",
+                  "conservative_therapy_within_6_months",
+                  "ongoing_conservative_therapy",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "imaging_guidance_type"
+                ]
+              },
+              {
+                "pathway_name": "failed_back_surgery_syndrome_or_fibrosis",
+                "description": "FBSS or epidural fibrosis causing axial or radicular pain, medical reason why injection needed, failed >= 6 weeks conservative therapy in prior 6 months (or ongoing), pain >= 6/10 or disability, fluoroscopic guidance.",
+                "parameters": [
+                  "fbss_or_epidural_fibrosis_confirmed",
+                  "medical_reason_for_injection_documented",
+                  "axial_or_radicular_pain_present",
+                  "conservative_therapy_duration_weeks",
+                  "conservative_therapy_within_6_months",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "imaging_guidance_type"
+                ]
+              },
+              {
+                "pathway_name": "diagnostic_transforaminal_surgical_planning",
+                "description": "Transforaminal injection for surgical planning, documented pre-operative evaluation and surgical plan, <= 2 levels per day, pain >= 6/10 or disability, fluoroscopic guidance.",
+                "parameters": [
+                  "preoperative_evaluation_and_surgical_plan_documented",
+                  "injection_approach",
+                  "transforaminal_levels_count",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "imaging_guidance_type"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-ESI-001-POS-ACUTE",
+              "description": "Acute radicular back pain with 6 weeks duration (< 3m), failed 2 weeks conservative therapy, pain score 7/10, fluoroscopy.",
+              "inputs": {
+                "radicular_symptoms_present": true,
+                "pain_duration_months": 1.5,
+                "conservative_therapy_duration_weeks": 2,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1750, Physical Page 6-7"
+            },
+            {
+              "case_id": "TC-ESI-002-POS-STENOSIS",
+              "description": "Lumbar spinal stenosis causing radicular pain, failed 6 weeks conservative therapy in last 6 months, pain score 8/10, fluoroscopy.",
+              "inputs": {
+                "spinal_stenosis_confirmed": true,
+                "axial_or_radicular_pain_present": true,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "pain_intensity_score_numeric": 8,
+                "functional_disability_documented": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1750, Physical Page 7"
+            },
+            {
+              "case_id": "TC-ESI-003-POS-FBSS",
+              "description": "Failed back surgery syndrome with epidural fibrosis causing radicular pain, documented medical reason for injection, failed 6 weeks conservative care, pain 6/10, fluoroscopy.",
+              "inputs": {
+                "fbss_or_epidural_fibrosis_confirmed": true,
+                "medical_reason_for_injection_documented": true,
+                "axial_or_radicular_pain_present": true,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "pain_intensity_score_numeric": 6,
+                "functional_disability_documented": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1750, Physical Page 7"
+            },
+            {
+              "case_id": "TC-ESI-004-POS-DIAGNOSTIC",
+              "description": "Pre-operative surgical planning TFESI at single level (L5-S1) with documented surgical plan, pain 7/10, fluoroscopy.",
+              "inputs": {
+                "preoperative_evaluation_and_surgical_plan_documented": true,
+                "injection_approach": "TRANSFORAMINAL",
+                "transforaminal_levels_count": 1,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1750, Physical Page 7"
+            },
+            {
+              "case_id": "TC-ESI-005-NEG-NONRADICULAR",
+              "description": "Non-radicular axial back pain without spinal stenosis or FBSS, failed conservative therapy.",
+              "inputs": {
+                "radicular_symptoms_present": false,
+                "spinal_stenosis_confirmed": false,
+                "fbss_or_epidural_fibrosis_confirmed": false,
+                "preoperative_evaluation_and_surgical_plan_documented": false,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1750, Physical Page 6-7"
+            },
+            {
+              "case_id": "TC-ESI-006-NEG-MILD-PAIN",
+              "description": "Acute radicular pain but mild intensity (pain score 3/10, no functional disability).",
+              "inputs": {
+                "radicular_symptoms_present": true,
+                "pain_duration_months": 1.0,
+                "conservative_therapy_duration_weeks": 2,
+                "pain_intensity_score_numeric": 3,
+                "functional_disability_documented": false,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1750, Physical Page 6"
+            },
+            {
+              "case_id": "TC-ESI-007-NEG-INSUFFICIENT-CONS",
+              "description": "Acute radicular pain with only 1 week of conservative treatment (< 2 weeks minimum).",
+              "inputs": {
+                "radicular_symptoms_present": true,
+                "pain_duration_months": 1.0,
+                "conservative_therapy_duration_weeks": 1,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1750, Physical Page 7"
+            },
+            {
+              "case_id": "TC-ESI-008-IND-MISSING-PAIN",
+              "description": "Stenosis with conservative care documented, but pain intensity and functional disability missing.",
+              "inputs": {
+                "spinal_stenosis_confirmed": true,
+                "axial_or_radicular_pain_present": true,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "INDETERMINATE",
+              "source_reference": "Guideline 1750, Physical Page 6"
+            }
+          ]
+        },
+        {
+          "rule_id": "RULE-IPM-CGEPIDURALPUMPTRIALS-001",
+          "rule_name": "Intraspinal Drug Trial for IT Pumps Indication",
+          "remediation_record_id": "REM-P3-003",
+          "clinical_service_or_procedure": "Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
+          "cpt_codes": [
+            "62320",
+            "62321",
+            "62322",
+            "62323",
+            "64479",
+            "64480",
+            "64483",
+            "64484"
+          ],
+          "governing_policy": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+          "guideline_section": "Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials for Intrathecal Pumps",
+          "source_pages": {
+            "physical_pages": [
+              17,
+              22,
+              23
+            ],
+            "printed_pages": [
+              "Page 1 of 14",
+              "Page 6 of 14",
+              "Page 7 of 14"
+            ]
+          },
+          "decision_track": "CLINICAL_NECESSITY",
+          "current_logic_summary": "Single uncompiled boolean stub: parameter 'cgepiduralpumptrials_indication' IS_PRESENT.",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "chronic_intractable_pain_nonterminal",
+                "description": "Chronic intractable pain in non-terminal individual, pain >= 6/10 or disability, failed >= 12 weeks conservative therapy, not opioid-naive, trial count <= 2.",
+                "parameters": [
+                  "chronic_intractable_pain_confirmed",
+                  "patient_is_non_terminal",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "conservative_therapy_duration_weeks",
+                  "patient_is_opioid_naive",
+                  "intraspinal_drug_trial_count"
+                ]
+              },
+              {
+                "pathway_name": "intractable_spasticity_nonterminal",
+                "description": "Intractable spasticity in non-terminal individual due to SCI, MS, Stiff Person, or other etiology causing inability to maintain upright posture, impaired ambulation, or ADL interference; failed >= 12 weeks conservative therapy; trial count <= 2.",
+                "parameters": [
+                  "intractable_spasticity_confirmed",
+                  "qualifying_spasticity_etiology_present",
+                  "spasticity_functional_impairment_documented",
+                  "patient_is_non_terminal",
+                  "conservative_therapy_duration_weeks",
+                  "intraspinal_drug_trial_count"
+                ]
+              },
+              {
+                "pathway_name": "second_intraspinal_trial",
+                "description": "Second trial indicated when first trial had < 50% relief or intolerable side effects, trial count == 2.",
+                "parameters": [
+                  "prior_trial_relief_percentage",
+                  "prior_trial_intolerable_side_effects",
+                  "intraspinal_drug_trial_count"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-PUMP-001-POS-PAIN",
+              "description": "Chronic intractable back/leg pain, non-terminal, pain score 8/10, failed 14 weeks conservative care, on chronic opioids (not opioid-naive), trial 1.",
+              "inputs": {
+                "chronic_intractable_pain_confirmed": true,
+                "patient_is_non_terminal": true,
+                "pain_intensity_score_numeric": 8,
+                "functional_disability_documented": true,
+                "conservative_therapy_duration_weeks": 14,
+                "patient_is_opioid_naive": false,
+                "intraspinal_drug_trial_count": 1
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1751, Physical Page 22-23"
+            },
+            {
+              "case_id": "TC-PUMP-002-POS-SPASTICITY",
+              "description": "Intractable spasticity secondary to multiple sclerosis, impaired balance in ambulation, failed 16 weeks oral antispasmodics and physical therapy, non-terminal, trial 1.",
+              "inputs": {
+                "intractable_spasticity_confirmed": true,
+                "qualifying_spasticity_etiology_present": true,
+                "spasticity_functional_impairment_documented": true,
+                "patient_is_non_terminal": true,
+                "conservative_therapy_duration_weeks": 16,
+                "intraspinal_drug_trial_count": 1
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1751, Physical Page 22"
+            },
+            {
+              "case_id": "TC-PUMP-003-POS-SECOND-TRIAL",
+              "description": "Second trial requested after first trial produced only 30% pain relief (< 50%).",
+              "inputs": {
+                "prior_trial_relief_percentage": 30,
+                "prior_trial_intolerable_side_effects": false,
+                "intraspinal_drug_trial_count": 2
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1751, Physical Page 23"
+            },
+            {
+              "case_id": "TC-PUMP-004-NEG-OPIOID-NAIVE",
+              "description": "Intractable pain meeting conservative care, but patient is opioid-naive.",
+              "inputs": {
+                "chronic_intractable_pain_confirmed": true,
+                "patient_is_non_terminal": true,
+                "pain_intensity_score_numeric": 8,
+                "functional_disability_documented": true,
+                "conservative_therapy_duration_weeks": 16,
+                "patient_is_opioid_naive": true,
+                "intraspinal_drug_trial_count": 1
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1751, Physical Page 23 Note"
+            },
+            {
+              "case_id": "TC-PUMP-005-NEG-INSUFFICIENT-CONS",
+              "description": "Intractable pain with only 6 weeks of conservative therapy (< 12 weeks required).",
+              "inputs": {
+                "chronic_intractable_pain_confirmed": true,
+                "patient_is_non_terminal": true,
+                "pain_intensity_score_numeric": 8,
+                "functional_disability_documented": true,
+                "conservative_therapy_duration_weeks": 6,
+                "patient_is_opioid_naive": false,
+                "intraspinal_drug_trial_count": 1
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1751, Physical Page 22"
+            },
+            {
+              "case_id": "TC-PUMP-006-NEG-THIRD-TRIAL",
+              "description": "Third trial requested (exceeds limit of two trials).",
+              "inputs": {
+                "prior_trial_relief_percentage": 20,
+                "prior_trial_intolerable_side_effects": false,
+                "intraspinal_drug_trial_count": 3
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1751, Physical Page 23"
+            }
+          ]
+        },
+        {
+          "rule_id": "RULE-IPM-CGSIINJECTIONS-001",
+          "rule_name": "Sacroiliac Joint Injections Indication",
+          "remediation_record_id": "REM-P3-007",
+          "clinical_service_or_procedure": "Sacroiliac Joint Injections 2026 (July)",
+          "cpt_codes": [
+            "27096",
+            "G0260"
+          ],
+          "governing_policy": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+          "guideline_section": "Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections",
+          "source_pages": {
+            "physical_pages": [
+              57,
+              58,
+              59,
+              60
+            ],
+            "printed_pages": [
+              "Page 1 of 10",
+              "Page 2 of 10",
+              "Page 3 of 10",
+              "Page 4 of 10"
+            ]
+          },
+          "decision_track": "CLINICAL_NECESSITY",
+          "current_logic_summary": "Single uncompiled boolean stub: parameter 'cgsiinjections_indication' IS_PRESENT.",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "sacroiliac_joint_pain",
+                "description": "Axial low back pain below L5, duration >= 3 months, pain >= 6/10 or disability, cluster of >= 3 of 8 provocative physical exam findings, failed >= 6 weeks conservative therapy in last 6 months, imaging guidance.",
+                "parameters": [
+                  "axial_pain_below_l5_present",
+                  "pain_duration_months",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "provocative_exam_findings_count",
+                  "conservative_therapy_duration_weeks",
+                  "conservative_therapy_within_6_months",
+                  "imaging_guidance_present"
+                ]
+              },
+              {
+                "pathway_name": "spondyloarthropathy",
+                "description": "Spondyloarthropathy with low back pain >= 3 months, age of onset < 45 years, comprehensive pain management program in place, imaging evidence of sacroiliitis, >= 1 spondyloarthropathy feature, imaging guidance.",
+                "parameters": [
+                  "spondyloarthropathy_diagnosed",
+                  "pain_duration_months",
+                  "age_at_symptom_onset_years",
+                  "comprehensive_pain_program_active",
+                  "imaging_evidence_sacroiliitis",
+                  "spondyloarthropathy_features_count",
+                  "imaging_guidance_present"
+                ]
+              },
+              {
+                "pathway_name": "diagnostic_surgical_planning",
+                "description": "Contrast-enhanced intra-articular injection for SIJ surgical planning, documented pre-op plan, relief >= 75% for expected duration, diagnostic count <= 2.",
+                "parameters": [
+                  "preoperative_evaluation_and_surgical_plan_documented",
+                  "contrast_enhanced_intraarticular_injection",
+                  "diagnostic_pain_relief_percentage",
+                  "diagnostic_sij_injection_count",
+                  "imaging_guidance_present"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-SIJ-001-POS-MECHANICAL",
+              "description": "Axial pain below L5 for 5 months, pain score 7/10, 3 positive provocative tests (FABER, distraction, compression), failed 6 weeks conservative therapy, fluoroscopy.",
+              "inputs": {
+                "axial_pain_below_l5_present": true,
+                "pain_duration_months": 5.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "provocative_exam_findings_count": 3,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1756, Physical Page 58"
+            },
+            {
+              "case_id": "TC-SIJ-002-POS-SPONDYLO",
+              "description": "Spondyloarthropathy with onset age 32 (< 45), back pain for 6 months, active sacroiliitis on MRI, positive HLA-B27, comprehensive pain program active, fluoroscopy.",
+              "inputs": {
+                "spondyloarthropathy_diagnosed": true,
+                "pain_duration_months": 6.0,
+                "age_at_symptom_onset_years": 32,
+                "comprehensive_pain_program_active": true,
+                "imaging_evidence_sacroiliitis": true,
+                "spondyloarthropathy_features_count": 2,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1756, Physical Page 59"
+            },
+            {
+              "case_id": "TC-SIJ-003-POS-SURGICAL-DIAG",
+              "description": "Diagnostic SIJ injection for planned SI joint fusion, contrast-enhanced IA injection, 80% relief (>= 75%), trial 1, fluoroscopy.",
+              "inputs": {
+                "preoperative_evaluation_and_surgical_plan_documented": true,
+                "contrast_enhanced_intraarticular_injection": true,
+                "diagnostic_pain_relief_percentage": 80,
+                "diagnostic_sij_injection_count": 1,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1756, Physical Page 60"
+            },
+            {
+              "case_id": "TC-SIJ-004-NEG-INSUFFICIENT-PROVOCATIVE",
+              "description": "Axial pain below L5, but only 2 provocative physical exam findings positive (< 3 required).",
+              "inputs": {
+                "axial_pain_below_l5_present": true,
+                "pain_duration_months": 5.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "provocative_exam_findings_count": 2,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1756, Physical Page 58"
+            },
+            {
+              "case_id": "TC-SIJ-005-NEG-SHORT-DURATION",
+              "description": "Axial pain below L5 with 3 positive tests, but pain duration only 6 weeks (< 3 months).",
+              "inputs": {
+                "axial_pain_below_l5_present": true,
+                "pain_duration_months": 1.5,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "provocative_exam_findings_count": 3,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1756, Physical Page 58"
+            },
+            {
+              "case_id": "TC-SIJ-006-NEG-NO-IMAGING-GUIDANCE",
+              "description": "Sacroiliac joint injection requested without imaging guidance.",
+              "inputs": {
+                "axial_pain_below_l5_present": true,
+                "pain_duration_months": 5.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "provocative_exam_findings_count": 3,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "imaging_guidance_present": false
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1756, Physical Page 60 Note"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "batch_id": "BATCH_2_FACET_AND_SYMPATHETIC",
+      "batch_name": "Facet Interventions & Sympathetic Nerve Blocks",
+      "priority": "HIGH",
+      "rules_count": 4,
+      "target_rules": [
+        "RULE-IPM-CGFACETBLOCKS-001",
+        "RULE-IPM-CGFACETDENERVATION-001",
+        "RULE-IPM-CGFACETDENERVATION-002",
+        "RULE-IPM-CGSYMPATHETICBLOCKS-001"
+      ],
+      "clinical_rationale": "Direct procedural continuum between diagnostic facet blocks and therapeutic denervation (RFA), enforcing the verified >= 70% MBB relief threshold. Sympathetic nerve blocks share diagnostic-to-neurolysis evaluation workflows and identical >= 50% anesthetic relief thresholds.",
+      "rule_specifications": [
+        {
+          "rule_id": "RULE-IPM-CGFACETBLOCKS-001",
+          "rule_name": "Paravertebral Facet Joint Injection / Blocks Indication",
+          "remediation_record_id": "REM-P3-004",
+          "clinical_service_or_procedure": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
+          "cpt_codes": [
+            "64490",
+            "64491",
+            "64492",
+            "64493",
+            "64494",
+            "64495",
+            "0213T",
+            "0214T",
+            "0215T",
+            "0216T",
+            "0217T",
+            "0218T"
+          ],
+          "governing_policy": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+          "guideline_section": "Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks",
+          "source_pages": {
+            "physical_pages": [
+              31,
+              32,
+              33,
+              34
+            ],
+            "printed_pages": [
+              "Page 1 of 14",
+              "Page 2 of 14",
+              "Page 3 of 14",
+              "Page 4 of 14"
+            ]
+          },
+          "decision_track": "CLINICAL_NECESSITY",
+          "current_logic_summary": "Single uncompiled boolean stub: parameter 'cgfacetblocks_indication' IS_PRESENT.",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "axial_facetogenic_pain",
+                "description": "Axial non-radicular pain >= 3 months, pain >= 6/10 or disability, not SIJ/discogenic/radicular, failed >= 6 weeks conservative therapy in last 6 months, imaging guidance.",
+                "parameters": [
+                  "pain_is_axial_nonradicular",
+                  "pain_duration_months",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "primary_sij_discogenic_radicular_excluded",
+                  "conservative_therapy_duration_weeks",
+                  "conservative_therapy_within_6_months",
+                  "imaging_guidance_type"
+                ]
+              },
+              {
+                "pathway_name": "synovial_cyst_radiculopathy",
+                "description": "Radicular pain due to stenosis caused by facet synovial cyst confirmed on imaging, pain >= 6/10 or disability, failed >= 6 weeks conservative care, imaging guidance.",
+                "parameters": [
+                  "facet_synovial_cyst_confirmed_on_imaging",
+                  "radicular_stenosis_symptoms_present",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "conservative_therapy_duration_weeks",
+                  "conservative_therapy_within_6_months",
+                  "imaging_guidance_type"
+                ]
+              },
+              {
+                "pathway_name": "chronic_lumbar_spondylolysis",
+                "description": "Chronic lumbar spondylolysis with pars interarticularis defect confirmed on imaging, pain >= 6/10 or disability, failed >= 6 weeks conservative therapy, imaging guidance.",
+                "parameters": [
+                  "pars_interarticularis_defect_confirmed",
+                  "pain_duration_months",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "conservative_therapy_duration_weeks",
+                  "conservative_therapy_within_6_months",
+                  "imaging_guidance_type"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-FACET-001-POS-AXIAL",
+              "description": "Axial lumbar pain for 6 months, pain score 7/10, primary discogenic/SIJ excluded, failed 6 weeks conservative therapy, fluoroscopy.",
+              "inputs": {
+                "pain_is_axial_nonradicular": true,
+                "pain_duration_months": 6.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "primary_sij_discogenic_radicular_excluded": true,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1753, Physical Page 32-33"
+            },
+            {
+              "case_id": "TC-FACET-002-POS-SYNOVIAL",
+              "description": "Radicular pain secondary to lumbar facet synovial cyst confirmed on MRI, failed 6 weeks conservative care, fluoroscopy.",
+              "inputs": {
+                "facet_synovial_cyst_confirmed_on_imaging": true,
+                "radicular_stenosis_symptoms_present": true,
+                "pain_intensity_score_numeric": 8,
+                "functional_disability_documented": true,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1753, Physical Page 32"
+            },
+            {
+              "case_id": "TC-FACET-003-NEG-PRIMARY-RADICULITIS",
+              "description": "Primary radiculitis from disc herniation without synovial cyst.",
+              "inputs": {
+                "pain_is_axial_nonradicular": false,
+                "primary_sij_discogenic_radicular_excluded": false,
+                "facet_synovial_cyst_confirmed_on_imaging": false,
+                "pain_intensity_score_numeric": 7,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1753, Physical Page 32"
+            },
+            {
+              "case_id": "TC-FACET-004-NEG-SHORT-DURATION",
+              "description": "Axial facet pain for only 4 weeks (< 3 months).",
+              "inputs": {
+                "pain_is_axial_nonradicular": true,
+                "pain_duration_months": 1.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "primary_sij_discogenic_radicular_excluded": true,
+                "conservative_therapy_duration_weeks": 6,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1753, Physical Page 32"
+            }
+          ]
+        },
+        {
+          "rule_id": "RULE-IPM-CGFACETDENERVATION-001",
+          "rule_name": "Paravertebral Facet Joint Denervation / RFA Indication",
+          "remediation_record_id": "REM-P3-005",
+          "clinical_service_or_procedure": "Paravertebral Facet Joint Denervation 2026 (July)",
+          "cpt_codes": [
+            "64633",
+            "64634",
+            "64635",
+            "64636"
+          ],
+          "governing_policy": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+          "guideline_section": "Evolent Clinical Guideline 1754 for Paravertebral Facet Joint Denervation (Radiofrequency Neurolysis)",
+          "source_pages": {
+            "physical_pages": [
+              45,
+              46,
+              47,
+              48
+            ],
+            "printed_pages": [
+              "Page 1 of 12",
+              "Page 2 of 12",
+              "Page 3 of 12",
+              "Page 4 of 12"
+            ]
+          },
+          "decision_track": "CLINICAL_NECESSITY",
+          "current_logic_summary": "Single uncompiled boolean stub: parameter 'cgfacetdenervation_indication' IS_PRESENT.",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "initial_facet_denervation",
+                "description": "Axial pain >= 3 months, pain >= 6/10 or disability, positive response to diagnostic medial branch blocks with >= 70% relief, return of pain, not SIJ/discogenic/radicular, failed >= 6 weeks conservative care, fluoroscopy/CT.",
+                "parameters": [
+                  "pain_duration_months",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "diagnostic_mbb_relief_percentage",
+                  "pain_returned_after_diagnostic_block",
+                  "primary_sij_discogenic_radicular_excluded",
+                  "conservative_therapy_duration_weeks",
+                  "conservative_therapy_within_6_months",
+                  "imaging_guidance_type"
+                ]
+              },
+              {
+                "pathway_name": "repeat_facet_denervation",
+                "description": "Positive response to prior RFA with >= 50% relief for >= 4 months, continued pain >= 6/10 or disability, ongoing conservative care, <= 2 RFA procedures per 12 months, fluoroscopy/CT.",
+                "parameters": [
+                  "prior_rfa_relief_percentage",
+                  "prior_rfa_duration_months",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "ongoing_conservative_therapy",
+                  "rfa_procedures_past_12_months",
+                  "imaging_guidance_type"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-RFA-001-POS-INITIAL",
+              "description": "Initial lumbar RFA, axial pain 6 months, diagnostic MBB provided 80% relief (>= 70%), pain returned, failed 6 weeks conservative therapy, fluoroscopy.",
+              "inputs": {
+                "pain_duration_months": 6.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "diagnostic_mbb_relief_percentage": 80,
+                "pain_returned_after_diagnostic_block": true,
+                "primary_sij_discogenic_radicular_excluded": true,
+                "conservative_therapy_duration_weeks": 6,
+                "conservative_therapy_within_6_months": true,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1754, Physical Page 46"
+            },
+            {
+              "case_id": "TC-RFA-002-POS-REPEAT",
+              "description": "Repeat RFA, prior RFA provided 60% relief (>= 50%) lasting 5 months (>= 4m), pain returned (score 7/10), 1 prior RFA in 12 months, fluoroscopy.",
+              "inputs": {
+                "prior_rfa_relief_percentage": 60,
+                "prior_rfa_duration_months": 5.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "ongoing_conservative_therapy": true,
+                "rfa_procedures_past_12_months": 1,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1754, Physical Page 47"
+            },
+            {
+              "case_id": "TC-RFA-003-NEG-LOW-RELIEF",
+              "description": "Initial RFA requested but prior diagnostic MBB relief was only 50% (< 70% required for initial RFA).",
+              "inputs": {
+                "pain_duration_months": 6.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "diagnostic_mbb_relief_percentage": 50,
+                "pain_returned_after_diagnostic_block": true,
+                "primary_sij_discogenic_radicular_excluded": true,
+                "conservative_therapy_duration_weeks": 6,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1754, Physical Page 46"
+            },
+            {
+              "case_id": "TC-RFA-004-NEG-REPEAT-SHORT-DURATION",
+              "description": "Repeat RFA requested, but prior RFA relief lasted only 2.5 months (< 4 months required).",
+              "inputs": {
+                "prior_rfa_relief_percentage": 60,
+                "prior_rfa_duration_months": 2.5,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "ongoing_conservative_therapy": true,
+                "rfa_procedures_past_12_months": 1,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1754, Physical Page 47"
+            }
+          ]
+        },
+        {
+          "rule_id": "RULE-IPM-CGFACETDENERVATION-002",
+          "rule_name": "Facet RFA Diagnostic Block Relief Threshold",
+          "remediation_record_id": "REM-P3-006",
+          "clinical_service_or_procedure": "Facet Joint Radiofrequency Neurotomy / Denervation",
+          "cpt_codes": [
+            "64633",
+            "64634",
+            "64635",
+            "64636"
+          ],
+          "governing_policy": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+          "guideline_section": "Paravertebral Facet Joint Denervation 2026 / Diagnostic Block Prerequisites",
+          "source_pages": {
+            "physical_pages": [
+              46,
+              47
+            ],
+            "printed_pages": [
+              "Page 2 of 12",
+              "Page 3 of 12"
+            ]
+          },
+          "decision_track": "CLINICAL_NECESSITY",
+          "current_logic_summary": "Single condition: diagnostic_facet_block_relief >= 50% (lacks distinction between initial MBB >= 70% and repeat RFA >= 50% / >= 4 months).",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "initial_diagnostic_mbb_relief",
+                "description": "Documented positive pain relief from prior diagnostic medial branch block >= 70%.",
+                "parameters": [
+                  "diagnostic_facet_block_relief"
+                ]
+              },
+              {
+                "pathway_name": "repeat_rfa_relief",
+                "description": "Documented positive pain relief from prior RFA >= 50% for duration >= 4 months.",
+                "parameters": [
+                  "prior_rfa_relief_percentage",
+                  "prior_rfa_duration_months"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-RFATHRESH-001-POS-INITIAL-70",
+              "description": "Diagnostic MBB relief is 75% (>= 70%).",
+              "inputs": {
+                "diagnostic_facet_block_relief": 75
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1754, Physical Page 46"
+            },
+            {
+              "case_id": "TC-RFATHRESH-002-NEG-INITIAL-BELOW-70",
+              "description": "Diagnostic MBB relief is 65% (< 70%).",
+              "inputs": {
+                "diagnostic_facet_block_relief": 65
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1754, Physical Page 46"
+            },
+            {
+              "case_id": "TC-RFATHRESH-003-POS-REPEAT-50",
+              "description": "Repeat RFA relief is 55% (>= 50%) for 6 months (>= 4m).",
+              "inputs": {
+                "prior_rfa_relief_percentage": 55,
+                "prior_rfa_duration_months": 6.0
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1754, Physical Page 47"
+            },
+            {
+              "case_id": "TC-RFATHRESH-004-NEG-REPEAT-SHORT",
+              "description": "Repeat RFA relief is 55% (>= 50%) but lasted only 3 months (< 4m).",
+              "inputs": {
+                "prior_rfa_relief_percentage": 55,
+                "prior_rfa_duration_months": 3.0
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1754, Physical Page 47"
+            }
+          ]
+        },
+        {
+          "rule_id": "RULE-IPM-CGSYMPATHETICBLOCKS-001",
+          "rule_name": "Sympathetic Nerve Blocks Indication",
+          "remediation_record_id": "REM-P3-009",
+          "clinical_service_or_procedure": "Sympathetic Nerve Blocks 2026 (July)",
+          "cpt_codes": [
+            "64510",
+            "64517",
+            "64520",
+            "64530"
+          ],
+          "governing_policy": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+          "guideline_section": "Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks",
+          "source_pages": {
+            "physical_pages": [
+              89,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96
+            ],
+            "printed_pages": [
+              "Page 1 of 14",
+              "Page 3 of 14",
+              "Page 4 of 14",
+              "Page 5 of 14",
+              "Page 6 of 14",
+              "Page 7 of 14",
+              "Page 8 of 14"
+            ]
+          },
+          "decision_track": "CLINICAL_NECESSITY",
+          "current_logic_summary": "Single uncompiled boolean stub: parameter 'cgsympatheticblocks_indication' IS_PRESENT.",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "stellate_ganglion_block",
+                "description": "CPT 64510, pain >= 6/10 or cancer pain, image-guided, acute zoster (< 4w + antiviral) or cancer/phantom limb (failed conservative) or CRPS (failed functional restoration), unilateral.",
+                "parameters": [
+                  "procedure_cpt_code",
+                  "pain_intensity_score_numeric",
+                  "cancer_pain_present",
+                  "acute_herpes_zoster_present",
+                  "zoster_duration_weeks",
+                  "active_antiviral_therapy",
+                  "crps_budapest_criteria_met",
+                  "functional_restoration_failed",
+                  "bilateral_procedure_requested",
+                  "imaging_guidance_present"
+                ]
+              },
+              {
+                "pathway_name": "thoracic_lumbar_sympathetic_block",
+                "description": "CPT 64520, pain >= 6/10 or cancer pain, fluoro/CT (no US), acute zoster or cancer/phantom/ischemic limb (failed conservative) or CRPS (failed functional restoration), unilateral.",
+                "parameters": [
+                  "procedure_cpt_code",
+                  "pain_intensity_score_numeric",
+                  "cancer_pain_present",
+                  "acute_herpes_zoster_present",
+                  "zoster_duration_weeks",
+                  "active_antiviral_therapy",
+                  "nonsurgical_ischemic_limb_pain",
+                  "crps_budapest_criteria_met",
+                  "bilateral_procedure_requested",
+                  "imaging_guidance_type"
+                ]
+              },
+              {
+                "pathway_name": "celiac_plexus_block",
+                "description": "CPT 64530, upper abdominal cancer pain (conservative therapy not required) or chronic pancreatitis (failed conservative therapy), image-guided.",
+                "parameters": [
+                  "procedure_cpt_code",
+                  "upper_abdominal_cancer_pain",
+                  "chronic_pancreatitis_pain",
+                  "conservative_therapy_failed",
+                  "imaging_guidance_present"
+                ]
+              },
+              {
+                "pathway_name": "superior_hypogastric_plexus_block",
+                "description": "CPT 64517, pelvic/rectal cancer pain (conservative therapy not required) or chronic noncancer visceral pelvic pain (failed conservative care), fluoro/CT guided.",
+                "parameters": [
+                  "procedure_cpt_code",
+                  "pelvic_rectal_cancer_pain",
+                  "chronic_noncancer_pelvic_visceral_pain",
+                  "conservative_therapy_failed",
+                  "imaging_guidance_type"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-SYMP-001-POS-STELLATE-ZOSTER",
+              "description": "Stellate ganglion block (64510) for acute shingles with pain for 2 weeks (< 4w), on valacyclovir, pain score 7/10, unilateral, image-guided.",
+              "inputs": {
+                "procedure_cpt_code": "64510",
+                "pain_intensity_score_numeric": 7,
+                "acute_herpes_zoster_present": true,
+                "zoster_duration_weeks": 2,
+                "active_antiviral_therapy": true,
+                "bilateral_procedure_requested": false,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1758, Physical Page 92"
+            },
+            {
+              "case_id": "TC-SYMP-002-POS-LUMBAR-ISCHEMIC",
+              "description": "Lumbar sympathetic block (64520) for nonsurgical ischemic limb pain, pain 8/10, failed conservative medical care, fluoroscopy.",
+              "inputs": {
+                "procedure_cpt_code": "64520",
+                "pain_intensity_score_numeric": 8,
+                "nonsurgical_ischemic_limb_pain": true,
+                "conservative_therapy_failed": true,
+                "bilateral_procedure_requested": false,
+                "imaging_guidance_type": "FLUOROSCOPY"
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1758, Physical Page 93"
+            },
+            {
+              "case_id": "TC-SYMP-003-POS-CELIAC-CANCER",
+              "description": "Celiac plexus block (64530) for pancreatic cancer upper abdominal pain (conservative therapy waived), image-guided.",
+              "inputs": {
+                "procedure_cpt_code": "64530",
+                "upper_abdominal_cancer_pain": true,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1758, Physical Page 94"
+            },
+            {
+              "case_id": "TC-SYMP-004-NEG-BILATERAL-STELLATE",
+              "description": "Bilateral stellate ganglion blocks requested on same day of service (prohibited).",
+              "inputs": {
+                "procedure_cpt_code": "64510",
+                "pain_intensity_score_numeric": 7,
+                "acute_herpes_zoster_present": true,
+                "zoster_duration_weeks": 2,
+                "active_antiviral_therapy": true,
+                "bilateral_procedure_requested": true,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1758, Physical Page 93"
+            },
+            {
+              "case_id": "TC-SYMP-005-NEG-ZOSTER-OVER-4W",
+              "description": "Stellate ganglion block for herpes zoster with pain duration 6 weeks (> 4 weeks).",
+              "inputs": {
+                "procedure_cpt_code": "64510",
+                "pain_intensity_score_numeric": 7,
+                "acute_herpes_zoster_present": true,
+                "zoster_duration_weeks": 6,
+                "active_antiviral_therapy": true,
+                "bilateral_procedure_requested": false,
+                "imaging_guidance_present": true
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1758, Physical Page 92"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "batch_id": "BATCH_3_NEUROMODULATION_AND_POS",
+      "batch_name": "Neuromodulation & Place of Service Exceptions",
+      "priority": "HIGH",
+      "rules_count": 2,
+      "target_rules": [
+        "RULE-IPM-CGSPINALCORDSTIM-001",
+        "RULE-IPM-EPOS1755-001"
+      ],
+      "clinical_rationale": "High-complexity systemic clinical evaluations. Spinal cord stimulation requires full 4-element psychiatric clearance, MRSA/MSSA infection decolonization protocols, and multi-etiology branches. EPOS 1755 spans systemic multi-organ comorbidity criteria across the entire IPM procedure catalog.",
+      "rule_specifications": [
+        {
+          "rule_id": "RULE-IPM-CGSPINALCORDSTIM-001",
+          "rule_name": "Spinal Cord Stimulation Trial Indication",
+          "remediation_record_id": "REM-P3-008",
+          "clinical_service_or_procedure": "Spinal Cord Stimulation 2026 (July)",
+          "cpt_codes": [
+            "63650",
+            "63655",
+            "63661",
+            "63662",
+            "63663",
+            "63664",
+            "63685",
+            "63688"
+          ],
+          "governing_policy": "2026 Evolent Clinical Guidelines for Medical Necessity Review: Interventional Pain Management Guidelines",
+          "guideline_section": "Evolent Clinical Guideline 1757 for Spinal Cord Stimulation",
+          "source_pages": {
+            "physical_pages": [
+              77,
+              78,
+              79,
+              80
+            ],
+            "printed_pages": [
+              "Page 1 of 12",
+              "Page 2 of 12",
+              "Page 3 of 12",
+              "Page 4 of 12"
+            ]
+          },
+          "decision_track": "CLINICAL_NECESSITY",
+          "current_logic_summary": "Single uncompiled boolean stub: parameter 'cgspinalcordstim_indication' IS_PRESENT.",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "scs_trial",
+                "description": "Pain duration >= 6 months, pain >= 6/10 or disability, qualifying etiology (FBSS/PSPS, CRPS Budapest, or qualifying neuropathic pain), failed >= 6 months conservative therapy, completed presurgical psychological assessment (all 4 elements cleared), MRSA/MSSA decolonization plan.",
+                "parameters": [
+                  "pain_duration_months",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "qualifying_scs_etiology_present",
+                  "conservative_therapy_duration_months",
+                  "psych_not_due_to_psychiatric_disorder",
+                  "psych_personality_psychiatric_managed",
+                  "psych_substance_use_managed_in_recovery",
+                  "psych_cognitive_ability_demonstrated",
+                  "staph_decolonization_plan_met"
+                ]
+              },
+              {
+                "pathway_name": "drgs_trial",
+                "description": "Lower limb CRPS Type I or II meeting Budapest criteria, pain duration >= 6 months, pain >= 6/10 or disability, failed >= 6 months conservative therapy, completed presurgical psychological assessment (all 4 elements cleared).",
+                "parameters": [
+                  "crps_lower_limb_budapest_met",
+                  "pain_duration_months",
+                  "pain_intensity_score_numeric",
+                  "functional_disability_documented",
+                  "conservative_therapy_duration_months",
+                  "psych_not_due_to_psychiatric_disorder",
+                  "psych_personality_psychiatric_managed",
+                  "psych_substance_use_managed_in_recovery",
+                  "psych_cognitive_ability_demonstrated"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-SCS-001-POS-FBSS",
+              "description": "Failed back surgery syndrome with intractable leg pain for 12 months, pain 8/10, failed 8 months conservative therapy, all 4 psych criteria satisfied, staph decolonization plan active.",
+              "inputs": {
+                "pain_duration_months": 12.0,
+                "pain_intensity_score_numeric": 8,
+                "functional_disability_documented": true,
+                "qualifying_scs_etiology_present": true,
+                "conservative_therapy_duration_months": 8,
+                "psych_not_due_to_psychiatric_disorder": true,
+                "psych_personality_psychiatric_managed": true,
+                "psych_substance_use_managed_in_recovery": true,
+                "psych_cognitive_ability_demonstrated": true,
+                "staph_decolonization_plan_met": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1757, Physical Page 78-79"
+            },
+            {
+              "case_id": "TC-SCS-002-POS-DRGS-CRPS",
+              "description": "DRGS trial for lower limb CRPS type I meeting Budapest criteria, pain 7/10, duration 9 months, failed conservative care, psych cleared.",
+              "inputs": {
+                "crps_lower_limb_budapest_met": true,
+                "pain_duration_months": 9.0,
+                "pain_intensity_score_numeric": 7,
+                "functional_disability_documented": true,
+                "conservative_therapy_duration_months": 6,
+                "psych_not_due_to_psychiatric_disorder": true,
+                "psych_personality_psychiatric_managed": true,
+                "psych_substance_use_managed_in_recovery": true,
+                "psych_cognitive_ability_demonstrated": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "Guideline 1757, Physical Page 79-80"
+            },
+            {
+              "case_id": "TC-SCS-003-NEG-FAILED-PSYCH",
+              "description": "SCS candidate with active untreated substance use disorder / psych clearance not met.",
+              "inputs": {
+                "pain_duration_months": 12.0,
+                "pain_intensity_score_numeric": 8,
+                "functional_disability_documented": true,
+                "qualifying_scs_etiology_present": true,
+                "conservative_therapy_duration_months": 8,
+                "psych_not_due_to_psychiatric_disorder": true,
+                "psych_personality_psychiatric_managed": true,
+                "psych_substance_use_managed_in_recovery": false,
+                "psych_cognitive_ability_demonstrated": true,
+                "staph_decolonization_plan_met": true
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1757, Physical Page 79"
+            },
+            {
+              "case_id": "TC-SCS-004-NEG-SHORT-DURATION",
+              "description": "Neuropathic back/leg pain for only 3 months (< 6 months).",
+              "inputs": {
+                "pain_duration_months": 3.0,
+                "pain_intensity_score_numeric": 8,
+                "functional_disability_documented": true,
+                "qualifying_scs_etiology_present": true,
+                "conservative_therapy_duration_months": 3,
+                "psych_not_due_to_psychiatric_disorder": true,
+                "psych_personality_psychiatric_managed": true,
+                "psych_substance_use_managed_in_recovery": true,
+                "psych_cognitive_ability_demonstrated": true,
+                "staph_decolonization_plan_met": true
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "Guideline 1757, Physical Page 78"
+            }
+          ]
+        },
+        {
+          "rule_id": "RULE-IPM-EPOS1755-001",
+          "rule_name": "Place of Service 1755 Outpatient Hospital Clinical Exceptions",
+          "remediation_record_id": "REM-P3-010",
+          "clinical_service_or_procedure": "Evolent Place of Service Policy 1755 for Interventional Pain",
+          "cpt_codes": [],
+          "governing_policy": "EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
+          "guideline_section": "PATIENT CRITERIA FOR SELECTION OF OUTPATIENT HOSPITAL SETTING",
+          "source_pages": {
+            "physical_pages": [
+              1,
+              3,
+              4
+            ],
+            "printed_pages": [
+              "Page 1 of 8",
+              "Page 3 of 8",
+              "Page 4 of 8"
+            ]
+          },
+          "decision_track": "PLACE_OF_SERVICE",
+          "current_logic_summary": "Single uncompiled boolean stub: parameter 'epos1755_indication' IS_PRESENT.",
+          "proposed_logic_structure": {
+            "operator": "ANY_OF",
+            "pathways": [
+              {
+                "pathway_name": "asa_physical_status",
+                "description": "ASA Physical Status score >= 3.",
+                "parameters": [
+                  "asa_physical_status_score"
+                ]
+              },
+              {
+                "pathway_name": "morbid_obesity_bmi",
+                "description": "Body Mass Index (BMI) >= 40 (with or without obesity-related conditions).",
+                "parameters": [
+                  "patient_bmi_value"
+                ]
+              },
+              {
+                "pathway_name": "cardiopulmonary_comorbidities",
+                "description": "Severe cardiac problems (prior surgery, MI, HF, CAD/stents, arrhythmia, pacemaker/ICD) or lung problems (COPD, asthma).",
+                "parameters": [
+                  "heart_problems_present",
+                  "chronic_lung_disease_present"
+                ]
+              },
+              {
+                "pathway_name": "bleeding_or_organ_impairment",
+                "description": "Chronic kidney or liver problems, blood clots or bleeding disorders, stroke/TIA.",
+                "parameters": [
+                  "chronic_kidney_or_liver_disease",
+                  "bleeding_disorder_or_anticoagulation",
+                  "stroke_or_tia_history"
+                ]
+              },
+              {
+                "pathway_name": "metabolic_and_other_systemic",
+                "description": "Hypertension requiring 3+ drugs, poorly controlled diabetes, cognitive impairment, pregnancy, active substance use disorder, prior anesthesia complications, difficult airway, sleep apnea, anaphylaxis.",
+                "parameters": [
+                  "hypertension_requiring_3_or_more_drugs",
+                  "poorly_controlled_diabetes",
+                  "cognitive_impairment_or_dementia",
+                  "pregnancy_status",
+                  "active_substance_use_disorder",
+                  "prior_anesthesia_complications",
+                  "difficult_airway_anticipated",
+                  "sleep_apnea_diagnosed",
+                  "history_of_anaphylaxis"
+                ]
+              }
+            ]
+          },
+          "test_matrix": [
+            {
+              "case_id": "TC-EPOS-001-POS-ASA3",
+              "description": "Patient with ASA physical status score 3 requested in outpatient hospital setting.",
+              "inputs": {
+                "asa_physical_status_score": 3
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "EPOS 1755, Physical Page 3"
+            },
+            {
+              "case_id": "TC-EPOS-002-POS-BMI42",
+              "description": "Patient with BMI 42.1 (>= 40) requested in hospital setting.",
+              "inputs": {
+                "patient_bmi_value": 42.1
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "EPOS 1755, Physical Page 3"
+            },
+            {
+              "case_id": "TC-EPOS-003-POS-CARDIAC",
+              "description": "Patient with history of coronary artery disease with stent and arrhythmia.",
+              "inputs": {
+                "heart_problems_present": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "EPOS 1755, Physical Page 3"
+            },
+            {
+              "case_id": "TC-EPOS-004-POS-SLEEP-APNEA",
+              "description": "Patient with severe diagnosed sleep apnea.",
+              "inputs": {
+                "sleep_apnea_diagnosed": true
+              },
+              "expected_outcome": "CRITERIA_MET",
+              "source_reference": "EPOS 1755, Physical Page 3"
+            },
+            {
+              "case_id": "TC-EPOS-005-NEG-HEALTHY",
+              "description": "Healthy patient (ASA 1, BMI 25, no comorbidities) requested in outpatient hospital setting.",
+              "inputs": {
+                "asa_physical_status_score": 1,
+                "patient_bmi_value": 25.0,
+                "heart_problems_present": false,
+                "chronic_lung_disease_present": false,
+                "chronic_kidney_or_liver_disease": false,
+                "bleeding_disorder_or_anticoagulation": false,
+                "stroke_or_tia_history": false,
+                "hypertension_requiring_3_or_more_drugs": false,
+                "poorly_controlled_diabetes": false,
+                "cognitive_impairment_or_dementia": false,
+                "pregnancy_status": false,
+                "active_substance_use_disorder": false,
+                "prior_anesthesia_complications": false,
+                "difficult_airway_anticipated": false,
+                "sleep_apnea_diagnosed": false,
+                "history_of_anaphylaxis": false
+              },
+              "expected_outcome": "CRITERIA_NOT_MET",
+              "source_reference": "EPOS 1755, Physical Page 2-3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

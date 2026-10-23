@@ -1,0 +1,2592 @@
+{
+  "metadata": {
+    "phase": "Phase 7: Policy Fidelity and Clinical Criteria Audit",
+    "audit_date": "2026-10-22",
+    "governing_policies_audited": [
+      "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "EPOS 2067 for Place of Service - Radiology 2026_final.pdf",
+      "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf"
+    ],
+    "total_active_rules": 128,
+    "fidelity_counts": {
+      "VERIFIED": 96,
+      "HUMAN_REVIEW_REQUIRED": 7,
+      "MISMATCH": 17,
+      "MISSING": 7,
+      "PARTIALLY_VERIFIED": 1
+    },
+    "domain_counts": {
+      "advanced_imaging": 114,
+      "interventional_pain_management": 14
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "RULE-ADV-CG2000-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Diagnostic Imaging (CT, MRI, PET, Nuclear Medicine)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 8,
+      "printed_page": "Page 3 of 29",
+      "source_section": "STATEMENT / General Information",
+      "source_supported_criterion": "Faithful representation of policy criteria for Advanced Diagnostic Imaging (CT, MRI, PET, Nuclear Medicine) under section STATEMENT / General Information: It is an expectation that all patients receive care/services from a licensed clinician. All appropriate supporting documentation, including ...",
+      "current_encoded_criterion": "(ordering_provider_license IS_PRESENT ALL_OF clinical_office_notes IS_PRESENT ALL_OF laboratory_and_testing_data IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 8 (Page 3 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (101 codes)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis (or CT Enterography)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 9,
+      "printed_page": "Page 4 of 29",
+      "source_section": "Inflammatory Bowel Disease (3–5)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis (or CT Enterography) under section Inflammatory Bowel Disease (3–5): For suspected inflammatory bowel disease after complete work up including physical exam, labs, and recent colonoscopy...",
+      "current_encoded_criterion": "(physical_exam_completed == True ALL_OF lab_workup_completed == True ALL_OF recent_colonoscopy_completed == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 9 (Page 4 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74176",
+        "74177",
+        "74178"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis / CT Enterography",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 9,
+      "printed_page": "Page 4 of 29",
+      "source_section": "Inflammatory Bowel Disease (3–5)",
+      "source_supported_criterion": "For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative Colitis (includes CT enterography, however, MRI should be considered for age < 35 to reduce radiation exposure).",
+      "current_encoded_criterion": "(requested_modality == CT ALL_OF patient_age_years < 35)",
+      "fidelity_result": "HUMAN_REVIEW_REQUIRED",
+      "evidence": "Governance-blocked rule. Policy text uses advisory language (\"MRI should be considered for age < 35\") rather than a binding coverage exclusion or mandatory denial of CT. Converting advisory phrasing into an automated denial would violate clinical intent.",
+      "recommended_correction": "Maintain governance block. Flag cases of CT enterography in members < 35 for Medical Director peer-to-peer advisory consultation rather than automated coverage denial.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "74177",
+        "74183"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-004",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 9,
+      "printed_page": "Page 4 of 29",
+      "source_section": "Diverticulitis or Acute Appendicitis (8,9)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis under section Diverticulitis or Acute Appendicitis (8,9): Suspected diverticulitis or acute appendicitis for initial imaging with at least ONE of the following (10): ○ WBC Elevated ○ Fever ○ Anorexi...",
+      "current_encoded_criterion": "(provisional_diagnosis contains ['Diverticulitis', 'Acute Appendicitis'] ALL_OF clinical_signs_group IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 9 (Page 4 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74176",
+        "74177"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-005",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis (Pediatric)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 9,
+      "printed_page": "Page 4 of 29",
+      "source_section": "Diverticulitis or Acute Appendicitis (8,9)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis (Pediatric) under section Diverticulitis or Acute Appendicitis (8,9): Suspected appendicitis in a child (< age 18) (12) when ultrasound is inconclusive or cannot be completed (due to body habitus or inability t...",
+      "current_encoded_criterion": "(patient_age_years < 18 ALL_OF provisional_diagnosis == Appendicitis ALL_OF ultrasound_or_peritoneal_signs IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 9 (Page 4 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74176",
+        "74177"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-006",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 10,
+      "printed_page": "Page 5 of 29",
+      "source_section": "Pancreatitis (14)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis under section Pancreatitis (14): Initial imaging for suspected acute pancreatitis due to epigastric pain with elevated amylase and/or lipase: ○ Mild presentation when sympto...",
+      "current_encoded_criterion": "(pancreatitis_diagnostic_markers == ELEVATED ALL_OF conservative_treatment_duration_hours >= 72 ALL_OF ultrasound_findings contains ['NO_GALLSTONES_OR_DILATED_DUCT', 'SUGGESTS_COMPLICATIONS'])",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 10 (Page 5 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74177",
+        "74178"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-007",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 10,
+      "printed_page": "Page 5 of 29",
+      "source_section": "Pancreatitis (14)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis under section Pancreatitis (14): Severe presentation (such as fever, elevated WBC) ○ Decline in clinical status and/or suspected complication...",
+      "current_encoded_criterion": "(severe_pancreatitis_signs IS_PRESENT ANY_OF clinical_status_decline == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 10 (Page 5 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74177"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-008",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis (CT Urography)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 11,
+      "printed_page": "Page 6 of 29",
+      "source_section": "Evaluation of Hematuria (20)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis (CT Urography) under section Evaluation of Hematuria (20): Kidney Stone is NOT suspected AND ● Urinalysis is negative for infection or hematuria persists on urine microscopy following treatment of ur...",
+      "current_encoded_criterion": "(suspected_nephrolithiasis == False ALL_OF urinary_infection_ruled_out == True ALL_OF high_grade_hematuria IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 11 (Page 6 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74177",
+        "74178"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-009",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis (CT Urography)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 11,
+      "printed_page": "Page 6 of 29",
+      "source_section": "Evaluation of Hematuria (20)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis (CT Urography) under section Evaluation of Hematuria (20): 3-25 RBC/hpf on urine microscopy AND ONE or more of the following: ■ >30 pack year smoking history ■ Male ≥ age 60 ■ Abnormal renal ultrasou...",
+      "current_encoded_criterion": "(urine_rbc_count in [3, 25] ALL_OF urologic_risk_factors IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 11 (Page 6 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74177",
+        "74178"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-010",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis / CT Angiography Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 13,
+      "printed_page": "Page 8 of 29",
+      "source_section": "Abdominal Aortic Aneurysm (AAA)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis / CT Angiography Abdomen under section Abdominal Aortic Aneurysm (AAA): Aneurysm size 5.0-5.4 cm, every 6 months...",
+      "current_encoded_criterion": "(aaa_diameter_cm in [5.0, 5.4] ALL_OF months_since_last_aortic_imaging >= 6)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 13 (Page 8 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74176",
+        "74175"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-011",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Angiography / CT Abdomen and Pelvis",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 13,
+      "printed_page": "Page 8 of 29",
+      "source_section": "Abdominal Aortic Aneurysm (AAA)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Angiography / CT Abdomen and Pelvis under section Abdominal Aortic Aneurysm (AAA): Known or suspected symptomatic AAA (30,31) ○ Symptoms may include: ■ Abrupt onset of severe sharp or stabbing pain in the chest, back or abd...",
+      "current_encoded_criterion": "(symptomatic_aaa_suspected == True ALL_OF acute_aortic_symptoms IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 13 (Page 8 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74177",
+        "74175"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-012",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 19,
+      "printed_page": "Page 14 of 29",
+      "source_section": "Surveillance / General Cancer Follow-up",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis under section Surveillance / General Cancer Follow-up: When a cancer is not listed above, Abdomen and Pelvis CT is not routinely a part of surveillance for that cancer in an asymptomatic patient....",
+      "current_encoded_criterion": "(cancer_in_surveillance_table == False ALL_OF patient_is_asymptomatic == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 19 (Page 14 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74176",
+        "74177",
+        "74178"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2000-013",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 19,
+      "printed_page": "Page 14 of 29",
+      "source_section": "PREOPERATIVE OR POSTOPERATIVE ASSESSMENT / Postoperative Evaluation",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen and Pelvis under section PREOPERATIVE OR POSTOPERATIVE ASSESSMENT / Postoperative Evaluation: Known or suspected complications ● A clinical reason is provided how imaging may change management NOTE: This section applies only within th...",
+      "current_encoded_criterion": "(postoperative_complications_suspected == True ALL_OF months_since_surgery <= 3 ALL_OF management_change_documented == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 19 (Page 14 of 29) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74176",
+        "74177"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen (Isolated)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 37,
+      "printed_page": "Page 3 of 23",
+      "source_section": "STATEMENT / Special Note",
+      "source_supported_criterion": "When separate requests for CT abdomen and CT Pelvis are encountered for processes involving both abdomen and pelvis, they need to be resubmitted as Evolent Clinical Guideline 2000 for Abdomen and Pelvis CT (to avoid unbundling; CPT 74176, 74177, 74178).",
+      "current_encoded_criterion": "(separate_abdomen_and_pelvis_requested == True ALL_OF pathology_involves_both_cavities == True)",
+      "fidelity_result": "HUMAN_REVIEW_REQUIRED",
+      "evidence": "Governance-blocked rule. Coding bundling / administrative unbundling rule. Requires administrative case redirection/resubmission rather than clinical medical necessity determination.",
+      "recommended_correction": "Maintain governance block. Implement administrative intake re-bundling routine that redirects separate abdomen and pelvis requests to Guideline 2000 before clinical adjudication.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "74150",
+        "74160",
+        "74170"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 39,
+      "printed_page": "Page 5 of 23",
+      "source_section": "INDICATIONS FOR ABDOMEN CT / Pancreas",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen under section INDICATIONS FOR ABDOMEN CT / Pancreas: After confirmed diagnosis of exocrine pancreatic insufficiency (EPI), one-time imaging to exclude a secondary cause for EPI. (Imaging is not...",
+      "current_encoded_criterion": "(fecal_elastase_ug_g < 100 ALL_OF prior_epi_ct_performed == False)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 39 (Page 5 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74160",
+        "74170"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 39,
+      "printed_page": "Page 5 of 23",
+      "source_section": "INDICATIONS FOR ABDOMEN CT / Renal",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen under section INDICATIONS FOR ABDOMEN CT / Renal: Indeterminate renal mass on other imaging (13) ● Active surveillance for a solid renal mass(es) at 6 and 12 months, then annually...",
+      "current_encoded_criterion": "(solid_renal_mass_present == True ALL_OF months_since_prior_renal_ct >= 6)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 39 (Page 5 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74160",
+        "74170"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-004",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 41,
+      "printed_page": "Page 7 of 23",
+      "source_section": "Evaluation of Infection and Inflammation / Pancreatitis: Suspected and Known (27)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen under section Evaluation of Infection and Inflammation / Pancreatitis: Suspected and Known (27): In patients > 40 years of age who have pancreatitis with no identifiable cause (to exclude neoplasm)...",
+      "current_encoded_criterion": "(patient_age_years > 40 ALL_OF pancreatitis_diagnosed == True ALL_OF pancreatitis_etiology_identified == False)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 41 (Page 7 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74160",
+        "74170"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2001-005",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 41,
+      "printed_page": "Page 7 of 23",
+      "source_section": "Infection and Inflammation Limited to the Abdomen (27,29) / Hernia (30)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Abdomen under section Infection and Inflammation Limited to the Abdomen (27,29) / Hernia (30): Suspected hernia and one of the following: ○ Deep intraabdominal/pelvic hernia (post-Roux-en-Y) ○ Non-midline ventral hernia (including Spig...",
+      "current_encoded_criterion": "(suspected_hernia == True ALL_OF hernia_subtypes IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 41 (Page 7 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74160",
+        "74170"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2002-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CTA Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 61,
+      "printed_page": "Page 4 of 12",
+      "source_section": "INDICATIONS FOR ABDOMEN CTA / Renal Artery Stenosis",
+      "source_supported_criterion": "Faithful representation of policy criteria for CTA Abdomen under section INDICATIONS FOR ABDOMEN CTA / Renal Artery Stenosis: In a patient with hypertension AND prior abnormal or inconclusive ultrasound with any ONE of the following (1,2): ● Onset of hypertension pr...",
+      "current_encoded_criterion": "(hypertension_with_prior_ultrasound == True ALL_OF renovascular_hypertension_features IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 61 (Page 4 of 12) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74175"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2002-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CTA Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 61,
+      "printed_page": "Page 4 of 12",
+      "source_section": "INDICATIONS FOR ABDOMEN CTA / Other Vascular Abnormalities of the Abdomen",
+      "source_supported_criterion": "Faithful representation of policy criteria for CTA Abdomen under section INDICATIONS FOR ABDOMEN CTA / Other Vascular Abnormalities of the Abdomen: Initial evaluation of inconclusive vascular findings on prior imaging of the abdomen...",
+      "current_encoded_criterion": "prior_vascular_imaging_inconclusive == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 61 (Page 4 of 12) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74175"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2003-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "MRA Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 75,
+      "printed_page": "Page 6 of 18",
+      "source_section": "INDICATIONS FOR ABDOMEN MRA / Other Vascular Abnormalities / Takayasu's Arteritis (15)",
+      "source_supported_criterion": "Faithful representation of policy criteria for MRA Abdomen under section INDICATIONS FOR ABDOMEN MRA / Other Vascular Abnormalities / Takayasu's Arteritis (15): Takayasu's Arteritis (15): ○ At initial diagnosis ○ Every 6 months for the first 2 years while on therapy ○ Annually after the first 2 years...",
+      "current_encoded_criterion": "(takayasu_arteritis_diagnosed == True ALL_OF takayasu_surveillance_interval_met == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 75 (Page 6 of 18) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74185"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2003-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "MRA Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 73,
+      "printed_page": "Page 4 of 18",
+      "source_section": "INDICATIONS FOR ABDOMEN MRA / Abdominal Aortic Aneurysm (AAA)",
+      "source_supported_criterion": "Faithful representation of policy criteria for MRA Abdomen under section INDICATIONS FOR ABDOMEN MRA / Abdominal Aortic Aneurysm (AAA): Known or suspected symptomatic AAA when (1,2) ○ Symptoms may include: ■ Abrupt onset of severe sharp or stabbing pain in the chest, back or ...",
+      "current_encoded_criterion": "(symptomatic_aaa_suspected == True ALL_OF acute_aortic_symptoms IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 73 (Page 4 of 18) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74185"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2004-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Abdomen MRI / MRCP",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 92,
+      "printed_page": "Page 5 of 26",
+      "source_section": "INDICATIONS / Biliary / Choledochal cyst",
+      "source_supported_criterion": "Faithful representation of policy criteria for Abdomen MRI / MRCP under section INDICATIONS / Biliary / Choledochal cyst: Suspected choledochal cyst after ultrasound has been done...",
+      "current_encoded_criterion": "(suspected_choledochal_cyst == True ALL_OF prior_ultrasound_completed == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 92 (Page 5 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74183",
+        "74181"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2004-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Abdomen MRI / MRCP",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 92,
+      "printed_page": "Page 5 of 26",
+      "source_section": "INDICATIONS / Pancreas",
+      "source_supported_criterion": "Faithful representation of policy criteria for Abdomen MRI / MRCP under section INDICATIONS / Pancreas: Suspected new onset acute pancreatitis and ALL of the following: ○ Epigastric or upper abdominal pain...",
+      "current_encoded_criterion": "(suspected_acute_pancreatitis == True ALL_OF epigastric_pain_present == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 92 (Page 5 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74183"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2005-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CTA Abdomen and Pelvis",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 118,
+      "printed_page": "Page 5 of 15",
+      "source_section": "INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities of the Abdomen and Pelvis",
+      "source_supported_criterion": "Faithful representation of policy criteria for CTA Abdomen and Pelvis under section INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities of the Abdomen and Pelvis: Evaluation of known or suspected mesenteric ischemia/ischemic colitis...",
+      "current_encoded_criterion": "suspected_mesenteric_ischemia == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 118 (Page 5 of 15) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74175",
+        "74174"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2005-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CTA Abdomen and Pelvis",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 119,
+      "printed_page": "Page 6 of 15",
+      "source_section": "INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities",
+      "source_supported_criterion": "Faithful representation of policy criteria for CTA Abdomen and Pelvis under section INDICATIONS FOR ABDOMEN PELVIS CTA / Other Vascular Abnormalities: Suspected pelvic congestive syndrome (including May-Thurner and nutcracker syndromes) when ultrasound is indeterminant...",
+      "current_encoded_criterion": "(suspected_pelvic_venous_syndrome == True ALL_OF prior_ultrasound_indeterminate == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 119 (Page 6 of 15) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74174"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2006-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CTA Abdominal Aorta with Lower Extremity Runoff",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 132,
+      "printed_page": "Page 4 of 10",
+      "source_section": "INDICATIONS / Peripheral Arterial Disease / Critical Limb Ischemia",
+      "source_supported_criterion": "Faithful representation of policy criteria for CTA Abdominal Aorta with Lower Extremity Runoff under section INDICATIONS / Peripheral Arterial Disease / Critical Limb Ischemia: For acute critical limb ischemia with any ONE of the below clinical signs of peripheral vascular disease: ○ Ischemic rest pain ○ Tissue loss...",
+      "current_encoded_criterion": "(critical_limb_ischemia_present == True ALL_OF cli_objective_signs IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 132 (Page 4 of 10) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "75635"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2007-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Bone Marrow MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 141,
+      "printed_page": "Page 3 of 7",
+      "source_section": "INDICATIONS FOR BONE MARROW MRI / Multiple Myeloma",
+      "source_supported_criterion": "Faithful representation of policy criteria for Bone Marrow MRI under section INDICATIONS FOR BONE MARROW MRI / Multiple Myeloma: Initial Staging of Known Disease ○ Restaging on Active Treatment ○ Surveillance ■ Annually if asymptomatic...",
+      "current_encoded_criterion": "(multiple_myeloma_diagnosed == True ALL_OF myeloma_mri_interval_met == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 141 (Page 3 of 7) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "77084"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2008-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 150,
+      "printed_page": "Page 5 of 26",
+      "source_section": "Stroke and Vascular Disease / Evaluation of Known or Suspected Stroke (11,12)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain CT under section Stroke and Vascular Disease / Evaluation of Known or Suspected Stroke (11,12): Evaluation of Known or Suspected Stroke (11,12)...",
+      "current_encoded_criterion": "suspected_acute_stroke == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 150 (Page 5 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70450",
+        "70460"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2008-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 151,
+      "printed_page": "Page 6 of 26",
+      "source_section": "Evaluation of Known or Suspected Vascular Disease (13)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain CT under section Evaluation of Known or Suspected Vascular Disease (13): Evaluation of suspected acute subarachnoid hemorrhage (SAH)...",
+      "current_encoded_criterion": "suspected_acute_sah == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 151 (Page 6 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70450"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2008-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 151,
+      "printed_page": "Page 6 of 26",
+      "source_section": "INDICATIONS / Head Trauma / Evaluation of Known or Suspected Trauma (14,15)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain CT under section INDICATIONS / Head Trauma / Evaluation of Known or Suspected Trauma (14,15): Known or suspected trauma or injury to the head with documentation of one or more of...",
+      "current_encoded_criterion": "acute_head_trauma_with_neurologic_deficit == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 151 (Page 6 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70450",
+        "70460",
+        "70470"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2008-004",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 149,
+      "printed_page": "Page 4 of 26",
+      "source_section": "INDICATIONS / Evaluation of Headache (1,2) / Acute, sudden onset headache",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain CT under section INDICATIONS / Evaluation of Headache (1,2) / Acute, sudden onset headache: Acute, sudden onset headache (< 4 weeks), with any ONE of the following...",
+      "current_encoded_criterion": "thunderclap_or_worst_headache_of_life == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 149 (Page 4 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70450"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2009-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CTA Brain",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 175,
+      "printed_page": "Page 4 of 20",
+      "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Aneurysm Screening",
+      "source_supported_criterion": "Faithful representation of policy criteria for CTA Brain under section INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Aneurysm Screening: For one first degree relative with aneurysm, asymptomatic screening is not indicated and would require a neurological sign or symptom suppor...",
+      "current_encoded_criterion": "(first_degree_aneurysm_relatives_count == 1 ALL_OF patient_is_asymptomatic == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 175 (Page 4 of 20) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70496"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2009-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain CTA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 176,
+      "printed_page": "Page 5 of 20",
+      "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Evaluation of Known Intracranial Vascular Disease (1,2)",
+      "source_supported_criterion": "Brain CTA is indicated for recent ischemic stroke or transient ischemic attack (TIA) to evaluate for large vessel occlusion (LVO) or mechanical thrombectomy eligibility (Guideline 2009, Cerebrovascular Disease / Ischemic).",
+      "current_encoded_criterion": "acute_stroke_lvo_evaluation == True",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch. The active rule cites physical page 176 (Evaluation of Known Intracranial Vascular Disease / Aneurysm / AVM). However, acute ischemic stroke and LVO criteria are governed on physical page 175 under section \"Cerebrovascular Disease / Ischemic\".",
+      "recommended_correction": "Update cited physical page from 176 to 175 and align source section title to \"INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Cerebrovascular Disease / Ischemic\".",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70496"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2010-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Magnetic Resonance Spectroscopy (MRS) Brain",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 194,
+      "printed_page": "Page 3 of 8",
+      "source_section": "INDICATIONS FOR BRAIN MRS (2) / Tumor Recurrence vs. Radiation Necrosis (3)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Magnetic Resonance Spectroscopy (MRS) Brain under section INDICATIONS FOR BRAIN MRS (2) / Tumor Recurrence vs. Radiation Necrosis (3): Tumor Recurrence vs. Radiation Necrosis (3)...",
+      "current_encoded_criterion": "(prior_brain_radiation_therapy == True ALL_OF recurrence_vs_necrosis_indeterminate == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 194 (Page 3 of 8) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "76390"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2011-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "MRA Brain",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 203,
+      "printed_page": "Page 4 of 20",
+      "source_section": "INDICATIONS FOR BRAIN MR ANGIOGRAPHY / Aneurysm Screening",
+      "source_supported_criterion": "Faithful representation of policy criteria for MRA Brain under section INDICATIONS FOR BRAIN MR ANGIOGRAPHY / Aneurysm Screening: Repeat study is recommended every 5-7 years...",
+      "current_encoded_criterion": "(high_risk_aneurysm_screening_qualified == True ALL_OF years_since_prior_aneurysm_screening >= 5)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 203 (Page 4 of 20) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70544",
+        "70546"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2012-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain MRI (With or Without Contrast)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 224,
+      "printed_page": "Page 5 of 50",
+      "source_section": "INDICATIONS / Headache (1,2) / Evaluation of Headache",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain MRI (With or Without Contrast) under section INDICATIONS / Headache (1,2) / Evaluation of Headache: Acute, sudden onset headache (< 4 weeks), with any ONE of the following: ○ A personal or family history (brother, sister, parent, or child) ...",
+      "current_encoded_criterion": "(headache_duration_weeks < 4 ALL_OF acute_headache_risk_factor IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 224 (Page 5 of 50) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70551",
+        "70553"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2012-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain MRI (With or Without Contrast)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 225,
+      "printed_page": "Page 6 of 50",
+      "source_section": "Additional Indications in the Pediatric Population (<18) When None of the Above Apply",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain MRI (With or Without Contrast) under section Additional Indications in the Pediatric Population (<18) When None of the Above Apply: Persistent headache and any ONE of the following (8–10): ○ Immune deficiency ○ History of neoplasm ○ History of congenital heart disease ○ S...",
+      "current_encoded_criterion": "(patient_age_years < 18 ALL_OF headache_persistence == True ALL_OF pediatric_headache_red_flag IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 225 (Page 6 of 50) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70551",
+        "70553"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2012-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain MRI (With and Without Contrast)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 232,
+      "printed_page": "Page 13 of 50",
+      "source_section": "INDICATIONS / Multiple Sclerosis / Evaluation of Suspected Multiple Sclerosis (61,62)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain MRI (With and Without Contrast) under section INDICATIONS / Multiple Sclerosis / Evaluation of Suspected Multiple Sclerosis (61,62): Evaluation of Suspected Multiple Sclerosis (61,62)...",
+      "current_encoded_criterion": "suspected_or_established_multiple_sclerosis == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 232 (Page 13 of 50) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70553"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2012-004",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain MRI (Epilepsy Protocol)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 232,
+      "printed_page": "Page 13 of 50",
+      "source_section": "INDICATIONS / Seizure Disorders / Evaluation of Known or Suspected Seizure Disorder (54–60)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain MRI (Epilepsy Protocol) under section INDICATIONS / Seizure Disorders / Evaluation of Known or Suspected Seizure Disorder (54–60): New onset of an unprovoked seizure...",
+      "current_encoded_criterion": "(new_onset_unprovoked_seizure == True ANY_OF refractory_epilepsy_or_pattern_change == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 232 (Page 13 of 50) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70551",
+        "70553"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2013-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain PET Scan",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 271,
+      "printed_page": "Page 2 of 10",
+      "source_section": "INDICATIONS FOR BRAIN PET SCAN / Known Brain Tumor or Cancer (1,2)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Brain PET Scan under section INDICATIONS FOR BRAIN PET SCAN / Known Brain Tumor or Cancer (1,2): Evaluation of primary brain lymphoma...",
+      "current_encoded_criterion": "primary_brain_lymphoma == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 271 (Page 2 of 10) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "78811",
+        "78815"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2014-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Breast MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 282,
+      "printed_page": "Page 3 of 15",
+      "source_section": "INDICATIONS / High-Risk Breast Cancer Screening (1,2)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Breast MRI under section INDICATIONS / High-Risk Breast Cancer Screening (1,2): Annual screening with Breast MRI for any ONE of the following:...",
+      "current_encoded_criterion": "high_risk_breast_cancer_screening == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 282 (Page 3 of 15) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "77048",
+        "77049"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2014-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Breast MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 285,
+      "printed_page": "Page 6 of 15",
+      "source_section": "INDICATIONS / Breast Implants",
+      "source_supported_criterion": "Faithful representation of policy criteria for Breast MRI under section INDICATIONS / Breast Implants: MRI is not indicated for evaluation of saline implant complications...",
+      "current_encoded_criterion": "saline_implant_complication_requested == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 285 (Page 6 of 15) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "77047"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2015-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Cerebral Perfusion CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 297,
+      "printed_page": "Page 3 of 9",
+      "source_section": "INDICATIONS / Acute Ischemic Stroke",
+      "source_supported_criterion": "Faithful representation of policy criteria for Cerebral Perfusion CT under section INDICATIONS / Acute Ischemic Stroke: within 24 hours of known ischemic infarct...",
+      "current_encoded_criterion": "(acute_ischemic_stroke_reperfusion == True ALL_OF hours_since_stroke_onset <= 24)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 297 (Page 3 of 9) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "0042T"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2016-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Cervical Spine CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 308,
+      "printed_page": "Page 5 of 23",
+      "source_section": "INDICATIONS FOR CERVICAL SPINE CT / Evaluation of Trauma or Acute Injury (13)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Cervical Spine CT under section INDICATIONS FOR CERVICAL SPINE CT / Evaluation of Trauma or Acute Injury (13): Evaluation of Trauma or Acute Injury (13)...",
+      "current_encoded_criterion": "acute_cervical_trauma == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 308 (Page 5 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72125"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2017-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Cervical Spine MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 330,
+      "printed_page": "Page 4 of 26",
+      "source_section": "Evaluation of Neck Pain (5,6)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Cervical Spine MRI under section Evaluation of Neck Pain (5,6): Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months: NOTE - Failure of conservative treatment i...",
+      "current_encoded_criterion": "(clinical_indication == NECK_PAIN ALL_OF conservative_care_duration_weeks >= 6 ALL_OF conservative_care_recency_months <= 6 ALL_OF conservative_therapy_outcome == DOCUMENTED_FAILURE)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 330 (Page 4 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72141",
+        "72142"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2017-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Cervical Spine MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 331,
+      "printed_page": "Page 5 of 26",
+      "source_section": "Evaluation of Suspected Myelopathy (11,12)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Cervical Spine MRI under section Evaluation of Suspected Myelopathy (11,12): Evaluation of Suspected Myelopathy (11,12) ● Progressive symptoms including hand clumsiness, worsening handwriting, difficulty with grasping...",
+      "current_encoded_criterion": "(suspected_cervical_myelopathy == True ALL_OF myelopathic_neurologic_deficits IS_PRESENT)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 331 (Page 5 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72141",
+        "72142"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2017-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Cervical Spine MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 330,
+      "printed_page": "Page 4 of 26",
+      "source_section": "INDICATIONS / Evaluation of Neck Pain (5,6)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Cervical Spine MRI under section INDICATIONS / Evaluation of Neck Pain (5,6): Suspected cervical cord compression with any neurological deficits as listed above...",
+      "current_encoded_criterion": "suspected_cervical_cord_compression == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 330 (Page 4 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72141",
+        "72142"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2018-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Chest CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 355,
+      "printed_page": "Page 3 of 30",
+      "source_section": "INDICATIONS FOR CHEST CT / Follow-Up of Lung Nodules",
+      "source_supported_criterion": "Faithful representation of policy criteria for Chest CT under section INDICATIONS FOR CHEST CT / Follow-Up of Lung Nodules: Incidental pulmonary nodule on x-ray...",
+      "current_encoded_criterion": "incidental_nodule_on_xray == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 355 (Page 3 of 30) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "71250",
+        "71260"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2018-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Chest CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 357,
+      "printed_page": "Page 5 of 30",
+      "source_section": "INDICATIONS FOR CHEST CT / Diffuse Lung Disease (DLD) / Interstitial Lung Disease (ILD)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Chest CT under section INDICATIONS FOR CHEST CT / Diffuse Lung Disease (DLD) / Interstitial Lung Disease (ILD): For suspected sarcoidosis after initial workup including Chest x-ray...",
+      "current_encoded_criterion": "(suspected_sarcoidosis == True ALL_OF chest_xray_completed == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 357 (Page 5 of 30) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "71260"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2018-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Chest CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 361,
+      "printed_page": "Page 9 of 30",
+      "source_section": "INDICATIONS FOR CHEST CT / Signs and Symptoms / Hemoptysis",
+      "source_supported_criterion": "Faithful representation of policy criteria for Chest CT under section INDICATIONS FOR CHEST CT / Signs and Symptoms / Hemoptysis: Hemoptysis after x-ray completed (25)...",
+      "current_encoded_criterion": "(unexplained_hemoptysis_present == True ALL_OF prior_chest_xray_completed == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 361 (Page 9 of 30) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "71250",
+        "71260"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2019-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Chest MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 387,
+      "printed_page": "Page 5 of 14",
+      "source_section": "INDICATIONS FOR CHEST MRI / Evaluation of Tumor",
+      "source_supported_criterion": "Faithful representation of policy criteria for Chest MRI under section INDICATIONS FOR CHEST MRI / Evaluation of Tumor: Evaluation for suspected thymoma in Myasthenia Gravis patients (19)...",
+      "current_encoded_criterion": "(myasthenia_gravis_diagnosed == True ALL_OF anterior_mediastinal_mass_suspected == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 387 (Page 5 of 14) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "71550",
+        "71552"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2020-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Chest CTA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 399,
+      "printed_page": "Page 3 of 19",
+      "source_section": "INDICATIONS FOR CHEST COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / Known or Suspected Pulmonary Embolism (PE) (1–5)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Chest CTA under section INDICATIONS FOR CHEST COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / Known or Suspected Pulmonary Embolism (PE) (1–5): Known or Suspected Pulmonary Embolism (PE) (1–5)...",
+      "current_encoded_criterion": "suspected_pulmonary_embolism == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 399 (Page 3 of 19) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "71275"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2020-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Chest CTA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 397,
+      "printed_page": "Page 1 of 19",
+      "source_section": "INDICATIONS FOR CHEST COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / THORACIC AORTIC DISEASE",
+      "source_supported_criterion": "Faithful representation of policy criteria for Chest CTA under section INDICATIONS FOR CHEST COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / THORACIC AORTIC DISEASE: THORACIC AORTIC DISEASE...",
+      "current_encoded_criterion": "acute_aortic_syndrome_or_aneurysm == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 397 (Page 1 of 19) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "71275"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2021-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Chest MRA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 418,
+      "printed_page": "Page 3 of 19",
+      "source_section": "INDICATIONS FOR CHEST MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Known or Suspected Pulmonary Embolism (PE) (1–5)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Chest MRA under section INDICATIONS FOR CHEST MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Known or Suspected Pulmonary Embolism (PE) (1–5): Suspected pulmonary embolism when CTA is contraindicated or cannot be...",
+      "current_encoded_criterion": "(suspected_pulmonary_embolism == True ALL_OF cta_contraindicated == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 418 (Page 3 of 19) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "71555"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2022-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Colonography (Virtual Colonoscopy) - Diagnostic",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 436,
+      "printed_page": "Page 2 of 7",
+      "source_section": "INDICATIONS (1,2)",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Colonography (Virtual Colonoscopy) - Diagnostic under section INDICATIONS (1,2): Patient had failed or incomplete colonoscopy...",
+      "current_encoded_criterion": "(diagnostic_colonic_evaluation_needed == True ALL_OF failed_or_incomplete_colonoscopy == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 436 (Page 2 of 7) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74261",
+        "74262"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2023-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Colonography (Virtual Colonoscopy) - Screening",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 444,
+      "printed_page": "Page 3 of 8",
+      "source_section": "INDICATIONS (1–4) / Patients at Increased Risk",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT Colonography (Virtual Colonoscopy) - Screening under section INDICATIONS (1–4) / Patients at Increased Risk: As an alternative to colonoscopy in individuals at increased risk for colorectal cancer AND a contraindication to colonoscopy has been provi...",
+      "current_encoded_criterion": "(increased_crc_risk == True ALL_OF optical_colonoscopy_contraindicated == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 444 (Page 3 of 8) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74263"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2024-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Quantitative Computed Tomography (QCT) Bone Density Study",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 451,
+      "printed_page": "Page 2 of 11",
+      "source_section": "INDICATIONS FOR CT BONE DENSITY STUDY / Screening for Asymptomatic Low Bone Mineral Density",
+      "source_supported_criterion": "Quantitative CT (QCT) bone density study is indicated for suspected osteopenia/osteoporosis ONLY after meeting general criteria: DXA scanning is insufficient/unavailable, advanced spinal degenerative changes, OR severe obesity (BMI > 35 kg/m2).",
+      "current_encoded_criterion": "suspected_low_bone_mineral_density == True",
+      "fidelity_result": "MISSING",
+      "evidence": "Governing policy pp. 451–452 restricts QCT to cases where conventional DXA scanning is insufficient/unavailable, or patient has advanced spine degenerative changes, or BMI > 35. Active rule has only single condition suspected_low_bone_mineral_density == True, omitting all mandatory DXA prerequisite and general limitation criteria.",
+      "recommended_correction": "Add general prerequisite group: (dxa_scanning_insufficient_or_unavailable == True OR advanced_spinal_degenerative_changes == True OR bmi > 35) under ANY_OF.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "77078"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2026-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT or MRI Guidance for Needle Placement",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 462,
+      "printed_page": "Page 2 of 4",
+      "source_section": "STATEMENT / Purpose",
+      "source_supported_criterion": "Faithful representation of policy criteria for CT or MRI Guidance for Needle Placement under section STATEMENT / Purpose: Requests for these services should always be approved. This organization does not review these for medical necessity....",
+      "current_encoded_criterion": "imaging_guidance_component == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 462 (Page 2 of 4) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "77012",
+        "77021"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2027-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Fetal MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 466,
+      "printed_page": "Page 2 of 7",
+      "source_section": "INDICATIONS FOR FETAL MRI",
+      "source_supported_criterion": "Faithful representation of policy criteria for Fetal MRI under section INDICATIONS FOR FETAL MRI: Fetal surgery is planned...",
+      "current_encoded_criterion": "planned_fetal_surgery == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 466 (Page 2 of 7) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "74712",
+        "74713"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2028-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Functional Brain MRI (fMRI)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 474,
+      "printed_page": "Page 3 of 11",
+      "source_section": "INDICATIONS FOR FUNCTIONAL BRAIN MRI (1,2)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Functional Brain MRI (fMRI) under section INDICATIONS FOR FUNCTIONAL BRAIN MRI (1,2): INDICATIONS FOR FUNCTIONAL BRAIN MRI (1,2)...",
+      "current_encoded_criterion": "presurgical_eloquent_mapping_needed == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 474 (Page 3 of 11) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70554",
+        "70555"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2029-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Follow-Up Limited / Localized CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 484,
+      "printed_page": "Page 2 of 6",
+      "source_section": "INDICATIONS",
+      "source_supported_criterion": "Faithful representation of policy criteria for Follow-Up Limited / Localized CT under section INDICATIONS: Re-evaluation of nephrolithiasis...",
+      "current_encoded_criterion": "nephrolithiasis_reevaluation == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 484 (Page 2 of 6) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "76380"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2030-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Low Dose CT (LDCT) for Lung Cancer Screening",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 490,
+      "printed_page": "Page 2 of 8",
+      "source_section": "INDICATIONS / For Annual Screening / Group 1 - High Risk for Lung Cancer (3,4)",
+      "source_supported_criterion": "Low Dose CT (LDCT) for lung cancer screening is medically necessary ONLY when used to screen for lung cancer for high-risk, ASYMPTOMATIC individuals (age 50-80, >= 20 pack-years, current smoker or quit <= 15 yrs).",
+      "current_encoded_criterion": "(patient_age_years in [50, 80] ALL_OF smoking_history_pack_years >= 20 ALL_OF current_or_recent_smoker_15yr == True)",
+      "fidelity_result": "MISSING",
+      "evidence": "Governing policy p. 490 restricts LDCT screening strictly to asymptomatic individuals (\"medically necessary ONLY when used to screen for lung cancer for certain high-risk, asymptomatic individuals\"). If the patient has respiratory symptoms (hemoptysis, unexplained cough, weight loss), diagnostic chest CT (CPT 71250-71270) is indicated instead. Active rule omits the mandatory asymptomatic screening gate.",
+      "recommended_correction": "Add condition: patient_is_asymptomatic == True (or absence of focal pulmonary symptoms).",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "71271"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2031-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Low Field MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 498,
+      "printed_page": "Page 2 of 4",
+      "source_section": "STATEMENT",
+      "source_supported_criterion": "Faithful representation of policy criteria for Low Field MRI under section STATEMENT: Low Field MRI services are not considered to be medically necessary....",
+      "current_encoded_criterion": "requested_low_field_mri == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 498 (Page 2 of 4) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "S8042"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2032-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 504,
+      "printed_page": "Page 4 of 23",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY CT / Non-specific Lower Extremity Pain (1,2)",
+      "source_supported_criterion": "Lower Extremity CT for non-specific pain requires: prior plain radiograph, MRI contraindicated/cannot be performed, AND failure of at least 4 weeks of active conservative therapy within the prior 6 months.",
+      "current_encoded_criterion": "(non_specific_lower_extremity_pain == True ALL_OF prior_xray_completed == True ALL_OF mri_contraindicated == True)",
+      "fidelity_result": "MISSING",
+      "evidence": "Governing policy p. 504 explicitly requires at least 4 weeks of active conservative therapy within the last 6 months. Active rule verifies prior X-ray and MRI contraindication, but completely omits the conservative therapy prerequisite.",
+      "recommended_correction": "Add condition: conservative_therapy_duration_weeks >= 4 within the prior 6 months.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "73700",
+        "73701"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2032-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 501,
+      "printed_page": "Page 1 of 23",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY CT / Suspected Bone Fracture",
+      "source_supported_criterion": "Faithful representation of policy criteria for Lower Extremity CT under section INDICATIONS FOR LOWER EXTREMITY CT / Suspected Bone Fracture: Suspected Bone Fracture...",
+      "current_encoded_criterion": "complex_lower_extremity_fracture_preop == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 501 (Page 1 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "73700",
+        "73701",
+        "73702"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2033-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity CTA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 527,
+      "printed_page": "Page 4 of 13",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / Lower Extremity Peripheral Vascular Disease",
+      "source_supported_criterion": "Faithful representation of policy criteria for Lower Extremity CTA under section INDICATIONS FOR LOWER EXTREMITY COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / Lower Extremity Peripheral Vascular Disease: INDICATIONS FOR LOWER EXTREMITY COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA)...",
+      "current_encoded_criterion": "lower_extremity_pad_surgical_planning == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 527 (Page 4 of 13) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "73706"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2034-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity MRA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 540,
+      "printed_page": "Page 4 of 13",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Peripheral Arterial Disease",
+      "source_supported_criterion": "Faithful representation of policy criteria for Lower Extremity MRA under section INDICATIONS FOR LOWER EXTREMITY MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Peripheral Arterial Disease: For known or suspected atherosclerotic peripheral arterial disease when any ONE of the following non-invasive studies are abnormal or indete...",
+      "current_encoded_criterion": "(suspected_lower_extremity_pad == True ALL_OF prior_noninvasive_vascular_study_abnormal == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 540 (Page 4 of 13) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "73725"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2035-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity MRI (Knee, Hip, Ankle, Foot)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 553,
+      "printed_page": "Page 4 of 22",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Pain or Suspected Joint Specific Injury",
+      "source_supported_criterion": "Lower Extremity MRI for joint-specific pain/injury requires: initial plain radiograph (X-ray) AND failure of at least 4 weeks of active conservative therapy within the prior 6 months (unless acute mechanical locking or gross ligamentous disruption).",
+      "current_encoded_criterion": "joint_specific_injury_or_pain == True",
+      "fidelity_result": "MISSING",
+      "evidence": "Governing policy p. 553 mandates preliminary X-ray and 4 weeks of conservative care. Active rule evaluates only joint_specific_injury_or_pain == True, making it overly broad and allowing unvetted advanced imaging without preliminary films or therapy.",
+      "recommended_correction": "Add conditions: prior_xray_completed == True AND conservative_therapy_duration_weeks >= 4 (or documented acute joint locking / unstable knee).",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "73721",
+        "73722",
+        "73723"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2035-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity MRI (Knee)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 553,
+      "printed_page": "Page 4 of 22",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Orthopedic Signs",
+      "source_supported_criterion": "Lower Extremity MRI (Knee) for positive orthopedic signs (McMurray, Lachman, drawer sign, joint line tenderness). Initial X-ray is preferred, but is NOT required unless otherwise specified in bold.",
+      "current_encoded_criterion": "(positive_knee_orthopedic_sign == True ALL_OF prior_xray_completed == True)",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Improper conversion of preferred practice to mandatory criterion. Governing policy p. 553 states: \"With a positive orthopedic sign from the list below, an initial X-ray is always preferred; however, it is NOT required UNLESS otherwise specified in bold below\". The active rule strictly mandates prior_xray_completed == True, causing false denials for clinically valid acute meniscal/ligament tears.",
+      "recommended_correction": "Remove prior_xray_completed == True as a mandatory prerequisite, or make it optional/advisory consistent with policy footnote.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "73721",
+        "73722",
+        "73723"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2035-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity MRI (Hip)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 550,
+      "printed_page": "Page 1 of 22",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / OSTEONECROSIS",
+      "source_supported_criterion": "Faithful representation of policy criteria for Lower Extremity MRI (Hip) under section INDICATIONS FOR LOWER EXTREMITY MRI / OSTEONECROSIS: OSTEONECROSIS...",
+      "current_encoded_criterion": "suspected_femoral_head_osteonecrosis == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 550 (Page 1 of 22) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "73721"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2036-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lumbar Spine CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 574,
+      "printed_page": "Page 3 of 20",
+      "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Neurologic Deficits (1)",
+      "source_supported_criterion": "Lumbar Spine CT is indicated for evaluation of back pain with neurologic deficits or after 6 weeks conservative care failure WHEN Lumbar Spine MRI is contraindicated or cannot be performed.",
+      "current_encoded_criterion": "lumbar_ct_indication_met == True",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and oversimplified criterion. Rule cites physical page 574 (General Information), but clinical back pain criteria and MRI contraindication requirements are on physical page 575. Rule conditions collapse all criteria into generic boolean lumbar_ct_indication_met == True.",
+      "recommended_correction": "Update citation to physical page 575 and decompose single boolean into explicit conditions: (mri_contraindicated == True) AND (neurologic_deficit == True OR conservative_care_duration_weeks >= 6).",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "72131"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2037-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lumbar Spine MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 594,
+      "printed_page": "Page 3 of 22",
+      "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits (1)",
+      "source_supported_criterion": "Lumbar Spine MRI is indicated for low back pain with lumbosacral radiculopathy after failure of at least 6 weeks of conservative care within the prior 6 months.",
+      "current_encoded_criterion": "(lumbar_radiculopathy_present == True ALL_OF conservative_therapy_duration_weeks >= 6)",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch. The active rule cites physical page 594 (printed page 3 of 22), which contains only the general Statement, Purpose, and Special Notes. The clinical criteria for back pain evaluation, radiculopathy, and 6-week conservative care are located on physical page 595 (printed page 4 of 22).",
+      "recommended_correction": "Update cited physical page from 594 to 595 and update printed page reference from \"Page 3 of 22\" to \"Page 4 of 22\".",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72148",
+        "72158"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2037-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lumbar Spine MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 595,
+      "printed_page": "Page 4 of 22",
+      "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits / Cauda Equina Syndrome",
+      "source_supported_criterion": "Faithful representation of policy criteria for Lumbar Spine MRI under section INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Neurologic Deficits / Cauda Equina Syndrome: defined symptoms (see Cauda Equina Syndrome section)...",
+      "current_encoded_criterion": "suspected_cauda_equina_syndrome == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 595 (Page 4 of 22) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72148"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2037-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lumbar Spine MRI (With and Without Contrast)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 592,
+      "printed_page": "Page 1 of 22",
+      "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / EVALUATION OF KNOWN OR SUSPECTED INFECTION",
+      "source_supported_criterion": "Faithful representation of policy criteria for Lumbar Spine MRI (With and Without Contrast) under section INDICATIONS FOR LUMBAR SPINE MRI / EVALUATION OF KNOWN OR SUSPECTED INFECTION: EVALUATION OF KNOWN OR SUSPECTED INFECTION...",
+      "current_encoded_criterion": "suspected_spinal_infection_or_malignancy == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 592 (Page 1 of 22) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72158"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2038-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Magnetic Resonance Elastography (MRE) Abdomen",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 615,
+      "printed_page": "Page 2 of 8",
+      "source_section": "INDICATIONS FOR ABDOMEN MR ELASTOGRAPHY / Evaluation of Hepatic Fibrosis (1–3)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Magnetic Resonance Elastography (MRE) Abdomen under section INDICATIONS FOR ABDOMEN MR ELASTOGRAPHY / Evaluation of Hepatic Fibrosis (1–3): Fibrosis-4 index (FIB-4) score ≥ 2.67...",
+      "current_encoded_criterion": "(chronic_liver_disease == True ALL_OF fib4_score >= 2.67)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 615 (Page 2 of 8) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "76391"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2039-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Neck CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 625,
+      "printed_page": "Page 4 of 16",
+      "source_section": "INDICATIONS / Neck Mass or Lymphadenopathy",
+      "source_supported_criterion": "Faithful representation of policy criteria for Neck CT under section INDICATIONS / Neck Mass or Lymphadenopathy: Failed 2 weeks (or more) treatment for suspected infectious etiology...",
+      "current_encoded_criterion": "(persistent_neck_mass == True ALL_OF treatment_duration_weeks >= 2)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 625 (Page 4 of 16) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70490",
+        "70491"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2040-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Neck CTA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 641,
+      "printed_page": "Page 4 of 16",
+      "source_section": "INDICATIONS FOR NECK CT ANGIOGRAPHY / Evaluation of Suspected Extracranial Vascular Disease",
+      "source_supported_criterion": "Faithful representation of policy criteria for Neck CTA under section INDICATIONS FOR NECK CT ANGIOGRAPHY / Evaluation of Suspected Extracranial Vascular Disease: Suspected carotid or vertebral artery dissection (secondary to trauma or...",
+      "current_encoded_criterion": "suspected_cervical_artery_dissection == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 641 (Page 4 of 16) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70498"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2041-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Neck MRA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 657,
+      "printed_page": "Page 4 of 16",
+      "source_section": "INDICATIONS FOR NECK MR ANGIOGRAPHY / Evaluation of Suspected Extracranial Vascular Disease",
+      "source_supported_criterion": "Faithful representation of policy criteria for Neck MRA under section INDICATIONS FOR NECK MR ANGIOGRAPHY / Evaluation of Suspected Extracranial Vascular Disease: Giant cell with suspected extracranial involvement (9)...",
+      "current_encoded_criterion": "giant_cell_arteritis_extracranial == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 657 (Page 4 of 16) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70547",
+        "70549"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2042-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Pelvis CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 673,
+      "printed_page": "Page 4 of 16",
+      "source_section": "INDICATIONS FOR PELVIS CT / Pelvic Pain for Unknown Etiology",
+      "source_supported_criterion": "Pelvis CT is indicated for acute pelvic pain of unknown etiology in a patient over the age of 65.",
+      "current_encoded_criterion": "(acute_pelvic_pain == True ALL_OF patient_age_years > 65)",
+      "fidelity_result": "PARTIALLY_VERIFIED",
+      "evidence": "Age boundary discrepancy. Policy p. 673 states \"in a patient over the age of 65\". Active rule strictly enforces patient_age_years > 65 (excluding patients on their 65th birthday year, age 65.0). Whether patients aged exactly 65 are intended to be eligible requires clinical confirmation.",
+      "recommended_correction": "Seek clinical determination whether boundary should be patient_age_years >= 65 or strictly > 65.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "72192",
+        "72193"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2043-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Pelvis CTA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 689,
+      "printed_page": "Page 4 of 12",
+      "source_section": "INDICATIONS FOR PELVIS CTA / Evaluation of Tumor",
+      "source_supported_criterion": "Faithful representation of policy criteria for Pelvis CTA under section INDICATIONS FOR PELVIS CTA / Evaluation of Tumor: Prior to uterine artery embolization for fibroids (MRA preferred) (11)...",
+      "current_encoded_criterion": "planned_uterine_artery_embolization == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 689 (Page 4 of 12) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72191"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2044-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Pelvis MRA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 700,
+      "printed_page": "Page 3 of 17",
+      "source_section": "INDICATIONS FOR PELVIS MRA",
+      "source_supported_criterion": "Faithful representation of policy criteria for Pelvis MRA under section INDICATIONS FOR PELVIS MRA: INDICATIONS FOR PELVIS MRA...",
+      "current_encoded_criterion": "pelvic_vascular_disease_indicated == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 700 (Page 3 of 17) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72198"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2045-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Pelvis MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 718,
+      "printed_page": "Page 4 of 22",
+      "source_section": "INDICATIONS FOR PELVIC MRI / Infection and Inflammation",
+      "source_supported_criterion": "Faithful representation of policy criteria for Pelvis MRI under section INDICATIONS FOR PELVIC MRI / Infection and Inflammation: Suspected perianal fistula or occult anorectal abscess (6)...",
+      "current_encoded_criterion": "suspected_perianal_fistula_or_abscess == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 718 (Page 4 of 22) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72195",
+        "72197"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2046-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "PET/CT (Whole Body)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 741,
+      "printed_page": "Page 5 of 71",
+      "source_section": "INDICATIONS / Chondrosarcoma (2)",
+      "source_supported_criterion": "Faithful representation of policy criteria for PET/CT (Whole Body) under section INDICATIONS / Chondrosarcoma (2): Initial Staging, Restaging, Pre-surgical evaluation, Recurrence, Surveillance ○ NOT Indicated...",
+      "current_encoded_criterion": "chondrosarcoma_diagnosed == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 741 (Page 5 of 71) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "78815",
+        "78816"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2046-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "PET/CT (Whole Body)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 741,
+      "printed_page": "Page 5 of 71",
+      "source_section": "INDICATIONS / Chordoma (2)",
+      "source_supported_criterion": "Faithful representation of policy criteria for PET/CT (Whole Body) under section INDICATIONS / Chordoma (2): Indicated to clarify inconclusive conventional imaging...",
+      "current_encoded_criterion": "(chordoma_diagnosed == True ALL_OF prior_conventional_imaging_inconclusive == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 741 (Page 5 of 71) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "78815"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2046-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "PET/CT (Whole Body)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 737,
+      "printed_page": "Page 1 of 71",
+      "source_section": "INDICATIONS / Lymphoma / Primary CNS Lymphoma and Systemic Lymphoma",
+      "source_supported_criterion": "Faithful representation of policy criteria for PET/CT (Whole Body) under section INDICATIONS / Lymphoma / Primary CNS Lymphoma and Systemic Lymphoma: Primary CNS Lymphoma...",
+      "current_encoded_criterion": "biopsy_proven_lymphoma_staging_or_response == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 737 (Page 1 of 71) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "78815",
+        "78816"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2046-004",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "PET/CT (Whole Body)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 738,
+      "printed_page": "Page 2 of 71",
+      "source_section": "INDICATIONS / Lung Cancer / Non-Small Cell Lung Cancer",
+      "source_supported_criterion": "Faithful representation of policy criteria for PET/CT (Whole Body) under section INDICATIONS / Lung Cancer / Non-Small Cell Lung Cancer: Non-Small Cell Lung Cancer...",
+      "current_encoded_criterion": "nsclc_or_spn_metabolic_staging == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 738 (Page 2 of 71) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "78815",
+        "78816"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2047-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Sinus Maxillofacial CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 811,
+      "printed_page": "Page 4 of 18",
+      "source_section": "INDICATIONS / Rhinosinusitis / Complicated Sinusitis",
+      "source_supported_criterion": "Faithful representation of policy criteria for Sinus Maxillofacial CT under section INDICATIONS / Rhinosinusitis / Complicated Sinusitis: Allergic fungal sinusitis...",
+      "current_encoded_criterion": "suspected_fungal_sinusitis == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 811 (Page 4 of 18) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70486"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2047-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Sinus and Maxillofacial CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 811,
+      "printed_page": "Page 4 of 18",
+      "source_section": "INDICATIONS / Rhinosinusitis / Chronic Rhinosinusitis",
+      "source_supported_criterion": "Faithful representation of policy criteria for Sinus and Maxillofacial CT under section INDICATIONS / Rhinosinusitis / Chronic Rhinosinusitis: Chronic rhinosinusitis (> 12 weeks duration) with ALL of the following...",
+      "current_encoded_criterion": "(rhinosinusitis_duration_weeks > 12 ALL_OF maximal_medical_therapy_completed == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 811 (Page 4 of 18) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70486"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2048-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Orbit, Face, and Neck MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 829,
+      "printed_page": "Page 4 of 26",
+      "source_section": "INDICATIONS FOR ORBIT MRI",
+      "source_supported_criterion": "Faithful representation of policy criteria for Orbit, Face, and Neck MRI under section INDICATIONS FOR ORBIT MRI: Suspected optic neuritis with any ONE of the following (8):...",
+      "current_encoded_criterion": "suspected_optic_neuritis == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 829 (Page 4 of 26) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "70540",
+        "70543"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2052-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "SPECT / SPECT-CT Radiopharmaceutical Tumor Localization",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 854,
+      "printed_page": "Page 3 of 18",
+      "source_section": "STATEMENT",
+      "source_supported_criterion": "Faithful representation of policy criteria for SPECT / SPECT-CT Radiopharmaceutical Tumor Localization under section STATEMENT: is, or is projected to be, insufficient for the following indications....",
+      "current_encoded_criterion": "(tumor_localization_needed == True ALL_OF planar_scintigraphy_insufficient == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 854 (Page 3 of 18) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "78803",
+        "78830"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2053-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Spinal Canal MRA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 871,
+      "printed_page": "Page 2 of 8",
+      "source_section": "INDICATIONS FOR SPINAL CANAL MR ANGIOGRAPHY (MRA)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Spinal Canal MRA under section INDICATIONS FOR SPINAL CANAL MR ANGIOGRAPHY (MRA): Evaluation of spinal arteriovenous malformation (AVM) (1,2)...",
+      "current_encoded_criterion": "suspected_spinal_avm == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 871 (Page 2 of 8) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72159"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2054-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Temporal Bone, Mastoid, Sella CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 881,
+      "printed_page": "Page 4 of 17",
+      "source_section": "INDICATIONS FOR SELLA CT",
+      "source_supported_criterion": "Temporal Bone, Mastoid, Sella CT is indicated for evaluation of known sellar and/or parasellar masses WHEN MRI is contraindicated or cannot be performed.",
+      "current_encoded_criterion": "sellar_or_parasellar_mass == True",
+      "fidelity_result": "MISSING",
+      "evidence": "Governing policy p. 881 section header explicitly mandates: \"When MRI is contraindicated or cannot be performed\". The active rule conditions only evaluate sellar_or_parasellar_mass == True, completely omitting the mandatory MRI contraindication prerequisite.",
+      "recommended_correction": "Add mandatory prerequisite condition: (mri_contraindicated == True OR mri_cannot_be_performed == True) with operator ALL_OF.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "70480"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2055-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Temporomandibular Joint (TMJ) MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 896,
+      "printed_page": "Page 2 of 8",
+      "source_section": "INDICATIONS FOR TEMPOROMANDIBULAR JOINT (TMJ) MRI / Suspected Internal TMJ Derangement",
+      "source_supported_criterion": "TMJ MRI for internal derangement requires: persistent pain/clicking/locking AND completion of at least 4 weeks of active conservative therapy (pharmacotherapy and behavioral modification) without improvement.",
+      "current_encoded_criterion": "suspected_tmj_internal_derangement == True",
+      "fidelity_result": "MISSING",
+      "evidence": "Governing policy p. 896 explicitly requires failure of at least 4 weeks of active conservative therapy including medications and jaw rest/splinting. Active rule evaluates only suspected_tmj_internal_derangement == True, omitting conservative care requirements.",
+      "recommended_correction": "Add conservative therapy condition: conservative_therapy_duration_weeks >= 4 and conservative_therapy_components contains ['pharmacotherapy', 'behavioral_modification'].",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "70336"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2056-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Thoracic Spine CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 905,
+      "printed_page": "Page 3 of 20",
+      "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Neurologic Deficits (1) / When Thoracic Spine MRI is Contraindicated or cannot be performed",
+      "source_supported_criterion": "Faithful representation of policy criteria for Thoracic Spine CT under section INDICATIONS FOR THORACIC SPINE CT / Evaluation of Neurologic Deficits (1) / When Thoracic Spine MRI is Contraindicated or cannot be performed: When Thoracic Spine MRI is Contraindicated or cannot be performed...",
+      "current_encoded_criterion": "(thoracic_neurologic_deficit_present == True ALL_OF thoracic_mri_contraindicated_or_unavailable == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 905 (Page 3 of 20) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72128",
+        "72129",
+        "72130"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2056-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Thoracic Spine CT",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 906,
+      "printed_page": "Page 4 of 20",
+      "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Back Pain (1) / Pain lasting > 4 weeks",
+      "source_supported_criterion": "Thoracic Spine CT for back pain when MRI is contraindicated requires failure of conservative treatment for a minimum of 6 weeks within the last 6 months. (Pediatric isolated back pain red flag includes pain lasting > 4 weeks where conservative care is NOT required).",
+      "current_encoded_criterion": "(thoracic_pain_duration_weeks > 4 ALL_OF conservative_therapy_completed == True ALL_OF thoracic_mri_contraindicated == True)",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Threshold and criterion conflation mismatch. The active rule conflated pediatric red flags (\"Pain lasting > 4 weeks\" on p. 906, where conservative care is excused) with adult conservative care (\"minimum of 6 weeks within last 6 months\"). Encoded thoracic_pain_duration_weeks > 4 and 4-6 weeks conservative care.",
+      "recommended_correction": "Correct conservative care threshold to conservative_care_duration_weeks >= 6 within prior 6 months, and segregate pediatric red flags into separate rule branch.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "72128",
+        "72129",
+        "72130"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2057-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Thoracic Spine MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 925,
+      "printed_page": "Page 3 of 23",
+      "source_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Neurologic Deficits (1)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Thoracic Spine MRI under section INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Neurologic Deficits (1): INDICATIONS FOR THORACIC SPINE MRI...",
+      "current_encoded_criterion": "thoracic_myelopathy_or_deficit_present == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 925 (Page 3 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "72146",
+        "72147",
+        "72157"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2057-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Thoracic Spine MRI",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 926,
+      "printed_page": "Page 4 of 23",
+      "source_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Back Pain (1) / Pain lasting > 4 weeks",
+      "source_supported_criterion": "Thoracic Spine MRI for back pain requires failure of conservative treatment for a minimum of 6 weeks within the last 6 months.",
+      "current_encoded_criterion": "(thoracic_pain_duration_weeks > 4 ALL_OF conservative_therapy_completed == True)",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Threshold mismatch. The active rule misquotes section header as \"Pain lasting > 4 weeks\" and encodes conservative management as \"4-6 weeks\" with pain duration > 4 weeks, conflating the pediatric red flag on p. 926 with the adult conservative care standard of >= 6 weeks within last 6 months.",
+      "recommended_correction": "Update threshold to conservative_care_duration_weeks >= 6 within prior 6 months; update section title and parameter definitions.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "72146",
+        "72147",
+        "72157"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2058-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "PET Scan (Any Site, NOS / Breast Cancer Initial Diagnosis / Non-covered Melanoma)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 947,
+      "printed_page": "Page 2 of 7",
+      "source_section": "SPECIAL NOTE / Non-Covered PET Codes and Indications",
+      "source_supported_criterion": "Faithful representation of policy criteria for PET Scan (Any Site, NOS / Breast Cancer Initial Diagnosis / Non-covered Melanoma) under section SPECIAL NOTE / Non-Covered PET Codes and Indications: Positron Emission Tomography (PET) imaging, any site, not otherwise specified, is a...",
+      "current_encoded_criterion": "(pet_unlisted_nos_requested == True ANY_OF pet_breast_initial_staging == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 947 (Page 2 of 7) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "G0219",
+        "G0235",
+        "G0252"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2061-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Unlisted MRI Procedure (CPT 76498)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 954,
+      "printed_page": "Page 2 of 10",
+      "source_section": "INDICATIONS FOR UNLISTED MRI / Radiation treatment planning",
+      "source_supported_criterion": "Faithful representation of policy criteria for Unlisted MRI Procedure (CPT 76498) under section INDICATIONS FOR UNLISTED MRI / Radiation treatment planning: Unlisted MRI (CPT Code 76498), can be used in the context of:...",
+      "current_encoded_criterion": "radiation_treatment_planning_simulation == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 954 (Page 2 of 10) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "76498"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2061-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Unlisted CT Procedure - Low Dose Whole Body CT (CPT 76497)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 956,
+      "printed_page": "Page 4 of 10",
+      "source_section": "INDICATIONS FOR UNLISTED CT / Low Dose Whole Body CT",
+      "source_supported_criterion": "Faithful representation of policy criteria for Unlisted CT Procedure - Low Dose Whole Body CT (CPT 76497) under section INDICATIONS FOR UNLISTED CT / Low Dose Whole Body CT: INDICATIONS FOR UNLISTED CT...",
+      "current_encoded_criterion": "(multiple_myeloma_evaluation == True ANY_OF plasma_cell_dyscrasia_evaluation == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 956 (Page 4 of 10) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "76497"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2062-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Upper Extremity CT (Shoulder, Elbow, Wrist, Hand)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 965,
+      "printed_page": "Page 3 of 24",
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY CT / Upper Extremity Pain (1,2) / Special Notes",
+      "source_supported_criterion": "Upper Extremity CT for joint/extremity pain is indicated IF MRI is contraindicated or cannot be performed, OR requested as a CT arthrogram.",
+      "current_encoded_criterion": "(prior_xray_negative_or_inconclusive == True ALL_OF conservative_therapy_or_bony_injury == True)",
+      "fidelity_result": "MISSING",
+      "evidence": "Governing policy pp. 965–966 mandates: \"If MRI is contraindicated or cannot be performed, or requested as a CT arthrogram\". The active rule evaluates prior X-ray and conservative therapy, but completely omits the MRI contraindication / CT arthrogram prerequisite.",
+      "recommended_correction": "Add mandatory prerequisite condition: (mri_contraindicated == True OR requested_as_ct_arthrogram == True) to condition criteria under ALL_OF.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "73200",
+        "73201",
+        "73202"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2063-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Upper Extremity CTA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 989,
+      "printed_page": "Page 3 of 12",
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / Upper Extremity Peripheral Vascular Disease (1,2)",
+      "source_supported_criterion": "Faithful representation of policy criteria for Upper Extremity CTA under section INDICATIONS FOR UPPER EXTREMITY COMPUTED TOMOGRAPHY ANGIOGRAPHY (CTA) / Upper Extremity Peripheral Vascular Disease (1,2): Upper Extremity Peripheral Vascular Disease (1,2)...",
+      "current_encoded_criterion": "upper_extremity_vascular_disease_or_ischemia == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 989 (Page 3 of 12) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "73206"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2064-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Upper Extremity MRA",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 1001,
+      "printed_page": "Page 3 of 13",
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Special Notes",
+      "source_supported_criterion": "Faithful representation of policy criteria for Upper Extremity MRA under section INDICATIONS FOR UPPER EXTREMITY MAGNETIC RESONANCE ANGIOGRAPHY (MRA) / Special Notes: When a separate MRA and MRI exam is requested, documentation requires a medical reason...",
+      "current_encoded_criterion": "vascular_disease_with_cta_contraindication == True",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 1001 (Page 3 of 13) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "73225"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2065-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Upper Extremity MRI (Shoulder, Elbow, Wrist, Hand)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 1014,
+      "printed_page": "Page 3 of 23",
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY MRI (SHOULDER, ELBOW, OR WRIST) / Upper Extremity Pain (1,2) / Special Notes",
+      "source_supported_criterion": "Faithful representation of policy criteria for Upper Extremity MRI (Shoulder, Elbow, Wrist, Hand) under section INDICATIONS FOR UPPER EXTREMITY MRI (SHOULDER, ELBOW, OR WRIST) / Upper Extremity Pain (1,2) / Special Notes: Plain X-rays must precede MRI evaluation unless otherwise indicated...",
+      "current_encoded_criterion": "(prior_plain_xray_negative == True ALL_OF active_conservative_therapy_or_positive_sign == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 1014 (Page 3 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "73221",
+        "73222",
+        "73223"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2065-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Upper Extremity MRI (Shoulder)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 1015,
+      "printed_page": "Page 4 of 23",
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY MRI / Joint Specific Orthopedic Signs / Shoulder",
+      "source_supported_criterion": "Faithful representation of policy criteria for Upper Extremity MRI (Shoulder) under section INDICATIONS FOR UPPER EXTREMITY MRI / Joint Specific Orthopedic Signs / Shoulder: Bear hug test...",
+      "current_encoded_criterion": "(positive_rotator_cuff_orthopedic_sign == True ALL_OF prior_xray_completed == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 1015 (Page 4 of 23) of 2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "73221",
+        "73222",
+        "73223"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2066-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Imaging (Emergent Retrospective Review)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 1036,
+      "printed_page": "Page 2 of 7",
+      "source_section": "INDICATIONS FOR EMERGENT STUDIES / Emergent Studies",
+      "source_supported_criterion": "Immediate medical attention was required to render care needed to prevent loss of life, limb, or risk of permanent disability.",
+      "current_encoded_criterion": "emergent_life_or_limb_threat_present == True",
+      "fidelity_result": "HUMAN_REVIEW_REQUIRED",
+      "evidence": "Governance-blocked rule. Retrospective emergent review requires physician clinical evaluation under prudent layperson and emergency medical condition standards.",
+      "recommended_correction": "Maintain governance block. Route all retrospective emergent imaging reviews to physician peer reviewer.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (Retrospective Emergent/Urgent condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-CG2066-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Imaging (Urgent Retrospective Review)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 1036,
+      "printed_page": "Page 2 of 7",
+      "source_section": "INDICATIONS FOR URGENT STUDIES / Urgent Studies",
+      "source_supported_criterion": "Prompt medical attention was required to prevent serious impairment or could not be postponed for 24 hours without substantial risk of harm.",
+      "current_encoded_criterion": "urgent_intervention_needed_within_24h == True",
+      "fidelity_result": "HUMAN_REVIEW_REQUIRED",
+      "evidence": "Governance-blocked rule. Retrospective urgent review requires clinical judgment regarding 24-hour medical urgency window.",
+      "recommended_correction": "Maintain governance block. Route all retrospective urgent imaging reviews to physician clinical reviewer.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (Retrospective Emergent/Urgent condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-EPOS2067-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Imaging Place of Service - Freestanding Facility (POS 11, POS 24)",
+      "governing_pdf": "EPOS 2067 for Place of Service - Radiology 2026_final.pdf",
+      "physical_page": 3,
+      "printed_page": "Page 3 of 11",
+      "source_section": "POLICY AND PROCEDURE / Advanced Imaging / Place of Service alignment",
+      "source_supported_criterion": "Faithful representation of policy criteria for Advanced Imaging Place of Service - Freestanding Facility (POS 11, POS 24) under section POLICY AND PROCEDURE / Advanced Imaging / Place of Service alignment: are considered preferred sites of care for advanced imaging...",
+      "current_encoded_criterion": "(place_of_service_code == POS_11 ANY_OF place_of_service_code == POS_24)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 3 (Page 3 of 11) of EPOS 2067 for Place of Service - Radiology 2026_final.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (Hospital Outpatient POS condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-EPOS2067-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Imaging Place of Service - Hospital Outpatient (POS 19, 21, 22) Care-Related",
+      "governing_pdf": "EPOS 2067 for Place of Service - Radiology 2026_final.pdf",
+      "physical_page": 3,
+      "printed_page": "Page 3 of 11",
+      "source_section": "POLICY AND PROCEDURE / Advanced Imaging / Care-related indications",
+      "source_supported_criterion": "Faithful representation of policy criteria for Advanced Imaging Place of Service - Hospital Outpatient (POS 19, 21, 22) Care-Related under section POLICY AND PROCEDURE / Advanced Imaging / Care-related indications: are considered non-preferred and will only be deemed...",
+      "current_encoded_criterion": "(active_cancer_treatment == True ANY_OF transplant_planned_or_prior == True ANY_OF recent_hospitalization_within_3_months == True ANY_OF continuity_of_care_clinical_reason == True ANY_OF planned_procedure_at_same_facility == True ANY_OF pregnancy_status == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 3 (Page 3 of 11) of EPOS 2067 for Place of Service - Radiology 2026_final.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (Hospital Outpatient POS condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-EPOS2067-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Imaging Place of Service - Hospital Outpatient (POS 19, 21, 22) Extenuating Circumstances",
+      "governing_pdf": "EPOS 2067 for Place of Service - Radiology 2026_final.pdf",
+      "physical_page": 3,
+      "printed_page": "Page 3 of 11",
+      "source_section": "POLICY AND PROCEDURE / Advanced Imaging / Extenuating circumstances",
+      "source_supported_criterion": "Faithful representation of policy criteria for Advanced Imaging Place of Service - Hospital Outpatient (POS 19, 21, 22) Extenuating Circumstances under section POLICY AND PROCEDURE / Advanced Imaging / Extenuating circumstances: Extenuating circumstances with any ONE of the following:...",
+      "current_encoded_criterion": "(urgent_or_emergent_clinical_condition == True ANY_OF facility_resident_or_bedbound == True ANY_OF distance_from_freestanding_miles > 50 ANY_OF ventilator_or_severe_iv_access_problems == True ANY_OF moderate_deep_sedation_required == True ANY_OF severe_contrast_allergy_systemic == True ANY_OF implantable_device_cied_or_vp_shunt == True ANY_OF pediatric_patient_at_pediatric_center == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 3 (Page 3 of 11) of EPOS 2067 for Place of Service - Radiology 2026_final.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (Hospital Outpatient POS condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-EPOS2067-004",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Imaging Place of Service - Hospital Outpatient (POS 19, 21, 22) Specialized Equipment",
+      "governing_pdf": "EPOS 2067 for Place of Service - Radiology 2026_final.pdf",
+      "physical_page": 4,
+      "printed_page": "Page 4 of 11",
+      "source_section": "POLICY AND PROCEDURE / Advanced Imaging / Specialized equipment or expertise",
+      "source_supported_criterion": "Faithful representation of policy criteria for Advanced Imaging Place of Service - Hospital Outpatient (POS 19, 21, 22) Specialized Equipment under section POLICY AND PROCEDURE / Advanced Imaging / Specialized equipment or expertise: Severe claustrophobia and open MRI is needed and not available...",
+      "current_encoded_criterion": "(severe_claustrophobia_open_mri_needed == True ANY_OF bariatric_weight_exceeds_freestanding_scanner == True ANY_OF complex_specialized_protocol_needed == True)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 4 (Page 4 of 11) of EPOS 2067 for Place of Service - Radiology 2026_final.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (Hospital Outpatient POS condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-EPOS2067-005",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Imaging Place of Service - Hospital Outpatient Setting (POS 19, 21, 22)",
+      "governing_pdf": "EPOS 2067 for Place of Service - Radiology 2026_final.pdf",
+      "physical_page": 4,
+      "printed_page": "Page 4 of 11",
+      "source_section": "POLICY AND PROCEDURE / Advanced Imaging / Non-hospital based location requirement",
+      "source_supported_criterion": "Faithful representation of policy criteria for Advanced Imaging Place of Service - Hospital Outpatient Setting (POS 19, 21, 22) under section POLICY AND PROCEDURE / Advanced Imaging / Non-hospital based location requirement: Lack of ability to meet any of the above criteria supports imaging in a non-hospital based...",
+      "current_encoded_criterion": "(hospital_based_setting_requested == True ALL_OF hospital_setting_clinical_criteria_met == False)",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Rule conditions, thresholds, and parameters faithfully reflect governing policy text on physical page 4 (Page 4 of 11) of EPOS 2067 for Place of Service - Radiology 2026_final.pdf. Citation supports the exact criterion referenced, and no advisory language has been improperly converted to mandatory logic.",
+      "recommended_correction": "None required. Rule faithfully represents governing policy source.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (Hospital Outpatient POS condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-ADV-PREAMBLE-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Diagnostic Imaging (All Advanced Imaging Modalities)",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "physical_page": 2,
+      "printed_page": "Page 2",
+      "source_section": "Preamble / Guidelines for Clinical Review Determination",
+      "source_supported_criterion": "Expectation that all patients receive care from licensed clinician, with pertinent office visit notes, lab data, and prior relevant imaging explaining why alternative imaging cannot be performed.",
+      "current_encoded_criterion": "clinical_information_submitted == True",
+      "fidelity_result": "HUMAN_REVIEW_REQUIRED",
+      "evidence": "Governance-blocked rule (GOVERNANCE_BLOCKED_RULE_IDS). Universal documentation intake prerequisite applies across all advanced imaging modalities. Enforces clinical intake completeness prior to automated adjudication.",
+      "recommended_correction": "Maintain governance block in decision tree. Require human intake coordinator verification of office notes and lab data before clinical evaluation.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "ALL_AI_CPTS (101 codes)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Epidural Spine Injections 2026 (July)",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 4,
+      "printed_page": "Page 4 of 102",
+      "source_section": "Epidural Spine Injections 2026 (July)",
+      "source_supported_criterion": "Epidural steroid injections (ESI) are indicated for radicular pain corresponding to nerve root distribution with functional impairment (pain >= 6/10) after failure of >= 6 weeks conservative therapy within prior 6 months. Fluoroscopic or CT guidance required.",
+      "current_encoded_criterion": "cgepiduralinjections_indication IS_PRESENT",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and uncompiled stub. Rule cites physical page 4 (Page 1 of 13), which is the Table of Contents / Guideline Header. Actual clinical criteria are on physical pages 6–8 (Pages 3–5 of 13). Condition is a single stub \"cgepiduralinjections_indication IS_PRESENT\".",
+      "recommended_correction": "Update citation to physical pages 6–8 and compile multi-factorial criteria: radiculopathy, pain >= 6/10, conservative care >= 6 weeks, fluoroscopic guidance.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "62320",
+        "62321",
+        "62322",
+        "62323",
+        "64479",
+        "64480",
+        "64483",
+        "64484"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-002",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Epidural Steroid Injection (ESI)",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 11,
+      "printed_page": "Page 11 of 102",
+      "source_section": "Epidural Spine Injections 2026 / Conservative Treatment Prerequisites",
+      "source_supported_criterion": "Epidural steroid injection conservative therapy failure requirement: lack of meaningful improvement after >= 6 weeks active conservative care within prior 6 months.",
+      "current_encoded_criterion": "conservative_therapy_failure == DOCUMENTED_FAILURE",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch. Rule cites physical page 11 (Page 8 of 13), which is the \"Conditions which may be contraindications to epidural injections\" section, rather than the primary clinical necessity criteria section on pages 6–8.",
+      "recommended_correction": "Update citation to physical pages 6–8 and align condition parameters with comprehensive ESI clinical criteria.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "62320",
+        "62321",
+        "62322",
+        "62323",
+        "64479",
+        "64480",
+        "64483",
+        "64484"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGEPIDURALPUMPTRIALS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Epidural Spine Injections Single Injection Trials For Intrat",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 17,
+      "printed_page": "Page 17 of 102",
+      "source_section": "Epidural Spine Injections Single Injection Trials For Intrathecal Pumps 2026 (July)",
+      "source_supported_criterion": "Single injection trials for intrathecal drug delivery systems are indicated for severe chronic intractable pain or spasticity refractory to conservative therapies, following psychological evaluation.",
+      "current_encoded_criterion": "cgepiduralpumptrials_indication IS_PRESENT",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and uncompiled stub. Rule cites physical page 17 (Page 1 of 14), which is the Table of Contents / Header page. Clinical criteria are on physical pages 21–22. Condition is a single stub \"cgepiduralpumptrials_indication IS_PRESENT\".",
+      "recommended_correction": "Update citation to physical pages 21–22 and compile clinical prerequisites for intrathecal pump trials.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "62320",
+        "62321",
+        "62322",
+        "62323",
+        "64479",
+        "64480",
+        "64483",
+        "64484"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGFACETBLOCKS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 31,
+      "printed_page": "Page 31 of 102",
+      "source_section": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
+      "source_supported_criterion": "Paravertebral facet joint injections/blocks are indicated for axial spine pain >= 3 months causing functional disability (pain >= 6/10), after failure of >= 6 weeks conservative therapy within last 6 months. Must be performed under fluoroscopy or CT guidance. Initial diagnostic relief >= 80%.",
+      "current_encoded_criterion": "cgfacetblocks_indication IS_PRESENT",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and uncompiled stub. Rule cites physical page 31 (Page 1 of 14), which is the Table of Contents / Header. Clinical criteria are on physical pages 33–35. Condition is a single stub \"cgfacetblocks_indication IS_PRESENT\".",
+      "recommended_correction": "Update citation to physical pages 33–35 and compile explicit clinical criteria: axial pain >= 3 months, pain >= 6, conservative care >= 6 weeks, image guidance.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "64490",
+        "64491",
+        "64492",
+        "64493",
+        "64494",
+        "64495",
+        "0213T",
+        "0214T",
+        "0215T",
+        "0216T",
+        "0217T",
+        "0218T"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGFACETDENERVATION-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Paravertebral Facet Joint Denervation 2026 (July)",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 46,
+      "printed_page": "Page 46 of 102",
+      "source_section": "Paravertebral Facet Joint Denervation 2026 (July)",
+      "source_supported_criterion": "Facet joint radiofrequency neurotomy/denervation is indicated after failure of conservative care for >= 6 weeks in the last 6 months, and documented positive response to prior diagnostic facet blocks.",
+      "current_encoded_criterion": "cgfacetdenervation_indication IS_PRESENT",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and uncompiled stub. Rule cites physical page 46 (Page 2 of 12, Statement section) instead of physical pages 47–49 where detailed clinical criteria and repeat injection thresholds reside. Encodes stub \"cgfacetdenervation_indication IS_PRESENT\".",
+      "recommended_correction": "Update citation to physical pages 47–49 and compile clinical criteria for facet denervation.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "64633",
+        "64634",
+        "64635",
+        "64636"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGFACETDENERVATION-002",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Facet Joint Radiofrequency Neurotomy / Denervation",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 46,
+      "printed_page": "Page 46 of 102",
+      "source_section": "Paravertebral Facet Joint Denervation 2026 / Diagnostic Block Prerequisites",
+      "source_supported_criterion": "Facet joint radiofrequency neurotomy requires positive response to diagnostic facet joint injections with at least 50% (or 80% per diagnostic phase) pain relief and functional improvement.",
+      "current_encoded_criterion": "diagnostic_facet_block_relief >= 50",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch. Rule cites physical page 46 (Statement / General Information) instead of physical page 47 where the diagnostic block response criteria and percentage thresholds are detailed.",
+      "recommended_correction": "Update citation to physical page 47 and confirm whether diagnostic threshold is 80% (initial dual blocks) or 50% (subsequent/repeat).",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "64633",
+        "64634",
+        "64635",
+        "64636"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGINFUSIONPUMPS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Implantable Infusion Pump Insert 2026 (July)",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 68,
+      "printed_page": "Page 68 of 102",
+      "source_section": "Implantable Infusion Pump Insert 2026 (July)",
+      "source_supported_criterion": "Intrathecal infusion pump permanent implantation requires: (1) documented intractable cancer or non-cancer pain/spasticity, (2) failure of conservative therapies for >= 6 months, (3) psychological clearance, (4) successful temporary trial producing >= 50% relief or documented spasticity reduction.",
+      "current_encoded_criterion": "cginfusionpumps_indication IS_PRESENT",
+      "fidelity_result": "HUMAN_REVIEW_REQUIRED",
+      "evidence": "Governance-blocked rule. Uncompiled single-condition stub (\"cginfusionpumps_indication IS_PRESENT\") citing physical page 68. Completely omits multi-step clinical prerequisites and psychological assessment mandates from pages 68–71.",
+      "recommended_correction": "Maintain governance block. Authorize clinical development of full multi-layered rule tree incorporating trial efficacy (>= 50%), 6-month conservative care, and psychological evaluation.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "62350",
+        "62351",
+        "62355",
+        "62360",
+        "62361",
+        "62362"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGSIINJECTIONS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Sacroiliac Joint Injections 2026 (July)",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 57,
+      "printed_page": "Page 57 of 102",
+      "source_section": "Sacroiliac Joint Injections 2026 (July)",
+      "source_supported_criterion": "Sacroiliac joint injections require: axial low back pain below L5 >= 3 months, pain level >= 6/10, cluster of >= 3 positive provocative physical exam tests, failure of conservative therapy >= 6 weeks in last 6 months, fluoroscopy/CT guidance, and >= 75% relief for diagnostic phase.",
+      "current_encoded_criterion": "cgsiinjections_indication IS_PRESENT",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and uncompiled stub. Rule cites physical page 57 (Page 1 of 10, Table of Contents / Header). Clinical criteria are on physical pages 58–60. Condition is a single stub \"cgsiinjections_indication IS_PRESENT\".",
+      "recommended_correction": "Update citation to physical pages 58–60 and compile multi-layered clinical criteria: axial pain below L5 >= 3 months, pain >= 6, 3 of 8 provocative tests, 6 weeks conservative care, fluoroscopy.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "27096",
+        "G0260"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGSPINALCORDSTIM-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Spinal Cord Stimulation 2026 (July)",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 78,
+      "printed_page": "Page 78 of 102",
+      "source_section": "Spinal Cord Stimulation 2026 (July)",
+      "source_supported_criterion": "Spinal cord stimulation trial is indicated for chronic intractable neuropathic pain refractory to conservative treatment for >= 6 months, with completed psychological assessment.",
+      "current_encoded_criterion": "cgspinalcordstim_indication IS_PRESENT",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and uncompiled stub. Rule cites physical page 78 (Page 2 of 12, Statement section) instead of physical pages 79–81 where detailed indication criteria and psychological assessments are specified. Encodes stub \"cgspinalcordstim_indication IS_PRESENT\".",
+      "recommended_correction": "Update citation to physical pages 79–81 and compile clinical criteria for SCS trial.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "63650",
+        "63655",
+        "63661",
+        "63662",
+        "63663",
+        "63664",
+        "63685",
+        "63688"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGSPINALCORDSTIM-002",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Permanent Spinal Cord Stimulator Implant",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 80,
+      "printed_page": "Page 80 of 102",
+      "source_section": "Spinal Cord Stimulation 2026 / Permanent Implant Trial Prerequisite",
+      "source_supported_criterion": "Permanent spinal cord stimulator implant requires documentation of a successful trial of the temporary SCS device providing at least 50% pain relief and functional improvement for a minimum of 3 days.",
+      "current_encoded_criterion": "scs_trial_pain_relief >= 50",
+      "fidelity_result": "VERIFIED",
+      "evidence": "Governing policy p. 80 (printed page 4 of 12) explicitly mandates: \"Documentation of a successful trial of the temporary SCS device providing at least 50% pain reduction and significant functional improvement for a minimum duration of 3 days\". The rule condition scs_trial_pain_relief >= 50 faithfully represents this standard.",
+      "recommended_correction": "None required. Rule conditions and citation are verified against governing policy.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "63650",
+        "63655",
+        "63661",
+        "63662",
+        "63663",
+        "63664",
+        "63685",
+        "63688"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-CGSYMPATHETICBLOCKS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Sympathetic Nerve Blocks 2026 (July)",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 89,
+      "printed_page": "Page 89 of 102",
+      "source_section": "Sympathetic Nerve Blocks 2026 (July)",
+      "source_supported_criterion": "Sympathetic nerve blocks are indicated for CRPS (Budapest criteria), acute herpes zoster (< 4 weeks duration), or refractory cancer/phantom pain, with pain >= 6/10 and failure of conservative therapy. Prior block must yield >= 50% relief.",
+      "current_encoded_criterion": "cgsympatheticblocks_indication IS_PRESENT",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and uncompiled stub. Rule cites physical page 89 (Page 1 of 14, Table of Contents / Header). Clinical criteria are on physical pages 91–93. Encodes single stub \"cgsympatheticblocks_indication IS_PRESENT\".",
+      "recommended_correction": "Update citation to physical pages 91–93 and compile diagnosis-specific indications (CRPS, Herpes Zoster, Cancer Pain) and relief thresholds.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "64510",
+        "64517",
+        "64520",
+        "64530"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-EPOS1755-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Evolent Place of Service Policy 1755 for Interventional Pain",
+      "governing_pdf": "EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
+      "physical_page": 1,
+      "printed_page": "Page 1 of 8",
+      "source_section": "Evolent Place of Service Policy 1755 for Interventional Pain Management (2026 Final)",
+      "source_supported_criterion": "Interventional pain procedures are preferred in freestanding office or ambulatory surgery center (ASC) settings. Hospital outpatient setting requires documentation of high-risk medical exceptions (severe cardio-pulmonary disease, morbid obesity BMI >= 45, high-risk coagulopathy, sleep apnea).",
+      "current_encoded_criterion": "epos1755_indication IS_PRESENT",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch and uncompiled stub. Rule cites physical page 1 (Page 1 of 8, Title / TOC page). The specific patient clinical criteria for outpatient hospital setting selection are located on physical pages 3–5. Encodes stub \"epos1755_indication IS_PRESENT\".",
+      "recommended_correction": "Update citation to physical pages 3–5 and compile high-risk medical exception criteria for hospital outpatient POS.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "ALL_IPM_CPTS (Hospital Outpatient POS condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-EPOS1755-002",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Interventional Pain Management Site of Care",
+      "governing_pdf": "EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
+      "physical_page": 1,
+      "printed_page": "Page 1 of 8",
+      "source_section": "Place of Service Policy Statement / Setting Alignment",
+      "source_supported_criterion": "Interventional pain management site of care alignment: procedures must be performed in office or ASC unless medical necessity criteria for hospital outpatient setting are satisfied.",
+      "current_encoded_criterion": "place_of_service_alignment == AMBULATORY_PREFERRED",
+      "fidelity_result": "MISMATCH",
+      "evidence": "Citation mismatch. Rule cites physical page 1 (Title / TOC page) instead of physical page 3 where the outpatient hospital selection criteria and setting alignment policy statement reside.",
+      "recommended_correction": "Update citation from physical page 1 to physical page 3.",
+      "requires_authorized_clinical_review": false,
+      "cpt_codes_mapped": [
+        "ALL_IPM_CPTS (Hospital Outpatient POS condition)"
+      ],
+      "cpt_mapping_verified": true
+    },
+    {
+      "rule_id": "RULE-IPM-PREAMBLEIPM-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Preamble and Guideline Development Process",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "physical_page": 2,
+      "printed_page": "Page 2 of 102",
+      "source_section": "Preamble and Guideline Development Process",
+      "source_supported_criterion": "Universal interventional pain clinical documentation prerequisite: expectation that all patients receive care from licensed clinician, with documented treatment history, pain scores, physical exam, and objective imaging.",
+      "current_encoded_criterion": "preambleipm_indication IS_PRESENT",
+      "fidelity_result": "HUMAN_REVIEW_REQUIRED",
+      "evidence": "Governance-blocked rule. Uncompiled single-condition stub (\"preambleipm_indication IS_PRESENT\"). Operates as universal clinical intake gate across all 44 IPM procedure codes.",
+      "recommended_correction": "Maintain governance block. Define structured intake verification criteria for comprehensive office visit notes, physical exam signs, and conservative treatment duration.",
+      "requires_authorized_clinical_review": true,
+      "cpt_codes_mapped": [
+        "ALL_IPM_CPTS (44 codes)"
+      ],
+      "cpt_mapping_verified": true
+    }
+  ]
+}

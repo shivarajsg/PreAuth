@@ -1,0 +1,3873 @@
+{
+  "metadata": {
+    "phase": "Phase 8A: Policy Remediation Plan and Evidence Validation",
+    "creation_date": "2026-10-22",
+    "total_records": 31,
+    "priority_distribution": {
+      "PRIORITY_1": 7,
+      "PRIORITY_2": 3,
+      "PRIORITY_3": 11,
+      "PRIORITY_4": 3,
+      "PRIORITY_5": 7
+    },
+    "clinical_review_summary": {
+      "requires_authorized_clinical_review": 27,
+      "safe_administrative_corrections": 4
+    }
+  },
+  "remediation_records": [
+    {
+      "record_id": "REM-P1-001",
+      "priority_level": "PRIORITY_1",
+      "priority_category": "Missing Clinical Prerequisites and Screening Restrictions",
+      "rule_id": "RULE-ADV-CG2054-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Temporal Bone, Mastoid, Sella CT",
+      "current_behavior": "Approves Sella CT (CPT 70480) solely on the presence of a sellar, suprasellar, or parasellar mass (`sellar_or_parasellar_mass == True`) without checking if MRI is feasible.",
+      "exact_policy_supported_requirement": "Sella CT is indicated for evaluation of known sellar and/or parasellar masses WHEN MRI is contraindicated or cannot be performed (Guideline 2056, physical p. 881).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 881,
+      "source_printed_page": "Page 4 of 17",
+      "source_section": "INDICATIONS FOR SELLA CT",
+      "proposed_minimal_correction": {
+        "summary": "Add mandatory MRI contraindication / inability prerequisite condition to existing sellar mass rule.",
+        "logic_type": "BOOLEAN_COMPOUND",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2054-001",
+            "parameter": "sellar_or_parasellar_mass",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Known sellar, suprasellar, or parasellar mass requiring bony evaluation or surgical planning"
+          },
+          {
+            "condition_id": "COND-ADV-CG2054-002",
+            "parameter": "mri_contraindicated_or_unavailable",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Brain/sella MRI is medically contraindicated or cannot be performed (e.g. non-conditional pacemaker/ICD, ocular metallic foreign body, severe claustrophobia, or scanner weight/dimension limit)"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 881,
+          "printed_page": "Page 4 of 17",
+          "source_quote": "For further evaluation of known sellar and/or parasellar masses\nWhen MRI is contraindicated or cannot be performed"
+        }
+      },
+      "false_approval_risk": "High. Approves soft-tissue CT of the sella without preliminary MRI when MRI is the gold standard and safe to perform.",
+      "false_denial_risk": "Low. If MRI is contraindicated or unavailable and documented, CT is approved.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Presence of sellar or parasellar mass",
+          "MRI is contraindicated OR cannot be performed"
+        ],
+        "alternative_conditions_or": [
+          "MRI contraindication (pacemaker, metallic fragment)",
+          "MRI cannot be performed (claustrophobia, bariatric scanner limit)"
+        ],
+        "cumulative_conditions_and": [
+          "Sellar mass AND (MRI contraindicated OR cannot be performed)"
+        ],
+        "advisory_or_preferred_language": [
+          "MRI is the preferred first-line imaging modality for pituitary and sellar soft tissue"
+        ],
+        "exceptions_and_special_populations": [
+          "Emergency postoperative hemorrhage does not require prior MRI failure"
+        ],
+        "missing_evidence_behavior": "UNKNOWN. If MRI contraindication status is unstated, evaluate to INSUFFICIENT_INFORMATION."
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P1-001-POS",
+            "description": "Sellar mass present and member has non-MRI conditional pacemaker",
+            "inputs": {
+              "sellar_or_parasellar_mass": true,
+              "mri_contraindicated_or_unavailable": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P1-001-NEG",
+            "description": "Sellar mass present but member has no contraindication to MRI",
+            "inputs": {
+              "sellar_or_parasellar_mass": true,
+              "mri_contraindicated_or_unavailable": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P1-001-MISS",
+            "description": "Sellar mass documented but MRI contraindication field is omitted",
+            "inputs": {
+              "sellar_or_parasellar_mass": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P1-001-CONF",
+            "description": "Notes state 'MRI completed yesterday' yet request claims MRI is contraindicated",
+            "inputs": {
+              "sellar_or_parasellar_mass": true,
+              "mri_contraindicated_or_unavailable": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P1-001-BND",
+            "description": "Severe claustrophobia with failed oral sedation documented as inability to perform MRI",
+            "inputs": {
+              "sellar_or_parasellar_mass": true,
+              "mri_contraindicated_or_unavailable": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify temporal bone CT for hearing loss / mastoiditis (CPT 70480 under other rules) remains unaffected.",
+          "Verify brain MRI (CPT 70551-70553) routing remains unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Addition of a mandatory clinical exclusion gate altering autonomous adjudication for CPT 70480.",
+      "dependencies": {
+        "shared_fields": [
+          "mri_contraindicated_or_unavailable"
+        ],
+        "extraction_fields": [
+          "clinical_findings.mri_contraindicated",
+          "clinical_findings.claustrophobia_failed_sedation"
+        ],
+        "routing_dependencies": [
+          "CPT 70480 routing in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P1-002",
+      "priority_level": "PRIORITY_1",
+      "priority_category": "Missing Clinical Prerequisites and Screening Restrictions",
+      "rule_id": "RULE-ADV-CG2062-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Upper Extremity CT (Shoulder, Elbow, Wrist, Hand)",
+      "current_behavior": "Approves Upper Extremity CT (CPT 73200-73202) for persistent joint pain with negative X-ray and conservative therapy without checking MRI contraindication or CT arthrogram status.",
+      "exact_policy_supported_requirement": "Upper Extremity CT for joint/extremity pain is indicated ONLY if MRI is contraindicated or cannot be performed, OR requested as a CT arthrogram, preceded by negative/inconclusive plain radiographs and 4 weeks conservative therapy (Guideline 2062, physical pp. 965–966).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 965,
+      "source_printed_page": "Page 3 of 24",
+      "source_section": "INDICATIONS FOR UPPER EXTREMITY CT / Upper Extremity Pain (1,2) / Special Notes",
+      "proposed_minimal_correction": {
+        "summary": "Add mandatory (mri_contraindicated == True OR requested_as_ct_arthrogram == True) prerequisite condition to existing Upper Extremity CT criteria.",
+        "logic_type": "BOOLEAN_COMPOUND",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2062-001",
+            "parameter": "prior_xray_negative_or_inconclusive",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Upper extremity plain X-ray completed showing no definitive diagnostic etiology for joint/extremity pain"
+          },
+          {
+            "condition_id": "COND-ADV-CG2062-002",
+            "parameter": "conservative_therapy_or_bony_injury",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Persistent pain unresponsive to at least 4 weeks of active conservative therapy, OR acute complex fracture"
+          },
+          {
+            "condition_id": "COND-ADV-CG2062-003",
+            "parameter": "mri_contraindicated_or_ct_arthrogram",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Upper extremity MRI is contraindicated or cannot be performed, OR study is specifically requested as a CT arthrogram"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 965,
+          "printed_page": "Page 3 of 24",
+          "source_quote": "X-rays must precede CT evaluation, unless otherwise indicated\nIf MRI is contraindicated or cannot be performed, or requested as a CT arthrogram"
+        }
+      },
+      "false_approval_risk": "High. Approves diagnostic upper extremity CT for soft-tissue rotators, labrum, or cartilage tears where MRI is required.",
+      "false_denial_risk": "Low. If patient has MRI contraindication or request is for CT arthrogram, CT is approved.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Prior plain radiograph completed showing no clear etiology",
+          "Active conservative therapy failure >= 4 weeks OR acute bony fracture",
+          "MRI contraindicated OR cannot be performed OR requested as CT arthrogram"
+        ],
+        "alternative_conditions_or": [
+          "MRI contraindicated",
+          "MRI cannot be performed",
+          "Requested as CT arthrogram"
+        ],
+        "cumulative_conditions_and": [
+          "Prior X-ray AND conservative care failure AND (MRI contraindication OR CT arthrogram)"
+        ],
+        "advisory_or_preferred_language": [
+          "MRI is the preferred modality for soft tissue, labral, and rotator cuff pathology"
+        ],
+        "exceptions_and_special_populations": [
+          "Preoperative surgical planning for complex comminuted fracture does not require conservative therapy"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P1-002-POS-CONTRA",
+            "description": "4-week therapy failed, X-ray negative, pacemaker prevents MRI",
+            "inputs": {
+              "prior_xray_negative_or_inconclusive": true,
+              "conservative_therapy_or_bony_injury": true,
+              "mri_contraindicated_or_ct_arthrogram": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          },
+          {
+            "case_id": "TC-P1-002-POS-ARTHRO",
+            "description": "Shoulder CT requested specifically as CT arthrogram for labral tear after X-ray",
+            "inputs": {
+              "prior_xray_negative_or_inconclusive": true,
+              "conservative_therapy_or_bony_injury": true,
+              "mri_contraindicated_or_ct_arthrogram": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P1-002-NEG",
+            "description": "Persistent elbow pain, X-ray negative, 4 weeks PT done, but MRI is feasible and not contraindicated",
+            "inputs": {
+              "prior_xray_negative_or_inconclusive": true,
+              "conservative_therapy_or_bony_injury": true,
+              "mri_contraindicated_or_ct_arthrogram": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P1-002-MISS",
+            "description": "X-ray negative and 4 weeks PT done, but no documentation regarding MRI contraindication or arthrogram",
+            "inputs": {
+              "prior_xray_negative_or_inconclusive": true,
+              "conservative_therapy_or_bony_injury": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P1-002-CONF",
+            "description": "Clinical note indicates 'order MRI shoulder', but prior authorization request submitted for CT shoulder",
+            "inputs": {
+              "prior_xray_negative_or_inconclusive": true,
+              "conservative_therapy_or_bony_injury": true,
+              "mri_contraindicated_or_ct_arthrogram": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P1-002-BND",
+            "description": "Complex distal radius intra-articular fracture planning bypasses conservative therapy",
+            "inputs": {
+              "prior_xray_negative_or_inconclusive": true,
+              "conservative_therapy_or_bony_injury": true,
+              "mri_contraindicated_or_ct_arthrogram": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify Upper Extremity MRI (RULE-ADV-CG2065-001/002) remains candidate rule for MRI requests.",
+          "Verify Upper Extremity CTA (RULE-ADV-CG2063-001) is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Addition of mandatory prerequisite requiring medical director validation of clinical parameters.",
+      "dependencies": {
+        "shared_fields": [
+          "mri_contraindicated_or_ct_arthrogram"
+        ],
+        "extraction_fields": [
+          "clinical_findings.mri_contraindicated",
+          "procedure_details.is_arthrogram"
+        ],
+        "routing_dependencies": [
+          "CPT 73200-73202 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P1-003",
+      "priority_level": "PRIORITY_1",
+      "priority_category": "Missing Clinical Prerequisites and Screening Restrictions",
+      "rule_id": "RULE-ADV-CG2055-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Temporomandibular Joint (TMJ) MRI",
+      "current_behavior": "Approves TMJ MRI (CPT 70336) based solely on symptom presentation (`suspected_tmj_internal_derangement == True`) without verifying prior conservative care.",
+      "exact_policy_supported_requirement": "TMJ MRI for suspected internal derangement requires: persistent pain, clicking, or limitation of opening AND completion of at least 4 weeks of active conservative therapy (trial of pharmacotherapy AND behavioral modification) within the prior 6 months without meaningful improvement (Guideline 2055, physical p. 896).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 896,
+      "source_printed_page": "Page 2 of 8",
+      "source_section": "INDICATIONS FOR TEMPOROMANDIBULAR JOINT (TMJ) MRI / Suspected Internal TMJ Derangement",
+      "proposed_minimal_correction": {
+        "summary": "Add mandatory 4-week conservative therapy failure requirement with pharmacotherapy and behavioral modification.",
+        "logic_type": "BOOLEAN_COMPOUND",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2055-001",
+            "parameter": "suspected_tmj_internal_derangement",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Suspected internal derangement of the temporomandibular joint with mechanical locking, persistent pain, clicking, or limitation of mouth opening"
+          },
+          {
+            "condition_id": "COND-ADV-CG2055-002",
+            "parameter": "tmj_conservative_therapy_duration_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 4,
+            "unit": "weeks",
+            "description": "Completion of at least 4 weeks of active conservative treatment including pharmacotherapy (NSAIDs/analgesics) AND behavioral modification (soft diet, jaw rest, moist heat, occlusal splint) within the prior 6 months"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 896,
+          "printed_page": "Page 2 of 8",
+          "source_quote": "Suspected Internal TMJ Derangement\n● Conservative therapy with a trial of pharmacotherapy* AND behavioral modification** for at least 4 weeks within the prior 6 months without meaningful improvement"
+        }
+      },
+      "false_approval_risk": "High. Currently approves TMJ MRI immediately upon onset of jaw pain or clicking before trying oral analgesics or soft diet.",
+      "false_denial_risk": "Low. If member has completed 4 weeks of medications and splinting/diet modification, rule approves cleanly.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Symptoms of internal TMJ derangement",
+          "Conservative therapy >= 4 weeks within the prior 6 months",
+          "Pharmacotherapy component",
+          "Behavioral modification component"
+        ],
+        "alternative_conditions_or": [
+          "Acute closed lock of TMJ with inability to open mouth > 20 mm excuses conservative care"
+        ],
+        "cumulative_conditions_and": [
+          "Derangement symptoms AND conservative therapy duration >= 4 weeks"
+        ],
+        "advisory_or_preferred_language": [
+          "Initial plain radiographs or panoramic radiograph (Panorex) should be considered to rule out bony or odontogenic pathology"
+        ],
+        "exceptions_and_special_populations": [
+          "Acute locked jaw with sudden severe limitation of opening does not require 4 weeks of conservative care"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P1-003-POS",
+            "description": "Persistent jaw clicking and pain, 5 weeks of NSAIDs and occlusal splinting completed with no improvement",
+            "inputs": {
+              "suspected_tmj_internal_derangement": true,
+              "tmj_conservative_therapy_duration_weeks": 5
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P1-003-NEG",
+            "description": "Jaw pain and clicking started 10 days ago, no medications or therapy tried",
+            "inputs": {
+              "suspected_tmj_internal_derangement": true,
+              "tmj_conservative_therapy_duration_weeks": 1.5
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P1-003-MISS",
+            "description": "Jaw pain documented, conservative therapy duration not stated in records",
+            "inputs": {
+              "suspected_tmj_internal_derangement": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P1-003-CONF",
+            "description": "Provider attests 4 weeks therapy, but pharmacy records show patient never filled NSAID or muscle relaxant prescription",
+            "inputs": {
+              "suspected_tmj_internal_derangement": true,
+              "tmj_conservative_therapy_duration_weeks": 0
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P1-003-BND-EXACT",
+            "description": "Exactly 4.0 weeks of conservative therapy documented",
+            "inputs": {
+              "suspected_tmj_internal_derangement": true,
+              "tmj_conservative_therapy_duration_weeks": 4
+            },
+            "expected_outcome": "CRITERIA_MET"
+          },
+          {
+            "case_id": "TC-P1-003-BND-FAIL",
+            "description": "3.5 weeks of conservative therapy documented",
+            "inputs": {
+              "suspected_tmj_internal_derangement": true,
+              "tmj_conservative_therapy_duration_weeks": 3.5
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify Maxillofacial CT (RULE-ADV-CG2047-001/002) routing is unaffected.",
+          "Verify Orbit/Face MRI (RULE-ADV-CG2048-001) routing is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Addition of a 4-week conservative care duration gate altering coverage decision outcomes.",
+      "dependencies": {
+        "shared_fields": [
+          "tmj_conservative_therapy_duration_weeks"
+        ],
+        "extraction_fields": [
+          "clinical_history.conservative_treatment_duration",
+          "medications.nsaids_taken"
+        ],
+        "routing_dependencies": [
+          "CPT 70336 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P1-004",
+      "priority_level": "PRIORITY_1",
+      "priority_category": "Missing Clinical Prerequisites and Screening Restrictions",
+      "rule_id": "RULE-ADV-CG2032-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity CT",
+      "current_behavior": "Approves Lower Extremity CT (CPT 73700-73702) for non-specific pain based on prior X-ray and MRI contraindication without checking conservative care.",
+      "exact_policy_supported_requirement": "Lower extremity CT for non-specific pain requires: prior plain X-ray showing no clear etiology, MRI contraindicated or cannot be performed, AND failure of at least 4 weeks of active conservative therapy within the prior 6 months (or progression/worsening during therapy) (Guideline 2032, physical p. 504).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 504,
+      "source_printed_page": "Page 4 of 23",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY CT / Non-specific Lower Extremity Pain (1,2)",
+      "proposed_minimal_correction": {
+        "summary": "Add mandatory 4-week conservative therapy failure condition within prior 6 months.",
+        "logic_type": "BOOLEAN_COMPOUND",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2032-001",
+            "parameter": "non_specific_lower_extremity_pain",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Lower extremity pain without specific localized joint involvement"
+          },
+          {
+            "condition_id": "COND-ADV-CG2032-002",
+            "parameter": "prior_xray_completed",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Prior plain radiographs (X-ray) completed of the symptomatic region"
+          },
+          {
+            "condition_id": "COND-ADV-CG2032-003",
+            "parameter": "mri_contraindicated",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "MRI is medically contraindicated or cannot be performed"
+          },
+          {
+            "condition_id": "COND-ADV-CG2032-004",
+            "parameter": "lower_extremity_conservative_therapy_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 4,
+            "unit": "weeks",
+            "description": "Persistent pain unresponsive to at least 4 weeks of active conservative therapy within the prior 6 months, OR documented worsening during therapy"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 504,
+          "printed_page": "Page 4 of 23",
+          "source_quote": "Lower extremity pain with no specific joint identified with MRI contraindicated or cannot be performed AND with prior X-ray showing no clear etiology of extremity pain with any ONE of the following:\n● Persistent pain unresponsive to ACTIVE Conservative Therapy (ACT) for a minimum of 4 weeks in the last 6 months"
+        }
+      },
+      "false_approval_risk": "High. Approves extremity CT prematurely when symptoms may resolve with standard physical therapy.",
+      "false_denial_risk": "Low. Preserves access when 4 weeks of therapy or clinical worsening is documented.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Non-specific lower extremity pain",
+          "Prior plain radiograph completed",
+          "MRI contraindicated OR cannot be performed",
+          "Conservative therapy failure >= 4 weeks in prior 6 months OR worsening during therapy"
+        ],
+        "alternative_conditions_or": [
+          "Therapy failure >= 4 weeks",
+          "Worsening of symptoms during conservative therapy"
+        ],
+        "cumulative_conditions_and": [
+          "Symptoms AND X-ray AND MRI contraindication AND conservative care"
+        ],
+        "advisory_or_preferred_language": [
+          "Active conservative therapy includes physical therapy, chiropractic treatments, or physician-directed home exercise program"
+        ],
+        "exceptions_and_special_populations": [
+          "Suspected acute fracture or pre-operative fracture planning (RULE-ADV-CG2032-002) bypasses conservative care"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P1-004-POS",
+            "description": "Leg pain, normal X-ray, pacemaker in place, 6 weeks PT completed with no relief",
+            "inputs": {
+              "non_specific_lower_extremity_pain": true,
+              "prior_xray_completed": true,
+              "mri_contraindicated": true,
+              "lower_extremity_conservative_therapy_weeks": 6
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P1-004-NEG",
+            "description": "Leg pain, normal X-ray, pacemaker in place, but patient only did 1 week of rest",
+            "inputs": {
+              "non_specific_lower_extremity_pain": true,
+              "prior_xray_completed": true,
+              "mri_contraindicated": true,
+              "lower_extremity_conservative_therapy_weeks": 1
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P1-004-MISS",
+            "description": "Leg pain, X-ray done, pacemaker in place, but duration of therapy omitted",
+            "inputs": {
+              "non_specific_lower_extremity_pain": true,
+              "prior_xray_completed": true,
+              "mri_contraindicated": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P1-004-CONF",
+            "description": "Patient completed 4 weeks of therapy 2 years ago, but none within the last 6 months",
+            "inputs": {
+              "non_specific_lower_extremity_pain": true,
+              "prior_xray_completed": true,
+              "mri_contraindicated": true,
+              "lower_extremity_conservative_therapy_weeks": 0
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P1-004-BND",
+            "description": "Exactly 4 weeks of PT completed within prior 2 months",
+            "inputs": {
+              "non_specific_lower_extremity_pain": true,
+              "prior_xray_completed": true,
+              "mri_contraindicated": true,
+              "lower_extremity_conservative_therapy_weeks": 4
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify complex fracture rule (RULE-ADV-CG2032-002) still approves acute fractures without conservative care.",
+          "Verify Lower Extremity CTA (RULE-ADV-CG2033-001) is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Codification of a mandatory conservative treatment duration threshold.",
+      "dependencies": {
+        "shared_fields": [
+          "lower_extremity_conservative_therapy_weeks"
+        ],
+        "extraction_fields": [
+          "clinical_history.physical_therapy_weeks",
+          "prior_treatments.conservative_care"
+        ],
+        "routing_dependencies": [
+          "CPT 73700-73702 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-ADV-CG2032-002"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P1-005",
+      "priority_level": "PRIORITY_1",
+      "priority_category": "Missing Clinical Prerequisites and Screening Restrictions",
+      "rule_id": "RULE-ADV-CG2035-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity MRI (Knee, Hip, Ankle, Foot)",
+      "current_behavior": "Approves Lower Extremity MRI (CPT 73718-73723) based solely on `joint_specific_injury_or_pain == True`, omitting plain X-ray and conservative care requirements.",
+      "exact_policy_supported_requirement": "Lower extremity MRI for joint-specific pain/injury requires: initial plain radiograph (X-ray) showing no clear etiology AND failure of at least 4 weeks of active conservative therapy within prior 6 months (unless acute mechanical locking or gross ligamentous instability) (Guideline 2035, physical p. 553).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 553,
+      "source_printed_page": "Page 4 of 22",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Pain or Suspected Joint Specific Injury",
+      "proposed_minimal_correction": {
+        "summary": "Add mandatory prior X-ray and 4-week conservative care failure conditions (with acute locking exception).",
+        "logic_type": "BOOLEAN_COMPOUND",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2035-001A",
+            "parameter": "joint_specific_injury_or_pain",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Evaluation of joint-specific pain, mechanical locking, instability, or suspected internal derangement"
+          },
+          {
+            "condition_id": "COND-ADV-CG2035-001B",
+            "parameter": "prior_xray_completed",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Prior plain radiograph (X-ray) of the requested joint completed showing no clear explanation of symptoms"
+          },
+          {
+            "condition_id": "COND-ADV-CG2035-001C",
+            "parameter": "conservative_therapy_or_acute_locking",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Failure of at least 4 weeks of active conservative therapy within prior 6 months, OR acute mechanical joint locking / acute gross ligamentous disruption"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 553,
+          "printed_page": "Page 4 of 22",
+          "source_quote": "Joint specific advanced imaging is indicated with prior X-ray showing no clear etiology for the joint pain with any ONE of the following:\n● Persistent joint pain unresponsive to ACTIVE Conservative Therapy (ACT) which includes physical therapy, chiropractic treatments, or a physician directed home exercise program (HEP) for a minimum of 4 weeks in the last 6 months"
+        }
+      },
+      "false_approval_risk": "Severe. Currently approves high-volume MRI requests (CPT 73721 knee, 73718 foot/ankle, 73720 hip) on pain symptom check alone without any preliminary workup.",
+      "false_denial_risk": "Low. If X-ray is done and 4 weeks therapy completed (or acute locked joint), rule approves.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Joint-specific pain or suspected injury",
+          "Prior plain radiograph completed",
+          "Conservative therapy >= 4 weeks in prior 6 months OR acute locking/instability exception"
+        ],
+        "alternative_conditions_or": [
+          "4 weeks active conservative therapy",
+          "Acute mechanical joint locking",
+          "Acute gross ligamentous disruption"
+        ],
+        "cumulative_conditions_and": [
+          "Joint pain AND prior X-ray AND (conservative care OR acute locking)"
+        ],
+        "advisory_or_preferred_language": [
+          "Weight-bearing X-rays are preferred for knee, ankle, and hip evaluations"
+        ],
+        "exceptions_and_special_populations": [
+          "Patients with positive knee orthopedic signs evaluate under RULE-ADV-CG2035-002",
+          "Suspected avascular necrosis evaluates under RULE-ADV-CG2035-003"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P1-005-POS-STANDARD",
+            "description": "Hip pain, negative plain X-ray, completed 6 weeks of physical therapy",
+            "inputs": {
+              "joint_specific_injury_or_pain": true,
+              "prior_xray_completed": true,
+              "conservative_therapy_or_acute_locking": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          },
+          {
+            "case_id": "TC-P1-005-POS-LOCK",
+            "description": "Acute locked knee following athletic injury, X-ray negative, immediate MRI approved",
+            "inputs": {
+              "joint_specific_injury_or_pain": true,
+              "prior_xray_completed": true,
+              "conservative_therapy_or_acute_locking": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P1-005-NEG-NO-XRAY",
+            "description": "Ankle pain for 6 weeks, physical therapy completed, but no plain radiograph ever performed",
+            "inputs": {
+              "joint_specific_injury_or_pain": true,
+              "prior_xray_completed": false,
+              "conservative_therapy_or_acute_locking": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          },
+          {
+            "case_id": "TC-P1-005-NEG-NO-PT",
+            "description": "Knee pain for 1 week, X-ray normal, no conservative therapy attempted",
+            "inputs": {
+              "joint_specific_injury_or_pain": true,
+              "prior_xray_completed": true,
+              "conservative_therapy_or_acute_locking": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P1-005-MISS",
+            "description": "Pain documented, prior X-ray and therapy status missing from intake",
+            "inputs": {
+              "joint_specific_injury_or_pain": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P1-005-CONF",
+            "description": "X-ray reported as 'pending', cannot satisfy completed X-ray criterion",
+            "inputs": {
+              "joint_specific_injury_or_pain": true,
+              "prior_xray_completed": false,
+              "conservative_therapy_or_acute_locking": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P1-005-BND",
+            "description": "Exactly 4 weeks of active conservative therapy completed within prior 5 months",
+            "inputs": {
+              "joint_specific_injury_or_pain": true,
+              "prior_xray_completed": true,
+              "conservative_therapy_or_acute_locking": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify RULE-ADV-CG2035-002 (Knee orthopedic signs) and RULE-ADV-CG2035-003 (Osteonecrosis) continue to route correctly.",
+          "Verify Lumbar Spine MRI (RULE-ADV-CG2037-*) rules are not triggered by knee CPT codes."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "High-impact clinical policy remediation impacting the highest volume imaging codes in the inventory.",
+      "dependencies": {
+        "shared_fields": [
+          "prior_xray_completed",
+          "conservative_therapy_or_acute_locking"
+        ],
+        "extraction_fields": [
+          "radiology_reports.prior_plain_xray",
+          "clinical_findings.acute_joint_locking"
+        ],
+        "routing_dependencies": [
+          "CPT 73718-73723 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-ADV-CG2035-002",
+          "RULE-ADV-CG2035-003"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P1-006",
+      "priority_level": "PRIORITY_1",
+      "priority_category": "Missing Clinical Prerequisites and Screening Restrictions",
+      "rule_id": "RULE-ADV-CG2030-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Low Dose CT (LDCT) for Lung Cancer Screening",
+      "current_behavior": "Approves LDCT (CPT 71271) based on age 50-80, >= 20 pack-years, and quit <= 15 yrs, without verifying that the patient is asymptomatic.",
+      "exact_policy_supported_requirement": "LDCT lung cancer screening is medically necessary ONLY when used to screen for lung cancer for certain high-risk, ASYMPTOMATIC individuals (i.e. no acute lung-related signs or symptoms such as hemoptysis, unexplained cough, shortness of breath, unexplained weight loss) (Guideline 2030, physical p. 490).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 490,
+      "source_printed_page": "Page 2 of 8",
+      "source_section": "INDICATIONS / For Annual Screening / Group 1 - High Risk for Lung Cancer (3,4)",
+      "proposed_minimal_correction": {
+        "summary": "Add mandatory patient_is_asymptomatic == True screening restriction condition.",
+        "logic_type": "BOOLEAN_COMPOUND",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2030-000",
+            "parameter": "patient_is_asymptomatic",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Patient is asymptomatic with no acute lung-related signs or symptoms (e.g. hemoptysis, unexplained persistent cough, unexplained weight loss)"
+          },
+          {
+            "condition_id": "COND-ADV-CG2030-001",
+            "parameter": "patient_age_years",
+            "comparator": "BETWEEN",
+            "value": [
+              50,
+              80
+            ],
+            "unit": "years",
+            "description": "Patient age is between 50 and 80 years old"
+          },
+          {
+            "condition_id": "COND-ADV-CG2030-002",
+            "parameter": "smoking_history_pack_years",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 20,
+            "unit": "pack_years",
+            "description": "Documented smoking history of at least 20 pack-years"
+          },
+          {
+            "condition_id": "COND-ADV-CG2030-003",
+            "parameter": "current_or_recent_smoker_15yr",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Patient is currently smoking or has quit smoking within the past 15 years"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 490,
+          "printed_page": "Page 2 of 8",
+          "source_quote": "medically necessary ONLY when used to screen for lung cancer for certain high-risk, asymptomatic individuals (i.e., no acute lung-related signs or symptoms)"
+        }
+      },
+      "false_approval_risk": "Severe patient safety risk. Approves screening LDCT for a symptomatic patient with active hemoptysis or lung tumor, missing diagnostic full-dose contrast evaluation.",
+      "false_denial_risk": "Low. Asymptomatic individuals meeting USPSTF criteria are approved.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Patient must be asymptomatic for pulmonary disease",
+          "Age 50 to 80 years",
+          "Smoking history >= 20 pack-years",
+          "Current smoker OR quit within past 15 years"
+        ],
+        "alternative_conditions_or": [
+          "Currently smoking",
+          "Quit within past 15 years"
+        ],
+        "cumulative_conditions_and": [
+          "Asymptomatic AND age 50-80 AND >= 20 pack-years AND (current smoker OR quit <= 15 yrs)"
+        ],
+        "advisory_or_preferred_language": [
+          "Screening should be discontinued once a person develops a health problem that limits life expectancy"
+        ],
+        "exceptions_and_special_populations": [
+          "Symptomatic patients should be redirected to Diagnostic Chest CT (CPT 71250-71270, RULE-ADV-CG2018-*)"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P1-006-POS",
+            "description": "Asymptomatic 62yo, 30 pack-year smoker who quit 5 years ago",
+            "inputs": {
+              "patient_is_asymptomatic": true,
+              "patient_age_years": 62,
+              "smoking_history_pack_years": 30,
+              "current_or_recent_smoker_15yr": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P1-006-NEG-SYMPTOMS",
+            "description": "65yo 25-pack-year smoker presents with gross hemoptysis and 15lb weight loss",
+            "inputs": {
+              "patient_is_asymptomatic": false,
+              "patient_age_years": 65,
+              "smoking_history_pack_years": 25,
+              "current_or_recent_smoker_15yr": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          },
+          {
+            "case_id": "TC-P1-006-NEG-QUIT-16YR",
+            "description": "Asymptomatic 60yo, 25 pack-years, but quit 16 years ago",
+            "inputs": {
+              "patient_is_asymptomatic": true,
+              "patient_age_years": 60,
+              "smoking_history_pack_years": 25,
+              "current_or_recent_smoker_15yr": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P1-006-MISS",
+            "description": "Age and smoking history provided, but symptom status omitted",
+            "inputs": {
+              "patient_age_years": 60,
+              "smoking_history_pack_years": 25,
+              "current_or_recent_smoker_15yr": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P1-006-CONF",
+            "description": "Intake form marked 'asymptomatic' but clinical notes mention 'unexplained hemoptysis for 2 weeks'",
+            "inputs": {
+              "patient_is_asymptomatic": false,
+              "patient_age_years": 60,
+              "smoking_history_pack_years": 25,
+              "current_or_recent_smoker_15yr": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P1-006-BND-50",
+            "description": "Patient exactly age 50.0 years",
+            "inputs": {
+              "patient_is_asymptomatic": true,
+              "patient_age_years": 50,
+              "smoking_history_pack_years": 20,
+              "current_or_recent_smoker_15yr": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          },
+          {
+            "case_id": "TC-P1-006-BND-80",
+            "description": "Patient exactly age 80.0 years",
+            "inputs": {
+              "patient_is_asymptomatic": true,
+              "patient_age_years": 80,
+              "smoking_history_pack_years": 20,
+              "current_or_recent_smoker_15yr": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          },
+          {
+            "case_id": "TC-P1-006-BND-81",
+            "description": "Patient age 81.0 years",
+            "inputs": {
+              "patient_is_asymptomatic": true,
+              "patient_age_years": 81,
+              "smoking_history_pack_years": 20,
+              "current_or_recent_smoker_15yr": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify Diagnostic Chest CT (CPT 71250-71270) routes to RULE-ADV-CG2018-* and evaluates hemoptysis correctly.",
+          "Verify Chest CTA (RULE-ADV-CG2020-*) is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Addition of a critical clinical screening gate preventing diagnostic misrouting.",
+      "dependencies": {
+        "shared_fields": [
+          "patient_is_asymptomatic"
+        ],
+        "extraction_fields": [
+          "clinical_findings.asymptomatic",
+          "clinical_findings.hemoptysis",
+          "clinical_findings.cough"
+        ],
+        "routing_dependencies": [
+          "CPT 71271 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-ADV-CG2018-003"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P1-007",
+      "priority_level": "PRIORITY_1",
+      "priority_category": "Missing Clinical Prerequisites and Screening Restrictions",
+      "rule_id": "RULE-ADV-CG2024-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Quantitative Computed Tomography (QCT) Bone Density Study",
+      "current_behavior": "Approves QCT Bone Density (CPT 77078) based solely on `suspected_low_bone_mineral_density == True`, omitting mandatory DXA unavailability and body habitus prerequisites.",
+      "exact_policy_supported_requirement": "QCT bone density study is indicated for suspected osteopenia/osteoporosis ONLY after meeting any ONE of: (1) DXA scanning is expected to be insufficient OR is not available, (2) advanced degenerative changes of spine, or (3) severe obesity with BMI > 35 kg/m2 (Guideline 2024, physical pp. 451–452).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 451,
+      "source_printed_page": "Page 2 of 11",
+      "source_section": "INDICATIONS FOR CT BONE DENSITY STUDY / Screening for Asymptomatic Low Bone Mineral Density",
+      "proposed_minimal_correction": {
+        "summary": "Add mandatory general criteria requiring DXA insufficiency/unavailability, advanced spine degeneration, or BMI > 35.",
+        "logic_type": "BOOLEAN_COMPOUND",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2024-001",
+            "parameter": "suspected_low_bone_mineral_density",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Screening or diagnostic assessment of low bone mineral density (osteopenia or osteoporosis)"
+          },
+          {
+            "condition_id": "COND-ADV-CG2024-002",
+            "parameter": "qct_general_prerequisite_met",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Meets at least one general prerequisite: DXA scanning is insufficient/unavailable, advanced spinal degenerative changes, or severe obesity (BMI > 35 kg/m2)"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 451,
+          "printed_page": "Page 2 of 11",
+          "source_quote": "A CT bone density study (Quantitative CT (QCT)) is indicated for screening for asymptomatic low BMD after meeting any ONE of the following general criteria:\n● Dual x-ray absorptiometry (DXA) scanning is expected to be insufficient OR is not available\n● Patients with advanced degenerative changes of the spine\n● Severe obesity (BMI > 35 kg/m2)"
+        }
+      },
+      "false_approval_risk": "High. Approves QCT (which has significantly higher radiation dose than DXA) without requiring standard first-line DXA testing.",
+      "false_denial_risk": "Low. Patients with BMI > 35, spinal degenerative disease, or lack of local DXA scanner approve cleanly.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Suspected osteopenia or osteoporosis",
+          "At least ONE general prerequisite: DXA insufficient/unavailable, severe obesity (BMI > 35), or advanced spinal degenerative changes"
+        ],
+        "alternative_conditions_or": [
+          "DXA insufficient or unavailable",
+          "Advanced spinal degenerative changes",
+          "BMI > 35 kg/m2"
+        ],
+        "cumulative_conditions_and": [
+          "Low bone mineral density suspected AND (DXA insufficient OR spine degeneration OR BMI > 35)"
+        ],
+        "advisory_or_preferred_language": [
+          "DXA is the gold standard initial study and requires less radiation than QCT"
+        ],
+        "exceptions_and_special_populations": [
+          "Washington State specific legislative language mandates must be respected if jurisdiction is WA"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P1-007-POS-BMI",
+            "description": "Osteoporosis screening in 67yo female with BMI 38 (exceeds DXA table limit)",
+            "inputs": {
+              "suspected_low_bone_mineral_density": true,
+              "qct_general_prerequisite_met": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          },
+          {
+            "case_id": "TC-P1-007-POS-SPINE",
+            "description": "Patient with severe lumbar scoliosis and degenerative osteophytes falsely elevating DXA",
+            "inputs": {
+              "suspected_low_bone_mineral_density": true,
+              "qct_general_prerequisite_met": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P1-007-NEG",
+            "description": "Routine osteoporosis screening requested as QCT, but DXA scanner is available, BMI is 24, no spine disease",
+            "inputs": {
+              "suspected_low_bone_mineral_density": true,
+              "qct_general_prerequisite_met": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P1-007-MISS",
+            "description": "Low bone density suspected, but DXA status and BMI omitted",
+            "inputs": {
+              "suspected_low_bone_mineral_density": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P1-007-CONF",
+            "description": "Request claims DXA unavailable, but clinical note reports normal DXA performed in same clinic last month",
+            "inputs": {
+              "suspected_low_bone_mineral_density": true,
+              "qct_general_prerequisite_met": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P1-007-BND-BMI35",
+            "description": "BMI exactly 35.1 kg/m2 satisfies severe obesity criterion",
+            "inputs": {
+              "suspected_low_bone_mineral_density": true,
+              "qct_general_prerequisite_met": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify standard CT procedures (RULE-ADV-CG2000-*) are unaffected.",
+          "Verify Bone Marrow MRI (RULE-ADV-CG2007-001) is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Addition of radiation-limiting prerequisite altering coverage for CPT 77078.",
+      "dependencies": {
+        "shared_fields": [
+          "qct_general_prerequisite_met"
+        ],
+        "extraction_fields": [
+          "patient_vitals.bmi",
+          "clinical_findings.spinal_degenerative_changes",
+          "prior_testing.dxa_availability"
+        ],
+        "routing_dependencies": [
+          "CPT 77078 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P2-001",
+      "priority_level": "PRIORITY_2",
+      "priority_category": "Incorrectly Restrictive Requirements and Duration Thresholds",
+      "rule_id": "RULE-ADV-CG2035-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lower Extremity MRI (Knee)",
+      "current_behavior": "Strictly denies Knee MRI (CPT 73721) for positive orthopedic signs unless `prior_xray_completed == True`.",
+      "exact_policy_supported_requirement": "For knee MRI with a positive joint-specific orthopedic sign (e.g. McMurray, joint line tenderness, Lachman, drawer sign, pivot shift), an initial X-ray is preferred, but is NOT required unless otherwise specified in bold (Guideline 2035, physical p. 553).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 553,
+      "source_printed_page": "Page 4 of 22",
+      "source_section": "INDICATIONS FOR LOWER EXTREMITY MRI / Joint Specific Orthopedic Signs",
+      "proposed_minimal_correction": {
+        "summary": "Remove mandatory prior_xray_completed prerequisite from RULE-ADV-CG2035-002 to align with policy footnote that X-ray is preferred but not required.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2035-002",
+            "parameter": "positive_knee_orthopedic_sign",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Physical examination demonstrates positive joint-specific sign for meniscal or ligamentous tear (e.g. McMurray test, joint line tenderness, Lachman test, anterior/posterior drawer, pivot shift)"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 553,
+          "printed_page": "Page 4 of 22",
+          "source_quote": "Joint specific advanced imaging is indicated for any positive orthopedic sign listed below:\nNOTE: With a positive orthopedic sign from the list below, an initial X-ray is always preferred; however, it is NOT required UNLESS otherwise specified in bold below"
+        }
+      },
+      "false_approval_risk": "None. Approves knee MRI for patients with documented positive exam signs (meniscal/cruciate tear) as explicitly permitted by policy footnote.",
+      "false_denial_risk": "Eliminates high false-denial rate where acute meniscal/ACL injuries were denied solely for lack of preliminary plain film.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Positive orthopedic examination sign for knee"
+        ],
+        "alternative_conditions_or": [
+          "McMurray test",
+          "Joint line tenderness",
+          "Lachman test",
+          "Anterior drawer",
+          "Posterior drawer",
+          "Pivot shift",
+          "Thessaly test"
+        ],
+        "cumulative_conditions_and": [
+          "Positive sign present (X-ray is NOT cumulative)"
+        ],
+        "advisory_or_preferred_language": [
+          "An initial X-ray is always preferred; however, it is NOT required UNLESS otherwise specified in bold below"
+        ],
+        "exceptions_and_special_populations": [
+          "If non-specific knee pain WITHOUT positive orthopedic signs, patient routes to RULE-ADV-CG2035-001 where X-ray is mandatory"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P2-001-POS-NO-XRAY",
+            "description": "Acute soccer knee injury with positive Lachman test and joint line tenderness; no X-ray performed",
+            "inputs": {
+              "positive_knee_orthopedic_sign": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          },
+          {
+            "case_id": "TC-P2-001-POS-WITH-XRAY",
+            "description": "Positive McMurray sign and negative X-ray completed",
+            "inputs": {
+              "positive_knee_orthopedic_sign": true,
+              "prior_xray_completed": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P2-001-NEG",
+            "description": "Generalized knee ache with completely normal physical examination (Lachman negative, McMurray negative)",
+            "inputs": {
+              "positive_knee_orthopedic_sign": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P2-001-MISS",
+            "description": "Knee injury documented, but orthopedic physical examination maneuvers omitted from records",
+            "inputs": {},
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P2-001-CONF",
+            "description": "Attestation claims positive exam, but physical therapist note on same date states 'normal knee exam without instability'",
+            "inputs": {
+              "positive_knee_orthopedic_sign": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P2-001-BND",
+            "description": "Equivocal Thessaly test with distinct joint line tenderness satisfies positive orthopedic sign",
+            "inputs": {
+              "positive_knee_orthopedic_sign": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify non-specific knee pain without orthopedic signs continues to evaluate under RULE-ADV-CG2035-001.",
+          "Verify CPT 73721 routing remains intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Removal of a blocking condition based on reconciliation of policy footnote language.",
+      "dependencies": {
+        "shared_fields": [
+          "positive_knee_orthopedic_sign"
+        ],
+        "extraction_fields": [
+          "physical_exam.knee_maneuvers",
+          "physical_exam.mcmurray",
+          "physical_exam.lachman"
+        ],
+        "routing_dependencies": [
+          "CPT 73721 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-ADV-CG2035-001"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P2-002",
+      "priority_level": "PRIORITY_2",
+      "priority_category": "Incorrectly Restrictive Requirements and Duration Thresholds",
+      "rule_id": "RULE-ADV-CG2056-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Thoracic Spine CT",
+      "current_behavior": "Evaluates Thoracic CT for back pain based on `thoracic_pain_duration_weeks > 4` and '4-6 weeks conservative therapy', conflating pediatric red flags with adult criteria.",
+      "exact_policy_supported_requirement": "Thoracic CT for back pain when MRI is contraindicated requires failure of conservative treatment for a minimum of six (6) weeks within the last six (6) months. Pediatric isolated back pain red flags include pain lasting > 4 weeks where conservative care is NOT required (Guideline 2056, physical p. 906).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 906,
+      "source_printed_page": "Page 4 of 20",
+      "source_section": "INDICATIONS FOR THORACIC SPINE CT / Evaluation of Back Pain (1)",
+      "proposed_minimal_correction": {
+        "summary": "Correct conservative therapy duration threshold to >= 6 weeks within prior 6 months; decouple pediatric red flag.",
+        "logic_type": "THRESHOLD_CORRECTION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2056-002A",
+            "parameter": "thoracic_mri_contraindicated",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Thoracic spine MRI is contraindicated or cannot be performed"
+          },
+          {
+            "condition_id": "COND-ADV-CG2056-002B",
+            "parameter": "thoracic_conservative_therapy_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "weeks",
+            "description": "Failure of conservative treatment for a minimum of six (6) weeks within the last six (6) months (unless pediatric red flag or neurological deficit present)"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 906,
+          "printed_page": "Page 4 of 20",
+          "source_quote": "Evaluation of Back Pain (1)\nWith any of the following when Thoracic Spine MRI is Contraindicated:\n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months"
+        }
+      },
+      "false_approval_risk": "Low. Eliminates improper approval of adult thoracic CT at 4.5 weeks of therapy when policy strictly mandates 6 weeks.",
+      "false_denial_risk": "Low. Aligns with standard adult spinal conservative care duration across all spine guidelines.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Thoracic spine MRI contraindicated or cannot be performed",
+          "Conservative treatment failure >= 6 weeks in last 6 months"
+        ],
+        "alternative_conditions_or": [
+          "Lack of meaningful improvement after full course",
+          "Progression or worsening of symptoms during treatment",
+          "Abnormal EMG/NCS showing thoracic radiculopathy"
+        ],
+        "cumulative_conditions_and": [
+          "MRI contraindicated AND conservative care duration >= 6 weeks"
+        ],
+        "advisory_or_preferred_language": [
+          "Conservative treatment includes physical therapy, chiropractic treatments, or physician-directed home exercise program"
+        ],
+        "exceptions_and_special_populations": [
+          "Pediatric patients (< 18) with constant pain or pain > 4 weeks do not require conservative care",
+          "New or worsening objective neurologic deficits excuse conservative care"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P2-002-POS",
+            "description": "Adult with persistent thoracic pain, pacemaker, completed 6 weeks PT within last 3 months",
+            "inputs": {
+              "thoracic_mri_contraindicated": true,
+              "thoracic_conservative_therapy_weeks": 6
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P2-002-NEG-5WKS",
+            "description": "Adult with thoracic pain, pacemaker, but only completed 5 weeks of PT",
+            "inputs": {
+              "thoracic_mri_contraindicated": true,
+              "thoracic_conservative_therapy_weeks": 5
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P2-002-MISS",
+            "description": "Pacemaker noted, but PT duration omitted",
+            "inputs": {
+              "thoracic_mri_contraindicated": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P2-002-CONF",
+            "description": "6 weeks PT completed 14 months ago, no recent therapy in last 6 months",
+            "inputs": {
+              "thoracic_mri_contraindicated": true,
+              "thoracic_conservative_therapy_weeks": 0
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P2-002-BND-EXACT-6",
+            "description": "Exactly 6.0 weeks of conservative therapy documented",
+            "inputs": {
+              "thoracic_mri_contraindicated": true,
+              "thoracic_conservative_therapy_weeks": 6
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify Thoracic CT acute deficit rule (RULE-ADV-CG2056-001) still approves acute deficits without conservative care.",
+          "Verify CPT 72131-72133 routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Duration threshold correction aligning with adult spinal policy standards.",
+      "dependencies": {
+        "shared_fields": [
+          "thoracic_mri_contraindicated",
+          "thoracic_conservative_therapy_weeks"
+        ],
+        "extraction_fields": [
+          "clinical_history.physical_therapy_weeks",
+          "clinical_findings.mri_contraindicated"
+        ],
+        "routing_dependencies": [
+          "CPT 72131-72133 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-ADV-CG2056-001"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P2-003",
+      "priority_level": "PRIORITY_2",
+      "priority_category": "Incorrectly Restrictive Requirements and Duration Thresholds",
+      "rule_id": "RULE-ADV-CG2057-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Thoracic Spine MRI",
+      "current_behavior": "Evaluates Thoracic MRI for back pain based on `thoracic_pain_duration_weeks > 4` and '4-6 weeks conservative therapy', conflating pediatric red flags with adult criteria.",
+      "exact_policy_supported_requirement": "Thoracic Spine MRI for back pain requires failure of conservative treatment for a minimum of six (6) weeks within the last six (6) months (Guideline 2057, physical p. 926).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 926,
+      "source_printed_page": "Page 4 of 23",
+      "source_section": "INDICATIONS FOR THORACIC SPINE MRI / Evaluation of Back Pain (1)",
+      "proposed_minimal_correction": {
+        "summary": "Correct conservative therapy duration threshold to >= 6 weeks within prior 6 months and update source quote.",
+        "logic_type": "THRESHOLD_CORRECTION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2057-002",
+            "parameter": "thoracic_conservative_therapy_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "weeks",
+            "description": "Failure of conservative treatment for a minimum of six (6) weeks within the last six (6) months"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 926,
+          "printed_page": "Page 4 of 23",
+          "source_quote": "Evaluation of Back Pain (1)\nWith any of the following:\n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months"
+        }
+      },
+      "false_approval_risk": "Low. Eliminates inappropriate approvals of adult thoracic MRI requests at 4 weeks.",
+      "false_denial_risk": "Low. Standardizes adult spinal conservative care at 6 weeks across Cervical (CG2017), Lumbar (CG2037), and Thoracic (CG2057).",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Thoracic back pain",
+          "Conservative treatment failure >= 6 weeks within last 6 months"
+        ],
+        "alternative_conditions_or": [
+          "Lack of meaningful improvement after full course",
+          "Progression or worsening of symptoms during treatment",
+          "Abnormal EMG/NCS thoracic radiculopathy"
+        ],
+        "cumulative_conditions_and": [
+          "Back pain AND conservative care >= 6 weeks"
+        ],
+        "advisory_or_preferred_language": [
+          "Conservative care not required if red flags or myelopathy present"
+        ],
+        "exceptions_and_special_populations": [
+          "Pediatric isolated back pain (< 18) with constant pain or pain > 4 weeks excuses conservative care",
+          "Myelopathic deficits or cauda equina syndrome excuse conservative care"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P2-003-POS",
+            "description": "Adult with persistent thoracic spine pain and 6 weeks of completed physical therapy",
+            "inputs": {
+              "thoracic_conservative_therapy_weeks": 6
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P2-003-NEG",
+            "description": "Adult with thoracic spine pain and 4 weeks of physical therapy",
+            "inputs": {
+              "thoracic_conservative_therapy_weeks": 4
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P2-003-MISS",
+            "description": "Pain documented but therapy duration omitted",
+            "inputs": {},
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P2-003-CONF",
+            "description": "Therapy completed 8 months ago (outside 6-month recency window)",
+            "inputs": {
+              "thoracic_conservative_therapy_weeks": 0
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P2-003-BND",
+            "description": "Exactly 6.0 weeks of conservative therapy documented",
+            "inputs": {
+              "thoracic_conservative_therapy_weeks": 6
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify Thoracic MRI myelopathy rule (RULE-ADV-CG2057-001) still approves acute deficits without conservative care.",
+          "Verify CPT 72146-72147 routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Standardizes thoracic spinal conservative care threshold across modalities.",
+      "dependencies": {
+        "shared_fields": [
+          "thoracic_conservative_therapy_weeks"
+        ],
+        "extraction_fields": [
+          "clinical_history.physical_therapy_weeks"
+        ],
+        "routing_dependencies": [
+          "CPT 72146-72147 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-ADV-CG2057-001"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P3-001",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Epidural Spine Injections 2026 (July)",
+      "current_behavior": "Operates as an uncompiled single-condition stub (`cgepiduralinjections_indication IS_PRESENT`) citing Table of Contents physical page 4.",
+      "exact_policy_supported_requirement": "Epidural steroid injections (ESI) are indicated for radicular pain corresponding to nerve root distribution with functional impairment (pain >= 6/10), failure of >= 6 weeks conservative therapy within prior 6 months, and fluoroscopic/CT guidance with contrast epidurogram (Guideline 1750, physical pp. 6–8).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 6,
+      "source_printed_page": "Page 3 of 13",
+      "source_section": "Evolent Clinical Guideline 1750 for Epidural Spine Injections / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Decompose stub into multi-step clinical decision tree: radiculopathy, pain >= 6/10, conservative care >= 6 weeks in last 6 months, and fluoroscopic guidance. Update citation to physical pages 6–8.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-ESI-001",
+            "parameter": "radicular_pain_nerve_root_distribution",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Radicular pain corresponding to a specific spinal nerve root distribution with functional impairment"
+          },
+          {
+            "condition_id": "COND-IPM-ESI-002",
+            "parameter": "pain_scale_score",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "description": "Average pain level of >= 6 on a scale of 0 to 10 causing functional disability"
+          },
+          {
+            "condition_id": "COND-IPM-ESI-003",
+            "parameter": "ipm_conservative_care_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "weeks",
+            "description": "Failure of conservative therapy for at least 6 weeks within the prior 6 months (unless rapid neurological decline)"
+          },
+          {
+            "condition_id": "COND-IPM-ESI-004",
+            "parameter": "image_guidance_fluoroscopy_or_ct",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Procedure is performed under fluoroscopy or CT guidance with contrast epidurogram"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 6,
+          "printed_page": "Page 3 of 13",
+          "source_quote": "Epidural steroid injections (cervical, thoracic, or lumbar) are indicated when ALL of the following criteria are met:\n● Radicular pain corresponding to nerve root distribution\n● Pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10\n● Failure of conservative treatment for a minimum of six (6) weeks in the last six (6) months\n● All procedures must be performed using fluoroscopic or CT guidance"
+        }
+      },
+      "false_approval_risk": "Severe. Currently approves any CPT 62320-62323, 64479-64484 claim where any indication string is present.",
+      "false_denial_risk": "Low. Established multi-society clinical consensus standard for ESI prior authorization.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Radicular pain matching dermatome",
+          "Pain score >= 6/10",
+          "Conservative therapy >= 6 weeks in last 6 months",
+          "Fluoroscopic or CT guidance mandatory"
+        ],
+        "alternative_conditions_or": [
+          "Fluoroscopy guidance",
+          "CT guidance (when fluoroscopy contraindicated)"
+        ],
+        "cumulative_conditions_and": [
+          "Radiculopathy AND pain >= 6 AND conservative care >= 6 wks AND image guidance"
+        ],
+        "advisory_or_preferred_language": [
+          "Contrast epidurogram should be performed unless contrast allergy documented"
+        ],
+        "exceptions_and_special_populations": [
+          "Progressive motor deficit or cauda equina syndrome bypasses conservative care"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-001-POS",
+            "description": "L5 radiculopathy, pain score 8/10, completed 6 weeks PT, fluoroscopy planned",
+            "inputs": {
+              "radicular_pain_nerve_root_distribution": true,
+              "pain_scale_score": 8,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-001-NEG-PAIN-5",
+            "description": "Radicular pain but pain score is 4/10 (does not meet >= 6 threshold)",
+            "inputs": {
+              "radicular_pain_nerve_root_distribution": true,
+              "pain_scale_score": 4,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          },
+          {
+            "case_id": "TC-P3-001-NEG-NO-GUIDANCE",
+            "description": "Blind unguided interlaminar epidural injection requested",
+            "inputs": {
+              "radicular_pain_nerve_root_distribution": true,
+              "pain_scale_score": 8,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-001-MISS",
+            "description": "Radicular pain noted but pain scale score omitted from notes",
+            "inputs": {
+              "radicular_pain_nerve_root_distribution": true,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [
+          {
+            "case_id": "TC-P3-001-CONF",
+            "description": "Notes state 'axial low back pain without radiation', fails radiculopathy requirement",
+            "inputs": {
+              "radicular_pain_nerve_root_distribution": false,
+              "pain_scale_score": 8,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P3-001-BND",
+            "description": "Pain score exactly 6.0/10 and conservative care exactly 6.0 weeks",
+            "inputs": {
+              "radicular_pain_nerve_root_distribution": true,
+              "pain_scale_score": 6,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify CPT 62320-62323 and 64479-64484 continue to route cleanly.",
+          "Verify Facet Blocks (RULE-IPM-CGFACETBLOCKS-001) are not triggered."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Core interventional pain management clinical tree compilation replacing uncompiled placeholder.",
+      "dependencies": {
+        "shared_fields": [
+          "radicular_pain_nerve_root_distribution",
+          "pain_scale_score",
+          "ipm_conservative_care_weeks",
+          "image_guidance_fluoroscopy_or_ct"
+        ],
+        "extraction_fields": [
+          "pain_assessment.score",
+          "physical_exam.radiculopathy",
+          "procedure_details.fluoroscopy_planned"
+        ],
+        "routing_dependencies": [
+          "CPT 62320-62323, 64479-64484 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-IPM-CGEPIDURALINJECTIONS-002",
+          "RULE-IPM-CGEPIDURALPUMPTRIALS-001"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P3-002",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGEPIDURALINJECTIONS-002",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Epidural Steroid Injection (ESI)",
+      "current_behavior": "Evaluates `conservative_therapy_failure == DOCUMENTED_FAILURE` citing contraindications page 11 instead of clinical criteria on pages 6–8.",
+      "exact_policy_supported_requirement": "ESI conservative therapy failure criteria reside on physical pages 6–8; page 11 governs absolute and relative contraindications (infection, coagulopathy).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 6,
+      "source_printed_page": "Page 3 of 13",
+      "source_section": "Evolent Clinical Guideline 1750 for Epidural Spine Injections / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Consolidate citation to physical pages 6–8 and align condition parameters with comprehensive ESI conservative care standards.",
+        "logic_type": "CITATION_UPDATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-ESI-002B",
+            "parameter": "conservative_therapy_failure",
+            "comparator": "DOCUMENTED_FAILURE",
+            "value": true,
+            "description": "Documented failure of at least 6 weeks of active conservative therapy within the prior 6 months"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 6,
+          "printed_page": "Page 3 of 13",
+          "source_quote": "Failure of conservative treatment* for a minimum of six (6) weeks in the last six (6) months"
+        }
+      },
+      "false_approval_risk": "Low.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Documented failure of >= 6 weeks conservative therapy within prior 6 months"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-002-POS",
+            "inputs": {
+              "conservative_therapy_failure": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-002-NEG",
+            "inputs": {
+              "conservative_therapy_failure": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-002-MISS",
+            "inputs": {},
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify CPT 62320-62323 routing is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": false,
+      "clinical_review_rationale": "Citation alignment to correct section of guideline 1750.",
+      "dependencies": {
+        "shared_fields": [
+          "conservative_therapy_failure"
+        ],
+        "extraction_fields": [
+          "prior_treatments.conservative_care"
+        ],
+        "routing_dependencies": [
+          "CPT 62320-62323 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-IPM-CGEPIDURALINJECTIONS-001"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P3-003",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGEPIDURALPUMPTRIALS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Epidural Spine Injections Single Injection Trials For Intrathecal Pumps",
+      "current_behavior": "Operates as an uncompiled single-condition stub (`cgepiduralpumptrials_indication IS_PRESENT`) citing Table of Contents page 17.",
+      "exact_policy_supported_requirement": "Single injection trials for intrathecal drug delivery systems require: severe chronic intractable pain or spasticity refractory to conservative therapies, completion of psychological evaluation, and documented trial protocol (Guideline 1751, physical pp. 21–22).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 21,
+      "source_printed_page": "Page 5 of 14",
+      "source_section": "Evolent Clinical Guideline 1751 for Epidural Spine Injections and Single Injection Trials / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Compile clinical criteria: intractable pain/spasticity, prior oral medication failure, psychological assessment, and update citation to physical page 21.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-PUMP-TRIAL-001",
+            "parameter": "intractable_pain_or_spasticity",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Severe chronic intractable malignant or non-malignant pain, or severe refractory spasticity"
+          },
+          {
+            "condition_id": "COND-IPM-PUMP-TRIAL-002",
+            "parameter": "oral_transdermal_therapy_failure",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Refractory to maximum tolerated non-operative conservative oral or transdermal pharmacotherapies"
+          },
+          {
+            "condition_id": "COND-IPM-PUMP-TRIAL-003",
+            "parameter": "psychological_evaluation_cleared",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Completed presurgical behavioral health/psychological assessment clearing candidate for intrathecal trial"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 21,
+          "printed_page": "Page 5 of 14",
+          "source_quote": "Single injection trials for intrathecal drug delivery systems are indicated when ALL of the following criteria are met:\n● Severe chronic intractable pain or spasticity\n● Refractory to conservative oral or transdermal pharmacotherapies\n● Completed presurgical psychological assessment"
+        }
+      },
+      "false_approval_risk": "High. Approves invasive intrathecal trials without prior oral therapy failure or psychological evaluation.",
+      "false_denial_risk": "Low. Candidates with intractable pain and proper evaluations approve cleanly.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Intractable pain or spasticity",
+          "Oral/transdermal therapy failure",
+          "Psychological clearance"
+        ],
+        "alternative_conditions_or": [
+          "Intractable malignant pain",
+          "Intractable non-malignant pain",
+          "Severe spasticity"
+        ],
+        "cumulative_conditions_and": [
+          "Condition AND medication failure AND psychological clearance"
+        ],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [
+          "Terminal cancer patients with acute intractable pain may have expedited psychological clearance"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-003-POS",
+            "inputs": {
+              "intractable_pain_or_spasticity": true,
+              "oral_transdermal_therapy_failure": true,
+              "psychological_evaluation_cleared": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-003-NEG",
+            "inputs": {
+              "intractable_pain_or_spasticity": true,
+              "oral_transdermal_therapy_failure": true,
+              "psychological_evaluation_cleared": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-003-MISS",
+            "inputs": {
+              "intractable_pain_or_spasticity": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify CPT 62320-62323 routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Compilation of multi-disciplinary clinical requirements for pump trials.",
+      "dependencies": {
+        "shared_fields": [
+          "intractable_pain_or_spasticity",
+          "oral_transdermal_therapy_failure",
+          "psychological_evaluation_cleared"
+        ],
+        "extraction_fields": [
+          "clinical_history.spasticity",
+          "psychological_eval.cleared"
+        ],
+        "routing_dependencies": [
+          "CPT 62320-62323 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P3-004",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGFACETBLOCKS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Paravertebral Facet Joint Injection or Blocks 2026 (July)",
+      "current_behavior": "Operates as an uncompiled single-condition stub (`cgfacetblocks_indication IS_PRESENT`) citing Table of Contents physical page 31.",
+      "exact_policy_supported_requirement": "Paravertebral facet joint injections/blocks are indicated for axial spine pain >= 3 months causing functional disability (pain >= 6/10), after failure of >= 6 weeks conservative therapy within last 6 months, under fluoroscopic/CT guidance, with >= 80% relief threshold for diagnostic phase (Guideline 1753, physical pp. 33–35).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 33,
+      "source_printed_page": "Page 3 of 14",
+      "source_section": "Evolent Clinical Guideline 1753 for Paravertebral Facet Joint Injections or Blocks / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Compile clinical criteria: axial pain >= 3 months, pain >= 6/10, conservative therapy >= 6 weeks, fluoroscopic/CT guidance. Update citation to physical pages 33–35.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-FACET-001",
+            "parameter": "axial_spine_pain_duration_months",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 3,
+            "unit": "months",
+            "description": "Primarily axial spine pain (cervical, thoracic, or lumbosacral) lasting at least 3 months"
+          },
+          {
+            "condition_id": "COND-IPM-FACET-002",
+            "parameter": "pain_scale_score",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "description": "Pain level of >= 6 on a scale of 0 to 10 causing functional disability"
+          },
+          {
+            "condition_id": "COND-IPM-FACET-003",
+            "parameter": "ipm_conservative_care_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "weeks",
+            "description": "Failure of conservative therapy for at least 6 weeks within the prior 6 months"
+          },
+          {
+            "condition_id": "COND-IPM-FACET-004",
+            "parameter": "image_guidance_fluoroscopy_or_ct",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Procedure performed under fluoroscopic or CT guidance"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 33,
+          "printed_page": "Page 3 of 14",
+          "source_quote": "Paravertebral facet joint injections are indicated when ALL of the following criteria are met:\n● Primarily axial spine pain of at least 3 months duration\n● Pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10\n● Failure of conservative treatment for a minimum of six (6) weeks in the last six (6) months\n● All procedures must be performed using fluoroscopic or CT guidance"
+        }
+      },
+      "false_approval_risk": "Severe. Approves CPT 64490-64495 and 0213T-0218T on any arbitrary indication string.",
+      "false_denial_risk": "Low. Standard clinical criteria aligned with national pain societies.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Axial spine pain >= 3 months",
+          "Pain score >= 6/10",
+          "Conservative care >= 6 weeks in last 6 months",
+          "Fluoroscopic or CT guidance"
+        ],
+        "alternative_conditions_or": [
+          "Cervical facet",
+          "Thoracic facet",
+          "Lumbar facet"
+        ],
+        "cumulative_conditions_and": [
+          "Duration >= 3 mo AND pain >= 6 AND conservative care >= 6 wks AND guidance"
+        ],
+        "advisory_or_preferred_language": [
+          "Dual diagnostic blocks recommended before denervation"
+        ],
+        "exceptions_and_special_populations": [
+          "Diagnostic phase limited to 2 sessions; max 4 injections per 12 months"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-004-POS",
+            "inputs": {
+              "axial_spine_pain_duration_months": 4,
+              "pain_scale_score": 7,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-004-NEG",
+            "inputs": {
+              "axial_spine_pain_duration_months": 1,
+              "pain_scale_score": 7,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-004-MISS",
+            "inputs": {
+              "axial_spine_pain_duration_months": 4
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P3-004-BND",
+            "inputs": {
+              "axial_spine_pain_duration_months": 3,
+              "pain_scale_score": 6,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify CPT 64490-64495 and 0213T-0218T routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Compilation of facet injection clinical decision logic.",
+      "dependencies": {
+        "shared_fields": [
+          "axial_spine_pain_duration_months",
+          "pain_scale_score",
+          "ipm_conservative_care_weeks",
+          "image_guidance_fluoroscopy_or_ct"
+        ],
+        "extraction_fields": [
+          "pain_assessment.score",
+          "clinical_history.duration_months"
+        ],
+        "routing_dependencies": [
+          "CPT 64490-64495, 0213T-0218T in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-IPM-CGFACETDENERVATION-001"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P3-005",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGFACETDENERVATION-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Paravertebral Facet Joint Denervation 2026 (July)",
+      "current_behavior": "Operates as an uncompiled single-condition stub (`cgfacetdenervation_indication IS_PRESENT`) citing Statement page 46.",
+      "exact_policy_supported_requirement": "Facet radiofrequency denervation requires: axial spine pain >= 3 months, failure of >= 6 weeks conservative care, fluoroscopic/CT guidance, and positive response to prior diagnostic facet blocks (Guideline 1754, physical pp. 47–49).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 47,
+      "source_printed_page": "Page 3 of 12",
+      "source_section": "Evolent Clinical Guideline 1754 for Paravertebral Facet Joint Denervation / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Compile clinical criteria: axial pain, conservative care >= 6 weeks, fluoroscopic guidance, and link with block relief rule. Update citation to physical page 47.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-RFA-001",
+            "parameter": "axial_spine_pain_duration_months",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 3,
+            "unit": "months",
+            "description": "Primarily axial spine pain lasting at least 3 months"
+          },
+          {
+            "condition_id": "COND-IPM-RFA-002",
+            "parameter": "ipm_conservative_care_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "weeks",
+            "description": "Failure of conservative therapy for at least 6 weeks in the last 6 months"
+          },
+          {
+            "condition_id": "COND-IPM-RFA-003",
+            "parameter": "image_guidance_fluoroscopy_or_ct",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Procedure performed under fluoroscopic or CT guidance"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 47,
+          "printed_page": "Page 3 of 12",
+          "source_quote": "Facet joint denervation is indicated when ALL of the following criteria are met:\n● Failure of conservative treatment* for a minimum of six (6) weeks in the last six (6) months\n● All procedures must be performed using fluoroscopic or CT guidance"
+        }
+      },
+      "false_approval_risk": "Severe. Approves destructive radiofrequency neurotomy without diagnostic blocks.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Axial spine pain >= 3 months",
+          "Conservative care >= 6 weeks in last 6 months",
+          "Fluoroscopic or CT guidance"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [
+          "Axial pain AND conservative care >= 6 wks AND guidance"
+        ],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [
+          "Max 2 denervations per 12 months per region, at least 6 months apart"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-005-POS",
+            "inputs": {
+              "axial_spine_pain_duration_months": 6,
+              "ipm_conservative_care_weeks": 8,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-005-NEG",
+            "inputs": {
+              "axial_spine_pain_duration_months": 1,
+              "ipm_conservative_care_weeks": 2,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-005-MISS",
+            "inputs": {},
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P3-005-BND",
+            "inputs": {
+              "axial_spine_pain_duration_months": 3,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify CPT 64633-64636 routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Compilation of facet denervation clinical decision logic.",
+      "dependencies": {
+        "shared_fields": [
+          "axial_spine_pain_duration_months",
+          "ipm_conservative_care_weeks",
+          "image_guidance_fluoroscopy_or_ct"
+        ],
+        "extraction_fields": [
+          "clinical_history.duration_months"
+        ],
+        "routing_dependencies": [
+          "CPT 64633-64636 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-IPM-CGFACETDENERVATION-002"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P3-006",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGFACETDENERVATION-002",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Facet Joint Radiofrequency Neurotomy / Denervation",
+      "current_behavior": "Evaluates `diagnostic_facet_block_relief >= 80` citing Statement page 46 instead of clinical criteria on page 47.",
+      "exact_policy_supported_requirement": "Diagnostic block response threshold is >= 80% pain relief for initial RFA (or >= 50% for repeat RFA), specified on physical page 47.",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 47,
+      "source_printed_page": "Page 3 of 12",
+      "source_section": "Evolent Clinical Guideline 1754 for Paravertebral Facet Joint Denervation / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Update citation from physical page 46 to physical page 47 and confirm dual 80% (initial) vs 50% (repeat) threshold semantics.",
+        "logic_type": "CITATION_UPDATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-RFA-002B",
+            "parameter": "diagnostic_facet_block_relief",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 80,
+            "description": "Positive response to prior diagnostic medial branch / facet blocks with at least 80% pain reduction"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 47,
+          "printed_page": "Page 3 of 12",
+          "source_quote": "Positive response to prior radiofrequency denervation procedures with at least 50% pain relief ... diagnostic injections with at least 80% pain relief"
+        }
+      },
+      "false_approval_risk": "Low.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Diagnostic block relief >= 80% for initial RFA"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [
+          "Repeat RFA requires >= 50% relief from previous RFA"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-006-POS",
+            "inputs": {
+              "diagnostic_facet_block_relief": 85
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-006-NEG",
+            "inputs": {
+              "diagnostic_facet_block_relief": 60
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-006-MISS",
+            "inputs": {},
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P3-006-BND",
+            "inputs": {
+              "diagnostic_facet_block_relief": 80
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify CPT 64633-64636 routing is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Confirmation of threshold boundary (80% initial vs 50% repeat RFA).",
+      "dependencies": {
+        "shared_fields": [
+          "diagnostic_facet_block_relief"
+        ],
+        "extraction_fields": [
+          "prior_procedures.block_relief_percent"
+        ],
+        "routing_dependencies": [
+          "CPT 64633-64636 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-IPM-CGFACETDENERVATION-001"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P3-007",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGSIINJECTIONS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Sacroiliac Joint Injections 2026 (July)",
+      "current_behavior": "Operates as an uncompiled single-condition stub (`cgsiinjections_indication IS_PRESENT`) citing Table of Contents page 57.",
+      "exact_policy_supported_requirement": "Sacroiliac joint injections require: axial pain below L5 >= 3 months, pain score >= 6/10, cluster of >= 3 positive provocative exam tests, failure of conservative therapy >= 6 weeks in last 6 months, fluoroscopy/CT guidance, and >= 75% relief threshold for diagnostic phase (Guideline 1756, physical pp. 58–60).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 58,
+      "source_printed_page": "Page 2 of 10",
+      "source_section": "Evolent Clinical Guideline 1756 for Sacroiliac Joint Injections / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Compile clinical criteria: axial pain below L5 >= 3 months, pain >= 6/10, cluster of 3 of 8 provocative tests, conservative care >= 6 weeks, fluoroscopy. Update citation to physical pages 58–60.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-SI-001",
+            "parameter": "si_pain_axial_below_l5_months",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 3,
+            "unit": "months",
+            "description": "Primarily axial low back pain below the level of L5 lasting at least 3 months"
+          },
+          {
+            "condition_id": "COND-IPM-SI-002",
+            "parameter": "pain_scale_score",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "description": "Pain level of >= 6 on a scale of 0 to 10 causing functional disability"
+          },
+          {
+            "condition_id": "COND-IPM-SI-003",
+            "parameter": "si_provocation_tests_positive_count",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 3,
+            "description": "Cluster of at least three (3) positive provocative physical examination findings (FABER, Gaenslen, Distraction, Compression, Thigh thrust, Sacral thrust, Cranial shear, ASIS distraction)"
+          },
+          {
+            "condition_id": "COND-IPM-SI-004",
+            "parameter": "ipm_conservative_care_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "weeks",
+            "description": "Failure of conservative therapy targeting the SI joint for at least 6 weeks in the last 6 months"
+          },
+          {
+            "condition_id": "COND-IPM-SI-005",
+            "parameter": "image_guidance_fluoroscopy_or_ct",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Procedure performed under fluoroscopic or CT guidance"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 58,
+          "printed_page": "Page 2 of 10",
+          "source_quote": "Sacroiliac joint injections are indicated when ALL of the following criteria are met:\n● Primarily axial low back pain (below level of L5)\n● Pain causing functional disability or average pain level of ≥ 6 on a scale of 0 to 10\n● A cluster of any three (3) of the following positive provocation exam findings\n● Duration of pain of at least 3 months\n● Failure to respond to non-operative conservative treatment for a minimum of 6 weeks in the last 6 months\n● All procedures must be performed using fluoroscopic or CT guidance"
+        }
+      },
+      "false_approval_risk": "Severe. Currently approves CPT 27096 and G0260 on any placeholder text without verifying SI joint pathology.",
+      "false_denial_risk": "Low. Standard evidence-based SI criteria (3 of 8 provocative tests cluster is the gold standard validated by van der Wurff and Szadek).",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Axial low back pain below L5 >= 3 months",
+          "Pain score >= 6/10",
+          "Cluster of >= 3 positive provocative exam tests",
+          "Conservative therapy >= 6 weeks in last 6 months",
+          "Fluoroscopic or CT guidance"
+        ],
+        "alternative_conditions_or": [
+          "FABER",
+          "Gaenslen",
+          "Distraction",
+          "Compression",
+          "Thigh thrust",
+          "Sacral thrust",
+          "Cranial shear",
+          "ASIS distraction"
+        ],
+        "cumulative_conditions_and": [
+          "Axial pain AND pain >= 6 AND 3 provocation tests AND conservative care >= 6 wks AND guidance"
+        ],
+        "advisory_or_preferred_language": [
+          "Ultrasound guidance can be an alternative only if fluoroscopy/CT is contraindicated"
+        ],
+        "exceptions_and_special_populations": [
+          "Diagnostic relief must be >= 75% for the expected duration of local anesthetic"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-007-POS",
+            "description": "Pain below L5 for 5 months, score 7/10, positive FABER, Gaenslen, and thigh thrust (3 tests), 6 weeks PT completed, fluoroscopy planned",
+            "inputs": {
+              "si_pain_axial_below_l5_months": 5,
+              "pain_scale_score": 7,
+              "si_provocation_tests_positive_count": 3,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-007-NEG-2TESTS",
+            "description": "Only 2 provocative tests positive (FABER and Gaenslen; thigh thrust negative)",
+            "inputs": {
+              "si_pain_axial_below_l5_months": 5,
+              "pain_scale_score": 7,
+              "si_provocation_tests_positive_count": 2,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-007-MISS",
+            "description": "Pain noted, provocative test findings omitted",
+            "inputs": {
+              "si_pain_axial_below_l5_months": 5,
+              "pain_scale_score": 7
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P3-007-BND",
+            "description": "Exactly 3 provocative tests positive",
+            "inputs": {
+              "si_pain_axial_below_l5_months": 3,
+              "pain_scale_score": 6,
+              "si_provocation_tests_positive_count": 3,
+              "ipm_conservative_care_weeks": 6,
+              "image_guidance_fluoroscopy_or_ct": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify CPT 27096 and G0260 routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "High-impact interventional pain criteria compilation incorporating provocative exam cluster.",
+      "dependencies": {
+        "shared_fields": [
+          "si_pain_axial_below_l5_months",
+          "pain_scale_score",
+          "si_provocation_tests_positive_count",
+          "ipm_conservative_care_weeks",
+          "image_guidance_fluoroscopy_or_ct"
+        ],
+        "extraction_fields": [
+          "physical_exam.si_maneuvers",
+          "pain_assessment.score"
+        ],
+        "routing_dependencies": [
+          "CPT 27096, G0260 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P3-008",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGSPINALCORDSTIM-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Spinal Cord Stimulation 2026 (July)",
+      "current_behavior": "Operates as an uncompiled single-condition stub (`cgspinalcordstim_indication IS_PRESENT`) citing Statement page 78.",
+      "exact_policy_supported_requirement": "SCS trial is indicated for chronic intractable neuropathic pain lasting >= 6 months, after failure of non-operative conservative treatment for >= 6 months, and completion of presurgical psychological assessment (Guideline 1757, physical pp. 79–81).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 79,
+      "source_printed_page": "Page 3 of 12",
+      "source_section": "Evolent Clinical Guideline 1757 for Spinal Cord Stimulation / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Compile clinical criteria: intractable neuropathic pain >= 6 months, conservative care >= 6 months, psychological assessment. Update citation to physical page 79.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-SCS-001",
+            "parameter": "chronic_neuropathic_pain_months",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "months",
+            "description": "Chronic intractable neuropathic pain (e.g. failed back surgery syndrome, CRPS) lasting at least 6 months"
+          },
+          {
+            "condition_id": "COND-IPM-SCS-002",
+            "parameter": "scs_conservative_treatment_months",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "months",
+            "description": "Failure of non-operative conservative treatment for a minimum of 6 months"
+          },
+          {
+            "condition_id": "COND-IPM-SCS-003",
+            "parameter": "psychological_evaluation_cleared",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Completed presurgical psychological assessment documenting candidate suitability"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 79,
+          "printed_page": "Page 3 of 12",
+          "source_quote": "Spinal cord stimulation is indicated when ALL of the following criteria are met:\n● Chronic neuropathic pain of at least 6 months duration\n● Failure to respond to non-operative conservative treatment for a minimum of 6 months\n● A completed presurgical psychological assessment"
+        }
+      },
+      "false_approval_risk": "Severe. Approves high-cost spinal cord stimulator trials without preliminary therapy or psychological clearance.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Neuropathic pain >= 6 months",
+          "Conservative therapy >= 6 months",
+          "Psychological assessment cleared"
+        ],
+        "alternative_conditions_or": [
+          "Failed back surgery syndrome",
+          "CRPS type I or II",
+          "Inoperable peripheral neuropathy"
+        ],
+        "cumulative_conditions_and": [
+          "Duration >= 6 mo AND therapy >= 6 mo AND psychological clearance"
+        ],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [
+          "Temporary trial must precede permanent implant (RULE-IPM-CGSPINALCORDSTIM-002)"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-008-POS",
+            "inputs": {
+              "chronic_neuropathic_pain_months": 12,
+              "scs_conservative_treatment_months": 6,
+              "psychological_evaluation_cleared": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-008-NEG",
+            "inputs": {
+              "chronic_neuropathic_pain_months": 12,
+              "scs_conservative_treatment_months": 2,
+              "psychological_evaluation_cleared": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-008-MISS",
+            "inputs": {
+              "chronic_neuropathic_pain_months": 12
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P3-008-BND",
+            "inputs": {
+              "chronic_neuropathic_pain_months": 6,
+              "scs_conservative_treatment_months": 6,
+              "psychological_evaluation_cleared": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify permanent SCS implant rule (RULE-IPM-CGSPINALCORDSTIM-002) continues to enforce >= 50% trial relief.",
+          "Verify CPT 63650-63688 routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "High-cost neuromodulation trial criteria compilation.",
+      "dependencies": {
+        "shared_fields": [
+          "chronic_neuropathic_pain_months",
+          "scs_conservative_treatment_months",
+          "psychological_evaluation_cleared"
+        ],
+        "extraction_fields": [
+          "clinical_history.duration_months",
+          "psychological_eval.cleared"
+        ],
+        "routing_dependencies": [
+          "CPT 63650-63688 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-IPM-CGSPINALCORDSTIM-002"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P3-009",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-CGSYMPATHETICBLOCKS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Sympathetic Nerve Blocks 2026 (July)",
+      "current_behavior": "Operates as an uncompiled single-condition stub (`cgsympatheticblocks_indication IS_PRESENT`) citing Table of Contents page 89.",
+      "exact_policy_supported_requirement": "Sympathetic nerve blocks are indicated for CRPS (Budapest criteria), acute herpes zoster (< 4 weeks duration), or refractory cancer/phantom pain, with pain >= 6/10 and conservative care failure. Prior block must yield >= 50% relief (Guideline 1758, physical pp. 91–93).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 91,
+      "source_printed_page": "Page 3 of 14",
+      "source_section": "Evolent Clinical Guideline 1758 for Sympathetic Nerve Blocks / INDICATIONS",
+      "proposed_minimal_correction": {
+        "summary": "Compile clinical criteria: diagnosis of CRPS/herpes zoster/cancer pain, pain >= 6/10, conservative care. Update citation to physical pages 91–93.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-SYMP-001",
+            "parameter": "sympathetic_block_indication_type",
+            "comparator": "CONTAINS",
+            "value": [
+              "CRPS_BUDAPEST",
+              "ACUTE_HERPES_ZOSTER_UNDER_4WKS",
+              "CANCER_OR_PHANTOM_LIMB_PAIN"
+            ],
+            "description": "Diagnosis of CRPS meeting Budapest criteria, acute Herpes Zoster < 4 weeks duration, or severe cancer/phantom pain"
+          },
+          {
+            "condition_id": "COND-IPM-SYMP-002",
+            "parameter": "pain_scale_score",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "description": "Pain level of >= 6 on a scale of 0 to 10 causing functional disability"
+          },
+          {
+            "condition_id": "COND-IPM-SYMP-003",
+            "parameter": "sympathetic_conservative_care_or_acute_shingles",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Failure of conservative therapy, OR acute Herpes Zoster under 4 weeks (conservative therapy not required for acute zoster)"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 91,
+          "printed_page": "Page 3 of 14",
+          "source_quote": "Sympathetic nerve blocks are indicated when ALL of the following criteria are met:\n● Acute or chronic noncancer pain causing functional disability or average pain level of ≥ 6\n● Complex regional pain syndrome (CRPS) meeting Budapest criteria OR acute Herpes Zoster < 4 weeks\n● Failure to respond to nonoperative conservative treatment (not required for acute zoster)"
+        }
+      },
+      "false_approval_risk": "Severe. Approves sympathetic blocks for unverified indications.",
+      "false_denial_risk": "Low. Preserves exception for acute herpes zoster where immediate sympathetic block prevents post-herpetic neuralgia.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Indication: CRPS, acute shingles < 4 weeks, or refractory cancer pain",
+          "Pain score >= 6/10",
+          "Conservative therapy failure (excused for acute shingles)"
+        ],
+        "alternative_conditions_or": [
+          "CRPS Budapest criteria",
+          "Acute Herpes Zoster < 4 weeks",
+          "Cancer or phantom limb pain"
+        ],
+        "cumulative_conditions_and": [
+          "Indication AND pain >= 6 AND (conservative care OR acute shingles)"
+        ],
+        "advisory_or_preferred_language": [
+          "Bilateral stellate ganglion blocks must not be performed on same day of service"
+        ],
+        "exceptions_and_special_populations": [
+          "Acute shingles < 4 weeks duration does not require prior conservative therapy failure",
+          "Repeat blocks require >= 50% relief from previous injection"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-009-POS-CRPS",
+            "description": "CRPS Type 1 of hand meeting Budapest criteria, pain 8/10, failed gabapentin and PT",
+            "inputs": {
+              "sympathetic_block_indication_type": [
+                "CRPS_BUDAPEST"
+              ],
+              "pain_scale_score": 8,
+              "sympathetic_conservative_care_or_acute_shingles": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          },
+          {
+            "case_id": "TC-P3-009-POS-ZOSTER",
+            "description": "Acute herpes zoster ophthalmicus rash day 10 with severe pain 9/10, immediate block approved",
+            "inputs": {
+              "sympathetic_block_indication_type": [
+                "ACUTE_HERPES_ZOSTER_UNDER_4WKS"
+              ],
+              "pain_scale_score": 9,
+              "sympathetic_conservative_care_or_acute_shingles": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-009-NEG",
+            "description": "Post-herpetic neuralgia lasting 6 months requested without meeting CRPS or acute zoster criteria",
+            "inputs": {
+              "sympathetic_block_indication_type": [
+                "CHRONIC_PHN"
+              ],
+              "pain_scale_score": 7,
+              "sympathetic_conservative_care_or_acute_shingles": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-009-MISS",
+            "description": "Indication provided but pain score omitted",
+            "inputs": {
+              "sympathetic_block_indication_type": [
+                "CRPS_BUDAPEST"
+              ]
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P3-009-BND",
+            "description": "Herpes zoster pain day 27 (just under 4-week boundary) satisfies acute zoster criterion",
+            "inputs": {
+              "sympathetic_block_indication_type": [
+                "ACUTE_HERPES_ZOSTER_UNDER_4WKS"
+              ],
+              "pain_scale_score": 6,
+              "sympathetic_conservative_care_or_acute_shingles": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify CPT 64510-64530 routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Compilation of sympathetic nerve block clinical criteria.",
+      "dependencies": {
+        "shared_fields": [
+          "sympathetic_block_indication_type",
+          "pain_scale_score",
+          "sympathetic_conservative_care_or_acute_shingles"
+        ],
+        "extraction_fields": [
+          "diagnosis.crps",
+          "diagnosis.herpes_zoster",
+          "pain_assessment.score"
+        ],
+        "routing_dependencies": [
+          "CPT 64510-64530 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P3-010",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-EPOS1755-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Evolent Place of Service Policy 1755 for Interventional Pain",
+      "current_behavior": "Operates as an uncompiled single-condition stub (`epos1755_indication IS_PRESENT`) citing Title/TOC page 1.",
+      "exact_policy_supported_requirement": "Interventional pain management procedures are preferred in freestanding office or ambulatory surgery center settings. Hospital outpatient setting requires clinical exceptions: severe cardiovascular disease, severe pulmonary disease, morbid obesity (BMI >= 45), high-risk coagulopathy, or sleep apnea (EPOS 1755, physical pp. 3–5).",
+      "governing_pdf": "EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
+      "source_physical_page": 3,
+      "source_printed_page": "Page 3 of 8",
+      "source_section": "PATIENT CRITERIA FOR SELECTION OF OUTPATIENT HOSPITAL SETTING",
+      "proposed_minimal_correction": {
+        "summary": "Compile clinical exception criteria for outpatient hospital setting (cardiopulmonary disease, BMI >= 45, coagulopathy, sleep apnea). Update citation to physical pages 3–5.",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-POS-001",
+            "parameter": "ipm_hospital_setting_exception_met",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Patient meets at least one clinical exception for outpatient hospital setting: NYHA III/IV heart failure, severe COPD/asthma, BMI >= 45 kg/m2, coagulopathy, severe sleep apnea on BiPAP, or adverse anesthesia history"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 3,
+          "printed_page": "Page 3 of 8",
+          "source_quote": "PATIENT CRITERIA FOR SELECTION OF OUTPATIENT HOSPITAL SETTING\nProcedures may be performed in an outpatient hospital setting when any ONE of the following clinical conditions are met"
+        }
+      },
+      "false_approval_risk": "Severe. Approves high-cost hospital outpatient setting for pain procedures that belong in freestanding offices.",
+      "false_denial_risk": "Low. Freestanding office requests are preferred; high-risk patients approve for hospital.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Procedure requested in outpatient hospital setting",
+          "At least ONE high-risk clinical exception met"
+        ],
+        "alternative_conditions_or": [
+          "Severe cardiovascular disease",
+          "Severe pulmonary disease",
+          "BMI >= 45",
+          "Coagulopathy",
+          "Sleep apnea on BiPAP"
+        ],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [
+          "Freestanding office or ASC is the preferred site of care"
+        ],
+        "exceptions_and_special_populations": [
+          "Procedures performed in office or ASC do not require clinical exceptions"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-010-POS",
+            "inputs": {
+              "ipm_hospital_setting_exception_met": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-010-NEG",
+            "inputs": {
+              "ipm_hospital_setting_exception_met": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P3-010-MISS",
+            "inputs": {},
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P3-010-BND",
+            "inputs": {
+              "ipm_hospital_setting_exception_met": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify POS rules attach only when outpatient hospital POS evaluated."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Compilation of Place of Service clinical necessity criteria for IPM.",
+      "dependencies": {
+        "shared_fields": [
+          "ipm_hospital_setting_exception_met"
+        ],
+        "extraction_fields": [
+          "patient_vitals.bmi",
+          "clinical_findings.cardiac_history",
+          "clinical_findings.pulmonary_history"
+        ],
+        "routing_dependencies": [
+          "Shared POS rule attached under outpatient POS condition"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-IPM-EPOS1755-002"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P3-011",
+      "priority_level": "PRIORITY_3",
+      "priority_category": "Incomplete Interventional Pain Management Criteria",
+      "rule_id": "RULE-IPM-EPOS1755-002",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Interventional Pain Management Site of Care",
+      "current_behavior": "Evaluates `place_of_service_alignment == AMBULATORY_PREFERRED` citing Title page 1 instead of policy page 3.",
+      "exact_policy_supported_requirement": "Site of care alignment policy statement and hospital exception criteria reside on physical page 3.",
+      "governing_pdf": "EPOS 1755 for Place of Service - Interventional Pain Management 2026_final.pdf",
+      "source_physical_page": 3,
+      "source_printed_page": "Page 3 of 8",
+      "source_section": "PATIENT CRITERIA FOR SELECTION OF OUTPATIENT HOSPITAL SETTING",
+      "proposed_minimal_correction": {
+        "summary": "Update citation from physical page 1 to physical page 3.",
+        "logic_type": "CITATION_UPDATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-POS-OFFICE",
+            "parameter": "place_of_service_alignment",
+            "comparator": "EQUALS",
+            "value": "AMBULATORY_PREFERRED",
+            "description": "Procedure performed in freestanding office or ambulatory surgery center unless clinical exception met"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 3,
+          "printed_page": "Page 3 of 8",
+          "source_quote": "PATIENT CRITERIA FOR SELECTION OF OUTPATIENT HOSPITAL SETTING"
+        }
+      },
+      "false_approval_risk": "Low.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Freestanding ambulatory setting alignment"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P3-011-POS",
+            "inputs": {
+              "place_of_service_alignment": "AMBULATORY_PREFERRED"
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P3-011-NEG",
+            "inputs": {
+              "place_of_service_alignment": "HOSPITAL_UNSUPPORTED"
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify Place of Service track isolation is maintained."
+        ]
+      },
+      "requires_authorized_clinical_review": false,
+      "clinical_review_rationale": "Citation page alignment.",
+      "dependencies": {
+        "shared_fields": [
+          "place_of_service_alignment"
+        ],
+        "extraction_fields": [
+          "place_of_service.code"
+        ],
+        "routing_dependencies": [
+          "Shared POS rule"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-IPM-EPOS1755-001"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P4-001",
+      "priority_level": "PRIORITY_4",
+      "priority_category": "Citation Alignment",
+      "rule_id": "RULE-ADV-CG2009-002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Brain CTA",
+      "current_behavior": "Evaluates `acute_stroke_lvo_evaluation == True` citing physical page 176 (Aneurysm/AVM section).",
+      "exact_policy_supported_requirement": "Acute ischemic stroke and Large Vessel Occlusion (LVO) mechanical thrombectomy eligibility criteria are located on physical page 175 under 'Cerebrovascular Disease / Ischemic' (Guideline 2009).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 175,
+      "source_printed_page": "Page 4 of 20",
+      "source_section": "INDICATIONS FOR BRAIN CT ANGIOGRAPHY / Cerebrovascular Disease / Ischemic",
+      "proposed_minimal_correction": {
+        "summary": "Update cited physical page from 176 to 175 and section title to Cerebrovascular Disease / Ischemic.",
+        "logic_type": "CITATION_UPDATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-001",
+            "parameter": "acute_stroke_lvo_evaluation",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Acute ischemic stroke presentation being evaluated for large vessel occlusion (LVO) or mechanical thrombectomy eligibility"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 175,
+          "printed_page": "Page 4 of 20",
+          "source_quote": "Ischemic\n● Recent ischemic stroke or transient ischemic attack (See background section) (16,17)"
+        }
+      },
+      "false_approval_risk": "Low.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Recent ischemic stroke or TIA"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P4-001-POS",
+            "inputs": {
+              "acute_stroke_lvo_evaluation": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P4-001-NEG",
+            "inputs": {
+              "acute_stroke_lvo_evaluation": false
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify CPT 70496 routing is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": false,
+      "clinical_review_rationale": "Pure citation page correction without clinical logic change.",
+      "dependencies": {
+        "shared_fields": [
+          "acute_stroke_lvo_evaluation"
+        ],
+        "extraction_fields": [
+          "clinical_findings.acute_ischemic_stroke",
+          "clinical_findings.lvo_suspected"
+        ],
+        "routing_dependencies": [
+          "CPT 70496 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P4-002",
+      "priority_level": "PRIORITY_4",
+      "priority_category": "Citation Alignment",
+      "rule_id": "RULE-ADV-CG2037-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lumbar Spine MRI",
+      "current_behavior": "Evaluates radiculopathy and 6-week conservative care citing physical page 594 (Statement / Purpose).",
+      "exact_policy_supported_requirement": "The clinical criteria for back pain, lumbosacral radiculopathy, and 6-week conservative treatment reside on physical page 595 (printed page 4 of 22) (Guideline 2037).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 595,
+      "source_printed_page": "Page 4 of 22",
+      "source_section": "INDICATIONS FOR LUMBAR SPINE MRI / Evaluation of Back Pain (1)",
+      "proposed_minimal_correction": {
+        "summary": "Update citation from physical page 594 to physical page 595 (printed page 4 of 22).",
+        "logic_type": "CITATION_UPDATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-001",
+            "parameter": "lumbar_radiculopathy_present",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Evaluation of low back pain with lumbosacral radiculopathy or radiating leg pain"
+          },
+          {
+            "condition_id": "COND-002",
+            "parameter": "conservative_therapy_duration_weeks",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 6,
+            "unit": "weeks",
+            "description": "Completion of at least 6 weeks of conservative care within the prior 6 months without meaningful improvement"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 595,
+          "printed_page": "Page 4 of 22",
+          "source_quote": "Evaluation of Back Pain (1)\nWith any of the Following:\n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months"
+        }
+      },
+      "false_approval_risk": "Low.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Lumbosacral radiculopathy / radiating leg pain",
+          "Conservative treatment failure >= 6 weeks within last 6 months"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [
+          "Radiculopathy AND conservative care >= 6 weeks"
+        ],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [
+          "Cauda equina syndrome evaluated under RULE-ADV-CG2037-002 without conservative care",
+          "Suspected spinal infection evaluated under RULE-ADV-CG2037-003"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P4-002-POS",
+            "inputs": {
+              "lumbar_radiculopathy_present": true,
+              "conservative_therapy_duration_weeks": 6
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P4-002-NEG",
+            "inputs": {
+              "lumbar_radiculopathy_present": true,
+              "conservative_therapy_duration_weeks": 3
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P4-002-BND",
+            "inputs": {
+              "lumbar_radiculopathy_present": true,
+              "conservative_therapy_duration_weeks": 6
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "regression_assertions": [
+          "Verify Cauda Equina rule (RULE-ADV-CG2037-002) is unaffected.",
+          "Verify CPT 72148 routing is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": false,
+      "clinical_review_rationale": "Pure citation page correction without clinical logic change.",
+      "dependencies": {
+        "shared_fields": [
+          "lumbar_radiculopathy_present",
+          "conservative_therapy_duration_weeks"
+        ],
+        "extraction_fields": [
+          "physical_exam.radiculopathy",
+          "clinical_history.physical_therapy_weeks"
+        ],
+        "routing_dependencies": [
+          "CPT 72148-72149 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-ADV-CG2037-002",
+          "RULE-ADV-CG2037-003"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P4-003",
+      "priority_level": "PRIORITY_4",
+      "priority_category": "Citation Alignment",
+      "rule_id": "RULE-ADV-CG2036-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Lumbar Spine CT",
+      "current_behavior": "Evaluates single generic boolean `lumbar_ct_indication_met == True` citing General Information page 574.",
+      "exact_policy_supported_requirement": "Lumbar Spine CT is indicated for evaluation of back pain with objective neurological deficit or after 6 weeks conservative care failure WHEN Lumbar Spine MRI is contraindicated or cannot be performed (Guideline 2036, physical p. 575).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 575,
+      "source_printed_page": "Page 4 of 20",
+      "source_section": "INDICATIONS FOR LUMBAR SPINE CT / Evaluation of Back Pain (1)",
+      "proposed_minimal_correction": {
+        "summary": "Update citation to physical page 575 and decompose single boolean into explicit conditions: (mri_contraindicated == True) AND (neurologic_deficit == True OR conservative_therapy_duration_weeks >= 6).",
+        "logic_type": "RULE_EXPANSION",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-ADV-CG2036-001A",
+            "parameter": "lumbar_mri_contraindicated",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Lumbar spine MRI is contraindicated or cannot be performed"
+          },
+          {
+            "condition_id": "COND-ADV-CG2036-001B",
+            "parameter": "lumbar_back_pain_clinical_criteria_met",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Presence of new/worsening objective neurologic deficits on exam OR failure of conservative treatment for a minimum of 6 weeks within the last 6 months"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 575,
+          "printed_page": "Page 4 of 20",
+          "source_quote": "Evaluation of Back Pain (1)\nWith any of the following when Lumbar Spine MRI is Contraindicated:\n● With new or worsening objective neurologic deficits on exam, as above\n● Failure of conservative treatment* for a minimum of six (6) weeks within the last six (6) months"
+        }
+      },
+      "false_approval_risk": "High under current single-boolean code if upstream sets boolean true without verifying MRI contraindication.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Lumbar MRI contraindicated or cannot be performed",
+          "Objective neurologic deficit OR 6 weeks conservative care failure in last 6 months"
+        ],
+        "alternative_conditions_or": [
+          "Objective neurologic deficit",
+          "Conservative therapy failure >= 6 weeks in last 6 months"
+        ],
+        "cumulative_conditions_and": [
+          "MRI contraindicated AND (neurologic deficit OR conservative care >= 6 weeks)"
+        ],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [
+          "Suspected acute fracture or surgical hardware evaluation has distinct criteria"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P4-003-POS",
+            "inputs": {
+              "lumbar_mri_contraindicated": true,
+              "lumbar_back_pain_clinical_criteria_met": true
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P4-003-NEG",
+            "inputs": {
+              "lumbar_mri_contraindicated": false,
+              "lumbar_back_pain_clinical_criteria_met": true
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [
+          {
+            "case_id": "TC-P4-003-MISS",
+            "inputs": {
+              "lumbar_back_pain_clinical_criteria_met": true
+            },
+            "expected_outcome": "INSUFFICIENT_INFORMATION"
+          }
+        ],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify CPT 72131-72133 routing is unaffected."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Decomposition of generic boolean into explicit MRI contraindication and clinical necessity parameters.",
+      "dependencies": {
+        "shared_fields": [
+          "lumbar_mri_contraindicated",
+          "lumbar_back_pain_clinical_criteria_met"
+        ],
+        "extraction_fields": [
+          "clinical_findings.mri_contraindicated",
+          "clinical_history.physical_therapy_weeks"
+        ],
+        "routing_dependencies": [
+          "CPT 72131-72133 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P5-001",
+      "priority_level": "PRIORITY_5",
+      "priority_category": "Ambiguous Policy Interpretation and Governance Questions",
+      "rule_id": "RULE-ADV-CG2042-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Pelvis CT",
+      "current_behavior": "Enforces `patient_age_years > 65` strictly, excluding patients aged exactly 65.0.",
+      "exact_policy_supported_requirement": "Pelvis CT is indicated for acute pelvic pain of unknown etiology in a patient over the age of 65 (Guideline 2042, physical p. 673).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 673,
+      "source_printed_page": "Page 4 of 16",
+      "source_section": "INDICATIONS FOR PELVIS CT / Pelvic Pain for Unknown Etiology",
+      "proposed_minimal_correction": {
+        "summary": "Obtain Medical Director confirmation on whether age boundary is intended as `>= 65` or strictly `> 65.0`.",
+        "logic_type": "GOVERNANCE_GATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-001",
+            "parameter": "acute_pelvic_pain",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Evaluation of acute severe pelvic pain of unknown etiology"
+          },
+          {
+            "condition_id": "COND-002",
+            "parameter": "patient_age_years",
+            "comparator": "GREATER_THAN_OR_EQUAL",
+            "value": 65,
+            "unit": "years",
+            "description": "Patient age is 65 years or older (pending clinical confirmation)"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 673,
+          "printed_page": "Page 4 of 16",
+          "source_quote": "For acute pelvic pain in a patient over the age of 65 (2)"
+        }
+      },
+      "false_approval_risk": "Low. If >= 65 is authorized, admits patients in their 65th year who have acute surgical abdomen/pelvic pathology.",
+      "false_denial_risk": "Eliminates potential false denial for a 65-year-old presenting with acute pelvic pain.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Acute pelvic pain of unknown etiology",
+          "Patient over the age of 65"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [
+          "Acute pain AND age boundary"
+        ],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [
+          "Patients <= 65 require ultrasound first"
+        ],
+        "missing_evidence_behavior": "UNKNOWN -> INSUFFICIENT_INFORMATION"
+      },
+      "verification_strategy": {
+        "positive_cases": [
+          {
+            "case_id": "TC-P5-001-POS-66",
+            "inputs": {
+              "acute_pelvic_pain": true,
+              "patient_age_years": 66
+            },
+            "expected_outcome": "CRITERIA_MET"
+          }
+        ],
+        "negative_cases": [
+          {
+            "case_id": "TC-P5-001-NEG-64",
+            "inputs": {
+              "acute_pelvic_pain": true,
+              "patient_age_years": 64
+            },
+            "expected_outcome": "CRITERIA_NOT_MET"
+          }
+        ],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [
+          {
+            "case_id": "TC-P5-001-BND-65",
+            "inputs": {
+              "acute_pelvic_pain": true,
+              "patient_age_years": 65
+            },
+            "expected_outcome": "AWAITING_CLINICAL_DECISION"
+          }
+        ],
+        "regression_assertions": [
+          "Verify CPT 72192-72194 routing is intact."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Medical Director interpretation required to define whether 'over 65' means >= 65 or > 65.",
+      "dependencies": {
+        "shared_fields": [
+          "acute_pelvic_pain",
+          "patient_age_years"
+        ],
+        "extraction_fields": [
+          "patient_demographics.age_years"
+        ],
+        "routing_dependencies": [
+          "CPT 72192-72194 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P5-002",
+      "priority_level": "PRIORITY_5",
+      "priority_category": "Ambiguous Policy Interpretation and Governance Questions",
+      "rule_id": "RULE-ADV-CG2000-003",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen and Pelvis / CT Enterography",
+      "current_behavior": "Blocked from autonomous adjudication under `GOVERNANCE_BLOCKED_RULE_IDS` (`NEEDS_HUMAN_REVIEW`).",
+      "exact_policy_supported_requirement": "For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative Colitis (includes CT enterography, however, MRI should be considered for age < 35 to reduce radiation exposure) (Guideline 2000, physical p. 9).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 9,
+      "source_printed_page": "Page 4 of 29",
+      "source_section": "Inflammatory Bowel Disease (3–5)",
+      "proposed_minimal_correction": {
+        "summary": "Maintain governance blockage. Direct cases of CT enterography in members < 35 to physician peer reviewer for advisory radiation discussion rather than automated denial.",
+        "logic_type": "GOVERNANCE_GATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-001",
+            "parameter": "requested_modality",
+            "comparator": "EQUALS",
+            "value": "CT",
+            "description": "Requested procedure is CT enterography or CT abdomen/pelvis for IBD"
+          },
+          {
+            "condition_id": "COND-002",
+            "parameter": "patient_age_years",
+            "comparator": "LESS_THAN",
+            "value": 35,
+            "unit": "years",
+            "description": "Patient age is strictly less than 35 years"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 9,
+          "printed_page": "Page 4 of 29",
+          "source_quote": "For evaluation of Inflammatory Bowel Disease (IBD) such as Crohn's or Ulcerative Colitis (includes CT enterography, however, MRI should be considered for age < 35 to reduce radiation exposure)"
+        }
+      },
+      "false_approval_risk": "None while blocked.",
+      "false_denial_risk": "High if unblocked as automated denial. 'Should be considered' is non-binding clinical guidance; automated denial would improperly deny indicated CT studies.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "IBD evaluation",
+          "Advisory consideration of MRI for age < 35"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [
+          "MRI should be considered for age < 35 to reduce radiation exposure"
+        ],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "NEEDS_HUMAN_REVIEW"
+      },
+      "verification_strategy": {
+        "positive_cases": [],
+        "negative_cases": [],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify rule remains strictly blocked in decision tree."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Medical Director determination of advisory vs binding policy status.",
+      "dependencies": {
+        "shared_fields": [],
+        "extraction_fields": [],
+        "routing_dependencies": [
+          "CPT 74176-74178 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": [
+          "RULE-ADV-CG2000-002"
+        ]
+      }
+    },
+    {
+      "record_id": "REM-P5-003",
+      "priority_level": "PRIORITY_5",
+      "priority_category": "Ambiguous Policy Interpretation and Governance Questions",
+      "rule_id": "RULE-ADV-CG2001-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "CT Abdomen (Isolated)",
+      "current_behavior": "Blocked from autonomous adjudication under `GOVERNANCE_BLOCKED_RULE_IDS` (`NEEDS_HUMAN_REVIEW`).",
+      "exact_policy_supported_requirement": "Anti-unbundling standard: When separate requests for CT abdomen and CT Pelvis are encountered for processes involving both abdomen and pelvis, they need to be resubmitted under combined codes (74176-74178) (Guideline 2001, physical p. 37).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 37,
+      "source_printed_page": "Page 3 of 23",
+      "source_section": "STATEMENT / Special Note",
+      "proposed_minimal_correction": {
+        "summary": "Maintain governance blockage. Implement intake-level administrative re-bundling handler to convert concurrent isolated codes (74150+72192) to combined codes (74176-74178).",
+        "logic_type": "GOVERNANCE_GATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-001",
+            "parameter": "separate_abdomen_and_pelvis_requested",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Separate requests submitted for CT Abdomen and CT Pelvis"
+          },
+          {
+            "condition_id": "COND-002",
+            "parameter": "pathology_involves_both_cavities",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Clinical process or pathology involves both abdominal and pelvic anatomy"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 37,
+          "printed_page": "Page 3 of 23",
+          "source_quote": "When separate requests for CT abdomen and CT Pelvis are encountered for processes involving both the abdomen and pelvis, they need to be resubmitted as Evolent Clinical Guideline 2000 for Abdomen and Pelvis CT (to avoid unbundling; CPT codes 74176, 74177, 74178)"
+        }
+      },
+      "false_approval_risk": "None while blocked.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Anti-unbundling code combination requirement"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "NEEDS_HUMAN_REVIEW"
+      },
+      "verification_strategy": {
+        "positive_cases": [],
+        "negative_cases": [],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify rule remains strictly blocked in decision tree."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Administrative claim bundling policy workflow.",
+      "dependencies": {
+        "shared_fields": [],
+        "extraction_fields": [],
+        "routing_dependencies": [
+          "CPT 74150-74170 in ACTIVE_AI_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P5-004",
+      "priority_level": "PRIORITY_5",
+      "priority_category": "Ambiguous Policy Interpretation and Governance Questions",
+      "rule_id": "RULE-ADV-PREAMBLE-001",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Diagnostic Imaging (All Advanced Imaging Modalities)",
+      "current_behavior": "Blocked under `GOVERNANCE_BLOCKED_RULE_IDS` (`NEEDS_HUMAN_REVIEW`). Universal intake prerequisite.",
+      "exact_policy_supported_requirement": "Universal documentation requirement: all patients must receive care from a licensed clinician, with submitted office visit notes, lab data, and relevant prior imaging results (Guideline 2000, physical p. 8).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 8,
+      "source_printed_page": "Page 3 of 29",
+      "source_section": "STATEMENT / General Information",
+      "proposed_minimal_correction": {
+        "summary": "Maintain governance blockage. Enforce clinical documentation intake checklist before case enters automated decision engine.",
+        "logic_type": "GOVERNANCE_GATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-001",
+            "parameter": "clinical_information_submitted",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Required supporting clinical documentation submitted (office visit notes, lab results, prior imaging reports)"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 8,
+          "printed_page": "Page 3 of 29",
+          "source_quote": "It is an expectation that all patients receive care/services from a licensed clinician. All appropriate supporting documentation, including recent pertinent office visit notes, laboratory data, and results of any special testing must be provided"
+        }
+      },
+      "false_approval_risk": "None while blocked.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Licensed clinician care",
+          "Supporting documentation provided"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "NEEDS_HUMAN_REVIEW"
+      },
+      "verification_strategy": {
+        "positive_cases": [],
+        "negative_cases": [],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify rule remains strictly blocked from autonomous approval."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Governance gate for intake completeness.",
+      "dependencies": {
+        "shared_fields": [
+          "clinical_information_submitted"
+        ],
+        "extraction_fields": [],
+        "routing_dependencies": [
+          "Attached as shared preamble rule across all AI codes"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P5-005",
+      "priority_level": "PRIORITY_5",
+      "priority_category": "Ambiguous Policy Interpretation and Governance Questions",
+      "rule_id": "RULE-IPM-PREAMBLEIPM-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Preamble and Guideline Development Process",
+      "current_behavior": "Blocked under `GOVERNANCE_BLOCKED_RULE_IDS` (`NEEDS_HUMAN_REVIEW`).",
+      "exact_policy_supported_requirement": "Universal IPM clinical documentation prerequisite: expectation of licensed clinician care, pertinent office visit notes, physical exam findings, and prior relevant imaging (Guideline 1750, physical p. 2).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 2,
+      "source_printed_page": "Page 2 of 102",
+      "source_section": "Preamble and Guideline Development Process",
+      "proposed_minimal_correction": {
+        "summary": "Maintain governance blockage. Enforce structured intake verification for pain score, duration, and prior conservative care documentation.",
+        "logic_type": "GOVERNANCE_GATE",
+        "operator": "SINGLE_CONDITION",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-PREAMBLEIPM-001",
+            "parameter": "preambleipm_indication",
+            "comparator": "IS_PRESENT",
+            "value": null,
+            "description": "Clinical criteria satisfied for Preamble and Guideline Development Process"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 2,
+          "printed_page": "Page 2 of 102",
+          "source_quote": "treatment for patients. The medical necessity criteria that follow are guidelines for the provision of diagnostic imaging"
+        }
+      },
+      "false_approval_risk": "None while blocked.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Clinical documentation provided"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "NEEDS_HUMAN_REVIEW"
+      },
+      "verification_strategy": {
+        "positive_cases": [],
+        "negative_cases": [],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify rule remains strictly blocked."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Governance gate for IPM intake completeness.",
+      "dependencies": {
+        "shared_fields": [],
+        "extraction_fields": [],
+        "routing_dependencies": [
+          "Attached as shared preamble rule across all IPM codes"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P5-006",
+      "priority_level": "PRIORITY_5",
+      "priority_category": "Ambiguous Policy Interpretation and Governance Questions",
+      "rule_id": "RULE-IPM-CGINFUSIONPUMPS-001",
+      "domain": "interventional_pain_management",
+      "clinical_service_or_procedure": "Implantable Infusion Pump Insert 2026 (July)",
+      "current_behavior": "Blocked under `GOVERNANCE_BLOCKED_RULE_IDS` (`NEEDS_HUMAN_REVIEW`).",
+      "exact_policy_supported_requirement": "Permanent intrathecal infusion pump implantation requires: refractory chronic pain/spasticity, failure of conservative therapy >= 6 months, psychological assessment clearance, and successful trial producing >= 50% relief (Guideline 1752, physical pp. 68–71).",
+      "governing_pdf": "2026 Evolent Interventional Pain Management Guidelines.pdf",
+      "source_physical_page": 68,
+      "source_printed_page": "Page 2 of 10",
+      "source_section": "Implantable Infusion Pump Insert 2026 (July)",
+      "proposed_minimal_correction": {
+        "summary": "Maintain governance blockage. Authorize development of multi-step decision tree for intrathecal pump permanent implantation.",
+        "logic_type": "GOVERNANCE_GATE",
+        "operator": "SINGLE_CONDITION",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-IPM-CGINFUSIONPUMPS-001",
+            "parameter": "cginfusionpumps_indication",
+            "comparator": "IS_PRESENT",
+            "value": null,
+            "description": "Clinical criteria satisfied for Implantable Infusion Pump Insert 2026 (July)"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 68,
+          "printed_page": "Page 2 of 10",
+          "source_quote": "appropriate supporting documentation, including recent pertinent office visit notes"
+        }
+      },
+      "false_approval_risk": "None while blocked.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Refractory pain/spasticity",
+          "Conservative therapy failure >= 6 months",
+          "Psychological clearance",
+          "Successful temporary trial >= 50% relief"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "NEEDS_HUMAN_REVIEW"
+      },
+      "verification_strategy": {
+        "positive_cases": [],
+        "negative_cases": [],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify rule remains strictly blocked."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "High-risk permanent invasive implant criteria review.",
+      "dependencies": {
+        "shared_fields": [],
+        "extraction_fields": [],
+        "routing_dependencies": [
+          "CPT 62350-62362 in ACTIVE_IPM_CPT_RULE_MAP"
+        ],
+        "inter_rule_dependencies": []
+      }
+    },
+    {
+      "record_id": "REM-P5-007",
+      "priority_level": "PRIORITY_5",
+      "priority_category": "Ambiguous Policy Interpretation and Governance Questions",
+      "rule_id": "RULE-ADV-CG2066-001/002",
+      "domain": "advanced_imaging",
+      "clinical_service_or_procedure": "Advanced Imaging (Emergent / Urgent Retrospective Review)",
+      "current_behavior": "Blocked under `GOVERNANCE_BLOCKED_RULE_IDS` (`NEEDS_HUMAN_REVIEW`).",
+      "exact_policy_supported_requirement": "Retrospective emergent review requires immediate medical attention to prevent loss of life/limb/disability; urgent review requires intervention needed within 24 hours (Guideline 2066, physical p. 1036).",
+      "governing_pdf": "2026 Evolent Clinical Guidelines - Advanced Imaging v2.pdf",
+      "source_physical_page": 1036,
+      "source_printed_page": "Page 2 of 7",
+      "source_section": "INDICATIONS FOR EMERGENT / URGENT STUDIES",
+      "proposed_minimal_correction": {
+        "summary": "Maintain governance blockage. All retrospective emergent and urgent claims require peer review physician evaluation under prudent layperson standards.",
+        "logic_type": "GOVERNANCE_GATE",
+        "operator": "ALL_OF",
+        "criteria_spec": [
+          {
+            "condition_id": "COND-001",
+            "parameter": "emergent_life_or_limb_threat_present",
+            "comparator": "EQUALS",
+            "value": true,
+            "description": "Requested imaging was required to prevent loss of life, limb, or permanent disability"
+          }
+        ],
+        "citation_spec": {
+          "physical_page": 1036,
+          "printed_page": "Page 2 of 7",
+          "source_quote": "INDICATIONS FOR EMERGENT STUDIES"
+        }
+      },
+      "false_approval_risk": "None while blocked.",
+      "false_denial_risk": "Low.",
+      "logic_validation": {
+        "explicit_policy_requirements": [
+          "Immediate life/limb threat or 24-hr urgent window"
+        ],
+        "alternative_conditions_or": [],
+        "cumulative_conditions_and": [],
+        "advisory_or_preferred_language": [],
+        "exceptions_and_special_populations": [],
+        "missing_evidence_behavior": "NEEDS_HUMAN_REVIEW"
+      },
+      "verification_strategy": {
+        "positive_cases": [],
+        "negative_cases": [],
+        "missing_evidence_cases": [],
+        "conflicting_evidence_cases": [],
+        "boundary_value_cases": [],
+        "regression_assertions": [
+          "Verify retrospective rules remain strictly blocked."
+        ]
+      },
+      "requires_authorized_clinical_review": true,
+      "clinical_review_rationale": "Mandates physician clinical judgment under emergency care regulations.",
+      "dependencies": {
+        "shared_fields": [],
+        "extraction_fields": [],
+        "routing_dependencies": [
+          "Attached only under retrospective policy_context"
+        ],
+        "inter_rule_dependencies": []
+      }
+    }
+  ]
+}
