@@ -121,7 +121,9 @@ def create_app(
     @app.route("/dashboard")
     def dashboard():
         """Render the governance and review metrics dashboard."""
-        metrics = gov_db.get_dashboard_metrics()
+        scope = request.args.get("scope", "active").lower()
+        active_only = (scope != "all")
+        metrics = gov_db.get_dashboard_metrics(active_only=active_only)
         recent_audits = gov_db.get_audit_trail(limit=8)
         recent_corrections = gov_db.get_proposed_corrections()[:5]
 
@@ -131,14 +133,19 @@ def create_app(
         if p_file.exists():
             import csv
             with open(p_file, "r", encoding="utf-8", errors="replace") as f:
-                policy_versions = list(csv.DictReader(f))
+                all_pv = list(csv.DictReader(f))
+                if active_only:
+                    policy_versions = [p for p in all_pv if p.get("domain") in GovernanceDatabase.ACTIVE_CLINICAL_DOMAINS]
+                else:
+                    policy_versions = all_pv
 
         return render_template(
             "dashboard.html",
             metrics=metrics,
             recent_audits=recent_audits,
             recent_corrections=recent_corrections,
-            policy_versions=policy_versions
+            policy_versions=policy_versions,
+            active_scope_only=active_only
         )
 
     @app.route("/rules")
@@ -658,7 +665,8 @@ def create_app(
     @app.route("/api/metrics")
     def api_get_metrics():
         """Fetch dashboard metrics as JSON."""
-        return jsonify(gov_db.get_dashboard_metrics())
+        active_only = request.args.get("active_only", "0") in ("1", "true", "True") or request.args.get("scope") == "active"
+        return jsonify(gov_db.get_dashboard_metrics(active_only=active_only))
 
     @app.route("/api/pilot/run", methods=["POST"])
     def api_run_pilot():

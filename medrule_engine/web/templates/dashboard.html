@@ -6,7 +6,19 @@
 <div class="dashboard-container">
     <div class="page-header">
         <h1>Clinical Policy Knowledge Base &amp; Governance Dashboard</h1>
-        <p class="subtitle">Live status across all 372 extracted rules, 9 clinical domains, and human-review workflows.</p>
+        {% if metrics.is_active_only %}
+        <p class="subtitle">
+            <span class="badge badge-success" style="font-size: 0.85rem; margin-right: 0.5rem; background: #059669; color: white; padding: 2px 8px; border-radius: 4px;">ACTIVE SCOPE</span>
+            Displaying <strong>128 active rules</strong> across 2 clinical domains: <em>Advanced Imaging</em> and <em>Interventional Pain Management</em>.
+            <span style="margin-left: 1rem;"><a href="{{ url_for('dashboard', scope='all', as_user=current_user.user_id) }}" style="color: #2563eb; text-decoration: underline; font-weight: 500;">View All 9 Domains (Include 244 Archived Records) &rarr;</a></span>
+        </p>
+        {% else %}
+        <p class="subtitle">
+            <span class="badge badge-warning" style="font-size: 0.85rem; margin-right: 0.5rem; background: #d97706; color: white; padding: 2px 8px; border-radius: 4px;">FULL HISTORICAL VIEW</span>
+            Displaying <strong>all 372 knowledge base rules</strong> across 9 clinical domains (128 active, 244 archived).
+            <span style="margin-left: 1rem;"><a href="{{ url_for('dashboard', scope='active', as_user=current_user.user_id) }}" style="color: #2563eb; text-decoration: underline; font-weight: 500;">Switch to Active Scope Only (128 Rules) &rarr;</a></span>
+        </p>
+        {% endif %}
     </div>
 
     <!-- Summary Metrics -->
@@ -14,7 +26,13 @@
         <div class="metric-card">
             <div class="metric-label">Total Knowledge Base Rules</div>
             <div class="metric-value">{{ metrics.total_rules }}</div>
-            <div class="metric-detail">9 Clinical Domains Loaded</div>
+            <div class="metric-detail">
+                {% if metrics.is_active_only %}
+                2 Active Domains ({{ metrics.archived_rule_count }} Archived Retained)
+                {% else %}
+                9 Clinical Domains (128 Active, 244 Archived)
+                {% endif %}
+            </div>
         </div>
 
         <div class="metric-card">

@@ -7,24 +7,59 @@
     <div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
         <div>
             <h1>Prior-Authorization Case History</h1>
-            <p class="subtitle">Complete audit record of processed clinical prior-authorization intake cases.</p>
+            <p class="subtitle">Authoritative audit log of processed clinical prior-authorization intake cases and deterministic policy assessments.</p>
         </div>
         <div>
-            <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" class="btn btn-primary">
+            <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
                 + New Case Intake
             </a>
         </div>
     </div>
 
-    <!-- Filter Bar -->
-    <div class="section-card" style="margin-bottom: 1.5rem; padding: 1rem;">
+    <!-- Quick Metrics Summary Cards -->
+    {% set count_total = cases|length %}
+    {% set count_evaluated = cases|selectattr('lifecycle_state', 'equalto', 'EVALUATED_NON_BINDING')|list|length %}
+    {% set count_review = cases|selectattr('lifecycle_state', 'equalto', 'MANUAL_REVIEW_REQUIRED')|list|length %}
+    {% set count_awaiting = cases|selectattr('lifecycle_state', 'equalto', 'AWAITING_DOCUMENTATION')|list|length %}
+    {% set count_unresolved = cases|selectattr('lifecycle_state', 'equalto', 'POLICY_CONTEXT_UNRESOLVED')|list|length %}
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+        <div class="connector-status-card" style="border-left: 4px solid #1a56db;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Displayed Cases</span>
+            <strong style="font-size: 1.4rem; color: #0f172a; margin-top: 0.2rem;">{{ count_total }}</strong>
+            <span class="form-hint">Matching active filters</span>
+        </div>
+        <div class="connector-status-card" style="border-left: 4px solid #059669;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Evaluated (Complete)</span>
+            <strong style="font-size: 1.4rem; color: #059669; margin-top: 0.2rem;">{{ count_evaluated }}</strong>
+            <span class="form-hint">Non-binding evaluation complete</span>
+        </div>
+        <div class="connector-status-card" style="border-left: 4px solid #d97706;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Review Required</span>
+            <strong style="font-size: 1.4rem; color: #d97706; margin-top: 0.2rem;">{{ count_review }}</strong>
+            <span class="form-hint">Clinical discretion needed</span>
+        </div>
+        <div class="connector-status-card" style="border-left: 4px solid #f59e0b;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Awaiting Docs</span>
+            <strong style="font-size: 1.4rem; color: #b45309; margin-top: 0.2rem;">{{ count_awaiting }}</strong>
+            <span class="form-hint">Missing clinical records</span>
+        </div>
+        <div class="connector-status-card" style="border-left: 4px solid #8b5cf6;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Policy Unresolved</span>
+            <strong style="font-size: 1.4rem; color: #6b21a8; margin-top: 0.2rem;">{{ count_unresolved }}</strong>
+            <span class="form-hint">Procedure/domain catalog gap</span>
+        </div>
+    </div>
+
+    <!-- Filter & Search Bar -->
+    <div class="section-card" style="margin-bottom: 1.5rem; padding: 1.15rem 1.25rem;">
         <form method="GET" action="{{ url_for('case_history_view') }}" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
             <input type="hidden" name="as_user" value="{{ current_user.user_id }}">
             
             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <label for="state_filter" style="font-size: 0.85rem; font-weight: 600;">State:</label>
-                <select name="state" id="state_filter" onchange="this.form.submit()" style="padding: 0.4rem 0.6rem; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 0.85rem;">
-                    <option value="">All States ({{ cases|length }})</option>
+                <label for="state_filter" style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Lifecycle State:</label>
+                <select name="state" id="state_filter" onchange="this.form.submit()" style="padding: 0.45rem 0.65rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 0.85rem; background: #ffffff;">
+                    <option value="">All States</option>
                     {% for st in available_states %}
                     <option value="{{ st }}" {% if selected_state == st %}selected{% endif %}>{{ st }}</option>
                     {% endfor %}
@@ -32,8 +67,8 @@
             </div>
 
             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <label for="domain_filter" style="font-size: 0.85rem; font-weight: 600;">Domain:</label>
-                <select name="domain" id="domain_filter" onchange="this.form.submit()" style="padding: 0.4rem 0.6rem; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 0.85rem;">
+                <label for="domain_filter" style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Specialty Domain:</label>
+                <select name="domain" id="domain_filter" onchange="this.form.submit()" style="padding: 0.45rem 0.65rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 0.85rem; background: #ffffff;">
                     <option value="">All Domains</option>
                     {% for dom in available_domains %}
                     <option value="{{ dom }}" {% if selected_domain == dom %}selected{% endif %}>{{ dom.replace('_', ' ')|title }}</option>
@@ -41,94 +76,163 @@
                 </select>
             </div>
 
-            <div style="margin-left: auto;">
-                <input type="text" name="search" value="{{ search_query or '' }}" placeholder="Search case ID or code..." style="padding: 0.4rem 0.75rem; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 0.85rem; width: 220px;">
-                <button type="submit" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Filter</button>
+            <div style="margin-left: auto; display: flex; align-items: center; gap: 0.5rem;">
+                <input type="text" name="search" value="{{ search_query or '' }}" placeholder="Search Case ID, CPT, Member ID..." style="padding: 0.45rem 0.75rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 0.85rem; width: 240px;">
+                <button type="submit" class="btn btn-secondary" style="padding: 0.45rem 0.85rem; font-size: 0.85rem;">Search</button>
                 {% if selected_state or selected_domain or search_query %}
-                <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}" style="font-size: 0.8rem; color: #64748b; margin-left: 0.5rem;">Reset</a>
+                <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}" class="btn btn-sm" style="font-size: 0.8rem; color: #64748b; padding: 0.45rem 0.65rem; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; text-decoration: none;">
+                    Reset Filters
+                </a>
                 {% endif %}
             </div>
         </form>
     </div>
 
     <!-- Cases Table -->
-    <div class="section-card">
+    <div class="section-card" style="padding: 0; overflow: hidden;">
         {% if cases %}
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Case ID</th>
-                    <th>Member ID</th>
-                    <th>Clinical Domain</th>
-                    <th>Procedure</th>
-                    <th>LOB</th>
-                    <th>Lifecycle State</th>
-                    <th>Decision Status</th>
-                    <th>Last Updated</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for c in cases %}
-                <tr>
-                    <td>
-                        <a href="{{ url_for('case_detail_view', case_id=c.case_id, as_user=current_user.user_id) }}" style="font-weight: 600; color: #1a56db;">
-                            {{ c.case_id }}
-                        </a>
-                    </td>
-                    <td><code>{{ c.metadata.get('patient_id', 'UNKNOWN') }}</code></td>
-                    <td><span style="font-size: 0.85rem;">{{ (c.clinical_domain or 'UNKNOWN').replace('_', ' ')|title }}</span></td>
-                    <td>
-                        <strong>{{ c.procedure_code or 'UNKNOWN' }}</strong>
-                        {% if c.metadata.get('procedure_name') %}
-                        <br><span style="font-size: 0.75rem; color: #64748b;">{{ c.metadata.get('procedure_name')[:35] }}...</span>
-                        {% endif %}
-                    </td>
-                    <td><span class="badge" style="background: #e2e8f0; color: #334155;">{{ c.line_of_business or 'OTHER' }}</span></td>
-                    <td>
-                        {% if c.lifecycle_state == 'EVALUATED_NON_BINDING' %}
-                            <span class="badge badge-success">{{ c.lifecycle_state }}</span>
-                        {% elif c.lifecycle_state == 'AWAITING_DOCUMENTATION' %}
-                            <span class="badge badge-warning">{{ c.lifecycle_state }}</span>
-                        {% elif c.lifecycle_state == 'MANUAL_REVIEW_REQUIRED' %}
-                            <span class="badge badge-info">{{ c.lifecycle_state }}</span>
-                        {% elif c.lifecycle_state in ('VALIDATION_FAILED', 'INTEGRATION_ERROR', 'POLICY_CONTEXT_UNRESOLVED') %}
-                            <span class="badge badge-danger">{{ c.lifecycle_state }}</span>
-                        {% else %}
-                            <span class="badge" style="background: #e2e8f0; color: #334155;">{{ c.lifecycle_state }}</span>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if c.evaluation_result and c.evaluation_result.get('assessment_status') %}
-                            {% set st = c.evaluation_result.get('assessment_status') %}
-                            {% if 'MEETS' in st and 'NOT' not in st %}
-                                <span class="badge badge-success">{{ st }}</span>
-                            {% elif 'NOT_MEET' in st %}
-                                <span class="badge badge-danger">{{ st }}</span>
-                            {% else %}
-                                <span class="badge badge-warning">{{ st }}</span>
+        <div style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; margin: 0;">
+                <thead>
+                    <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0;">
+                        <th style="padding: 0.75rem 1rem;">Case ID</th>
+                        <th style="padding: 0.75rem 1rem;">Member ID</th>
+                        <th style="padding: 0.75rem 1rem;">Clinical Domain</th>
+                        <th style="padding: 0.75rem 1rem;">Requested Procedure</th>
+                        <th style="padding: 0.75rem 1rem;">Payer / Plan</th>
+                        <th style="padding: 0.75rem 1rem;">Service Date</th>
+                        <th style="padding: 0.75rem 1rem;">Lifecycle State</th>
+                        <th style="padding: 0.75rem 1rem;">Decision Outcome</th>
+                        <th style="padding: 0.75rem 1rem;">Received Timestamp</th>
+                        <th style="padding: 0.75rem 1rem; text-align: center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in cases %}
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                        <!-- Case ID -->
+                        <td style="padding: 0.75rem 1rem; white-space: nowrap;">
+                            <a href="{{ url_for('case_detail_view', case_id=c.case_id, as_user=current_user.user_id) }}" style="font-weight: 700; color: #1a56db; text-decoration: none;">
+                                {{ c.case_id }}
+                            </a>
+                        </td>
+
+                        <!-- Member ID -->
+                        <td style="padding: 0.75rem 1rem; white-space: nowrap;">
+                            <code style="background: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.82rem; color: #0f172a;">
+                                {{ c.metadata.get('patient_id', 'UNKNOWN') }}
+                            </code>
+                        </td>
+
+                        <!-- Domain -->
+                        <td style="padding: 0.75rem 1rem; white-space: nowrap;">
+                            <span style="font-size: 0.85rem; color: #334155;">
+                                {{ (c.clinical_domain or 'UNKNOWN').replace('_', ' ')|title }}
+                            </span>
+                        </td>
+
+                        <!-- Procedure -->
+                        <td style="padding: 0.75rem 1rem;">
+                            <strong style="color: #0f172a; font-size: 0.88rem;">CPT {{ c.procedure_code or 'UNKNOWN' }}</strong>
+                            {% if c.metadata.get('procedure_name') %}
+                            <div style="font-size: 0.75rem; color: #64748b; max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="{{ c.metadata.get('procedure_name') }}">
+                                {{ c.metadata.get('procedure_name') }}
+                            </div>
                             {% endif %}
-                        {% else %}
-                            <span style="color: #94a3b8; font-size: 0.8rem;">Pending / None</span>
-                        {% endif %}
-                    </td>
-                    <td style="font-size: 0.75rem; color: #64748b;">
-                        {{ c.last_updated_at[:19].replace('T', ' ') if c.last_updated_at else 'N/A' }}
-                    </td>
-                    <td>
-                        <a href="{{ url_for('case_detail_view', case_id=c.case_id, as_user=current_user.user_id) }}" class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;">
-                            Inspect &rarr;
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                        </td>
+
+                        <!-- Payer & Plan -->
+                        <td style="padding: 0.75rem 1rem; white-space: nowrap;">
+                            <span style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">{{ c.payer_id or 'EVOLENT' }}</span>
+                            <div style="font-size: 0.75rem; color: #64748b;">
+                                {{ (c.plan_id or 'COMMERCIAL_CHOICE_PLUS').replace('_', ' ') }} &bull; {{ c.line_of_business or 'COMMERCIAL' }}
+                            </div>
+                        </td>
+
+                        <!-- Service Date -->
+                        <td style="padding: 0.75rem 1rem; white-space: nowrap; font-size: 0.82rem; color: #1e293b;">
+                            {{ c.metadata.get('requested_date_of_service') or 'N/A' }}
+                        </td>
+
+                        <!-- Lifecycle State -->
+                        <td style="padding: 0.75rem 1rem; white-space: nowrap;">
+                            {% set lc = c.lifecycle_state %}
+                            {% if lc in ('EVALUATED_NON_BINDING', 'READY_FOR_NON_BINDING_EVALUATION') %}
+                                <span class="badge badge-success">{{ lc }}</span>
+                            {% elif lc == 'MANUAL_REVIEW_REQUIRED' %}
+                                <span class="badge badge-warning">{{ lc }}</span>
+                            {% elif lc == 'AWAITING_DOCUMENTATION' %}
+                                <span class="badge badge-orange">{{ lc }}</span>
+                            {% elif lc == 'POLICY_CONTEXT_UNRESOLVED' %}
+                                <span class="badge badge-purple">{{ lc }}</span>
+                            {% elif lc in ('VALIDATION_FAILED', 'INTEGRATION_ERROR') %}
+                                <span class="badge badge-danger">{{ lc }}</span>
+                            {% else %}
+                                <span class="badge badge-gray">{{ lc }}</span>
+                            {% endif %}
+                        </td>
+
+                        <!-- Decision Status -->
+                        <td style="padding: 0.75rem 1rem; white-space: nowrap;">
+                            {% if c.evaluation_result and c.evaluation_result.get('assessment_status') %}
+                                {% set st = c.evaluation_result.get('assessment_status')|string %}
+                                {% if 'MEETS' in st and 'NOT' not in st %}
+                                    <span class="badge badge-success">{{ st }}</span>
+                                {% elif 'NOT_MEET' in st or 'NOT_MET' in st %}
+                                    <span class="badge badge-danger">{{ st }}</span>
+                                {% elif 'MANUAL_REVIEW' in st or 'REVIEW' in st %}
+                                    <span class="badge badge-warning">{{ st }}</span>
+                                {% elif 'INSUFFICIENT' in st %}
+                                    <span class="badge badge-orange">{{ st }}</span>
+                                {% elif 'POLICY' in st %}
+                                    <span class="badge badge-purple">{{ st }}</span>
+                                {% else %}
+                                    <span class="badge badge-gray">{{ st }}</span>
+                                {% endif %}
+                            {% else %}
+                                <span class="badge badge-gray" style="font-size: 0.75rem;">PENDING / NONE</span>
+                            {% endif %}
+                        </td>
+
+                        <!-- Received Timestamp -->
+                        <td style="padding: 0.75rem 1rem; font-size: 0.78rem; color: #64748b; white-space: nowrap;">
+                            {{ c.received_at[:19].replace('T', ' ') if c.received_at else (c.last_updated_at[:19].replace('T', ' ') if c.last_updated_at else 'N/A') }}
+                        </td>
+
+                        <!-- Action Link -->
+                        <td style="padding: 0.75rem 1rem; text-align: center; white-space: nowrap;">
+                            <a href="{{ url_for('case_detail_view', case_id=c.case_id, as_user=current_user.user_id) }}" class="btn btn-secondary" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+                                Inspect &rarr;
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
         {% else %}
-        <div style="text-align: center; padding: 3rem 1rem; color: #64748b;">
-            <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">No Case Intake Records Found</p>
-            <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Submit a clinical case using the case intake form or upload a doctor's progress note to begin evaluation.</p>
-            <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" class="btn btn-primary">Create First Case Intake</a>
+        <!-- Empty / No-Results State -->
+        <div style="text-align: center; padding: 3.5rem 1.5rem; color: #64748b;">
+            <div style="width: 56px; height: 56px; margin: 0 auto 1rem; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #94a3b8;">
+                &empty;
+            </div>
+            {% if selected_state or selected_domain or search_query %}
+            <h3 style="font-size: 1.15rem; color: #1e293b; margin-bottom: 0.4rem;">No Matching Cases Found</h3>
+            <p style="font-size: 0.88rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.5;">
+                No case intake records match your active search and filter criteria. Try broadening your filter parameters or resetting the search.
+            </p>
+            <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 1rem;">
+                Clear Filters &amp; Show All Cases
+            </a>
+            {% else %}
+            <h3 style="font-size: 1.15rem; color: #1e293b; margin-bottom: 0.4rem;">No Case Intake Records Recorded</h3>
+            <p style="font-size: 0.88rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.5;">
+                No clinical cases have been submitted for evaluation yet. Submit your first clinical case or upload a doctor's chart note to begin.
+            </p>
+            <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" class="btn btn-primary" style="font-size: 0.88rem; padding: 0.5rem 1.25rem;">
+                Create First Case Intake &rarr;
+            </a>
+            {% endif %}
         </div>
         {% endif %}
     </div>

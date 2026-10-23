@@ -5,48 +5,73 @@
 {% block content %}
 <div class="dashboard-container">
     <div class="page-header">
-        <h1>Deterministic Prior-Authorization Case Intake</h1>
-        <p class="subtitle">Submit structured clinical cases for deterministic eligibility, benefit limit, evidence minimization, and policy evaluation.</p>
-    </div>
-
-    <!-- Payer & Connector Safety Banner -->
-    <div class="section-card" style="margin-bottom: 1.5rem; background: #f8fafc; border-left: 4px solid #1a56db;">
-        <h3 style="margin-bottom: 0.5rem; font-size: 1rem; color: #1e293b;">Connector Infrastructure &amp; Safety Invariants</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.75rem;">
-            <div class="connector-status-card">
-                <div class="connector-status-header">
-                    <strong>Eligibility Verification</strong>
-                    <span class="badge badge-success">ACTIVE ROSTER</span>
-                </div>
-                <span class="form-hint">Patient coverage verification and active benefit period checks.</span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h1>Deterministic Prior-Authorization Case Intake</h1>
+                <p class="subtitle">Submit structured clinical cases for deterministic eligibility verification, benefit limits, evidence minimization, and clinical guideline evaluation.</p>
             </div>
-            <div class="connector-status-card">
-                <div class="connector-status-header">
-                    <strong>Benefit Determination</strong>
-                    <span class="badge badge-success">PLAN VERIFIED</span>
-                </div>
-                <span class="form-hint">Plan limit, covered procedure codes, and authorization requirement checks.</span>
-            </div>
-            <div class="connector-status-card">
-                <div class="connector-status-header">
-                    <strong>Clinical Guidelines</strong>
-                    <span class="badge badge-success">372 RULES INDEXED</span>
-                </div>
-                <span class="form-hint">Audited 2026 clinical guidelines across 9 medical domains.</span>
-            </div>
-            <div class="connector-status-card">
-                <div class="connector-status-header">
-                    <strong>Outbound Transmission</strong>
-                    <span class="badge badge-disabled">LOCAL CDS ONLY</span>
-                </div>
-                <span class="form-hint">Direct outbound transmissions permanently disabled. Non-binding prototype CDS only.</span>
+            <div>
+                <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}" class="btn btn-secondary" style="font-size: 0.85rem;">
+                    &larr; View Case History
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- Connector Infrastructure & Safety Invariant Banner -->
+    <div class="section-card" style="margin-bottom: 1.5rem; background: #f8fafc; border-left: 4px solid #1a56db;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <h3 style="margin: 0; font-size: 1rem; color: #1e293b;">Connector Infrastructure &amp; Safety Invariants</h3>
+            <span class="badge badge-nonbinding" style="font-size: 0.75rem;">NON-BINDING SOFTWARE EVALUATION</span>
+        </div>
+        <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 0.75rem;">
+            MedRule operates strictly as a deterministic Clinical Decision Support (CDS) prototype. Outbound payer transmissions are permanently locked.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Eligibility Verification</strong>
+                    <span class="badge badge-mock">SYNTHETIC ROSTER</span>
+                </div>
+                <span class="form-hint">Evaluates patient active coverage against local synthetic membership registry.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Benefit Determination</strong>
+                    <span class="badge badge-mock">LOCAL BENEFIT RULES</span>
+                </div>
+                <span class="form-hint">Verifies in-network coverage limits and prior authorization requirements.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Clinical Guidelines</strong>
+                    <span class="badge badge-success">128 ACTIVE RULES</span>
+                </div>
+                <span class="form-hint">Audited 2026 clinical guidelines across Advanced Imaging and Interventional Pain Management.</span>
+            </div>
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Outbound Transmission</strong>
+                    <span class="badge badge-disabled">DISABLED (LOCAL CDS)</span>
+                </div>
+                <span class="form-hint">External payer EDI/FHIR submission adapter is permanently disabled in this release.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backend / Validation Error Alert -->
     {% if error %}
-    <div class="alert-box" style="background: #fee2e2; border: 1px solid #f87171; color: #991b1b; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
-        <strong>Intake Validation Failure:</strong> {{ error }}
+    <div class="alert-box" id="backend-error-banner" style="background: #fee2e2; border: 1px solid #f87171; color: #991b1b; padding: 1rem 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+            <div>
+                <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.25rem;">Intake Submission Failure</strong>
+                <span style="font-size: 0.9rem;">{{ error }}</span>
+                <p style="font-size: 0.8rem; color: #7f1d1d; margin: 0.5rem 0 0 0;">
+                    Your entered form values were preserved in your browser session. Please correct the highlighted fields and resubmit.
+                </p>
+            </div>
+            <button type="button" onclick="document.getElementById('backend-error-banner').style.display='none'" style="background: none; border: none; font-size: 1.1rem; color: #991b1b; cursor: pointer;">&times;</button>
+        </div>
     </div>
     {% endif %}
 
@@ -54,26 +79,35 @@
     <div class="section-card" style="margin-bottom: 1.5rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
             <div>
-                <h3 style="margin-bottom: 0.25rem;">Standard Clinical Presets</h3>
-                <p class="form-hint">Load pre-configured clinical cases covering all 9 clinical domains and guidelines.</p>
+                <h3 style="margin-bottom: 0.25rem; font-size: 1.05rem; color: #1e293b;">Clinical Presets</h3>
+                <p class="form-hint">Load pre-configured test cases to evaluate deterministic policy behavior across active clinical guidelines and edge cases.</p>
             </div>
-            <div style="display: flex; gap: 0.5rem; align-items: center;">
-                <select id="preset-selector" style="padding: 0.5rem; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 0.9rem;">
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                <select id="preset-selector" style="padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 0.88rem; min-width: 320px;">
                     <option value="">-- Select a Clinical Preset Case --</option>
-                    <option value="ADV_MEETS">1. Advanced Imaging: CT Abdomen/Pelvis (Indication Met)</option>
-                    <option value="ADV_NOT_MET">2. Advanced Imaging: CT Abdomen/Pelvis (Incomplete Conservative Care)</option>
-                    <option value="CARD_MEETS">3. Cardiology: Diagnostic Coronary Angio (High Risk Met)</option>
-                    <option value="MSK_MEETS">4. MSK Surgery: Total Knee Arthroplasty (Severe OA Met)</option>
-                    <option value="PAIN_MEETS">5. Interventional Pain: Lumbar ESI (Radiculopathy Met)</option>
-                    <option value="RAD_MEETS">6. Radiation Oncology: IMRT Prostate (Intermediate Risk Met)</option>
-                    <option value="PHYS_MEETS">7. Physical Medicine: Outpatient PT (Post-Op Met)</option>
-                    <option value="SLEEP_MEETS">8. Sleep Health: Home Sleep Apnea Test (OSA High Met)</option>
-                    <option value="GEN_MEETS">9. Genetic Testing: BRCA1/2 Comprehensive (Family Hx Met)</option>
-                    <option value="DME_MEETS">10. Centene DME: Continuous Glucose Monitor (T1DM Met)</option>
-                    <option value="INELIGIBLE_MEMBER">11. Eligibility Failure: Member Not Found</option>
-                    <option value="TERMINATED_COVERAGE">12. Coverage Terminated: Date After Termination</option>
+                    <optgroup label="Active 2026 Guidelines (Advanced Imaging)">
+                        <option value="ADV_MEETS">CT Abdomen/Pelvis: Pancreatitis (Indication Met) [CPT 74177]</option>
+                        <option value="ADV_NOT_MET">CT Abdomen/Pelvis: Pancreatitis (Incomplete Duration) [CPT 74177]</option>
+                        <option value="ADV_LUMBAR_MET">CT Lumbar Spine: Radiculopathy + Conservative Care [CPT 72131]</option>
+                    </optgroup>
+                    <optgroup label="Active 2026 Guidelines (Interventional Pain Management)">
+                        <option value="PAIN_ESI_MEET">Lumbar ESI: Radiculopathy &ge;6 Weeks Met [CPT 62323]</option>
+                        <option value="PAIN_SI_MEET">Sacroiliac Injection: Fortin Finger Met [CPT 27096]</option>
+                        <option value="PAIN_FACET_MEET">Facet Joint Block: Axial Pain &ge;3 Mo Met [CPT 64493]</option>
+                        <option value="PAIN_SCS_MEET">Spinal Cord Stimulation Trial: Multidisciplinary Met [CPT 63650]</option>
+                    </optgroup>
+                    <optgroup label="Synthetic Integration Scenarios &amp; Policy Gaps">
+                        <option value="INELIGIBLE_MEMBER">Eligibility Failure: Member Not Found in Roster</option>
+                        <option value="TERMINATED_COVERAGE">Coverage Terminated: Date After Coverage End</option>
+                        <option value="UNRESOLVED_POLICY">Unsupported Domain: MSK TKA [CPT 27447] (Policy Unresolved)</option>
+                    </optgroup>
                 </select>
-                <button type="button" class="btn btn-primary" onclick="loadPreset()">Load Preset</button>
+                <button type="button" class="btn btn-primary" onclick="loadPreset()" style="font-size: 0.88rem; padding: 0.5rem 1rem;">
+                    Load Preset
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="resetFormToDraft()" style="font-size: 0.85rem; padding: 0.5rem 0.75rem;" title="Clear and reset form">
+                    Reset
+                </button>
             </div>
         </div>
     </div>
@@ -82,15 +116,20 @@
     <div class="section-card" style="margin-bottom: 1.5rem; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
             <div>
-                <h3 style="margin-bottom: 0.25rem; font-size: 1.05rem; color: #1e293b;">Upload Physician PDF / Clinical Notes</h3>
-                <p class="form-hint">Upload a doctor's clinical notes, orders, or prior-authorization packet (.pdf) to automatically extract clinical criteria and populate the form fields below.</p>
+                <h3 style="margin-bottom: 0.25rem; font-size: 1.05rem; color: #1e293b;">Clinical Document Uploader (PDF)</h3>
+                <p class="form-hint">
+                    Upload physician clinical notes, consultation summaries, or prior-authorization packets. 
+                    <strong>Accepted format:</strong> Portable Document Format (<code>.pdf</code>) only. Extraction runs deterministically via local OCR and regex rules.
+                </p>
             </div>
             <div id="pdf-extraction-badge" style="display: none;">
-                <span class="badge" style="background: #e0f2fe; color: #0369a1; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 4px;" id="pdf-badge-text">PDF Analyzed</span>
+                <span class="badge" style="background: #e0f2fe; color: #0369a1; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 4px;" id="pdf-badge-text">
+                    PDF Analyzed
+                </span>
             </div>
         </div>
 
-        <!-- Long Upload Bar / Dropzone -->
+        <!-- Upload Bar / Dropzone -->
         <div id="pdf-drop-zone" class="pdf-drop-container" style="border: 2px dashed #94a3b8; border-radius: 8px; padding: 1.25rem 1.5rem; background: #f8fafc; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; cursor: pointer; transition: all 0.2s ease;">
             <input type="file" id="pdf-file-input" accept=".pdf,application/pdf" style="display: none;">
             
@@ -100,34 +139,37 @@
                 </div>
                 <div style="min-width: 0; flex: 1;">
                     <div id="pdf-file-title" style="font-weight: 600; color: #1e293b; font-size: 0.95rem;">Drag and drop doctor's clinical PDF here, or click to browse</div>
-                    <div id="pdf-file-sub" class="form-hint" style="margin-top: 0.2rem;">Accepts EHR notes, consultation summaries, diagnostic orders, and clinical packets (.pdf)</div>
+                    <div id="pdf-file-sub" class="form-hint" style="margin-top: 0.2rem;">Accepts EHR progress notes, consultation reports, diagnostic orders, and clinical packets (.pdf)</div>
                 </div>
             </div>
 
             <div style="display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0;">
-                <button type="button" class="btn" style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500;" onclick="document.getElementById('pdf-file-input').click()">
+                <button type="button" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="document.getElementById('pdf-file-input').click()">
                     Browse PDF
                 </button>
-                <button type="button" id="btn-extract-pdf" class="btn btn-primary" style="display: none; padding: 0.5rem 1.25rem; font-size: 0.875rem;" onclick="processUploadedPdf()">
-                    Extract &amp; Fill Form
+                <button type="button" id="btn-extract-pdf" class="btn btn-primary" style="display: none; padding: 0.5rem 1.25rem; font-size: 0.85rem;" onclick="processUploadedPdf()">
+                    Extract &amp; Populate Form
                 </button>
             </div>
         </div>
 
         <!-- Extraction Feedback Banner -->
-        <div id="pdf-status-banner" style="display: none; margin-top: 0.75rem; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem;"></div>
+        <div id="pdf-status-banner" style="display: none; margin-top: 0.75rem; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.88rem;"></div>
 
         <!-- Detailed PDF Clinical Analysis Preview Card -->
         <div id="pdf-details-card" style="display: none; margin-top: 1rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 1.25rem;">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
                 <div>
-                    <h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 0;" id="pdf-det-filename">Clinical Note Extraction Analysis</h4>
-                    <span class="form-hint" id="pdf-det-subtitle">Verified document text extracted and classified.</span>
+                    <h4 style="font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 0;" id="pdf-det-filename">Clinical Document Analysis</h4>
+                    <span class="form-hint" id="pdf-det-subtitle">Document text extracted and classified deterministically.</span>
                 </div>
-                <span class="badge badge-success" style="padding: 0.35rem 0.75rem; font-size: 0.8rem; font-weight: 600;">EVIDENCE VERIFIED</span>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <span class="provenance-tag provenance-extracted">EXTRACTED DOCUMENT FACT</span>
+                    <span class="badge badge-info" id="pdf-det-charcount">0 chars</span>
+                </div>
             </div>
 
-            <!-- Metadata Grid -->
+            <!-- Extracted Metadata Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.85rem; margin-bottom: 1rem;">
                 <div style="background: #ffffff; padding: 0.75rem; border-radius: 6px; border: 1px solid #e2e8f0;">
                     <div style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Patient Identifier</div>
@@ -137,7 +179,7 @@
                 <div style="background: #ffffff; padding: 0.75rem; border-radius: 6px; border: 1px solid #e2e8f0;">
                     <div style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Ordering Physician</div>
                     <div style="font-weight: 700; color: #1a56db; margin-top: 0.2rem;" id="pdf-det-doctor">--</div>
-                    <div style="font-size: 0.75rem; color: #64748b; margin-top: 0.15rem;" id="pdf-det-facility">Specialty Outpatient Clinic</div>
+                    <div style="font-size: 0.75rem; color: #64748b; margin-top: 0.15rem;" id="pdf-det-facility">Clinical Provider</div>
                 </div>
                 <div style="background: #ffffff; padding: 0.75rem; border-radius: 6px; border: 1px solid #e2e8f0;">
                     <div style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Requested Procedure</div>
@@ -160,16 +202,28 @@
                     <div style="font-weight: 700; color: #0f172a; margin-top: 0.2rem;" id="pdf-det-lob">--</div>
                 </div>
                 <div style="background: #ffffff; padding: 0.75rem; border-radius: 6px; border: 1px solid #e2e8f0;">
-                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Payer &amp; Benefit Plan</div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600;">Payer &amp; Plan</div>
                     <div style="font-weight: 700; color: #0f172a; margin-top: 0.2rem;" id="pdf-det-payer">--</div>
                 </div>
             </div>
 
-            <!-- Key Findings & Indications -->
+            <!-- Key Indications & Findings -->
             <div style="margin-bottom: 0.85rem;">
-                <div style="font-size: 0.8rem; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 0.35rem;">Extracted Clinical Indications &amp; Criteria</div>
+                <div style="font-size: 0.8rem; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 0.35rem;">
+                    Extracted Clinical Indications &amp; Objective Findings:
+                </div>
                 <div id="pdf-det-findings" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
                     <!-- Injected dynamically -->
+                </div>
+            </div>
+
+            <!-- Verbatim Narrative Preview -->
+            <div style="margin-bottom: 0.85rem;">
+                <div style="font-size: 0.8rem; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 0.35rem;">
+                    Physician Narrative Excerpt (Source Text):
+                </div>
+                <div id="pdf-det-narrative" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.75rem; font-family: monospace; font-size: 0.82rem; color: #334155; max-height: 140px; overflow-y: auto; white-space: pre-wrap;">
+                    --
                 </div>
             </div>
 
@@ -178,22 +232,22 @@
                 <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
                     <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: #334155; cursor: pointer;">
                         <input type="checkbox" id="pdf_bypass_check" checked onchange="document.getElementById('bypass_documentation_check').checked = this.checked;">
-                        <span>Direct Clinical Policy Evaluation (Evaluate clinical criteria directly from submitted notes)</span>
+                        <span>Direct Clinical Policy Evaluation (Evaluate clinical criteria directly from extracted note payload)</span>
                     </label>
                     <button type="button" id="btn-toggle-manual-form" class="btn btn-sm" style="background: none; border: none; color: #1a56db; text-decoration: underline; cursor: pointer; padding: 0; font-size: 0.85rem;" onclick="toggleManualForm()">
-                        Show / Edit Administrative Form Fields
+                        Review / Edit Form Fields Below &darr;
                     </button>
                 </div>
-                <button type="button" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600;" onclick="submitIntakeFromPdf()">
-                    Execute Deterministic Intake &amp; Evaluation &rarr;
+                <button type="button" id="btn-submit-from-pdf" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.95rem; font-weight: 600;" onclick="submitIntakeFromPdf()">
+                    Execute Deterministic Evaluation &rarr;
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Intake Submission Form (Manual Mode / Expandable) -->
+    <!-- Intake Submission Form -->
     <div class="intake-form-container" id="intake-administrative-card">
-        <form method="POST" action="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" id="intake-form">
+        <form method="POST" action="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" id="intake-form" onsubmit="return handleFormSubmit(event)">
             <!-- Hidden Fields Preserving Extracted PDF Clinical Metadata -->
             <input type="hidden" id="source_pdf_filename" name="source_pdf_filename" value="">
             <input type="hidden" id="ordering_provider" name="ordering_provider" value="">
@@ -203,95 +257,161 @@
             <input type="hidden" id="key_findings_json" name="key_findings_json" value="">
             <input type="hidden" id="pdf_details_json" name="pdf_details_json" value="">
 
-            <h2 style="margin-bottom: 1rem; font-size: 1.15rem;">Intake Administrative &amp; Clinical Information</h2>
-            
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="case_id">Case ID *</label>
-                    <input type="text" id="case_id" name="case_id" value="CASE-{{ timestamp_now }}" required>
-                    <span class="form-hint">Unique case tracking identifier.</span>
+            <!-- SECTION 1: Case Identification & Clinical Domain -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h3 class="form-section-title">
+                        <span>1. Case Identification &amp; Clinical Domain</span>
+                    </h3>
+                    <p class="form-section-desc">Unique intake tracking identifier and medical specialty classification.</p>
                 </div>
+                <div class="form-grid">
+                    <div class="form-group" id="grp-case_id">
+                        <label for="case_id">Case Tracking ID <span class="required-asterisk">*</span></label>
+                        <input type="text" id="case_id" name="case_id" value="CASE-{{ timestamp_now }}" required>
+                        <span class="field-error-msg" id="err-case_id">Case ID is required.</span>
+                        <span class="form-hint">Unique tracking number assigned to this intake evaluation.</span>
+                    </div>
 
-                <div class="form-group">
-                    <label for="patient_id">Patient / Member ID *</label>
-                    <input type="text" id="patient_id" name="patient_id" value="PT-88219" required>
-                    <span class="form-hint">Patient ID or health plan member number (auto-populated if uploading doctor's note).</span>
-                </div>
-
-                <div class="form-group">
-                    <label for="clinical_domain">Clinical Domain *</label>
-                    <select id="clinical_domain" name="clinical_domain" required>
-                        <option value="advanced_imaging">Advanced Imaging</option>
-                        <option value="cardiology">Cardiology</option>
-                        <option value="musculoskeletal_surgery">Musculoskeletal Surgery</option>
-                        <option value="interventional_pain_management">Interventional Pain Management</option>
-                        <option value="radiation_oncology">Radiation Oncology</option>
-                        <option value="physical_medicine">Physical Medicine</option>
-                        <option value="sleep_health">Sleep Health</option>
-                        <option value="genetic_testing">Genetic Testing</option>
-                        <option value="centene_dme_orthotics_prosthetics">Centene DME / Orthotics / Prosthetics</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="procedure_code">Procedure Code (CPT / HCPCS) *</label>
-                    <input type="text" id="procedure_code" name="procedure_code" value="74177" required>
-                    <span class="form-hint">e.g. 74177, 93458, 27447, 62323, 77301, 97110, 95806, 81162, A9276</span>
-                </div>
-
-                <div class="form-group">
-                    <label for="procedure_name">Procedure Name</label>
-                    <input type="text" id="procedure_name" name="procedure_name" value="CT Abdomen and Pelvis with contrast">
-                </div>
-
-                <div class="form-group">
-                    <label for="line_of_business">Line of Business *</label>
-                    <select id="line_of_business" name="line_of_business" required>
-                        <option value="COMMERCIAL">Commercial</option>
-                        <option value="MEDICARE_ADVANTAGE">Medicare Advantage</option>
-                        <option value="MEDICAID">Medicaid</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="requested_date_of_service">Requested Date of Service *</label>
-                    <input type="date" id="requested_date_of_service" name="requested_date_of_service" value="2026-03-15" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="payer_id">Payer ID</label>
-                    <input type="text" id="payer_id" name="payer_id" value="EVOLENT">
-                </div>
-
-                <div class="form-group">
-                    <label for="plan_id">Plan ID</label>
-                    <input type="text" id="plan_id" name="plan_id" value="COMMERCIAL_CHOICE_PLUS">
+                    <div class="form-group" id="grp-clinical_domain">
+                        <label for="clinical_domain">Clinical Specialty Domain <span class="required-asterisk">*</span></label>
+                        <select id="clinical_domain" name="clinical_domain" required>
+                            <option value="">-- Select Clinical Specialty Domain --</option>
+                            <option value="advanced_imaging" selected>Advanced Imaging (Active 2026 Guidelines)</option>
+                            <option value="interventional_pain_management">Interventional Pain Management (Active 2026 Guidelines)</option>
+                            <option value="cardiology">Cardiology (Catalog Gap / Unresolved)</option>
+                            <option value="musculoskeletal_surgery">Musculoskeletal Surgery (Catalog Gap / Unresolved)</option>
+                            <option value="radiation_oncology">Radiation Oncology (Catalog Gap / Unresolved)</option>
+                            <option value="physical_medicine">Physical Medicine (Catalog Gap / Unresolved)</option>
+                            <option value="sleep_health">Sleep Health (Catalog Gap / Unresolved)</option>
+                            <option value="genetic_testing">Genetic Testing (Catalog Gap / Unresolved)</option>
+                            <option value="centene_dme_orthotics_prosthetics">Centene DME / Orthotics (Catalog Gap / Unresolved)</option>
+                        </select>
+                        <span class="field-error-msg" id="err-clinical_domain">Please select an authoritative clinical domain.</span>
+                        <span class="form-hint">Governing policy routing depends on procedure code and clinical domain match.</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group" style="margin-bottom: 1.25rem;">
-                <label for="submitted_documents">Submitted Clinical Documentation (comma-separated)</label>
-                <input type="text" id="submitted_documents" name="submitted_documents" value="Comprehensive clinical notes and diagnostic findings, Ultrasound findings and lab results">
-                <span class="form-hint">E.g., "Office clinical notes", "Prior conservative therapy log", "Diagnostic imaging report"</span>
+            <!-- SECTION 2: Patient & Health Plan Coverage -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h3 class="form-section-title">
+                        <span>2. Patient Identification &amp; Health Plan</span>
+                    </h3>
+                    <p class="form-section-desc">Member identifier, line of business, and payer contract schedule.</p>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group" id="grp-patient_id">
+                        <label for="patient_id">Patient / Member ID <span class="required-asterisk">*</span></label>
+                        <input type="text" id="patient_id" name="patient_id" value="MEM-SYNTH-88219" required>
+                        <span class="field-error-msg" id="err-patient_id">Patient/Member ID is required for eligibility verification.</span>
+                        <span class="form-hint">Auto-populated if extracting from physician clinical note.</span>
+                    </div>
+
+                    <div class="form-group" id="grp-line_of_business">
+                        <label for="line_of_business">Line of Business <span class="required-asterisk">*</span></label>
+                        <select id="line_of_business" name="line_of_business" required>
+                            <option value="COMMERCIAL" selected>Commercial</option>
+                            <option value="MEDICARE_ADVANTAGE">Medicare Advantage</option>
+                            <option value="MEDICAID">Medicaid</option>
+                        </select>
+                        <span class="field-error-msg" id="err-line_of_business">Line of business is required.</span>
+                        <span class="form-hint">Determines benefit schedule, co-insurance, and statutory review guidelines.</span>
+                    </div>
+
+                    <div class="form-group" id="grp-payer_id">
+                        <label for="payer_id">Payer ID</label>
+                        <input type="text" id="payer_id" name="payer_id" value="EVOLENT">
+                        <span class="form-hint">Authoritative health plan administrator (e.g., EVOLENT, CENTENE).</span>
+                    </div>
+
+                    <div class="form-group" id="grp-plan_id">
+                        <label for="plan_id">Plan / Benefit Schedule ID</label>
+                        <input type="text" id="plan_id" name="plan_id" value="COMMERCIAL_CHOICE_PLUS">
+                        <span class="form-hint">Specific benefit schedule identifier for coverage tiering.</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group" style="margin-bottom: 1.25rem;">
-                <label for="clinical_evidence_json">Structured Clinical Evidence (JSON Object) *</label>
-                <textarea id="clinical_evidence_json" name="clinical_evidence_json" rows="6" required>{
+            <!-- SECTION 3: Requested Procedure & Service Schedule -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h3 class="form-section-title">
+                        <span>3. Requested Procedure &amp; Service Date</span>
+                    </h3>
+                    <p class="form-section-desc">CPT / HCPCS procedure coding and requested encounter schedule.</p>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group" id="grp-procedure_code">
+                        <label for="procedure_code">Procedure Code (CPT / HCPCS) <span class="required-asterisk">*</span></label>
+                        <input type="text" id="procedure_code" name="procedure_code" value="74177" required>
+                        <span class="field-error-msg" id="err-procedure_code">Valid procedure code is required.</span>
+                        <span class="form-hint">e.g. 74177, 72131, 62323, 27096, 64493, 63650</span>
+                    </div>
+
+                    <div class="form-group" id="grp-procedure_name">
+                        <label for="procedure_name">Procedure Description / Name</label>
+                        <input type="text" id="procedure_name" name="procedure_name" value="CT Abdomen and Pelvis with contrast">
+                        <span class="form-hint">Official clinical description of the requested service.</span>
+                    </div>
+
+                    <div class="form-group" id="grp-requested_date_of_service">
+                        <label for="requested_date_of_service">Requested Date of Service <span class="required-asterisk">*</span></label>
+                        <input type="date" id="requested_date_of_service" name="requested_date_of_service" value="2026-03-15" required>
+                        <span class="field-error-msg" id="err-requested_date_of_service">Valid service date is required.</span>
+                        <span class="form-hint">Distinct from submission timestamp. Evaluated against policy effective windows.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: Clinical Documentation & Structured Evidence -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h3 class="form-section-title">
+                        <span>4. Clinical Documentation &amp; Structured Evidence</span>
+                    </h3>
+                    <p class="form-section-desc">Submitted medical records and structured clinical evidence parameters for rule execution.</p>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label for="submitted_documents">Submitted Clinical Documentation (Comma-separated)</label>
+                    <input type="text" id="submitted_documents" name="submitted_documents" value="Comprehensive clinical notes and diagnostic findings, Ultrasound findings and lab results">
+                    <span class="form-hint">E.g., "Office clinical notes", "Prior physical therapy logs", "Diagnostic imaging report"</span>
+                </div>
+
+                <div class="form-group" id="grp-clinical_evidence_json" style="margin-bottom: 1.25rem;">
+                    <label for="clinical_evidence_json">Structured Clinical Evidence (JSON Object) <span class="required-asterisk">*</span></label>
+                    <textarea id="clinical_evidence_json" name="clinical_evidence_json" rows="6" required>{
   "pancreatitis_diagnostic_markers": "ELEVATED",
   "conservative_treatment_duration_hours": 96,
   "ultrasound_findings": "NO_GALLSTONES_OR_DILATED_DUCT",
   "ordering_provider_license": true
 }</textarea>
-                <span class="form-hint">JSON key-value pairs matching criteria conditions for the selected procedure.</span>
+                    <span class="field-error-msg" id="err-clinical_evidence_json">Evidence must be a valid JSON object.</span>
+                    <span class="form-hint">JSON key-value pairs matching criteria conditions for the selected procedure. Never fabricate or guess clinical findings.</span>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.85rem 1rem;">
+                    <label style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.88rem; color: #334155; cursor: pointer; margin: 0;">
+                        <input type="checkbox" name="bypass_documentation_check" id="bypass_documentation_check" value="true" checked style="margin-top: 0.2rem;">
+                        <div>
+                            <strong>Direct Clinical Policy Evaluation</strong>
+                            <span style="display: block; font-size: 0.8rem; color: #64748b; margin-top: 0.15rem;">
+                                Evaluate clinical criteria directly from the structured evidence payload above, bypassing the preliminary document checklist gate.
+                            </span>
+                        </div>
+                    </label>
+                </div>
             </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
-                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #475569; cursor: pointer;">
-                    <input type="checkbox" name="bypass_documentation_check" id="bypass_documentation_check" value="true" checked>
-                    Direct Clinical Policy Evaluation (Evaluate clinical criteria directly from submitted notes)
-                </label>
-                <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
+            <!-- Submission Action & Safety Disclaimer -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem; border-top: 1px solid #e2e8f0; padding-top: 1.25rem;">
+                <div style="font-size: 0.82rem; color: #64748b; max-width: 580px; line-height: 1.4;">
+                    <strong>Safety Notice:</strong> Case submission will run deterministic eligibility verification, evidence minimization, and guideline evaluation. 
+                    No external payer transmission will occur (<span style="font-family: monospace;">submission_adapter: DISABLED</span>).
+                </div>
+                <button type="submit" id="btn-submit-intake" class="btn btn-primary" style="padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 600;">
                     Execute Deterministic Intake &amp; Evaluation &rarr;
                 </button>
             </div>
@@ -302,6 +422,7 @@
 
 {% block scripts %}
 <script>
+// Authoritative Clinical Presets
 const PRESETS = {
     "ADV_MEETS": {
         case_id: "CASE-SYNTH-ADV-001",
@@ -339,150 +460,122 @@ const PRESETS = {
             "ordering_provider_license": true
         }
     },
-    "CARD_MEETS": {
-        case_id: "CASE-SYNTH-CARD-001",
+    "ADV_LUMBAR_MET": {
+        case_id: "CASE-SYNTH-LUMBAR-001",
         patient_id: "MEM-SYNTH-88219",
-        clinical_domain: "cardiology",
-        procedure_code: "93458",
-        procedure_name: "Left Heart Catheterization with Coronary Angiogram",
+        clinical_domain: "advanced_imaging",
+        procedure_code: "72131",
+        procedure_name: "CT Lumbar Spine without contrast",
         line_of_business: "COMMERCIAL",
         requested_date_of_service: "2026-03-15",
         payer_id: "EVOLENT",
         plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Cardiology consult",
+        submitted_documents: "Spine specialist consult notes, Prior physical therapy logs",
         evidence: {
-            "stress_test_findings": "HIGH_RISK_ISCHEMIA",
-            "angina_symptoms": "CANADIAN_CLASS_III_IV",
-            "ordering_physician_specialty": "CARDIOLOGY"
+            "lumbar_radiculopathy_present": true,
+            "conservative_therapy_duration_weeks": 6,
+            "ordering_provider_license": true,
+            "suspected_cauda_equina_syndrome": false
         }
     },
-    "MSK_MEETS": {
-        case_id: "CASE-SYNTH-MSK-001",
-        patient_id: "MEM-SYNTH-88219",
-        clinical_domain: "musculoskeletal",
-        procedure_code: "27447",
-        procedure_name: "Total Knee Arthroplasty (TKA)",
-        line_of_business: "COMMERCIAL",
-        requested_date_of_service: "2026-03-15",
-        payer_id: "EVOLENT",
-        plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Weight-bearing x-rays",
-        evidence: {
-            "osteoarthritis_severity": "GRADE_IV_ADVANCED",
-            "conservative_therapy_duration_months": 6,
-            "functional_impairment_daily_living": true
-        }
-    },
-    "PAIN_MEETS": {
+    "PAIN_ESI_MEET": {
         case_id: "CASE-SYNTH-PAIN-001",
         patient_id: "MEM-SYNTH-88219",
-        clinical_domain: "interventional_pain",
+        clinical_domain: "interventional_pain_management",
         procedure_code: "62323",
         procedure_name: "Lumbar Epidural Steroid Injection",
         line_of_business: "COMMERCIAL",
         requested_date_of_service: "2026-03-15",
         payer_id: "EVOLENT",
         plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings",
+        submitted_documents: "Interventional pain consult note, Lumbar MRI report",
         evidence: {
             "radicular_pain_confirmed": true,
             "conservative_care_weeks": 6,
-            "lumbar_mri_nerve_root_compression": true
+            "lumbar_mri_nerve_root_compression": true,
+            "ordering_provider_license": true
         }
     },
-    "RAD_MEETS": {
-        case_id: "CASE-SYNTH-RAD-001",
+    "PAIN_SI_MEET": {
+        case_id: "CASE-SYNTH-PAIN-SI-001",
         patient_id: "MEM-SYNTH-88219",
-        clinical_domain: "radiation_oncology",
-        procedure_code: "77301",
-        procedure_name: "Intensity Modulated Radiation Therapy (IMRT) Plan",
+        clinical_domain: "interventional_pain_management",
+        procedure_code: "27096",
+        procedure_name: "Sacroiliac Joint Injection",
         line_of_business: "COMMERCIAL",
         requested_date_of_service: "2026-03-15",
         payer_id: "EVOLENT",
         plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Pathology report",
+        submitted_documents: "Pain clinic evaluation, Physical examination report",
         evidence: {
-            "histologically_confirmed_prostate_cancer": true,
-            "nccn_risk_category": "INTERMEDIATE_RISK",
-            "critical_structure_sparing_indicated": true
+            "fortin_finger_test_positive": true,
+            "pain_duration_months": 4,
+            "conservative_treatment_duration_weeks": 6,
+            "ordering_provider_license": true
         }
     },
-    "PHYS_MEETS": {
-        case_id: "CASE-SYNTH-PHYS-001",
+    "PAIN_FACET_MEET": {
+        case_id: "CASE-SYNTH-PAIN-FACET-001",
         patient_id: "MEM-SYNTH-88219",
-        clinical_domain: "physical_medicine",
-        procedure_code: "97110",
-        procedure_name: "Therapeutic Exercises, Outpatient Physical Therapy",
+        clinical_domain: "interventional_pain_management",
+        procedure_code: "64493",
+        procedure_name: "Lumbar Facet Joint Nerve Block",
         line_of_business: "COMMERCIAL",
         requested_date_of_service: "2026-03-15",
         payer_id: "EVOLENT",
         plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings, PT evaluation",
+        submitted_documents: "Orthopedic spine evaluation, Physical examination notes",
         evidence: {
-            "post_operative_condition": true,
-            "measurable_functional_deficit": true,
-            "established_rehabilitation_goals": true
+            "axial_pain_predominant": true,
+            "pain_duration_months": 4,
+            "facet_tenderness_positive": true,
+            "conservative_treatment_duration_weeks": 6,
+            "ordering_provider_license": true
         }
     },
-    "SLEEP_MEETS": {
-        case_id: "CASE-SYNTH-SLEEP-001",
+    "PAIN_SCS_MEET": {
+        case_id: "CASE-SYNTH-PAIN-SCS-001",
         patient_id: "MEM-SYNTH-88219",
-        clinical_domain: "sleep_health",
-        procedure_code: "95806",
-        procedure_name: "Unattended Sleep Study / Home Sleep Apnea Test",
+        clinical_domain: "interventional_pain_management",
+        procedure_code: "63650",
+        procedure_name: "Spinal Cord Stimulation Trial Lead Implantation",
         line_of_business: "COMMERCIAL",
         requested_date_of_service: "2026-03-15",
         payer_id: "EVOLENT",
         plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Epworth scale",
+        submitted_documents: "Neurosurgery consult, Psychological clearance, Multidisciplinary evaluation",
         evidence: {
-            "epworth_sleepiness_scale_score": 14,
-            "habitual_snoring_observed_apneas": true,
-            "absence_of_severe_comorbidities": true
-        }
-    },
-    "GEN_MEETS": {
-        case_id: "CASE-SYNTH-GEN-001",
-        patient_id: "MEM-SYNTH-88219",
-        clinical_domain: "genetic_testing",
-        procedure_code: "81162",
-        procedure_name: "BRCA1, BRCA2 Gene Analysis Full Sequence & Duplication/Deletion",
-        line_of_business: "COMMERCIAL",
-        requested_date_of_service: "2026-03-15",
-        payer_id: "EVOLENT",
-        plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Pedigree chart",
-        evidence: {
-            "personal_history_breast_cancer_under_50": true,
-            "genetic_counseling_pre_test_completed": true,
-            "first_degree_relative_ovarian_cancer": true
-        }
-    },
-    "DME_MEETS": {
-        case_id: "CASE-SYNTH-DME-001",
-        patient_id: "MEM-SYNTH-88219",
-        clinical_domain: "centene_dme",
-        procedure_code: "A9276",
-        procedure_name: "Sensor; invasive, disposable, for use with CGM system",
-        line_of_business: "COMMERCIAL",
-        requested_date_of_service: "2026-03-15",
-        payer_id: "CENTENE",
-        plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings, Glucose log",
-        evidence: {
-            "type_1_diabetes_mellitus": true,
-            "multiple_daily_insulin_injections": true,
-            "documented_frequent_hypoglycemia": true
+            "failed_back_surgery_syndrome": true,
+            "psychological_clearance_documented": true,
+            "multidisciplinary_evaluation_documented": true,
+            "conservative_treatment_duration_months": 6,
+            "ordering_provider_license": true
         }
     },
     "INELIGIBLE_MEMBER": {
-        case_id: "CASE-SYNTH-INELG-001",
-        patient_id: "MEM-SYNTH-INELIGIBLE",
+        case_id: "CASE-SYNTH-FAIL-ELIG",
+        patient_id: "MEM-INVALID-99999",
         clinical_domain: "advanced_imaging",
         procedure_code: "74177",
         procedure_name: "CT Abdomen and Pelvis with contrast",
         line_of_business: "COMMERCIAL",
         requested_date_of_service: "2026-03-15",
+        payer_id: "EVOLENT",
+        plan_id: "COMMERCIAL_CHOICE_PLUS",
+        submitted_documents: "Comprehensive clinical notes and diagnostic findings",
+        evidence: {
+            "pancreatitis_diagnostic_markers": "ELEVATED",
+            "conservative_treatment_duration_hours": 96
+        }
+    },
+    "TERMINATED_COVERAGE": {
+        case_id: "CASE-SYNTH-FAIL-TERM",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "advanced_imaging",
+        procedure_code: "74177",
+        procedure_name: "CT Abdomen and Pelvis with contrast",
+        line_of_business: "COMMERCIAL",
+        requested_date_of_service: "2024-01-01",
         payer_id: "EVOLENT",
         plan_id: "COMMERCIAL_CHOICE_PLUS",
         submitted_documents: "Comprehensive clinical notes and diagnostic findings",
@@ -490,19 +583,20 @@ const PRESETS = {
             "pancreatitis_diagnostic_markers": "ELEVATED"
         }
     },
-    "TERMINATED_COVERAGE": {
-        case_id: "CASE-SYNTH-TERM-001",
-        patient_id: "MEM-SYNTH-TERMINATED",
-        clinical_domain: "advanced_imaging",
-        procedure_code: "74177",
-        procedure_name: "CT Abdomen and Pelvis with contrast",
+    "UNRESOLVED_POLICY": {
+        case_id: "CASE-SYNTH-UNRESOLVED-001",
+        patient_id: "MEM-SYNTH-88219",
+        clinical_domain: "musculoskeletal_surgery",
+        procedure_code: "27447",
+        procedure_name: "Total Knee Arthroplasty",
         line_of_business: "COMMERCIAL",
         requested_date_of_service: "2026-03-15",
         payer_id: "EVOLENT",
         plan_id: "COMMERCIAL_CHOICE_PLUS",
-        submitted_documents: "Comprehensive clinical notes and diagnostic findings",
+        submitted_documents: "Orthopedic surgeon note, Knee radiographs",
         evidence: {
-            "pancreatitis_diagnostic_markers": "ELEVATED"
+            "osteoarthritis_severity": "GRADE_IV",
+            "conservative_therapy_duration_months": 6
         }
     }
 };
@@ -523,25 +617,168 @@ function loadPreset() {
     document.getElementById("submitted_documents").value = p.submitted_documents;
     document.getElementById("clinical_evidence_json").value = JSON.stringify(p.evidence, null, 2);
 
-    // Ensure manual administrative card is visible and PDF preview is closed
+    // Save draft to sessionStorage
+    saveFormToDraft();
+
+    // Ensure administrative card is visible and PDF preview is closed
     const adminCard = document.getElementById("intake-administrative-card");
-    if (adminCard) {
-        adminCard.style.display = "block";
-    }
+    if (adminCard) adminCard.style.display = "block";
     const pdfCard = document.getElementById("pdf-details-card");
-    if (pdfCard) {
-        pdfCard.style.display = "none";
-    }
+    if (pdfCard) pdfCard.style.display = "none";
     const toggleBtn = document.getElementById("btn-toggle-manual-form");
-    if (toggleBtn) {
-        toggleBtn.textContent = "Show / Edit Administrative Form Fields";
+    if (toggleBtn) toggleBtn.textContent = "Review / Edit Form Fields Below \u2193";
+
+    // Clear any previous field error styles
+    clearValidationErrors();
+}
+
+function resetFormToDraft() {
+    sessionStorage.removeItem("medrule_intake_draft");
+    window.location.reload();
+}
+
+// Client-side Draft Persistence Across Reloads / Errors
+const DRAFT_FIELDS = [
+    "case_id", "patient_id", "clinical_domain", "procedure_code",
+    "procedure_name", "line_of_business", "requested_date_of_service",
+    "payer_id", "plan_id", "submitted_documents", "clinical_evidence_json",
+    "source_pdf_filename", "ordering_provider", "diagnosis_icd10",
+    "diagnosis_description", "clinical_narrative_excerpt", "key_findings_json", "pdf_details_json"
+];
+
+function saveFormToDraft() {
+    try {
+        const draft = {};
+        DRAFT_FIELDS.forEach(function(fId) {
+            const el = document.getElementById(fId);
+            if (el) draft[fId] = el.value;
+        });
+        const bypassEl = document.getElementById("bypass_documentation_check");
+        if (bypassEl) draft["bypass_documentation_check"] = bypassEl.checked;
+        sessionStorage.setItem("medrule_intake_draft", JSON.stringify(draft));
+    } catch (e) {
+        // Ignore storage errors in restricted iframe
     }
 }
 
-// PDF Extraction and Auto-Fill Logic
+function restoreDraftIfPresent() {
+    try {
+        const raw = sessionStorage.getItem("medrule_intake_draft");
+        if (!raw) return;
+        const draft = JSON.parse(raw);
+        DRAFT_FIELDS.forEach(function(fId) {
+            if (draft[fId] !== undefined && document.getElementById(fId)) {
+                document.getElementById(fId).value = draft[fId];
+            }
+        });
+        if (draft["bypass_documentation_check"] !== undefined && document.getElementById("bypass_documentation_check")) {
+            document.getElementById("bypass_documentation_check").checked = draft["bypass_documentation_check"];
+        }
+    } catch (e) {
+        // Ignore
+    }
+}
+
+function clearValidationErrors() {
+    document.querySelectorAll(".form-group.has-error").forEach(function(el) {
+        el.classList.remove("has-error");
+    });
+}
+
+function validateIntakeForm() {
+    clearValidationErrors();
+    let isValid = true;
+    let firstErrorEl = null;
+
+    function markError(id, msg) {
+        isValid = false;
+        const grp = document.getElementById("grp-" + id);
+        const errEl = document.getElementById("err-" + id);
+        if (grp) grp.classList.add("has-error");
+        if (errEl && msg) errEl.textContent = msg;
+        if (!firstErrorEl) firstErrorEl = document.getElementById(id);
+    }
+
+    const patientId = (document.getElementById("patient_id").value || "").trim();
+    if (!patientId) markError("patient_id", "Patient/Member ID is required.");
+
+    const domain = (document.getElementById("clinical_domain").value || "").trim();
+    if (!domain) markError("clinical_domain", "Clinical domain must be selected.");
+
+    const procCode = (document.getElementById("procedure_code").value || "").trim();
+    if (!procCode) markError("procedure_code", "Procedure code is required.");
+
+    const dos = (document.getElementById("requested_date_of_service").value || "").trim();
+    if (!dos) markError("requested_date_of_service", "Requested date of service is required.");
+
+    const lob = (document.getElementById("line_of_business").value || "").trim();
+    if (!lob) markError("line_of_business", "Line of business is required.");
+
+    const evRaw = (document.getElementById("clinical_evidence_json").value || "").trim();
+    if (!evRaw) {
+        markError("clinical_evidence_json", "Structured clinical evidence JSON is required.");
+    } else {
+        try {
+            const parsed = JSON.parse(evRaw);
+            if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+                markError("clinical_evidence_json", "Evidence must be a JSON object of key-value pairs.");
+            }
+        } catch (err) {
+            markError("clinical_evidence_json", "Malformed JSON syntax: " + err.message);
+        }
+    }
+
+    if (!isValid && firstErrorEl) {
+        // Ensure manual form is visible to show error
+        const adminCard = document.getElementById("intake-administrative-card");
+        if (adminCard) adminCard.style.display = "block";
+        firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstErrorEl.focus();
+    }
+
+    return isValid;
+}
+
+function handleFormSubmit(e) {
+    saveFormToDraft();
+    if (!validateIntakeForm()) {
+        if (e) e.preventDefault();
+        return false;
+    }
+
+    // Prevent duplicate submission
+    const submitBtn = document.getElementById("btn-submit-intake");
+    const pdfSubmitBtn = document.getElementById("btn-submit-from-pdf");
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner"></span> Executing Deterministic Evaluation...';
+    }
+    if (pdfSubmitBtn) {
+        pdfSubmitBtn.disabled = true;
+        pdfSubmitBtn.innerHTML = '<span class="spinner"></span> Evaluating...';
+    }
+    return true;
+}
+
+function submitIntakeFromPdf() {
+    const form = document.getElementById("intake-form");
+    if (!form) return;
+    const pdfBypass = document.getElementById("pdf_bypass_check");
+    const formBypass = document.getElementById("bypass_documentation_check");
+    if (pdfBypass && formBypass) {
+        formBypass.checked = pdfBypass.checked;
+    }
+    if (handleFormSubmit(null)) {
+        form.submit();
+    }
+}
+
+// PDF Extraction Handling
 let selectedPdfFile = null;
 
 document.addEventListener("DOMContentLoaded", function() {
+    restoreDraftIfPresent();
+
     const dropZone = document.getElementById("pdf-drop-zone");
     const fileInput = document.getElementById("pdf-file-input");
 
@@ -587,7 +824,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function handlePdfSelection(file) {
     if (!file) return;
     if (!file.name.toLowerCase().endsWith(".pdf")) {
-        showPdfStatus("Please select a valid PDF document (.pdf).", "error");
+        showPdfStatus("Invalid file format. MedRule accepts .pdf files only.", "error");
         return;
     }
     selectedPdfFile = file;
@@ -596,7 +833,7 @@ function handlePdfSelection(file) {
     const btnExtract = document.getElementById("btn-extract-pdf");
 
     if (titleEl) titleEl.textContent = file.name + " (" + (file.size / 1024).toFixed(1) + " KB)";
-    if (subEl) subEl.textContent = "Clinical PDF ready. Extracting clinical parameters and criteria...";
+    if (subEl) subEl.textContent = "PDF file selected. Click 'Extract & Populate Form' or automated extraction will start...";
     if (btnExtract) btnExtract.style.display = "inline-block";
 
     processUploadedPdf();
@@ -610,16 +847,18 @@ function showPdfStatus(message, type) {
         banner.style.background = "#eff6ff";
         banner.style.border = "1px solid #93c5fd";
         banner.style.color = "#1d4ed8";
+        banner.innerHTML = '<span class="spinner" style="border-top-color: #1d4ed8; border-color: rgba(29, 78, 216, 0.2);"></span> ' + message;
     } else if (type === "success") {
         banner.style.background = "#ecfdf5";
         banner.style.border = "1px solid #6ee7b7";
         banner.style.color = "#065f46";
+        banner.textContent = message;
     } else {
         banner.style.background = "#fee2e2";
         banner.style.border = "1px solid #fca5a5";
         banner.style.color = "#991b1b";
+        banner.textContent = message;
     }
-    banner.textContent = message;
 }
 
 async function processUploadedPdf() {
@@ -680,17 +919,7 @@ async function processUploadedPdf() {
         const subEl = document.getElementById("pdf-file-sub");
         if (subEl) subEl.textContent = "Extraction complete: " + (data.summary || "Parameters extracted.");
 
-        showPdfStatus("Extraction complete for " + data.filename + ". Extracted clinical parameters and indications are displayed below.", "success");
-
-        // Hide manual intake administrative form when PDF is uploaded
-        const adminCard = document.getElementById("intake-administrative-card");
-        if (adminCard) {
-            adminCard.style.display = "none";
-        }
-        const toggleBtn = document.getElementById("btn-toggle-manual-form");
-        if (toggleBtn) {
-            toggleBtn.textContent = "Show / Edit Administrative Form Fields";
-        }
+        showPdfStatus("Extraction complete for " + data.filename + ". Extracted clinical parameters and indications are populated below.", "success");
 
         // Populate Detailed PDF Preview Card
         const detailsCard = document.getElementById("pdf-details-card");
@@ -699,14 +928,17 @@ async function processUploadedPdf() {
             detailsCard.style.display = "block";
 
             const fnEl = document.getElementById("pdf-det-filename");
-            if (fnEl) fnEl.textContent = "Clinical Document Analysis: " + (data.filename || "Doctor Notes.pdf") + " (" + data.pages_analyzed + " page" + (data.pages_analyzed > 1 ? "s" : "") + ")";
+            if (fnEl) fnEl.textContent = "Clinical Document Analysis: " + (data.filename || "Clinical Note.pdf") + " (" + data.pages_analyzed + " page" + (data.pages_analyzed > 1 ? "s" : "") + ")";
+
+            const ccEl = document.getElementById("pdf-det-charcount");
+            if (ccEl) ccEl.textContent = (det.character_count || 0) + " characters";
 
             const ptEl = document.getElementById("pdf-det-patient");
-            if (ptEl) ptEl.textContent = det.patient_id || "--";
+            if (ptEl) ptEl.textContent = det.patient_id || "Not detected in document";
 
             const demoEl = document.getElementById("pdf-det-demographics");
             if (demoEl) {
-                let demoStr = (det.patient_age || "Adult") + " • " + (det.patient_gender || "Documented");
+                let demoStr = (det.patient_age || "Age not specified") + " \u2022 " + (det.patient_gender || "Gender not specified");
                 if (det.patient_dob && det.patient_dob !== "Documented in chart") {
                     demoStr += " (DOB: " + det.patient_dob + ")";
                 }
@@ -714,19 +946,19 @@ async function processUploadedPdf() {
             }
 
             const docEl = document.getElementById("pdf-det-doctor");
-            if (docEl) docEl.textContent = det.ordering_provider || "--";
+            if (docEl) docEl.textContent = det.ordering_provider || "Treating Physician";
 
             const facEl = document.getElementById("pdf-det-facility");
-            if (facEl) facEl.textContent = (det.provider_specialty || "Clinical Specialist") + " • " + (det.facility_name || "Specialty Clinic");
+            if (facEl) facEl.textContent = (det.provider_specialty || "Clinical Specialty") + " \u2022 " + (det.facility_name || "Specialty Clinic");
 
             const procEl = document.getElementById("pdf-det-proc");
-            if (procEl) procEl.textContent = "CPT " + det.procedure_code + " - " + det.procedure_name;
+            if (procEl) procEl.textContent = "CPT " + (det.procedure_code || "--") + " - " + (det.procedure_name || "Clinical Procedure");
 
             const domEl = document.getElementById("pdf-det-domain");
-            if (domEl) domEl.textContent = det.clinical_domain_label || det.clinical_domain;
+            if (domEl) domEl.textContent = det.clinical_domain_label || (det.clinical_domain ? det.clinical_domain.replace("_", " ").toUpperCase() : "--");
 
             const diagEl = document.getElementById("pdf-det-diagnosis");
-            if (diagEl) diagEl.textContent = (det.diagnosis_icd10 ? det.diagnosis_icd10 + " - " : "") + det.diagnosis_description;
+            if (diagEl) diagEl.textContent = (det.diagnosis_icd10 ? det.diagnosis_icd10 + " - " : "") + (det.diagnosis_description || "Documented Clinical Diagnosis");
 
             const dosEl = document.getElementById("pdf-det-dos");
             if (dosEl) dosEl.textContent = det.date_of_service || "--";
@@ -735,7 +967,7 @@ async function processUploadedPdf() {
             if (lobEl) lobEl.textContent = det.line_of_business || "--";
 
             const payerEl = document.getElementById("pdf-det-payer");
-            if (payerEl) payerEl.textContent = (det.payer_id || "EVOLENT") + " (" + (det.plan_id || "Standard Coverage") + ")";
+            if (payerEl) payerEl.textContent = (det.payer_id || "EVOLENT") + " (" + (det.plan_id || "COMMERCIAL_CHOICE_PLUS") + ")";
 
             // Render Key Indications & Findings tags
             const findingsContainer = document.getElementById("pdf-det-findings");
@@ -754,7 +986,15 @@ async function processUploadedPdf() {
                         tag.textContent = f;
                         findingsContainer.appendChild(tag);
                     });
+                } else {
+                    findingsContainer.innerHTML = '<span style="font-size: 0.8rem; color: #64748b; font-style: italic;">No explicit diagnostic indication keywords detected.</span>';
                 }
+            }
+
+            // Render Verbatim Narrative Preview
+            const narrEl = document.getElementById("pdf-det-narrative");
+            if (narrEl) {
+                narrEl.textContent = det.narrative_excerpt || data.text_snippet || "No narrative text excerpt available.";
             }
 
             // Populate Hidden Form Fields so they persist on submission
@@ -770,6 +1010,15 @@ async function processUploadedPdf() {
             setHidden("key_findings_json", JSON.stringify(det.key_findings || []));
             setHidden("pdf_details_json", JSON.stringify(det));
 
+            // Save to draft
+            saveFormToDraft();
+
+            // Hide manual administrative card when PDF is uploaded so user only sees clean extracted preview
+            const adminCard = document.getElementById("intake-administrative-card");
+            if (adminCard) adminCard.style.display = "none";
+            const toggleBtn = document.getElementById("btn-toggle-manual-form");
+            if (toggleBtn) toggleBtn.textContent = "Review / Edit Form Fields Below \u2193";
+
             // Smooth scroll down to preview
             detailsCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
@@ -782,12 +1031,10 @@ async function processUploadedPdf() {
     } catch (err) {
         showPdfStatus("Extraction Error: " + err.message, "error");
         const adminCard = document.getElementById("intake-administrative-card");
-        if (adminCard) {
-            adminCard.style.display = "block";
-        }
+        if (adminCard) adminCard.style.display = "block";
         if (extractBtn) {
             extractBtn.disabled = false;
-            extractBtn.textContent = "Extract & Fill Form";
+            extractBtn.textContent = "Extract & Populate Form";
         }
     }
 }
@@ -811,23 +1058,12 @@ function toggleManualForm() {
     if (!adminCard) return;
     if (adminCard.style.display === "none") {
         adminCard.style.display = "block";
-        if (toggleBtn) toggleBtn.textContent = "Hide Administrative Form Fields";
+        if (toggleBtn) toggleBtn.textContent = "Hide Form Fields Below \u2191";
         adminCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
         adminCard.style.display = "none";
-        if (toggleBtn) toggleBtn.textContent = "Show / Edit Administrative Form Fields";
+        if (toggleBtn) toggleBtn.textContent = "Review / Edit Form Fields Below \u2193";
     }
-}
-
-function submitIntakeFromPdf() {
-    const form = document.getElementById("intake-form");
-    if (!form) return;
-    const pdfBypass = document.getElementById("pdf_bypass_check");
-    const formBypass = document.getElementById("bypass_documentation_check");
-    if (pdfBypass && formBypass) {
-        formBypass.checked = pdfBypass.checked;
-    }
-    form.submit();
 }
 </script>
 {% endblock %}

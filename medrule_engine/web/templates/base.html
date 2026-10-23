@@ -41,7 +41,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="footer">
+    <footer class="footer" style="display: none;">
         <p>MedRule Deterministic Decision Engine &bull; Phase 3C Human-in-the-Loop Clinical Governance Workflow</p>
         <p>Current Active Reviewer: <strong>{{ current_user.display_name }}</strong> &bull; Role: <span class="role-badge role-{{ current_user.role.value|lower }}">{{ current_user.role.value }}</span> &bull; Credentials: <em>{{ current_user.credentials }}</em></p>
     </footer>
