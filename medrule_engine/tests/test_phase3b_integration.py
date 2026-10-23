@@ -330,13 +330,13 @@ class TestPhase3BIntegration(unittest.TestCase):
         """Line of business 'OTHER' triggers MANUAL_REVIEW_REQUIRED and is not assumed commercial."""
         case_dict = {
             "case_id": "CASE-ROUT-01",
-            "clinical_domain": "sleep_health",
-            "procedure_code": "95810",
-            "procedure_name": "Polysomnography",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "74177",
+            "procedure_name": "CT Abdomen and Pelvis with contrast",
             "requested_date_of_service": "2026-04-25",
             "line_of_business": "OTHER",
             "payer_id": "EVOLENT",
-            "clinical_evidence": {"osa_high_pretest_probability": True}
+            "clinical_evidence": {"cg2000_indication": True}
         }
         assessment, audit = self.service.evaluate_case(case_dict)
         self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
@@ -493,6 +493,547 @@ class TestPhase3BIntegration(unittest.TestCase):
         with self.assertRaises(ValueError) as ctx:
             self.registry.register_rule(illegal_approved_rule)
         self.assertIn("cannot be registered with status 'APPROVED' before clinical review", str(ctx.exception))
+
+    # =========================================================================
+    # PART 5: Phase 6B CPT Routing Safety Regression Suite
+    # =========================================================================
+
+    def test_knee_mri_excludes_lumbar_rules(self):
+        """Knee MRI (73721) routes lower extremity MRI rules and strictly excludes lumbar rules."""
+        case_dict = {
+            "case_id": "CASE-PH6B-01-KNEE",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "73721",
+            "procedure_name": "MRI Lower Extremity Joint (Knee)",
+            "modality": "MRI",
+            "place_of_service": "OUTPATIENT_HOSPITAL",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {
+                "lumbar_radiculopathy_present": True,
+                "straight_leg_raise_positive": True
+            }
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        selected_rids = set(audit["routing_summary"]["applicable_rule_ids"])
+        
+        # Verify exact selected rules
+        expected_rids = {
+            "RULE-ADV-CG2035-001",
+            "RULE-ADV-CG2035-002",
+            "RULE-ADV-CG2035-003",
+            "RULE-ADV-PREAMBLE-001",
+            "RULE-ADV-CG2000-001",
+            "RULE-ADV-EPOS2067-001",
+            "RULE-ADV-EPOS2067-002",
+            "RULE-ADV-EPOS2067-003",
+            "RULE-ADV-EPOS2067-004",
+            "RULE-ADV-EPOS2067-005"
+        }
+        self.assertEqual(selected_rids, expected_rids)
+        self.assertEqual(len(selected_rids), 10)
+
+        # Lumbar rules must be completely excluded
+        for rid in selected_rids:
+            self.assertFalse(rid.startswith("RULE-ADV-CG2037"), f"Lumbar rule {rid} leaked into Knee MRI routing!")
+
+        # Evidence of lumbar radiculopathy does not meet Knee MRI criteria
+        for r_res in assessment.rule_results:
+            if r_res.rule.rule_id in ("RULE-ADV-CG2035-001", "RULE-ADV-CG2035-002", "RULE-ADV-CG2035-003"):
+                self.assertNotEqual(r_res.condition_result.status, EvaluationState.TRUE)
+
+    def test_lumbar_mri_routes_lumbar_rules(self):
+        """Lumbar MRI (72148) routes only lumbar spine MRI rules + preamble/EPOS."""
+        case_dict = {
+            "case_id": "CASE-PH6B-02-LUMBAR",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "72148",
+            "procedure_name": "MRI Lumbar Spine without contrast",
+            "modality": "MRI",
+            "place_of_service": "OUTPATIENT_HOSPITAL",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        selected_rids = set(audit["routing_summary"]["applicable_rule_ids"])
+        expected_rids = {
+            "RULE-ADV-CG2037-001",
+            "RULE-ADV-CG2037-002",
+            "RULE-ADV-PREAMBLE-001",
+            "RULE-ADV-CG2000-001",
+            "RULE-ADV-EPOS2067-001",
+            "RULE-ADV-EPOS2067-002",
+            "RULE-ADV-EPOS2067-003",
+            "RULE-ADV-EPOS2067-004",
+            "RULE-ADV-EPOS2067-005"
+        }
+        self.assertEqual(selected_rids, expected_rids)
+        self.assertEqual(len(selected_rids), 9)
+
+    def test_ct_abd_pelvis_routes_cg2000(self):
+        """CT Abdomen/Pelvis (74177) routes only CG 2000 rules + preamble/EPOS."""
+        case_dict = {
+            "case_id": "CASE-PH6B-03-CT-ABD",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "74177",
+            "procedure_name": "CT Abdomen and Pelvis with contrast",
+            "modality": "CT",
+            "place_of_service": "OUTPATIENT_HOSPITAL",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        selected_rids = set(audit["routing_summary"]["applicable_rule_ids"])
+        expected_procedure_rids = {
+            "RULE-ADV-CG2000-002", "RULE-ADV-CG2000-003", "RULE-ADV-CG2000-004",
+            "RULE-ADV-CG2000-005", "RULE-ADV-CG2000-006", "RULE-ADV-CG2000-007",
+            "RULE-ADV-CG2000-008", "RULE-ADV-CG2000-009", "RULE-ADV-CG2000-011",
+            "RULE-ADV-CG2000-012", "RULE-ADV-CG2000-013"
+        }
+        expected_shared_rids = {
+            "RULE-ADV-PREAMBLE-001", "RULE-ADV-CG2000-001",
+            "RULE-ADV-EPOS2067-001", "RULE-ADV-EPOS2067-002",
+            "RULE-ADV-EPOS2067-003", "RULE-ADV-EPOS2067-004", "RULE-ADV-EPOS2067-005"
+        }
+        self.assertEqual(selected_rids, expected_procedure_rids | expected_shared_rids)
+        self.assertEqual(len(selected_rids), 18)
+
+    def test_brain_mri_routes_cg2012(self):
+        """Brain MRI (70553) routes only CG 2012 rules + preamble/EPOS."""
+        case_dict = {
+            "case_id": "CASE-PH6B-04-BRAIN",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "70553",
+            "procedure_name": "MRI Brain with and without contrast",
+            "modality": "MRI",
+            "place_of_service": "OUTPATIENT_HOSPITAL",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        selected_rids = set(audit["routing_summary"]["applicable_rule_ids"])
+        expected_procedure_rids = {
+            "RULE-ADV-CG2012-001", "RULE-ADV-CG2012-002",
+            "RULE-ADV-CG2012-003", "RULE-ADV-CG2012-004"
+        }
+        expected_shared_rids = {
+            "RULE-ADV-PREAMBLE-001", "RULE-ADV-CG2000-001",
+            "RULE-ADV-EPOS2067-001", "RULE-ADV-EPOS2067-002",
+            "RULE-ADV-EPOS2067-003", "RULE-ADV-EPOS2067-004", "RULE-ADV-EPOS2067-005"
+        }
+        self.assertEqual(selected_rids, expected_procedure_rids | expected_shared_rids)
+        self.assertEqual(len(selected_rids), 11)
+
+    def test_ipm_epidural_routes_1750(self):
+        """IPM Epidural (62322 / 62323) routes only 1750 epidural rules + preamble/EPOS."""
+        for cpt in ("62322", "62323"):
+            case_dict = {
+                "case_id": f"CASE-PH6B-05-EPI-{cpt}",
+                "clinical_domain": "interventional_pain_management",
+                "procedure_code": cpt,
+                "procedure_name": "Lumbar Epidural Steroid Injection",
+                "place_of_service": "AMBULATORY_SURGICAL_CENTER",
+                "requested_date_of_service": "2026-04-15",
+                "line_of_business": "COMMERCIAL",
+                "payer_id": "EVOLENT",
+                "clinical_evidence": {}
+            }
+            assessment, audit = self.service.evaluate_case(case_dict)
+            self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+            selected_rids = set(audit["routing_summary"]["applicable_rule_ids"])
+            expected_rids = {
+                "RULE-IPM-CGEPIDURALINJECTIONS-001",
+                "RULE-IPM-CGEPIDURALINJECTIONS-002",
+                "RULE-IPM-CGEPIDURALPUMPTRIALS-001",
+                "RULE-IPM-PREAMBLEIPM-001",
+                "RULE-IPM-EPOS1755-001",
+                "RULE-IPM-EPOS1755-002"
+            }
+            self.assertEqual(selected_rids, expected_rids)
+            self.assertEqual(len(selected_rids), 6)
+
+    def test_ipm_facet_routes_1751(self):
+        """IPM Facet Blocks (64490) routes only 1751 facet rule + preamble/EPOS."""
+        case_dict = {
+            "case_id": "CASE-PH6B-06-FACET",
+            "clinical_domain": "interventional_pain_management",
+            "procedure_code": "64490",
+            "procedure_name": "Cervical/Thoracic Facet Joint Injection",
+            "place_of_service": "OFFICE",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        selected_rids = set(audit["routing_summary"]["applicable_rule_ids"])
+        expected_rids = {
+            "RULE-IPM-CGFACETBLOCKS-001",
+            "RULE-IPM-PREAMBLEIPM-001",
+            "RULE-IPM-EPOS1755-001",
+            "RULE-IPM-EPOS1755-002"
+        }
+        self.assertEqual(selected_rids, expected_rids)
+        self.assertEqual(len(selected_rids), 4)
+
+    def test_ipm_stimulator_routes_1757(self):
+        """IPM Spinal Cord Stimulator (63650) routes only 1757 stimulator rules + preamble/EPOS."""
+        case_dict = {
+            "case_id": "CASE-PH6B-07-STIM",
+            "clinical_domain": "interventional_pain_management",
+            "procedure_code": "63650",
+            "procedure_name": "Percutaneous Implantation of Neurostimulator Electrode Array",
+            "place_of_service": "OUTPATIENT_HOSPITAL",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        selected_rids = set(audit["routing_summary"]["applicable_rule_ids"])
+        expected_rids = {
+            "RULE-IPM-CGSPINALCORDSTIM-001",
+            "RULE-IPM-CGSPINALCORDSTIM-002",
+            "RULE-IPM-PREAMBLEIPM-001",
+            "RULE-IPM-EPOS1755-001",
+            "RULE-IPM-EPOS1755-002"
+        }
+        self.assertEqual(selected_rids, expected_rids)
+        self.assertEqual(len(selected_rids), 5)
+
+    def test_unsupported_cpt_rhinoplasty(self):
+        """Unsupported surgical CPT (30410 Rhinoplasty) yields POLICY_NOT_APPLICABLE and 0 rules."""
+        case_dict = {
+            "case_id": "CASE-PH6B-08-RHINO",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "30410",
+            "procedure_name": "Rhinoplasty primary",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.POLICY_NOT_APPLICABLE)
+        self.assertEqual(len(audit["routing_summary"]["applicable_rule_ids"]), 0)
+        self.assertEqual(len(assessment.rule_results), 0)
+        self.assertIn("Surgical procedure code '30410' is outside advanced_imaging clinical scope", audit["routing_summary"]["routing_notes"][0])
+
+    def test_unsupported_cpt_office_visit_ai(self):
+        """Unsupported E/M CPT (99213) in Advanced Imaging yields POLICY_NOT_APPLICABLE and 0 rules."""
+        case_dict = {
+            "case_id": "CASE-PH6B-09-OV-AI",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "99213",
+            "procedure_name": "Office/outpatient visit",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.POLICY_NOT_APPLICABLE)
+        self.assertEqual(len(audit["routing_summary"]["applicable_rule_ids"]), 0)
+        self.assertEqual(len(assessment.rule_results), 0)
+        self.assertIn("not supported under active advanced_imaging clinical policies", audit["routing_summary"]["routing_notes"][0])
+
+    def test_unsupported_cpt_office_visit_ipm(self):
+        """Unsupported E/M CPT (99213) in IPM yields POLICY_NOT_APPLICABLE and 0 rules."""
+        case_dict = {
+            "case_id": "CASE-PH6B-10-OV-IPM",
+            "clinical_domain": "interventional_pain_management",
+            "procedure_code": "99213",
+            "procedure_name": "Office/outpatient visit",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.POLICY_NOT_APPLICABLE)
+        self.assertEqual(len(audit["routing_summary"]["applicable_rule_ids"]), 0)
+        self.assertEqual(len(assessment.rule_results), 0)
+        self.assertIn("not supported under active interventional_pain_management clinical policies", audit["routing_summary"]["routing_notes"][0])
+
+    def test_fictitious_cpt_99999(self):
+        """Fictitious CPT (99999) yields POLICY_NOT_APPLICABLE without fallback to domain rules."""
+        case_dict = {
+            "case_id": "CASE-PH6B-11-FICTITIOUS",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "99999",
+            "procedure_name": "Unlisted Diagnostic Procedure",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.POLICY_NOT_APPLICABLE)
+        self.assertEqual(len(audit["routing_summary"]["applicable_rule_ids"]), 0)
+        self.assertEqual(len(assessment.rule_results), 0)
+        self.assertIn("not supported under active advanced_imaging clinical policies", audit["routing_summary"]["routing_notes"][0])
+
+    def test_whitespace_cpt_rejected(self):
+        """Whitespace-only CPT ('   ') fails schema validation with EVALUATION_ERROR."""
+        case_dict = {
+            "case_id": "CASE-PH6B-12-WHITESPACE",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "   ",
+            "procedure_name": "Lumbar Spine MRI",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.EVALUATION_ERROR)
+        self.assertIn("Case validation rejected", assessment.summary_explanation)
+
+    def test_suffixed_cpt_rejected(self):
+        """Suffixed CPT ('72148-XYZ') fails schema validation with EVALUATION_ERROR."""
+        case_dict = {
+            "case_id": "CASE-PH6B-13-SUFFIXED",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "72148-XYZ",
+            "procedure_name": "Lumbar Spine MRI",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.EVALUATION_ERROR)
+        self.assertIn("Case validation rejected", assessment.summary_explanation)
+
+    def test_malformed_chars_rejected(self):
+        """CPT with punctuation ('!@#$%') fails schema validation with EVALUATION_ERROR."""
+        case_dict = {
+            "case_id": "CASE-PH6B-14-MALFORMED",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "!@#$%",
+            "procedure_name": "Lumbar Spine MRI",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.EVALUATION_ERROR)
+        self.assertIn("Case validation rejected", assessment.summary_explanation)
+
+    def test_cardiology_in_ai_rejected(self):
+        """Cardiology CPT (93458) in Advanced Imaging yields POLICY_NOT_APPLICABLE via symmetric guard."""
+        case_dict = {
+            "case_id": "CASE-PH6B-15-CARDIO-AI",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "93458",
+            "procedure_name": "Coronary Angiogram",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.POLICY_NOT_APPLICABLE)
+        self.assertEqual(len(audit["routing_summary"]["applicable_rule_ids"]), 0)
+        self.assertEqual(len(assessment.rule_results), 0)
+        self.assertIn("Cardiology procedure code '93458' is outside advanced_imaging clinical scope", audit["routing_summary"]["routing_notes"][0])
+
+    def test_radiology_in_ipm_rejected(self):
+        """Radiology CPT (72148) in IPM yields POLICY_NOT_APPLICABLE via symmetric guard."""
+        case_dict = {
+            "case_id": "CASE-PH6B-16-RAD-IPM",
+            "clinical_domain": "interventional_pain_management",
+            "procedure_code": "72148",
+            "procedure_name": "Lumbar Spine MRI",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.POLICY_NOT_APPLICABLE)
+        self.assertEqual(len(audit["routing_summary"]["applicable_rule_ids"]), 0)
+        self.assertEqual(len(assessment.rule_results), 0)
+        self.assertIn("Diagnostic radiology procedure code '72148' is outside interventional_pain_management clinical scope", audit["routing_summary"]["routing_notes"][0])
+
+    def test_ipm_in_ai_rejected(self):
+        """IPM CPT (62323) in Advanced Imaging yields POLICY_NOT_APPLICABLE via symmetric guard."""
+        case_dict = {
+            "case_id": "CASE-PH6B-17-IPM-AI",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "62323",
+            "procedure_name": "Lumbar Epidural Injection with Fluoroscopy",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.POLICY_NOT_APPLICABLE)
+        self.assertEqual(len(audit["routing_summary"]["applicable_rule_ids"]), 0)
+        self.assertEqual(len(assessment.rule_results), 0)
+        self.assertIn("Interventional pain procedure code '62323' is outside advanced_imaging clinical scope", audit["routing_summary"]["routing_notes"][0])
+
+    def test_ortho_in_ipm_rejected(self):
+        """Non-pain orthopedic surgery (27447 Knee Replacement) in IPM yields POLICY_NOT_APPLICABLE."""
+        case_dict = {
+            "case_id": "CASE-PH6B-18-ORTHO-IPM",
+            "clinical_domain": "interventional_pain_management",
+            "procedure_code": "27447",
+            "procedure_name": "Total Knee Arthroplasty",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        assessment, audit = self.service.evaluate_case(case_dict)
+        self.assertEqual(assessment.assessment_status, CaseAssessmentStatus.POLICY_NOT_APPLICABLE)
+        self.assertEqual(len(audit["routing_summary"]["applicable_rule_ids"]), 0)
+        self.assertEqual(len(assessment.rule_results), 0)
+        self.assertIn("Non-pain surgical procedure code '27447' is outside interventional_pain_management clinical scope", audit["routing_summary"]["routing_notes"][0])
+
+    def test_documented_exceptions_category_iii_and_hcpcs(self):
+        """Preserve documented exceptions: CPT 27096, Category III (0042T, 0213T), HCPCS (S8042, G0260)."""
+        # CPT 27096 in IPM (Sacroiliac Joint Injection) - in surgical range 10000-59999 but explicitly supported
+        case_27096 = {
+            "case_id": "CASE-EXCEPT-27096",
+            "clinical_domain": "interventional_pain_management",
+            "procedure_code": "27096",
+            "procedure_name": "Sacroiliac Joint Injection",
+            "place_of_service": "OFFICE",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        a_27096, aud_27096 = self.service.evaluate_case(case_27096)
+        self.assertEqual(a_27096.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        rids_27096 = set(aud_27096["routing_summary"]["applicable_rule_ids"])
+        self.assertIn("RULE-IPM-CGSIINJECTIONS-001", rids_27096)
+        self.assertIn("RULE-IPM-PREAMBLEIPM-001", rids_27096)
+
+        # HCPCS G0260 in IPM
+        case_g0260 = {
+            "case_id": "CASE-EXCEPT-G0260",
+            "clinical_domain": "interventional_pain_management",
+            "procedure_code": "G0260",
+            "procedure_name": "Sacroiliac Joint Injection under Fluoroscopy",
+            "place_of_service": "OFFICE",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        a_g0260, aud_g0260 = self.service.evaluate_case(case_g0260)
+        self.assertEqual(a_g0260.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        rids_g0260 = set(aud_g0260["routing_summary"]["applicable_rule_ids"])
+        self.assertIn("RULE-IPM-CGSIINJECTIONS-001", rids_g0260)
+
+        # Category III 0042T in AI (CT Cerebral Perfusion)
+        case_0042t = {
+            "case_id": "CASE-EXCEPT-0042T",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "0042T",
+            "procedure_name": "CT Cerebral Perfusion Analysis",
+            "place_of_service": "OFFICE",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        a_0042t, aud_0042t = self.service.evaluate_case(case_0042t)
+        self.assertEqual(a_0042t.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        rids_0042t = set(aud_0042t["routing_summary"]["applicable_rule_ids"])
+        self.assertIn("RULE-ADV-CG2015-001", rids_0042t)
+
+        # Category III 0213T in IPM (Facet Block)
+        case_0213t = {
+            "case_id": "CASE-EXCEPT-0213T",
+            "clinical_domain": "interventional_pain_management",
+            "procedure_code": "0213T",
+            "procedure_name": "Cervical Facet Injection with Fluoroscopy",
+            "place_of_service": "OFFICE",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        a_0213t, aud_0213t = self.service.evaluate_case(case_0213t)
+        self.assertEqual(a_0213t.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        rids_0213t = set(aud_0213t["routing_summary"]["applicable_rule_ids"])
+        self.assertIn("RULE-IPM-CGFACETBLOCKS-001", rids_0213t)
+
+        # HCPCS S8042 in AI (Low Field MRI)
+        case_s8042 = {
+            "case_id": "CASE-EXCEPT-S8042",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "S8042",
+            "procedure_name": "Low-Field Magnetic Resonance Imaging",
+            "place_of_service": "OFFICE",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        a_s8042, aud_s8042 = self.service.evaluate_case(case_s8042)
+        self.assertEqual(a_s8042.assessment_status, CaseAssessmentStatus.MANUAL_REVIEW_REQUIRED)
+        rids_s8042 = set(aud_s8042["routing_summary"]["applicable_rule_ids"])
+        self.assertIn("RULE-ADV-CG2031-001", rids_s8042)
+
+    def test_preamble_pos_and_retrospective_review_applicability(self):
+        """Preamble, POS, and retrospective review rules attach only when documented conditions are met."""
+        # 1. POS omitted: POS rules are NOT attached
+        case_no_pos = {
+            "case_id": "CASE-PH6B-NO-POS",
+            "clinical_domain": "advanced_imaging",
+            "procedure_code": "72148",
+            "procedure_name": "Lumbar Spine MRI",
+            "requested_date_of_service": "2026-04-15",
+            "line_of_business": "COMMERCIAL",
+            "payer_id": "EVOLENT",
+            "clinical_evidence": {}
+        }
+        _, aud_no_pos = self.service.evaluate_case(case_no_pos)
+        rids_no_pos = set(aud_no_pos["routing_summary"]["applicable_rule_ids"])
+        # Only procedure rules + preamble rules = 4 rules (no EPOS2067)
+        self.assertEqual(rids_no_pos, {
+            "RULE-ADV-CG2037-001", "RULE-ADV-CG2037-002",
+            "RULE-ADV-PREAMBLE-001", "RULE-ADV-CG2000-001"
+        })
+        self.assertEqual(len(rids_no_pos), 4)
+
+        # 2. POS specified: POS rules ARE attached
+        case_with_pos = {**case_no_pos, "place_of_service": "OUTPATIENT_HOSPITAL"}
+        _, aud_with_pos = self.service.evaluate_case(case_with_pos)
+        rids_with_pos = set(aud_with_pos["routing_summary"]["applicable_rule_ids"])
+        self.assertTrue(rids_with_pos.issuperset({
+            "RULE-ADV-EPOS2067-001", "RULE-ADV-EPOS2067-002", "RULE-ADV-EPOS2067-003",
+            "RULE-ADV-EPOS2067-004", "RULE-ADV-EPOS2067-005"
+        }))
+        self.assertEqual(len(rids_with_pos), 9)
+
+        # 3. Retrospective review context: Retrospective review rules ARE attached
+        retro_ctx = {"is_retrospective": True}
+        _, aud_retro = self.service.evaluate_case(case_no_pos, policy_context=retro_ctx)
+        rids_retro = set(aud_retro["routing_summary"]["applicable_rule_ids"])
+        self.assertIn("RULE-ADV-CG2066-001", rids_retro)
+        self.assertIn("RULE-ADV-CG2066-002", rids_retro)
+        self.assertEqual(len(rids_retro), 6)  # 2 proc + 2 preamble + 2 retro = 6 rules
+
 
 
 if __name__ == "__main__":

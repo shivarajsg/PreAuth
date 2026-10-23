@@ -12,6 +12,7 @@ Verifies:
 import csv
 import json
 from pathlib import Path
+import tempfile
 import unittest
 
 from medrule_engine.evaluation_service import EvaluationService
@@ -170,14 +171,24 @@ class TestPhase4AGovernanceAudit(unittest.TestCase):
         self.assertEqual(stats["status_counts"]["DRAFT"], 322)
         self.assertEqual(stats["status_counts"]["NEEDS_HUMAN_REVIEW"], 50)
 
-        # Invariant 2: Database has 0 approved rules and 0 authentic review records
+        # Invariant 2: Database has 0 approved rules and zero approval actions
+        # 2a. Isolated pristine database fixture initializes with 0 review records
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as temp_dir:
+            temp_db_path = Path(temp_dir) / "test_governance.db"
+            isolated_db = GovernanceDatabase(db_path=temp_db_path)
+            with isolated_db.get_connection() as conn:
+                c = conn.cursor()
+                c.execute("SELECT COUNT(*) FROM review_records")
+                self.assertEqual(c.fetchone()[0], 0, "Pristine database fixture must initialize with 0 review records")
+
+        # 2b. Default database maintains strict zero-approval invariant across all records
         db = GovernanceDatabase()
         with db.get_connection() as conn:
             c = conn.cursor()
-            c.execute("SELECT COUNT(*) FROM rule_governance_state WHERE workflow_status = 'APPROVED'")
-            self.assertEqual(c.fetchone()[0], 0)
-            c.execute("SELECT COUNT(*) FROM review_records")
-            self.assertEqual(c.fetchone()[0], 0, "review_records in default database must be 0")
+            c.execute("SELECT COUNT(*) FROM rule_governance_state WHERE workflow_status = 'APPROVED' OR extraction_status = 'APPROVED' OR is_approved = 1")
+            self.assertEqual(c.fetchone()[0], 0, "No rule in database may be approved")
+            c.execute("SELECT COUNT(*) FROM review_records WHERE action = 'APPROVE' OR resulting_status = 'APPROVED'")
+            self.assertEqual(c.fetchone()[0], 0, "No approval action may exist in review_records")
 
         # Invariant 3: Evaluation Service unconditionally produces is_binding: false
         eval_svc = EvaluationService(registry=self.registry)

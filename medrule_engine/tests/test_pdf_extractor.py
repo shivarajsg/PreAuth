@@ -5,7 +5,13 @@ import json
 import pymupdf as fitz
 import pytest
 
-from medrule_engine.integrations.pdf_extractor import extract_case_from_pdf
+from medrule_engine.case_validator import CaseIntake
+from medrule_engine.condition_evaluator import ConditionEvaluator, CriterionState, EvidenceState
+from medrule_engine.integrations.pdf_extractor import (
+    _detect_provider_name_and_provenance,
+    extract_case_from_pdf,
+    extract_clinical_facts_from_text,
+)
 from medrule_engine.web.app import create_app
 
 
@@ -119,7 +125,8 @@ def test_extract_and_evaluate_dr_yu_lumbar_mri_note():
     sample_text = (
         "PRE-CERTIFICATION CLINICAL PROGRESS NOTE\n"
         "Provider: Dr. Yu, MD | Specialty: Spine & Orthopedics\n"
-        "Date of Service: 2025-02-26\n"
+        "State Medical License: Active Verified\n"
+        "Date of Service: 2026-02-26\n"
         "Patient: John Smith | Coverage: Commercial PPO Centene Ambetter\n"
         "Diagnosis: Muscle spasm of back (M62.838) with lumbosacral radiculopathy.\n"
         "Clinical Summary:\n"
@@ -234,13 +241,190 @@ def test_intake_form_submission_renders_full_pdf_details():
     assert "POLICY_CONTEXT_UNRESOLVED" not in html
     assert "Clinical Evaluation Pending" not in html
 
-    # Verify PDF details card rendered on evaluation report
-    assert "CLINICAL DOCUMENTATION &amp; PDF SOURCE EVIDENCE" in html
-    assert "DrYuNotesForMRIPre-certificationA.pdf" in html
-    assert "Dr. Yu, MD" in html
-    assert "M62.838" in html
-    assert "MRI Lumbar Spine without contrast" in html
-    assert "Prior conservative therapy completed (6 weeks)" in html
-    assert "Patient has severe radiating back pain for 8 weeks" in html
+    # Verify clean documentation review table rendered on evaluation report without redundant card
+    assert "Clinical Documentation Review" in html
+    assert "CLINICAL DOCUMENTATION &amp; PDF SOURCE EVIDENCE" not in html
+    assert "PT-DR-YU-88219" in html
+    assert "CENTENE" in html
+    assert "72148" in html
+
+
+def test_extract_case_from_actual_synthetic_pdf():
+    """Verify end-to-end extraction accuracy on the repository's synthetic Lumbar MRI PDF."""
+    pdf_path = "Test_Case_Policy_Resolved_Lumbar_MRI.pdf"
+    with open(pdf_path, "rb") as f:
+        pdf_bytes = f.read()
+
+    res = extract_case_from_pdf(pdf_bytes, filename="Test_Case_Policy_Resolved_Lumbar_MRI.pdf")
+    assert res["status"] == "SUCCESS"
+    assert res["pages_analyzed"] == 1
+
+    fields = res["extracted_fields"]
+    ev = fields["evidence"]
+    prov = fields["evidence_provenance"]
+
+    # Defect 1: Provider name extraction
+    assert ev["ordering_provider_name"] == "Dr. Yu, MD"
+    assert ev["ordering_provider_license"] is True
+    assert "Dr. Yu, MD" in prov["ordering_provider_name"]["snippet"]
+    assert res["details"]["ordering_provider"] == "Dr. Yu, MD"
+
+    # Defect 2: Negation scope
+    assert ev["suspected_cauda_equina_syndrome"] is False
+    assert not isinstance(ev["suspected_cauda_equina_syndrome"], dict)
+
+    # Defect 3: Conservative-care structure
+    assert isinstance(ev["prior_conservative_care_modalities"], list)
+    assert ev["prior_conservative_care_modalities"] == ["Physical Therapy", "Oral NSAIDs", "Activity Modification"]
+    assert ev["conservative_therapy_duration_weeks"] == 6
+    assert ev["conservative_care_completed"] is True
+
+    # Defect 4: Structured clinical findings
+    assert ev["symptom_duration_weeks"] == 8
+    assert ev["symptom_duration_documented"] is True
+    assert ev["straight_leg_raise_positive"] is True
+    assert ev["straight_leg_raise_angle_degrees"] == 40
+    assert ev["straight_leg_raise_side"] == "RIGHT"
+    assert ev["radiculopathy_dermatome"] == "L5"
+    assert ev["sensory_deficit_documented"] is True
+    assert ev["sensory_deficit_present"] is True
+    assert ev["functional_limitation_documented"] is True
+
+    # Safeguard: Missing documentation remains unasserted/absent, NOT converted to negative facts
+    assert "prior_xray_completed" not in ev
+    assert "weight_bearing_radiographs_completed" not in ev
+    assert "prior_epidural_injection" not in ev
+
+
+def test_provider_name_extraction_formats_and_edge_cases():
+    """Verify provider name extraction across diverse clinician note formats and edge cases."""
+    cases = [
+        ("Attending Physician: Dr. Yu, MD        Specialty: Spine & Orthopedics", "Dr. Yu, MD"),
+        ("Ordering Provider: Dr. Jane Doe, DO\nFacility: Metro Clinic", "Dr. Jane Doe, DO"),
+        ("Attending: Dr. Alan Grant, MD", "Dr. Alan Grant, MD"),
+        ("Provider: Dr. Robert Taylor, MD", "Dr. Robert Taylor, MD"),
+        ("Physician: Dr. Michael Vance, MD", "Dr. Michael Vance, MD"),
+        ("Doctor: Dr. Sarah O'Connor, MD", "Dr. Sarah O'Connor, MD"),
+        ("Attending Physician: Yu, MD", "Dr. Yu, MD"),
+        ("Attending Doctor: Jane Smith, MD", "Dr. Jane Smith, MD"),
+        ("Dr. Yu, MD - Attending Spine & Orthopedic Specialist", "Dr. Yu, MD"),
+        ("CLINICAL NOTE\nDr. Alice B. Smith, MD\nPatient presented today...", "Dr. Alice B. Smith, MD"),
+        ("Attending Physician\nFacility: Metro Clinic", None),  # Header label without doctor name
+        ("Ordering Physician:\nFacility: Metro Clinic", None),  # Empty label with newline
+        ("Specialty: Spine & Orthopedics", None)  # No provider mentioned
+    ]
+    for text_sample, expected in cases:
+        name, snippet = _detect_provider_name_and_provenance(text_sample)
+        assert name == expected, f"Failed on input {text_sample!r}: expected {expected}, got {name}"
+
+
+def test_negation_scope_and_genuine_conflict_differentiation():
+    """Verify negation handling for red flags, positive detection, and genuine contradiction."""
+    # 1. Negative evidence
+    neg_note = (
+        "RED FLAGS ASSESSMENT\n"
+        "Negative for acute cauda equina syndrome. No evidence of bowel or bladder incontinence.\n"
+        "No progressive focal motor weakness or saddle anesthesia.\n"
+        "Procedure: MRI Lumbar Spine (CPT 72148)\n"
+    )
+    neg_res = extract_clinical_facts_from_text(neg_note)
+    assert neg_res["evidence"]["suspected_cauda_equina_syndrome"] is False
+
+    # 2. Positive evidence
+    pos_note = (
+        "RED FLAGS ASSESSMENT\n"
+        "Emergency examination reveals acute urinary retention and saddle numbness.\n"
+        "Suspected acute cauda equina syndrome.\n"
+        "Procedure: MRI Lumbar Spine (CPT 72148)\n"
+    )
+    pos_res = extract_clinical_facts_from_text(pos_note)
+    assert pos_res["evidence"]["suspected_cauda_equina_syndrome"] is True
+
+    # 3. Genuine contradiction
+    conflict_note = (
+        "CLINICAL SUMMARY\n"
+        "Review of Systems: Denies cauda equina symptoms and denies bowel or bladder incontinence.\n"
+        "Physical Exam: Patient has acute urinary retention and saddle anesthesia concerning for cauda equina.\n"
+        "Procedure: MRI Lumbar Spine (CPT 72148)\n"
+    )
+    conflict_res = extract_clinical_facts_from_text(conflict_note)
+    ce_fact = conflict_res["evidence"]["suspected_cauda_equina_syndrome"]
+    assert isinstance(ce_fact, dict)
+    assert ce_fact["status"] == "CONFLICTING"
+    assert False in ce_fact["values"] and True in ce_fact["values"]
+
+    # 4. Ambiguous / indeterminate finding
+    ambig_note = (
+        "CLINICAL SUMMARY\n"
+        "Neurological Exam: Indeterminate cauda equina syndrome findings with equivocal perineal sensation.\n"
+        "Procedure: MRI Lumbar Spine (CPT 72148)\n"
+    )
+    ambig_res = extract_clinical_facts_from_text(ambig_note)
+    ce_ambig = ambig_res["evidence"]["suspected_cauda_equina_syndrome"]
+    assert isinstance(ce_ambig, dict)
+    assert ce_ambig["status"] == "AMBIGUOUS"
+
+
+def test_conservative_modalities_additive_aggregation_and_conflict():
+    """Verify additive aggregation of compatible modalities and detection of genuine therapy conflicts."""
+    # 1. Additive multi-sentence modalities
+    multi_mod_note = (
+        "TREATMENT SUMMARY\n"
+        "Patient has completed 6 weeks of structured physical therapy.\n"
+        "Concurrent oral NSAID therapy (Meloxicam 15 mg) and activity modification were maintained.\n"
+        "Physical therapy progress notes reviewed.\n"
+        "Procedure: MRI Lumbar Spine (CPT 72148)\n"
+    )
+    facts = extract_clinical_facts_from_text(multi_mod_note)
+    mods = facts["evidence"]["prior_conservative_care_modalities"]
+    assert isinstance(mods, list)
+    assert "Physical Therapy" in mods
+    assert "Oral NSAIDs" in mods
+    assert "Activity Modification" in mods
+    assert len(mods) == 3
+
+    # 2. Genuine contradiction on completion
+    conflict_mod_note = (
+        "TREATMENT SUMMARY\n"
+        "Patient completed 6 weeks of structured physical therapy.\n"
+        "Patient denies completing physical therapy and had zero conservative treatment sessions.\n"
+        "Procedure: MRI Lumbar Spine (CPT 72148)\n"
+    )
+    facts_conflict = extract_clinical_facts_from_text(conflict_mod_note)
+    comp_fact = facts_conflict["evidence"]["conservative_care_completed"]
+    assert isinstance(comp_fact, dict)
+    assert comp_fact["status"] == "CONFLICTING"
+
+
+def test_missing_evidence_preserves_insufficient_data():
+    """Verify that unasserted evidence remains INSUFFICIENT_DATA and never becomes false/NOT_MET."""
+    evaluator = ConditionEvaluator()
+    rule_conditions = {
+        "operator": "ALL_OF",
+        "criteria": [
+            {
+                "condition_id": "cond_xray",
+                "parameter": "prior_xray_completed",
+                "comparator": "EQUALS",
+                "value": True
+            }
+        ]
+    }
+    # Case with no X-ray mentioned
+    case = CaseIntake(
+        case_id="CASE-NO-XRAY-01",
+        clinical_domain="advanced_imaging",
+        procedure_code="72148",
+        procedure_name="MRI Lumbar Spine",
+        requested_date_of_service="2026-03-01",
+        line_of_business="COMMERCIAL",
+        payer_id="CENTENE",
+        clinical_evidence={"lumbar_radiculopathy_present": True}
+    )
+    res = evaluator.evaluate(rule_conditions, case)
+    assert res.criteria_results[0].criterion_state == CriterionState.INSUFFICIENT_DATA
+    assert res.criteria_results[0].evidence_state == EvidenceState.MISSING
+    assert res.criteria_results[0].criterion_state != CriterionState.NOT_MET
+
 
 

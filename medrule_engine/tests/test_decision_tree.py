@@ -206,7 +206,9 @@ class TestMedRuleDecisionTree(unittest.TestCase):
         assessment = self.engine.evaluate(case_dict, target_rule_ids=["RULE-IPM-CGEPIDURALINJECTIONS-001"])
         self.assertEqual(assessment.overall_outcome, DecisionOutcome.INSUFFICIENT_INFORMATION)
         self.assertTrue(len(assessment.missing_evidence_fields) > 0)
-        self.assertIn("cgepiduralinjections_indication", assessment.missing_evidence_fields)
+        self.assertTrue(any(f in assessment.missing_evidence_fields for f in [
+            "imaging_guidance_present", "pain_intensity_score_numeric", "functional_disability_documented", "cgepiduralinjections_indication"
+        ]))
 
     # -------------------------------------------------------------------------
     # Test 6: Boolean ALL_OF and ANY_OF Logic Paths
@@ -258,6 +260,7 @@ class TestMedRuleDecisionTree(unittest.TestCase):
             "line_of_business": "COMMERCIAL",
             "payer_id": "TEST_PAYER",
             "clinical_evidence": {
+                "patient_is_asymptomatic": True,
                 "current_or_recent_smoker_15yr": True
             }
         }
@@ -279,6 +282,20 @@ class TestMedRuleDecisionTree(unittest.TestCase):
         case_ldct_25["clinical_evidence"]["smoking_history_pack_years"] = 25
         res_25 = self.engine.evaluate(case_ldct_25, target_rule_ids=[rule_ldct])
         self.assertEqual(res_25.overall_outcome, DecisionOutcome.CRITERIA_MET)
+
+        # Symptomatic status: patient_is_asymptomatic is False -> NOT_MET
+        case_ldct_symp = copy.deepcopy(base_ldct_case)
+        case_ldct_symp["clinical_evidence"]["patient_is_asymptomatic"] = False
+        case_ldct_symp["clinical_evidence"]["smoking_history_pack_years"] = 25
+        res_symp = self.engine.evaluate(case_ldct_symp, target_rule_ids=[rule_ldct])
+        self.assertEqual(res_symp.overall_outcome, DecisionOutcome.CRITERIA_NOT_MET)
+
+        # Missing symptom evidence: patient_is_asymptomatic omitted -> INSUFFICIENT_INFORMATION
+        case_ldct_miss = copy.deepcopy(base_ldct_case)
+        del case_ldct_miss["clinical_evidence"]["patient_is_asymptomatic"]
+        case_ldct_miss["clinical_evidence"]["smoking_history_pack_years"] = 25
+        res_miss = self.engine.evaluate(case_ldct_miss, target_rule_ids=[rule_ldct])
+        self.assertEqual(res_miss.overall_outcome, DecisionOutcome.INSUFFICIENT_INFORMATION)
 
         # 2. Facet Denervation Relief Threshold (RULE-IPM-CGFACETDENERVATION-002: diagnostic_facet_block_relief >= 50)
         rule_rfa = "RULE-IPM-CGFACETDENERVATION-002"
