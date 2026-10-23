@@ -222,6 +222,12 @@
     "place_of_service": "AMBULATORY_SURGICAL_CENTER",
     "primary_diagnosis_code": "M54.16",
     "clinical_evidence": {
+      "radicular_symptoms_present": true,
+      "pain_duration_months": 2.0,
+      "conservative_therapy_duration_weeks": 8,
+      "pain_intensity_score_numeric": 7,
+      "functional_disability_documented": true,
+      "imaging_guidance_present": true,
       "cgepiduralinjections_indication": true
     },
     "notes": "TFESI criteria met: Severe radicular pain (7/10), MRI-confirmed nerve root compression, 8 weeks conservative care."
@@ -239,6 +245,16 @@
     "place_of_service": "AMBULATORY_SURGICAL_CENTER",
     "primary_diagnosis_code": "M54.16",
     "clinical_evidence": {
+      "radicular_symptoms_present": false,
+      "pain_duration_months": 2.0,
+      "conservative_therapy_duration_weeks": 0,
+      "pain_intensity_score_numeric": 0,
+      "functional_disability_documented": false,
+      "spinal_stenosis_confirmed": false,
+      "fbss_or_epidural_fibrosis_confirmed": false,
+      "preoperative_evaluation_and_surgical_plan_documented": false,
+      "conservative_therapy_exception_documented": false,
+      "imaging_guidance_present": true,
       "cgepiduralinjections_indication": false
     },
     "notes": "Numerical zero pain score (0.0 < 4.0 threshold) and absent radicular findings -> CRITERIA_NOT_MET."

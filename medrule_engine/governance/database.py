@@ -32,6 +32,8 @@ DEFAULT_DB_PATH = DEFAULT_DB_DIR / "governance.db"
 class GovernanceDatabase:
     """Persistent SQLite database manager for MedRule governance workflow."""
 
+    ACTIVE_CLINICAL_DOMAINS: Tuple[str, ...] = ("advanced_imaging", "interventional_pain_management")
+
     def __init__(self, db_path: Optional[Union[Path, str]] = None):
         if db_path is not None:
             self.db_path = Path(db_path) if str(db_path) != ":memory:" else db_path
@@ -426,10 +428,22 @@ class GovernanceDatabase:
                 return None
             return dict(row)
 
-    def get_all_governance_states(self) -> Dict[str, Dict[str, Any]]:
-        """Fetch governance state for all rules indexed by rule_id."""
+    def get_all_governance_states(self, active_only: bool = False) -> Dict[str, Dict[str, Any]]:
+        """Fetch governance state for rules indexed by rule_id.
+        
+        Args:
+            active_only: If True, filters strictly to active clinical domains.
+                         Defaults to False for backward compatibility.
+        """
         with self.get_connection() as conn:
-            rows = conn.execute("SELECT * FROM rule_governance_state").fetchall()
+            if active_only:
+                placeholders = ",".join("?" for _ in self.ACTIVE_CLINICAL_DOMAINS)
+                rows = conn.execute(
+                    f"SELECT * FROM rule_governance_state WHERE domain IN ({placeholders})",
+                    self.ACTIVE_CLINICAL_DOMAINS
+                ).fetchall()
+            else:
+                rows = conn.execute("SELECT * FROM rule_governance_state").fetchall()
             return {r["rule_id"]: dict(r) for r in rows}
 
     def record_review_action(
@@ -713,48 +727,83 @@ class GovernanceDatabase:
                 """, (limit,)).fetchall()
             return [dict(r) for r in rows]
 
-    def get_dashboard_metrics(self) -> Dict[str, Any]:
-        """Compute live governance metrics from actual database records."""
+    def get_dashboard_metrics(self, active_only: bool = False) -> Dict[str, Any]:
+        """Compute live governance metrics from actual database records.
+        
+        Args:
+            active_only: If True, filters rule counts and statuses strictly to the active
+                         governing clinical domains ('advanced_imaging', 'interventional_pain_management').
+                         Defaults to False for 100% backward compatibility with existing callers.
+        """
         with self.get_connection() as conn:
-            total_rules = conn.execute("SELECT COUNT(*) FROM rule_governance_state").fetchone()[0]
+            where_clause = ""
+            domain_params: Tuple[Any, ...] = ()
+            if active_only:
+                placeholders = ",".join("?" for _ in self.ACTIVE_CLINICAL_DOMAINS)
+                where_clause = f" WHERE domain IN ({placeholders})"
+                domain_params = self.ACTIVE_CLINICAL_DOMAINS
+
+            total_rules = conn.execute(f"SELECT COUNT(*) FROM rule_governance_state{where_clause}", domain_params).fetchone()[0]
             
             # Workflow statuses
             wf_counts = {}
-            for r in conn.execute("SELECT workflow_status, COUNT(*) as c FROM rule_governance_state GROUP BY workflow_status"):
+            for r in conn.execute(f"SELECT workflow_status, COUNT(*) as c FROM rule_governance_state{where_clause} GROUP BY workflow_status", domain_params):
                 wf_counts[r["workflow_status"]] = r["c"]
 
             # Extraction statuses
             ext_counts = {}
-            for r in conn.execute("SELECT extraction_status, COUNT(*) as c FROM rule_governance_state GROUP BY extraction_status"):
+            for r in conn.execute(f"SELECT extraction_status, COUNT(*) as c FROM rule_governance_state{where_clause} GROUP BY extraction_status", domain_params):
                 ext_counts[r["extraction_status"]] = r["c"]
 
             # Domains
             dom_counts = {}
-            for r in conn.execute("SELECT domain, COUNT(*) as c FROM rule_governance_state GROUP BY domain"):
+            for r in conn.execute(f"SELECT domain, COUNT(*) as c FROM rule_governance_state{where_clause} GROUP BY domain", domain_params):
                 dom_counts[r["domain"]] = r["c"]
 
             # Awaiting review: rules where human_review_required = 1 or workflow_status in ('DRAFT', 'IN_REVIEW', 'NEEDS_CORRECTION')
-            awaiting_review = conn.execute("""
-            SELECT COUNT(*) FROM rule_governance_state 
-            WHERE human_review_required = 1 OR workflow_status IN ('IN_REVIEW', 'NEEDS_CORRECTION', 'READY_FOR_MEDICAL_DIRECTOR')
-            """).fetchone()[0]
+            if active_only:
+                awaiting_placeholders = ",".join("?" for _ in self.ACTIVE_CLINICAL_DOMAINS)
+                awaiting_review = conn.execute(f"""
+                SELECT COUNT(*) FROM rule_governance_state 
+                WHERE (human_review_required = 1 OR workflow_status IN ('IN_REVIEW', 'NEEDS_CORRECTION', 'READY_FOR_MEDICAL_DIRECTOR'))
+                  AND domain IN ({awaiting_placeholders})
+                """, self.ACTIVE_CLINICAL_DOMAINS).fetchone()[0]
+                approved_count = conn.execute(f"SELECT COUNT(*) FROM rule_governance_state WHERE is_approved = 1 AND domain IN ({awaiting_placeholders})", self.ACTIVE_CLINICAL_DOMAINS).fetchone()[0]
+            else:
+                awaiting_review = conn.execute("""
+                SELECT COUNT(*) FROM rule_governance_state 
+                WHERE human_review_required = 1 OR workflow_status IN ('IN_REVIEW', 'NEEDS_CORRECTION', 'READY_FOR_MEDICAL_DIRECTOR')
+                """).fetchone()[0]
+                approved_count = conn.execute("SELECT COUNT(*) FROM rule_governance_state WHERE is_approved = 1").fetchone()[0]
 
-            approved_count = conn.execute("SELECT COUNT(*) FROM rule_governance_state WHERE is_approved = 1").fetchone()[0]
             pending_corrections = conn.execute("SELECT COUNT(*) FROM proposed_corrections WHERE status = 'PENDING'").fetchone()[0]
             total_reviews = conn.execute("SELECT COUNT(*) FROM review_records").fetchone()[0]
             total_audits = conn.execute("SELECT COUNT(*) FROM audit_events").fetchone()[0]
 
             # Pilot adjudication metrics
-            total_pilot_cases = conn.execute("SELECT COUNT(*) FROM pilot_evaluations").fetchone()[0]
-            pilot_matches = conn.execute("SELECT COUNT(*) FROM pilot_evaluations WHERE status_match = 1").fetchone()[0]
-            pilot_discrepancies = conn.execute("SELECT COUNT(*) FROM pilot_discrepancies").fetchone()[0]
+            if active_only:
+                pilot_placeholders = ",".join("?" for _ in self.ACTIVE_CLINICAL_DOMAINS)
+                total_pilot_cases = conn.execute(f"SELECT COUNT(*) FROM pilot_evaluations WHERE clinical_domain IN ({pilot_placeholders})", self.ACTIVE_CLINICAL_DOMAINS).fetchone()[0]
+                pilot_matches = conn.execute(f"SELECT COUNT(*) FROM pilot_evaluations WHERE status_match = 1 AND clinical_domain IN ({pilot_placeholders})", self.ACTIVE_CLINICAL_DOMAINS).fetchone()[0]
+                pilot_discrepancies = conn.execute(f"SELECT COUNT(*) FROM pilot_discrepancies WHERE clinical_domain IN ({pilot_placeholders})", self.ACTIVE_CLINICAL_DOMAINS).fetchone()[0]
+            else:
+                total_pilot_cases = conn.execute("SELECT COUNT(*) FROM pilot_evaluations").fetchone()[0]
+                pilot_matches = conn.execute("SELECT COUNT(*) FROM pilot_evaluations WHERE status_match = 1").fetchone()[0]
+                pilot_discrepancies = conn.execute("SELECT COUNT(*) FROM pilot_discrepancies").fetchone()[0]
             pilot_match_rate = round((pilot_matches / total_pilot_cases * 100), 1) if total_pilot_cases > 0 else 0.0
 
             # Intake records metrics (Phase 3E/3F)
-            total_intake_cases = conn.execute("SELECT COUNT(*) FROM case_intake_records").fetchone()[0]
-            intake_state_counts = {}
-            for r in conn.execute("SELECT lifecycle_state, COUNT(*) as c FROM case_intake_records GROUP BY lifecycle_state"):
-                intake_state_counts[r["lifecycle_state"]] = r["c"]
+            if active_only:
+                intake_placeholders = ",".join("?" for _ in self.ACTIVE_CLINICAL_DOMAINS)
+                total_intake_cases = conn.execute(f"SELECT COUNT(*) FROM case_intake_records WHERE clinical_domain IN ({intake_placeholders})", self.ACTIVE_CLINICAL_DOMAINS).fetchone()[0]
+                intake_state_counts = {}
+                for r in conn.execute(f"SELECT lifecycle_state, COUNT(*) as c FROM case_intake_records WHERE clinical_domain IN ({intake_placeholders}) GROUP BY lifecycle_state", self.ACTIVE_CLINICAL_DOMAINS):
+                    intake_state_counts[r["lifecycle_state"]] = r["c"]
+            else:
+                total_intake_cases = conn.execute("SELECT COUNT(*) FROM case_intake_records").fetchone()[0]
+                intake_state_counts = {}
+                for r in conn.execute("SELECT lifecycle_state, COUNT(*) as c FROM case_intake_records GROUP BY lifecycle_state"):
+                    intake_state_counts[r["lifecycle_state"]] = r["c"]
 
             # Connector metrics (Phase 3E/3F)
             total_connector_events = conn.execute("SELECT COUNT(*) FROM connector_audit_events").fetchone()[0]
@@ -763,6 +812,12 @@ class GovernanceDatabase:
                 connector_mode_counts[r["execution_mode"]] = r["c"]
 
             total_payer_configs = conn.execute("SELECT COUNT(*) FROM payer_plan_configurations").fetchone()[0]
+
+            # Overall inventory stats
+            active_placeholders = ",".join("?" for _ in self.ACTIVE_CLINICAL_DOMAINS)
+            active_rule_count = conn.execute(f"SELECT COUNT(*) FROM rule_governance_state WHERE domain IN ({active_placeholders})", self.ACTIVE_CLINICAL_DOMAINS).fetchone()[0]
+            total_all_rules = conn.execute("SELECT COUNT(*) FROM rule_governance_state").fetchone()[0]
+            archived_rule_count = total_all_rules - active_rule_count
 
             return {
                 "total_rules": total_rules,
@@ -785,7 +840,11 @@ class GovernanceDatabase:
                 "connector_mode_counts": connector_mode_counts,
                 "total_payer_configs": total_payer_configs,
                 "outbound_submission_disabled": True,
-                "non_binding_enforced": True
+                "non_binding_enforced": True,
+                "is_active_only": active_only,
+                "active_scope_domains": list(self.ACTIVE_CLINICAL_DOMAINS),
+                "active_rule_count": active_rule_count,
+                "archived_rule_count": archived_rule_count
             }
 
     # =========================================================
