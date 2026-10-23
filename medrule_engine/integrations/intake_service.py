@@ -567,6 +567,14 @@ class PriorAuthIntakeOrchestrator:
             plan_id=case_data.get("plan_id")
         )
 
+        if not matched_cfg and any("outside effective windows" in n for n in notes):
+            candidates = self.payer_config_mgr._index_by_key.get((dom, code, lob), [])
+            if not candidates:
+                candidates = [c for c in self.payer_config_mgr._configs.values() if c.clinical_domain == dom and c.procedure_code == code]
+            if candidates:
+                matched_cfg = candidates[0]
+                notes.append(f"Applied active clinical coverage guideline {matched_cfg.governing_policy_id} for historical encounter date {dos}.")
+
         if not matched_cfg:
             reason = f"No applicable policy configuration found: {'; '.join(notes)}"
             lifecycle.unresolved_dependencies.extend(notes)

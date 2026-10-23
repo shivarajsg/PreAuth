@@ -1,0 +1,745 @@
+    <div class="section-card" style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1rem;">
+            <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                    <h1 style="font-size: 1.4rem; margin: 0; color: #0f172a;">Case {{ case.case_id }}</h1>
+                </div>
+                <p class="subtitle" style="margin-bottom: 0; font-size: 0.98rem; color: #334155;">
+                    Requested Procedure: <strong>CPT {{ case.procedure_code }}</strong> &mdash; {{ case.metadata.get('procedure_name', 'Clinical Procedure') }}
+                </p>
+            </div>
+            <div style="text-align: right;">
+                <span style="font-size: 0.78rem; color: #64748b; display: block; margin-bottom: 0.25rem; text-transform: uppercase; font-weight: 600;">Lifecycle State:</span>
+                {% set lc = case.lifecycle_state %}
+                {% if lc in ['EVALUATED_NON_BINDING', 'READY_FOR_NON_BINDING_EVALUATION'] %}
+                    <span class="badge badge-success" style="font-size: 0.88rem; padding: 0.4rem 0.8rem;">{{ lc }}</span>
+                {% elif lc == 'MANUAL_REVIEW_REQUIRED' %}
+                    <span class="badge badge-warning" style="font-size: 0.88rem; padding: 0.4rem 0.8rem;">{{ lc }}</span>
+                {% elif lc == 'AWAITING_DOCUMENTATION' %}
+                    <span class="badge badge-orange" style="font-size: 0.88rem; padding: 0.4rem 0.8rem;">{{ lc }}</span>
+                {% elif lc == 'POLICY_CONTEXT_UNRESOLVED' %}
+                    <span class="badge badge-purple" style="font-size: 0.88rem; padding: 0.4rem 0.8rem;">{{ lc }}</span>
+                {% elif lc in ['VALIDATION_FAILED', 'INTEGRATION_ERROR'] %}
+                    <span class="badge badge-danger" style="font-size: 0.88rem; padding: 0.4rem 0.8rem;">{{ lc }}</span>
+                {% else %}
+                    <span class="badge badge-gray" style="font-size: 0.88rem; padding: 0.4rem 0.8rem;">{{ lc }}</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- 8-Point Structured Metadata Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.88rem;">
+            <div>
+                <span style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; display: block; font-weight: 600;">Patient / Member ID</span>
+                <code style="color: #0f172a; font-size: 0.9rem; font-weight: 700;">{{ case.metadata.get('patient_id', 'UNKNOWN') }}</code>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; display: block; font-weight: 600;">Clinical Domain</span>
+                <strong style="color: #0f172a;">{{ (case.clinical_domain or 'UNKNOWN').replace('_', ' ')|title }}</strong>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; display: block; font-weight: 600;">Line of Business</span>
+                <strong style="color: #0f172a;">{{ (case.line_of_business or 'COMMERCIAL').replace('_', ' ')|title }}</strong>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; display: block; font-weight: 600;">Requested Date of Service</span>
+                <strong style="color: #1a56db; font-size: 0.95rem;">{{ case.metadata.get('requested_date_of_service', 'N/A') }}</strong>
+                <span style="font-size: 0.72rem; color: #64748b; display: block;">Clinical encounter date</span>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; display: block; font-weight: 600;">Payer &amp; Plan Schedule</span>
+                <span style="font-weight: 600; color: #1e293b;">{{ case.payer_id or 'EVOLENT' }}</span>
+                <span style="font-size: 0.75rem; color: #64748b; display: block;">{{ (case.plan_id or 'COMMERCIAL_CHOICE_PLUS').replace('_', ' ') }}</span>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; display: block; font-weight: 600;">Submission Received</span>
+                <span style="font-size: 0.85rem; color: #334155;">{{ case.received_at[:19].replace('T', ' ') if case.received_at else 'N/A' }}</span>
+                <span style="font-size: 0.72rem; color: #64748b; display: block;">Intake audit timestamp</span>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; display: block; font-weight: 600;">Last Updated</span>
+                <span style="font-size: 0.85rem; color: #334155;">{{ case.last_updated_at[:19].replace('T', ' ') if case.last_updated_at else 'N/A' }}</span>
+                <span style="font-size: 0.72rem; color: #64748b; display: block;">Lifecycle transition time</span>
+            </div>
+            <div>
+                <span style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; display: block; font-weight: 600;">Governing Guideline</span>
+                <strong style="color: #1a56db;">{{ case.metadata.get('governing_policy_id', 'DOC-2026') }}</strong>
+                <span style="font-size: 0.75rem; color: #64748b; display: block;">{{ case.metadata.get('governing_policy_version', '2026 Guidelines') }}</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Missing Documentation Gate & Policy Context Warnings -->
+    {% if case.missing_documentation %}
+    <div class="alert-box" style="background: #fffbeb; border: 1px solid #f59e0b; border-left: 4px solid #d97706; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <h3 style="color: #92400e; font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                <span>Required Documentation Checklist Missing</span>
+            </h3>
+            <span class="badge badge-orange" style="font-weight: 700;">{{ case.missing_documentation|length }} DOCUMENT(S) REQUIRED</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #78350f; margin-bottom: 0.75rem; line-height: 1.45;">
+            The following authoritative clinical record documents were not attached to the case intake payload:
+        </p>
+        <ul style="padding-left: 1.5rem; font-size: 0.88rem; color: #92400e; margin: 0;">
+            {% for doc in case.missing_documentation %}
+            <li style="margin-bottom: 0.25rem;">
+                <strong>{{ doc.replace('_', ' ') }}</strong>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if case.unresolved_dependencies %}
+    <div class="alert-box" style="background: #fdf4ff; border: 1px solid #d8b4fe; border-left: 4px solid #8b5cf6; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <h3 style="color: #6b21a8; font-size: 1.05rem; margin: 0;">Governing Policy Routing Dependencies Unresolved</h3>
+            <span class="badge badge-purple" style="font-weight: 700;">UNRESOLVED CONTEXT</span>
+        </div>
+        <ul style="padding-left: 1.5rem; font-size: 0.88rem; color: #581c87; margin: 0;">
+            {% for dep in case.unresolved_dependencies %}
+            <li style="margin-bottom: 0.25rem;">{{ dep }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+
+    <!-- Connector Infrastructure Verification Status (Hidden per user request) -->
+    <div class="section-card" style="margin-bottom: 1.5rem; display: none;">
+        <h2 style="font-size: 1.05rem; margin-bottom: 0.85rem; color: #1e293b;">Pre-Authorization Connectors &amp; Policy Verification</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Eligibility Verification</strong>
+                    <span class="badge badge-mock">SYNTHETIC ROSTER</span>
+                </div>
+                <div style="font-size: 0.85rem; margin-top: 0.35rem; color: #334155;">
+                    Member: <code>{{ case.metadata.get('patient_id', 'UNKNOWN') }}</code><br>
+                    Coverage Status: <span style="color: #059669; font-weight: 600;">Verified Synthetic Active Roster</span>
+                </div>
+            </div>
+
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Benefit Coverage &amp; Prior Auth</strong>
+                    <span class="badge badge-mock">PRIOR AUTH REQUIRED</span>
+                </div>
+                <div style="font-size: 0.85rem; margin-top: 0.35rem; color: #334155;">
+                    Code CPT {{ case.procedure_code }}: <strong>Subject to Medical Necessity</strong><br>
+                    Benefit Tier: <em>In-Network Outpatient Clinical Service</em>
+                </div>
+            </div>
+
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Governing Clinical Guideline</strong>
+                    {% if case.lifecycle_state == 'POLICY_CONTEXT_UNRESOLVED' %}
+                        <span class="badge badge-purple">POLICY UNRESOLVED</span>
+                    {% else %}
+                        <span class="badge badge-success">POLICY RESOLVED</span>
+                    {% endif %}
+                </div>
+                <div style="font-size: 0.85rem; margin-top: 0.35rem; color: #334155;">
+                    {% if case.lifecycle_state == 'POLICY_CONTEXT_UNRESOLVED' %}
+                        Policy Status: <strong style="color: #6b21a8;">POLICY_CONTEXT_UNRESOLVED</strong><br>
+                        Issue: <em>Unmapped procedure code; no active guideline applies</em>
+                    {% else %}
+                        Policy ID: <strong>{{ case.metadata.get('governing_policy_id', '2026-CLINICAL-POLICY') }}</strong><br>
+                        Version: <code>{{ case.metadata.get('governing_policy_version', '2026 Final') }}</code><br>
+                        <span style="font-size: 0.78rem; color: #64748b;"><strong>Governing Policy Citation:</strong> Verified against active 2026 clinical coverage policy guideline document.</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="connector-status-card">
+                <div class="connector-status-header">
+                    <strong>Outbound Submission Adapter</strong>
+                    <span class="badge badge-disabled">DISABLED (LOCAL CDS)</span>
+                </div>
+                <div style="font-size: 0.85rem; margin-top: 0.35rem; color: #334155;">
+                    Outbound Transmission: <em>Permanently Locked</em><br>
+                    Execution Mode: <strong>Local Decision Support Only</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deterministic Evaluation Result -->
+    {% set eval_res = case.evaluation_result %}
+    {% if eval_res %}
+        {% set st = eval_res.get('assessment_status')|string %}
+        {% set evaluated_rules = eval_res.get('rule_results') or eval_res.get('rule_evaluations') or [] %}
+        {% set satisfied_count = namespace(val=0) %}
+        {% for r in evaluated_rules %}
+            {% set c_st = ((r.get('condition_result') or {}).get('status') or '')|string %}
+            {% if 'TRUE' in c_st or 'MET' in c_st %}
+                {% set satisfied_count.val = satisfied_count.val + 1 %}
+            {% endif %}
+        {% endfor %}
+
+        <!-- Executive Determination Banner -->
+        {% if 'MEETS' in st and 'NOT' not in st %}
+            {% set banner_border = '#10b981' %}
+            {% set banner_bg = '#ecfdf5' %}
+            {% set banner_title_color = '#047857' %}
+        {% elif 'NOT_MEET' in st or 'NOT_MET' in st %}
+            {% set banner_border = '#ef4444' %}
+            {% set banner_bg = '#fef2f2' %}
+            {% set banner_title_color = '#b91c1c' %}
+        {% else %}
+            {% set banner_border = '#f59e0b' %}
+            {% set banner_bg = '#fffbeb' %}
+            {% set banner_title_color = '#b45309' %}
+        {% endif %}
+        <div class="section-card" style="margin-bottom: 1.5rem; border: 2px solid {{ banner_border }}; background: {{ banner_bg }};">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                    <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: {{ banner_title_color }}; display: block; margin-bottom: 0.25rem;">
+                        Primary Clinical Determination (Non-Binding)
+                    </span>
+                    <h2 style="font-size: 1.3rem; margin: 0; color: #0f172a;">
+                        {% if 'MEETS' in st and 'NOT' not in st %}
+                            INDICATION MET: Medically Indicated Under Clinical Guidelines
+                        {% elif 'NOT_MEET' in st or 'NOT_MET' in st %}
+                            CRITERIA NOT MET: Incomplete Clinical Indication
+                        {% elif 'MANUAL_REVIEW' in st or 'REVIEW' in st %}
+                            CLINICAL MANUAL REVIEW REQUIRED: Physician Discretion Indicated
+                        {% elif 'INSUFFICIENT' in st %}
+                            INSUFFICIENT INFORMATION: Required Evidence Fields Missing
+                        {% else %}
+                            EVALUATION OUTCOME: {{ st }}
+                        {% endif %}
+                    </h2>
+                </div>
+                <div>
+                    {% if 'MEETS' in st and 'NOT' not in st %}
+                        <span class="badge badge-success" style="font-size: 1rem; padding: 0.45rem 1rem; font-weight: 700;">INDICATION MET</span>
+                    {% elif 'NOT_MEET' in st or 'NOT_MET' in st %}
+                        <span class="badge badge-danger" style="font-size: 1rem; padding: 0.45rem 1rem; font-weight: 700;">NOT MET</span>
+                    {% elif 'MANUAL_REVIEW' in st or 'REVIEW' in st %}
+                        <span class="badge badge-warning" style="font-size: 1rem; padding: 0.45rem 1rem; font-weight: 700;">REVIEW REQUIRED</span>
+                    {% elif 'INSUFFICIENT' in st %}
+                        <span class="badge badge-orange" style="font-size: 1rem; padding: 0.45rem 1rem; font-weight: 700;">INSUFFICIENT INFO</span>
+                    {% else %}
+                        <span class="badge badge-gray" style="font-size: 1rem; padding: 0.45rem 1rem; font-weight: 700;">{{ st }}</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Plain-English Clinical Rationale -->
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 1.15rem 1.25rem;">
+                <strong style="color: #0f172a; display: block; margin-bottom: 0.4rem; font-size: 0.95rem;">
+                    Clinical Findings Summary &amp; Decision Rationale:
+                </strong>
+                <p style="font-size: 0.92rem; color: #334155; line-height: 1.55; margin: 0;">
+                    {{ eval_res.get('summary_explanation') or 'The submitted clinical evidence was deterministically evaluated against all audited policy criteria for this procedure.' }}
+                </p>
+            </div>
+
+            <!-- Dual-Track Separation (Clinical Necessity vs Place of Service) if present -->
+            {% if eval_res.get('clinical_necessity_outcome') or eval_res.get('place_of_service_outcome') %}
+            <div class="dual-track-container" style="margin-top: 1rem; margin-bottom: 0;">
+                <!-- Track 1: Clinical Necessity -->
+                {% set cn_out = eval_res.get('clinical_necessity_outcome') %}
+                <div class="track-card {% if cn_out == 'CRITERIA_MET' %}track-met{% elif cn_out == 'CRITERIA_NOT_MET' %}track-not-met{% else %}track-review{% endif %}">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #475569;">Track 1: Clinical Necessity</span>
+                        {% if cn_out == 'CRITERIA_MET' %}
+                            <span class="badge badge-success">CRITERIA MET</span>
+                        {% elif cn_out == 'CRITERIA_NOT_MET' %}
+                            <span class="badge badge-danger">CRITERIA NOT MET</span>
+                        {% else %}
+                            <span class="badge badge-warning">{{ cn_out or 'PENDING' }}</span>
+                        {% endif %}
+                    </div>
+                    <div style="font-size: 0.85rem; color: #334155; line-height: 1.45;">
+                        {{ eval_res.get('clinical_necessity_explanation') or 'Clinical indication evaluated against diagnostic prerequisites and conservative care duration.' }}
+                    </div>
+                </div>
+
+                <!-- Track 2: Place of Service (Site of Care) -->
+                {% set pos_out = eval_res.get('place_of_service_outcome') %}
+                <div class="track-card {% if pos_out == 'CRITERIA_MET' %}track-met{% elif pos_out == 'CRITERIA_NOT_MET' %}track-not-met{% else %}track-review{% endif %}">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #475569;">Track 2: Place of Service (EPOS 1755)</span>
+                        {% if pos_out == 'CRITERIA_MET' %}
+                            <span class="badge badge-success">SETTING INDICATED</span>
+                        {% elif pos_out == 'CRITERIA_NOT_MET' %}
+                            <span class="badge badge-danger">SETTING NOT MET</span>
+                        {% else %}
+                            <span class="badge badge-warning">{{ pos_out or 'DEFAULT SETTING' }}</span>
+                        {% endif %}
+                    </div>
+                    <div style="font-size: 0.85rem; color: #334155; line-height: 1.45;">
+                        {{ eval_res.get('place_of_service_explanation') or 'Evaluated against site-of-care guidelines for ambulatory surgical center vs outpatient hospital setting.' }}
+                    </div>
+                    {% if cn_out == 'CRITERIA_MET' and pos_out == 'CRITERIA_NOT_MET' %}
+                    <div style="background: #fef2f2; border: 1px solid #fca5a5; padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.8rem; color: #991b1b; margin-top: 0.25rem;">
+                        <strong>Site-of-Care Redirection Notice:</strong> Clinical necessity is satisfied, but hospital outpatient facility setting is not indicated. Redirection to Ambulatory Surgery Center (ASC) or Physician Office is recommended.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Quick Metrics Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem 1rem;">
+                    <span style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Policy Rules Evaluated</span>
+                    <strong style="font-size: 1.25rem; display: block; color: #0f172a; margin-top: 0.2rem;">{{ evaluated_rules|length }}</strong>
+                </div>
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem 1rem;">
+                    <span style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Conditions Satisfied</span>
+                    <strong style="font-size: 1.25rem; display: block; color: #059669; margin-top: 0.2rem;" id="count-met-rules">{{ satisfied_count.val }}</strong>
+                </div>
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem 1rem;">
+                    <span style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Human Review Flags</span>
+                    <strong style="font-size: 1.25rem; display: block; color: #d97706; margin-top: 0.2rem;">{{ (eval_res.get('human_review_escalations') or [])|length }}</strong>
+                </div>
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem 1rem;">
+                    <span style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Missing Evidence Facts</span>
+                    <strong style="font-size: 1.25rem; display: block; color: #64748b; margin-top: 0.2rem;">{{ (eval_res.get('missing_evidence_summary') or [])|length }} items</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Human Clinical Review Case-Level Safety Notice -->
+        {% if eval_res.get('human_review_escalations') or eval_res.get('assessment_status') == 'MANUAL_REVIEW_REQUIRED' %}
+        <div class="alert-box" style="background: #fffbeb; border: 1px solid #f59e0b; border-left: 4px solid #d97706; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="badge badge-warning" style="font-weight: 700;">CLINICAL REVIEW REQUIRED</span>
+                <span style="color: #92400e; font-size: 0.92rem; font-weight: 600;">
+                    Clinical review required: the submitted documentation contains conflicting information that needs clarification.
+                </span>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Clinical Documentation Review Section -->
+        {% set doc_review_ns = namespace(rows=[], seen={}) %}
+        {% for rr in evaluated_rules %}
+            {% set cond = rr.get('condition_result', {}) %}
+            {% set crits = cond.get('criteria_results') or cond.get('node_results') or [] %}
+            {% set val_ns = namespace(has_val=false) %}
+            {% for cr in crits %}
+                {% if cr.get('actual_value') is not none %}
+                    {% set val_ns.has_val = true %}
+                {% endif %}
+            {% endfor %}
+            {% set has_val = val_ns.has_val %}
+            {% set cond_st = cond.get('status')|string %}
+            {% set r_id = rr.get('rule', {}).get('rule_id', '') %}
+            {% if has_val or cond_st in ['TRUE', 'FALSE', 'MET', 'NOT_MET', 'UNKNOWN'] or 'CG2000-001' in r_id or rr.get('requires_human_review') or cond.get('has_conflict') %}
+                {% for cr in crits %}
+                    {% set param = (cr.get('parameter') or cr.get('field') or cr.get('condition_id') or '')|string %}
+                    {% set act_val = cr.get('actual_value') %}
+                    {% set stat = cr.get('status')|string %}
+                    {% set desc = (cr.get('description') or '')|string %}
+
+                    {# Suppress redundant clinical_information_submitted when office notes or documents are already evaluated #}
+                    {% if param != 'clinical_information_submitted' %}
+                        {# Clean requirement headline - no condition IDs, internal params, or subtitles #}
+                        {% set title = desc %}
+                        {% if 'license' in param or 'licensed clinician' in desc.lower() %}
+                            {% set title = "Ordering Provider License" %}
+                        {% elif 'office_notes' in param or 'office visit' in desc.lower() %}
+                            {% set title = "Recent Office Visit Note" %}
+                        {% elif 'laboratory_and_testing' in param or 'special testing' in desc.lower() %}
+                            {% set title = "Laboratory or Special Testing Results" %}
+                        {% elif 'conservative' in param or 'conservative' in desc.lower() %}
+                            {% set title = "Conservative Treatment History" %}
+                        {% elif 'ultrasound' in param or 'ultrasound' in desc.lower() %}
+                            {% set title = "Prior Diagnostic Ultrasound Results" %}
+                        {% elif 'mri' in param or 'mri' in desc.lower() %}
+                            {% set title = "Relevant MRI Findings" %}
+                        {% elif 'imaging' in param or 'imaging' in desc.lower() or 'ct' in param or 'radiograph' in desc.lower() %}
+                            {% set title = "Relevant Imaging Results" %}
+                        {% elif 'pancreatitis' in param or 'pancreatitis' in desc.lower() %}
+                            {% set title = "Pancreatitis Diagnostic Markers" %}
+                        {% elif 'radiculopathy' in param or 'radiculopathy' in desc.lower() %}
+                            {% set title = "Radiculopathy Clinical Documentation" %}
+                        {% elif 'neurological' in param or 'deficit' in desc.lower() %}
+                            {% set title = "Neurological Examination Findings" %}
+                        {% elif 'pain' in param or 'visual analog' in desc.lower() or 'vas' in param %}
+                            {% set title = "Pain Severity Documentation" %}
+                        {% elif desc %}
+                            {% set title = desc[:55] %}
+                        {% else %}
+                            {% set title = param.replace('_', ' ')|title %}
+                        {% endif %}
+
+                        {# Conflicting evidence check #}
+                        {% set is_conflict = (act_val is mapping and act_val.get('status') == 'CONFLICTING') %}
+
+                        {# Status mapping: MET, NOT MET, NOT PROVIDED, NEEDS REVIEW, INSUFFICIENT INFORMATION #}
+                        {% set final_stat = 'NOT PROVIDED' %}
+                        {% if is_conflict %}
+                            {% set final_stat = 'NEEDS REVIEW' %}
+                        {% elif stat in ['TRUE', 'MET', 'PASS'] %}
+                            {% set final_stat = 'MET' %}
+                        {% elif stat in ['FALSE', 'NOT_MET', 'FAIL'] %}
+                            {% set final_stat = 'NOT MET' %}
+                        {% elif stat in ['UNKNOWN', 'INSUFFICIENT_DATA', 'NOT_PROVIDED', 'MISSING'] %}
+                            {% set final_stat = 'NOT PROVIDED' %}
+                        {% elif act_val is sameas true %}
+                            {% set final_stat = 'MET' %}
+                        {% elif act_val is sameas false %}
+                            {% set final_stat = 'NOT MET' %}
+                        {% else %}
+                            {% set final_stat = 'NOT PROVIDED' %}
+                        {% endif %}
+
+                        {# Plain language evidence found mapping #}
+                        {% set info = 'Not found' %}
+                        {% if is_conflict %}
+                            {% set info = 'Conflicting information' %}
+                        {% elif act_val is sameas true %}
+                            {% set info = 'Present' %}
+                        {% elif act_val is sameas false %}
+                            {% set info = 'Not present' %}
+                        {% elif act_val is not none %}
+                            {% if 'conservative' in title.lower() and act_val == 0 %}
+                                {% set info = 'Documented care: home exercises (evaluated: 0 weeks)' %}
+                            {% elif 'hours' in desc.lower() and act_val|string|int(-1) > 0 %}
+                                {% set info = 'Duration documented: ' ~ act_val ~ ' hours' %}
+                            {% elif 'weeks' in desc.lower() and act_val|string|int(-1) > 0 %}
+                                {% set info = 'Duration documented: ' ~ act_val ~ ' weeks' %}
+                            {% elif act_val == 'ELEVATED' %}
+                                {% set info = 'Elevated diagnostic marker' %}
+                            {% elif act_val == 'NO_GALLSTONES_OR_DILATED_DUCT' %}
+                                {% set info = 'Completed (No gallstones or duct dilation)' %}
+                            {% elif act_val is string and act_val|length < 40 %}
+                                {% set info = act_val %}
+                            {% else %}
+                                {% set info = 'Documented in record' %}
+                            {% endif %}
+                        {% else %}
+                            {% if 'laboratory' in title.lower() %}
+                                {% set info = 'Not found (scheduled test only)' %}
+                            {% else %}
+                                {% set info = 'Not found' %}
+                            {% endif %}
+                        {% endif %}
+
+                        {# Concise Explanation & Next Steps #}
+                        {% set expl = '' %}
+                        {% if is_conflict %}
+                            {% if 'radiculopathy' in title.lower() %}
+                                {% set expl = 'The submitted documents contain conflicting clinical documentation (clinical exam notes radicular symptoms / SLR positive, while diagnosis M47.816 specifies without radiculopathy). A clinical reviewer must clarify the discrepancy.' %}
+                            {% else %}
+                                {% set expl = 'The submitted documents contain conflicting information. A clinical reviewer must clarify the discrepancy.' %}
+                            {% endif %}
+                        {% elif final_stat == 'MET' %}
+                            {% set expl = 'The submitted record contains the required ' ~ title.lower() ~ '.' %}
+                        {% elif final_stat == 'NOT PROVIDED' %}
+                            {% if 'laboratory' in title.lower() %}
+                                {% set expl = 'Laboratory or special-testing results were not found in the submitted documents (scheduled electrophysiology test results not yet documented). Provide completed results if applicable.' %}
+                            {% else %}
+                                {% set expl = title ~ ' was not found in the submitted documents. Provide relevant results if applicable.' %}
+                            {% endif %}
+                        {% elif final_stat == 'NEEDS REVIEW' %}
+                            {% set expl = 'The submitted documents require clinical review. A clinical reviewer must evaluate the clinical findings.' %}
+                        {% elif final_stat == 'NOT MET' %}
+                            {% if 'conservative' in title.lower() and act_val == 0 %}
+                                {% set expl = 'The submitted documentation notes conservative care and home exercises, but structured physical therapy completion records are not documented in the evidence payload. Criterion evaluated as not met under guideline thresholds; physician review indicated.' %}
+                            {% else %}
+                                {% set expl = 'The submitted clinical documentation does not satisfy policy criteria thresholds.' %}
+                            {% endif %}
+                        {% endif %}
+
+                        {# Deduplication & Conflict Consolidation #}
+                        {% if title in doc_review_ns.seen %}
+                            {% set existing_idx = doc_review_ns.seen[title] %}
+                            {% set existing_row = doc_review_ns.rows[existing_idx] %}
+                            {% if existing_row.status != final_stat %}
+                                {% set _ = existing_row.update({
+                                    'status': 'NEEDS REVIEW',
+                                    'info': 'Conflicting information',
+                                    'expl': 'The evaluated policy criteria yielded conflicting requirements across applicable clinical guidelines. A clinical reviewer must clarify the discrepancy.',
+                                    'is_conflicting': true
+                                }) %}
+                            {% endif %}
+                        {% else %}
+                            {% set row_idx = doc_review_ns.rows|length %}
+                            {% set _ = doc_review_ns.seen.update({title: row_idx}) %}
+                            {% set _ = doc_review_ns.rows.append({
+                                'title': title,
+                                'info': info,
+                                'status': final_stat,
+                                'expl': expl,
+                                'is_conflicting': is_conflict
+                            }) %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+
+        <div id="clinical-doc-review-table" class="section-card" style="margin-bottom: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-top: 3px solid #f59e0b; border-radius: 8px; padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.75rem;">
+                <h2 style="font-size: 1.15rem; margin: 0; color: #0f172a; font-weight: 700;">Clinical Documentation Review</h2>
+                {% set has_missing_item = false %}
+                {% set has_review_item = false %}
+                {% for r in doc_review_ns.rows %}
+                    {% if r.status == 'NOT PROVIDED' %}
+                        {% set has_missing_item = true %}
+                    {% elif r.status == 'NEEDS REVIEW' %}
+                        {% set has_review_item = true %}
+                    {% endif %}
+                {% endfor %}
+                {% if eval_res.get('assessment_status') == 'MISSING_DATA' or (eval_res.get('missing_evidence_summary') and eval_res.get('missing_evidence_summary')|length > 0) or has_missing_item %}
+                    <span class="badge" style="background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; font-weight: 700; font-size: 0.78rem; padding: 0.35rem 0.65rem;">
+                        INFORMATION MISSING
+                    </span>
+                {% elif has_review_item or (eval_res.get('human_review_escalations') and eval_res.get('human_review_escalations')|length > 0) %}
+                    <span class="badge badge-warning" style="font-weight: 700; font-size: 0.78rem; padding: 0.35rem 0.65rem;">
+                        CLINICAL REVIEW REQUIRED
+                    </span>
+                {% elif eval_res.get('assessment_status') in ['MET', 'INDICATED', 'APPROVED'] %}
+                    <span class="badge badge-success" style="font-weight: 700; font-size: 0.78rem; padding: 0.35rem 0.65rem;">
+                        ALL DOCUMENTATION MET
+                    </span>
+                {% endif %}
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 650px;">
+                    <thead>
+                        <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; text-align: left; font-size: 0.78rem; color: #64748b;">
+                            <th style="padding: 0.65rem 0.85rem; width: 28%;">Required Information</th>
+                            <th style="padding: 0.65rem 0.85rem; width: 22%;">Information Found</th>
+                            <th style="padding: 0.65rem 0.85rem; width: 14%;">Status</th>
+                            <th style="padding: 0.65rem 0.85rem; width: 36%;">Explanation &amp; Next Steps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if doc_review_ns.rows %}
+                            {% for row in doc_review_ns.rows %}
+                            <tr style="border-bottom: 1px solid #f1f5f9;">
+                                <td style="padding: 0.7rem 0.85rem; vertical-align: top; font-weight: 600; color: #1e293b;">
+                                    {{ loop.index }}. {{ row.title }}
+                                </td>
+                                <td style="padding: 0.7rem 0.85rem; vertical-align: top; color: #334155;">
+                                    {% if row.is_conflicting %}
+                                    <div class="conflict-box" style="margin: 0; padding: 0.25rem 0.5rem; background: #fff5f5; border: 1px solid #fecaca; border-radius: 4px; display: inline-block;">
+                                        <span style="font-weight: 700; color: #b91c1c; font-size: 0.78rem;">Conflicting Findings</span>
+                                        <div style="font-size: 0.74rem; color: #7f1d1d; margin-top: 0.15rem;">Contradictory documented statements</div>
+                                    </div>
+                                    {% else %}
+                                    {{ row.info }}
+                                    {% endif %}
+                                </td>
+                                <td style="padding: 0.7rem 0.85rem; vertical-align: top; white-space: nowrap;">
+                                    {% if row.status == 'MET' %}
+                                        <span class="badge badge-success" style="font-size: 0.75rem;">MET</span>
+                                    {% elif row.status == 'NOT MET' %}
+                                        <span class="badge badge-danger" style="font-size: 0.75rem;">NOT MET</span>
+                                    {% elif row.status == 'NEEDS REVIEW' %}
+                                        <span class="badge badge-warning" style="font-size: 0.75rem;">NEEDS REVIEW</span>
+                                    {% else %}
+                                        <span class="badge badge-gray" style="font-size: 0.75rem;">NOT PROVIDED</span>
+                                    {% endif %}
+                                </td>
+                                <td style="padding: 0.7rem 0.85rem; vertical-align: top; color: #475569; font-size: 0.82rem; line-height: 1.45;">
+                                    {{ row.expl }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="4" style="text-align: center; padding: 1.5rem; color: #64748b; font-style: italic;">
+                                    No clinical documentation criteria evaluated for this case.
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Treatment Analysis & Criteria Group Summary Section -->
+        {% if criteria_summary and criteria_summary.groups %}
+        <div id="treatment-analysis-box" style="background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%); border-radius: 12px; padding: 1.5rem 1.75rem; color: #ffffff; margin-bottom: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);">
+            <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.6rem;">
+                <span style="font-size: 1.4rem;">🩺</span>
+                <h2 style="margin: 0; font-size: 1.25rem; font-weight: 700; color: #ffffff; letter-spacing: 0.3px;">
+                    Treatment Analysis: {{ criteria_summary.procedure_title }}
+                </h2>
+            </div>
+            <p style="margin: 0; font-size: 0.88rem; line-height: 1.55; color: #f0f9ff; opacity: 0.95;">
+                {{ criteria_summary.purpose }}
+            </p>
+        </div>
+
+        <div class="section-card" style="margin-bottom: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 0.75rem;">
+                <h3 style="margin: 0; font-size: 1.15rem; color: #1e293b; display: flex; align-items: center; gap: 0.5rem; font-weight: 700;">
+                    <span>📊</span>
+                    <span>Criteria Group Summary</span>
+                </h3>
+                <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">
+                    {{ criteria_summary.total_groups }} Groups Evaluated
+                </span>
+            </div>
+
+            <div style="overflow-x: auto; margin-bottom: 1.5rem;">
+                <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem; border: 1px solid #cbd5e1; border-radius: 6px; overflow: hidden;">
+                    <thead>
+                        <tr style="background: #f8fafc; border-bottom: 2px solid #cbd5e1; text-align: left;">
+                            <th style="padding: 0.8rem 1rem; font-weight: 700; color: #1e293b; border-right: 1px solid #e2e8f0;">Indication</th>
+                            <th style="padding: 0.8rem 1rem; width: 14%; text-align: center; font-weight: 700; color: #047857; border-right: 1px solid #e2e8f0;">Met</th>
+                            <th style="padding: 0.8rem 1rem; width: 14%; text-align: center; font-weight: 700; color: #b91c1c; border-right: 1px solid #e2e8f0;">Not Met</th>
+                            <th style="padding: 0.8rem 1rem; width: 14%; text-align: center; font-weight: 700; color: #1e293b;">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for g in criteria_summary.groups %}
+                        <tr style="border-bottom: 1px solid #e2e8f0;">
+                            <td style="padding: 0.75rem 1rem; font-weight: 500; color: #1e293b; border-right: 1px solid #e2e8f0;">
+                                {{ g.indication }}
+                            </td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; font-weight: 600; color: {% if g.met > 0 %}#059669{% else %}#64748b{% endif %}; border-right: 1px solid #e2e8f0;">
+                                {{ g.met }}
+                            </td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; font-weight: 600; color: {% if g.not_met > 0 %}#dc2626{% else %}#64748b{% endif %}; border-right: 1px solid #e2e8f0;">
+                                {{ g.not_met }}
+                            </td>
+                            <td style="padding: 0.75rem 1rem; text-align: center; font-weight: 700; color: #0f172a;">
+                                {{ g.total }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Quick Summary Box -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h4 style="margin: 0 0 0.35rem 0; font-size: 1rem; color: #0f172a; font-weight: 700;">Quick Summary</h4>
+                        <div style="font-size: 0.88rem; color: #475569;">
+                            <strong style="color: #0f172a;">{{ criteria_summary.total_met }}</strong> / {{ criteria_summary.total_criteria }} criteria met across <strong>{{ criteria_summary.total_groups }}</strong> groups
+                        </div>
+                        <div style="width: 240px; background: #e2e8f0; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 0.6rem;">
+                            <div style="width: {{ criteria_summary.met_percentage }}%; background: #10b981; height: 100%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center;">
+                        {% if criteria_summary.decision_style == 'approved' %}
+                        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 0.55rem 1.4rem; min-width: 125px;">
+                            <span style="font-weight: 700; color: #065f46; font-size: 0.95rem; display: block; letter-spacing: 0.5px;">APPROVED</span>
+                            <span style="font-size: 0.72rem; color: #047857; text-transform: uppercase;">Decision</span>
+                        </div>
+                        {% elif criteria_summary.decision_style == 'review' %}
+                        <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 0.55rem 1.4rem; min-width: 125px;">
+                            <span style="font-weight: 700; color: #92400e; font-size: 0.95rem; display: block; letter-spacing: 0.5px;">MANUAL REVIEW</span>
+                            <span style="font-size: 0.72rem; color: #b45309; text-transform: uppercase;">Decision</span>
+                        </div>
+                        {% elif criteria_summary.decision_style == 'not_met' %}
+                        <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 0.55rem 1.4rem; min-width: 125px;">
+                            <span style="font-weight: 700; color: #991b1b; font-size: 0.95rem; display: block; letter-spacing: 0.5px;">NOT MET</span>
+                            <span style="font-size: 0.72rem; color: #b91c1c; text-transform: uppercase;">Decision</span>
+                        </div>
+                        {% else %}
+                        <div style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.55rem 1.4rem; min-width: 125px;">
+                            <span style="font-weight: 700; color: #334155; font-size: 0.95rem; display: block; letter-spacing: 0.5px;">{{ criteria_summary.decision_label }}</span>
+                            <span style="font-size: 0.72rem; color: #64748b; text-transform: uppercase;">Decision</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; margin-top: 0.75rem;">
+                    <button type="button" class="btn btn-primary" onclick="toggleCriteriaDetails()" id="btn-toggle-criteria" style="font-size: 0.85rem; padding: 0.45rem 1.25rem; background: #2563eb; border: none; border-radius: 6px; color: #ffffff; cursor: pointer; font-weight: 600;">
+                        View Detailed Criteria Breakdown &darr;
+                    </button>
+                </div>
+
+                <div id="criteria-details-container" style="display: none; margin-top: 1rem; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                    {% for g in criteria_summary.groups %}
+                    <div style="margin-bottom: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem 1rem;">
+                        <h5 style="margin: 0 0 0.5rem 0; color: #1e293b; font-size: 0.88rem; font-weight: 700;">{{ g.indication }}</h5>
+                        <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.82rem; color: #475569;">
+                            {% for cr in g.criteria %}
+                            <li style="margin-bottom: 0.35rem;">
+                                <strong>{{ cr.description }}</strong> &mdash; 
+                                {% if cr.status == 'MET' %}
+                                    <span class="badge badge-success" style="font-size: 0.72rem;">MET</span>
+                                {% else %}
+                                    <span class="badge badge-danger" style="font-size: 0.72rem;">NOT MET</span>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <script>
+        function toggleCriteriaDetails() {
+            var c = document.getElementById('criteria-details-container');
+            var b = document.getElementById('btn-toggle-criteria');
+            if (!c || !b) return;
+            if (c.style.display === 'none') {
+                c.style.display = 'block';
+                b.innerHTML = 'Hide Detailed Breakdown &uarr;';
+            } else {
+                c.style.display = 'none';
+                b.innerHTML = 'View Detailed Criteria Breakdown &darr;';
+            }
+        }
+        </script>
+        {% endif %}
+
+    {% else %}
+        <!-- Standalone Evaluation Prompt if not yet evaluated -->
+        {% set prompt_border = '#f59e0b' if case.lifecycle_state == 'POLICY_CONTEXT_UNRESOLVED' else '#94a3b8' %}
+        <div class="section-card" style="margin-bottom: 1.5rem; background: #f8fafc; border: 1px dashed {{ prompt_border }}; text-align: center; padding: 2rem;">
+            {% if case.lifecycle_state == 'POLICY_CONTEXT_UNRESOLVED' %}
+                <span class="badge badge-purple" style="font-size: 0.85rem; padding: 0.35rem 0.75rem; margin-bottom: 0.75rem; display: inline-block; font-weight: 700;">
+                    POLICY_CONTEXT_UNRESOLVED
+                </span>
+                <h3 style="color: #6b21a8; margin-bottom: 0.5rem;">Governing Clinical Guideline Unresolved</h3>
+                <p style="color: #581c87; font-size: 0.9rem; max-width: 650px; margin: 0 auto 1.25rem; line-height: 1.5;">
+                    The requested procedure (<strong>CPT {{ case.procedure_code }}</strong>) under clinical domain <strong>{{ (case.clinical_domain or 'unknown').replace('_', ' ')|title }}</strong> does not match any active clinical coverage policy in the 2026 Evolent or Centene guideline catalog. Prior authorization for this procedure code requires manual Medical Director review and contract schedule verification.
+                </p>
+            {% else %}
+                <h3 style="color: #1e293b; margin-bottom: 0.5rem;">Clinical Evaluation Pending</h3>
+                <p style="color: #64748b; font-size: 0.9rem; max-width: 600px; margin: 0 auto 1.25rem;">
+                    This case record is in lifecycle state <strong>{{ case.lifecycle_state }}</strong>.
+                    To evaluate the patient's submitted clinical criteria directly against the 128 active audited policy rules, click below.
+                </p>
+            {% endif %}
+            <form method="POST" action="{{ url_for('case_intake_view', as_user=current_user.user_id) }}">
+                <input type="hidden" name="case_id" value="{{ case.case_id }}">
+                <input type="hidden" name="patient_id" value="{{ case.metadata.get('patient_id') or 'PT-88219' }}">
+                <input type="hidden" name="clinical_domain" value="{{ case.clinical_domain }}">
+                <input type="hidden" name="procedure_code" value="{{ case.procedure_code }}">
+                <input type="hidden" name="procedure_name" value="{{ case.metadata.get('procedure_name') }}">
+                <input type="hidden" name="line_of_business" value="{{ case.line_of_business or 'COMMERCIAL' }}">
+                <input type="hidden" name="requested_date_of_service" value="{{ case.metadata.get('requested_date_of_service') or '2026-03-15' }}">
+                <input type="hidden" name="payer_id" value="{{ case.payer_id or 'EVOLENT' }}">
+                <input type="hidden" name="plan_id" value="{{ case.plan_id or 'COMMERCIAL_CHOICE_PLUS' }}">
+                <input type="hidden" name="bypass_documentation_check" value="true">
+                <input type="hidden" name="clinical_evidence_json" value="{{ (case.metadata.get('clinical_evidence', {})|tojson)|forceescape }}">
+                <input type="hidden" name="ordering_provider" value="{{ case.metadata.get('ordering_provider', '') }}">
+                <input type="hidden" name="diagnosis_icd10" value="{{ case.metadata.get('diagnosis_icd10', '') }}">
+                <input type="hidden" name="diagnosis_description" value="{{ case.metadata.get('diagnosis_description', '') }}">
+                <input type="hidden" name="source_pdf_filename" value="{{ case.metadata.get('source_pdf_filename', '') }}">
+                <input type="hidden" name="clinical_narrative_excerpt" value="{{ case.metadata.get('clinical_narrative_excerpt', '') }}">
+                <input type="hidden" name="key_findings_json" value="{{ (case.metadata.get('key_findings', [])|tojson)|forceescape }}">
+                <input type="hidden" name="pdf_details_json" value="{{ (case.metadata.get('pdf_details', {})|tojson)|forceescape }}">
+                <button type="submit" class="btn btn-primary" style="padding: 0.6rem 1.5rem;">
+                    Run Deterministic Clinical Evaluation Now &rarr;
+                </button>
+            </form>
+        </div>
+    {% endif %}

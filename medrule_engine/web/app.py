@@ -14,6 +14,7 @@ from datetime import datetime, timezone
 import json
 import logging
 from pathlib import Path
+import re
 from typing import Any, Dict, List, Optional
 
 from flask import (
@@ -45,6 +46,135 @@ logger = logging.getLogger(__name__)
 REPO_ROOT = Path(__file__).resolve().parents[2]
 TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
 STATIC_DIR = Path(__file__).resolve().parent / "static"
+
+
+def build_criteria_group_summary(case: dict) -> dict:
+    """Group evaluated case criteria by indication section dynamically."""
+    if not case:
+        return {}
+    eval_res = case.get("evaluation_result") or {}
+    evaluated_rules = eval_res.get("rule_results") or eval_res.get("rule_evaluations") or []
+    if not evaluated_rules:
+        return {}
+
+    proc_name = case.get("metadata", {}).get("procedure_name") or case.get("procedure_code") or "Requested Procedure"
+    proc_code = str(case.get("procedure_code") or "")
+
+    # Authoritative clinical purpose
+    purpose_text = None
+    if "72148" in proc_code or "72158" in proc_code or "lumbar spine mri" in proc_name.lower():
+        purpose_text = (
+            "Purpose: Magnetic resonance imaging (MRI) is used in the evaluation, diagnosis, and management of spine-related "
+            "conditions, e.g., degenerative disc disease, cauda equina compression, radiculopathy, infections, or cancer in the "
+            "lumbar spine. MRI provides high quality multiplanar images of organs and structures within the body without the use "
+            "of x-rays or radiation. In the lumbar area where gonadal exposure may occur, MRI's lack of radiation is an advantage."
+        )
+    elif "72131" in proc_code or "72132" in proc_code or "72133" in proc_code:
+        purpose_text = (
+            "Purpose: Computed tomography (CT) of the lumbar spine provides high-resolution cross-sectional bone and soft-tissue imaging "
+            "used in the evaluation of acute trauma, osseous structural integrity, post-operative fusion assessment, or when MRI is medically contraindicated."
+        )
+    elif "72146" in proc_code or "72147" in proc_code or "72157" in proc_code:
+        purpose_text = (
+            "Purpose: Thoracic spine MRI provides detailed evaluation of thoracic cord compression, myelopathy, thoracic disk disease, spinal infection, or trauma without ionizing radiation."
+        )
+    elif any(c in proc_code for c in ["62320", "62321", "62322", "62323", "64479", "64480", "64483", "64484"]):
+        purpose_text = (
+            "Purpose: Interventional epidural steroid injections (transforaminal or interlaminar) are indicated for the targeted treatment of severe, persistent radicular pain resulting from disc herniation, spinal stenosis, or nerve root compression failing prior comprehensive conservative care."
+        )
+    elif "64490" in proc_code or "64493" in proc_code or "64633" in proc_code or "64635" in proc_code:
+        purpose_text = (
+            "Purpose: Interventional facet joint blocks and radiofrequency neurotomy provide diagnostic confirmation and targeted therapeutic denervation for confirmed facetogenic axial spinal pain."
+        )
+    elif "63650" in proc_code or "63685" in proc_code:
+        purpose_text = (
+            "Purpose: Spinal cord stimulation is indicated for chronic intractable neuropathic trunk or limb pain (failed back surgery syndrome, complex regional pain syndrome) refractory to conservative therapies."
+        )
+    else:
+        domain_label = (case.get("clinical_domain") or "clinical").replace("_", " ").title()
+        purpose_text = (
+            f"Purpose: Diagnostic evaluation and clinical decision support for {proc_name} (CPT {proc_code}) based on authoritative "
+            f"{domain_label} guideline criteria and clinical findings extracted from the submitted medical record."
+        )
+
+    groups: Dict[str, Dict[str, Any]] = {}
+    for rr in evaluated_rules:
+        sec = rr.get("rule", {}).get("source_section", "Clinical Indications")
+        parts = [p.strip() for p in sec.split("/")]
+        ind_name = parts[1] if len(parts) >= 2 else parts[0]
+        # Clean footnote numbers like (1), (3-5), etc.
+        ind_name = re.sub(r"\s*\([0-9\u2013\u2014\-,\s]+\)", "", ind_name).strip()
+        if ind_name.upper().startswith("INDICATIONS FOR") or ind_name.upper() == "INDICATIONS":
+            ind_name = "General Indication Criteria"
+        elif ind_name.upper() == "STATEMENT":
+            ind_name = "Clinical Documentation Requirements"
+        elif "PREAMBLE" in ind_name.upper():
+            ind_name = "Guideline Review Determination"
+
+        cond = rr.get("condition_result", {})
+        crits = cond.get("criteria_results") or cond.get("node_results") or []
+        for cr in crits:
+            param = cr.get("parameter") or cr.get("condition_id") or ""
+            if param in ["clinical_information_submitted"]:
+                continue
+            
+            st = str(cr.get("status") or "").upper()
+            act_val = cr.get("actual_value")
+            is_met = (st in ["TRUE", "MET", "PASS"] or act_val is True)
+            desc = cr.get("description") or param.replace("_", " ").title()
+
+            if ind_name not in groups:
+                groups[ind_name] = {
+                    "indication": ind_name,
+                    "met": 0,
+                    "not_met": 0,
+                    "total": 0,
+                    "criteria": []
+                }
+
+            if is_met:
+                groups[ind_name]["met"] += 1
+            else:
+                groups[ind_name]["not_met"] += 1
+            groups[ind_name]["total"] += 1
+            groups[ind_name]["criteria"].append({
+                "description": desc,
+                "parameter": param,
+                "status": "MET" if is_met else "NOT MET",
+                "actual_value": act_val
+            })
+
+    group_list = list(groups.values())
+    total_met = sum(g["met"] for g in group_list)
+    total_not_met = sum(g["not_met"] for g in group_list)
+    total_criteria = total_met + total_not_met
+
+    raw_st = str(eval_res.get("assessment_status") or "").upper()
+    if "MEETS" in raw_st or "APPROVED" in raw_st or "INDICATED" in raw_st:
+        decision_label = "APPROVED"
+        decision_style = "approved"
+    elif "MANUAL_REVIEW" in raw_st or "REVIEW" in raw_st:
+        decision_label = "MANUAL REVIEW"
+        decision_style = "review"
+    elif "NOT_MET" in raw_st or "NOT_MEET" in raw_st:
+        decision_label = "NOT MET"
+        decision_style = "not_met"
+    else:
+        decision_label = "PENDING"
+        decision_style = "pending"
+
+    return {
+        "procedure_title": proc_name.upper(),
+        "purpose": purpose_text,
+        "groups": group_list,
+        "total_met": total_met,
+        "total_not_met": total_not_met,
+        "total_criteria": total_criteria,
+        "total_groups": len(group_list),
+        "decision_label": decision_label,
+        "decision_style": decision_style,
+        "met_percentage": round((total_met / total_criteria * 100), 1) if total_criteria > 0 else 0
+    }
 
 
 def create_app(
@@ -321,7 +451,22 @@ def create_app(
         """Render intake submission form and process intake executions."""
         if request.method == "GET":
             timestamp_now = int(datetime.now().timestamp())
-            return render_template("intake.html", timestamp_now=timestamp_now, error=None)
+            recent_cases = gov_db.list_case_intake_records()[:30]
+            case_id = request.args.get("case_id")
+            selected_case = None
+            criteria_summary = None
+            if case_id:
+                selected_case = gov_db.get_case_intake_record(case_id)
+                if selected_case:
+                    criteria_summary = build_criteria_group_summary(selected_case)
+            return render_template(
+                "intake.html",
+                timestamp_now=timestamp_now,
+                error=None,
+                recent_cases=recent_cases,
+                selected_case=selected_case,
+                criteria_summary=criteria_summary
+            )
 
         # POST submission
         if request.is_json:
@@ -434,10 +579,24 @@ def create_app(
             abort(404, f"Case {case_id} not found.")
 
         events = gov_db.list_connector_audit_events(case_id=case_id)
+        criteria_summary = build_criteria_group_summary(case)
         if request.args.get("format") == "json":
-            return jsonify({"case": case, "connector_events": events})
+            rendered_html = render_template(
+                "case_detail_inner_snippet.html",
+                case=case,
+                connector_events=events,
+                criteria_summary=criteria_summary,
+                current_user=get_current_reviewer()
+            )
+            return jsonify({
+                "case": case,
+                "connector_events": events,
+                "criteria_summary": criteria_summary,
+                "html": rendered_html
+            })
 
-        return render_template("case_detail.html", case=case, connector_events=events)
+        return render_template("case_detail.html", case=case, connector_events=events, criteria_summary=criteria_summary)
+
 
     @app.route("/api/cases/intake", methods=["POST"])
     def api_case_intake():

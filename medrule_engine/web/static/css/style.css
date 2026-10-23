@@ -43,8 +43,10 @@ body {
 }
 
 .nav-container {
-    max-width: 1500px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 1rem;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -154,9 +156,17 @@ body {
 
 /* Main Content */
 .main-content {
-    max-width: 1400px;
-    margin: 1.5rem auto;
+    max-width: 1720px;
+    margin: 1.25rem auto;
     padding: 0 1.5rem;
+    width: 100%;
+}
+
+.main-content.full-bleed {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
 }
 
 .page-header {

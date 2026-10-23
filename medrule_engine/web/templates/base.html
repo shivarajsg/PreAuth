@@ -14,12 +14,7 @@
                 <span class="brand-subtitle">Clinical SME Review &amp; Governance</span>
             </div>
             <nav class="nav-links">
-                <a href="{{ url_for('dashboard', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard</a>
-                <a href="{{ url_for('rule_list', as_user=current_user.user_id) }}" class="{% if request.endpoint in ['rule_list', 'rule_workbench'] %}active{% endif %}">Rule Catalog</a>
-                <a href="{{ url_for('human_review_queue', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'human_review_queue' %}active{% endif %}">Review Queue</a>
-                <a href="{{ url_for('proposed_corrections', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'proposed_corrections' %}active{% endif %}">Corrections</a>
-                <a href="{{ url_for('pilot_dashboard', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'pilot_dashboard' %}active{% endif %}">Pilot</a>
-                <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" class="{% if request.endpoint == 'case_intake_view' %}active{% endif %}">Case Intake</a>
+                <a href="{{ url_for('case_intake_view', as_user=current_user.user_id) }}" class="{% if request.endpoint in ['case_intake_view', 'dashboard'] %}active{% endif %}">Case Intake</a>
                 <a href="{{ url_for('case_history_view', as_user=current_user.user_id) }}" class="{% if request.endpoint in ['case_history_view', 'case_detail_view'] %}active{% endif %}">Case History</a>
             </nav>
             <div class="user-switcher">
@@ -37,7 +32,7 @@
         </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content {% block main_class %}{% endblock %}">
         {% block content %}{% endblock %}
     </main>
 
